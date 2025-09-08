@@ -526,6 +526,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消深度写作任务
+   * 
+   * @param request - CancelDeepWriteTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelDeepWriteTaskResponse
+   */
+  async cancelDeepWriteTaskWithOptions(request: $_model.CancelDeepWriteTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelDeepWriteTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelDeepWriteTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelDeepWriteTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelDeepWriteTaskResponse({}));
+  }
+
+  /**
+   * 取消深度写作任务
+   * 
+   * @param request - CancelDeepWriteTaskRequest
+   * @returns CancelDeepWriteTaskResponse
+   */
+  async cancelDeepWriteTask(request: $_model.CancelDeepWriteTaskRequest): Promise<$_model.CancelDeepWriteTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelDeepWriteTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 清除所有干预内容
    * 
    * @param request - ClearIntervenesRequest
@@ -3065,6 +3111,98 @@ export default class Client extends OpenApi {
   async getDatasetDocument(request: $_model.GetDatasetDocumentRequest): Promise<$_model.GetDatasetDocumentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDatasetDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询深度写作任务
+   * 
+   * @param request - GetDeepWriteTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeepWriteTaskResponse
+   */
+  async getDeepWriteTaskWithOptions(request: $_model.GetDeepWriteTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeepWriteTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeepWriteTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeepWriteTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetDeepWriteTaskResponse({}));
+  }
+
+  /**
+   * 查询深度写作任务
+   * 
+   * @param request - GetDeepWriteTaskRequest
+   * @returns GetDeepWriteTaskResponse
+   */
+  async getDeepWriteTask(request: $_model.GetDeepWriteTaskRequest): Promise<$_model.GetDeepWriteTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDeepWriteTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询深度写作任务的结果
+   * 
+   * @param request - GetDeepWriteTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeepWriteTaskResultResponse
+   */
+  async getDeepWriteTaskResultWithOptions(request: $_model.GetDeepWriteTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeepWriteTaskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeepWriteTaskResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeepWriteTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDeepWriteTaskResultResponse({}));
+  }
+
+  /**
+   * 查询深度写作任务的结果
+   * 
+   * @param request - GetDeepWriteTaskResultRequest
+   * @returns GetDeepWriteTaskResultResponse
+   */
+  async getDeepWriteTaskResult(request: $_model.GetDeepWriteTaskResultRequest): Promise<$_model.GetDeepWriteTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDeepWriteTaskResultWithOptions(request, runtime);
   }
 
   /**
@@ -7492,6 +7630,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 流式输出深度写作事件
+   * 
+   * @param request - RunDeepWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDeepWritingResponse
+   */
+  async *runDeepWritingWithSSE(request: $_model.RunDeepWritingRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunDeepWritingResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cursor)) {
+      body["Cursor"] = request.cursor;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunDeepWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunDeepWritingResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunDeepWritingResponse({}));
+    }
+  }
+
+  /**
+   * 流式输出深度写作事件
+   * 
+   * @param request - RunDeepWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDeepWritingResponse
+   */
+  async runDeepWritingWithOptions(request: $_model.RunDeepWritingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunDeepWritingResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cursor)) {
+      body["Cursor"] = request.cursor;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunDeepWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunDeepWritingResponse>(await this.callApi(params, req, runtime), new $_model.RunDeepWritingResponse({}));
+  }
+
+  /**
+   * 流式输出深度写作事件
+   * 
+   * @param request - RunDeepWritingRequest
+   * @returns RunDeepWritingResponse
+   */
+  async runDeepWriting(request: $_model.RunDeepWritingRequest): Promise<$_model.RunDeepWritingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runDeepWritingWithOptions(request, runtime);
+  }
+
+  /**
    * 妙读脑图生成接口
    * 
    * @param request - RunDocBrainmapRequest
@@ -10136,6 +10376,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AI生成视频剪辑脚本
+   * 
+   * @param request - RunVideoScriptGenerateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunVideoScriptGenerateResponse
+   */
+  async *runVideoScriptGenerateWithSSE(request: $_model.RunVideoScriptGenerateRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunVideoScriptGenerateResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.scriptLength)) {
+      body["ScriptLength"] = request.scriptLength;
+    }
+
+    if (!$dara.isNull(request.scriptNumber)) {
+      body["ScriptNumber"] = request.scriptNumber;
+    }
+
+    if (!$dara.isNull(request.useSearch)) {
+      body["UseSearch"] = request.useSearch;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunVideoScriptGenerate",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunVideoScriptGenerateResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunVideoScriptGenerateResponse({}));
+    }
+  }
+
+  /**
+   * AI生成视频剪辑脚本
+   * 
+   * @param request - RunVideoScriptGenerateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunVideoScriptGenerateResponse
+   */
+  async runVideoScriptGenerateWithOptions(request: $_model.RunVideoScriptGenerateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunVideoScriptGenerateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.scriptLength)) {
+      body["ScriptLength"] = request.scriptLength;
+    }
+
+    if (!$dara.isNull(request.scriptNumber)) {
+      body["ScriptNumber"] = request.scriptNumber;
+    }
+
+    if (!$dara.isNull(request.useSearch)) {
+      body["UseSearch"] = request.useSearch;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunVideoScriptGenerate",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunVideoScriptGenerateResponse>(await this.callApi(params, req, runtime), new $_model.RunVideoScriptGenerateResponse({}));
+  }
+
+  /**
+   * AI生成视频剪辑脚本
+   * 
+   * @param request - RunVideoScriptGenerateRequest
+   * @returns RunVideoScriptGenerateResponse
+   */
+  async runVideoScriptGenerate(request: $_model.RunVideoScriptGenerateRequest): Promise<$_model.RunVideoScriptGenerateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runVideoScriptGenerateWithOptions(request, runtime);
+  }
+
+  /**
    * AI妙笔-创作-文风改写
    * 
    * @param tmpReq - RunWriteToneGenerationRequest
@@ -11505,6 +11871,76 @@ export default class Client extends OpenApi {
   async submitCustomTopicSelectionPerspectiveAnalysisTask(request: $_model.SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest): Promise<$_model.SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitCustomTopicSelectionPerspectiveAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交深度写作任务
+   * 
+   * @param tmpReq - SubmitDeepWriteTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDeepWriteTaskResponse
+   */
+  async submitDeepWriteTaskWithOptions(tmpReq: $_model.SubmitDeepWriteTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDeepWriteTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitDeepWriteTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentOrchestration)) {
+      request.agentOrchestrationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentOrchestration, "AgentOrchestration", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentOrchestrationShrink)) {
+      query["AgentOrchestration"] = request.agentOrchestrationShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filesShrink)) {
+      body["Files"] = request.filesShrink;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["Instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitDeepWriteTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitDeepWriteTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDeepWriteTaskResponse({}));
+  }
+
+  /**
+   * 提交深度写作任务
+   * 
+   * @param request - SubmitDeepWriteTaskRequest
+   * @returns SubmitDeepWriteTaskResponse
+   */
+  async submitDeepWriteTask(request: $_model.SubmitDeepWriteTaskRequest): Promise<$_model.SubmitDeepWriteTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitDeepWriteTaskWithOptions(request, runtime);
   }
 
   /**

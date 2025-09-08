@@ -2,21 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddAuditTermsResponseBodyDataV1 extends $dara.Model {
+export class SubmitDeepWriteTaskResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 562fe4163a59d7bcb44bfdde4e3d5046
+   * queued
    */
-  id?: number;
+  status?: string;
+  /**
+   * @example
+   * xbabac91-fdad-44d6-95ce-******
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      status: 'Status',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
+      status: 'string',
+      taskId: 'string',
     };
   }
 
@@ -29,30 +36,21 @@ export class AddAuditTermsResponseBodyDataV1 extends $dara.Model {
   }
 }
 
-export class AddAuditTermsResponseBody extends $dara.Model {
+export class SubmitDeepWriteTaskResponseBody extends $dara.Model {
   /**
    * @example
    * DataNotExists
    */
   code?: string;
+  data?: SubmitDeepWriteTaskResponseBodyData;
   /**
    * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @example
-   * 返回添加的实体信息
-   */
-  dataV1?: AddAuditTermsResponseBodyDataV1;
-  /**
-   * @example
-   * 200
+   * 400
    */
   httpStatusCode?: number;
   /**
    * @example
-   * success
+   * 错误消息
    */
   message?: string;
   /**
@@ -60,7 +58,7 @@ export class AddAuditTermsResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * F2F366D6-E9FE-1006-BB70-2C650896AAB5
+   * xxxxx
    */
   requestId?: string;
   /**
@@ -72,7 +70,6 @@ export class AddAuditTermsResponseBody extends $dara.Model {
     return {
       code: 'Code',
       data: 'Data',
-      dataV1: 'DataV1',
       httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
@@ -83,8 +80,7 @@ export class AddAuditTermsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'boolean',
-      dataV1: AddAuditTermsResponseBodyDataV1,
+      data: SubmitDeepWriteTaskResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -93,8 +89,8 @@ export class AddAuditTermsResponseBody extends $dara.Model {
   }
 
   validate() {
-    if(this.dataV1 && typeof (this.dataV1 as any).validate === 'function') {
-      (this.dataV1 as any).validate();
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }
