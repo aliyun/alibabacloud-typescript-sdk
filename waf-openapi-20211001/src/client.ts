@@ -3368,6 +3368,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询基础防护系统规则集
+   * 
+   * @param request - DescribeBaseSystemRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBaseSystemRulesResponse
+   */
+  async describeBaseSystemRulesWithOptions(request: $_model.DescribeBaseSystemRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBaseSystemRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.detectType)) {
+      query["DetectType"] = request.detectType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBaseSystemRules",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBaseSystemRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBaseSystemRulesResponse({}));
+  }
+
+  /**
+   * 查询基础防护系统规则集
+   * 
+   * @param request - DescribeBaseSystemRulesRequest
+   * @returns DescribeBaseSystemRulesResponse
+   */
+  async describeBaseSystemRules(request: $_model.DescribeBaseSystemRulesRequest): Promise<$_model.DescribeBaseSystemRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBaseSystemRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
    * 
    * @param request - DescribeCertDetailRequest
@@ -3757,6 +3847,56 @@ export default class Client extends OpenApi {
   async describeCnameCount(request: $_model.DescribeCnameCountRequest): Promise<$_model.DescribeCnameCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCnameCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自定义正则规则编译结果
+   * 
+   * @param request - DescribeCustomBaseRuleCompileResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomBaseRuleCompileResultResponse
+   */
+  async describeCustomBaseRuleCompileResultWithOptions(request: $_model.DescribeCustomBaseRuleCompileResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCustomBaseRuleCompileResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCustomBaseRuleCompileResult",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCustomBaseRuleCompileResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCustomBaseRuleCompileResultResponse({}));
+  }
+
+  /**
+   * 查询自定义正则规则编译结果
+   * 
+   * @param request - DescribeCustomBaseRuleCompileResultRequest
+   * @returns DescribeCustomBaseRuleCompileResultResponse
+   */
+  async describeCustomBaseRuleCompileResult(request: $_model.DescribeCustomBaseRuleCompileResultRequest): Promise<$_model.DescribeCustomBaseRuleCompileResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCustomBaseRuleCompileResultWithOptions(request, runtime);
   }
 
   /**
@@ -4415,6 +4555,76 @@ export default class Client extends OpenApi {
   async describeDefenseRule(request: $_model.DescribeDefenseRuleRequest): Promise<$_model.DescribeDefenseRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDefenseRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询防护规则的统计信息
+   * 
+   * @param request - DescribeDefenseRuleStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseRuleStatisticsResponse
+   */
+  async describeDefenseRuleStatisticsWithOptions(request: $_model.DescribeDefenseRuleStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseRuleStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fourthKey)) {
+      query["FourthKey"] = request.fourthKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.primaryKey)) {
+      query["PrimaryKey"] = request.primaryKey;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.secondaryKey)) {
+      query["SecondaryKey"] = request.secondaryKey;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.thirdKey)) {
+      query["ThirdKey"] = request.thirdKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDefenseRuleStatistics",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDefenseRuleStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDefenseRuleStatisticsResponse({}));
+  }
+
+  /**
+   * 查询防护规则的统计信息
+   * 
+   * @param request - DescribeDefenseRuleStatisticsRequest
+   * @returns DescribeDefenseRuleStatisticsResponse
+   */
+  async describeDefenseRuleStatistics(request: $_model.DescribeDefenseRuleStatisticsRequest): Promise<$_model.DescribeDefenseRuleStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDefenseRuleStatisticsWithOptions(request, runtime);
   }
 
   /**

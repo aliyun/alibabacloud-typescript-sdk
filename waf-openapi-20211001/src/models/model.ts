@@ -31,6 +31,7 @@ export { DescribeApisecSensitiveDomainStatisticResponseBodyData } from './Descri
 export { DescribeApisecStatisticsResponseBodyData } from './DescribeApisecStatisticsResponseBody';
 export { DescribeApisecSuggestionsResponseBodyData } from './DescribeApisecSuggestionsResponseBody';
 export { DescribeApisecUserOperationsResponseBodyData } from './DescribeApisecUserOperationsResponseBody';
+export { DescribeBaseSystemRulesResponseBodyRules } from './DescribeBaseSystemRulesResponseBody';
 export { DescribeCertDetailResponseBodyCertDetail } from './DescribeCertDetailResponseBody';
 export { DescribeCertsResponseBodyCerts } from './DescribeCertsResponseBody';
 export { DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates } from './DescribeCloudResourceAccessPortDetailsResponseBody';
@@ -51,6 +52,7 @@ export { DescribeDefenseResourcesRequestTag } from './DescribeDefenseResourcesRe
 export { DescribeDefenseResourcesResponseBodyResourcesResponseHeaders } from './DescribeDefenseResourcesResponseBody';
 export { DescribeDefenseResourcesResponseBodyResources } from './DescribeDefenseResourcesResponseBody';
 export { DescribeDefenseRuleResponseBodyRule } from './DescribeDefenseRuleResponseBody';
+export { DescribeDefenseRuleStatisticsResponseBodyStatisticsInfos } from './DescribeDefenseRuleStatisticsResponseBody';
 export { DescribeDefenseRulesResponseBodyRules } from './DescribeDefenseRulesResponseBody';
 export { DescribeDefenseTemplateResponseBodyTemplate } from './DescribeDefenseTemplateResponseBody';
 export { DescribeDefenseTemplatesResponseBodyTemplates } from './DescribeDefenseTemplatesResponseBody';
@@ -322,6 +324,9 @@ export { DescribeApisecSuggestionsResponse } from './DescribeApisecSuggestionsRe
 export { DescribeApisecUserOperationsRequest } from './DescribeApisecUserOperationsRequest';
 export { DescribeApisecUserOperationsResponseBody } from './DescribeApisecUserOperationsResponseBody';
 export { DescribeApisecUserOperationsResponse } from './DescribeApisecUserOperationsResponse';
+export { DescribeBaseSystemRulesRequest } from './DescribeBaseSystemRulesRequest';
+export { DescribeBaseSystemRulesResponseBody } from './DescribeBaseSystemRulesResponseBody';
+export { DescribeBaseSystemRulesResponse } from './DescribeBaseSystemRulesResponse';
 export { DescribeCertDetailRequest } from './DescribeCertDetailRequest';
 export { DescribeCertDetailResponseBody } from './DescribeCertDetailResponseBody';
 export { DescribeCertDetailResponse } from './DescribeCertDetailResponse';
@@ -340,6 +345,9 @@ export { DescribeCloudResourcesResponse } from './DescribeCloudResourcesResponse
 export { DescribeCnameCountRequest } from './DescribeCnameCountRequest';
 export { DescribeCnameCountResponseBody } from './DescribeCnameCountResponseBody';
 export { DescribeCnameCountResponse } from './DescribeCnameCountResponse';
+export { DescribeCustomBaseRuleCompileResultRequest } from './DescribeCustomBaseRuleCompileResultRequest';
+export { DescribeCustomBaseRuleCompileResultResponseBody } from './DescribeCustomBaseRuleCompileResultResponseBody';
+export { DescribeCustomBaseRuleCompileResultResponse } from './DescribeCustomBaseRuleCompileResultResponse';
 export { DescribeDDoSStatusRequest } from './DescribeDdoSstatusRequest';
 export { DescribeDDoSStatusResponseBody } from './DescribeDdoSstatusResponseBody';
 export { DescribeDDoSStatusResponse } from './DescribeDdoSstatusResponse';
@@ -373,6 +381,9 @@ export { DescribeDefenseResourcesResponse } from './DescribeDefenseResourcesResp
 export { DescribeDefenseRuleRequest } from './DescribeDefenseRuleRequest';
 export { DescribeDefenseRuleResponseBody } from './DescribeDefenseRuleResponseBody';
 export { DescribeDefenseRuleResponse } from './DescribeDefenseRuleResponse';
+export { DescribeDefenseRuleStatisticsRequest } from './DescribeDefenseRuleStatisticsRequest';
+export { DescribeDefenseRuleStatisticsResponseBody } from './DescribeDefenseRuleStatisticsResponseBody';
+export { DescribeDefenseRuleStatisticsResponse } from './DescribeDefenseRuleStatisticsResponse';
 export { DescribeDefenseRulesRequest } from './DescribeDefenseRulesRequest';
 export { DescribeDefenseRulesResponseBody } from './DescribeDefenseRulesResponseBody';
 export { DescribeDefenseRulesResponse } from './DescribeDefenseRulesResponse';
