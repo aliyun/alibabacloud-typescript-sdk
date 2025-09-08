@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeConfigurationPriceRequest extends $dara.Model {
+  bestEffortType?: string;
   /**
    * @remarks
    * The CPU specifications that are required for each instance. Unit: millicores. This parameter cannot be set to 0. Valid values:
@@ -58,6 +59,7 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
   workload?: string;
   static names(): { [key: string]: string } {
     return {
+      bestEffortType: 'BestEffortType',
       cpu: 'Cpu',
       memory: 'Memory',
       newSaeVersion: 'NewSaeVersion',
@@ -68,6 +70,7 @@ export class DescribeConfigurationPriceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bestEffortType: 'string',
       cpu: 'number',
       memory: 'number',
       newSaeVersion: 'string',

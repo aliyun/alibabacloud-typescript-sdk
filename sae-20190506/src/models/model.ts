@@ -91,6 +91,7 @@ export { DescribeApplicationImageResponseBodyData } from './DescribeApplicationI
 export { DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponseBodyDataInstances } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponseBodyData } from './DescribeApplicationInstancesResponseBody';
+export { DescribeApplicationMseServiceResponseBodyData } from './DescribeApplicationMseServiceResponseBody';
 export { DescribeApplicationNlbsResponseBodyData } from './DescribeApplicationNlbsResponseBody';
 export { DescribeApplicationScalingRuleResponseBodyDataMetricMetrics } from './DescribeApplicationScalingRuleResponseBody';
 export { DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics } from './DescribeApplicationScalingRuleResponseBody';
@@ -552,6 +553,9 @@ export { DescribeApplicationImageResponse } from './DescribeApplicationImageResp
 export { DescribeApplicationInstancesRequest } from './DescribeApplicationInstancesRequest';
 export { DescribeApplicationInstancesResponseBody } from './DescribeApplicationInstancesResponseBody';
 export { DescribeApplicationInstancesResponse } from './DescribeApplicationInstancesResponse';
+export { DescribeApplicationMseServiceRequest } from './DescribeApplicationMseServiceRequest';
+export { DescribeApplicationMseServiceResponseBody } from './DescribeApplicationMseServiceResponseBody';
+export { DescribeApplicationMseServiceResponse } from './DescribeApplicationMseServiceResponse';
 export { DescribeApplicationNlbsRequest } from './DescribeApplicationNlbsRequest';
 export { DescribeApplicationNlbsResponseBody } from './DescribeApplicationNlbsResponseBody';
 export { DescribeApplicationNlbsResponse } from './DescribeApplicationNlbsResponse';

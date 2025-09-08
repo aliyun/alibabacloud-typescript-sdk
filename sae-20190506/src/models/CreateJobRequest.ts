@@ -56,6 +56,7 @@ export class CreateJobRequest extends $dara.Model {
    * 3
    */
   backoffLimit?: number;
+  bestEffortType?: string;
   /**
    * @remarks
    * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
@@ -263,6 +264,7 @@ export class CreateJobRequest extends $dara.Model {
    * cn-beijing:test
    */
   namespaceId?: string;
+  nasConfigs?: string;
   /**
    * @remarks
    * The ID of the Apsara File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
@@ -554,6 +556,7 @@ export class CreateJobRequest extends $dara.Model {
       appName: 'AppName',
       autoConfig: 'AutoConfig',
       backoffLimit: 'BackoffLimit',
+      bestEffortType: 'BestEffortType',
       command: 'Command',
       commandArgs: 'CommandArgs',
       concurrencyPolicy: 'ConcurrencyPolicy',
@@ -572,6 +575,7 @@ export class CreateJobRequest extends $dara.Model {
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
+      nasConfigs: 'NasConfigs',
       nasId: 'NasId',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
@@ -613,6 +617,7 @@ export class CreateJobRequest extends $dara.Model {
       appName: 'string',
       autoConfig: 'boolean',
       backoffLimit: 'number',
+      bestEffortType: 'string',
       command: 'string',
       commandArgs: 'string',
       concurrencyPolicy: 'string',
@@ -631,6 +636,7 @@ export class CreateJobRequest extends $dara.Model {
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
+      nasConfigs: 'string',
       nasId: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',

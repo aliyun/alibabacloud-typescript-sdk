@@ -254,6 +254,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
    * 3
    */
   backoffLimit?: number;
+  bestEffortType?: string;
   /**
    * @remarks
    * The command that is used to start the image. The command must be an existing executable object in the container. Example:
@@ -765,6 +766,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
       appId: 'AppId',
       appName: 'AppName',
       backoffLimit: 'BackoffLimit',
+      bestEffortType: 'BestEffortType',
       command: 'Command',
       commandArgs: 'CommandArgs',
       concurrencyPolicy: 'ConcurrencyPolicy',
@@ -829,6 +831,7 @@ export class DescribeJobResponseBodyData extends $dara.Model {
       appId: 'string',
       appName: 'string',
       backoffLimit: 'number',
+      bestEffortType: 'string',
       command: 'string',
       commandArgs: 'string',
       concurrencyPolicy: 'string',

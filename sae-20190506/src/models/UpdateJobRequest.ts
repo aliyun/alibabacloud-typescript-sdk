@@ -37,6 +37,7 @@ export class UpdateJobRequest extends $dara.Model {
    * 3
    */
   backoffLimit?: number;
+  bestEffortType?: string;
   /**
    * @remarks
    * The command that is used to start the image. The command must be an existing executable object in the container. Example:
@@ -197,6 +198,7 @@ export class UpdateJobRequest extends $dara.Model {
    * 10d3b4bc9****.com
    */
   mountHost?: string;
+  nasConfigs?: string;
   /**
    * @remarks
    * The ID of the Apsara File Storage NAS file system. If you do not need to modify the NAS configurations when you deploy the application, configure **NasId** only in the first request. If you no longer need to use NAS, leave **NasId** empty in the request.
@@ -441,6 +443,7 @@ export class UpdateJobRequest extends $dara.Model {
       acrInstanceId: 'AcrInstanceId',
       appId: 'AppId',
       backoffLimit: 'BackoffLimit',
+      bestEffortType: 'BestEffortType',
       command: 'Command',
       commandArgs: 'CommandArgs',
       concurrencyPolicy: 'ConcurrencyPolicy',
@@ -456,6 +459,7 @@ export class UpdateJobRequest extends $dara.Model {
       jdk: 'Jdk',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
+      nasConfigs: 'NasConfigs',
       nasId: 'NasId',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
@@ -491,6 +495,7 @@ export class UpdateJobRequest extends $dara.Model {
       acrInstanceId: 'string',
       appId: 'string',
       backoffLimit: 'number',
+      bestEffortType: 'string',
       command: 'string',
       commandArgs: 'string',
       concurrencyPolicy: 'string',
@@ -506,6 +511,7 @@ export class UpdateJobRequest extends $dara.Model {
       jdk: 'string',
       mountDesc: 'string',
       mountHost: 'string',
+      nasConfigs: 'string',
       nasId: 'string',
       ossAkId: 'string',
       ossAkSecret: 'string',
