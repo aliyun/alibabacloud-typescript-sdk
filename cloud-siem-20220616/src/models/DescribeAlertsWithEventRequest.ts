@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAlertsWithEventRequest extends $dara.Model {
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   alertName?: string;
   /**
    * @remarks
@@ -16,20 +12,8 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
    * Scan-Try SNMP weak password
    */
   alertTitle?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   alertType?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   assetId?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   assetName?: string;
   /**
    * @remarks
@@ -46,15 +30,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
    * 1577808000000
    */
   endTime?: number;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   entityId?: string;
-  /**
-   * @example
-   * 异常连接-TFTP恶意扫描
-   */
   entityName?: string;
   /**
    * @remarks
