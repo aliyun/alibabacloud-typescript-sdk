@@ -72,12 +72,14 @@ export class ListTopicRequest extends $dara.Model {
    * test
    */
   topicName?: string;
+  topicType?: string;
   static names(): { [key: string]: string } {
     return {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       tag: 'Tag',
       topicName: 'TopicName',
+      topicType: 'TopicType',
     };
   }
 
@@ -87,6 +89,7 @@ export class ListTopicRequest extends $dara.Model {
       pageSize: 'number',
       tag: { 'type': 'array', 'itemType': ListTopicRequestTag },
       topicName: 'string',
+      topicType: 'string',
     };
   }
 

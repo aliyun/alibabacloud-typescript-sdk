@@ -115,6 +115,7 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
    * demo-topic
    */
   topicName?: string;
+  topicType?: string;
   /**
    * @remarks
    * The URL of the message topic.
@@ -134,6 +135,7 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
       tags: 'Tags',
       topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
+      topicType: 'TopicType',
       topicUrl: 'TopicUrl',
     };
   }
@@ -149,6 +151,7 @@ export class ListTopicResponseBodyDataPageData extends $dara.Model {
       tags: { 'type': 'array', 'itemType': ListTopicResponseBodyDataPageDataTags },
       topicInnerUrl: 'string',
       topicName: 'string',
+      topicType: 'string',
       topicUrl: 'string',
     };
   }

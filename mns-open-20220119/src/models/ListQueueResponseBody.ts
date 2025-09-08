@@ -189,6 +189,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  queueType?: string;
   /**
    * @remarks
    * The tags added to the resources.
@@ -216,6 +217,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      queueType: 'QueueType',
       tags: 'Tags',
       visibilityTimeout: 'VisibilityTimeout',
     };
@@ -235,6 +237,7 @@ export class ListQueueResponseBodyDataPageData extends $dara.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      queueType: 'string',
       tags: { 'type': 'array', 'itemType': ListQueueResponseBodyDataPageDataTags },
       visibilityTimeout: 'number',
     };

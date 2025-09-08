@@ -215,6 +215,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  queueType?: string;
   /**
    * @remarks
    * The tag.
@@ -243,6 +244,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      queueType: 'QueueType',
       tags: 'Tags',
       tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
@@ -263,6 +265,7 @@ export class GetQueueAttributesResponseBodyData extends $dara.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      queueType: 'string',
       tags: { 'type': 'array', 'itemType': GetQueueAttributesResponseBodyDataTags },
       tenantRateLimitPolicy: GetQueueAttributesResponseBodyDataTenantRateLimitPolicy,
       visibilityTimeout: 'number',

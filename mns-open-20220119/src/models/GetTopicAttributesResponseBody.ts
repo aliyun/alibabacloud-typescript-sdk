@@ -107,6 +107,7 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    * demo-topic
    */
   topicName?: string;
+  topicType?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -117,6 +118,7 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       tags: 'Tags',
       topicName: 'TopicName',
+      topicType: 'TopicType',
     };
   }
 
@@ -130,6 +132,7 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
       messageRetentionPeriod: 'number',
       tags: { 'type': 'array', 'itemType': GetTopicAttributesResponseBodyDataTags },
       topicName: 'string',
+      topicType: 'string',
     };
   }
 

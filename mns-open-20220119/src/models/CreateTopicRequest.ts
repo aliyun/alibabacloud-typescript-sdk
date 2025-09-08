@@ -77,12 +77,14 @@ export class CreateTopicRequest extends $dara.Model {
    * test
    */
   topicName?: string;
+  topicType?: string;
   static names(): { [key: string]: string } {
     return {
       enableLogging: 'EnableLogging',
       maxMessageSize: 'MaxMessageSize',
       tag: 'Tag',
       topicName: 'TopicName',
+      topicType: 'TopicType',
     };
   }
 
@@ -92,6 +94,7 @@ export class CreateTopicRequest extends $dara.Model {
       maxMessageSize: 'number',
       tag: { 'type': 'array', 'itemType': CreateTopicRequestTag },
       topicName: 'string',
+      topicType: 'string',
     };
   }
 

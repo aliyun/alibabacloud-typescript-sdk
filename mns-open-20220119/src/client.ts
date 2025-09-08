@@ -221,6 +221,10 @@ export default class Client extends OpenApi {
       query["QueueName"] = request.queueName;
     }
 
+    if (!$dara.isNull(request.queueType)) {
+      query["QueueType"] = request.queueType;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -273,6 +277,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.topicType)) {
+      query["TopicType"] = request.topicType;
     }
 
     let body : {[key: string ]: any} = { };
@@ -859,6 +867,10 @@ export default class Client extends OpenApi {
       query["QueueName"] = request.queueName;
     }
 
+    if (!$dara.isNull(request.queueType)) {
+      query["QueueType"] = request.queueType;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -977,6 +989,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.topicName)) {
       query["TopicName"] = request.topicName;
+    }
+
+    if (!$dara.isNull(request.topicType)) {
+      query["TopicType"] = request.topicType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

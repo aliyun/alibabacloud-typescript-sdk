@@ -67,6 +67,7 @@ export class ListQueueRequest extends $dara.Model {
    * demo-queue
    */
   queueName?: string;
+  queueType?: string;
   /**
    * @remarks
    * The tags.
@@ -77,6 +78,7 @@ export class ListQueueRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       queueName: 'QueueName',
+      queueType: 'QueueType',
       tag: 'Tag',
     };
   }
@@ -86,6 +88,7 @@ export class ListQueueRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       queueName: 'string',
+      queueType: 'string',
       tag: { 'type': 'array', 'itemType': ListQueueRequestTag },
     };
   }

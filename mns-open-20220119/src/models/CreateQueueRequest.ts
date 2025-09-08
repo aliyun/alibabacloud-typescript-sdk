@@ -179,6 +179,7 @@ export class CreateQueueRequest extends $dara.Model {
    * 06273500-249F-5863-121D-74D51123****
    */
   queueName?: string;
+  queueType?: string;
   /**
    * @remarks
    * The tags.
@@ -202,6 +203,7 @@ export class CreateQueueRequest extends $dara.Model {
       messageRetentionPeriod: 'MessageRetentionPeriod',
       pollingWaitSeconds: 'PollingWaitSeconds',
       queueName: 'QueueName',
+      queueType: 'QueueType',
       tag: 'Tag',
       tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       visibilityTimeout: 'VisibilityTimeout',
@@ -217,6 +219,7 @@ export class CreateQueueRequest extends $dara.Model {
       messageRetentionPeriod: 'number',
       pollingWaitSeconds: 'number',
       queueName: 'string',
+      queueType: 'string',
       tag: { 'type': 'array', 'itemType': CreateQueueRequestTag },
       tenantRateLimitPolicy: CreateQueueRequestTenantRateLimitPolicy,
       visibilityTimeout: 'number',
