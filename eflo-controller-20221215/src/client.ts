@@ -658,6 +658,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除一个未使用节点
+   * 
+   * @param request - DeleteNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNodeResponse
+   */
+  async deleteNodeWithOptions(request: $_model.DeleteNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNode",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNodeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNodeResponse({}));
+  }
+
+  /**
+   * 删除一个未使用节点
+   * 
+   * @param request - DeleteNodeRequest
+   * @returns DeleteNodeResponse
+   */
+  async deleteNode(request: $_model.DeleteNodeRequest): Promise<$_model.DeleteNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNodeWithOptions(request, runtime);
+  }
+
+  /**
    * 删除节点分组
    * 
    * @param request - DeleteNodeGroupRequest
@@ -1340,6 +1382,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nodeGroupId)) {
       body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.operatingStates)) {
+      body["OperatingStates"] = request.operatingStates;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {

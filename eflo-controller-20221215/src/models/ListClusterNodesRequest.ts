@@ -77,6 +77,7 @@ export class ListClusterNodesRequest extends $dara.Model {
    * ng-ec3c96ff0aa4c60d
    */
   nodeGroupId?: string;
+  operatingStates?: string[];
   /**
    * @remarks
    * The resource group ID.
@@ -96,6 +97,7 @@ export class ListClusterNodesRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       nodeGroupId: 'NodeGroupId',
+      operatingStates: 'OperatingStates',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
@@ -107,12 +109,16 @@ export class ListClusterNodesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       nodeGroupId: 'string',
+      operatingStates: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListClusterNodesRequestTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.operatingStates)) {
+      $dara.Model.validateArray(this.operatingStates);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
