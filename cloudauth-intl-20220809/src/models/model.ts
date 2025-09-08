@@ -5,6 +5,7 @@ export { BankMetaVerifyIntlResponseBodyResultObject } from './BankMetaVerifyIntl
 export { CardOcrResponseBodyResult } from './CardOcrResponseBody';
 export { CheckResultResponseBodyResult } from './CheckResultResponseBody';
 export { CheckVerifyLogResponseBodyResult } from './CheckVerifyLogResponseBody';
+export { CredentialRecognitionIntlResponseBodyResult } from './CredentialRecognitionIntlResponseBody';
 export { CredentialVerifyIntlResponseBodyResultObject } from './CredentialVerifyIntlResponseBody';
 export { DeepfakeDetectIntlResponseBodyResultObject } from './DeepfakeDetectIntlResponseBody';
 export { DeleteVerifyResultResponseBodyResult } from './DeleteVerifyResultResponseBody';
@@ -42,6 +43,9 @@ export { CheckResultResponse } from './CheckResultResponse';
 export { CheckVerifyLogRequest } from './CheckVerifyLogRequest';
 export { CheckVerifyLogResponseBody } from './CheckVerifyLogResponseBody';
 export { CheckVerifyLogResponse } from './CheckVerifyLogResponse';
+export { CredentialRecognitionIntlRequest } from './CredentialRecognitionIntlRequest';
+export { CredentialRecognitionIntlResponseBody } from './CredentialRecognitionIntlResponseBody';
+export { CredentialRecognitionIntlResponse } from './CredentialRecognitionIntlResponse';
 export { CredentialVerifyIntlRequest } from './CredentialVerifyIntlRequest';
 export { CredentialVerifyIntlAdvanceRequest } from './CredentialVerifyIntlAdvanceRequest';
 export { CredentialVerifyIntlResponseBody } from './CredentialVerifyIntlResponseBody';

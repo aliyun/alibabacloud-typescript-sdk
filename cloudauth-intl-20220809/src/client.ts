@@ -535,6 +535,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 凭证识别
+   * 
+   * @param request - CredentialRecognitionIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialRecognitionIntlResponse
+   */
+  async credentialRecognitionIntlWithOptions(request: $_model.CredentialRecognitionIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialRecognitionIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fraudCheck)) {
+      query["FraudCheck"] = request.fraudCheck;
+    }
+
+    if (!$dara.isNull(request.ocrArea)) {
+      query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialOcrPictureBase64)) {
+      body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureUrl)) {
+      body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialRecognitionIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CredentialRecognitionIntlResponse>(await this.callApi(params, req, runtime), new $_model.CredentialRecognitionIntlResponse({}));
+  }
+
+  /**
+   * 凭证识别
+   * 
+   * @param request - CredentialRecognitionIntlRequest
+   * @returns CredentialRecognitionIntlResponse
+   */
+  async credentialRecognitionIntl(request: $_model.CredentialRecognitionIntlRequest): Promise<$_model.CredentialRecognitionIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialRecognitionIntlWithOptions(request, runtime);
+  }
+
+  /**
    * Credential Verification
    * 
    * @remarks
