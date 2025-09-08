@@ -4,6 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class AIAgentConfigAmbientSoundConfig extends $dara.Model {
+  resourceId?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentConfigAsrConfig extends $dara.Model {
   asrHotWords?: string[];
   asrLanguageId?: string;
@@ -382,6 +408,29 @@ export class AIAgentConfigVcrConfigInvalidFrameMotion extends $dara.Model {
   }
 }
 
+export class AIAgentConfigVcrConfigLookAway extends $dara.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentConfigVcrConfigPeopleCount extends $dara.Model {
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -435,6 +484,7 @@ export class AIAgentConfigVcrConfig extends $dara.Model {
   equipment?: AIAgentConfigVcrConfigEquipment;
   headMotion?: AIAgentConfigVcrConfigHeadMotion;
   invalidFrameMotion?: AIAgentConfigVcrConfigInvalidFrameMotion;
+  lookAway?: AIAgentConfigVcrConfigLookAway;
   peopleCount?: AIAgentConfigVcrConfigPeopleCount;
   stillFrameMotion?: AIAgentConfigVcrConfigStillFrameMotion;
   static names(): { [key: string]: string } {
@@ -442,6 +492,7 @@ export class AIAgentConfigVcrConfig extends $dara.Model {
       equipment: 'Equipment',
       headMotion: 'HeadMotion',
       invalidFrameMotion: 'InvalidFrameMotion',
+      lookAway: 'LookAway',
       peopleCount: 'PeopleCount',
       stillFrameMotion: 'StillFrameMotion',
     };
@@ -452,6 +503,7 @@ export class AIAgentConfigVcrConfig extends $dara.Model {
       equipment: AIAgentConfigVcrConfigEquipment,
       headMotion: AIAgentConfigVcrConfigHeadMotion,
       invalidFrameMotion: AIAgentConfigVcrConfigInvalidFrameMotion,
+      lookAway: AIAgentConfigVcrConfigLookAway,
       peopleCount: AIAgentConfigVcrConfigPeopleCount,
       stillFrameMotion: AIAgentConfigVcrConfigStillFrameMotion,
     };
@@ -466,6 +518,9 @@ export class AIAgentConfigVcrConfig extends $dara.Model {
     }
     if(this.invalidFrameMotion && typeof (this.invalidFrameMotion as any).validate === 'function') {
       (this.invalidFrameMotion as any).validate();
+    }
+    if(this.lookAway && typeof (this.lookAway as any).validate === 'function') {
+      (this.lookAway as any).validate();
     }
     if(this.peopleCount && typeof (this.peopleCount as any).validate === 'function') {
       (this.peopleCount as any).validate();
@@ -508,6 +563,7 @@ export class AIAgentConfigVoiceprintConfig extends $dara.Model {
 }
 
 export class AIAgentConfig extends $dara.Model {
+  ambientSoundConfig?: AIAgentConfigAmbientSoundConfig;
   asrConfig?: AIAgentConfigAsrConfig;
   avatarConfig?: AIAgentConfigAvatarConfig;
   avatarUrl?: string;
@@ -531,6 +587,7 @@ export class AIAgentConfig extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
       avatarConfig: 'AvatarConfig',
       avatarUrl: 'AvatarUrl',
@@ -557,6 +614,7 @@ export class AIAgentConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ambientSoundConfig: AIAgentConfigAmbientSoundConfig,
       asrConfig: AIAgentConfigAsrConfig,
       avatarConfig: AIAgentConfigAvatarConfig,
       avatarUrl: 'string',
@@ -582,6 +640,9 @@ export class AIAgentConfig extends $dara.Model {
   }
 
   validate() {
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
     }

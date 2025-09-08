@@ -24,11 +24,13 @@ export class SendAIAgentSpeechRequest extends $dara.Model {
    * This parameter is required.
    */
   text?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       enableInterrupt: 'EnableInterrupt',
       instanceId: 'InstanceId',
       text: 'Text',
+      type: 'Type',
     };
   }
 
@@ -37,6 +39,7 @@ export class SendAIAgentSpeechRequest extends $dara.Model {
       enableInterrupt: 'boolean',
       instanceId: 'string',
       text: 'string',
+      type: 'string',
     };
   }
 

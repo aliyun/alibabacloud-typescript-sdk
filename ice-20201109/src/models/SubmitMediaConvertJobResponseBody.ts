@@ -13,6 +13,13 @@ export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
    * The inputs of the transcoding task.
    */
   inputs?: MediaConvertInput[];
+  /**
+   * @remarks
+   * The name of the job.
+   * 
+   * @example
+   * insx6-1310
+   */
   jobName?: string;
   /**
    * @remarks
@@ -130,12 +137,12 @@ export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
    * 
    * *   Inited: The task is initialized.
    * *   Running
-   * *   Success
-   * *   Failed
+   * *   Complete
+   * *   Error
    * *   Cancelled
    * 
    * @example
-   * Created
+   * Inited
    */
   state?: string;
   /**

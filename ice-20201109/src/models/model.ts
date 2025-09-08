@@ -1,3 +1,4 @@
+export { AIAgentConfigAmbientSoundConfig } from './AiagentConfig';
 export { AIAgentConfigAsrConfig } from './AiagentConfig';
 export { AIAgentConfigAvatarConfig } from './AiagentConfig';
 export { AIAgentConfigInterruptConfig } from './AiagentConfig';
@@ -10,10 +11,12 @@ export { AIAgentConfigTurnDetectionConfig } from './AiagentConfig';
 export { AIAgentConfigVcrConfigEquipment } from './AiagentConfig';
 export { AIAgentConfigVcrConfigHeadMotion } from './AiagentConfig';
 export { AIAgentConfigVcrConfigInvalidFrameMotion } from './AiagentConfig';
+export { AIAgentConfigVcrConfigLookAway } from './AiagentConfig';
 export { AIAgentConfigVcrConfigPeopleCount } from './AiagentConfig';
 export { AIAgentConfigVcrConfigStillFrameMotion } from './AiagentConfig';
 export { AIAgentConfigVcrConfig } from './AiagentConfig';
 export { AIAgentConfigVoiceprintConfig } from './AiagentConfig';
+export { AIAgentOutboundCallConfigAmbientSoundConfig } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigAsrConfig } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigInterruptConfig } from './AiagentOutboundCallConfig';
 export { AIAgentOutboundCallConfigLlmConfigFunctionMap } from './AiagentOutboundCallConfig';

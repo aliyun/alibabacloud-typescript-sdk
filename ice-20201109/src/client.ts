@@ -3318,7 +3318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a channel in MediaWeaver.
+   * Deletes a channel.
    * 
    * @param request - DeleteChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3349,7 +3349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a channel in MediaWeaver.
+   * Deletes a channel.
    * 
    * @param request - DeleteChannelRequest
    * @returns DeleteChannelResponse
@@ -8432,7 +8432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a source in MediaWeaver.
+   * Queries a source.
    * 
    * @param request - GetSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8471,7 +8471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a source in MediaWeaver.
+   * Queries a source.
    * 
    * @param request - GetSourceRequest
    * @returns GetSourceResponse
@@ -14658,6 +14658,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.text)) {
       query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

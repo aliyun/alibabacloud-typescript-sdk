@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AIAgentOutboundCallConfigAmbientSoundConfig extends $dara.Model {
+  resourceId?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   asrHotWords?: string[];
   asrLanguageId?: string;
@@ -286,6 +312,7 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
 }
 
 export class AIAgentOutboundCallConfig extends $dara.Model {
+  ambientSoundConfig?: AIAgentOutboundCallConfigAmbientSoundConfig;
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
   enableIntelligentSegment?: boolean;
   greeting?: string;
@@ -296,6 +323,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   turnDetectionConfig?: AIAgentOutboundCallConfigTurnDetectionConfig;
   static names(): { [key: string]: string } {
     return {
+      ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       greeting: 'Greeting',
@@ -309,6 +337,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ambientSoundConfig: AIAgentOutboundCallConfigAmbientSoundConfig,
       asrConfig: AIAgentOutboundCallConfigAsrConfig,
       enableIntelligentSegment: 'boolean',
       greeting: 'string',
@@ -321,6 +350,9 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   }
 
   validate() {
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
     }
