@@ -47,6 +47,10 @@ export default class Client extends OpenApi {
       query["ExpireSecond"] = request.expireSecond;
     }
 
+    if (!$dara.isNull(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
+    }
+
     if (!$dara.isNull(request.integrateId)) {
       query["IntegrateId"] = request.integrateId;
     }

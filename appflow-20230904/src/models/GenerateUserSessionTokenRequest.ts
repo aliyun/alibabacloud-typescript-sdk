@@ -21,6 +21,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
    * 6000
    */
   expireSecond?: number;
+  extraInfo?: string;
   /**
    * @remarks
    * Integration ID
@@ -59,6 +60,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
     return {
       chatbotId: 'ChatbotId',
       expireSecond: 'ExpireSecond',
+      extraInfo: 'ExtraInfo',
       integrateId: 'IntegrateId',
       userAvatar: 'UserAvatar',
       userId: 'UserId',
@@ -70,6 +72,7 @@ export class GenerateUserSessionTokenRequest extends $dara.Model {
     return {
       chatbotId: 'string',
       expireSecond: 'number',
+      extraInfo: 'string',
       integrateId: 'string',
       userAvatar: 'string',
       userId: 'string',
