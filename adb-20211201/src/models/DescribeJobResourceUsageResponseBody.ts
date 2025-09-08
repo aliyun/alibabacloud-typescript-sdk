@@ -164,6 +164,8 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
    * The AnalyticDB compute unit (ACU) usage of the job resource group.
    */
   jobAcuUsage?: DescribeJobResourceUsageResponseBodyDataJobAcuUsage[];
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
@@ -172,12 +174,16 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
    * 2023-05-22T16:00:00Z
    */
   startTime?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       endTime: 'EndTime',
       jobAcuUsage: 'JobAcuUsage',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       startTime: 'StartTime',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -186,7 +192,10 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
       DBClusterId: 'string',
       endTime: 'string',
       jobAcuUsage: { 'type': 'array', 'itemType': DescribeJobResourceUsageResponseBodyDataJobAcuUsage },
+      pageNumber: 'number',
+      pageSize: 'number',
       startTime: 'string',
+      totalCount: 'number',
     };
   }
 

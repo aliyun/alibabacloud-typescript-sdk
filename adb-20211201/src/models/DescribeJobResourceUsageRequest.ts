@@ -23,6 +23,8 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
    * 2023-03-17T16:00:00Z
    */
   endTime?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
@@ -37,6 +39,8 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
     return {
       DBClusterId: 'DBClusterId',
       endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       startTime: 'StartTime',
     };
   }
@@ -45,6 +49,8 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       startTime: 'string',
     };
   }

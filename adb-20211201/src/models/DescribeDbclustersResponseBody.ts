@@ -245,6 +245,8 @@ export class DescribeDBClustersResponseBodyItemsDBClusterTaskInfo extends $dara.
 }
 
 export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
+  AINodeNumber?: number;
+  AINodeSpec?: string;
   /**
    * @remarks
    * The mode of the cluster. This parameter is returned only for Data Warehouse Edition clusters. Valid values:
@@ -646,6 +648,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AINodeNumber: 'AINodeNumber',
+      AINodeSpec: 'AINodeSpec',
       category: 'Category',
       commodityCode: 'CommodityCode',
       computeResource: 'ComputeResource',
@@ -694,6 +698,8 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AINodeNumber: 'number',
+      AINodeSpec: 'string',
       category: 'string',
       commodityCode: 'string',
       computeResource: 'string',
