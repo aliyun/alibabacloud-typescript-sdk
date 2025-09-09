@@ -35,7 +35,13 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
+   * The engine type. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **MariaDB**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
    * 
    * @example
    * MySQL
@@ -86,7 +92,14 @@ export class DescribeInstanceSourcesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the service to which the data asset to query belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * The ID of the service to which the asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore (OTS)
+   * *   **5**: ApsaraDB RDS
+   * *   **6**: self-managed databases
    * 
    * @example
    * 1

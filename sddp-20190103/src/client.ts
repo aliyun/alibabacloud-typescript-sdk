@@ -109,8 +109,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateDataLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -217,8 +215,6 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-   * ## [](#qps-)Limits
-   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateDataLimitRequest
    * @returns CreateDataLimitResponse
@@ -618,6 +614,144 @@ export default class Client extends OpenApi {
   async deleteRule(request: $_model.DeleteRuleRequest): Promise<$_model.DeleteRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审计告警日志列表
+   * 
+   * @param request - DescribeAuditLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAuditLogsResponse
+   */
+  async describeAuditLogsWithOptions(request: $_model.DescribeAuditLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAuditLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.asyncRequestId)) {
+      query["AsyncRequestId"] = request.asyncRequestId;
+    }
+
+    if (!$dara.isNull(request.clientIp)) {
+      query["ClientIp"] = request.clientIp;
+    }
+
+    if (!$dara.isNull(request.clientUa)) {
+      query["ClientUa"] = request.clientUa;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.effectRowRange)) {
+      query["EffectRowRange"] = request.effectRowRange;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.executeTimeRange)) {
+      query["ExecuteTimeRange"] = request.executeTimeRange;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.ipType)) {
+      query["IpType"] = request.ipType;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.loadWhiteList)) {
+      query["LoadWhiteList"] = request.loadWhiteList;
+    }
+
+    if (!$dara.isNull(request.memberAccount)) {
+      query["MemberAccount"] = request.memberAccount;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!$dara.isNull(request.ossObjectKey)) {
+      query["OssObjectKey"] = request.ossObjectKey;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.ruleCategory)) {
+      query["RuleCategory"] = request.ruleCategory;
+    }
+
+    if (!$dara.isNull(request.ruleID)) {
+      query["RuleID"] = request.ruleID;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sqlText)) {
+      query["SqlText"] = request.sqlText;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAuditLogs",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAuditLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAuditLogsResponse({}));
+  }
+
+  /**
+   * 查询审计告警日志列表
+   * 
+   * @param request - DescribeAuditLogsRequest
+   * @returns DescribeAuditLogsResponse
+   */
+  async describeAuditLogs(request: $_model.DescribeAuditLogsRequest): Promise<$_model.DescribeAuditLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAuditLogsWithOptions(request, runtime);
   }
 
   /**
@@ -2020,8 +2154,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
    * This operation is no longer used for the KMS console of the new version.
-   * # [](#qps-)QPS limits
-   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeInstanceSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2105,8 +2237,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
    * This operation is no longer used for the KMS console of the new version.
-   * # [](#qps-)QPS limits
-   * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - DescribeInstanceSourcesRequest
    * @returns DescribeInstanceSourcesResponse
