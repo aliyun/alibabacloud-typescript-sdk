@@ -24,26 +24,19 @@ export class ListSystemLogsRequest extends $dara.Model {
    * dsw-730xxxxxxxxxx
    */
   instanceId?: string;
+  lifecycleId?: string;
   /**
    * @example
    * Error
    */
   logLevel?: string;
+  logRepository?: string;
+  offset?: string;
   /**
    * @example
    * ASC
    */
   order?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 100
-   */
-  pageSize?: number;
   /**
    * @example
    * InstanceStartFailed
@@ -59,24 +52,19 @@ export class ListSystemLogsRequest extends $dara.Model {
    * 473469C7-******5-B3DB-A3DC0DE3C83E
    */
   sourceRequestId?: string;
-  /**
-   * @example
-   * NotebookMainContainerLogs
-   */
-  sourceType?: string;
   static names(): { [key: string]: string } {
     return {
       gmtEndTime: 'GmtEndTime',
       gmtStartTime: 'GmtStartTime',
       instanceId: 'InstanceId',
+      lifecycleId: 'LifecycleId',
       logLevel: 'LogLevel',
+      logRepository: 'LogRepository',
+      offset: 'Offset',
       order: 'Order',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
       problemCategory: 'ProblemCategory',
       sortBy: 'SortBy',
       sourceRequestId: 'SourceRequestId',
-      sourceType: 'SourceType',
     };
   }
 
@@ -85,14 +73,14 @@ export class ListSystemLogsRequest extends $dara.Model {
       gmtEndTime: 'string',
       gmtStartTime: 'string',
       instanceId: 'string',
+      lifecycleId: 'string',
       logLevel: 'string',
+      logRepository: 'string',
+      offset: 'string',
       order: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
       problemCategory: 'string',
       sortBy: 'string',
       sourceRequestId: 'string',
-      sourceType: 'string',
     };
   }
 

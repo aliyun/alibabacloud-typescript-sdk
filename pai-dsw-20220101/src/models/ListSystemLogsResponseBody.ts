@@ -47,23 +47,19 @@ export class ListSystemLogsResponseBodySystemLogs extends $dara.Model {
 }
 
 export class ListSystemLogsResponseBody extends $dara.Model {
+  offset?: string;
   systemLogs?: ListSystemLogsResponseBodySystemLogs[];
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      offset: 'Offset',
       systemLogs: 'SystemLogs',
-      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      offset: 'string',
       systemLogs: { 'type': 'array', 'itemType': ListSystemLogsResponseBodySystemLogs },
-      totalCount: 'number',
     };
   }
 

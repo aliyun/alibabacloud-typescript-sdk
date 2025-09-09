@@ -1461,20 +1461,24 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.lifecycleId)) {
+      query["LifecycleId"] = request.lifecycleId;
+    }
+
     if (!$dara.isNull(request.logLevel)) {
       query["LogLevel"] = request.logLevel;
     }
 
+    if (!$dara.isNull(request.logRepository)) {
+      query["LogRepository"] = request.logRepository;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
     if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
-    }
-
-    if (!$dara.isNull(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.problemCategory)) {
@@ -1487,10 +1491,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceRequestId)) {
       query["SourceRequestId"] = request.sourceRequestId;
-    }
-
-    if (!$dara.isNull(request.sourceType)) {
-      query["SourceType"] = request.sourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
