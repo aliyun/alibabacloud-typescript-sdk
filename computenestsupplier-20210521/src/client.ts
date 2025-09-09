@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商家通过服务使用请求
+   * Merchant uses service request
    * 
    * @param request - ApproveServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -139,7 +139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商家通过服务使用请求
+   * Merchant uses service request
    * 
    * @param request - ApproveServiceUsageRequest
    * @returns ApproveServiceUsageResponse
@@ -674,7 +674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务测试任务
+   * Create service test task
    * 
    * @param request - CreateServiceTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -717,7 +717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建服务测试任务
+   * Create service test task
    * 
    * @param request - CreateServiceTestTaskRequest
    * @returns CreateServiceTestTaskResponse
@@ -888,6 +888,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除Acr镜像仓库
+   * 
+   * @param request - DeleteAcrImageRepositoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAcrImageRepositoriesResponse
+   */
+  async deleteAcrImageRepositoriesWithOptions(request: $_model.DeleteAcrImageRepositoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAcrImageRepositoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.artifactType)) {
+      query["ArtifactType"] = request.artifactType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAcrImageRepositories",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAcrImageRepositoriesResponse({}));
+  }
+
+  /**
+   * 删除Acr镜像仓库
+   * 
+   * @param request - DeleteAcrImageRepositoriesRequest
+   * @returns DeleteAcrImageRepositoriesResponse
+   */
+  async deleteAcrImageRepositories(request: $_model.DeleteAcrImageRepositoriesRequest): Promise<$_model.DeleteAcrImageRepositoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAcrImageRepositoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Acr容器镜像版本
+   * 
+   * @param request - DeleteAcrImageTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAcrImageTagsResponse
+   */
+  async deleteAcrImageTagsWithOptions(request: $_model.DeleteAcrImageTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAcrImageTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.artifactType)) {
+      query["ArtifactType"] = request.artifactType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAcrImageTags",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAcrImageTagsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAcrImageTagsResponse({}));
+  }
+
+  /**
+   * 删除Acr容器镜像版本
+   * 
+   * @param request - DeleteAcrImageTagsRequest
+   * @returns DeleteAcrImageTagsResponse
+   */
+  async deleteAcrImageTags(request: $_model.DeleteAcrImageTagsRequest): Promise<$_model.DeleteAcrImageTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAcrImageTagsWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an artifact.
    * 
    * @param request - DeleteArtifactRequest
@@ -1042,7 +1154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务测试配置
+   * Delete service test configuration
    * 
    * @param request - DeleteServiceTestCaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1077,7 +1189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务测试配置
+   * Delete service test configuration
    * 
    * @param request - DeleteServiceTestCaseRequest
    * @returns DeleteServiceTestCaseResponse
@@ -1346,6 +1458,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据地域参数获取地域可用区列表
+   * 
+   * @param request - GetNetworkAvailableZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkAvailableZonesResponse
+   */
+  async getNetworkAvailableZonesWithOptions(request: $_model.GetNetworkAvailableZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNetworkAvailableZonesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isPoc)) {
+      body["IsPoc"] = request.isPoc;
+    }
+
+    if (!$dara.isNull(request.networkRegionId)) {
+      body["NetworkRegionId"] = request.networkRegionId;
+    }
+
+    if (!$dara.isNull(request.privateVpcConnectionMode)) {
+      body["PrivateVpcConnectionMode"] = request.privateVpcConnectionMode;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceEndpointServiceType)) {
+      body["ServiceInstanceEndpointServiceType"] = request.serviceInstanceEndpointServiceType;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      body["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      body["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkAvailableZones",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNetworkAvailableZonesResponse>(await this.callApi(params, req, runtime), new $_model.GetNetworkAvailableZonesResponse({}));
+  }
+
+  /**
+   * 根据地域参数获取地域可用区列表
+   * 
+   * @param request - GetNetworkAvailableZonesRequest
+   * @returns GetNetworkAvailableZonesResponse
+   */
+  async getNetworkAvailableZones(request: $_model.GetNetworkAvailableZonesRequest): Promise<$_model.GetNetworkAvailableZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNetworkAvailableZonesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a service.
    * 
    * @param request - GetServiceRequest
@@ -1546,7 +1728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢查询服务是否开通
+   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
    * 
    * @param tmpReq - GetServiceProvisionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 计算巢查询服务是否开通
+   * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
    * 
    * @param request - GetServiceProvisionsRequest
    * @returns GetServiceProvisionsResponse
@@ -1653,6 +1835,56 @@ export default class Client extends OpenApi {
   async getServiceRegistration(request: $_model.GetServiceRegistrationRequest): Promise<$_model.GetServiceRegistrationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getServiceRegistrationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询服务模板存在的规范问题
+   * 
+   * @param request - GetServiceTemplateCriterionIssuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceTemplateCriterionIssuesResponse
+   */
+  async getServiceTemplateCriterionIssuesWithOptions(request: $_model.GetServiceTemplateCriterionIssuesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceTemplateCriterionIssuesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceTemplateCriterionIssues",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceTemplateCriterionIssuesResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceTemplateCriterionIssuesResponse({}));
+  }
+
+  /**
+   * 查询服务模板存在的规范问题
+   * 
+   * @param request - GetServiceTemplateCriterionIssuesRequest
+   * @returns GetServiceTemplateCriterionIssuesResponse
+   */
+  async getServiceTemplateCriterionIssues(request: $_model.GetServiceTemplateCriterionIssuesRequest): Promise<$_model.GetServiceTemplateCriterionIssuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceTemplateCriterionIssuesWithOptions(request, runtime);
   }
 
   /**
@@ -1730,7 +1962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务测试任务中Cases执行情况
+   * Get the execution status of Cases in the service test task
    * 
    * @param request - GetServiceTestTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,7 +1997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务测试任务中Cases执行情况
+   * Get the execution status of Cases in the service test task
    * 
    * @param request - GetServiceTestTaskRequest
    * @returns GetServiceTestTaskResponse
@@ -1776,7 +2008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务商信息
+   * Get service provider information
    * 
    * @param request - GetSupplierInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1807,7 +2039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务商信息
+   * Get service provider information
    * 
    * @param request - GetSupplierInformationRequest
    * @returns GetSupplierInformationResponse
@@ -1864,7 +2096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线服务
+   * Launch service
+   * 
+   * @remarks
+   * 需要上线的服务必须为已通过审核的服务。
    * 
    * @param request - LaunchServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1915,7 +2150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上线服务
+   * Launch service
+   * 
+   * @remarks
+   * 需要上线的服务必须为已通过审核的服务。
    * 
    * @param request - LaunchServiceRequest
    * @returns LaunchServiceResponse
@@ -2031,6 +2269,72 @@ export default class Client extends OpenApi {
   async listAcrImageTags(request: $_model.ListAcrImageTagsRequest): Promise<$_model.ListAcrImageTagsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAcrImageTagsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询部署实例、升级以及应用的日志
+   * 
+   * @param request - ListArtifactBuildLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListArtifactBuildLogsResponse
+   */
+  async listArtifactBuildLogsWithOptions(request: $_model.ListArtifactBuildLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListArtifactBuildLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.artifactId)) {
+      query["ArtifactId"] = request.artifactId;
+    }
+
+    if (!$dara.isNull(request.artifactVersion)) {
+      query["ArtifactVersion"] = request.artifactVersion;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListArtifactBuildLogs",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListArtifactBuildLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListArtifactBuildLogsResponse({}));
+  }
+
+  /**
+   * 查询部署实例、升级以及应用的日志
+   * 
+   * @param request - ListArtifactBuildLogsRequest
+   * @returns ListArtifactBuildLogsResponse
+   */
+  async listArtifactBuildLogs(request: $_model.ListArtifactBuildLogsRequest): Promise<$_model.ListArtifactBuildLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listArtifactBuildLogsWithOptions(request, runtime);
   }
 
   /**
@@ -2252,7 +2556,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示服务实例账单
+   * 查询部署实例、升级以及应用的日志
+   * 
+   * @param request - ListServiceBuildLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceBuildLogsResponse
+   */
+  async listServiceBuildLogsWithOptions(request: $_model.ListServiceBuildLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceBuildLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceBuildLogs",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceBuildLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceBuildLogsResponse({}));
+  }
+
+  /**
+   * 查询部署实例、升级以及应用的日志
+   * 
+   * @param request - ListServiceBuildLogsRequest
+   * @returns ListServiceBuildLogsResponse
+   */
+  async listServiceBuildLogs(request: $_model.ListServiceBuildLogsRequest): Promise<$_model.ListServiceBuildLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceBuildLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Display service instance bill
    * 
    * @param request - ListServiceInstanceBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2311,7 +2677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 展示服务实例账单
+   * Display service instance bill
    * 
    * @param request - ListServiceInstanceBillRequest
    * @returns ListServiceInstanceBillResponse
@@ -2322,7 +2688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务实例部署详情
+   * Query service instance deployment details
    * 
    * @param request - ListServiceInstanceDeployDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2385,7 +2751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务实例部署详情
+   * Query service instance deployment details
    * 
    * @param request - ListServiceInstanceDeployDetailsRequest
    * @returns ListServiceInstanceDeployDetailsResponse
@@ -2768,7 +3134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 服务测试用例列表
+   * Service test case list
    * 
    * @param request - ListServiceTestCasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2819,7 +3185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 服务测试用例列表
+   * Service test case list
    * 
    * @param request - ListServiceTestCasesRequest
    * @returns ListServiceTestCasesResponse
@@ -2830,7 +3196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务测试实时日志
+   * Get service test real-time logs
    * 
    * @param request - ListServiceTestTaskLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2873,7 +3239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务测试实时日志
+   * Get service test real-time logs
    * 
    * @param request - ListServiceTestTaskLogsRequest
    * @returns ListServiceTestTaskLogsResponse
@@ -3050,7 +3416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务商入职审核列表
+   * Query the list of service provider onboarding reviews
    * 
    * @param request - ListSupplierRegistrationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3093,7 +3459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务商入职审核列表
+   * Query the list of service provider onboarding reviews
    * 
    * @param request - ListSupplierRegistrationsRequest
    * @returns ListSupplierRegistrationsResponse
@@ -3104,7 +3470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签键列表
+   * Query tag key list
    * 
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3143,7 +3509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签键列表
+   * Query tag key list
    * 
    * @param request - ListTagKeysRequest
    * @returns ListTagKeysResponse
@@ -3154,7 +3520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源标签
+   * Query resource tags
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源标签
+   * Query resource tags
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3212,7 +3578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签值列表
+   * Query tag value list
    * 
    * @param request - ListTagValuesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3255,7 +3621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签值列表
+   * Query tag value list
    * 
    * @param request - ListTagValuesRequest
    * @returns ListTagValuesResponse
@@ -3316,7 +3682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预发布服务
+   * Pre-release service
    * 
    * @param request - PreLaunchServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3355,7 +3721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预发布服务
+   * Pre-release service
    * 
    * @param request - PreLaunchServiceRequest
    * @returns PreLaunchServiceResponse
@@ -3824,7 +4190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给资源打标签
+   * Tag a resource
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3867,7 +4233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给资源打标签
+   * Tag a resource
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -3878,7 +4244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源解绑标签
+   * Unbind resource from tag
    * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3925,7 +4291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源解绑标签
+   * Unbind resource from tag
    * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
@@ -4308,7 +4674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改服务测试用例
+   * Modify Service Test Case
    * 
    * @param request - UpdateServiceTestCaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4351,7 +4717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改服务测试用例
+   * Modify Service Test Case
    * 
    * @param request - UpdateServiceTestCaseRequest
    * @returns UpdateServiceTestCaseResponse
@@ -4424,7 +4790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新供应商全局信息
+   * Update the information of supplier.
    * 
    * @param request - UpdateSupplierInformationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4483,7 +4849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新供应商全局信息
+   * Update the information of supplier.
    * 
    * @param request - UpdateSupplierInformationRequest
    * @returns UpdateSupplierInformationResponse

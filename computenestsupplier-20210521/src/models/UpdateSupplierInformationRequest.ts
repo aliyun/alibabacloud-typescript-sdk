@@ -1,8 +1,109 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateSupplierInformationRequestDeliverySettings } from "./UpdateSupplierInformationRequestDeliverySettings";
-import { UpdateSupplierInformationRequestSupportContacts } from "./UpdateSupplierInformationRequestSupportContacts";
 
+
+export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * mybucket
+   */
+  ossBucketName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  ossEnabled?: boolean;
+  /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @remarks
+   * The OSS path.
+   * 
+   * @example
+   * path1/path2/
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationRequestSupportContacts extends $dara.Model {
+  /**
+   * @remarks
+   * The type of  contact information
+   * 
+   * @example
+   * Email
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The value of contact information
+   * 
+   * @example
+   * supplier@example.com
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateSupplierInformationRequest extends $dara.Model {
   /**

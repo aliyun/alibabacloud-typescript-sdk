@@ -1,10 +1,532 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateServiceRequestCommodity } from "./UpdateServiceRequestCommodity";
-import { UpdateServiceRequestComplianceMetadata } from "./UpdateServiceRequestComplianceMetadata";
-import { UpdateServiceRequestServiceInfo } from "./UpdateServiceRequestServiceInfo";
-import { UpdateServiceRequestUpdateOption } from "./UpdateServiceRequestUpdateOption";
 
+
+export class UpdateServiceRequestCommodityComponentsMappings extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   * 
+   * @example
+   * This parameter is not available to the public.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mappings) {
+      $dara.Model.validateMap(this.mappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $dara.Model {
+  /**
+   * @remarks
+   * Metering entity ID.
+   * 
+   * @example
+   * cmgj0006xxxx-Memory-1
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * Metric name, required when type is ComputeNestBill or ComputeNestPrometheus.
+   * 
+   * @example
+   * VirtualCpu/ecs.InstanceType
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * Promql statement.
+   * 
+   * @example
+   * avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * Type. Valid values:
+   * 
+   * - Custom
+   * - ComputeNestBill
+   * - ComputeNestPrometheus
+   * - ComputeNestTime
+   * 
+   * @example
+   * Custom
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityMappings extends $dara.Model {
+  /**
+   * @remarks
+   * Metering entity IDs.
+   */
+  entityIds?: string[];
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * This parameter is not publicly accessible.
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * The service ID.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: { 'type': 'array', 'itemType': 'string' },
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entityIds)) {
+      $dara.Model.validateArray(this.entityIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommoditySpecificationMappings extends $dara.Model {
+  /**
+   * @remarks
+   * Specification code.
+   * 
+   * @example
+   * yuncode5767800001
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The name of the package specification.
+   * 
+   * @example
+   * Type, value：
+   * 
+   * * **Custom**
+   * * **ComputeNestBill**
+   * * **ComputeNestPrometheus**
+   * * **ComputeNestTime**
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Product Specifications and Template/specification mapping Relationships (Cloud Marketplace - Subscription/Permanent Use)
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodity extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is not available to the public.
+   */
+  componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
+  /**
+   * @remarks
+   * Metering entity extra information.
+   */
+  meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * Binding relationship between templates/specifications and metering dimensions (marketplace - PayAsYouGo)
+   */
+  meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
+  /**
+   * @remarks
+   * SaaS Boost configuration.
+   * 
+   * @example
+   * {}
+   */
+  saasBoostConfig?: string;
+  /**
+   * @remarks
+   * Product specifications and template/package mappings (Used in marketplace - subscription scenario)
+   */
+  specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      saasBoostConfig: 'SaasBoostConfig',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityMappings },
+      saasBoostConfig: 'string',
+      specificationMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommoditySpecificationMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.componentsMappings)) {
+      $dara.Model.validateArray(this.componentsMappings);
+    }
+    if(Array.isArray(this.meteringEntityExtraInfos)) {
+      $dara.Model.validateArray(this.meteringEntityExtraInfos);
+    }
+    if(Array.isArray(this.meteringEntityMappings)) {
+      $dara.Model.validateArray(this.meteringEntityMappings);
+    }
+    if(Array.isArray(this.specificationMappings)) {
+      $dara.Model.validateArray(this.specificationMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestComplianceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The compliance pack.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.compliancePacks)) {
+      $dara.Model.validateArray(this.compliancePacks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfoAgreements extends $dara.Model {
+  /**
+   * @remarks
+   * Protocol name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Protocol url.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfoSoftwares extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the software.
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestServiceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Protocol document information about the service.
+   */
+  agreements?: UpdateServiceRequestServiceInfoAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * http://description.tidb.oss.url
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * The URL of the detailed description of the service.
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: UpdateServiceRequestServiceInfoSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': UpdateServiceRequestServiceInfoSoftwares },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.agreements)) {
+      $dara.Model.validateArray(this.agreements);
+    }
+    if(Array.isArray(this.softwares)) {
+      $dara.Model.validateArray(this.softwares);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestUpdateOption extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to update artifact.
+   * 
+   * @example
+   * true
+   */
+  updateArtifact?: boolean;
+  /**
+   * @remarks
+   * Update from. Valid values:
+   * 
+   * - CODE
+   * - PARAMETERS
+   * 
+   * @example
+   * PARAMETERS
+   */
+  updateFrom?: string;
+  static names(): { [key: string]: string } {
+    return {
+      updateArtifact: 'UpdateArtifact',
+      updateFrom: 'UpdateFrom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      updateArtifact: 'boolean',
+      updateFrom: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateServiceRequest extends $dara.Model {
   /**
@@ -28,6 +550,13 @@ export class UpdateServiceRequest extends $dara.Model {
    * Manual
    */
   approvalType?: string;
+  /**
+   * @remarks
+   * The Parameters to build service parameters.
+   * 
+   * @example
+   * { "ServiceTemplateId": "st-xxxxx"}
+   */
   buildParameters?: string;
   /**
    * @remarks

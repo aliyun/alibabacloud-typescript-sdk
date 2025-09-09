@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceTestCaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class UpdateServiceTestCaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service test case id.
+   * Service test case ID
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateServiceTestCaseRequest extends $dara.Model {
   testCaseId?: string;
   /**
    * @remarks
-   * The service test case name.
+   * Test case name
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateServiceTestCaseRequest extends $dara.Model {
   testCaseName?: string;
   /**
    * @remarks
-   * The service test config.
+   * Test configuration
    * 
    * This parameter is required.
    * 

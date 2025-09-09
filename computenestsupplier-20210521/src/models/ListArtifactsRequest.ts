@@ -1,8 +1,90 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListArtifactsRequestFilter } from "./ListArtifactsRequestFilter";
-import { ListArtifactsRequestTag } from "./ListArtifactsRequestTag";
 
+
+export class ListArtifactsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   *Name*: The name of the deployment package. Fuzzy match is used.
+   * *   ArtifactId: The ID of the deployment package.
+   * *   ArtifactType: The type of the deployment package.
+   * 
+   * @example
+   * ArtifactType
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListArtifactsRequest extends $dara.Model {
   /**

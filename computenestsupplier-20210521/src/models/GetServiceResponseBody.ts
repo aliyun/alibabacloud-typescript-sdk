@@ -1,13 +1,1078 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetServiceResponseBodyCommodity } from "./GetServiceResponseBodyCommodity";
-import { GetServiceResponseBodyComplianceMetadata } from "./GetServiceResponseBodyComplianceMetadata";
-import { GetServiceResponseBodyServiceDocumentInfos } from "./GetServiceResponseBodyServiceDocumentInfos";
-import { GetServiceResponseBodyServiceInfos } from "./GetServiceResponseBodyServiceInfos";
-import { GetServiceResponseBodyStatistic } from "./GetServiceResponseBodyStatistic";
-import { GetServiceResponseBodySupportContacts } from "./GetServiceResponseBodySupportContacts";
-import { GetServiceResponseBodyTags } from "./GetServiceResponseBodyTags";
 
+
+export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The mappings.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mappings) {
+      $dara.Model.validateMap(this.mappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * cmgj0048****-Frequency-1
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * Name of a measurement indicator.
+   * 
+   * @example
+   * AvgMemory
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * Custom PromQL.
+   * 
+   * @example
+   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * Measurement indicators.
+   * 
+   * @example
+   * ComputeNestPrometheus
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * cmgj0015****-Frequency-1
+   */
+  entityIds?: string;
+  /**
+   * @remarks
+   * The package name.
+   * 
+   * @example
+   * Pay-as-you-go package
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * 模板1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The mapping information about the billing items.
+   */
+  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
+  /**
+   * @remarks
+   * Metering item configuration information.
+   */
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * The binding relationship between package and measurement dimension.
+   */
+  meteringEntityMappings?: GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataMeteringEntityMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.componentsMappings)) {
+      $dara.Model.validateArray(this.componentsMappings);
+    }
+    if(Array.isArray(this.meteringEntityExtraInfos)) {
+      $dara.Model.validateArray(this.meteringEntityExtraInfos);
+    }
+    if(Array.isArray(this.meteringEntityMappings)) {
+      $dara.Model.validateArray(this.meteringEntityMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut-2
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * The metric name.
+   * 
+   * @example
+   * NetworkLantency
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The custom prometheus statement.
+   * 
+   * @example
+   * avg_over_time(count(kube_pod_info{namespace=\\"default\\"})[1h:1m])
+   */
+  promql?: string;
+  /**
+   * @remarks
+   * The metric.
+   * 
+   * @example
+   * AvgPod
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut-2
+   */
+  entityIds?: string;
+  /**
+   * @remarks
+   * The name of the specification package.
+   * 
+   * @example
+   * Pay-as-you-go Package
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The specification code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The name of the specification package.
+   * 
+   * @example
+   * Pay-as-you-go
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * NotTrial
+   */
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+      trialType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the billable items.
+   */
+  meteringEntityExtraInfos?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos[];
+  /**
+   * @remarks
+   * The billable items that are associated with the package.
+   */
+  meteringEntityMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings[];
+  /**
+   * @remarks
+   * The mappings between the service specifications and the template or package.
+   */
+  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataMeteringEntityMappings },
+      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.meteringEntityExtraInfos)) {
+      $dara.Model.validateArray(this.meteringEntityExtraInfos);
+    }
+    if(Array.isArray(this.meteringEntityMappings)) {
+      $dara.Model.validateArray(this.meteringEntityMappings);
+    }
+    if(Array.isArray(this.specificationMappings)) {
+      $dara.Model.validateArray(this.specificationMappings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMeteringEntities extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the billable item.
+   * 
+   * @example
+   * cmgjxxxxxxxx-NetworkOut
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * The name of the billable item.
+   * 
+   * @example
+   * spring-boot-demo
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommoditySpecifications extends $dara.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * specifications1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The subscription duration. Unit: week or year.
+   */
+  times?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      times: 'Times',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      times: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.times)) {
+      $dara.Model.validateArray(this.times);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodity extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method of the service. Valid values:
+   * 
+   * *   **PREPAY** (default): subscription.
+   * *   **POSTPAY**: pay-as-you-go.
+   * 
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The commodity modules.
+   */
+  components?: string[];
+  /**
+   * @remarks
+   * The configuration metadata related to Lingxiao.
+   */
+  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
+  /**
+   * @remarks
+   * The metadata of Alibaba Cloud Marketplace.
+   */
+  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
+  /**
+   * @remarks
+   * The information about the billable item.
+   */
+  meteringEntities?: GetServiceResponseBodyCommodityMeteringEntities[];
+  /**
+   * @remarks
+   * The configuration metadata related to Saas Boost.
+   * 
+   * @example
+   * { "Enabled":false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+   */
+  saasBoostMetadata?: string;
+  /**
+   * @remarks
+   * The specification details of the service in Alibaba Cloud Marketplace.
+   */
+  specifications?: GetServiceResponseBodyCommoditySpecifications[];
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   marketplace: Alibaba Cloud Marketplace.
+   * *   Css: Lingxiao.
+   * 
+   * @example
+   * Marketplace
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      components: 'Components',
+      cssMetadata: 'CssMetadata',
+      marketplaceMetadata: 'MarketplaceMetadata',
+      meteringEntities: 'MeteringEntities',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      specifications: 'Specifications',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      components: { 'type': 'array', 'itemType': 'string' },
+      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
+      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
+      meteringEntities: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMeteringEntities },
+      saasBoostMetadata: 'string',
+      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(this.cssMetadata && typeof (this.cssMetadata as any).validate === 'function') {
+      (this.cssMetadata as any).validate();
+    }
+    if(this.marketplaceMetadata && typeof (this.marketplaceMetadata as any).validate === 'function') {
+      (this.marketplaceMetadata as any).validate();
+    }
+    if(Array.isArray(this.meteringEntities)) {
+      $dara.Model.validateArray(this.meteringEntities);
+    }
+    if(Array.isArray(this.specifications)) {
+      $dara.Model.validateArray(this.specifications);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyComplianceMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * The compliance package is selected.
+   */
+  compliancePacks?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      compliancePacks: 'CompliancePacks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePacks: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.compliancePacks)) {
+      $dara.Model.validateArray(this.compliancePacks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The URL that is used to access the document.
+   * 
+   * @example
+   * http://docurl
+   */
+  documentUrl?: string;
+  /**
+   * @remarks
+   * The language of the return data. Valid values: zh-CN and en-US.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Default Template.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentUrl: 'DocumentUrl',
+      locale: 'Locale',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentUrl: 'string',
+      locale: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosAgreements extends $dara.Model {
+  /**
+   * @remarks
+   * The agreement name.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The agreement URL.
+   * 
+   * @example
+   * https://aliyun.com/xxxxxxxx.html
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the software
+   * 
+   * @example
+   * MySQL
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The agreement information about the service.
+   */
+  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The URL of the detailed description of the service.
+   * 
+   * @example
+   * https://example.com
+   */
+  longDescriptionUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * WordPress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the information about the software in the service.
+   */
+  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      longDescriptionUrl: 'LongDescriptionUrl',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
+      image: 'string',
+      locale: 'string',
+      longDescriptionUrl: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.agreements)) {
+      $dara.Model.validateArray(this.agreements);
+    }
+    if(Array.isArray(this.softwares)) {
+      $dara.Model.validateArray(this.softwares);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyStatistic extends $dara.Model {
+  /**
+   * @remarks
+   * The total number of service instances that belong to the service. The service instances that are deleted are counted.
+   * 
+   * @example
+   * 75
+   */
+  accumulativeInstanceCount?: number;
+  /**
+   * @remarks
+   * The total amount consumed for trial service instances. Unit: CNY.
+   * 
+   * @example
+   * 80.35
+   */
+  accumulativePocAmount?: number;
+  /**
+   * @remarks
+   * The total number of users who use the service. The historical users are counted.
+   * 
+   * @example
+   * 60
+   */
+  accumulativeUserCount?: number;
+  /**
+   * @remarks
+   * The average amount consumed for trial service instances per instance. Unit: CNY.
+   * 
+   * @example
+   * 40.17
+   */
+  averagePocAmount?: number;
+  /**
+   * @remarks
+   * The average duration for which trial service instances are in use. Unit: Hour.
+   * 
+   * @example
+   * 1
+   */
+  averagePocDuration?: number;
+  /**
+   * @remarks
+   * The average amount consumed for trial service instances per a period of time. Unit: CNY.
+   * 
+   * @example
+   * 167.9
+   */
+  averagePocUnitAmount?: number;
+  /**
+   * @remarks
+   * The number of online service instances. It means the number of service instances that are successfully deployed.
+   * 
+   * @example
+   * 20
+   */
+  deployedServiceInstanceCount?: number;
+  /**
+   * @remarks
+   * The number of online users. It means the number of users who successfully deployed the service instances.
+   * 
+   * @example
+   * 10
+   */
+  deployedUserCount?: number;
+  /**
+   * @remarks
+   * The number of service applications that are in the Submitted state.
+   * 
+   * @example
+   * 10
+   */
+  submittedUsageCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accumulativeInstanceCount: 'AccumulativeInstanceCount',
+      accumulativePocAmount: 'AccumulativePocAmount',
+      accumulativeUserCount: 'AccumulativeUserCount',
+      averagePocAmount: 'AveragePocAmount',
+      averagePocDuration: 'AveragePocDuration',
+      averagePocUnitAmount: 'AveragePocUnitAmount',
+      deployedServiceInstanceCount: 'DeployedServiceInstanceCount',
+      deployedUserCount: 'DeployedUserCount',
+      submittedUsageCount: 'SubmittedUsageCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accumulativeInstanceCount: 'number',
+      accumulativePocAmount: 'number',
+      accumulativeUserCount: 'number',
+      averagePocAmount: 'number',
+      averagePocDuration: 'number',
+      averagePocUnitAmount: 'number',
+      deployedServiceInstanceCount: 'number',
+      deployedUserCount: 'number',
+      submittedUsageCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodySupportContacts extends $dara.Model {
+  /**
+   * @remarks
+   * The type of Contact information.
+   * 
+   * @example
+   * Email
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The value of Contact information.
+   * 
+   * @example
+   * supplier@test.com
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetServiceResponseBody extends $dara.Model {
   /**
@@ -252,6 +1317,7 @@ export class GetServiceResponseBody extends $dara.Model {
    * rg-aekzuqyxxxxxx
    */
   resourceGroupId?: string;
+  secretKey?: string;
   /**
    * @remarks
    * The URL of the service audit file.
@@ -532,6 +1598,7 @@ export class GetServiceResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resellable: 'Resellable',
       resourceGroupId: 'ResourceGroupId',
+      secretKey: 'SecretKey',
       serviceAuditDocumentUrl: 'ServiceAuditDocumentUrl',
       serviceDiscoverable: 'ServiceDiscoverable',
       serviceDocumentInfos: 'ServiceDocumentInfos',
@@ -592,6 +1659,7 @@ export class GetServiceResponseBody extends $dara.Model {
       requestId: 'string',
       resellable: 'boolean',
       resourceGroupId: 'string',
+      secretKey: 'string',
       serviceAuditDocumentUrl: 'string',
       serviceDiscoverable: 'string',
       serviceDocumentInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceDocumentInfos },

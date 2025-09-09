@@ -1,8 +1,123 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetServiceRegistrationResponseBodyDetail } from "./GetServiceRegistrationResponseBodyDetail";
-import { GetServiceRegistrationResponseBodyServiceInfo } from "./GetServiceRegistrationResponseBodyServiceInfo";
 
+
+export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
+  /**
+   * @remarks
+   * Whether risk exists.
+   * 
+   * @example
+   * true
+   */
+  atRisk?: boolean;
+  /**
+   * @remarks
+   * Whether service is associated with artifact.
+   * 
+   * @example
+   * true
+   */
+  hasRelatedArtifact?: boolean;
+  /**
+   * @remarks
+   * The reports.
+   * 
+   * @example
+   * { "template1":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
+   */
+  reports?: string;
+  /**
+   * @remarks
+   * The url of template diff file.
+   * 
+   * @example
+   * https://compute-nest-template-diff-bucket.oss-cn-hangzhou.aliyuncs.com/service-abc/diff
+   */
+  templateDiffUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      atRisk: 'AtRisk',
+      hasRelatedArtifact: 'HasRelatedArtifact',
+      reports: 'Reports',
+      templateDiffUrl: 'TemplateDiffUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      atRisk: 'boolean',
+      hasRelatedArtifact: 'boolean',
+      reports: 'string',
+      templateDiffUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v1.0
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceType: 'ServiceType',
+      trialType: 'TrialType',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceType: 'string',
+      trialType: 'string',
+      versionName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetServiceRegistrationResponseBody extends $dara.Model {
   /**
