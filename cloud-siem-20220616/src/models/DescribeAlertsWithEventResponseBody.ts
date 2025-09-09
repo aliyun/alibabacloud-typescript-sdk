@@ -282,6 +282,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
    * aliyun
    */
   cloudCode?: string;
+  detectionRuleId?: string;
   /**
    * @remarks
    * The time when the alert was closed.
@@ -374,6 +375,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
    * 2021-01-06 16:37:29
    */
   occurTime?: string;
+  productId?: string;
   /**
    * @remarks
    * The time at which the alert was first generated.
@@ -395,6 +397,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
    * 176555323***
    */
   subUserName?: string;
+  vendorId?: string;
   static names(): { [key: string]: string } {
     return {
       alertDesc: 'AlertDesc',
@@ -417,6 +420,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       assetList: 'AssetList',
       attCk: 'AttCk',
       cloudCode: 'CloudCode',
+      detectionRuleId: 'DetectionRuleId',
       endTime: 'EndTime',
       entityList: 'EntityList',
       extendContent: 'ExtendContent',
@@ -429,9 +433,11 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       logUuid: 'LogUuid',
       mainUserId: 'MainUserId',
       occurTime: 'OccurTime',
+      productId: 'ProductId',
       startTime: 'StartTime',
       subUserId: 'SubUserId',
       subUserName: 'SubUserName',
+      vendorId: 'VendorId',
     };
   }
 
@@ -457,6 +463,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       assetList: 'string',
       attCk: 'string',
       cloudCode: 'string',
+      detectionRuleId: 'string',
       endTime: 'string',
       entityList: 'string',
       extendContent: 'string',
@@ -469,9 +476,11 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       logUuid: 'string',
       mainUserId: 'number',
       occurTime: 'string',
+      productId: 'string',
       startTime: 'string',
       subUserId: 'number',
       subUserName: 'string',
+      vendorId: 'string',
     };
   }
 

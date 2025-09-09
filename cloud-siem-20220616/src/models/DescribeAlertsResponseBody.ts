@@ -282,6 +282,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
    * aliyun
    */
   cloudCode?: string;
+  detectionRuleId?: string;
   /**
    * @remarks
    * The time when the alert was closed.
@@ -367,6 +368,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
    * 2021-01-06 16:37:29
    */
   occurTime?: string;
+  productId?: string;
   /**
    * @remarks
    * The time at which the alert was first generated.
@@ -388,6 +390,11 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
    * 176555323***
    */
   subUserName?: string;
+  /**
+   * @example
+   * aliyun
+   */
+  vendorId?: string;
   static names(): { [key: string]: string } {
     return {
       alertDesc: 'AlertDesc',
@@ -410,6 +417,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       assetList: 'AssetList',
       attCk: 'AttCk',
       cloudCode: 'CloudCode',
+      detectionRuleId: 'DetectionRuleId',
       endTime: 'EndTime',
       entityList: 'EntityList',
       extendContent: 'ExtendContent',
@@ -422,9 +430,11 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       logUuid: 'LogUuid',
       mainUserId: 'MainUserId',
       occurTime: 'OccurTime',
+      productId: 'ProductId',
       startTime: 'StartTime',
       subUserId: 'SubUserId',
       subUserName: 'SubUserName',
+      vendorId: 'VendorId',
     };
   }
 
@@ -450,6 +460,7 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       assetList: 'string',
       attCk: 'string',
       cloudCode: 'string',
+      detectionRuleId: 'string',
       endTime: 'string',
       entityList: 'string',
       extendContent: 'string',
@@ -462,9 +473,11 @@ export class DescribeAlertsResponseBodyDataResponseData extends $dara.Model {
       logUuid: 'string',
       mainUserId: 'number',
       occurTime: 'string',
+      productId: 'string',
       startTime: 'string',
       subUserId: 'number',
       subUserName: 'string',
+      vendorId: 'string',
     };
   }
 

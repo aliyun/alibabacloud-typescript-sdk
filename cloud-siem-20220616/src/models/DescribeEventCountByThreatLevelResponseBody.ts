@@ -19,6 +19,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
    * 20
    */
   highLevelEventNum?: number;
+  infoLevelEventNum?: number;
   /**
    * @remarks
    * The number of low-risk events.
@@ -35,6 +36,7 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
    * 3
    */
   mediumLevelEventNum?: number;
+  seriousLevelEventNum?: number;
   /**
    * @remarks
    * The number of unhandled events.
@@ -47,8 +49,10 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
     return {
       eventNum: 'EventNum',
       highLevelEventNum: 'HighLevelEventNum',
+      infoLevelEventNum: 'InfoLevelEventNum',
       lowLevelEventNum: 'LowLevelEventNum',
       mediumLevelEventNum: 'MediumLevelEventNum',
+      seriousLevelEventNum: 'SeriousLevelEventNum',
       undealEventNum: 'UndealEventNum',
     };
   }
@@ -57,8 +61,10 @@ export class DescribeEventCountByThreatLevelResponseBodyData extends $dara.Model
     return {
       eventNum: 'number',
       highLevelEventNum: 'number',
+      infoLevelEventNum: 'number',
       lowLevelEventNum: 'number',
       mediumLevelEventNum: 'number',
+      seriousLevelEventNum: 'number',
       undealEventNum: 'number',
     };
   }

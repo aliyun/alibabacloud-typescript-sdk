@@ -282,6 +282,7 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
    * aliyun
    */
   cloudCode?: string;
+  detectionRuleId?: string;
   /**
    * @remarks
    * The time when the alert was closed.
@@ -366,6 +367,7 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
    * 2021-01-06 16:37:29
    */
   occurTime?: string;
+  productId?: string;
   /**
    * @remarks
    * The time at which the alert was first generated.
@@ -387,6 +389,7 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
    * 176555323***
    */
   subUserName?: string;
+  vendorId?: string;
   static names(): { [key: string]: string } {
     return {
       alertDesc: 'AlertDesc',
@@ -409,6 +412,7 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
       assetList: 'AssetList',
       attCk: 'AttCk',
       cloudCode: 'CloudCode',
+      detectionRuleId: 'DetectionRuleId',
       endTime: 'EndTime',
       entityList: 'EntityList',
       gmtCreate: 'GmtCreate',
@@ -420,9 +424,11 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
       logUuid: 'LogUuid',
       mainUserId: 'MainUserId',
       occurTime: 'OccurTime',
+      productId: 'ProductId',
       startTime: 'StartTime',
       subUserId: 'SubUserId',
       subUserName: 'SubUserName',
+      vendorId: 'VendorId',
     };
   }
 
@@ -448,6 +454,7 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
       assetList: 'string',
       attCk: 'string',
       cloudCode: 'string',
+      detectionRuleId: 'string',
       endTime: 'string',
       entityList: 'string',
       gmtCreate: 'string',
@@ -459,9 +466,11 @@ export class DescribeAlertsWithEntityResponseBodyDataResponseData extends $dara.
       logUuid: 'string',
       mainUserId: 'number',
       occurTime: 'string',
+      productId: 'string',
       startTime: 'string',
       subUserId: 'number',
       subUserName: 'string',
+      vendorId: 'string',
     };
   }
 
