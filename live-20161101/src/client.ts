@@ -22245,6 +22245,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取在线频道列表
+   * 
+   * @param request - ListRTCLiveRoomsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRTCLiveRoomsResponse
+   */
+  async listRTCLiveRoomsWithOptions(request: $_model.ListRTCLiveRoomsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRTCLiveRoomsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRTCLiveRooms",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRTCLiveRoomsResponse>(await this.callApi(params, req, runtime), new $_model.ListRTCLiveRoomsResponse({}));
+  }
+
+  /**
+   * 获取在线频道列表
+   * 
+   * @param request - ListRTCLiveRoomsRequest
+   * @returns ListRTCLiveRoomsResponse
+   */
+  async listRTCLiveRooms(request: $_model.ListRTCLiveRoomsRequest): Promise<$_model.ListRTCLiveRoomsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRTCLiveRoomsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the callback records of a subscription to mixed-stream relay events.
    * 
    * @remarks
