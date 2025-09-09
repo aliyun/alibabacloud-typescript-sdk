@@ -309,6 +309,9 @@ export class PushRequest extends $dara.Model {
    * false
    */
   trim?: boolean;
+  androidOppoPrivateContentParameters?: { [key: string]: string };
+  androidOppoPrivateMsgTemplateId?: string;
+  androidOppoPrivateTitleParameters?: { [key: string]: string };
   /**
    * @example
    * DEV
@@ -474,6 +477,9 @@ export class PushRequest extends $dara.Model {
       targetValue: 'TargetValue',
       title: 'Title',
       trim: 'Trim',
+      androidOppoPrivateContentParameters: 'androidOppoPrivateContentParameters',
+      androidOppoPrivateMsgTemplateId: 'androidOppoPrivateMsgTemplateId',
+      androidOppoPrivateTitleParameters: 'androidOppoPrivateTitleParameters',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
@@ -586,6 +592,9 @@ export class PushRequest extends $dara.Model {
       targetValue: 'string',
       title: 'string',
       trim: 'boolean',
+      androidOppoPrivateContentParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      androidOppoPrivateMsgTemplateId: 'string',
+      androidOppoPrivateTitleParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
@@ -612,6 +621,12 @@ export class PushRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.androidOppoPrivateContentParameters) {
+      $dara.Model.validateMap(this.androidOppoPrivateContentParameters);
+    }
+    if(this.androidOppoPrivateTitleParameters) {
+      $dara.Model.validateMap(this.androidOppoPrivateTitleParameters);
+    }
     super.validate();
   }
 

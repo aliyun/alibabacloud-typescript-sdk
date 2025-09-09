@@ -655,12 +655,22 @@ export default class Client extends OpenApi {
   /**
    * 高级推送接口
    * 
-   * @param request - PushRequest
+   * @param tmpReq - PushRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushResponse
    */
-  async pushWithOptions(request: $_model.PushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushResponse> {
-    request.validate();
+  async pushWithOptions(tmpReq: $_model.PushRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushResponse> {
+    tmpReq.validate();
+    let request = new $_model.PushShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.androidOppoPrivateContentParameters)) {
+      request.androidOppoPrivateContentParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateContentParameters, "androidOppoPrivateContentParameters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.androidOppoPrivateTitleParameters)) {
+      request.androidOppoPrivateTitleParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.androidOppoPrivateTitleParameters, "androidOppoPrivateTitleParameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.androidActivity)) {
       query["AndroidActivity"] = request.androidActivity;
@@ -1000,6 +1010,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.trim)) {
       query["Trim"] = request.trim;
+    }
+
+    if (!$dara.isNull(request.androidOppoPrivateContentParametersShrink)) {
+      query["androidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink;
+    }
+
+    if (!$dara.isNull(request.androidOppoPrivateMsgTemplateId)) {
+      query["androidOppoPrivateMsgTemplateId"] = request.androidOppoPrivateMsgTemplateId;
+    }
+
+    if (!$dara.isNull(request.androidOppoPrivateTitleParametersShrink)) {
+      query["androidOppoPrivateTitleParameters"] = request.androidOppoPrivateTitleParametersShrink;
     }
 
     if (!$dara.isNull(request.iOSApnsEnv)) {

@@ -2,22 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class MassPushRequestPushTask extends $dara.Model {
+export class PushShrinkRequest extends $dara.Model {
   /**
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
    */
   androidActivity?: string;
-  /**
-   * @example
-   * 99
-   */
   androidBadgeAddNum?: number;
   androidBadgeClass?: string;
-  /**
-   * @example
-   * 99
-   */
   androidBadgeSetNum?: number;
   androidBigBody?: string;
   /**
@@ -39,7 +31,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   androidHuaweiReceiptId?: string;
   /**
    * @example
-   * 1
+   * 0
    */
   androidHuaweiTargetUserType?: number;
   /**
@@ -53,7 +45,7 @@ export class MassPushRequestPushTask extends $dara.Model {
    * 0
    * 
    * **if can be null:**
-   * false
+   * true
    */
   androidMeizuNoticeMsgType?: number;
   /**
@@ -112,7 +104,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   androidNotificationThreadId?: string;
   /**
    * @example
-   * 0
+   * classification
    */
   androidNotificationVivoChannel?: string;
   /**
@@ -122,7 +114,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   androidNotificationXiaomiChannel?: string;
   /**
    * @example
-   * VIBRATE
+   * BOTH
    */
   androidNotifyType?: string;
   /**
@@ -159,11 +151,11 @@ export class MassPushRequestPushTask extends $dara.Model {
    * @example
    * 1
    */
-  androidRenderStyle?: string;
+  androidRenderStyle?: number;
   androidTargetUserType?: number;
   /**
    * @example
-   * 1
+   * 0
    */
   androidVivoPushMode?: number;
   androidVivoReceiptId?: string;
@@ -193,6 +185,14 @@ export class MassPushRequestPushTask extends $dara.Model {
    * @deprecated
    */
   androidXiaomiImageUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23267207
+   */
+  appKey?: number;
   /**
    * @example
    * hello
@@ -230,6 +230,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   harmonyRenderStyle?: string;
   harmonyTestMessage?: boolean;
   harmonyUri?: string;
+  idempotentToken?: string;
   /**
    * @example
    * 123
@@ -262,7 +263,24 @@ export class MassPushRequestPushTask extends $dara.Model {
   sendSpeed?: number;
   /**
    * @example
-   * true
+   * 15
+   */
+  smsDelaySecs?: number;
+  /**
+   * @example
+   * key1=value1
+   */
+  smsParams?: string;
+  /**
+   * @example
+   * 0
+   */
+  smsSendPolicy?: number;
+  smsSignName?: string;
+  smsTemplateName?: string;
+  /**
+   * @example
+   * false
    */
   storeOffline?: boolean;
   /**
@@ -270,7 +288,7 @@ export class MassPushRequestPushTask extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * DEVICE
+   * ALL
    */
   target?: string;
   /**
@@ -278,7 +296,7 @@ export class MassPushRequestPushTask extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * deviceid1,deviceid2
+   * ALL
    */
   targetValue?: string;
   /**
@@ -291,9 +309,9 @@ export class MassPushRequestPushTask extends $dara.Model {
    * false
    */
   trim?: boolean;
-  androidOppoPrivateContentParameters?: { [key: string]: string };
+  androidOppoPrivateContentParametersShrink?: string;
   androidOppoPrivateMsgTemplateId?: string;
-  androidOppoPrivateTitleParameters?: { [key: string]: string };
+  androidOppoPrivateTitleParametersShrink?: string;
   /**
    * @example
    * DEV
@@ -328,7 +346,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   iOSLiveActivityStaleDate?: number;
   /**
    * @example
-   * ””
+   * ""
    */
   iOSMusic?: string;
   /**
@@ -369,7 +387,7 @@ export class MassPushRequestPushTask extends $dara.Model {
   iOSSilentNotification?: boolean;
   /**
    * @example
-   * subtitle
+   * su\\"b
    */
   iOSSubtitle?: string;
   static names(): { [key: string]: string } {
@@ -420,6 +438,7 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
       androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
       androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
+      appKey: 'AppKey',
       body: 'Body',
       deviceType: 'DeviceType',
       expireTime: 'ExpireTime',
@@ -442,19 +461,25 @@ export class MassPushRequestPushTask extends $dara.Model {
       harmonyRenderStyle: 'HarmonyRenderStyle',
       harmonyTestMessage: 'HarmonyTestMessage',
       harmonyUri: 'HarmonyUri',
+      idempotentToken: 'IdempotentToken',
       jobKey: 'JobKey',
       pushTime: 'PushTime',
       pushType: 'PushType',
       sendChannels: 'SendChannels',
       sendSpeed: 'SendSpeed',
+      smsDelaySecs: 'SmsDelaySecs',
+      smsParams: 'SmsParams',
+      smsSendPolicy: 'SmsSendPolicy',
+      smsSignName: 'SmsSignName',
+      smsTemplateName: 'SmsTemplateName',
       storeOffline: 'StoreOffline',
       target: 'Target',
       targetValue: 'TargetValue',
       title: 'Title',
       trim: 'Trim',
-      androidOppoPrivateContentParameters: 'androidOppoPrivateContentParameters',
+      androidOppoPrivateContentParametersShrink: 'androidOppoPrivateContentParameters',
       androidOppoPrivateMsgTemplateId: 'androidOppoPrivateMsgTemplateId',
-      androidOppoPrivateTitleParameters: 'androidOppoPrivateTitleParameters',
+      androidOppoPrivateTitleParametersShrink: 'androidOppoPrivateTitleParameters',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
@@ -519,7 +544,7 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidPopupBody: 'string',
       androidPopupTitle: 'string',
       androidRemind: 'boolean',
-      androidRenderStyle: 'string',
+      androidRenderStyle: 'number',
       androidTargetUserType: 'number',
       androidVivoPushMode: 'number',
       androidVivoReceiptId: 'string',
@@ -528,6 +553,7 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidXiaoMiNotifyTitle: 'string',
       androidXiaomiBigPictureUrl: 'string',
       androidXiaomiImageUrl: 'string',
+      appKey: 'number',
       body: 'string',
       deviceType: 'string',
       expireTime: 'string',
@@ -550,19 +576,25 @@ export class MassPushRequestPushTask extends $dara.Model {
       harmonyRenderStyle: 'string',
       harmonyTestMessage: 'boolean',
       harmonyUri: 'string',
+      idempotentToken: 'string',
       jobKey: 'string',
       pushTime: 'string',
       pushType: 'string',
       sendChannels: 'string',
       sendSpeed: 'number',
+      smsDelaySecs: 'number',
+      smsParams: 'string',
+      smsSendPolicy: 'number',
+      smsSignName: 'string',
+      smsTemplateName: 'string',
       storeOffline: 'boolean',
       target: 'string',
       targetValue: 'string',
       title: 'string',
       trim: 'boolean',
-      androidOppoPrivateContentParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      androidOppoPrivateContentParametersShrink: 'string',
       androidOppoPrivateMsgTemplateId: 'string',
-      androidOppoPrivateTitleParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      androidOppoPrivateTitleParametersShrink: 'string',
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
@@ -589,55 +621,6 @@ export class MassPushRequestPushTask extends $dara.Model {
   }
 
   validate() {
-    if(this.androidOppoPrivateContentParameters) {
-      $dara.Model.validateMap(this.androidOppoPrivateContentParameters);
-    }
-    if(this.androidOppoPrivateTitleParameters) {
-      $dara.Model.validateMap(this.androidOppoPrivateTitleParameters);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MassPushRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 23267207
-   */
-  appKey?: number;
-  idempotentToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pushTask?: MassPushRequestPushTask[];
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      idempotentToken: 'IdempotentToken',
-      pushTask: 'PushTask',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'number',
-      idempotentToken: 'string',
-      pushTask: { 'type': 'array', 'itemType': MassPushRequestPushTask },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.pushTask)) {
-      $dara.Model.validateArray(this.pushTask);
-    }
     super.validate();
   }
 
