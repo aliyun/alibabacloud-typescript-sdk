@@ -126,6 +126,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询域名备案信息
+   * 
+   * @param request - GetIcpFilingInfoForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIcpFilingInfoForPartnerResponse
+   */
+  async getIcpFilingInfoForPartnerWithOptions(request: $_model.GetIcpFilingInfoForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIcpFilingInfoForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIcpFilingInfoForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIcpFilingInfoForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetIcpFilingInfoForPartnerResponse({}));
+  }
+
+  /**
+   * 查询域名备案信息
+   * 
+   * @param request - GetIcpFilingInfoForPartnerRequest
+   * @returns GetIcpFilingInfoForPartnerResponse
+   */
+  async getIcpFilingInfoForPartner(request: $_model.GetIcpFilingInfoForPartnerRequest): Promise<$_model.GetIcpFilingInfoForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIcpFilingInfoForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 合作伙伴获取用户SLR角色授权临时凭证
+   * 
+   * @param request - GetUserTmpIdentityForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserTmpIdentityForPartnerResponse
+   */
+  async getUserTmpIdentityForPartnerWithOptions(request: $_model.GetUserTmpIdentityForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserTmpIdentityForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authPurpose)) {
+      query["AuthPurpose"] = request.authPurpose;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.serviceLinkedRole)) {
+      query["ServiceLinkedRole"] = request.serviceLinkedRole;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserTmpIdentityForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserTmpIdentityForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetUserTmpIdentityForPartnerResponse({}));
+  }
+
+  /**
+   * 合作伙伴获取用户SLR角色授权临时凭证
+   * 
+   * @param request - GetUserTmpIdentityForPartnerRequest
+   * @returns GetUserTmpIdentityForPartnerResponse
+   */
+  async getUserTmpIdentityForPartner(request: $_model.GetUserTmpIdentityForPartnerRequest): Promise<$_model.GetUserTmpIdentityForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserTmpIdentityForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 合作伙伴操作应用
    * 
    * @param request - OperateAppInstanceForPartnerRequest
