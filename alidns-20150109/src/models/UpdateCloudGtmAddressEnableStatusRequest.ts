@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudGtmAddressEnableStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * 返回结果显示的语言。取值：
+   * The language of the returned results. Valid values:
    * 
-   * - zh-CN：中文
+   * - zh-CN: Chinese
    * 
-   * - en-US：英文
+   * - en-US: English
    * 
    * @example
    * en-US

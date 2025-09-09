@@ -29,7 +29,7 @@ export class CreateCloudGtmAddressShrinkRequest extends $dara.Model {
    * Address ownership information.
    * 
    * @example
-   * 当前版本不支持传入此参数，请不要传入参数。
+   * This parameter is not supported in the version. Do not enter this parameter
    */
   attributeInfo?: string;
   /**

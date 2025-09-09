@@ -942,6 +942,134 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增递归解析内置权威解析记录
+   * 
+   * @param request - AddRecursionRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRecursionRecordResponse
+   */
+  async addRecursionRecordWithOptions(request: $_model.AddRecursionRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRecursionRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userClientIp)) {
+      query["UserClientIp"] = request.userClientIp;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRecursionRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRecursionRecordResponse>(await this.callApi(params, req, runtime), new $_model.AddRecursionRecordResponse({}));
+  }
+
+  /**
+   * 新增递归解析内置权威解析记录
+   * 
+   * @param request - AddRecursionRecordRequest
+   * @returns AddRecursionRecordResponse
+   */
+  async addRecursionRecord(request: $_model.AddRecursionRecordRequest): Promise<$_model.AddRecursionRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addRecursionRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增递归解析内置权威域名zone
+   * 
+   * @param request - AddRecursionZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRecursionZoneResponse
+   */
+  async addRecursionZoneWithOptions(request: $_model.AddRecursionZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRecursionZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.proxyPattern)) {
+      query["ProxyPattern"] = request.proxyPattern;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRecursionZone",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRecursionZoneResponse>(await this.callApi(params, req, runtime), new $_model.AddRecursionZoneResponse({}));
+  }
+
+  /**
+   * 新增递归解析内置权威域名zone
+   * 
+   * @param request - AddRecursionZoneRequest
+   * @returns AddRecursionZoneResponse
+   */
+  async addRecursionZone(request: $_model.AddRecursionZoneRequest): Promise<$_model.AddRecursionZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addRecursionZoneWithOptions(request, runtime);
+  }
+
+  /**
    * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
    * 
    * @remarks
@@ -2247,6 +2375,98 @@ export default class Client extends OpenApi {
   async deleteGtmRecoveryPlan(request: $_model.DeleteGtmRecoveryPlanRequest): Promise<$_model.DeleteGtmRecoveryPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGtmRecoveryPlanWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除递归解析内置权威解析记录
+   * 
+   * @param request - DeleteRecursionRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecursionRecordResponse
+   */
+  async deleteRecursionRecordWithOptions(request: $_model.DeleteRecursionRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecursionRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecursionRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecursionRecordResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecursionRecordResponse({}));
+  }
+
+  /**
+   * 删除递归解析内置权威解析记录
+   * 
+   * @param request - DeleteRecursionRecordRequest
+   * @returns DeleteRecursionRecordResponse
+   */
+  async deleteRecursionRecord(request: $_model.DeleteRecursionRecordRequest): Promise<$_model.DeleteRecursionRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRecursionRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除递归解析内置权威域名zone
+   * 
+   * @param request - DeleteRecursionZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecursionZoneResponse
+   */
+  async deleteRecursionZoneWithOptions(request: $_model.DeleteRecursionZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRecursionZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRecursionZone",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRecursionZoneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRecursionZoneResponse({}));
+  }
+
+  /**
+   * 删除递归解析内置权威域名zone
+   * 
+   * @param request - DeleteRecursionZoneRequest
+   * @returns DeleteRecursionZoneResponse
+   */
+  async deleteRecursionZone(request: $_model.DeleteRecursionZoneRequest): Promise<$_model.DeleteRecursionZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRecursionZoneWithOptions(request, runtime);
   }
 
   /**
@@ -7119,6 +7339,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询递归解析内置权威解析记录详情
+   * 
+   * @param request - DescribeRecursionRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecursionRecordResponse
+   */
+  async describeRecursionRecordWithOptions(request: $_model.DescribeRecursionRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRecursionRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRecursionRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRecursionRecordResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRecursionRecordResponse({}));
+  }
+
+  /**
+   * 查询递归解析内置权威解析记录详情
+   * 
+   * @param request - DescribeRecursionRecordRequest
+   * @returns DescribeRecursionRecordResponse
+   */
+  async describeRecursionRecord(request: $_model.DescribeRecursionRecordRequest): Promise<$_model.DescribeRecursionRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRecursionRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询递归解析内置权威域名zone详情
+   * 
+   * @param request - DescribeRecursionZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecursionZoneResponse
+   */
+  async describeRecursionZoneWithOptions(request: $_model.DescribeRecursionZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRecursionZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRecursionZone",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRecursionZoneResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRecursionZoneResponse({}));
+  }
+
+  /**
+   * 查询递归解析内置权威域名zone详情
+   * 
+   * @param request - DescribeRecursionZoneRequest
+   * @returns DescribeRecursionZoneResponse
+   */
+  async describeRecursionZone(request: $_model.DescribeRecursionZoneRequest): Promise<$_model.DescribeRecursionZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRecursionZoneWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
    * 
    * @param request - DescribeSubDomainRecordsRequest
@@ -8002,6 +8306,154 @@ export default class Client extends OpenApi {
   async listCloudGtmMonitorTemplates(request: $_model.ListCloudGtmMonitorTemplatesRequest): Promise<$_model.ListCloudGtmMonitorTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCloudGtmMonitorTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询递归解析内置权威解析记录
+   * 
+   * @param request - ListRecursionRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecursionRecordsResponse
+   */
+  async listRecursionRecordsWithOptions(request: $_model.ListRecursionRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecursionRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecursionRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecursionRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListRecursionRecordsResponse({}));
+  }
+
+  /**
+   * 查询递归解析内置权威解析记录
+   * 
+   * @param request - ListRecursionRecordsRequest
+   * @returns ListRecursionRecordsResponse
+   */
+  async listRecursionRecords(request: $_model.ListRecursionRecordsRequest): Promise<$_model.ListRecursionRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecursionRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询递归解析内置权威域名zone
+   * 
+   * @param request - ListRecursionZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecursionZonesResponse
+   */
+  async listRecursionZonesWithOptions(request: $_model.ListRecursionZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRecursionZonesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRecursionZones",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRecursionZonesResponse>(await this.callApi(params, req, runtime), new $_model.ListRecursionZonesResponse({}));
+  }
+
+  /**
+   * 查询递归解析内置权威域名zone
+   * 
+   * @param request - ListRecursionZonesRequest
+   * @returns ListRecursionZonesResponse
+   */
+  async listRecursionZones(request: $_model.ListRecursionZonesRequest): Promise<$_model.ListRecursionZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRecursionZonesWithOptions(request, runtime);
   }
 
   /**
@@ -9120,6 +9572,184 @@ export default class Client extends OpenApi {
   async searchCloudGtmMonitorTemplates(request: $_model.SearchCloudGtmMonitorTemplatesRequest): Promise<$_model.SearchCloudGtmMonitorTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchCloudGtmMonitorTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索递归解析内置权威解析记录
+   * 
+   * @param request - SearchRecursionRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchRecursionRecordsResponse
+   */
+  async searchRecursionRecordsWithOptions(request: $_model.SearchRecursionRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchRecursionRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchRecursionRecords",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchRecursionRecordsResponse>(await this.callApi(params, req, runtime), new $_model.SearchRecursionRecordsResponse({}));
+  }
+
+  /**
+   * 搜索递归解析内置权威解析记录
+   * 
+   * @param request - SearchRecursionRecordsRequest
+   * @returns SearchRecursionRecordsResponse
+   */
+  async searchRecursionRecords(request: $_model.SearchRecursionRecordsRequest): Promise<$_model.SearchRecursionRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchRecursionRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索递归解析内置权威域名zone
+   * 
+   * @param tmpReq - SearchRecursionZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchRecursionZonesResponse
+   */
+  async searchRecursionZonesWithOptions(tmpReq: $_model.SearchRecursionZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchRecursionZonesResponse> {
+    tmpReq.validate();
+    let request = new $_model.SearchRecursionZonesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.effectiveScopes)) {
+      request.effectiveScopesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.effectiveScopes, "EffectiveScopes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.effectiveScopesShrink)) {
+      query["EffectiveScopes"] = request.effectiveScopesShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchRecursionZones",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchRecursionZonesResponse>(await this.callApi(params, req, runtime), new $_model.SearchRecursionZonesResponse({}));
+  }
+
+  /**
+   * 搜索递归解析内置权威域名zone
+   * 
+   * @param request - SearchRecursionZonesRequest
+   * @returns SearchRecursionZonesResponse
+   */
+  async searchRecursionZones(request: $_model.SearchRecursionZonesRequest): Promise<$_model.SearchRecursionZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchRecursionZonesWithOptions(request, runtime);
   }
 
   /**
@@ -12078,6 +12708,448 @@ export default class Client extends OpenApi {
   async updateIspFlushCacheInstanceConfig(request: $_model.UpdateIspFlushCacheInstanceConfigRequest): Promise<$_model.UpdateIspFlushCacheInstanceConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIspFlushCacheInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录
+   * 
+   * @param request - UpdateRecursionRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionRecordResponse
+   */
+  async updateRecursionRecordWithOptions(request: $_model.UpdateRecursionRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      query["Ttl"] = request.ttl;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionRecord",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionRecordResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionRecordResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录
+   * 
+   * @param request - UpdateRecursionRecordRequest
+   * @returns UpdateRecursionRecordResponse
+   */
+  async updateRecursionRecord(request: $_model.UpdateRecursionRecordRequest): Promise<$_model.UpdateRecursionRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改内置权威解析记录启用状态
+   * 
+   * @param request - UpdateRecursionRecordEnableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionRecordEnableStatusResponse
+   */
+  async updateRecursionRecordEnableStatusWithOptions(request: $_model.UpdateRecursionRecordEnableStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionRecordEnableStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionRecordEnableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionRecordEnableStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionRecordEnableStatusResponse({}));
+  }
+
+  /**
+   * 修改内置权威解析记录启用状态
+   * 
+   * @param request - UpdateRecursionRecordEnableStatusRequest
+   * @returns UpdateRecursionRecordEnableStatusResponse
+   */
+  async updateRecursionRecordEnableStatus(request: $_model.UpdateRecursionRecordEnableStatusRequest): Promise<$_model.UpdateRecursionRecordEnableStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionRecordEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录备注
+   * 
+   * @param request - UpdateRecursionRecordRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionRecordRemarkResponse
+   */
+  async updateRecursionRecordRemarkWithOptions(request: $_model.UpdateRecursionRecordRemarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionRecordRemarkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionRecordRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionRecordRemarkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionRecordRemarkResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录备注
+   * 
+   * @param request - UpdateRecursionRecordRemarkRequest
+   * @returns UpdateRecursionRecordRemarkResponse
+   */
+  async updateRecursionRecordRemark(request: $_model.UpdateRecursionRecordRemarkRequest): Promise<$_model.UpdateRecursionRecordRemarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionRecordRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录权重
+   * 
+   * @param request - UpdateRecursionRecordWeightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionRecordWeightResponse
+   */
+  async updateRecursionRecordWeightWithOptions(request: $_model.UpdateRecursionRecordWeightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionRecordWeightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionRecordWeight",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionRecordWeightResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionRecordWeightResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录权重
+   * 
+   * @param request - UpdateRecursionRecordWeightRequest
+   * @returns UpdateRecursionRecordWeightResponse
+   */
+  async updateRecursionRecordWeight(request: $_model.UpdateRecursionRecordWeightRequest): Promise<$_model.UpdateRecursionRecordWeightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionRecordWeightWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录权重算法启用状态
+   * 
+   * @param request - UpdateRecursionRecordWeightEnableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionRecordWeightEnableStatusResponse
+   */
+  async updateRecursionRecordWeightEnableStatusWithOptions(request: $_model.UpdateRecursionRecordWeightEnableStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionRecordWeightEnableStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.enableStatus)) {
+      query["EnableStatus"] = request.enableStatus;
+    }
+
+    if (!$dara.isNull(request.requestSource)) {
+      query["RequestSource"] = request.requestSource;
+    }
+
+    if (!$dara.isNull(request.rr)) {
+      query["Rr"] = request.rr;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionRecordWeightEnableStatus",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionRecordWeightEnableStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionRecordWeightEnableStatusResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威解析记录权重算法启用状态
+   * 
+   * @param request - UpdateRecursionRecordWeightEnableStatusRequest
+   * @returns UpdateRecursionRecordWeightEnableStatusResponse
+   */
+  async updateRecursionRecordWeightEnableStatus(request: $_model.UpdateRecursionRecordWeightEnableStatusRequest): Promise<$_model.UpdateRecursionRecordWeightEnableStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionRecordWeightEnableStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone生效范围
+   * 
+   * @param tmpReq - UpdateRecursionZoneEffectiveScopeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionZoneEffectiveScopeResponse
+   */
+  async updateRecursionZoneEffectiveScopeWithOptions(tmpReq: $_model.UpdateRecursionZoneEffectiveScopeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionZoneEffectiveScopeResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateRecursionZoneEffectiveScopeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.effectiveScopes)) {
+      request.effectiveScopesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.effectiveScopes, "EffectiveScopes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.effectiveScopesShrink)) {
+      query["EffectiveScopes"] = request.effectiveScopesShrink;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionZoneEffectiveScope",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionZoneEffectiveScopeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionZoneEffectiveScopeResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone生效范围
+   * 
+   * @param request - UpdateRecursionZoneEffectiveScopeRequest
+   * @returns UpdateRecursionZoneEffectiveScopeResponse
+   */
+  async updateRecursionZoneEffectiveScope(request: $_model.UpdateRecursionZoneEffectiveScopeRequest): Promise<$_model.UpdateRecursionZoneEffectiveScopeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionZoneEffectiveScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone递归代理模式
+   * 
+   * @param request - UpdateRecursionZoneProxyPatternRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionZoneProxyPatternResponse
+   */
+  async updateRecursionZoneProxyPatternWithOptions(request: $_model.UpdateRecursionZoneProxyPatternRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionZoneProxyPatternResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.proxyPattern)) {
+      query["ProxyPattern"] = request.proxyPattern;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionZoneProxyPattern",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionZoneProxyPatternResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionZoneProxyPatternResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone递归代理模式
+   * 
+   * @param request - UpdateRecursionZoneProxyPatternRequest
+   * @returns UpdateRecursionZoneProxyPatternResponse
+   */
+  async updateRecursionZoneProxyPattern(request: $_model.UpdateRecursionZoneProxyPatternRequest): Promise<$_model.UpdateRecursionZoneProxyPatternResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionZoneProxyPatternWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone备注
+   * 
+   * @param request - UpdateRecursionZoneRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecursionZoneRemarkResponse
+   */
+  async updateRecursionZoneRemarkWithOptions(request: $_model.UpdateRecursionZoneRemarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecursionZoneRemarkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRecursionZoneRemark",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRecursionZoneRemarkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRecursionZoneRemarkResponse({}));
+  }
+
+  /**
+   * 修改递归解析内置权威域名zone备注
+   * 
+   * @param request - UpdateRecursionZoneRemarkRequest
+   * @returns UpdateRecursionZoneRemarkResponse
+   */
+  async updateRecursionZoneRemark(request: $_model.UpdateRecursionZoneRemarkRequest): Promise<$_model.UpdateRecursionZoneRemarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRecursionZoneRemarkWithOptions(request, runtime);
   }
 
   /**
