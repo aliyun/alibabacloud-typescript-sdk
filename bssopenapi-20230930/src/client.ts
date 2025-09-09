@@ -262,6 +262,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提货券账户检查是否存在
+   * 
+   * @param request - CheckAccountExistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAccountExistResponse
+   */
+  async checkAccountExistWithOptions(request: $_model.CheckAccountExistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAccountExistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.toUserType)) {
+      body["ToUserType"] = request.toUserType;
+    }
+
+    if (!$dara.isNull(request.transferAccount)) {
+      body["TransferAccount"] = request.transferAccount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAccountExist",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckAccountExistResponse>(await this.callApi(params, req, runtime), new $_model.CheckAccountExistResponse({}));
+  }
+
+  /**
+   * 提货券账户检查是否存在
+   * 
+   * @param request - CheckAccountExistRequest
+   * @returns CheckAccountExistResponse
+   */
+  async checkAccountExist(request: $_model.CheckAccountExistRequest): Promise<$_model.CheckAccountExistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkAccountExistWithOptions(request, runtime);
+  }
+
+  /**
    * 创建财务单元
    * 
    * @param tmpReq - CreateCostCenterRequest
@@ -2165,6 +2221,72 @@ export default class Client extends OpenApi {
   async modifyCostCenterRule(request: $_model.ModifyCostCenterRuleRequest): Promise<$_model.ModifyCostCenterRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyCostCenterRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 对客订单支付接口
+   * 
+   * @param request - PayOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PayOrderResponse
+   */
+  async payOrderWithOptions(request: $_model.PayOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PayOrderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.buyerId)) {
+      query["BuyerId"] = request.buyerId;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.paySubmitUid)) {
+      query["PaySubmitUid"] = request.paySubmitUid;
+    }
+
+    if (!$dara.isNull(request.payerId)) {
+      query["PayerId"] = request.payerId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PayOrder",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PayOrderResponse>(await this.callApi(params, req, runtime), new $_model.PayOrderResponse({}));
+  }
+
+  /**
+   * 对客订单支付接口
+   * 
+   * @param request - PayOrderRequest
+   * @returns PayOrderResponse
+   */
+  async payOrder(request: $_model.PayOrderRequest): Promise<$_model.PayOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.payOrderWithOptions(request, runtime);
   }
 
   /**
