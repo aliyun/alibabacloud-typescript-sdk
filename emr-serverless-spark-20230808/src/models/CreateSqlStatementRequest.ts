@@ -43,6 +43,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
    * sc-dfahdfjafhajd****
    */
   sqlComputeId?: string;
+  taskBizId?: string;
   /**
    * @remarks
    * The region ID.
@@ -58,6 +59,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
       defaultDatabase: 'defaultDatabase',
       limit: 'limit',
       sqlComputeId: 'sqlComputeId',
+      taskBizId: 'taskBizId',
       regionId: 'regionId',
     };
   }
@@ -69,6 +71,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
       defaultDatabase: 'string',
       limit: 'number',
       sqlComputeId: 'string',
+      taskBizId: 'string',
       regionId: 'string',
     };
   }

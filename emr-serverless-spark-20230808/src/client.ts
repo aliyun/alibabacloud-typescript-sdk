@@ -130,6 +130,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建kyuubi的token
+   * 
+   * @param request - CreateKyuubiTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKyuubiTokenResponse
+   */
+  async createKyuubiTokenWithOptions(workspaceId: string, kyuubiServiceId: string, request: $_model.CreateKyuubiTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKyuubiTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoExpireConfiguration)) {
+      body["autoExpireConfiguration"] = request.autoExpireConfiguration;
+    }
+
+    if (!$dara.isNull(request.memberArns)) {
+      body["memberArns"] = request.memberArns;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKyuubiToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/kyuubiService/${$dara.URL.percentEncode(kyuubiServiceId)}/token`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKyuubiTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreateKyuubiTokenResponse({}));
+  }
+
+  /**
+   * 创建kyuubi的token
+   * 
+   * @param request - CreateKyuubiTokenRequest
+   * @returns CreateKyuubiTokenResponse
+   */
+  async createKyuubiToken(workspaceId: string, kyuubiServiceId: string, request: $_model.CreateKyuubiTokenRequest): Promise<$_model.CreateKyuubiTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
+  }
+
+  /**
    * 创建Livy compute
    * 
    * @param request - CreateLivyComputeRequest
@@ -557,6 +620,10 @@ export default class Client extends OpenApi {
       body["sqlComputeId"] = request.sqlComputeId;
     }
 
+    if (!$dara.isNull(request.taskBizId)) {
+      body["taskBizId"] = request.taskBizId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -697,6 +764,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createWorkspaceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除compute的token
+   * 
+   * @param request - DeleteKyuubiTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKyuubiTokenResponse
+   */
+  async deleteKyuubiTokenWithOptions(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.DeleteKyuubiTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKyuubiTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKyuubiToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/kyuubiService/${$dara.URL.percentEncode(kyuubiServiceId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKyuubiTokenResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKyuubiTokenResponse({}));
+  }
+
+  /**
+   * 删除compute的token
+   * 
+   * @param request - DeleteKyuubiTokenRequest
+   * @returns DeleteKyuubiTokenResponse
+   */
+  async deleteKyuubiToken(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.DeleteKyuubiTokenRequest): Promise<$_model.DeleteKyuubiTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, tokenId, request, headers, runtime);
   }
 
   /**
@@ -997,6 +1109,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
+   * 获取compute的token
+   * 
+   * @param request - GetKyuubiTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKyuubiTokenResponse
+   */
+  async getKyuubiTokenWithOptions(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.GetKyuubiTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetKyuubiTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKyuubiToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/kyuubiService/${$dara.URL.percentEncode(kyuubiServiceId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKyuubiTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetKyuubiTokenResponse({}));
+  }
+
+  /**
+   * 获取compute的token
+   * 
+   * @param request - GetKyuubiTokenRequest
+   * @returns GetKyuubiTokenResponse
+   */
+  async getKyuubiToken(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.GetKyuubiTokenRequest): Promise<$_model.GetKyuubiTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, tokenId, request, headers, runtime);
   }
 
   /**
@@ -2566,6 +2723,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+  }
+
+  /**
+   * 更新kyuubi的token
+   * 
+   * @param request - UpdateKyuubiTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKyuubiTokenResponse
+   */
+  async updateKyuubiTokenWithOptions(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.UpdateKyuubiTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKyuubiTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoExpireConfiguration)) {
+      body["autoExpireConfiguration"] = request.autoExpireConfiguration;
+    }
+
+    if (!$dara.isNull(request.memberArns)) {
+      body["memberArns"] = request.memberArns;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      body["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKyuubiToken",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/kyuubiService/${$dara.URL.percentEncode(kyuubiServiceId)}/token/${$dara.URL.percentEncode(tokenId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKyuubiTokenResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKyuubiTokenResponse({}));
+  }
+
+  /**
+   * 更新kyuubi的token
+   * 
+   * @param request - UpdateKyuubiTokenRequest
+   * @returns UpdateKyuubiTokenResponse
+   */
+  async updateKyuubiToken(workspaceId: string, kyuubiServiceId: string, tokenId: string, request: $_model.UpdateKyuubiTokenRequest): Promise<$_model.UpdateKyuubiTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKyuubiTokenWithOptions(workspaceId, kyuubiServiceId, tokenId, request, headers, runtime);
   }
 
   /**
