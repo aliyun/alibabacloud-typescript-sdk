@@ -1,9 +1,171 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SetPolicyAssetScopeRequestDatabases } from "./SetPolicyAssetScopeRequestDatabases";
-import { SetPolicyAssetScopeRequestHostGroups } from "./SetPolicyAssetScopeRequestHostGroups";
-import { SetPolicyAssetScopeRequestHosts } from "./SetPolicyAssetScopeRequestHosts";
 
+
+export class SetPolicyAssetScopeRequestDatabases extends $dara.Model {
+  /**
+   * @remarks
+   * The scope of database accounts to which the control policy applies. Valid values:
+   * 
+   * *   **All**: The control policy applies to all database accounts of the database.
+   * *   **AccountId**: The control policy applies to specified database accounts of the database.
+   * 
+   * @example
+   * AccountId
+   */
+  accountScopeType?: string;
+  /**
+   * @remarks
+   * The database accounts to which the control policy applies.
+   * 
+   * >  This parameter is required if AccountScopeType is set to AccountId.
+   */
+  databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * 3
+   */
+  databaseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountScopeType: 'AccountScopeType',
+      databaseAccountIds: 'DatabaseAccountIds',
+      databaseId: 'DatabaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountScopeType: 'string',
+      databaseAccountIds: { 'type': 'array', 'itemType': 'string' },
+      databaseId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.databaseAccountIds)) {
+      $dara.Model.validateArray(this.databaseAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPolicyAssetScopeRequestHostGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The asset accounts to which the control policy applies.
+   * 
+   * > This parameter is required if AccountScopeType is set to AccountName.
+   */
+  accountNames?: string[];
+  /**
+   * @remarks
+   * The scope of asset accounts to which the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all accounts in the asset group.
+   * * **AccountName**: The control policy applies to specified accounts in the asset group.
+   * 
+   * @example
+   * All
+   */
+  accountScopeType?: string;
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * 86
+   */
+  hostGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountNames: 'AccountNames',
+      accountScopeType: 'AccountScopeType',
+      hostGroupId: 'HostGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNames: { 'type': 'array', 'itemType': 'string' },
+      accountScopeType: 'string',
+      hostGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountNames)) {
+      $dara.Model.validateArray(this.accountNames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPolicyAssetScopeRequestHosts extends $dara.Model {
+  /**
+   * @remarks
+   * The scope of host accounts to which the control policy applies. Valid values:
+   * 
+   * * **All**: The control policy applies to all accounts of the host.
+   * * **AccountId**: The control policy applies specified accounts of the host.
+   * 
+   * @example
+   * All
+   */
+  accountScopeType?: string;
+  /**
+   * @remarks
+   * The host accounts to which the control policy applies.
+   * 
+   * > This parameter is required if AccountScopeType is set to AccountId.
+   */
+  hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * 1
+   */
+  hostId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountScopeType: 'AccountScopeType',
+      hostAccountIds: 'HostAccountIds',
+      hostId: 'HostId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountScopeType: 'string',
+      hostAccountIds: { 'type': 'array', 'itemType': 'string' },
+      hostId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostAccountIds)) {
+      $dara.Model.validateArray(this.hostAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SetPolicyAssetScopeRequest extends $dara.Model {
   /**

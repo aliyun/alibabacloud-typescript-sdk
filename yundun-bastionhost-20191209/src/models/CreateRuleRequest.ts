@@ -1,9 +1,130 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateRuleRequestDatabases } from "./CreateRuleRequestDatabases";
-import { CreateRuleRequestHostGroups } from "./CreateRuleRequestHostGroups";
-import { CreateRuleRequestHosts } from "./CreateRuleRequestHosts";
 
+
+export class CreateRuleRequestDatabases extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
+  databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The database ID.
+   * 
+   * @example
+   * [
+   *     {
+   *         "DatabaseId": "1"
+   *     }
+   * ]
+   */
+  databaseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseAccountIds: 'DatabaseAccountIds',
+      databaseId: 'DatabaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseAccountIds: { 'type': 'array', 'itemType': 'string' },
+      databaseId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.databaseAccountIds)) {
+      $dara.Model.validateArray(this.databaseAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleRequestHostGroups extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of asset account names.
+   */
+  hostAccountNames?: string[];
+  /**
+   * @remarks
+   * The asset group ID.
+   * 
+   * @example
+   * [{"HostGroupId":"1"}]
+   */
+  hostGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostAccountNames: 'HostAccountNames',
+      hostGroupId: 'HostGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostAccountNames: { 'type': 'array', 'itemType': 'string' },
+      hostGroupId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostAccountNames)) {
+      $dara.Model.validateArray(this.hostAccountNames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleRequestHosts extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of host account IDs.
+   */
+  hostAccountIds?: string[];
+  /**
+   * @remarks
+   * The host ID.
+   * 
+   * @example
+   * [{"HostId":"1"}]
+   */
+  hostId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostAccountIds: 'HostAccountIds',
+      hostId: 'HostId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostAccountIds: { 'type': 'array', 'itemType': 'string' },
+      hostId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hostAccountIds)) {
+      $dara.Model.validateArray(this.hostAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateRuleRequest extends $dara.Model {
   /**

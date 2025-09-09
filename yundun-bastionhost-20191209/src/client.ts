@@ -280,6 +280,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加RD成员账号
+   * 
+   * @param request - AddInstanceRdMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddInstanceRdMemberResponse
+   */
+  async addInstanceRdMemberWithOptions(request: $_model.AddInstanceRdMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddInstanceRdMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddInstanceRdMember",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddInstanceRdMemberResponse>(await this.callApi(params, req, runtime), new $_model.AddInstanceRdMemberResponse({}));
+  }
+
+  /**
+   * 添加RD成员账号
+   * 
+   * @param request - AddInstanceRdMemberRequest
+   * @returns AddInstanceRdMemberResponse
+   */
+  async addInstanceRdMember(request: $_model.AddInstanceRdMemberRequest): Promise<$_model.AddInstanceRdMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addInstanceRdMemberWithOptions(request, runtime);
+  }
+
+  /**
    * Add one or more users to a user group.
    * 
    * @remarks
@@ -5530,6 +5580,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取RD成员账号列表
+   * 
+   * @param request - ListInstanceRdMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceRdMembersResponse
+   */
+  async listInstanceRdMembersWithOptions(request: $_model.ListInstanceRdMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceRdMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceRdMembers",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceRdMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceRdMembersResponse({}));
+  }
+
+  /**
+   * 获取RD成员账号列表
+   * 
+   * @param request - ListInstanceRdMembersRequest
+   * @returns ListInstanceRdMembersResponse
+   */
+  async listInstanceRdMembers(request: $_model.ListInstanceRdMembersRequest): Promise<$_model.ListInstanceRdMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceRdMembersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the network domains created in a bastion host.
    * 
    * @param request - ListNetworkDomainsRequest
@@ -8121,6 +8225,56 @@ export default class Client extends OpenApi {
   async removeHostsFromGroup(request: $_model.RemoveHostsFromGroupRequest): Promise<$_model.RemoveHostsFromGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeHostsFromGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除RD成员账号
+   * 
+   * @param request - RemoveInstanceRdMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveInstanceRdMemberResponse
+   */
+  async removeInstanceRdMemberWithOptions(request: $_model.RemoveInstanceRdMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveInstanceRdMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memberId)) {
+      query["MemberId"] = request.memberId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveInstanceRdMember",
+      version: "2019-12-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveInstanceRdMemberResponse>(await this.callApi(params, req, runtime), new $_model.RemoveInstanceRdMemberResponse({}));
+  }
+
+  /**
+   * 移除RD成员账号
+   * 
+   * @param request - RemoveInstanceRdMemberRequest
+   * @returns RemoveInstanceRdMemberResponse
+   */
+  async removeInstanceRdMember(request: $_model.RemoveInstanceRdMemberRequest): Promise<$_model.RemoveInstanceRdMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeInstanceRdMemberWithOptions(request, runtime);
   }
 
   /**

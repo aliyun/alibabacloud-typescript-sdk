@@ -1,7 +1,76 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig } from "./SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig";
 
+
+export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffectiveTime extends $dara.Model {
+  /**
+   * @remarks
+   * The days of the week during which users can log on to the assets.
+   */
+  days?: number[];
+  /**
+   * @remarks
+   * The time periods of the day during which users can log on to the assets.
+   */
+  hours?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      days: 'Days',
+      hours: 'Hours',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      days: { 'type': 'array', 'itemType': 'number' },
+      hours: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.days)) {
+      $dara.Model.validateArray(this.days);
+    }
+    if(Array.isArray(this.hours)) {
+      $dara.Model.validateArray(this.hours);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the periods during which users can log on to the assets.
+   */
+  effectiveTime?: SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffectiveTime[];
+  static names(): { [key: string]: string } {
+    return {
+      effectiveTime: 'EffectiveTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effectiveTime: { 'type': 'array', 'itemType': SetPolicyAccessTimeRangeConfigRequestAccessTimeRangeConfigEffectiveTime },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.effectiveTime)) {
+      $dara.Model.validateArray(this.effectiveTime);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SetPolicyAccessTimeRangeConfigRequest extends $dara.Model {
   /**

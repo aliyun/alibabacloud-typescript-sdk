@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DetachDatabaseAccountsFromUserGroupRequestDatabases } from "./DetachDatabaseAccountsFromUserGroupRequestDatabases";
 
+
+export class DetachDatabaseAccountsFromUserGroupRequestDatabases extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of database account IDs.
+   */
+  databaseAccountIds?: string[];
+  /**
+   * @remarks
+   * The ID of the database on which the permissions are to be revoked.
+   * 
+   * @example
+   * 4
+   */
+  databaseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseAccountIds: 'DatabaseAccountIds',
+      databaseId: 'DatabaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseAccountIds: { 'type': 'array', 'itemType': 'string' },
+      databaseId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.databaseAccountIds)) {
+      $dara.Model.validateArray(this.databaseAccountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DetachDatabaseAccountsFromUserGroupRequest extends $dara.Model {
   /**
