@@ -104,6 +104,8 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model
 
 export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
+  clusterIP?: string;
+  clusterPort?: string;
   connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
   /**
    * @remarks
@@ -142,6 +144,8 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applications: 'Applications',
+      clusterIP: 'ClusterIP',
+      clusterPort: 'ClusterPort',
       connectorClients: 'ConnectorClients',
       connectorId: 'ConnectorId',
       createTime: 'CreateTime',
@@ -156,6 +160,8 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applications: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectorsApplications },
+      clusterIP: 'string',
+      clusterPort: 'string',
       connectorClients: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectorsConnectorClients },
       connectorId: 'string',
       createTime: 'string',
