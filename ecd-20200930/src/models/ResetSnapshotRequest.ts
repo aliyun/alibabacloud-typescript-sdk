@@ -23,10 +23,12 @@ export class ResetSnapshotRequest extends $dara.Model {
    * s-2zeipxmnhej803x7****
    */
   snapshotId?: string;
+  stopDesktop?: boolean;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
       snapshotId: 'SnapshotId',
+      stopDesktop: 'StopDesktop',
     };
   }
 
@@ -34,6 +36,7 @@ export class ResetSnapshotRequest extends $dara.Model {
     return {
       regionId: 'string',
       snapshotId: 'string',
+      stopDesktop: 'boolean',
     };
   }
 

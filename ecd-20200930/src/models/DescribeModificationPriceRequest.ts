@@ -110,6 +110,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * Desktop
    */
   resourceType?: string;
+  rootDiskPerformanceLevel?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB.
@@ -118,6 +119,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * 80
    */
   rootDiskSizeGib?: number;
+  userDiskPerformanceLevel?: string;
   /**
    * @remarks
    * The size of the data disk. Unit: GiB.
@@ -136,7 +138,9 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       resellerOwnerUid: 'ResellerOwnerUid',
       resourceSpecs: 'ResourceSpecs',
       resourceType: 'ResourceType',
+      rootDiskPerformanceLevel: 'RootDiskPerformanceLevel',
       rootDiskSizeGib: 'RootDiskSizeGib',
+      userDiskPerformanceLevel: 'UserDiskPerformanceLevel',
       userDiskSizeGib: 'UserDiskSizeGib',
     };
   }
@@ -151,7 +155,9 @@ export class DescribeModificationPriceRequest extends $dara.Model {
       resellerOwnerUid: 'number',
       resourceSpecs: { 'type': 'array', 'itemType': DescribeModificationPriceRequestResourceSpecs },
       resourceType: 'string',
+      rootDiskPerformanceLevel: 'string',
       rootDiskSizeGib: 'number',
+      userDiskPerformanceLevel: 'string',
       userDiskSizeGib: 'number',
     };
   }

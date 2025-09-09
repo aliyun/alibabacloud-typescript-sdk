@@ -159,6 +159,7 @@ export class DescribePriceRequest extends $dara.Model {
    * 40
    */
   rootDiskCategory?: string;
+  rootDiskPerformanceLevel?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB. If you set `ResourceType` to `Desktop`, you must specify this parameter.
@@ -181,6 +182,7 @@ export class DescribePriceRequest extends $dara.Model {
    * 80
    */
   userDiskCategory?: string;
+  userDiskPerformanceLevel?: string;
   /**
    * @remarks
    * The size of the data disk. Unit: GiB.
@@ -205,8 +207,10 @@ export class DescribePriceRequest extends $dara.Model {
       resellerOwnerUid: 'ResellerOwnerUid',
       resourceType: 'ResourceType',
       rootDiskCategory: 'RootDiskCategory',
+      rootDiskPerformanceLevel: 'RootDiskPerformanceLevel',
       rootDiskSizeGib: 'RootDiskSizeGib',
       userDiskCategory: 'UserDiskCategory',
+      userDiskPerformanceLevel: 'UserDiskPerformanceLevel',
       userDiskSizeGib: 'UserDiskSizeGib',
     };
   }
@@ -227,8 +231,10 @@ export class DescribePriceRequest extends $dara.Model {
       resellerOwnerUid: 'number',
       resourceType: 'string',
       rootDiskCategory: 'string',
+      rootDiskPerformanceLevel: 'string',
       rootDiskSizeGib: 'number',
       userDiskCategory: 'string',
+      userDiskPerformanceLevel: 'string',
       userDiskSizeGib: 'number',
     };
   }

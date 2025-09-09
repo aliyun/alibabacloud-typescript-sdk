@@ -9310,8 +9310,16 @@ export default class Client extends OpenApi {
       query["ResourceType"] = request.resourceType;
     }
 
+    if (!$dara.isNull(request.rootDiskPerformanceLevel)) {
+      query["RootDiskPerformanceLevel"] = request.rootDiskPerformanceLevel;
+    }
+
     if (!$dara.isNull(request.rootDiskSizeGib)) {
       query["RootDiskSizeGib"] = request.rootDiskSizeGib;
+    }
+
+    if (!$dara.isNull(request.userDiskPerformanceLevel)) {
+      query["UserDiskPerformanceLevel"] = request.userDiskPerformanceLevel;
     }
 
     if (!$dara.isNull(request.userDiskSizeGib)) {
@@ -9742,12 +9750,20 @@ export default class Client extends OpenApi {
       query["RootDiskCategory"] = request.rootDiskCategory;
     }
 
+    if (!$dara.isNull(request.rootDiskPerformanceLevel)) {
+      query["RootDiskPerformanceLevel"] = request.rootDiskPerformanceLevel;
+    }
+
     if (!$dara.isNull(request.rootDiskSizeGib)) {
       query["RootDiskSizeGib"] = request.rootDiskSizeGib;
     }
 
     if (!$dara.isNull(request.userDiskCategory)) {
       query["UserDiskCategory"] = request.userDiskCategory;
+    }
+
+    if (!$dara.isNull(request.userDiskPerformanceLevel)) {
+      query["UserDiskPerformanceLevel"] = request.userDiskPerformanceLevel;
     }
 
     if (!$dara.isNull(request.userDiskSizeGib)) {
@@ -17239,6 +17255,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!$dara.isNull(request.stopDesktop)) {
+      query["StopDesktop"] = request.stopDesktop;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
