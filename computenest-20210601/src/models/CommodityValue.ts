@@ -225,7 +225,21 @@ export class CommodityValueResultSubOrdersSubOrderModuleInstance extends $dara.M
    * The module attributes.
    */
   moduleAttrs?: CommodityValueResultSubOrdersSubOrderModuleInstanceModuleAttrs[];
+  /**
+   * @remarks
+   * Module English name.
+   * 
+   * @example
+   * data unit
+   */
   moduleNameEn?: string;
+  /**
+   * @remarks
+   * Price Unit English Name
+   * 
+   * @example
+   * Yuan/Month
+   */
   priceUnitEn?: string;
   static names(): { [key: string]: string } {
     return {

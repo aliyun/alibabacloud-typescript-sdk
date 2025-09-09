@@ -23,9 +23,9 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Year
-   * *   Month
-   * *   Day
+   * *   Year.
+   * *   Month.
+   * *   Day.
    * 
    * @example
    * Year
@@ -33,7 +33,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
   payPeriodUnit?: string;
   /**
    * @remarks
-   * Marketplace private offer Id
+   * The PrivateOffer ID of the Alibaba Cloud Marketplace.
    * 
    * @example
    * 17cde2e8-2f5d-xxxx-xxxx-5120dd215d66

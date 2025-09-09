@@ -45,6 +45,7 @@ export class CheckServiceDeployableRequest extends $dara.Model {
    * 1
    */
   serviceVersion?: string;
+  templateName?: string;
   /**
    * @remarks
    * The trial type of the service instance. Valid values:
@@ -63,6 +64,7 @@ export class CheckServiceDeployableRequest extends $dara.Model {
       regionId: 'RegionId',
       serviceId: 'ServiceId',
       serviceVersion: 'ServiceVersion',
+      templateName: 'TemplateName',
       trialType: 'TrialType',
     };
   }
@@ -74,6 +76,7 @@ export class CheckServiceDeployableRequest extends $dara.Model {
       regionId: 'string',
       serviceId: 'string',
       serviceVersion: 'string',
+      templateName: 'string',
       trialType: 'string',
     };
   }

@@ -163,6 +163,10 @@ export default class Client extends OpenApi {
       query["ServiceVersion"] = request.serviceVersion;
     }
 
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     if (!$dara.isNull(request.trialType)) {
       query["TrialType"] = request.trialType;
     }
@@ -853,6 +857,76 @@ export default class Client extends OpenApi {
   async getBackup(request: $_model.GetBackupRequest): Promise<$_model.GetBackupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据指定地域获取可用区列表
+   * 
+   * @param request - GetNetworkAvailableZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkAvailableZonesResponse
+   */
+  async getNetworkAvailableZonesWithOptions(request: $_model.GetNetworkAvailableZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNetworkAvailableZonesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isPoc)) {
+      body["IsPoc"] = request.isPoc;
+    }
+
+    if (!$dara.isNull(request.networkRegionId)) {
+      body["NetworkRegionId"] = request.networkRegionId;
+    }
+
+    if (!$dara.isNull(request.privateVpcConnectionMode)) {
+      body["PrivateVpcConnectionMode"] = request.privateVpcConnectionMode;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceEndpointServiceType)) {
+      body["ServiceInstanceEndpointServiceType"] = request.serviceInstanceEndpointServiceType;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      body["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      body["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkAvailableZones",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNetworkAvailableZonesResponse>(await this.callApi(params, req, runtime), new $_model.GetNetworkAvailableZonesResponse({}));
+  }
+
+  /**
+   * 根据指定地域获取可用区列表
+   * 
+   * @param request - GetNetworkAvailableZonesRequest
+   * @returns GetNetworkAvailableZonesResponse
+   */
+  async getNetworkAvailableZones(request: $_model.GetNetworkAvailableZonesRequest): Promise<$_model.GetNetworkAvailableZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNetworkAvailableZonesWithOptions(request, runtime);
   }
 
   /**
@@ -2791,6 +2865,68 @@ export default class Client extends OpenApi {
   async upgradeServiceInstance(request: $_model.UpgradeServiceInstanceRequest): Promise<$_model.UpgradeServiceInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验服务实例名称
+   * 
+   * @param request - ValidateServiceInstanceNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateServiceInstanceNameResponse
+   */
+  async validateServiceInstanceNameWithOptions(request: $_model.ValidateServiceInstanceNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateServiceInstanceNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.isTrial)) {
+      query["IsTrial"] = request.isTrial;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceName)) {
+      query["ServiceInstanceName"] = request.serviceInstanceName;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateServiceInstanceName",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateServiceInstanceNameResponse>(await this.callApi(params, req, runtime), new $_model.ValidateServiceInstanceNameResponse({}));
+  }
+
+  /**
+   * 校验服务实例名称
+   * 
+   * @param request - ValidateServiceInstanceNameRequest
+   * @returns ValidateServiceInstanceNameResponse
+   */
+  async validateServiceInstanceName(request: $_model.ValidateServiceInstanceNameRequest): Promise<$_model.ValidateServiceInstanceNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateServiceInstanceNameWithOptions(request, runtime);
   }
 
 }
