@@ -101,6 +101,10 @@ export default class Client extends OpenApi {
       body["Affinity"] = request.affinity;
     }
 
+    if (!$dara.isNull(request.assignNodeSpec)) {
+      body["AssignNodeSpec"] = request.assignNodeSpec;
+    }
+
     if (!$dara.isNull(request.cloudDisks)) {
       body["CloudDisks"] = request.cloudDisks;
     }
@@ -163,6 +167,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.spotSpec)) {
+      body["SpotSpec"] = request.spotSpec;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -564,6 +572,10 @@ export default class Client extends OpenApi {
   async getInstanceWithOptions(InstanceId: string, request: $_model.GetInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fields)) {
+      query["Fields"] = request.fields;
+    }
+
     if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
@@ -611,6 +623,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventLevel)) {
+      query["EventLevel"] = request.eventLevel;
     }
 
     if (!$dara.isNull(request.maxEventsNum)) {
@@ -1622,6 +1638,10 @@ export default class Client extends OpenApi {
       body["Affinity"] = request.affinity;
     }
 
+    if (!$dara.isNull(request.assignNodeSpec)) {
+      body["AssignNodeSpec"] = request.assignNodeSpec;
+    }
+
     if (!$dara.isNull(request.cloudDisks)) {
       body["CloudDisks"] = request.cloudDisks;
     }
@@ -1632,6 +1652,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.datasets)) {
       body["Datasets"] = request.datasets;
+    }
+
+    if (!$dara.isNull(request.disassociateAssignNode)) {
+      body["DisassociateAssignNode"] = request.disassociateAssignNode;
     }
 
     if (!$dara.isNull(request.disassociateCredential)) {
@@ -1652,6 +1676,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.disassociateForwardInfos)) {
       body["DisassociateForwardInfos"] = request.disassociateForwardInfos;
+    }
+
+    if (!$dara.isNull(request.disassociateSpot)) {
+      body["DisassociateSpot"] = request.disassociateSpot;
     }
 
     if (!$dara.isNull(request.disassociateUserCommand)) {
@@ -1704,6 +1732,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.requestedResource)) {
       body["RequestedResource"] = request.requestedResource;
+    }
+
+    if (!$dara.isNull(request.spotSpec)) {
+      body["SpotSpec"] = request.spotSpec;
     }
 
     if (!$dara.isNull(request.userCommand)) {

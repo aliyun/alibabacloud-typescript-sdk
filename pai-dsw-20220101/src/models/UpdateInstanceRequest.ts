@@ -69,6 +69,40 @@ export class UpdateInstanceRequestAffinity extends $dara.Model {
   }
 }
 
+export class UpdateInstanceRequestAssignNodeSpec extends $dara.Model {
+  /**
+   * @example
+   * node-b
+   */
+  antiAffinityNodeNames?: string;
+  /**
+   * @example
+   * node-a
+   */
+  nodeNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      antiAffinityNodeNames: 'AntiAffinityNodeNames',
+      nodeNames: 'NodeNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      antiAffinityNodeNames: 'string',
+      nodeNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceRequestCloudDisks extends $dara.Model {
   /**
    * @remarks
@@ -316,6 +350,54 @@ export class UpdateInstanceRequestRequestedResource extends $dara.Model {
   }
 }
 
+export class UpdateInstanceRequestSpotSpec extends $dara.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  spotDiscountLimit?: string;
+  /**
+   * @example
+   * 0
+   */
+  spotDuration?: string;
+  /**
+   * @example
+   * 0.12
+   */
+  spotPriceLimit?: string;
+  /**
+   * @example
+   * SpotWithPriceLimit
+   */
+  spotStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spotDiscountLimit: 'SpotDiscountLimit',
+      spotDuration: 'SpotDuration',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spotDiscountLimit: 'string',
+      spotDuration: 'string',
+      spotPriceLimit: 'string',
+      spotStrategy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceRequestUserCommandOnStart extends $dara.Model {
   content?: string;
   static names(): { [key: string]: string } {
@@ -479,6 +561,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * The affinity configuration.
    */
   affinity?: UpdateInstanceRequestAffinity;
+  assignNodeSpec?: UpdateInstanceRequestAssignNodeSpec;
   /**
    * @remarks
    * The cloud disks.
@@ -497,6 +580,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * The datasets.
    */
   datasets?: UpdateInstanceRequestDatasets[];
+  disassociateAssignNode?: boolean;
   /**
    * @remarks
    * Specifies whether to delete the credential injection information.
@@ -533,6 +617,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * false
    */
   disassociateForwardInfos?: boolean;
+  disassociateSpot?: boolean;
   disassociateUserCommand?: boolean;
   /**
    * @remarks
@@ -619,6 +704,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
    */
   requestedResource?: UpdateInstanceRequestRequestedResource;
+  spotSpec?: UpdateInstanceRequestSpotSpec;
   userCommand?: UpdateInstanceRequestUserCommand;
   /**
    * @remarks
@@ -657,14 +743,17 @@ export class UpdateInstanceRequest extends $dara.Model {
     return {
       accessibility: 'Accessibility',
       affinity: 'Affinity',
+      assignNodeSpec: 'AssignNodeSpec',
       cloudDisks: 'CloudDisks',
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
+      disassociateAssignNode: 'DisassociateAssignNode',
       disassociateCredential: 'DisassociateCredential',
       disassociateDatasets: 'DisassociateDatasets',
       disassociateDriver: 'DisassociateDriver',
       disassociateEnvironmentVariables: 'DisassociateEnvironmentVariables',
       disassociateForwardInfos: 'DisassociateForwardInfos',
+      disassociateSpot: 'DisassociateSpot',
       disassociateUserCommand: 'DisassociateUserCommand',
       disassociateVpc: 'DisassociateVpc',
       driver: 'Driver',
@@ -678,6 +767,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       oversoldType: 'OversoldType',
       priority: 'Priority',
       requestedResource: 'RequestedResource',
+      spotSpec: 'SpotSpec',
       userCommand: 'UserCommand',
       userId: 'UserId',
       userVpc: 'UserVpc',
@@ -689,14 +779,17 @@ export class UpdateInstanceRequest extends $dara.Model {
     return {
       accessibility: 'string',
       affinity: UpdateInstanceRequestAffinity,
+      assignNodeSpec: UpdateInstanceRequestAssignNodeSpec,
       cloudDisks: { 'type': 'array', 'itemType': UpdateInstanceRequestCloudDisks },
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': UpdateInstanceRequestDatasets },
+      disassociateAssignNode: 'boolean',
       disassociateCredential: 'boolean',
       disassociateDatasets: 'boolean',
       disassociateDriver: 'boolean',
       disassociateEnvironmentVariables: 'boolean',
       disassociateForwardInfos: 'boolean',
+      disassociateSpot: 'boolean',
       disassociateUserCommand: 'boolean',
       disassociateVpc: 'boolean',
       driver: 'string',
@@ -710,6 +803,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       oversoldType: 'string',
       priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
+      spotSpec: UpdateInstanceRequestSpotSpec,
       userCommand: UpdateInstanceRequestUserCommand,
       userId: 'string',
       userVpc: UpdateInstanceRequestUserVpc,
@@ -720,6 +814,9 @@ export class UpdateInstanceRequest extends $dara.Model {
   validate() {
     if(this.affinity && typeof (this.affinity as any).validate === 'function') {
       (this.affinity as any).validate();
+    }
+    if(this.assignNodeSpec && typeof (this.assignNodeSpec as any).validate === 'function') {
+      (this.assignNodeSpec as any).validate();
     }
     if(Array.isArray(this.cloudDisks)) {
       $dara.Model.validateArray(this.cloudDisks);
@@ -738,6 +835,9 @@ export class UpdateInstanceRequest extends $dara.Model {
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
+    }
+    if(this.spotSpec && typeof (this.spotSpec as any).validate === 'function') {
+      (this.spotSpec as any).validate();
     }
     if(this.userCommand && typeof (this.userCommand as any).validate === 'function') {
       (this.userCommand as any).validate();

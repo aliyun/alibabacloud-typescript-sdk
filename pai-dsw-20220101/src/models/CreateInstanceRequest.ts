@@ -69,6 +69,40 @@ export class CreateInstanceRequestAffinity extends $dara.Model {
   }
 }
 
+export class CreateInstanceRequestAssignNodeSpec extends $dara.Model {
+  /**
+   * @example
+   * node-b
+   */
+  antiAffinityNodeNames?: string;
+  /**
+   * @example
+   * node-a
+   */
+  nodeNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      antiAffinityNodeNames: 'AntiAffinityNodeNames',
+      nodeNames: 'NodeNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      antiAffinityNodeNames: 'string',
+      nodeNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestCloudDisksStatus extends $dara.Model {
   /**
    * @remarks
@@ -442,6 +476,54 @@ export class CreateInstanceRequestRequestedResource extends $dara.Model {
   }
 }
 
+export class CreateInstanceRequestSpotSpec extends $dara.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  spotDiscountLimit?: string;
+  /**
+   * @example
+   * 0
+   */
+  spotDuration?: string;
+  /**
+   * @example
+   * 0.12
+   */
+  spotPriceLimit?: string;
+  /**
+   * @example
+   * SpotWithPriceLimit
+   */
+  spotStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spotDiscountLimit: 'SpotDiscountLimit',
+      spotDuration: 'SpotDuration',
+      spotPriceLimit: 'SpotPriceLimit',
+      spotStrategy: 'SpotStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spotDiscountLimit: 'string',
+      spotDuration: 'string',
+      spotPriceLimit: 'string',
+      spotStrategy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -645,6 +727,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * The affinity configuration.
    */
   affinity?: CreateInstanceRequestAffinity;
+  assignNodeSpec?: CreateInstanceRequestAssignNodeSpec;
   /**
    * @remarks
    * The cloud disks.
@@ -763,6 +846,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * dsw-123456789
    */
   resourceId?: string;
+  spotSpec?: CreateInstanceRequestSpotSpec;
   /**
    * @remarks
    * The tags.
@@ -814,6 +898,7 @@ export class CreateInstanceRequest extends $dara.Model {
     return {
       accessibility: 'Accessibility',
       affinity: 'Affinity',
+      assignNodeSpec: 'AssignNodeSpec',
       cloudDisks: 'CloudDisks',
       credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
@@ -830,6 +915,7 @@ export class CreateInstanceRequest extends $dara.Model {
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
+      spotSpec: 'SpotSpec',
       tag: 'Tag',
       userCommand: 'UserCommand',
       userId: 'UserId',
@@ -843,6 +929,7 @@ export class CreateInstanceRequest extends $dara.Model {
     return {
       accessibility: 'string',
       affinity: CreateInstanceRequestAffinity,
+      assignNodeSpec: CreateInstanceRequestAssignNodeSpec,
       cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
       credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
@@ -859,6 +946,7 @@ export class CreateInstanceRequest extends $dara.Model {
       priority: 'number',
       requestedResource: CreateInstanceRequestRequestedResource,
       resourceId: 'string',
+      spotSpec: CreateInstanceRequestSpotSpec,
       tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
       userCommand: CreateInstanceRequestUserCommand,
       userId: 'string',
@@ -871,6 +959,9 @@ export class CreateInstanceRequest extends $dara.Model {
   validate() {
     if(this.affinity && typeof (this.affinity as any).validate === 'function') {
       (this.affinity as any).validate();
+    }
+    if(this.assignNodeSpec && typeof (this.assignNodeSpec as any).validate === 'function') {
+      (this.assignNodeSpec as any).validate();
     }
     if(Array.isArray(this.cloudDisks)) {
       $dara.Model.validateArray(this.cloudDisks);
@@ -892,6 +983,9 @@ export class CreateInstanceRequest extends $dara.Model {
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
+    }
+    if(this.spotSpec && typeof (this.spotSpec as any).validate === 'function') {
+      (this.spotSpec as any).validate();
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

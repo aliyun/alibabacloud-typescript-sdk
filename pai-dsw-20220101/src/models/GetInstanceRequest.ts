@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstanceRequest extends $dara.Model {
+  fields?: string;
   /**
    * @remarks
    * The sharing token information.
@@ -13,12 +14,14 @@ export class GetInstanceRequest extends $dara.Model {
   token?: string;
   static names(): { [key: string]: string } {
     return {
+      fields: 'Fields',
       token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fields: 'string',
       token: 'string',
     };
   }

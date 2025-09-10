@@ -11,6 +11,7 @@ export class GetInstanceEventsRequest extends $dara.Model {
    * 2020-11-08T15:00:00Z
    */
   endTime?: string;
+  eventLevel?: string;
   /**
    * @remarks
    * The maximum number of events. Default value: 2000.
@@ -35,6 +36,7 @@ export class GetInstanceEventsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      eventLevel: 'EventLevel',
       maxEventsNum: 'MaxEventsNum',
       startTime: 'StartTime',
       token: 'Token',
@@ -44,6 +46,7 @@ export class GetInstanceEventsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      eventLevel: 'string',
       maxEventsNum: 'number',
       startTime: 'string',
       token: 'string',
