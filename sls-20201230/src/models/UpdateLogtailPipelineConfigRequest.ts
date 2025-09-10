@@ -71,6 +71,7 @@ export class UpdateLogtailPipelineConfigRequest extends $dara.Model {
    *     *   After you add the first plug-in, you can add one Time Parsing plug-in, one Data Filtering plug-in, and multiple Data Masking plug-ins.
    */
   processors?: { [key: string]: any }[];
+  task?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       aggregators: 'aggregators',
@@ -80,6 +81,7 @@ export class UpdateLogtailPipelineConfigRequest extends $dara.Model {
       inputs: 'inputs',
       logSample: 'logSample',
       processors: 'processors',
+      task: 'task',
     };
   }
 
@@ -92,6 +94,7 @@ export class UpdateLogtailPipelineConfigRequest extends $dara.Model {
       inputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       logSample: 'string',
       processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      task: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -110,6 +113,9 @@ export class UpdateLogtailPipelineConfigRequest extends $dara.Model {
     }
     if(Array.isArray(this.processors)) {
       $dara.Model.validateArray(this.processors);
+    }
+    if(this.task) {
+      $dara.Model.validateMap(this.task);
     }
     super.validate();
   }

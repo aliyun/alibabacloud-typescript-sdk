@@ -383,7 +383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAlert
+   * Creates an alert rule in a project.
    * 
    * @param request - CreateAlertRequest
    * @param headers - map
@@ -435,7 +435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAlert
+   * Creates an alert rule in a project.
    * 
    * @param request - CreateAlertRequest
    * @returns CreateAlertResponse
@@ -1181,6 +1181,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.processors)) {
       body["processors"] = request.processors;
+    }
+
+    if (!$dara.isNull(request.task)) {
+      body["task"] = request.task;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2336,6 +2340,44 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConfigWithOptions(project, configName, headers, runtime);
+  }
+
+  /**
+   * DeleteConsumeProcessor
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumeProcessorResponse
+   */
+  async deleteConsumeProcessorWithOptions(project: string, processorName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumeProcessorResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumeProcessor",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/consumeprocessors/${processorName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteConsumeProcessorResponse>(await this.execute(params, req, runtime), new $_model.DeleteConsumeProcessorResponse({}));
+  }
+
+  /**
+   * DeleteConsumeProcessor
+   * @returns DeleteConsumeProcessorResponse
+   */
+  async deleteConsumeProcessor(project: string, processorName: string): Promise<$_model.DeleteConsumeProcessorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConsumeProcessorWithOptions(project, processorName, headers, runtime);
   }
 
   /**
@@ -3961,6 +4003,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the details of a consumer processor
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumeProcessorResponse
+   */
+  async getConsumeProcessorWithOptions(project: string, processorName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumeProcessorResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumeProcessor",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/consumeprocessors/${processorName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumeProcessorResponse>(await this.execute(params, req, runtime), new $_model.GetConsumeProcessorResponse({}));
+  }
+
+  /**
+   * Query the details of a consumer processor
+   * @returns GetConsumeProcessorResponse
+   */
+  async getConsumeProcessor(project: string, processorName: string): Promise<$_model.GetConsumeProcessorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumeProcessorWithOptions(project, processorName, headers, runtime);
+  }
+
+  /**
    * Queries the contextual logs of a specified log.
    * 
    * @remarks
@@ -4708,9 +4788,14 @@ export default class Client extends OpenApi {
    * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
    * 
    * @remarks
-   *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
-   * *   You can call this operation by using Simple Log Service SDK for Go or Java.
-   * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
+   * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
+   * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
+   * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - GetLogsV2Request
    * @param headers - GetLogsV2Headers
@@ -4798,9 +4883,14 @@ export default class Client extends OpenApi {
    * Queries the raw log data in a Logstore of a project. The returned result contains the raw log data within a specific time range. The returned result is compressed before transmission.
    * 
    * @remarks
-   *   You can call this operation by using Alibaba Cloud SDK for Go, Java, TypeScript, or Python.
-   * *   You can call this operation by using Simple Log Service SDK for Go or Java.
-   * *   For more information, see [GetLogs](https://help.aliyun.com/document_detail/29029.html).
+   * You can call this operation by using Simple Log Service SDK for Go, Java, or Python. You can call this operation by using Alibaba Cloud SDK for all programming languages.
+   * * When you call this operation, take note of the compression method that you use. The supported compression algorithms vary based on the programming language. For more information, see the description of the Accept-Encoding parameter in this topic.
+   * * For more information, see [GetLogs](https://help.aliyun.com/document_detail/2771313.html).
+   * ### Authentication resources
+   * The following table describes the authorization information that is required for this operation. You can add the information to the Action element of a Resource Access Management (RAM) policy statement to grant a RAM user or a RAM role the permissions to call this operation.
+   * |Action|Resource|
+   * |:---|:---|
+   * |`log:GetLogStoreLogs`|`acs:log:{#regionId}:{#accountId}:project/{#ProjectName}`|
    * 
    * @param request - GetLogsV2Request
    * @returns GetLogsV2Response
@@ -6119,6 +6209,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of consumption processors that meet specific conditions.
+   * 
+   * @param request - ListConsumeProcessorsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumeProcessorsResponse
+   */
+  async listConsumeProcessorsWithOptions(project: string, request: $_model.ListConsumeProcessorsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumeProcessorsResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      query["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.processorName)) {
+      query["processorName"] = request.processorName;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumeProcessors",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/consumeprocessors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumeProcessorsResponse>(await this.execute(params, req, runtime), new $_model.ListConsumeProcessorsResponse({}));
+  }
+
+  /**
+   * Queries a list of consumption processors that meet specific conditions.
+   * 
+   * @param request - ListConsumeProcessorsRequest
+   * @returns ListConsumeProcessorsResponse
+   */
+  async listConsumeProcessors(project: string, request: $_model.ListConsumeProcessorsRequest): Promise<$_model.ListConsumeProcessorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumeProcessorsWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Queries all consumer groups of a Logstore.
    * 
    * @remarks
@@ -6606,6 +6756,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.configName)) {
       query["configName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["configType"] = request.configType;
     }
 
     if (!$dara.isNull(request.logstoreName)) {
@@ -7663,6 +7817,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates or updates a consumption processor.
+   * 
+   * @param request - PutConsumeProcessorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutConsumeProcessorResponse
+   */
+  async putConsumeProcessorWithOptions(project: string, processorName: string, request: $_model.PutConsumeProcessorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PutConsumeProcessorResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutConsumeProcessor",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/consumeprocessors/${processorName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.PutConsumeProcessorResponse>(await this.execute(params, req, runtime), new $_model.PutConsumeProcessorResponse({}));
+  }
+
+  /**
+   * Creates or updates a consumption processor.
+   * 
+   * @param request - PutConsumeProcessorRequest
+   * @returns PutConsumeProcessorResponse
+   */
+  async putConsumeProcessor(project: string, processorName: string, request: $_model.PutConsumeProcessorRequest): Promise<$_model.PutConsumeProcessorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putConsumeProcessorWithOptions(project, processorName, request, headers, runtime);
+  }
+
+  /**
    * Creates or modifies an ingest processor.
    * 
    * @param request - PutIngestProcessorRequest
@@ -7852,7 +8062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置project传输加速状态
+   * Enables or disables transfer acceleration.
    * 
    * @param request - PutProjectTransferAccelerationRequest
    * @param headers - map
@@ -7888,7 +8098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置project传输加速状态
+   * Enables or disables transfer acceleration.
    * 
    * @param request - PutProjectTransferAccelerationRequest
    * @returns PutProjectTransferAccelerationResponse
@@ -9599,6 +9809,10 @@ export default class Client extends OpenApi {
       body["processors"] = request.processors;
     }
 
+    if (!$dara.isNull(request.task)) {
+      body["task"] = request.task;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
@@ -10511,7 +10725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用UpsertCollectionPolicy接口创建或更新日志采集规则
+   * Creates a log collection policy for a cloud service. This way, logs can be automatically collected from the service.
+   * 
+   * @remarks
+   * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
    * 
    * @param request - UpsertCollectionPolicyRequest
    * @param headers - map
@@ -10576,7 +10793,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用UpsertCollectionPolicy接口创建或更新日志采集规则
+   * Creates a log collection policy for a cloud service. This way, logs can be automatically collected from the service.
+   * 
+   * @remarks
+   * You must use the Simple Log Service endpoint for the China (Shanghai) or Singapore region to call the operation.
    * 
    * @param request - UpsertCollectionPolicyRequest
    * @returns UpsertCollectionPolicyResponse

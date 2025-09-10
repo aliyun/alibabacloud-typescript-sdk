@@ -1,10 +1,201 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpsertCollectionPolicyRequestCentralizeConfig } from "./UpsertCollectionPolicyRequestCentralizeConfig";
-import { UpsertCollectionPolicyRequestDataConfig } from "./UpsertCollectionPolicyRequestDataConfig";
-import { UpsertCollectionPolicyRequestPolicyConfig } from "./UpsertCollectionPolicyRequestPolicyConfig";
-import { UpsertCollectionPolicyRequestResourceDirectory } from "./UpsertCollectionPolicyRequestResourceDirectory";
 
+
+export class UpsertCollectionPolicyRequestCentralizeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The destination logstore for centralized storage. Make sure that the region of the destination logstore is consistent with the region specified by destRegion and the destination logstore belongs to the destination project specified by destProject.
+   * 
+   * @example
+   * your-sls-logstore-in-beijing
+   */
+  destLogstore?: string;
+  /**
+   * @remarks
+   * The destination project for centralized storage. Make sure that the region of the destination project is consistent with the region specified by destRegion.
+   * 
+   * @example
+   * your-sls-project-in-beijing
+   */
+  destProject?: string;
+  /**
+   * @remarks
+   * The destination region for centralized storage.
+   * 
+   * @example
+   * cn-beijing
+   */
+  destRegion?: string;
+  /**
+   * @remarks
+   * The data retention period for centralized storage. Unit: days. This parameter takes effect only when you use an existing logstore for centralized storage.
+   * 
+   * @example
+   * your-sls-logstore-ttl
+   */
+  destTTL?: number;
+  static names(): { [key: string]: string } {
+    return {
+      destLogstore: 'destLogstore',
+      destProject: 'destProject',
+      destRegion: 'destRegion',
+      destTTL: 'destTTL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destLogstore: 'string',
+      destProject: 'string',
+      destRegion: 'string',
+      destTTL: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestDataConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The region for storing the global logs that are collected for the first time.
+   * 
+   * @example
+   * cn-beijing
+   */
+  dataRegion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataRegion: 'dataRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataRegion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestPolicyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the instances. This parameter takes effect only when resourceMode is set to instanceMode. Logs are collected only from instances that use the specified IDs.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * The regions of the instances. This parameter takes effect only when resourceMode is set to attributeMode. Wildcard characters are supported. If you leave this parameter empty, region-based filtering is not performed. The system considers that all instances are matched. If you specify a value for this parameter, logs of instances that reside in the specified regions are collected. Logs are collected from an instance only if the resource tags and region of the instance match the specified conditions.
+   */
+  regions?: string[];
+  /**
+   * @remarks
+   * The resource collection mode. Valid values: all, attributeMode, and instanceMode. The value all specifies that logs of all instances within your account are collected to the default logstore. The value attributeMode specifies that logs are collected based on the regions of instances and resource tags. The value instanceMode specifies that logs are collected based on instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * all
+   */
+  resourceMode?: string;
+  /**
+   * @remarks
+   * The resource tags. This parameter takes effect only when resourceMode is set to attributeMode. If you leave this parameter empty, resource tag-based filtering is not performed. The system considers that all instances are matched. If you specify a value for this parameter, logs of instances that use the specified resource tags are collected. Logs are collected from an instance only if the resource tags and region of the instance match the specified conditions.
+   * 
+   * @example
+   * {"tag1":"value1",“tag2":"value2"}
+   */
+  resourceTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'instanceIds',
+      regions: 'regions',
+      resourceMode: 'resourceMode',
+      resourceTags: 'resourceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      regions: { 'type': 'array', 'itemType': 'string' },
+      resourceMode: 'string',
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    if(this.resourceTags) {
+      $dara.Model.validateMap(this.resourceTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpsertCollectionPolicyRequestResourceDirectory extends $dara.Model {
+  /**
+   * @remarks
+   * The mode of the resource directory. Valid values: all and custom.
+   * 
+   * @example
+   * all,custom
+   */
+  accountGroupType?: string;
+  /**
+   * @remarks
+   * The members. If accountGroupType is set to custom, the members are returned.
+   */
+  members?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountGroupType: 'accountGroupType',
+      members: 'members',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountGroupType: 'string',
+      members: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpsertCollectionPolicyRequest extends $dara.Model {
   /**

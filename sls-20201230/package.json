@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sls20201230",
-  "version": "5.7.2",
+  "version": "5.8.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

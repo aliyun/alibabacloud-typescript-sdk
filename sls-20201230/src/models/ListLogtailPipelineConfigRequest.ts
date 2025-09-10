@@ -11,6 +11,7 @@ export class ListLogtailPipelineConfigRequest extends $dara.Model {
    * logtail-config-sample
    */
   configName?: string;
+  configType?: string;
   /**
    * @remarks
    * The name of the Logstore.
@@ -38,6 +39,7 @@ export class ListLogtailPipelineConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       configName: 'configName',
+      configType: 'configType',
       logstoreName: 'logstoreName',
       offset: 'offset',
       size: 'size',
@@ -47,6 +49,7 @@ export class ListLogtailPipelineConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       configName: 'string',
+      configType: 'string',
       logstoreName: 'string',
       offset: 'number',
       size: 'number',

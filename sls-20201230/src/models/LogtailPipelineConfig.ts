@@ -39,6 +39,11 @@ export class LogtailPipelineConfig extends $dara.Model {
    */
   logSample?: string;
   processors?: { [key: string]: any }[];
+  /**
+   * @example
+   * {"Type": "task_example"}
+   */
+  task?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       aggregators: 'aggregators',
@@ -50,6 +55,7 @@ export class LogtailPipelineConfig extends $dara.Model {
       lastModifyTime: 'lastModifyTime',
       logSample: 'logSample',
       processors: 'processors',
+      task: 'task',
     };
   }
 
@@ -64,6 +70,7 @@ export class LogtailPipelineConfig extends $dara.Model {
       lastModifyTime: 'number',
       logSample: 'string',
       processors: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      task: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -82,6 +89,9 @@ export class LogtailPipelineConfig extends $dara.Model {
     }
     if(Array.isArray(this.processors)) {
       $dara.Model.validateArray(this.processors);
+    }
+    if(this.task) {
+      $dara.Model.validateMap(this.task);
     }
     super.validate();
   }
