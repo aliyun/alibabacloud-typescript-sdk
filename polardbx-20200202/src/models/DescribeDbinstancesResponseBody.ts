@@ -10,6 +10,11 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model
   classCode?: string;
   id?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  name?: string;
+  /**
    * @example
    * cn-hangzhou-g-aliyun
    */
@@ -23,6 +28,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model
     return {
       classCode: 'ClassCode',
       id: 'Id',
+      name: 'Name',
       regionId: 'RegionId',
       zoneId: 'ZoneId',
     };
@@ -32,6 +38,7 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model
     return {
       classCode: 'string',
       id: 'string',
+      name: 'string',
       regionId: 'string',
       zoneId: 'string',
     };
