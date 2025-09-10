@@ -8,7 +8,7 @@ export class GenerateUploadConfigResponseBodyData extends $dara.Model {
    * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
    */
   fileKey?: string;
-  formDatas?: { [key: string]: any };
+  formDatas?: { [key: string]: string };
   /**
    * @example
    * https://bucket-name.oss-cn-hangzhou.aliyuncs.com
@@ -25,7 +25,7 @@ export class GenerateUploadConfigResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileKey: 'string',
-      formDatas: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      formDatas: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       postUrl: 'string',
     };
   }
