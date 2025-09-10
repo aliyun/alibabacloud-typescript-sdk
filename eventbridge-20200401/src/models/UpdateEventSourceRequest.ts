@@ -260,6 +260,73 @@ export class UpdateEventSourceRequestSourceMNSParameters extends $dara.Model {
   }
 }
 
+export class UpdateEventSourceRequestSourceOSSEventParametersMatchRules extends $dara.Model {
+  suffix?: string;
+  matchState?: boolean;
+  prefix?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      suffix: 'Suffix',
+      matchState: 'MatchState',
+      prefix: 'Prefix',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      suffix: 'string',
+      matchState: 'boolean',
+      prefix: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventSourceRequestSourceOSSEventParameters extends $dara.Model {
+  eventTypes?: string[];
+  matchRules?: UpdateEventSourceRequestSourceOSSEventParametersMatchRules[][];
+  stsRoleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventTypes: 'EventTypes',
+      matchRules: 'MatchRules',
+      stsRoleArn: 'StsRoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventTypes: { 'type': 'array', 'itemType': 'string' },
+      matchRules: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': UpdateEventSourceRequestSourceOSSEventParametersMatchRules } },
+      stsRoleArn: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eventTypes)) {
+      $dara.Model.validateArray(this.eventTypes);
+    }
+    if(Array.isArray(this.matchRules)) {
+      $dara.Model.validateArray(this.matchRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventSourceRequestSourceRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
@@ -684,6 +751,7 @@ export class UpdateEventSourceRequest extends $dara.Model {
    * The parameters that are configured if the event source is Message Service (MNS).
    */
   sourceMNSParameters?: UpdateEventSourceRequestSourceMNSParameters;
+  sourceOSSEventParameters?: UpdateEventSourceRequestSourceOSSEventParameters;
   /**
    * @remarks
    * The parameters that are configured if the event source is Message Queue for RabbitMQ.
@@ -715,6 +783,7 @@ export class UpdateEventSourceRequest extends $dara.Model {
       sourceHttpEventParameters: 'SourceHttpEventParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
+      sourceOSSEventParameters: 'SourceOSSEventParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -733,6 +802,7 @@ export class UpdateEventSourceRequest extends $dara.Model {
       sourceHttpEventParameters: UpdateEventSourceRequestSourceHttpEventParameters,
       sourceKafkaParameters: UpdateEventSourceRequestSourceKafkaParameters,
       sourceMNSParameters: UpdateEventSourceRequestSourceMNSParameters,
+      sourceOSSEventParameters: UpdateEventSourceRequestSourceOSSEventParameters,
       sourceRabbitMQParameters: UpdateEventSourceRequestSourceRabbitMQParameters,
       sourceRocketMQParameters: UpdateEventSourceRequestSourceRocketMQParameters,
       sourceSLSParameters: UpdateEventSourceRequestSourceSLSParameters,
@@ -752,6 +822,9 @@ export class UpdateEventSourceRequest extends $dara.Model {
     }
     if(this.sourceMNSParameters && typeof (this.sourceMNSParameters as any).validate === 'function') {
       (this.sourceMNSParameters as any).validate();
+    }
+    if(this.sourceOSSEventParameters && typeof (this.sourceOSSEventParameters as any).validate === 'function') {
+      (this.sourceOSSEventParameters as any).validate();
     }
     if(this.sourceRabbitMQParameters && typeof (this.sourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceRabbitMQParameters as any).validate();

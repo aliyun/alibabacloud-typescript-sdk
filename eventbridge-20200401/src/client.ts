@@ -289,6 +289,10 @@ export default class Client extends OpenApi {
       request.sourceMNSParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters, "SourceMNSParameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.sourceOSSEventParameters)) {
+      request.sourceOSSEventParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters, "SourceOSSEventParameters", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sourceRabbitMQParameters)) {
       request.sourceRabbitMQParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters, "SourceRabbitMQParameters", "json");
     }
@@ -340,6 +344,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceMNSParametersShrink)) {
       body["SourceMNSParameters"] = request.sourceMNSParametersShrink;
+    }
+
+    if (!$dara.isNull(request.sourceOSSEventParametersShrink)) {
+      body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink;
     }
 
     if (!$dara.isNull(request.sourceRabbitMQParametersShrink)) {
@@ -2599,6 +2607,10 @@ export default class Client extends OpenApi {
       request.sourceMNSParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceMNSParameters, "SourceMNSParameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.sourceOSSEventParameters)) {
+      request.sourceOSSEventParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceOSSEventParameters, "SourceOSSEventParameters", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sourceRabbitMQParameters)) {
       request.sourceRabbitMQParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceRabbitMQParameters, "SourceRabbitMQParameters", "json");
     }
@@ -2650,6 +2662,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceMNSParametersShrink)) {
       body["SourceMNSParameters"] = request.sourceMNSParametersShrink;
+    }
+
+    if (!$dara.isNull(request.sourceOSSEventParametersShrink)) {
+      body["SourceOSSEventParameters"] = request.sourceOSSEventParametersShrink;
     }
 
     if (!$dara.isNull(request.sourceRabbitMQParametersShrink)) {

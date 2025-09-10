@@ -64,6 +64,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
    * The parameters that are configured if you specify Simple Message Queue (formerly MNS) (SMQ) as the event source. If you specify SMQ as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
    */
   sourceMNSParametersShrink?: string;
+  sourceOSSEventParametersShrink?: string;
   /**
    * @remarks
    * The parameters that are configured if the event source is Message Queue for RabbitMQ.
@@ -95,6 +96,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
       sourceHttpEventParametersShrink: 'SourceHttpEventParameters',
       sourceKafkaParametersShrink: 'SourceKafkaParameters',
       sourceMNSParametersShrink: 'SourceMNSParameters',
+      sourceOSSEventParametersShrink: 'SourceOSSEventParameters',
       sourceRabbitMQParametersShrink: 'SourceRabbitMQParameters',
       sourceRocketMQParametersShrink: 'SourceRocketMQParameters',
       sourceSLSParametersShrink: 'SourceSLSParameters',
@@ -113,6 +115,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
       sourceHttpEventParametersShrink: 'string',
       sourceKafkaParametersShrink: 'string',
       sourceMNSParametersShrink: 'string',
+      sourceOSSEventParametersShrink: 'string',
       sourceRabbitMQParametersShrink: 'string',
       sourceRocketMQParametersShrink: 'string',
       sourceSLSParametersShrink: 'string',

@@ -67,6 +67,7 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
    * The parameters that are configured if the event source is Message Service (MNS).
    */
   sourceMNSParametersShrink?: string;
+  sourceOSSEventParametersShrink?: string;
   /**
    * @remarks
    * The parameters that are configured if the event source is Message Queue for RabbitMQ.
@@ -98,6 +99,7 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
       sourceHttpEventParametersShrink: 'SourceHttpEventParameters',
       sourceKafkaParametersShrink: 'SourceKafkaParameters',
       sourceMNSParametersShrink: 'SourceMNSParameters',
+      sourceOSSEventParametersShrink: 'SourceOSSEventParameters',
       sourceRabbitMQParametersShrink: 'SourceRabbitMQParameters',
       sourceRocketMQParametersShrink: 'SourceRocketMQParameters',
       sourceSLSParametersShrink: 'SourceSLSParameters',
@@ -116,6 +118,7 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
       sourceHttpEventParametersShrink: 'string',
       sourceKafkaParametersShrink: 'string',
       sourceMNSParametersShrink: 'string',
+      sourceOSSEventParametersShrink: 'string',
       sourceRabbitMQParametersShrink: 'string',
       sourceRocketMQParametersShrink: 'string',
       sourceSLSParametersShrink: 'string',

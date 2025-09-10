@@ -280,6 +280,38 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNS
   }
 }
 
+export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters extends $dara.Model {
+  eventTypes?: string[];
+  matchRules?: any;
+  stsRoleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventTypes: 'EventTypes',
+      matchRules: 'MatchRules',
+      stsRoleArn: 'StsRoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventTypes: { 'type': 'array', 'itemType': 'string' },
+      matchRules: 'any',
+      stsRoleArn: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eventTypes)) {
+      $dara.Model.validateArray(this.eventTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
@@ -692,6 +724,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
    * The parameters that are returned if Simple Message Queue (formerly MNS) (SMQ) is specified as the event source.
    */
   sourceMNSParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters;
+  sourceOSSEventParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters;
   /**
    * @remarks
    * The parameters that are returned if Message Queue for RabbitMQ is specified as the event source.
@@ -738,6 +771,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
       sourceHttpEventParameters: 'SourceHttpEventParameters',
       sourceKafkaParameters: 'SourceKafkaParameters',
       sourceMNSParameters: 'SourceMNSParameters',
+      sourceOSSEventParameters: 'SourceOSSEventParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
       sourceSLSParameters: 'SourceSLSParameters',
@@ -757,6 +791,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
       sourceHttpEventParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHttpEventParameters,
       sourceKafkaParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters,
       sourceMNSParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters,
+      sourceOSSEventParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters,
       sourceRabbitMQParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters,
       sourceRocketMQParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRocketMQParameters,
       sourceSLSParameters: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLSParameters,
@@ -775,6 +810,9 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
     }
     if(this.sourceMNSParameters && typeof (this.sourceMNSParameters as any).validate === 'function') {
       (this.sourceMNSParameters as any).validate();
+    }
+    if(this.sourceOSSEventParameters && typeof (this.sourceOSSEventParameters as any).validate === 'function') {
+      (this.sourceOSSEventParameters as any).validate();
     }
     if(this.sourceRabbitMQParameters && typeof (this.sourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceRabbitMQParameters as any).validate();
