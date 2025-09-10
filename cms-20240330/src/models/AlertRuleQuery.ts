@@ -118,6 +118,7 @@ export class AlertRuleQuery extends $dara.Model {
   queries?: AlertRuleQueryQueries[];
   relationType?: string;
   secondJoin?: AlertRuleSlsQueryJoin;
+  serviceIds?: string[];
   /**
    * @remarks
    * 查询类型
@@ -139,6 +140,7 @@ export class AlertRuleQuery extends $dara.Model {
       queries: 'queries',
       relationType: 'relationType',
       secondJoin: 'secondJoin',
+      serviceIds: 'serviceIds',
       type: 'type',
     };
   }
@@ -157,6 +159,7 @@ export class AlertRuleQuery extends $dara.Model {
       queries: { 'type': 'array', 'itemType': AlertRuleQueryQueries },
       relationType: 'string',
       secondJoin: AlertRuleSlsQueryJoin,
+      serviceIds: { 'type': 'array', 'itemType': 'string' },
       type: 'string',
     };
   }
@@ -176,6 +179,9 @@ export class AlertRuleQuery extends $dara.Model {
     }
     if(this.secondJoin && typeof (this.secondJoin as any).validate === 'function') {
       (this.secondJoin as any).validate();
+    }
+    if(Array.isArray(this.serviceIds)) {
+      $dara.Model.validateArray(this.serviceIds);
     }
     super.validate();
   }

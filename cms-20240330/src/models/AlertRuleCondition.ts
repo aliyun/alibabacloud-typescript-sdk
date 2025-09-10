@@ -289,6 +289,7 @@ export class AlertRuleCondition extends $dara.Model {
   noDataAlertLevel?: string;
   noDataAppendValue?: string;
   noDataPolicy?: string;
+  oper?: string;
   relation?: string;
   simpleEscalation?: AlertRuleConditionSimpleEscalation;
   /**
@@ -298,6 +299,7 @@ export class AlertRuleCondition extends $dara.Model {
    * This parameter is required.
    */
   type?: string;
+  value?: number;
   static names(): { [key: string]: string } {
     return {
       alertCount: 'alertCount',
@@ -309,9 +311,11 @@ export class AlertRuleCondition extends $dara.Model {
       noDataAlertLevel: 'noDataAlertLevel',
       noDataAppendValue: 'noDataAppendValue',
       noDataPolicy: 'noDataPolicy',
+      oper: 'oper',
       relation: 'relation',
       simpleEscalation: 'simpleEscalation',
       type: 'type',
+      value: 'value',
     };
   }
 
@@ -326,9 +330,11 @@ export class AlertRuleCondition extends $dara.Model {
       noDataAlertLevel: 'string',
       noDataAppendValue: 'string',
       noDataPolicy: 'string',
+      oper: 'string',
       relation: 'string',
       simpleEscalation: AlertRuleConditionSimpleEscalation,
       type: 'string',
+      value: 'number',
     };
   }
 
