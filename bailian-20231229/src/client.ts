@@ -208,6 +208,10 @@ export default class Client extends OpenApi {
       body["OssRegionId"] = request.ossRegionId;
     }
 
+    if (!$dara.isNull(request.overWriteFileByOssKey)) {
+      body["OverWriteFileByOssKey"] = request.overWriteFileByOssKey;
+    }
+
     if (!$dara.isNull(request.tagsShrink)) {
       body["Tags"] = request.tagsShrink;
     }

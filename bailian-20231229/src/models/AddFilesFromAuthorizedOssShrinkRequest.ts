@@ -40,6 +40,7 @@ export class AddFilesFromAuthorizedOssShrinkRequest extends $dara.Model {
    * cn-beijing
    */
   ossRegionId?: string;
+  overWriteFileByOssKey?: boolean;
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,6 +49,7 @@ export class AddFilesFromAuthorizedOssShrinkRequest extends $dara.Model {
       fileDetailsShrink: 'FileDetails',
       ossBucketName: 'OssBucketName',
       ossRegionId: 'OssRegionId',
+      overWriteFileByOssKey: 'OverWriteFileByOssKey',
       tagsShrink: 'Tags',
     };
   }
@@ -59,6 +61,7 @@ export class AddFilesFromAuthorizedOssShrinkRequest extends $dara.Model {
       fileDetailsShrink: 'string',
       ossBucketName: 'string',
       ossRegionId: 'string',
+      overWriteFileByOssKey: 'boolean',
       tagsShrink: 'string',
     };
   }

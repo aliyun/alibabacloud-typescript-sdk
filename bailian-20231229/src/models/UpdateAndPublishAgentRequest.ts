@@ -62,11 +62,13 @@ export class UpdateAndPublishAgentRequestApplicationConfigLongTermMemory extends
 
 export class UpdateAndPublishAgentRequestApplicationConfigParameters extends $dara.Model {
   dialogRound?: number;
+  enableThinking?: boolean;
   maxTokens?: number;
   temperature?: number;
   static names(): { [key: string]: string } {
     return {
       dialogRound: 'dialogRound',
+      enableThinking: 'enable_thinking',
       maxTokens: 'maxTokens',
       temperature: 'temperature',
     };
@@ -75,6 +77,7 @@ export class UpdateAndPublishAgentRequestApplicationConfigParameters extends $da
   static types(): { [key: string]: any } {
     return {
       dialogRound: 'number',
+      enableThinking: 'boolean',
       maxTokens: 'number',
       temperature: 'number',
     };

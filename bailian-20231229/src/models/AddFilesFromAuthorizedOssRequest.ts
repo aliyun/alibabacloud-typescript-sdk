@@ -80,6 +80,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
    * cn-beijing
    */
   ossRegionId?: string;
+  overWriteFileByOssKey?: boolean;
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -88,6 +89,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
       fileDetails: 'FileDetails',
       ossBucketName: 'OssBucketName',
       ossRegionId: 'OssRegionId',
+      overWriteFileByOssKey: 'OverWriteFileByOssKey',
       tags: 'Tags',
     };
   }
@@ -99,6 +101,7 @@ export class AddFilesFromAuthorizedOssRequest extends $dara.Model {
       fileDetails: { 'type': 'array', 'itemType': AddFilesFromAuthorizedOssRequestFileDetails },
       ossBucketName: 'string',
       ossRegionId: 'string',
+      overWriteFileByOssKey: 'boolean',
       tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
