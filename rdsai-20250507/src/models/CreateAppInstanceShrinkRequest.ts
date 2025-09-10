@@ -2,50 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
-export class CreateAppInstanceRequestDBInstanceConfig extends $dara.Model {
-  /**
-   * @example
-   * pg.n2.2c.1m
-   */
-  DBInstanceClass?: string;
-  /**
-   * @example
-   * 100
-   */
-  DBInstanceStorage?: number;
-  /**
-   * @example
-   * Postpaid
-   */
-  payType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceClass: 'DBInstanceClass',
-      DBInstanceStorage: 'DBInstanceStorage',
-      payType: 'PayType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceClass: 'string',
-      DBInstanceStorage: 'number',
-      payType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAppInstanceRequest extends $dara.Model {
+export class CreateAppInstanceShrinkRequest extends $dara.Model {
   /**
    * @example
    * test-supabase
@@ -61,7 +18,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
-  DBInstanceConfig?: CreateAppInstanceRequestDBInstanceConfig;
+  DBInstanceConfigShrink?: string;
   /**
    * @example
    * pgm-2ze49qv594vi****
@@ -108,7 +65,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       appName: 'AppName',
       appType: 'AppType',
       clientToken: 'ClientToken',
-      DBInstanceConfig: 'DBInstanceConfig',
+      DBInstanceConfigShrink: 'DBInstanceConfig',
       DBInstanceName: 'DBInstanceName',
       dashboardPassword: 'DashboardPassword',
       dashboardUsername: 'DashboardUsername',
@@ -126,7 +83,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       appName: 'string',
       appType: 'string',
       clientToken: 'string',
-      DBInstanceConfig: CreateAppInstanceRequestDBInstanceConfig,
+      DBInstanceConfigShrink: 'string',
       DBInstanceName: 'string',
       dashboardPassword: 'string',
       dashboardUsername: 'string',
@@ -140,9 +97,6 @@ export class CreateAppInstanceRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.DBInstanceConfig && typeof (this.DBInstanceConfig as any).validate === 'function') {
-      (this.DBInstanceConfig as any).validate();
-    }
     super.validate();
   }
 

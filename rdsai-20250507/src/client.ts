@@ -32,12 +32,18 @@ export default class Client extends OpenApi {
   /**
    * 创建应用服务实例
    * 
-   * @param request - CreateAppInstanceRequest
+   * @param tmpReq - CreateAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppInstanceResponse
    */
-  async createAppInstanceWithOptions(request: $_model.CreateAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceResponse> {
-    request.validate();
+  async createAppInstanceWithOptions(tmpReq: $_model.CreateAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAppInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.DBInstanceConfig)) {
+      request.DBInstanceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.DBInstanceConfig, "DBInstanceConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
@@ -49,6 +55,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBInstanceConfigShrink)) {
+      query["DBInstanceConfig"] = request.DBInstanceConfigShrink;
     }
 
     if (!$dara.isNull(request.DBInstanceName)) {
@@ -73,6 +83,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.publicNetworkAccessEnabled)) {
       query["PublicNetworkAccessEnabled"] = request.publicNetworkAccessEnabled;
+    }
+
+    if (!$dara.isNull(request.RAGEnabled)) {
+      query["RAGEnabled"] = request.RAGEnabled;
     }
 
     if (!$dara.isNull(request.regionId)) {

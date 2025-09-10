@@ -1,8 +1,10 @@
+export { CreateAppInstanceRequestDBInstanceConfig } from './CreateAppInstanceRequest';
 export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstancesResponseBody';
 export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceAuthInfoResponseBody';
 export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
 export { CreateAppInstanceRequest } from './CreateAppInstanceRequest';
+export { CreateAppInstanceShrinkRequest } from './CreateAppInstanceShrinkRequest';
 export { CreateAppInstanceResponseBody } from './CreateAppInstanceResponseBody';
 export { CreateAppInstanceResponse } from './CreateAppInstanceResponse';
 export { DeleteAppInstanceRequest } from './DeleteAppInstanceRequest';
