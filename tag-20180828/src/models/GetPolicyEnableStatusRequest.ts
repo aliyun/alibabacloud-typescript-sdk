@@ -9,6 +9,7 @@ export class GetPolicyEnableStatusRequest extends $dara.Model {
    * 
    * *   TAG_POLICY: the Tag Policy feature.
    * *   VERIFY_NO_TAG: the strong verification feature.
+   * *   TAG_POLICY_NOTIFY: the notification feature that sends notifications for resources found to be non-compliant with the tag policy.
    * 
    * @example
    * TAG_POLICY
