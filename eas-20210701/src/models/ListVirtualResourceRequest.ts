@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVirtualResourceRequest extends $dara.Model {
+  order?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -19,6 +20,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  sort?: string;
   /**
    * @remarks
    * The ID of the virtual resource group.
@@ -37,8 +39,10 @@ export class ListVirtualResourceRequest extends $dara.Model {
   virtualResourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sort: 'Sort',
       virtualResourceId: 'VirtualResourceId',
       virtualResourceName: 'VirtualResourceName',
     };
@@ -46,8 +50,10 @@ export class ListVirtualResourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sort: 'string',
       virtualResourceId: 'string',
       virtualResourceName: 'string',
     };

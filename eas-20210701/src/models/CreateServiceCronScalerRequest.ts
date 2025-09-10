@@ -31,11 +31,13 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
    * 1
    */
   targetSize?: number;
+  timeZone?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
       schedule: 'Schedule',
       targetSize: 'TargetSize',
+      timeZone: 'TimeZone',
     };
   }
 
@@ -44,6 +46,7 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
       name: 'string',
       schedule: 'string',
       targetSize: 'number',
+      timeZone: 'string',
     };
   }
 

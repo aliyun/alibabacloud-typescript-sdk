@@ -3126,12 +3126,32 @@ export default class Client extends OpenApi {
   async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: $_model.ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceInstanceWorkerResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.ready)) {
+      query["Ready"] = request.ready;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!$dara.isNull(request.workerName)) {
@@ -3269,7 +3289,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceServicesResponse
    */
-  // Deprecated
   async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: $_model.ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceServicesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
@@ -3673,6 +3692,10 @@ export default class Client extends OpenApi {
       query["Sort"] = request.sort;
     }
 
+    if (!$dara.isNull(request.trafficState)) {
+      query["TrafficState"] = request.trafficState;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -3753,12 +3776,20 @@ export default class Client extends OpenApi {
   async listVirtualResourceWithOptions(request: $_model.ListVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVirtualResourceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
     }
 
     if (!$dara.isNull(request.virtualResourceId)) {

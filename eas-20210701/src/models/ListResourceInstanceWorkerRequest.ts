@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListResourceInstanceWorkerRequest extends $dara.Model {
+  order?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -19,6 +20,10 @@ export class ListResourceInstanceWorkerRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  ready?: boolean;
+  serviceName?: string;
+  sort?: string;
+  status?: string;
   /**
    * @remarks
    * The worker name.
@@ -29,16 +34,26 @@ export class ListResourceInstanceWorkerRequest extends $dara.Model {
   workerName?: string;
   static names(): { [key: string]: string } {
     return {
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      ready: 'Ready',
+      serviceName: 'ServiceName',
+      sort: 'Sort',
+      status: 'Status',
       workerName: 'WorkerName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      ready: 'boolean',
+      serviceName: 'string',
+      sort: 'string',
+      status: 'string',
       workerName: 'string',
     };
   }

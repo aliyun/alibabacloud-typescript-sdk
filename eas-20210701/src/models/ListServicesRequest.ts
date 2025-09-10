@@ -337,6 +337,7 @@ export class ListServicesRequest extends $dara.Model {
    * CreateTime
    */
   sort?: string;
+  trafficState?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -370,6 +371,7 @@ export class ListServicesRequest extends $dara.Model {
       serviceType: 'ServiceType',
       serviceUid: 'ServiceUid',
       sort: 'Sort',
+      trafficState: 'TrafficState',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -399,6 +401,7 @@ export class ListServicesRequest extends $dara.Model {
       serviceType: 'string',
       serviceUid: 'string',
       sort: 'string',
+      trafficState: 'string',
       workspaceId: 'string',
     };
   }
