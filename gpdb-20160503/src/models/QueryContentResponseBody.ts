@@ -2,6 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryContentResponseBodyEntitiesEntities extends $dara.Model {
+  description?: string;
+  entity?: string;
+  fileName?: string;
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      entity: 'Entity',
+      fileName: 'FileName',
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      entity: 'string',
+      fileName: 'string',
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContentResponseBodyEntities extends $dara.Model {
+  entities?: QueryContentResponseBodyEntitiesEntities[];
+  static names(): { [key: string]: string } {
+    return {
+      entities: 'entities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entities: { 'type': 'array', 'itemType': QueryContentResponseBodyEntitiesEntities },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entities)) {
+      $dara.Model.validateArray(this.entities);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryContentResponseBodyMatchesMatchListVector extends $dara.Model {
   vectorList?: number[];
   static names(): { [key: string]: string } {
@@ -175,6 +236,67 @@ export class QueryContentResponseBodyMatches extends $dara.Model {
   validate() {
     if(Array.isArray(this.matchList)) {
       $dara.Model.validateArray(this.matchList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContentResponseBodyRelationsRelations extends $dara.Model {
+  description?: string;
+  fileName?: string;
+  id?: string;
+  sourceEntity?: string;
+  targetEntity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      fileName: 'FileName',
+      id: 'Id',
+      sourceEntity: 'SourceEntity',
+      targetEntity: 'TargetEntity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      fileName: 'string',
+      id: 'string',
+      sourceEntity: 'string',
+      targetEntity: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContentResponseBodyRelations extends $dara.Model {
+  relations?: QueryContentResponseBodyRelationsRelations[];
+  static names(): { [key: string]: string } {
+    return {
+      relations: 'relations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relations: { 'type': 'array', 'itemType': QueryContentResponseBodyRelationsRelations },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relations)) {
+      $dara.Model.validateArray(this.relations);
     }
     super.validate();
   }
@@ -390,6 +512,7 @@ export class QueryContentResponseBody extends $dara.Model {
    * 100
    */
   embeddingTokens?: string;
+  entities?: QueryContentResponseBodyEntities;
   /**
    * @remarks
    * The retrieved data.
@@ -403,6 +526,7 @@ export class QueryContentResponseBody extends $dara.Model {
    * success
    */
   message?: string;
+  relations?: QueryContentResponseBodyRelations;
   /**
    * @remarks
    * The request ID.
@@ -435,8 +559,10 @@ export class QueryContentResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       embeddingTokens: 'EmbeddingTokens',
+      entities: 'Entities',
       matches: 'Matches',
       message: 'Message',
+      relations: 'Relations',
       requestId: 'RequestId',
       status: 'Status',
       usage: 'Usage',
@@ -447,8 +573,10 @@ export class QueryContentResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       embeddingTokens: 'string',
+      entities: QueryContentResponseBodyEntities,
       matches: QueryContentResponseBodyMatches,
       message: 'string',
+      relations: QueryContentResponseBodyRelations,
       requestId: 'string',
       status: 'string',
       usage: QueryContentResponseBodyUsage,
@@ -457,8 +585,14 @@ export class QueryContentResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.entities && typeof (this.entities as any).validate === 'function') {
+      (this.entities as any).validate();
+    }
     if(this.matches && typeof (this.matches as any).validate === 'function') {
       (this.matches as any).validate();
+    }
+    if(this.relations && typeof (this.relations as any).validate === 'function') {
+      (this.relations as any).validate();
     }
     if(this.usage && typeof (this.usage as any).validate === 'function') {
       (this.usage as any).validate();

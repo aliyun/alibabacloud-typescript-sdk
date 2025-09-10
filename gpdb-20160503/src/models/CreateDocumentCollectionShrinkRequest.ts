@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDocumentCollectionRequest extends $dara.Model {
+export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the document collection that you want to create.
@@ -67,7 +67,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    */
   embeddingModel?: string;
   enableGraph?: boolean;
-  entityTypes?: string[];
+  entityTypesShrink?: string;
   /**
    * @remarks
    * Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
@@ -206,7 +206,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  relationshipTypes?: string[];
+  relationshipTypesShrink?: string;
   static names(): { [key: string]: string } {
     return {
       collection: 'Collection',
@@ -214,7 +214,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       dimension: 'Dimension',
       embeddingModel: 'EmbeddingModel',
       enableGraph: 'EnableGraph',
-      entityTypes: 'EntityTypes',
+      entityTypesShrink: 'EntityTypes',
       externalStorage: 'ExternalStorage',
       fullTextRetrievalFields: 'FullTextRetrievalFields',
       hnswEfConstruction: 'HnswEfConstruction',
@@ -231,7 +231,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       parser: 'Parser',
       pqEnable: 'PqEnable',
       regionId: 'RegionId',
-      relationshipTypes: 'RelationshipTypes',
+      relationshipTypesShrink: 'RelationshipTypes',
     };
   }
 
@@ -242,7 +242,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       dimension: 'number',
       embeddingModel: 'string',
       enableGraph: 'boolean',
-      entityTypes: { 'type': 'array', 'itemType': 'string' },
+      entityTypesShrink: 'string',
       externalStorage: 'number',
       fullTextRetrievalFields: 'string',
       hnswEfConstruction: 'string',
@@ -259,17 +259,11 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       parser: 'string',
       pqEnable: 'number',
       regionId: 'string',
-      relationshipTypes: { 'type': 'array', 'itemType': 'string' },
+      relationshipTypesShrink: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.entityTypes)) {
-      $dara.Model.validateArray(this.entityTypes);
-    }
-    if(Array.isArray(this.relationshipTypes)) {
-      $dara.Model.validateArray(this.relationshipTypes);
-    }
     super.validate();
   }
 

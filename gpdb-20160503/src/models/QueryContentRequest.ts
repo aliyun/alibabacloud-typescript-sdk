@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryContentRequestGraphSearchArgs extends $dara.Model {
+  graphTopK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      graphTopK: 'GraphTopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      graphTopK: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryContentRequest extends $dara.Model {
   /**
    * @remarks
@@ -59,6 +82,8 @@ export class QueryContentRequest extends $dara.Model {
    * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
+  graphEnhance?: boolean;
+  graphSearchArgs?: QueryContentRequestGraphSearchArgs;
   /**
    * @remarks
    * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
@@ -212,6 +237,8 @@ export class QueryContentRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       filter: 'Filter',
+      graphEnhance: 'GraphEnhance',
+      graphSearchArgs: 'GraphSearchArgs',
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
       includeFileUrl: 'IncludeFileUrl',
@@ -238,6 +265,8 @@ export class QueryContentRequest extends $dara.Model {
       fileName: 'string',
       fileUrl: 'string',
       filter: 'string',
+      graphEnhance: 'boolean',
+      graphSearchArgs: QueryContentRequestGraphSearchArgs,
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       includeFileUrl: 'boolean',
@@ -257,6 +286,9 @@ export class QueryContentRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.graphSearchArgs && typeof (this.graphSearchArgs as any).validate === 'function') {
+      (this.graphSearchArgs as any).validate();
+    }
     if(this.hybridSearchArgs) {
       $dara.Model.validateMap(this.hybridSearchArgs);
     }

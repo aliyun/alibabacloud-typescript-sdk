@@ -59,6 +59,8 @@ export class QueryContentShrinkRequest extends $dara.Model {
    * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
+  graphEnhance?: boolean;
+  graphSearchArgsShrink?: string;
   /**
    * @remarks
    * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
@@ -212,6 +214,8 @@ export class QueryContentShrinkRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       filter: 'Filter',
+      graphEnhance: 'GraphEnhance',
+      graphSearchArgsShrink: 'GraphSearchArgs',
       hybridSearch: 'HybridSearch',
       hybridSearchArgsShrink: 'HybridSearchArgs',
       includeFileUrl: 'IncludeFileUrl',
@@ -238,6 +242,8 @@ export class QueryContentShrinkRequest extends $dara.Model {
       fileName: 'string',
       fileUrl: 'string',
       filter: 'string',
+      graphEnhance: 'boolean',
+      graphSearchArgsShrink: 'string',
       hybridSearch: 'string',
       hybridSearchArgsShrink: 'string',
       includeFileUrl: 'boolean',

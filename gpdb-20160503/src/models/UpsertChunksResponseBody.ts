@@ -13,6 +13,7 @@ export class UpsertChunksResponseBody extends $dara.Model {
    * 100
    */
   embeddingTokens?: string;
+  jobId?: string;
   /**
    * @remarks
    * Return message.
@@ -42,6 +43,7 @@ export class UpsertChunksResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       embeddingTokens: 'EmbeddingTokens',
+      jobId: 'JobId',
       message: 'Message',
       requestId: 'RequestId',
       status: 'Status',
@@ -51,6 +53,7 @@ export class UpsertChunksResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       embeddingTokens: 'string',
+      jobId: 'string',
       message: 'string',
       requestId: 'string',
       status: 'string',

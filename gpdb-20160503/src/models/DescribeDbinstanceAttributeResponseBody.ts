@@ -314,6 +314,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 2999-09-08T16:00:00Z
    */
   expireTime?: string;
+  graphEngineStatus?: string;
   /**
    * @remarks
    * Compute group machine type, with the following values:
@@ -724,6 +725,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      graphEngineStatus: 'GraphEngineStatus',
       hostType: 'HostType',
       idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
@@ -798,6 +800,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       engine: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      graphEngineStatus: 'string',
       hostType: 'string',
       idleTime: 'number',
       instanceNetworkType: 'string',

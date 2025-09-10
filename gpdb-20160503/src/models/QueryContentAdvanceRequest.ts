@@ -3,6 +3,29 @@ import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryContentAdvanceRequestGraphSearchArgs extends $dara.Model {
+  graphTopK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      graphTopK: 'GraphTopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      graphTopK: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryContentAdvanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -60,6 +83,8 @@ export class QueryContentAdvanceRequest extends $dara.Model {
    * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
+  graphEnhance?: boolean;
+  graphSearchArgs?: QueryContentAdvanceRequestGraphSearchArgs;
   /**
    * @remarks
    * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
@@ -213,6 +238,8 @@ export class QueryContentAdvanceRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
       filter: 'Filter',
+      graphEnhance: 'GraphEnhance',
+      graphSearchArgs: 'GraphSearchArgs',
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
       includeFileUrl: 'IncludeFileUrl',
@@ -239,6 +266,8 @@ export class QueryContentAdvanceRequest extends $dara.Model {
       fileName: 'string',
       fileUrlObject: 'Readable',
       filter: 'string',
+      graphEnhance: 'boolean',
+      graphSearchArgs: QueryContentAdvanceRequestGraphSearchArgs,
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       includeFileUrl: 'boolean',
@@ -258,6 +287,9 @@ export class QueryContentAdvanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.graphSearchArgs && typeof (this.graphSearchArgs as any).validate === 'function') {
+      (this.graphSearchArgs as any).validate();
+    }
     if(this.hybridSearchArgs) {
       $dara.Model.validateMap(this.hybridSearchArgs);
     }

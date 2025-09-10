@@ -1309,12 +1309,22 @@ export default class Client extends OpenApi {
   /**
    * Creates a document collection.
    * 
-   * @param request - CreateDocumentCollectionRequest
+   * @param tmpReq - CreateDocumentCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDocumentCollectionResponse
    */
-  async createDocumentCollectionWithOptions(request: $_model.CreateDocumentCollectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDocumentCollectionResponse> {
-    request.validate();
+  async createDocumentCollectionWithOptions(tmpReq: $_model.CreateDocumentCollectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDocumentCollectionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDocumentCollectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entityTypes)) {
+      request.entityTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entityTypes, "EntityTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.relationshipTypes)) {
+      request.relationshipTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationshipTypes, "RelationshipTypes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
@@ -1332,6 +1342,14 @@ export default class Client extends OpenApi {
       query["EmbeddingModel"] = request.embeddingModel;
     }
 
+    if (!$dara.isNull(request.enableGraph)) {
+      query["EnableGraph"] = request.enableGraph;
+    }
+
+    if (!$dara.isNull(request.entityTypesShrink)) {
+      query["EntityTypes"] = request.entityTypesShrink;
+    }
+
     if (!$dara.isNull(request.externalStorage)) {
       query["ExternalStorage"] = request.externalStorage;
     }
@@ -1346,6 +1364,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.hnswM)) {
       query["HnswM"] = request.hnswM;
+    }
+
+    if (!$dara.isNull(request.LLMModel)) {
+      query["LLMModel"] = request.LLMModel;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!$dara.isNull(request.managerAccount)) {
@@ -1386,6 +1412,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relationshipTypesShrink)) {
+      query["RelationshipTypes"] = request.relationshipTypesShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -11977,6 +12007,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.QueryContentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.graphSearchArgs)) {
+      request.graphSearchArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.graphSearchArgs, "GraphSearchArgs", "json");
+    }
+
     if (!$dara.isNull(tmpReq.hybridSearchArgs)) {
       request.hybridSearchArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hybridSearchArgs, "HybridSearchArgs", "json");
     }
@@ -12004,6 +12038,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.graphEnhance)) {
+      query["GraphEnhance"] = request.graphEnhance;
+    }
+
+    if (!$dara.isNull(request.graphSearchArgsShrink)) {
+      query["GraphSearchArgs"] = request.graphSearchArgsShrink;
     }
 
     if (!$dara.isNull(request.hybridSearch)) {
