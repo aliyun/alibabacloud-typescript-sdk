@@ -346,6 +346,7 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
    * s-0002******ga88
    */
   snapshotId?: string;
+  sourceInstanceId?: string;
   /**
    * @remarks
    * The type of the data source. Valid values:
@@ -542,6 +543,7 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
       restoreType: 'RestoreType',
       snapshotHash: 'SnapshotHash',
       snapshotId: 'SnapshotId',
+      sourceInstanceId: 'SourceInstanceId',
       sourceType: 'SourceType',
       speed: 'Speed',
       startTime: 'StartTime',
@@ -595,6 +597,7 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
       restoreType: 'string',
       snapshotHash: 'string',
       snapshotId: 'string',
+      sourceInstanceId: 'string',
       sourceType: 'string',
       speed: 'number',
       startTime: 'number',

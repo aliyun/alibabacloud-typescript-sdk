@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "hbr.aliyuncs.com",
@@ -131,6 +130,10 @@ export default class Client extends OpenApi {
   async cancelBackupJobWithOptions(request: $_model.CancelBackupJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelBackupJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
@@ -177,6 +180,10 @@ export default class Client extends OpenApi {
   async cancelRestoreJobWithOptions(request: $_model.CancelRestoreJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelRestoreJobResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.restoreId)) {
       query["RestoreId"] = request.restoreId;
     }
@@ -1265,6 +1272,10 @@ export default class Client extends OpenApi {
       query["CrossAccountUserId"] = request.crossAccountUserId;
     }
 
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.failbackDetailShrink)) {
       query["FailbackDetail"] = request.failbackDetailShrink;
     }
@@ -1705,6 +1716,10 @@ export default class Client extends OpenApi {
   async deleteBackupPlanWithOptions(request: $_model.DeleteBackupPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupPlanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.planId)) {
       query["PlanId"] = request.planId;
     }
@@ -2331,6 +2346,10 @@ export default class Client extends OpenApi {
   async describeBackupJobs2WithOptions(request: $_model.DescribeBackupJobs2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupJobs2Response> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.filters)) {
       query["Filters"] = request.filters;
     }
@@ -2389,6 +2408,10 @@ export default class Client extends OpenApi {
   async describeBackupPlansWithOptions(request: $_model.DescribeBackupPlansRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupPlansResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.filters)) {
       query["Filters"] = request.filters;
     }
@@ -3398,6 +3421,10 @@ export default class Client extends OpenApi {
   async describeRestoreJobs2WithOptions(request: $_model.DescribeRestoreJobs2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRestoreJobs2Response> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.filters)) {
       query["Filters"] = request.filters;
     }
@@ -3771,6 +3798,10 @@ export default class Client extends OpenApi {
   async disableBackupPlanWithOptions(request: $_model.DisableBackupPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableBackupPlanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.planId)) {
       query["PlanId"] = request.planId;
     }
@@ -3887,6 +3918,10 @@ export default class Client extends OpenApi {
   async enableBackupPlanWithOptions(request: $_model.EnableBackupPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableBackupPlanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.planId)) {
       query["PlanId"] = request.planId;
     }
@@ -4000,6 +4035,10 @@ export default class Client extends OpenApi {
   async executeBackupPlanWithOptions(request: $_model.ExecuteBackupPlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteBackupPlanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.planId)) {
       query["PlanId"] = request.planId;
     }
@@ -4314,6 +4353,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
@@ -4638,6 +4681,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.detailShrink)) {
       query["Detail"] = request.detailShrink;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
     }
 
     if (!$dara.isNull(request.keepLatestSnapshots)) {

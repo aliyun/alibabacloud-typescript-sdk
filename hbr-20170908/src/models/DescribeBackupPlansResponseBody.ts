@@ -663,6 +663,11 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $dara.
    */
   latestExecuteJobId?: string;
   /**
+   * @example
+   * job-00**************9khz
+   */
+  latestFinishJobId?: string;
+  /**
    * @remarks
    * This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates whether Windows Volume Shadow Copy Service (VSS) is used to define a source path.
    * 
@@ -811,6 +816,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $dara.
       instanceName: 'InstanceName',
       keepLatestSnapshots: 'KeepLatestSnapshots',
       latestExecuteJobId: 'LatestExecuteJobId',
+      latestFinishJobId: 'LatestFinishJobId',
       options: 'Options',
       otsDetail: 'OtsDetail',
       paths: 'Paths',
@@ -859,6 +865,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $dara.
       instanceName: 'string',
       keepLatestSnapshots: 'number',
       latestExecuteJobId: 'string',
+      latestFinishJobId: 'string',
       options: 'string',
       otsDetail: DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetail,
       paths: DescribeBackupPlansResponseBodyBackupPlansBackupPlanPaths,

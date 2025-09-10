@@ -77,6 +77,11 @@ export class DescribeBackupJobs2RequestFilters extends $dara.Model {
 
 export class DescribeBackupJobs2Request extends $dara.Model {
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * The keys that you want to match in the filter.
    */
@@ -125,6 +130,7 @@ export class DescribeBackupJobs2Request extends $dara.Model {
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       filters: 'Filters',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -135,6 +141,7 @@ export class DescribeBackupJobs2Request extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       filters: { 'type': 'array', 'itemType': DescribeBackupJobs2RequestFilters },
       pageNumber: 'number',
       pageSize: 'number',

@@ -29,6 +29,7 @@ export class CreateRestoreJobShrinkRequest extends $dara.Model {
    * 158975xxxxx4625
    */
   crossAccountUserId?: number;
+  edition?: string;
   /**
    * @remarks
    * The path not to be restored. All documents under this path will not be restored. Maximum length is 255 characters.
@@ -257,6 +258,7 @@ export class CreateRestoreJobShrinkRequest extends $dara.Model {
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
+      edition: 'Edition',
       exclude: 'Exclude',
       failbackDetailShrink: 'FailbackDetail',
       include: 'Include',
@@ -289,6 +291,7 @@ export class CreateRestoreJobShrinkRequest extends $dara.Model {
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
       crossAccountUserId: 'number',
+      edition: 'string',
       exclude: 'string',
       failbackDetailShrink: 'string',
       include: 'string',

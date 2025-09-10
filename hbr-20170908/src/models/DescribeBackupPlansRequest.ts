@@ -55,6 +55,11 @@ export class DescribeBackupPlansRequestFilters extends $dara.Model {
 
 export class DescribeBackupPlansRequest extends $dara.Model {
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * The filters.
    */
@@ -92,6 +97,7 @@ export class DescribeBackupPlansRequest extends $dara.Model {
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       filters: 'Filters',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -101,6 +107,7 @@ export class DescribeBackupPlansRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       filters: { 'type': 'array', 'itemType': DescribeBackupPlansRequestFilters },
       pageNumber: 'number',
       pageSize: 'number',

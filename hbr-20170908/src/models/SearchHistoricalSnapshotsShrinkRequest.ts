@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * BASIC
+   */
+  edition?: string;
+  /**
    * @remarks
    * The maximum number of rows that you want the current query to return. To query only the number of matched rows without the need to return specific data, you can set the Limit parameter to `0`. Then, the operation returns only the number of matched rows.
    * 
@@ -104,6 +109,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       limit: 'Limit',
       nextToken: 'NextToken',
       order: 'Order',
@@ -115,6 +121,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       limit: 'number',
       nextToken: 'string',
       order: 'string',

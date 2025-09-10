@@ -127,6 +127,11 @@ export class UpdateBackupPlanShrinkRequest extends $dara.Model {
    */
   detailShrink?: string;
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
    * 
@@ -274,6 +279,7 @@ export class UpdateBackupPlanShrinkRequest extends $dara.Model {
     return {
       changeListPath: 'ChangeListPath',
       detailShrink: 'Detail',
+      edition: 'Edition',
       exclude: 'Exclude',
       include: 'Include',
       keepLatestSnapshots: 'KeepLatestSnapshots',
@@ -297,6 +303,7 @@ export class UpdateBackupPlanShrinkRequest extends $dara.Model {
     return {
       changeListPath: 'string',
       detailShrink: 'string',
+      edition: 'string',
       exclude: 'string',
       include: 'string',
       keepLatestSnapshots: 'number',

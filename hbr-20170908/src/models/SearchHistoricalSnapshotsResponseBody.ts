@@ -236,6 +236,11 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $dar
    */
   prefix?: string;
   /**
+   * @example
+   * 42949672960
+   */
+  protectedDataSize?: number;
+  /**
    * @remarks
    * The time when the backup job ended. The value is a UNIX timestamp. Unit: milliseconds.
    * 
@@ -393,6 +398,7 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $dar
       path: 'Path',
       paths: 'Paths',
       prefix: 'Prefix',
+      protectedDataSize: 'ProtectedDataSize',
       rangeEnd: 'RangeEnd',
       rangeStart: 'RangeStart',
       retention: 'Retention',
@@ -438,6 +444,7 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $dar
       path: 'string',
       paths: SearchHistoricalSnapshotsResponseBodySnapshotsSnapshotPaths,
       prefix: 'string',
+      protectedDataSize: 'number',
       rangeEnd: 'number',
       rangeStart: 'number',
       retention: 'number',

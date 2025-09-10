@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteBackupPlanRequest extends $dara.Model {
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * The ID of the backup plan.
    * 
@@ -43,6 +48,7 @@ export class ExecuteBackupPlanRequest extends $dara.Model {
   vaultId?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       planId: 'PlanId',
       ruleId: 'RuleId',
       sourceType: 'SourceType',
@@ -52,6 +58,7 @@ export class ExecuteBackupPlanRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       planId: 'string',
       ruleId: 'string',
       sourceType: 'string',

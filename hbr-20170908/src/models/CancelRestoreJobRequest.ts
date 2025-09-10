@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelRestoreJobRequest extends $dara.Model {
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * The ID of the restore job.
    * 
@@ -17,14 +22,13 @@ export class CancelRestoreJobRequest extends $dara.Model {
    * @remarks
    * The ID of the backup vault.
    * 
-   * This parameter is required.
-   * 
    * @example
    * v-*********************
    */
   vaultId?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       restoreId: 'RestoreId',
       vaultId: 'VaultId',
     };
@@ -32,6 +36,7 @@ export class CancelRestoreJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       restoreId: 'string',
       vaultId: 'string',
     };

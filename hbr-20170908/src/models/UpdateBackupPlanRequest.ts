@@ -128,6 +128,11 @@ export class UpdateBackupPlanRequest extends $dara.Model {
    */
   detail?: { [key: string]: any };
   /**
+   * @example
+   * STANDARD
+   */
+  edition?: string;
+  /**
    * @remarks
    * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
    * 
@@ -275,6 +280,7 @@ export class UpdateBackupPlanRequest extends $dara.Model {
     return {
       changeListPath: 'ChangeListPath',
       detail: 'Detail',
+      edition: 'Edition',
       exclude: 'Exclude',
       include: 'Include',
       keepLatestSnapshots: 'KeepLatestSnapshots',
@@ -298,6 +304,7 @@ export class UpdateBackupPlanRequest extends $dara.Model {
     return {
       changeListPath: 'string',
       detail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      edition: 'string',
       exclude: 'string',
       include: 'string',
       keepLatestSnapshots: 'number',
