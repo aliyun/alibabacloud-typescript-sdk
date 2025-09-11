@@ -13,6 +13,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
    * https://www.aliyun.com
    */
   address?: string;
+  agentGroup?: string;
   /**
    * @remarks
    * The ID of the alert rule.
@@ -96,6 +97,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       address: 'Address',
+      agentGroup: 'AgentGroup',
       alertIds: 'AlertIds',
       customSchedule: 'CustomSchedule',
       interval: 'Interval',
@@ -111,6 +113,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       address: 'string',
+      agentGroup: 'string',
       alertIds: 'string',
       customSchedule: 'string',
       interval: 'string',

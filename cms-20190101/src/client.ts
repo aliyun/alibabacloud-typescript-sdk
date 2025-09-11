@@ -1404,6 +1404,10 @@ export default class Client extends OpenApi {
       query["Address"] = request.address;
     }
 
+    if (!$dara.isNull(request.agentGroup)) {
+      query["AgentGroup"] = request.agentGroup;
+    }
+
     if (!$dara.isNull(request.alertIds)) {
       query["AlertIds"] = request.alertIds;
     }
@@ -5817,6 +5821,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定资源的进程数列表
+   * 
    * @remarks
    * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
    * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -5850,6 +5856,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定资源的进程数列表
+   * 
    * @remarks
    * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
    * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -7543,6 +7551,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用分组内的进程监控
+   * 
    * @param request - ModifyGroupMonitoringAgentProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyGroupMonitoringAgentProcessResponse
@@ -7584,6 +7594,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用分组内的进程监控
+   * 
    * @param request - ModifyGroupMonitoringAgentProcessRequest
    * @returns ModifyGroupMonitoringAgentProcessResponse
    */
@@ -7673,6 +7685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改非阿里云的主机显示信息
+   * 
    * @remarks
    * ***
    * 
@@ -7709,6 +7723,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改非阿里云的主机显示信息
+   * 
    * @remarks
    * ***
    * 
@@ -8047,6 +8063,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用分组
+   * 
    * @param request - ModifyMonitorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyMonitorGroupResponse
@@ -8084,6 +8102,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用分组
+   * 
    * @param request - ModifyMonitorGroupRequest
    * @returns ModifyMonitorGroupResponse
    */
@@ -8093,7 +8113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyMonitorGroupInstances
+   * 修改应用分组中的资源
    * 
    * @param request - ModifyMonitorGroupInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8128,7 +8148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyMonitorGroupInstances
+   * 修改应用分组中的资源
    * 
    * @param request - ModifyMonitorGroupInstancesRequest
    * @returns ModifyMonitorGroupInstancesResponse
