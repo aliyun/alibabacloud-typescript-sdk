@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds extends $dara.Model {
-  vswId?: string[];
+export class DetachVscFromFilesystemsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2D69A58F-345C-4FDE-88E4-BF518948****
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      vswId: 'VswId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vswId: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.vswId)) {
-      $dara.Model.validateArray(this.vswId);
-    }
     super.validate();
   }
 

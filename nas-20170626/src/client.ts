@@ -46,7 +46,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddClientToBlackListResponse
    */
-  // Deprecated
   async addClientToBlackListWithOptions(request: $_model.AddClientToBlackListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddClientToBlackListResponse> {
     request.validate();
     let query = { };
@@ -248,6 +247,60 @@ export default class Client extends OpenApi {
   async applyDataFlowAutoRefresh(request: $_model.ApplyDataFlowAutoRefreshRequest): Promise<$_model.ApplyDataFlowAutoRefreshResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.applyDataFlowAutoRefreshWithOptions(request, runtime);
+  }
+
+  /**
+   * Associates the VSC device with the file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - AttachVscToFilesystemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachVscToFilesystemsResponse
+   */
+  async attachVscToFilesystemsWithOptions(request: $_model.AttachVscToFilesystemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachVscToFilesystemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachVscToFilesystems",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachVscToFilesystemsResponse>(await this.callApi(params, req, runtime), new $_model.AttachVscToFilesystemsResponse({}));
+  }
+
+  /**
+   * Associates the VSC device with the file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - AttachVscToFilesystemsRequest
+   * @returns AttachVscToFilesystemsResponse
+   */
+  async attachVscToFilesystems(request: $_model.AttachVscToFilesystemsRequest): Promise<$_model.AttachVscToFilesystemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachVscToFilesystemsWithOptions(request, runtime);
   }
 
   /**
@@ -1324,12 +1377,12 @@ export default class Client extends OpenApi {
    * Creates a dataflow task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can create a data flow task only for a data flow that is in the Running state.
-   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
-   * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
-   * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+   *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
+   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   You can create a dataflow task only for a dataflow that is in the Running state.
+   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+   * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
+   * *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1411,12 +1464,12 @@ export default class Client extends OpenApi {
    * Creates a dataflow task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
-   * *   You can create a data flow task only for a data flow that is in the Running state.
-   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
-   * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
-   * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
-   * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
+   *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.4.0 and later support dataflow. You can view the version information on the file system details page in the console.
+   * *   Dataflow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   You can create a dataflow task only for a dataflow that is in the Running state.
+   * *   When you manually run a dataflow task, the automatic data update task for the dataflow is interrupted and enters the pending state.
+   * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS for Lingjun file system does not exceed 1,023 characters.
+   * *   CPFS for Lingjun supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @returns CreateDataFlowTaskResponse
@@ -1779,7 +1832,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLDAPConfigResponse
    */
-  // Deprecated
   async createLDAPConfigWithOptions(request: $_model.CreateLDAPConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLDAPConfigResponse> {
     request.validate();
     let query = { };
@@ -2861,7 +2913,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLDAPConfigResponse
    */
-  // Deprecated
   async deleteLDAPConfigWithOptions(request: $_model.DeleteLDAPConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLDAPConfigResponse> {
     request.validate();
     let query = { };
@@ -3594,7 +3645,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBlackListClientsResponse
    */
-  // Deprecated
   async describeBlackListClientsWithOptions(request: $_model.DescribeBlackListClientsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBlackListClientsResponse> {
     request.validate();
     let query = { };
@@ -3731,6 +3781,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.withReports)) {
+      query["WithReports"] = request.withReports;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3897,7 +3951,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFileSystemStatisticsResponse
    */
-  // Deprecated
   async describeFileSystemStatisticsWithOptions(request: $_model.DescribeFileSystemStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFileSystemStatisticsResponse> {
     request.validate();
     let query = { };
@@ -4076,6 +4129,64 @@ export default class Client extends OpenApi {
   async describeFilesets(request: $_model.DescribeFilesetsRequest): Promise<$_model.DescribeFilesetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFilesetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries information about virtual storage channels associated with a file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - DescribeFilesystemsVscAttachInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFilesystemsVscAttachInfoResponse
+   */
+  async describeFilesystemsVscAttachInfoWithOptions(request: $_model.DescribeFilesystemsVscAttachInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFilesystemsVscAttachInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFilesystemsVscAttachInfo",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFilesystemsVscAttachInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFilesystemsVscAttachInfoResponse({}));
+  }
+
+  /**
+   * Queries information about virtual storage channels associated with a file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - DescribeFilesystemsVscAttachInfoRequest
+   * @returns DescribeFilesystemsVscAttachInfoResponse
+   */
+  async describeFilesystemsVscAttachInfo(request: $_model.DescribeFilesystemsVscAttachInfoRequest): Promise<$_model.DescribeFilesystemsVscAttachInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFilesystemsVscAttachInfoWithOptions(request, runtime);
   }
 
   /**
@@ -4750,6 +4861,60 @@ export default class Client extends OpenApi {
   async describeZones(request: $_model.DescribeZonesRequest): Promise<$_model.DescribeZonesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
+  }
+
+  /**
+   * Unassociates a VSC device from a file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - DetachVscFromFilesystemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachVscFromFilesystemsResponse
+   */
+  async detachVscFromFilesystemsWithOptions(request: $_model.DetachVscFromFilesystemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachVscFromFilesystemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachVscFromFilesystems",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachVscFromFilesystemsResponse>(await this.callApi(params, req, runtime), new $_model.DetachVscFromFilesystemsResponse({}));
+  }
+
+  /**
+   * Unassociates a VSC device from a file system.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   Batch execution is supported. In batch execution, only one VscId can be associated with multiple FileSystemIDs, meaning the VscId in the ResourceIds must be the same.
+   * 
+   * @param request - DetachVscFromFilesystemsRequest
+   * @returns DetachVscFromFilesystemsResponse
+   */
+  async detachVscFromFilesystems(request: $_model.DetachVscFromFilesystemsRequest): Promise<$_model.DetachVscFromFilesystemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachVscFromFilesystemsWithOptions(request, runtime);
   }
 
   /**
@@ -5988,7 +6153,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyLDAPConfigResponse
    */
-  // Deprecated
   async modifyLDAPConfigWithOptions(request: $_model.ModifyLDAPConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLDAPConfigResponse> {
     request.validate();
     let query = { };
@@ -6410,7 +6574,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveClientFromBlackListResponse
    */
-  // Deprecated
   async removeClientFromBlackListWithOptions(request: $_model.RemoveClientFromBlackListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveClientFromBlackListResponse> {
     request.validate();
     let query = { };
@@ -6649,7 +6812,8 @@ export default class Client extends OpenApi {
    *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
    * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
    * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+   * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
+   * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
    * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
    * 
    * @param request - SetFilesetQuotaRequest
@@ -6707,7 +6871,8 @@ export default class Client extends OpenApi {
    *   Only Cloud Parallel File Storage (CPFS) for Lingjun V2.7.0 and later support this operation.
    * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB.
    * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
-   * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+   * *   When modifying a directory quota, you must set the new capacity or file quantity higher than what is currently used.
+   * *   You must configure at least one of the Capacity Limit (GiB) and File Limit parameters.
    * *   The quota statistics have a 15-minute latency. The actual usage takes effect after 15 minutes.
    * 
    * @param request - SetFilesetQuotaRequest

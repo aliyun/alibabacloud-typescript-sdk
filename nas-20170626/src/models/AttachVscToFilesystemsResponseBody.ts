@@ -2,27 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeNfsAclResponseBodyAcl extends $dara.Model {
+export class AttachVscToFilesystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the NFS ACL feature is enabled.
-   * 
-   * *   true: The NFS ACL feature is enabled.
-   * *   false: The NFS ACL feature is disabled.
+   * The request ID.
    * 
    * @example
-   * true
+   * BC7C825C-5F65-4B56-BEF6-98C56C7C****
    */
-  enabled?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      enabled: 'Enabled',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enabled: 'boolean',
+      requestId: 'string',
     };
   }
 

@@ -30,10 +30,12 @@ export class SetFilesetQuotaRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The limit of the file quantity of the quota. Valid values:
+   * The number of files of the quota. Valid values:
    * 
-   * *   Minimum value: 10000.
-   * *   Maximum value: 10000000000.
+   * *   Minimum value: 10,000.
+   * *   Maximum value: 10,000,000,000.
+   * 
+   * >  If you do not specify this parameter, the number of files is unlimited.
    * 
    * @example
    * 10000
@@ -65,8 +67,10 @@ export class SetFilesetQuotaRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Minimum value: 10737418240 (10 GiB).
-   * *   Step size: 1073741824 (1 GiB).
+   * *   Minimum value: 10,737,418,240 (10 GiB).
+   * *   Step size: 1,073,741,824 (1 GiB).
+   * 
+   * >  If you do not specify this parameter, the capacity is unlimited.
    * 
    * @example
    * 10737418240

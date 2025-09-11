@@ -1,7 +1,72 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks } from "./DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks";
 
+
+export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy.
+   * 
+   * @example
+   * sp-extreme-233e6****
+   */
+  autoSnapshotPolicyId?: string;
+  /**
+   * @remarks
+   * The ID of the file system.
+   * 
+   * @example
+   * extreme-233e6****
+   */
+  sourceFileSystemId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotPolicyId: 'AutoSnapshotPolicyId',
+      sourceFileSystemId: 'SourceFileSystemId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotPolicyId: 'string',
+      sourceFileSystemId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks extends $dara.Model {
+  autoSnapshotTask?: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask[];
+  static names(): { [key: string]: string } {
+    return {
+      autoSnapshotTask: 'AutoSnapshotTask',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoSnapshotTask: { 'type': 'array', 'itemType': DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.autoSnapshotTask)) {
+      $dara.Model.validateArray(this.autoSnapshotTask);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeAutoSnapshotTasksResponseBody extends $dara.Model {
   /**

@@ -45,7 +45,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
   createDirIfNotExist?: boolean;
   /**
    * @remarks
-   * The dataflow ID.
+   * The ID of the dataflow.
    * 
    * This parameter is required.
    * 
@@ -154,10 +154,23 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
    * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * Filters subdirectories and transfers their contents.
+   * 
+   * > *   This parameter takes effect only when the Directory parameter is specified.
+   * > *   The path length of a single folder must be 1 to 1023 characters, start and end with a forward slash (/), and the total length must not exceed 3000 characters.
+   * >*   Only CPFS for Lingjun supports this parameter.
+   * 
+   * @example
+   * ["/test/","/test1/"]
+   */
   includes?: string;
   /**
    * @remarks
-   * If you specify SrcTaskId, the configurations of the TaskAction, DataType, and EntryList parameters are copied from the desired dataflow task. You do not need to specify them.
+   * If you specify SrcTaskId, you must enter the ID of the dataflow task. The system copies the TaskAction, DataType, and EntryList parameters from the destination dataflow task. You do not need to specify them.
+   * 
+   * >  Streaming dataflow tasks are not supported.
    * 
    * @example
    * task-27aa8e890f45****
