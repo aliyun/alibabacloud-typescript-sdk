@@ -830,6 +830,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下载集群托管证书
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API允许用户获取特定集群的管理证书。
+   * - 返回的数据是经过base64编码的证书内容。
+   * 
+   * @param request - DownloadClusterManagedCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadClusterManagedCertResponse
+   */
+  async downloadClusterManagedCertWithOptions(request: $_model.DownloadClusterManagedCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadClusterManagedCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadClusterManagedCert",
+      version: "2023-11-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadClusterManagedCertResponse>(await this.callApi(params, req, runtime), new $_model.DownloadClusterManagedCertResponse({}));
+  }
+
+  /**
+   * 下载集群托管证书
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API允许用户获取特定集群的管理证书。
+   * - 返回的数据是经过base64编码的证书内容。
+   * 
+   * @param request - DownloadClusterManagedCertRequest
+   * @returns DownloadClusterManagedCertResponse
+   */
+  async downloadClusterManagedCert(request: $_model.DownloadClusterManagedCertRequest): Promise<$_model.DownloadClusterManagedCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadClusterManagedCertWithOptions(request, runtime);
+  }
+
+  /**
    * Binds a backup to a specified hardware security module (HSM).
    * 
    * @remarks
@@ -1700,6 +1752,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 快速部署集群
+   * 
+   * @param tmpReq - QuickDeployClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuickDeployClusterResponse
+   */
+  async quickDeployClusterWithOptions(tmpReq: $_model.QuickDeployClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuickDeployClusterResponse> {
+    tmpReq.validate();
+    let request = new $_model.QuickDeployClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceList)) {
+      request.instanceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceList, "InstanceList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.vSwitchIdList)) {
+      request.vSwitchIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIdList, "VSwitchIdList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.whiteList)) {
+      request.whiteListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whiteList, "WhiteList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.certManaged)) {
+      query["CertManaged"] = request.certManaged;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.instanceListShrink)) {
+      query["InstanceList"] = request.instanceListShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vSwitchIdListShrink)) {
+      query["VSwitchIdList"] = request.vSwitchIdListShrink;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.whiteListShrink)) {
+      query["WhiteList"] = request.whiteListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuickDeployCluster",
+      version: "2023-11-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuickDeployClusterResponse>(await this.callApi(params, req, runtime), new $_model.QuickDeployClusterResponse({}));
+  }
+
+  /**
+   * 快速部署集群
+   * 
+   * @param request - QuickDeployClusterRequest
+   * @returns QuickDeployClusterResponse
+   */
+  async quickDeployCluster(request: $_model.QuickDeployClusterRequest): Promise<$_model.QuickDeployClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.quickDeployClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Initializes a hardware security module (HSM).
    * 
    * @remarks
@@ -1935,6 +2067,62 @@ export default class Client extends OpenApi {
   async resumeInstance(request: $_model.ResumeInstanceRequest): Promise<$_model.ResumeInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resumeInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 轮转集群托管证书
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于触发指定集群的管理证书轮转过程。通过提供`ClusterId`参数，可以指定需要进行证书轮转的集群。此操作有助于提高集群的安全性，建议定期执行。
+   * ### 注意事项
+   * - 确保提供的`ClusterId`是有效的，并且用户具有对该集群的操作权限。
+   * - 证书轮转可能会影响依赖于旧证书的服务，请在适当的时间窗口内执行此操作。
+   * 
+   * @param request - RotateClusterManagedCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RotateClusterManagedCertResponse
+   */
+  async rotateClusterManagedCertWithOptions(request: $_model.RotateClusterManagedCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RotateClusterManagedCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RotateClusterManagedCert",
+      version: "2023-11-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RotateClusterManagedCertResponse>(await this.callApi(params, req, runtime), new $_model.RotateClusterManagedCertResponse({}));
+  }
+
+  /**
+   * 轮转集群托管证书
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API用于触发指定集群的管理证书轮转过程。通过提供`ClusterId`参数，可以指定需要进行证书轮转的集群。此操作有助于提高集群的安全性，建议定期执行。
+   * ### 注意事项
+   * - 确保提供的`ClusterId`是有效的，并且用户具有对该集群的操作权限。
+   * - 证书轮转可能会影响依赖于旧证书的服务，请在适当的时间窗口内执行此操作。
+   * 
+   * @param request - RotateClusterManagedCertRequest
+   * @returns RotateClusterManagedCertResponse
+   */
+  async rotateClusterManagedCert(request: $_model.RotateClusterManagedCertRequest): Promise<$_model.RotateClusterManagedCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rotateClusterManagedCertWithOptions(request, runtime);
   }
 
   /**

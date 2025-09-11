@@ -90,6 +90,11 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    */
   orderId?: string;
   /**
+   * @example
+   * 1
+   */
+  pqcEnabled?: number;
+  /**
    * @remarks
    * The ID of the region.
    * 
@@ -184,6 +189,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       isTrial: 'IsTrial',
       master: 'Master',
       orderId: 'OrderId',
+      pqcEnabled: 'PqcEnabled',
       regionId: 'RegionId',
       remark: 'Remark',
       status: 'Status',
@@ -208,6 +214,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       isTrial: 'boolean',
       master: 'boolean',
       orderId: 'string',
+      pqcEnabled: 'number',
       regionId: 'string',
       remark: 'string',
       status: 'string',
