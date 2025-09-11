@@ -45,6 +45,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
    * 2022-06-01T16:00Z
    */
   backupStartTime?: string;
+  backupStatus?: string;
   /**
    * @remarks
    * The backup type. Valid values:
@@ -74,6 +75,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       backupRegion: 'BackupRegion',
       backupSize: 'BackupSize',
       backupStartTime: 'BackupStartTime',
+      backupStatus: 'BackupStatus',
       backupType: 'BackupType',
       DBClusterId: 'DBClusterId',
       parentBackupId: 'ParentBackupId',
@@ -89,6 +91,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $dara.Model {
       backupRegion: 'string',
       backupSize: 'number',
       backupStartTime: 'string',
+      backupStatus: 'string',
       backupType: 'string',
       DBClusterId: 'string',
       parentBackupId: 'string',
