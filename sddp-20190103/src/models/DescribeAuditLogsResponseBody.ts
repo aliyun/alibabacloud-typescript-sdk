@@ -42,6 +42,11 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   databaseName?: string;
   /**
    * @example
+   * MySQL
+   */
+  dbType?: string;
+  /**
+   * @example
    * 10
    */
   effectRow?: number;
@@ -166,6 +171,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
       creationTime: 'CreationTime',
       dataSet: 'DataSet',
       databaseName: 'DatabaseName',
+      dbType: 'DbType',
       effectRow: 'EffectRow',
       executeStatus: 'ExecuteStatus',
       executeTime: 'ExecuteTime',
@@ -203,6 +209,7 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
       creationTime: 'number',
       dataSet: 'string',
       databaseName: 'string',
+      dbType: 'string',
       effectRow: 'number',
       executeStatus: 'number',
       executeTime: 'number',
