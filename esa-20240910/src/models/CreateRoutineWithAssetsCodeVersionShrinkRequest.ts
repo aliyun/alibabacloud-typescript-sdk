@@ -2,38 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoutineRequest extends $dara.Model {
+export class CreateRoutineWithAssetsCodeVersionShrinkRequest extends $dara.Model {
+  buildId?: number;
+  codeDescription?: string;
+  confOptionsShrink?: string;
+  extraInfo?: string;
   /**
    * @remarks
-   * The routine description.
-   * 
-   * @example
-   * the description of this routine
-   */
-  description?: string;
-  hasAssets?: boolean;
-  /**
-   * @remarks
-   * The routine name, which must be unique in the same account.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * test-routine1
    */
   name?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      hasAssets: 'HasAssets',
+      buildId: 'BuildId',
+      codeDescription: 'CodeDescription',
+      confOptionsShrink: 'ConfOptions',
+      extraInfo: 'ExtraInfo',
       name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      hasAssets: 'boolean',
+      buildId: 'number',
+      codeDescription: 'string',
+      confOptionsShrink: 'string',
+      extraInfo: 'string',
       name: 'string',
     };
   }

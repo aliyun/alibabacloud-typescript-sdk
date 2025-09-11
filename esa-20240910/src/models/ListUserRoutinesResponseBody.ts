@@ -4,12 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   createTime?: string;
+  defaultRelatedRecord?: string;
   description?: string;
+  hasAssets?: boolean;
   routineName?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      defaultRelatedRecord: 'DefaultRelatedRecord',
       description: 'Description',
+      hasAssets: 'HasAssets',
       routineName: 'RoutineName',
     };
   }
@@ -17,7 +21,9 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      defaultRelatedRecord: 'string',
       description: 'string',
+      hasAssets: 'boolean',
       routineName: 'string',
     };
   }

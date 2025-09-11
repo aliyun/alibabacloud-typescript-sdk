@@ -3069,6 +3069,10 @@ export default class Client extends OpenApi {
       body["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.hasAssets)) {
+      body["HasAssets"] = request.hasAssets;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
@@ -3099,6 +3103,66 @@ export default class Client extends OpenApi {
   async createRoutine(request: $_model.CreateRoutineRequest): Promise<$_model.CreateRoutineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRoutineWithOptions(request, runtime);
+  }
+
+  /**
+   * 发布Routine某版本代码
+   * 
+   * @param tmpReq - CreateRoutineCodeDeploymentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineCodeDeploymentResponse
+   */
+  async createRoutineCodeDeploymentWithOptions(tmpReq: $_model.CreateRoutineCodeDeploymentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRoutineCodeDeploymentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateRoutineCodeDeploymentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.codeVersions)) {
+      request.codeVersionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.codeVersions, "CodeVersions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.codeVersionsShrink)) {
+      body["CodeVersions"] = request.codeVersionsShrink;
+    }
+
+    if (!$dara.isNull(request.env)) {
+      body["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["Strategy"] = request.strategy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRoutineCodeDeployment",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRoutineCodeDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.CreateRoutineCodeDeploymentResponse({}));
+  }
+
+  /**
+   * 发布Routine某版本代码
+   * 
+   * @param request - CreateRoutineCodeDeploymentRequest
+   * @returns CreateRoutineCodeDeploymentResponse
+   */
+  async createRoutineCodeDeployment(request: $_model.CreateRoutineCodeDeploymentRequest): Promise<$_model.CreateRoutineCodeDeploymentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRoutineCodeDeploymentWithOptions(request, runtime);
   }
 
   /**
@@ -3219,6 +3283,70 @@ export default class Client extends OpenApi {
   async createRoutineRoute(request: $_model.CreateRoutineRouteRequest): Promise<$_model.CreateRoutineRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRoutineRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建带Assets资源的Routine代码版本
+   * 
+   * @param tmpReq - CreateRoutineWithAssetsCodeVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRoutineWithAssetsCodeVersionResponse
+   */
+  async createRoutineWithAssetsCodeVersionWithOptions(tmpReq: $_model.CreateRoutineWithAssetsCodeVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRoutineWithAssetsCodeVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateRoutineWithAssetsCodeVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.confOptions)) {
+      request.confOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.confOptions, "ConfOptions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.buildId)) {
+      body["BuildId"] = request.buildId;
+    }
+
+    if (!$dara.isNull(request.codeDescription)) {
+      body["CodeDescription"] = request.codeDescription;
+    }
+
+    if (!$dara.isNull(request.confOptionsShrink)) {
+      body["ConfOptions"] = request.confOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRoutineWithAssetsCodeVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRoutineWithAssetsCodeVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateRoutineWithAssetsCodeVersionResponse({}));
+  }
+
+  /**
+   * 创建带Assets资源的Routine代码版本
+   * 
+   * @param request - CreateRoutineWithAssetsCodeVersionRequest
+   * @returns CreateRoutineWithAssetsCodeVersionResponse
+   */
+  async createRoutineWithAssetsCodeVersion(request: $_model.CreateRoutineWithAssetsCodeVersionRequest): Promise<$_model.CreateRoutineWithAssetsCodeVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRoutineWithAssetsCodeVersionWithOptions(request, runtime);
   }
 
   /**
@@ -14778,7 +14906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点中国大陆网络接入优化配置
+   * Modifies the configuration of the Chinese mainland network access optimization.
    * 
    * @param request - UpdateCrossBorderOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14813,7 +14941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点中国大陆网络接入优化配置
+   * Modifies the configuration of the Chinese mainland network access optimization.
    * 
    * @param request - UpdateCrossBorderOptimizationRequest
    * @returns UpdateCrossBorderOptimizationResponse

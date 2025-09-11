@@ -2,6 +2,73 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetRoutineResponseBodyEnvsCodeDeployCodeVersions extends $dara.Model {
+  codeVersion?: string;
+  createTime?: string;
+  description?: string;
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersion: 'CodeVersion',
+      createTime: 'CreateTime',
+      description: 'Description',
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersion: 'string',
+      createTime: 'string',
+      description: 'string',
+      percentage: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
+  codeVersions?: GetRoutineResponseBodyEnvsCodeDeployCodeVersions[];
+  creationTime?: string;
+  deployId?: string;
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codeVersions: 'CodeVersions',
+      creationTime: 'CreationTime',
+      deployId: 'DeployId',
+      strategy: 'Strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codeVersions: { 'type': 'array', 'itemType': GetRoutineResponseBodyEnvsCodeDeployCodeVersions },
+      creationTime: 'string',
+      deployId: 'string',
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.codeVersions)) {
+      $dara.Model.validateArray(this.codeVersions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
   /**
    * @remarks
@@ -16,6 +83,7 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
    * 1710120201067577628
    */
   canaryCodeVersion?: string;
+  codeDeploy?: GetRoutineResponseBodyEnvsCodeDeploy;
   /**
    * @remarks
    * The version number of the code in the environment.
@@ -36,6 +104,7 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
     return {
       canaryAreaList: 'CanaryAreaList',
       canaryCodeVersion: 'CanaryCodeVersion',
+      codeDeploy: 'CodeDeploy',
       codeVersion: 'CodeVersion',
       env: 'Env',
     };
@@ -45,6 +114,7 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
     return {
       canaryAreaList: { 'type': 'array', 'itemType': 'string' },
       canaryCodeVersion: 'string',
+      codeDeploy: GetRoutineResponseBodyEnvsCodeDeploy,
       codeVersion: 'string',
       env: 'string',
     };
@@ -53,6 +123,9 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
   validate() {
     if(Array.isArray(this.canaryAreaList)) {
       $dara.Model.validateArray(this.canaryAreaList);
+    }
+    if(this.codeDeploy && typeof (this.codeDeploy as any).validate === 'function') {
+      (this.codeDeploy as any).validate();
     }
     super.validate();
   }
@@ -92,6 +165,7 @@ export class GetRoutineResponseBody extends $dara.Model {
    * The information about the environments.
    */
   envs?: GetRoutineResponseBodyEnvs[];
+  hasAssets?: boolean;
   /**
    * @remarks
    * The request ID.
@@ -106,6 +180,7 @@ export class GetRoutineResponseBody extends $dara.Model {
       defaultRelatedRecord: 'DefaultRelatedRecord',
       description: 'Description',
       envs: 'Envs',
+      hasAssets: 'HasAssets',
       requestId: 'RequestId',
     };
   }
@@ -116,6 +191,7 @@ export class GetRoutineResponseBody extends $dara.Model {
       defaultRelatedRecord: 'string',
       description: 'string',
       envs: { 'type': 'array', 'itemType': GetRoutineResponseBodyEnvs },
+      hasAssets: 'boolean',
       requestId: 'string',
     };
   }
