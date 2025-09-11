@@ -142,6 +142,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据源
+   * 
+   * @param request - AddDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDataSourceResponse
+   */
+  async addDataSourceWithOptions(request: $_model.AddDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addModel)) {
+      query["AddModel"] = request.addModel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDataSource",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.AddDataSourceResponse({}));
+  }
+
+  /**
+   * 创建数据源
+   * 
+   * @param request - AddDataSourceRequest
+   * @returns AddDataSourceResponse
+   */
+  async addDataSource(request: $_model.AddDataSourceRequest): Promise<$_model.AddDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Add a sharing configuration for data works.
    * 
    * @param request - AddShareReportRequest
@@ -869,6 +911,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查给定的cubeId是否存在
+   * 
+   * @param request - CheckDatasetExistedRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDatasetExistedResponse
+   */
+  async checkDatasetExistedWithOptions(request: $_model.CheckDatasetExistedRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDatasetExistedResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckDatasetExisted",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckDatasetExistedResponse>(await this.callApi(params, req, runtime), new $_model.CheckDatasetExistedResponse({}));
+  }
+
+  /**
+   * 检查给定的cubeId是否存在
+   * 
+   * @param request - CheckDatasetExistedRequest
+   * @returns CheckDatasetExistedResponse
+   */
+  async checkDatasetExisted(request: $_model.CheckDatasetExistedRequest): Promise<$_model.CheckDatasetExistedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkDatasetExistedWithOptions(request, runtime);
+  }
+
+  /**
+   * 判断用户是否属于组织
+   * 
+   * @param request - CheckOrganizationMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckOrganizationMemberResponse
+   */
+  async checkOrganizationMemberWithOptions(request: $_model.CheckOrganizationMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckOrganizationMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckOrganizationMember",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckOrganizationMemberResponse>(await this.callApi(params, req, runtime), new $_model.CheckOrganizationMemberResponse({}));
+  }
+
+  /**
+   * 判断用户是否属于组织
+   * 
+   * @param request - CheckOrganizationMemberRequest
+   * @returns CheckOrganizationMemberResponse
+   */
+  async checkOrganizationMember(request: $_model.CheckOrganizationMemberRequest): Promise<$_model.CheckOrganizationMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkOrganizationMemberWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether a user has permissions to view data works, such as dashboards and workbooks.
    * 
    * @param request - CheckReadableRequest
@@ -912,6 +1038,126 @@ export default class Client extends OpenApi {
   async checkReadable(request: $_model.CheckReadableRequest): Promise<$_model.CheckReadableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkReadableWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据自定义sql创建数据集
+   * 
+   * @param request - CreateCubeBySqlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCubeBySqlResponse
+   */
+  async createCubeBySqlWithOptions(request: $_model.CreateCubeBySqlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCubeBySqlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caption)) {
+      query["Caption"] = request.caption;
+    }
+
+    if (!$dara.isNull(request.customSql)) {
+      query["CustomSql"] = request.customSql;
+    }
+
+    if (!$dara.isNull(request.dsId)) {
+      query["DsId"] = request.dsId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCubeBySql",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCubeBySqlResponse>(await this.callApi(params, req, runtime), new $_model.CreateCubeBySqlResponse({}));
+  }
+
+  /**
+   * 根据自定义sql创建数据集
+   * 
+   * @param request - CreateCubeBySqlRequest
+   * @returns CreateCubeBySqlResponse
+   */
+  async createCubeBySql(request: $_model.CreateCubeBySqlRequest): Promise<$_model.CreateCubeBySqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCubeBySqlWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据物理表名称创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
+   */
+  async createDatasetWithOptions(request: $_model.CreateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dsId)) {
+      query["DsId"] = request.dsId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.targetDirectoryId)) {
+      query["TargetDirectoryId"] = request.targetDirectoryId;
+    }
+
+    if (!$dara.isNull(request.userDefineCubeName)) {
+      query["UserDefineCubeName"] = request.userDefineCubeName;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataset",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetResponse({}));
+  }
+
+  /**
+   * 根据物理表名称创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
+   */
+  async createDataset(request: $_model.CreateDatasetRequest): Promise<$_model.CreateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
   }
 
   /**
@@ -2682,6 +2928,48 @@ export default class Client extends OpenApi {
   async listWorkspaceRoles(request: $_model.ListWorkspaceRolesRequest): Promise<$_model.ListWorkspaceRolesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listWorkspaceRolesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户所有空间角色列表
+   * 
+   * @param request - ListWorkspaceUserRolesByUserIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspaceUserRolesByUserIdResponse
+   */
+  async listWorkspaceUserRolesByUserIdWithOptions(request: $_model.ListWorkspaceUserRolesByUserIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspaceUserRolesByUserIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaceUserRolesByUserId",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspaceUserRolesByUserIdResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspaceUserRolesByUserIdResponse({}));
+  }
+
+  /**
+   * 查询用户所有空间角色列表
+   * 
+   * @param request - ListWorkspaceUserRolesByUserIdRequest
+   * @returns ListWorkspaceUserRolesByUserIdResponse
+   */
+  async listWorkspaceUserRolesByUserId(request: $_model.ListWorkspaceUserRolesByUserIdRequest): Promise<$_model.ListWorkspaceUserRolesByUserIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkspaceUserRolesByUserIdWithOptions(request, runtime);
   }
 
   /**
@@ -5329,6 +5617,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新自定义sql数据集
+   * 
+   * @param request - UpdateCubeBySqlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCubeBySqlResponse
+   */
+  async updateCubeBySqlWithOptions(request: $_model.UpdateCubeBySqlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCubeBySqlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    if (!$dara.isNull(request.customSql)) {
+      query["CustomSql"] = request.customSql;
+    }
+
+    if (!$dara.isNull(request.dsId)) {
+      query["DsId"] = request.dsId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCubeBySql",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCubeBySqlResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCubeBySqlResponse({}));
+  }
+
+  /**
+   * 更新自定义sql数据集
+   * 
+   * @param request - UpdateCubeBySqlRequest
+   * @returns UpdateCubeBySqlResponse
+   */
+  async updateCubeBySql(request: $_model.UpdateCubeBySqlRequest): Promise<$_model.UpdateCubeBySqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCubeBySqlWithOptions(request, runtime);
+  }
+
+  /**
    * Indicates whether the request is successful. Valid values:
    * *   true: The request was successful.
    * *   false: The request failed.
@@ -5390,6 +5736,48 @@ export default class Client extends OpenApi {
   async updateDataLevelPermissionStatus(request: $_model.UpdateDataLevelPermissionStatusRequest): Promise<$_model.UpdateDataLevelPermissionStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataLevelPermissionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改数据源配置
+   * 
+   * @param request - UpdateDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSourceWithOptions(request: $_model.UpdateDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.updateModel)) {
+      query["UpdateModel"] = request.updateModel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataSource",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataSourceResponse({}));
+  }
+
+  /**
+   * 修改数据源配置
+   * 
+   * @param request - UpdateDataSourceRequest
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSource(request: $_model.UpdateDataSourceRequest): Promise<$_model.UpdateDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataSourceWithOptions(request, runtime);
   }
 
   /**
