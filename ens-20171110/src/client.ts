@@ -8506,6 +8506,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 输出指定用户ID下可用资源对应的nas信息
+   * 
+   * @param request - DescribeNASAvailableResourceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNASAvailableResourceInfoResponse
+   */
+  async describeNASAvailableResourceInfoWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNASAvailableResourceInfoResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNASAvailableResourceInfo",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNASAvailableResourceInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNASAvailableResourceInfoResponse({}));
+  }
+
+  /**
+   * 输出指定用户ID下可用资源对应的nas信息
+   * @returns DescribeNASAvailableResourceInfoResponse
+   */
+  async describeNASAvailableResourceInfo(): Promise<$_model.DescribeNASAvailableResourceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNASAvailableResourceInfoWithOptions(runtime);
+  }
+
+  /**
    * 根据筛选条件获取指定NC属性和资源量信息
    * 
    * @param request - DescribeNCInformationRequest

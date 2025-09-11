@@ -224,6 +224,7 @@ export { DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataResou
 export { DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementData } from './DescribeMeasurementDataResponseBody';
 export { DescribeMeasurementDataResponseBodyMeasurementDatas } from './DescribeMeasurementDataResponseBody';
 export { DescribeMountTargetsResponseBodyMountTargets } from './DescribeMountTargetsResponseBody';
+export { DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInfo } from './DescribeNasavailableResourceInfoResponseBody';
 export { DescribeNCInformationResponseBodyDataCpu } from './DescribeNcinformationResponseBody';
 export { DescribeNCInformationResponseBodyDataGpu } from './DescribeNcinformationResponseBody';
 export { DescribeNCInformationResponseBodyDataHdd } from './DescribeNcinformationResponseBody';
@@ -872,6 +873,8 @@ export { DescribeMeasurementDataResponse } from './DescribeMeasurementDataRespon
 export { DescribeMountTargetsRequest } from './DescribeMountTargetsRequest';
 export { DescribeMountTargetsResponseBody } from './DescribeMountTargetsResponseBody';
 export { DescribeMountTargetsResponse } from './DescribeMountTargetsResponse';
+export { DescribeNASAvailableResourceInfoResponseBody } from './DescribeNasavailableResourceInfoResponseBody';
+export { DescribeNASAvailableResourceInfoResponse } from './DescribeNasavailableResourceInfoResponse';
 export { DescribeNCInformationRequest } from './DescribeNcinformationRequest';
 export { DescribeNCInformationResponseBody } from './DescribeNcinformationResponseBody';
 export { DescribeNCInformationResponse } from './DescribeNcinformationResponse';
