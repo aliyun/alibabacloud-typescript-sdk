@@ -1709,6 +1709,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建S3文件导入任务
+   * 
+   * @param request - CreateS3IngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateS3IngestionResponse
+   */
+  async createS3IngestionWithOptions(project: string, request: $_model.CreateS3IngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateS3IngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateS3Ingestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/s3ingestions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateS3IngestionResponse>(await this.execute(params, req, runtime), new $_model.CreateS3IngestionResponse({}));
+  }
+
+  /**
+   * 创建S3文件导入任务
+   * 
+   * @param request - CreateS3IngestionRequest
+   * @returns CreateS3IngestionResponse
+   */
+  async createS3Ingestion(project: string, request: $_model.CreateS3IngestionRequest): Promise<$_model.CreateS3IngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createS3IngestionWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Creates a saved search.
    * 
    * @remarks
@@ -3218,6 +3282,44 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProjectPolicyWithOptions(project, headers, runtime);
+  }
+
+  /**
+   * 删除s3导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteS3IngestionResponse
+   */
+  async deleteS3IngestionWithOptions(project: string, s3IngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteS3IngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteS3Ingestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/s3ingestions/${s3IngestionName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteS3IngestionResponse>(await this.execute(params, req, runtime), new $_model.DeleteS3IngestionResponse({}));
+  }
+
+  /**
+   * 删除s3导入任务
+   * @returns DeleteS3IngestionResponse
+   */
+  async deleteS3Ingestion(project: string, s3IngestionName: string): Promise<$_model.DeleteS3IngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteS3IngestionWithOptions(project, s3IngestionName, headers, runtime);
   }
 
   /**
@@ -5518,6 +5620,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取s3导入任务信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetS3IngestionResponse
+   */
+  async getS3IngestionWithOptions(project: string, s3IngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetS3IngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetS3Ingestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/s3ingestions/${s3IngestionName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetS3IngestionResponse>(await this.execute(params, req, runtime), new $_model.GetS3IngestionResponse({}));
+  }
+
+  /**
+   * 获取s3导入任务信息
+   * @returns GetS3IngestionResponse
+   */
+  async getS3Ingestion(project: string, s3IngestionName: string): Promise<$_model.GetS3IngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getS3IngestionWithOptions(project, s3IngestionName, headers, runtime);
+  }
+
+  /**
    * Queries a saved search.
    * 
    * @remarks
@@ -7303,6 +7443,62 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProjectWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出s3导入任务
+   * 
+   * @param request - ListS3IngestionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListS3IngestionsResponse
+   */
+  async listS3IngestionsWithOptions(project: string, request: $_model.ListS3IngestionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListS3IngestionsResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListS3Ingestions",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/s3ingestions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListS3IngestionsResponse>(await this.execute(params, req, runtime), new $_model.ListS3IngestionsResponse({}));
+  }
+
+  /**
+   * 列出s3导入任务
+   * 
+   * @param request - ListS3IngestionsRequest
+   * @returns ListS3IngestionsResponse
+   */
+  async listS3Ingestions(project: string, request: $_model.ListS3IngestionsRequest): Promise<$_model.ListS3IngestionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listS3IngestionsWithOptions(project, request, headers, runtime);
   }
 
   /**
