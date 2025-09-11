@@ -42,6 +42,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
    * Metadata.
    */
   metadata?: { [key: string]: string };
+  metadataV2?: { [key: string]: any };
   /**
    * @remarks
    * The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
@@ -59,6 +60,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
     return {
       id: 'Id',
       metadata: 'Metadata',
+      metadataV2: 'MetadataV2',
       score: 'Score',
       values: 'Values',
     };
@@ -68,6 +70,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
     return {
       id: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metadataV2: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       score: 'number',
       values: QueryCollectionDataResponseBodyMatchesMatchValues,
     };
@@ -76,6 +79,9 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
   validate() {
     if(this.metadata) {
       $dara.Model.validateMap(this.metadata);
+    }
+    if(this.metadataV2) {
+      $dara.Model.validateMap(this.metadataV2);
     }
     if(this.values && typeof (this.values as any).validate === 'function') {
       (this.values as any).validate();
