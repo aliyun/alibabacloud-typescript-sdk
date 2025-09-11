@@ -1,12 +1,402 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyDbnodeCategoryList";
-import { DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyDbnodeClassList";
-import { DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyDbnodeStorageList";
-import { DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList";
-import { DescribeRdsAnalysisResourceQuotasResponseBodyModeList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyModeList";
-import { DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList } from "./DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList";
 
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * mixed_storage
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * mixed_storage
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList extends $dara.Model {
+  DBNodeCategory?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeCategory: 'DBNodeCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeCategory: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBNodeCategory)) {
+      $dara.Model.validateArray(this.DBNodeCategory);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * E32
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * E32
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList extends $dara.Model {
+  DBNodeClass?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeClass: 'DBNodeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeClass: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBNodeClass)) {
+      $dara.Model.validateArray(this.DBNodeClass);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * 100
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * 100
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList extends $dara.Model {
+  DBNodeStorage?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeStorage: 'DBNodeStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeStorage: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBNodeStorage)) {
+      $dara.Model.validateArray(this.DBNodeStorage);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * 3.0
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * 3.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList extends $dara.Model {
+  engineVersion?: DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      engineVersion: 'EngineVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineVersion: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.engineVersion)) {
+      $dara.Model.validateArray(this.engineVersion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * flexible
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * flexible
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyModeList extends $dara.Model {
+  mode?: DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode[];
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mode)) {
+      $dara.Model.validateArray(this.mode);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType extends $dara.Model {
+  /**
+   * @remarks
+   * The display value.
+   * 
+   * @example
+   * cloud_essd
+   */
+  text?: string;
+  /**
+   * @remarks
+   * The real value.
+   * 
+   * @example
+   * cloud_essd
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList extends $dara.Model {
+  storageType?: DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType[];
+  static names(): { [key: string]: string } {
+    return {
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageType: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.storageType)) {
+      $dara.Model.validateArray(this.storageType);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRdsAnalysisResourceQuotasResponseBody extends $dara.Model {
   /**
