@@ -53,6 +53,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
    * 2020-09-23T01:01Z
    */
   startTime?: string;
+  subGroupName?: string;
   /**
    * @remarks
    * The query type.
@@ -68,6 +69,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
       interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
+      subGroupName: 'SubGroupName',
       type: 'Type',
     };
   }
@@ -79,6 +81,7 @@ export class DescribeDBClusterPerformanceRequest extends $dara.Model {
       interval: 'string',
       key: 'string',
       startTime: 'string',
+      subGroupName: 'string',
       type: 'string',
     };
   }

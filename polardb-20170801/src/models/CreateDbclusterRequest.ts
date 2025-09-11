@@ -534,6 +534,11 @@ export class CreateDBClusterRequest extends $dara.Model {
    */
   sourceResourceId?: string;
   /**
+   * @example
+   * 1022xxxxxxxx
+   */
+  sourceUid?: number;
+  /**
    * @remarks
    * The availability zone where the hot standby cluster is stored. Applicable to the standard edition 3AZ scenario.
    * 
@@ -744,6 +749,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       securityIPList: 'SecurityIPList',
       serverlessType: 'ServerlessType',
       sourceResourceId: 'SourceResourceId',
+      sourceUid: 'SourceUid',
       standbyAZ: 'StandbyAZ',
       storageAutoScale: 'StorageAutoScale',
       storageEncryption: 'StorageEncryption',
@@ -807,6 +813,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       securityIPList: 'string',
       serverlessType: 'string',
       sourceResourceId: 'string',
+      sourceUid: 'number',
       standbyAZ: 'string',
       storageAutoScale: 'string',
       storageEncryption: 'boolean',

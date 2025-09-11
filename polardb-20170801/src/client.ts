@@ -1075,6 +1075,10 @@ export default class Client extends OpenApi {
       query["SourceResourceId"] = request.sourceResourceId;
     }
 
+    if (!$dara.isNull(request.sourceUid)) {
+      query["SourceUid"] = request.sourceUid;
+    }
+
     if (!$dara.isNull(request.standbyAZ)) {
       query["StandbyAZ"] = request.standbyAZ;
     }
@@ -3682,6 +3686,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询备份集所在地域信息
+   * 
+   * @param request - DescribeBackupRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupRegionsResponse
+   */
+  async describeBackupRegionsWithOptions(request: $_model.DescribeBackupRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBackupRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBackupRegions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBackupRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBackupRegionsResponse({}));
+  }
+
+  /**
+   * 查询备份集所在地域信息
+   * 
+   * @param request - DescribeBackupRegionsRequest
+   * @returns DescribeBackupRegionsResponse
+   */
+  async describeBackupRegions(request: $_model.DescribeBackupRegionsRequest): Promise<$_model.DescribeBackupRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBackupRegionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the backup tasks of a PolarDB cluster.
    * 
    * @param request - DescribeBackupTasksRequest
@@ -4591,6 +4653,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.subGroupName)) {
+      query["SubGroupName"] = request.subGroupName;
     }
 
     if (!$dara.isNull(request.type)) {
@@ -10269,6 +10335,72 @@ export default class Client extends OpenApi {
   async modifyDBNodeClass(request: $_model.ModifyDBNodeClassRequest): Promise<$_model.ModifyDBNodeClassResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBNodeClassWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改物理节点描述
+   * 
+   * @param request - ModifyDBNodeDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBNodeDescriptionResponse
+   */
+  async modifyDBNodeDescriptionWithOptions(request: $_model.ModifyDBNodeDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeDescription)) {
+      query["DBNodeDescription"] = request.DBNodeDescription;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBNodeDescription",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBNodeDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBNodeDescriptionResponse({}));
+  }
+
+  /**
+   * 修改物理节点描述
+   * 
+   * @param request - ModifyDBNodeDescriptionRequest
+   * @returns ModifyDBNodeDescriptionResponse
+   */
+  async modifyDBNodeDescription(request: $_model.ModifyDBNodeDescriptionRequest): Promise<$_model.ModifyDBNodeDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBNodeDescriptionWithOptions(request, runtime);
   }
 
   /**
