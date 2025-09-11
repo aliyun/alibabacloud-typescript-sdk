@@ -57,6 +57,21 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   multiZoneShrink?: string;
   /**
+   * @example
+   * 6
+   */
+  nodeCount?: number;
+  /**
+   * @example
+   * 32
+   */
+  nodeScaleMax?: number;
+  /**
+   * @example
+   * 4
+   */
+  nodeScaleMin?: number;
+  /**
    * @remarks
    * The region ID
    * 
@@ -96,6 +111,16 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    */
   sourceDBInstanceId?: string;
   /**
+   * @example
+   * 100
+   */
+  storageQuota?: string;
+  /**
+   * @example
+   * oss
+   */
+  storageType?: string;
+  /**
    * @remarks
    * The virtual private cloud (VPC) ID.
    * 
@@ -128,11 +153,16 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       multiZoneShrink: 'MultiZone',
+      nodeCount: 'NodeCount',
+      nodeScaleMax: 'NodeScaleMax',
+      nodeScaleMin: 'NodeScaleMin',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       sourceDBInstanceId: 'SourceDBInstanceId',
+      storageQuota: 'StorageQuota',
+      storageType: 'StorageType',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -148,11 +178,16 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       engine: 'string',
       engineVersion: 'string',
       multiZoneShrink: 'string',
+      nodeCount: 'number',
+      nodeScaleMax: 'number',
+      nodeScaleMin: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       sourceDBInstanceId: 'string',
+      storageQuota: 'string',
+      storageType: 'string',
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',

@@ -14,6 +14,21 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @example
+   * 2
+   */
+  nodeCount?: number;
+  /**
+   * @example
+   * 4
+   */
+  nodeScaleMax?: number;
+  /**
+   * @example
+   * 32
+   */
+  nodeScaleMin?: number;
+  /**
    * @remarks
    * The region ID.
    * 
@@ -37,21 +52,41 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
    * 2
    */
   scaleMin?: number;
+  /**
+   * @example
+   * 100
+   */
+  storageQuota?: string;
+  /**
+   * @example
+   * OSS
+   */
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      nodeCount: 'NodeCount',
+      nodeScaleMax: 'NodeScaleMax',
+      nodeScaleMin: 'NodeScaleMin',
       regionId: 'RegionId',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
+      storageQuota: 'StorageQuota',
+      storageType: 'StorageType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      nodeCount: 'number',
+      nodeScaleMax: 'number',
+      nodeScaleMin: 'number',
       regionId: 'string',
       scaleMax: 'number',
       scaleMin: 'number',
+      storageQuota: 'string',
+      storageType: 'string',
     };
   }
 

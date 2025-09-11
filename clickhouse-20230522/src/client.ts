@@ -307,6 +307,18 @@ export default class Client extends OpenApi {
       query["MultiZone"] = request.multiZoneShrink;
     }
 
+    if (!$dara.isNull(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!$dara.isNull(request.nodeScaleMax)) {
+      query["NodeScaleMax"] = request.nodeScaleMax;
+    }
+
+    if (!$dara.isNull(request.nodeScaleMin)) {
+      query["NodeScaleMin"] = request.nodeScaleMin;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -325,6 +337,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sourceDBInstanceId)) {
       query["SourceDBInstanceId"] = request.sourceDBInstanceId;
+    }
+
+    if (!$dara.isNull(request.storageQuota)) {
+      query["StorageQuota"] = request.storageQuota;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     if (!$dara.isNull(request.vpcId)) {
@@ -1721,6 +1741,18 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!$dara.isNull(request.nodeScaleMax)) {
+      query["NodeScaleMax"] = request.nodeScaleMax;
+    }
+
+    if (!$dara.isNull(request.nodeScaleMin)) {
+      query["NodeScaleMin"] = request.nodeScaleMin;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -1731,6 +1763,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scaleMin)) {
       query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!$dara.isNull(request.storageQuota)) {
+      query["StorageQuota"] = request.storageQuota;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

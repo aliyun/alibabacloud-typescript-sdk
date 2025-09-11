@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDBInstanceRequestMultiZone } from "./CreateDbinstanceRequestMultiZone";
 
+
+export class CreateDBInstanceRequestMultiZone extends $dara.Model {
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
+  vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
@@ -58,6 +97,21 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   multiZone?: CreateDBInstanceRequestMultiZone[];
   /**
+   * @example
+   * 6
+   */
+  nodeCount?: number;
+  /**
+   * @example
+   * 32
+   */
+  nodeScaleMax?: number;
+  /**
+   * @example
+   * 4
+   */
+  nodeScaleMin?: number;
+  /**
    * @remarks
    * The region ID
    * 
@@ -97,6 +151,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
    */
   sourceDBInstanceId?: string;
   /**
+   * @example
+   * 100
+   */
+  storageQuota?: string;
+  /**
+   * @example
+   * oss
+   */
+  storageType?: string;
+  /**
    * @remarks
    * The virtual private cloud (VPC) ID.
    * 
@@ -129,11 +193,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
       engine: 'Engine',
       engineVersion: 'EngineVersion',
       multiZone: 'MultiZone',
+      nodeCount: 'NodeCount',
+      nodeScaleMax: 'NodeScaleMax',
+      nodeScaleMin: 'NodeScaleMin',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       scaleMax: 'ScaleMax',
       scaleMin: 'ScaleMin',
       sourceDBInstanceId: 'SourceDBInstanceId',
+      storageQuota: 'StorageQuota',
+      storageType: 'StorageType',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
       zoneId: 'ZoneId',
@@ -149,11 +218,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
       engine: 'string',
       engineVersion: 'string',
       multiZone: { 'type': 'array', 'itemType': CreateDBInstanceRequestMultiZone },
+      nodeCount: 'number',
+      nodeScaleMax: 'number',
+      nodeScaleMin: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
       scaleMax: 'string',
       scaleMin: 'string',
       sourceDBInstanceId: 'string',
+      storageQuota: 'string',
+      storageType: 'string',
       vpcId: 'string',
       vswitchId: 'string',
       zoneId: 'string',
