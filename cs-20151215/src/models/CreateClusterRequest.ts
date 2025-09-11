@@ -494,6 +494,8 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The network access control list (ACL) rule of the SLB instance associated with the API server if the cluster is a registered cluster.
+   * 
+   * @deprecated
    */
   accessControlList?: string[];
   /**
@@ -649,8 +651,6 @@ export class CreateClusterRequest extends $dara.Model {
    * *   `Kubernetes`: ACK dedicated cluster.
    * *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic Edition and Pro Edition), ACK Edge clusters (Basic Edition and Pro Edition), and ACK Lingjun clusters (Pro Edition).
    * *   `ExternalKubernetes`: registered cluster.
-   * 
-   * This parameter is required.
    * 
    * @example
    * Kubernetes
@@ -956,6 +956,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * SLS
+   * 
+   * @deprecated
    */
   loggingType?: string;
   /**
@@ -1163,6 +1165,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   natGateway?: boolean;
   /**
@@ -1202,6 +1206,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * 30000~32767
+   * 
+   * @deprecated
    */
   nodePortRange?: string;
   /**
@@ -1303,6 +1309,8 @@ export class CreateClusterRequest extends $dara.Model {
    * If you select Terway as the network plug-in, you must allocate vSwitches to pods. For each vSwitch that allocates IP addresses to worker nodes, you must select a vSwitch in the same zone to allocate IP addresses to pods.
    * 
    * >  We recommend that you select pod vSwitches whose subnet masks do not exceed 19 bits in length. The maximum subnet mask length of a pod vSwitch is 25 bits. If you select a pod vSwitch whose subnet mask exceeds 25 bits in length, the IP addresses that can be allocated to pods may be insufficient.
+   * 
+   * @deprecated
    */
   podVswitchIds?: string[];
   /**
@@ -1364,6 +1372,8 @@ export class CreateClusterRequest extends $dara.Model {
    * The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
    * 
    * For more information about how to select a proper container runtime, see [Comparison among Docker, containerd, and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
+   * 
+   * @deprecated
    */
   runtime?: Runtime;
   /**
@@ -1407,8 +1417,6 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * By default, the Service CIDR block is set to 172.19.0.0/20.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 172.21.0.0/20
    */
@@ -1421,6 +1429,8 @@ export class CreateClusterRequest extends $dara.Model {
    * *   `PrivateZone`: a DNS resolution service provided by Alibaba Cloud. You must activate Alibaba Cloud DNS PrivateZone before you can use it for service discovery.
    * 
    * By default, this parameter is not specified.
+   * 
+   * @deprecated
    */
   serviceDiscoveryTypes?: string[];
   /**
@@ -1523,6 +1533,8 @@ export class CreateClusterRequest extends $dara.Model {
    * 
    * @example
    * IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
+   * 
+   * @deprecated
    */
   userData?: string;
   /**

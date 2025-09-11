@@ -491,6 +491,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * 
    * @example
    * 19.03.5
+   * 
+   * @deprecated
    */
   dockerVersion?: string;
   /**
@@ -499,6 +501,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * 
    * @example
    * lb-2zehc05z3b8dwiifh****
+   * 
+   * @deprecated
    */
   externalLoadbalancerId?: string;
   extraSans?: string[];
@@ -556,6 +560,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * 
    * @example
    * vpc
+   * 
+   * @deprecated
    */
   networkMode?: string;
   /**
@@ -584,6 +590,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Resource Orchestration Service (ROS) parameters of the cluster.
+   * 
+   * @deprecated
    */
   parameters?: { [key: string]: string };
   /**
@@ -597,6 +605,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   privateZone?: boolean;
   /**
@@ -755,6 +765,8 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    * 
    * @example
    * cn-beijing-a
+   * 
+   * @deprecated
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

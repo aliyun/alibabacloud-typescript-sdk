@@ -154,6 +154,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * 19.03.5
+   * 
+   * @deprecated
    */
   dockerVersion?: string;
   /**
@@ -164,6 +166,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * lb-2vcrbmlevo6kjpgch****
+   * 
+   * @deprecated
    */
   externalLoadbalancerId?: string;
   /**
@@ -225,6 +229,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * vpc
+   * 
+   * @deprecated
    */
   networkMode?: string;
   /**
@@ -249,6 +255,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   privateZone?: boolean;
   /**
@@ -393,6 +401,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
+   * 
+   * @deprecated
    */
   workerRamRoleName?: string;
   /**
@@ -401,6 +411,8 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * 
    * @example
    * cn-beijing-b
+   * 
+   * @deprecated
    */
   zoneId?: string;
   static names(): { [key: string]: string } {

@@ -9,6 +9,8 @@ export class UpgradeClusterRequestRollingPolicy extends $dara.Model {
    * 
    * @example
    * 3
+   * 
+   * @deprecated
    */
   maxParallelism?: number;
   static names(): { [key: string]: string } {
@@ -65,6 +67,8 @@ export class UpgradeClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The rolling update configuration.
+   * 
+   * @deprecated
    */
   rollingPolicy?: UpgradeClusterRequestRollingPolicy;
   /**

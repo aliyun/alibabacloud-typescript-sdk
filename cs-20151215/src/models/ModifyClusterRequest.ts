@@ -483,6 +483,8 @@ export class ModifyClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
+   * 
+   * @deprecated
    */
   accessControlList?: string[];
   /**
@@ -559,6 +561,8 @@ export class ModifyClusterRequest extends $dara.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   ingressDomainRebinding?: boolean;
   /**
@@ -567,6 +571,8 @@ export class ModifyClusterRequest extends $dara.Model {
    * 
    * @example
    * lb-wz97kes8tnndkpodw****
+   * 
+   * @deprecated
    */
   ingressLoadbalancerId?: string;
   /**
@@ -580,6 +586,8 @@ export class ModifyClusterRequest extends $dara.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   instanceDeletionProtection?: boolean;
   /**

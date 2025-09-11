@@ -172,6 +172,7 @@ export class KubeletConfig extends $dara.Model {
    * true
    */
   serializeImagePulls?: boolean;
+  serverTLSBootstrap?: boolean;
   systemReserved?: { [key: string]: any };
   /**
    * @example
@@ -209,6 +210,7 @@ export class KubeletConfig extends $dara.Model {
       registryPullQPS: 'registryPullQPS',
       reservedMemory: 'reservedMemory',
       serializeImagePulls: 'serializeImagePulls',
+      serverTLSBootstrap: 'serverTLSBootstrap',
       systemReserved: 'systemReserved',
       topologyManagerPolicy: 'topologyManagerPolicy',
       tracing: 'tracing',
@@ -245,6 +247,7 @@ export class KubeletConfig extends $dara.Model {
       registryPullQPS: 'number',
       reservedMemory: { 'type': 'array', 'itemType': KubeletConfigReservedMemory },
       serializeImagePulls: 'boolean',
+      serverTLSBootstrap: 'boolean',
       systemReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       topologyManagerPolicy: 'string',
       tracing: KubeletConfigTracing,
