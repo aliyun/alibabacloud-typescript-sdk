@@ -94,6 +94,11 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @example
+   * 2374923467
+   */
+  promotionOptionNo?: string;
+  /**
    * @remarks
    * The number of clusters to be created.
    * 
@@ -124,6 +129,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
       preCacheSize: 'PreCacheSize',
       preComputeSize: 'PreComputeSize',
       pricingCycle: 'PricingCycle',
+      promotionOptionNo: 'PromotionOptionNo',
       quantity: 'Quantity',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
@@ -140,6 +146,7 @@ export class GetCreateBEClusterInquiryRequest extends $dara.Model {
       preCacheSize: 'number',
       preComputeSize: 'number',
       pricingCycle: 'string',
+      promotionOptionNo: 'string',
       quantity: 'number',
       regionId: 'string',
       resourceOwnerId: 'number',

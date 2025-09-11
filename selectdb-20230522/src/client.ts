@@ -88,6 +88,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * SelectDB实例创建前检查
    * 
    * @param request - CheckCreateDBInstanceRequest
@@ -191,6 +245,44 @@ export default class Client extends OpenApi {
   async checkCreateDBInstance(request: $_model.CheckCreateDBInstanceRequest): Promise<$_model.CheckCreateDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCreateDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 判断指定 IP 是否已经存在于网络白名单组
+   * 
+   * @param request - CheckIpExistsInSecurityIpListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckIpExistsInSecurityIpListResponse
+   */
+  async checkIpExistsInSecurityIpListWithOptions(request: $_model.CheckIpExistsInSecurityIpListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckIpExistsInSecurityIpListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckIpExistsInSecurityIpList",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckIpExistsInSecurityIpListResponse>(await this.callApi(params, req, runtime), new $_model.CheckIpExistsInSecurityIpListResponse({}));
+  }
+
+  /**
+   * 判断指定 IP 是否已经存在于网络白名单组
+   * 
+   * @param request - CheckIpExistsInSecurityIpListRequest
+   * @returns CheckIpExistsInSecurityIpListResponse
+   */
+  async checkIpExistsInSecurityIpList(request: $_model.CheckIpExistsInSecurityIpListRequest): Promise<$_model.CheckIpExistsInSecurityIpListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkIpExistsInSecurityIpListWithOptions(request, runtime);
   }
 
   /**
@@ -1071,6 +1163,56 @@ export default class Client extends OpenApi {
   async describeDBClusterConfigChangeLogs(request: $_model.DescribeDBClusterConfigChangeLogsRequest): Promise<$_model.DescribeDBClusterConfigChangeLogsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBClusterConfigChangeLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取集群的各规格缓存限制
+   * 
+   * @param request - DescribeDBClusterStorageLimitationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterStorageLimitationResponse
+   */
+  async describeDBClusterStorageLimitationWithOptions(request: $_model.DescribeDBClusterStorageLimitationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterStorageLimitationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterStorageLimitation",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterStorageLimitationResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterStorageLimitationResponse({}));
+  }
+
+  /**
+   * 获取集群的各规格缓存限制
+   * 
+   * @param request - DescribeDBClusterStorageLimitationRequest
+   * @returns DescribeDBClusterStorageLimitationResponse
+   */
+  async describeDBClusterStorageLimitation(request: $_model.DescribeDBClusterStorageLimitationRequest): Promise<$_model.DescribeDBClusterStorageLimitationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterStorageLimitationWithOptions(request, runtime);
   }
 
   /**
@@ -2183,6 +2325,118 @@ export default class Client extends OpenApi {
   async stopBECluster(request: $_model.StopBEClusterRequest): Promise<$_model.StopBEClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopBEClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**

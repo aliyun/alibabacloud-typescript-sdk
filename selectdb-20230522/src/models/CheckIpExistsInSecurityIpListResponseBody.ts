@@ -2,35 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDBClusterResponseBodyData extends $dara.Model {
+/**
+ */
+export class CheckIpExistsInSecurityIpListResponseBodyData extends $dara.Model {
   /**
    * @example
-   * selectdb-cn-1ls3sg0po0****
+   * true
    */
-  clusterId?: string;
-  /**
-   * @example
-   * selectdb-cn-7213cjv****
-   */
-  DBInstanceId?: string;
-  /**
-   * @example
-   * 219543646290345
-   */
-  orderId?: number;
+  ipExists?: boolean;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      DBInstanceId: 'DBInstanceId',
-      orderId: 'OrderId',
+      ipExists: 'IpExists',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      DBInstanceId: 'string',
-      orderId: 'number',
+      ipExists: 'boolean',
     };
   }
 
@@ -43,11 +31,14 @@ export class CreateDBClusterResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateDBClusterResponseBody extends $dara.Model {
-  data?: CreateDBClusterResponseBodyData;
+export class CheckIpExistsInSecurityIpListResponseBody extends $dara.Model {
+  data?: CheckIpExistsInSecurityIpListResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * F8900A96-67F7-5274-A41B-7722E1ECF8C9
+   * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +50,7 @@ export class CreateDBClusterResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: CreateDBClusterResponseBodyData,
+      data: CheckIpExistsInSecurityIpListResponseBodyData,
       requestId: 'string',
     };
   }

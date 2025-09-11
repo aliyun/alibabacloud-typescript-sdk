@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  canPromFee?: string;
+  /**
+   * @example
+   * 7afs9d
+   */
+  optionCode?: string;
+  /**
+   * @example
+   * 通用优惠券可抵扣100
+   */
+  promotionDesc?: string;
+  /**
+   * @example
+   * 通用优惠券
+   */
+  promotionName?: string;
+  /**
+   * @example
+   * 775735400028
+   */
+  promotionOptionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canPromFee: 'CanPromFee',
+      optionCode: 'OptionCode',
+      promotionDesc: 'PromotionDesc',
+      promotionName: 'PromotionName',
+      promotionOptionNo: 'PromotionOptionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canPromFee: 'string',
+      optionCode: 'string',
+      promotionDesc: 'string',
+      promotionName: 'string',
+      promotionOptionNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +66,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
    * CNY
    */
   currency?: string;
+  optionalPromotions?: GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions[];
   pricingRules?: { [key: string]: string };
   /**
    * @remarks
@@ -23,6 +79,7 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       currency: 'Currency',
+      optionalPromotions: 'OptionalPromotions',
       pricingRules: 'PricingRules',
       tradeAmount: 'TradeAmount',
     };
@@ -31,12 +88,16 @@ export class GetCreateBEClusterInquiryResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       currency: 'string',
+      optionalPromotions: { 'type': 'array', 'itemType': GetCreateBEClusterInquiryResponseBodyDataOptionalPromotions },
       pricingRules: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tradeAmount: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.optionalPromotions)) {
+      $dara.Model.validateArray(this.optionalPromotions);
+    }
     if(this.pricingRules) {
       $dara.Model.validateMap(this.pricingRules);
     }

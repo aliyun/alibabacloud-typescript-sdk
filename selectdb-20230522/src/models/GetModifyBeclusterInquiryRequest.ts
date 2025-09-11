@@ -112,6 +112,11 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
    */
   pricingCycle?: string;
   /**
+   * @example
+   * 123412345
+   */
+  promotionOptionNo?: string;
+  /**
    * @remarks
    * The number of clusters whose specifications are to be changed.
    * 
@@ -144,6 +149,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
       preCacheSize: 'PreCacheSize',
       preComputeSize: 'PreComputeSize',
       pricingCycle: 'PricingCycle',
+      promotionOptionNo: 'PromotionOptionNo',
       quantity: 'Quantity',
       regionId: 'RegionId',
       resourceOwnerId: 'ResourceOwnerId',
@@ -162,6 +168,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
       preCacheSize: 'number',
       preComputeSize: 'number',
       pricingCycle: 'string',
+      promotionOptionNo: 'string',
       quantity: 'number',
       regionId: 'string',
       resourceOwnerId: 'number',
