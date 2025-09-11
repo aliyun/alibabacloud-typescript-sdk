@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
+  attributesShrink?: string;
   /**
    * @example
    * true
@@ -41,6 +42,7 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
   storageSize?: string;
   static names(): { [key: string]: string } {
     return {
+      attributesShrink: 'Attributes',
       autoRenew: 'AutoRenew',
       clientInfoShrink: 'ClientInfo',
       instanceBillingCycle: 'InstanceBillingCycle',
@@ -55,6 +57,7 @@ export class CreateRenderingInstanceShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributesShrink: 'string',
       autoRenew: 'boolean',
       clientInfoShrink: 'string',
       instanceBillingCycle: 'string',

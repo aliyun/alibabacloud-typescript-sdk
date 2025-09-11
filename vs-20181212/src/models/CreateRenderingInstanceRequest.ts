@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateRenderingInstanceRequestAttributes extends $dara.Model {
+  edgeMediaService?: string;
+  inAccess?: string;
+  outAccess?: string;
+  zone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      edgeMediaService: 'EdgeMediaService',
+      inAccess: 'InAccess',
+      outAccess: 'OutAccess',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      edgeMediaService: 'string',
+      inAccess: 'string',
+      outAccess: 'string',
+      zone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRenderingInstanceRequestClientInfo extends $dara.Model {
   /**
    * @example
@@ -30,6 +62,7 @@ export class CreateRenderingInstanceRequestClientInfo extends $dara.Model {
 }
 
 export class CreateRenderingInstanceRequest extends $dara.Model {
+  attributes?: CreateRenderingInstanceRequestAttributes;
   /**
    * @example
    * true
@@ -68,6 +101,7 @@ export class CreateRenderingInstanceRequest extends $dara.Model {
   storageSize?: string;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'Attributes',
       autoRenew: 'AutoRenew',
       clientInfo: 'ClientInfo',
       instanceBillingCycle: 'InstanceBillingCycle',
@@ -82,6 +116,7 @@ export class CreateRenderingInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: CreateRenderingInstanceRequestAttributes,
       autoRenew: 'boolean',
       clientInfo: CreateRenderingInstanceRequestClientInfo,
       instanceBillingCycle: 'string',
@@ -95,6 +130,9 @@ export class CreateRenderingInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.attributes && typeof (this.attributes as any).validate === 'function') {
+      (this.attributes as any).validate();
+    }
     if(this.clientInfo && typeof (this.clientInfo as any).validate === 'function') {
       (this.clientInfo as any).validate();
     }

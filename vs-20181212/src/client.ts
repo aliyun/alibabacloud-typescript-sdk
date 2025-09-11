@@ -1864,11 +1864,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateRenderingInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
+    }
+
     if (!$dara.isNull(tmpReq.clientInfo)) {
       request.clientInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clientInfo, "ClientInfo", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["Attributes"] = request.attributesShrink;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -6130,6 +6138,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询一个云应用的Patch列表。
+   * 
+   * @param request - ListCloudAppPatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAppPatchesResponse
+   */
+  async listCloudAppPatchesWithOptions(request: $_model.ListCloudAppPatchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAppPatchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
+    if (!$dara.isNull(request.patchName)) {
+      query["PatchName"] = request.patchName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAppPatches",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAppPatchesResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAppPatchesResponse({}));
+  }
+
+  /**
+   * 查询一个云应用的Patch列表。
+   * 
+   * @param request - ListCloudAppPatchesRequest
+   * @returns ListCloudAppPatchesResponse
+   */
+  async listCloudAppPatches(request: $_model.ListCloudAppPatchesRequest): Promise<$_model.ListCloudAppPatchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAppPatchesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询云应用列表
    * 
    * @param request - ListCloudAppsRequest
@@ -7285,6 +7359,52 @@ export default class Client extends OpenApi {
   async modifyRenderingInstance(request: $_model.ModifyRenderingInstanceRequest): Promise<$_model.ModifyRenderingInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyRenderingInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改云应用服务实例密码
+   * 
+   * @param request - ModifyRenderingInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRenderingInstanceAttributeResponse
+   */
+  async modifyRenderingInstanceAttributeWithOptions(request: $_model.ModifyRenderingInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRenderingInstanceAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRenderingInstanceAttribute",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRenderingInstanceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRenderingInstanceAttributeResponse({}));
+  }
+
+  /**
+   * 修改云应用服务实例密码
+   * 
+   * @param request - ModifyRenderingInstanceAttributeRequest
+   * @returns ModifyRenderingInstanceAttributeResponse
+   */
+  async modifyRenderingInstanceAttribute(request: $_model.ModifyRenderingInstanceAttributeRequest): Promise<$_model.ModifyRenderingInstanceAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRenderingInstanceAttributeWithOptions(request, runtime);
   }
 
   /**
