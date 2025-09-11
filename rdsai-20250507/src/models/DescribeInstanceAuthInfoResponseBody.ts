@@ -42,12 +42,40 @@ export class DescribeInstanceAuthInfoResponseBodyApiKeys extends $dara.Model {
   }
 }
 
+export class DescribeInstanceAuthInfoResponseBodyConfigList extends $dara.Model {
+  name?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * API Keys
    */
   apiKeys?: DescribeInstanceAuthInfoResponseBodyApiKeys;
+  configList?: DescribeInstanceAuthInfoResponseBodyConfigList[];
+  instanceName?: string;
   /**
    * @example
    * i5o1XAp4sR*****oyOb3O
@@ -61,6 +89,8 @@ export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiKeys: 'ApiKeys',
+      configList: 'ConfigList',
+      instanceName: 'InstanceName',
       jwtSecret: 'JwtSecret',
       requestId: 'RequestId',
     };
@@ -69,6 +99,8 @@ export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiKeys: DescribeInstanceAuthInfoResponseBodyApiKeys,
+      configList: { 'type': 'array', 'itemType': DescribeInstanceAuthInfoResponseBodyConfigList },
+      instanceName: 'string',
       jwtSecret: 'string',
       requestId: 'string',
     };
@@ -77,6 +109,9 @@ export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   validate() {
     if(this.apiKeys && typeof (this.apiKeys as any).validate === 'function') {
       (this.apiKeys as any).validate();
+    }
+    if(Array.isArray(this.configList)) {
+      $dara.Model.validateArray(this.configList);
     }
     super.validate();
   }

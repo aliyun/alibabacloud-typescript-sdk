@@ -1,6 +1,7 @@
 export { CreateAppInstanceRequestDBInstanceConfig } from './CreateAppInstanceRequest';
 export { DescribeAppInstancesResponseBodyInstances } from './DescribeAppInstancesResponseBody';
 export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceAuthInfoResponseBody';
+export { DescribeInstanceAuthInfoResponseBodyConfigList } from './DescribeInstanceAuthInfoResponseBody';
 export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
 export { CreateAppInstanceRequest } from './CreateAppInstanceRequest';
