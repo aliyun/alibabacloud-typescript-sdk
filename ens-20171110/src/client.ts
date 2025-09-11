@@ -5078,6 +5078,10 @@ export default class Client extends OpenApi {
       request.statesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.states, "States", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),

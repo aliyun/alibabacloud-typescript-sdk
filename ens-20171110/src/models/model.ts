@@ -44,6 +44,7 @@ export { DeploySDGResponseBodyDataResultFailedItems } from './DeploySdgresponseB
 export { DeploySDGResponseBodyDataResult } from './DeploySdgresponseBody';
 export { DeploySDGResponseBodyData } from './DeploySdgresponseBody';
 export { DescribeAICImagesResponseBodyImages } from './DescribeAicimagesResponseBody';
+export { DescribeARMServerInstancesRequestTags } from './DescribeArmserverInstancesRequest';
 export { DescribeARMServerInstancesResponseBodyServersAICInstancesNetworkAttributes } from './DescribeArmserverInstancesResponseBody';
 export { DescribeARMServerInstancesResponseBodyServersAICInstancesSdgDeployInfo } from './DescribeArmserverInstancesResponseBody';
 export { DescribeARMServerInstancesResponseBodyServersAICInstances } from './DescribeArmserverInstancesResponseBody';

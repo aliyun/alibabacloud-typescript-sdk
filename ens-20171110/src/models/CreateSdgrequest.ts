@@ -42,6 +42,11 @@ export class CreateSDGRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 100
+   */
+  performanceLevel?: number;
+  /**
    * @remarks
    * The maximum capacity of the SDG. Unit: GB.
    * 
@@ -64,6 +69,7 @@ export class CreateSDGRequest extends $dara.Model {
       diskType: 'DiskType',
       fromSDGId: 'FromSDGId',
       instanceId: 'InstanceId',
+      performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
   }
@@ -75,6 +81,7 @@ export class CreateSDGRequest extends $dara.Model {
       diskType: 'string',
       fromSDGId: 'string',
       instanceId: 'string',
+      performanceLevel: 'number',
       size: 'string',
     };
   }

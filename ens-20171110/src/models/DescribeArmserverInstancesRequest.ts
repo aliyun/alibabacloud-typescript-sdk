@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeARMServerInstancesRequestTags extends $dara.Model {
+  /**
+   * @example
+   * key-1
+   */
+  key?: string;
+  /**
+   * @example
+   * value-1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeARMServerInstancesRequest extends $dara.Model {
   /**
    * @remarks
@@ -101,6 +135,7 @@ export class DescribeARMServerInstancesRequest extends $dara.Model {
    * The operation statuses.
    */
   states?: string[];
+  tags?: DescribeARMServerInstancesRequestTags[];
   static names(): { [key: string]: string } {
     return {
       AICSpecs: 'AICSpecs',
@@ -116,6 +151,7 @@ export class DescribeARMServerInstancesRequest extends $dara.Model {
       serverIds: 'ServerIds',
       serverSpecs: 'ServerSpecs',
       states: 'States',
+      tags: 'Tags',
     };
   }
 
@@ -134,6 +170,7 @@ export class DescribeARMServerInstancesRequest extends $dara.Model {
       serverIds: { 'type': 'array', 'itemType': 'string' },
       serverSpecs: { 'type': 'array', 'itemType': 'string' },
       states: { 'type': 'array', 'itemType': 'string' },
+      tags: { 'type': 'array', 'itemType': DescribeARMServerInstancesRequestTags },
     };
   }
 
@@ -152,6 +189,9 @@ export class DescribeARMServerInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.states)) {
       $dara.Model.validateArray(this.states);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

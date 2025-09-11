@@ -189,6 +189,11 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
    */
   parentSDGId?: string;
   /**
+   * @example
+   * 100
+   */
+  performanceLevel?: number;
+  /**
    * @remarks
    * The ID of the SDG.
    * 
@@ -236,6 +241,7 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
       deployedInstanceIds: 'DeployedInstanceIds',
       description: 'Description',
       parentSDGId: 'ParentSDGId',
+      performanceLevel: 'PerformanceLevel',
       SDGId: 'SDGId',
       size: 'Size',
       status: 'Status',
@@ -254,6 +260,7 @@ export class DescribeSDGsResponseBodySDGs extends $dara.Model {
       deployedInstanceIds: { 'type': 'array', 'itemType': DescribeSDGsResponseBodySDGsDeployedInstanceIds },
       description: 'string',
       parentSDGId: 'string',
+      performanceLevel: 'number',
       SDGId: 'string',
       size: 'number',
       status: 'string',

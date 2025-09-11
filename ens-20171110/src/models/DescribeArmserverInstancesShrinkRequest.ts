@@ -101,6 +101,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
    * The operation statuses.
    */
   statesShrink?: string;
+  tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       AICSpecsShrink: 'AICSpecs',
@@ -116,6 +117,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
       serverIdsShrink: 'ServerIds',
       serverSpecsShrink: 'ServerSpecs',
       statesShrink: 'States',
+      tagsShrink: 'Tags',
     };
   }
 
@@ -134,6 +136,7 @@ export class DescribeARMServerInstancesShrinkRequest extends $dara.Model {
       serverIdsShrink: 'string',
       serverSpecsShrink: 'string',
       statesShrink: 'string',
+      tagsShrink: 'string',
     };
   }
 

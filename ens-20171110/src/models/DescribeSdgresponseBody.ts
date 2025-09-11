@@ -189,6 +189,7 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
    * sdg-xxxxx
    */
   parentSDGId?: string;
+  performanceLevel?: string;
   /**
    * @remarks
    * The preload information.
@@ -241,6 +242,7 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
       creationTime: 'CreationTime',
       description: 'Description',
       parentSDGId: 'ParentSDGId',
+      performanceLevel: 'PerformanceLevel',
       preloadInfos: 'PreloadInfos',
       SDGId: 'SDGId',
       size: 'Size',
@@ -259,6 +261,7 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
       creationTime: 'string',
       description: 'string',
       parentSDGId: 'string',
+      performanceLevel: 'string',
       preloadInfos: { 'type': 'array', 'itemType': DescribeSDGResponseBodySDGsPreloadInfos },
       SDGId: 'string',
       size: 'number',
