@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateServiceRequest extends $dara.Model {
+  memberToUpdate?: string;
   /**
    * @remarks
    * The type of the service update. Valid values: merge and replace. By default, merge is used if you do not specify this parameter.
@@ -24,6 +25,7 @@ export class UpdateServiceRequest extends $dara.Model {
   body?: string;
   static names(): { [key: string]: string } {
     return {
+      memberToUpdate: 'MemberToUpdate',
       updateType: 'UpdateType',
       body: 'body',
     };
@@ -31,6 +33,7 @@ export class UpdateServiceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      memberToUpdate: 'string',
       updateType: 'string',
       body: 'string',
     };

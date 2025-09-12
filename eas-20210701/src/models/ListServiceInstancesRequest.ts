@@ -59,6 +59,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
    * false
    */
   isSpot?: boolean;
+  memberType?: string;
   /**
    * @remarks
    * The sorting order.
@@ -230,6 +231,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
       instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
       isSpot: 'IsSpot',
+      memberType: 'MemberType',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -248,6 +250,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
       instanceStatus: 'string',
       instanceType: 'string',
       isSpot: 'boolean',
+      memberType: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',

@@ -3480,6 +3480,10 @@ export default class Client extends OpenApi {
       query["IsSpot"] = request.isSpot;
     }
 
+    if (!$dara.isNull(request.memberType)) {
+      query["MemberType"] = request.memberType;
+    }
+
     if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
@@ -4537,6 +4541,10 @@ export default class Client extends OpenApi {
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.memberToUpdate)) {
+      query["MemberToUpdate"] = request.memberToUpdate;
+    }
+
     if (!$dara.isNull(request.updateType)) {
       query["UpdateType"] = request.updateType;
     }
