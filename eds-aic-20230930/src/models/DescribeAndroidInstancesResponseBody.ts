@@ -344,6 +344,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * acp.basic.small
    */
   instanceType?: string;
+  internetStatus?: string;
   /**
    * @remarks
    * The ID of the key pair.
@@ -495,6 +496,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       imageId: 'ImageId',
       imageVersion: 'ImageVersion',
       instanceType: 'InstanceType',
+      internetStatus: 'InternetStatus',
       keyPairId: 'KeyPairId',
       memory: 'Memory',
       networkInterfaceIp: 'NetworkInterfaceIp',
@@ -549,6 +551,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       imageId: 'string',
       imageVersion: 'string',
       instanceType: 'string',
+      internetStatus: 'string',
       keyPairId: 'string',
       memory: 'number',
       networkInterfaceIp: 'string',

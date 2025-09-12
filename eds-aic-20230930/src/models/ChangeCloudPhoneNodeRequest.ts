@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   autoPay?: boolean;
+  displayConfig?: string;
   downBandwidthLimit?: number;
   /**
    * @example
@@ -26,6 +27,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      displayConfig: 'DisplayConfig',
       downBandwidthLimit: 'DownBandwidthLimit',
       instanceType: 'InstanceType',
       nodeId: 'NodeId',
@@ -39,6 +41,7 @@ export class ChangeCloudPhoneNodeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      displayConfig: 'string',
       downBandwidthLimit: 'number',
       instanceType: 'string',
       nodeId: 'string',

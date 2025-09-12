@@ -289,6 +289,10 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
+    if (!$dara.isNull(request.displayConfig)) {
+      query["DisplayConfig"] = request.displayConfig;
+    }
+
     if (!$dara.isNull(request.downBandwidthLimit)) {
       query["DownBandwidthLimit"] = request.downBandwidthLimit;
     }

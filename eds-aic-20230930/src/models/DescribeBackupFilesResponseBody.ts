@@ -130,6 +130,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
    * AVAILABLE
    */
   status?: string;
+  systemVersion?: string;
   /**
    * @remarks
    * The task ID.
@@ -176,6 +177,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
       sourceAppInfoList: 'SourceAppInfoList',
       sourceFilePathList: 'SourceFilePathList',
       status: 'Status',
+      systemVersion: 'SystemVersion',
       taskId: 'TaskId',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
@@ -200,6 +202,7 @@ export class DescribeBackupFilesResponseBodyData extends $dara.Model {
       sourceAppInfoList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
+      systemVersion: 'string',
       taskId: 'string',
       uploadEndpoint: 'string',
       uploadType: 'string',
