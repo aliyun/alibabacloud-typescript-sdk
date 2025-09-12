@@ -23,6 +23,9 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    * 103189557
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   arrCityCode?: string;
   arrCityName?: string;
   /**
@@ -112,6 +115,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    */
   feeType?: string;
   feeTypeDesc?: string;
+  foreignersTag?: string;
   /**
    * @example
    * 4740293
@@ -119,6 +123,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   index?: string;
   invoiceTitle?: string;
   isTransferOrder?: string;
+  location?: string;
   longTicketNo?: string;
   mappingCompanyCode?: string;
   maxCabin?: string;
@@ -201,6 +206,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    */
   settlementType?: string;
   shortTicketNo?: string;
+  sio?: string;
   speedPackageFee?: number;
   /**
    * @example
@@ -236,11 +242,14 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    */
   trainNo?: string;
   trainType?: string;
+  travelerEmail?: string;
   travelerId?: string;
   travelerJobNo?: string;
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
+  verifyFailedReason?: string;
+  verifyStatus?: number;
   /**
    * @example
    * 11
@@ -257,6 +266,9 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       arrCityCode: 'arr_city_code',
       arrCityName: 'arr_city_name',
       arrDate: 'arr_date',
@@ -298,9 +310,11 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       exceedReason: 'exceed_reason',
       feeType: 'fee_type',
       feeTypeDesc: 'fee_type_desc',
+      foreignersTag: 'foreigners_tag',
       index: 'index',
       invoiceTitle: 'invoice_title',
       isTransferOrder: 'is_transfer_order',
+      location: 'location',
       longTicketNo: 'long_ticket_no',
       mappingCompanyCode: 'mapping_company_code',
       maxCabin: 'max_cabin',
@@ -335,6 +349,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
       shortTicketNo: 'short_ticket_no',
+      sio: 'sio',
       speedPackageFee: 'speed_package_fee',
       status: 'status',
       statusDesc: 'status_desc',
@@ -347,11 +362,14 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       tradeActionDesc: 'trade_action_desc',
       trainNo: 'train_no',
       trainType: 'train_type',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
       travelerMemberTypeName: 'traveler_member_type_name',
       travelerName: 'traveler_name',
+      verifyFailedReason: 'verify_failed_reason',
+      verifyStatus: 'verify_status',
       voucherType: 'voucher_type',
       voucherTypeDesc: 'voucher_type_desc',
     };
@@ -367,6 +385,9 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       arrCityCode: 'string',
       arrCityName: 'string',
       arrDate: 'string',
@@ -408,9 +429,11 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       exceedReason: 'string',
       feeType: 'string',
       feeTypeDesc: 'string',
+      foreignersTag: 'string',
       index: 'string',
       invoiceTitle: 'string',
       isTransferOrder: 'string',
+      location: 'string',
       longTicketNo: 'string',
       mappingCompanyCode: 'string',
       maxCabin: 'string',
@@ -445,6 +468,7 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       settlementTime: 'string',
       settlementType: 'string',
       shortTicketNo: 'string',
+      sio: 'string',
       speedPackageFee: 'number',
       status: 'number',
       statusDesc: 'string',
@@ -457,11 +481,14 @@ export class TrainBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       tradeActionDesc: 'string',
       trainNo: 'string',
       trainType: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
       travelerMemberTypeName: 'string',
       travelerName: 'string',
+      verifyFailedReason: 'string',
+      verifyStatus: 'number',
       voucherType: 'number',
       voucherTypeDesc: 'string',
     };

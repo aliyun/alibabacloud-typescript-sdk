@@ -32,6 +32,9 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 103189557
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   /**
    * @example
    * 1.0
@@ -140,6 +143,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 345
    */
   foreignBusinessExpense?: number;
+  foreignersTag?: string;
   hotelName?: string;
   /**
    * @example
@@ -155,6 +159,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
   isEarlyDeparture?: string;
   isNegotiation?: string;
   isShareStr?: string;
+  location?: string;
   /**
    * @example
    * 132143534543
@@ -268,6 +273,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    * 4
    */
   settlementType?: string;
+  sio?: string;
   /**
    * @example
    * 1
@@ -310,6 +316,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
    */
   totalNights?: number;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   /**
    * @example
    * al_xinuan.zsy
@@ -339,6 +346,9 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       averageNights: 'average_nights',
       baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
@@ -375,6 +385,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       feeTypeDesc: 'fee_type_desc',
       fines: 'fines',
       foreignBusinessExpense: 'foreign_business_expense',
+      foreignersTag: 'foreigners_tag',
       hotelName: 'hotel_name',
       hotelStar: 'hotel_star',
       index: 'index',
@@ -382,6 +393,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       isEarlyDeparture: 'is_early_departure',
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
+      location: 'location',
       mainApplyId: 'main_apply_id',
       mappingCompanyCode: 'mapping_company_code',
       nights: 'nights',
@@ -415,6 +427,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       status: 'status',
       statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
@@ -425,6 +438,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       thirdpartApplyId: 'thirdpart_apply_id',
       totalNights: 'total_nights',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -445,6 +459,9 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       averageNights: 'number',
       baseLocation: 'string',
       billRecordTime: 'string',
@@ -481,6 +498,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       feeTypeDesc: 'string',
       fines: 'number',
       foreignBusinessExpense: 'number',
+      foreignersTag: 'string',
       hotelName: 'string',
       hotelStar: 'string',
       index: 'string',
@@ -488,6 +506,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       isEarlyDeparture: 'string',
       isNegotiation: 'string',
       isShareStr: 'string',
+      location: 'string',
       mainApplyId: 'string',
       mappingCompanyCode: 'string',
       nights: 'number',
@@ -521,6 +540,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       status: 'number',
       statusDesc: 'string',
       subOrderId: 'string',
@@ -531,6 +551,7 @@ export class IeHotelBillSettlementQueryResponseBodyModuleDataList extends $dara.
       thirdpartApplyId: 'string',
       totalNights: 'number',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',

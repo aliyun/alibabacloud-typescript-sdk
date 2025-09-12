@@ -27,6 +27,9 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * sdasdas123324
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   /**
    * @example
    * 1.0
@@ -133,6 +136,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    * 1.0
    */
   fines?: number;
+  foreignersTag?: string;
   /**
    * @example
    * 10.0
@@ -148,6 +152,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
   isEarlyDeparture?: string;
   isNegotiation?: string;
   isShareStr?: string;
+  location?: string;
   mappingCompanyCode?: string;
   /**
    * @example
@@ -246,6 +251,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    */
   settlementTime?: string;
   settlementType?: string;
+  sio?: string;
   star?: string;
   /**
    * @example
@@ -279,6 +285,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
    */
   totalNights?: number;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   /**
    * @example
    * 123
@@ -308,6 +315,9 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       averageNights: 'average_nights',
       baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
@@ -346,6 +356,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       feeTypeDesc: 'fee_type_desc',
       fees: 'fees',
       fines: 'fines',
+      foreignersTag: 'foreigners_tag',
       fuPointFee: 'fu_point_fee',
       hotelName: 'hotel_name',
       index: 'index',
@@ -353,6 +364,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       isEarlyDeparture: 'is_early_departure',
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       nights: 'nights',
       orderId: 'order_id',
@@ -383,6 +395,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       star: 'star',
       status: 'status',
       statusDesc: 'status_desc',
@@ -392,6 +405,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       thirdItineraryId: 'third_itinerary_id',
       totalNights: 'total_nights',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -412,6 +426,9 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       averageNights: 'number',
       baseLocation: 'string',
       billRecordTime: 'string',
@@ -450,6 +467,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       feeTypeDesc: 'string',
       fees: 'number',
       fines: 'number',
+      foreignersTag: 'string',
       fuPointFee: 'number',
       hotelName: 'string',
       index: 'string',
@@ -457,6 +475,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       isEarlyDeparture: 'string',
       isNegotiation: 'string',
       isShareStr: 'string',
+      location: 'string',
       mappingCompanyCode: 'string',
       nights: 'number',
       orderId: 'string',
@@ -487,6 +506,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       star: 'string',
       status: 'number',
       statusDesc: 'string',
@@ -496,6 +516,7 @@ export class CooperatorHotelBillSettlementQueryResponseBodyModuleItems extends $
       thirdItineraryId: 'string',
       totalNights: 'number',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',

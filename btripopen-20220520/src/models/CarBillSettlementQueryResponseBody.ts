@@ -19,6 +19,9 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    */
   applyExtendField?: string;
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   arrCity?: string;
   arrCityCode?: string;
   /**
@@ -113,6 +116,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    */
   feeType?: string;
   feeTypeDesc?: string;
+  foreignersTag?: string;
   /**
    * @example
    * 4988580
@@ -120,6 +124,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
   index?: string;
   invoiceTitle?: string;
   levelName?: string;
+  location?: string;
   mappingCompanyCode?: string;
   memo?: string;
   /**
@@ -196,6 +201,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
    * 4
    */
   settlementType?: string;
+  sio?: string;
   specialOrder?: string;
   specialReason?: string;
   /**
@@ -221,6 +227,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
   thirdItineraryId?: string;
   timeType?: string;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   travelerId?: string;
   /**
    * @example
@@ -249,6 +256,9 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
       arrDate: 'arr_date',
@@ -287,9 +297,11 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       estimatePrice: 'estimate_price',
       feeType: 'fee_type',
       feeTypeDesc: 'fee_type_desc',
+      foreignersTag: 'foreigners_tag',
       index: 'index',
       invoiceTitle: 'invoice_title',
       levelName: 'level_name',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       memo: 'memo',
       orderId: 'order_id',
@@ -318,6 +330,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       specialOrder: 'special_order',
       specialReason: 'special_reason',
       status: 'status',
@@ -328,6 +341,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       thirdItineraryId: 'third_itinerary_id',
       timeType: 'time_type',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -351,6 +365,9 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       arrCity: 'string',
       arrCityCode: 'string',
       arrDate: 'string',
@@ -389,9 +406,11 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       estimatePrice: 'number',
       feeType: 'string',
       feeTypeDesc: 'string',
+      foreignersTag: 'string',
       index: 'string',
       invoiceTitle: 'string',
       levelName: 'string',
+      location: 'string',
       mappingCompanyCode: 'string',
       memo: 'string',
       orderId: 'string',
@@ -420,6 +439,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       specialOrder: 'string',
       specialReason: 'string',
       status: 'number',
@@ -430,6 +450,7 @@ export class CarBillSettlementQueryResponseBodyModuleDataList extends $dara.Mode
       thirdItineraryId: 'string',
       timeType: 'string',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',

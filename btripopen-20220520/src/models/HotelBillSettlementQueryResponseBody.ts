@@ -24,6 +24,9 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    * 103208648
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   averageNights?: string;
   baseLocation?: string;
   /**
@@ -107,6 +110,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    */
   fees?: number;
   fines?: number;
+  foreignersTag?: string;
   /**
    * @example
    * 12
@@ -126,6 +130,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
   isEarlyDeparture?: string;
   isNegotiation?: string;
   isShareStr?: string;
+  location?: string;
   mappingCompanyCode?: string;
   /**
    * @example
@@ -224,6 +229,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    * 4
    */
   settlementType?: string;
+  sio?: string;
   star?: string;
   /**
    * @example
@@ -246,6 +252,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
    */
   totalNights?: number;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   travelerId?: string;
   /**
    * @example
@@ -273,6 +280,9 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       averageNights: 'average_nights',
       baseLocation: 'base_location',
       billRecordTime: 'bill_record_time',
@@ -312,6 +322,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       feeTypeDesc: 'fee_type_desc',
       fees: 'fees',
       fines: 'fines',
+      foreignersTag: 'foreigners_tag',
       fuPointFee: 'fu_point_fee',
       hotelName: 'hotel_name',
       index: 'index',
@@ -323,6 +334,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       isEarlyDeparture: 'is_early_departure',
       isNegotiation: 'is_negotiation',
       isShareStr: 'is_share_str',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       nights: 'nights',
       noAdvanceBookingReason: 'no_advance_booking_reason',
@@ -357,6 +369,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       star: 'star',
       status: 'status',
       statusDesc: 'status_desc',
@@ -364,6 +377,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       thirdItineraryId: 'third_itinerary_id',
       totalNights: 'total_nights',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -386,6 +400,9 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       averageNights: 'string',
       baseLocation: 'string',
       billRecordTime: 'string',
@@ -425,6 +442,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       feeTypeDesc: 'string',
       fees: 'number',
       fines: 'number',
+      foreignersTag: 'string',
       fuPointFee: 'number',
       hotelName: 'string',
       index: 'string',
@@ -436,6 +454,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       isEarlyDeparture: 'string',
       isNegotiation: 'string',
       isShareStr: 'string',
+      location: 'string',
       mappingCompanyCode: 'string',
       nights: 'number',
       noAdvanceBookingReason: 'string',
@@ -470,6 +489,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       star: 'string',
       status: 'number',
       statusDesc: 'string',
@@ -477,6 +497,7 @@ export class HotelBillSettlementQueryResponseBodyModuleDataList extends $dara.Mo
       thirdItineraryId: 'string',
       totalNights: 'number',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',

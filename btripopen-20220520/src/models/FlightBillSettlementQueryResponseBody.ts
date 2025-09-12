@@ -35,6 +35,9 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 103177854
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   /**
    * @example
    * CAN
@@ -90,6 +93,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    */
   cabin?: string;
   cabinClass?: string;
+  cabinClassCode?: string;
   /**
    * @example
    * 1
@@ -162,6 +166,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    */
   flightNo?: string;
   flightTripType?: string;
+  foreignersTag?: string;
   /**
    * @example
    * 4564547
@@ -186,6 +191,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 460
    */
   itineraryPrice?: number;
+  location?: string;
   mappingCompanyCode?: string;
   mileage?: string;
   /**
@@ -303,6 +309,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
    * 2
    */
   settlementType?: string;
+  sio?: string;
   /**
    * @example
    * 1
@@ -325,6 +332,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
   ticketId?: string;
   trade?: string;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   travelerId?: string;
   /**
    * @example
@@ -360,6 +368,9 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
@@ -379,6 +390,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       businessTripResult: 'business_trip_result',
       cabin: 'cabin',
       cabinClass: 'cabin_class',
+      cabinClassCode: 'cabin_class_code',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
       categoryDesc: 'category_desc',
@@ -407,6 +419,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
       flightTripType: 'flight_trip_type',
+      foreignersTag: 'foreigners_tag',
       index: 'index',
       insOrderId: 'ins_order_id',
       insuranceFee: 'insurance_fee',
@@ -415,6 +428,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       itemType: 'item_type',
       itineraryNum: 'itinerary_num',
       itineraryPrice: 'itinerary_price',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       mileage: 'mileage',
       mostDifferenceDeptTime: 'most_difference_dept_time',
@@ -456,6 +470,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       status: 'status',
       statusDesc: 'status_desc',
       taxRate: 'tax_rate',
@@ -463,6 +478,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       ticketId: 'ticket_id',
       trade: 'trade',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -489,6 +505,9 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
       arrCityCode: 'string',
@@ -508,6 +527,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       businessTripResult: 'string',
       cabin: 'string',
       cabinClass: 'string',
+      cabinClassCode: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
       categoryDesc: 'string',
@@ -536,6 +556,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       feeTypeDesc: 'string',
       flightNo: 'string',
       flightTripType: 'string',
+      foreignersTag: 'string',
       index: 'string',
       insOrderId: 'string',
       insuranceFee: 'number',
@@ -544,6 +565,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       itemType: 'string',
       itineraryNum: 'string',
       itineraryPrice: 'number',
+      location: 'string',
       mappingCompanyCode: 'string',
       mileage: 'string',
       mostDifferenceDeptTime: 'string',
@@ -585,6 +607,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       status: 'number',
       statusDesc: 'string',
       taxRate: 'string',
@@ -592,6 +615,7 @@ export class FlightBillSettlementQueryResponseBodyModuleDataList extends $dara.M
       ticketId: 'string',
       trade: 'string',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',

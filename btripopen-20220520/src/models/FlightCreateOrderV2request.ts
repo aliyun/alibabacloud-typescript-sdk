@@ -90,6 +90,7 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
   phone?: string;
   projectCode?: string;
   projectTitle?: string;
+  taxNumber?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -119,6 +120,7 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
       phone: 'phone',
       projectCode: 'project_code',
       projectTitle: 'project_title',
+      taxNumber: 'tax_number',
       userId: 'user_id',
       userType: 'user_type',
     };
@@ -144,6 +146,7 @@ export class FlightCreateOrderV2RequestTravelers extends $dara.Model {
       phone: 'string',
       projectCode: 'string',
       projectTitle: 'string',
+      taxNumber: 'string',
       userId: 'string',
       userType: 'number',
     };

@@ -34,6 +34,9 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
    * 103189557
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   /**
    * @example
    * CAN
@@ -164,6 +167,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
    * MU9684
    */
   flightNo?: string;
+  foreignersTag?: string;
   /**
    * @example
    * 4564547
@@ -182,6 +186,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
   insuranceNumber?: string;
   insuranceProductName?: string;
   invoiceTitle?: string;
+  location?: string;
   mappingCompanyCode?: string;
   /**
    * @example
@@ -286,6 +291,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
    * 4
    */
   settlementType?: string;
+  sio?: string;
   /**
    * @example
    * 1
@@ -322,6 +328,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
    */
   trade?: string;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   /**
    * @example
    * 54463464
@@ -335,6 +342,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
   travelerMemberType?: string;
   travelerMemberTypeName?: string;
   travelerName?: string;
+  tripType?: number;
   /**
    * @example
    * 11
@@ -355,6 +363,9 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
@@ -401,12 +412,14 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       feeType: 'fee_type',
       feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
+      foreignersTag: 'foreigners_tag',
       index: 'index',
       insOrderId: 'ins_order_id',
       insuranceFee: 'insurance_fee',
       insuranceNumber: 'insurance_number',
       insuranceProductName: 'insurance_product_name',
       invoiceTitle: 'invoice_title',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       mostDifferenceDeptTime: 'most_difference_dept_time',
       mostDifferenceDiscount: 'most_difference_discount',
@@ -439,6 +452,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       status: 'status',
       statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
@@ -448,11 +462,13 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       ticketId: 'ticket_id',
       trade: 'trade',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
       travelerMemberTypeName: 'traveler_member_type_name',
       travelerName: 'traveler_name',
+      tripType: 'trip_type',
       voucherType: 'voucher_type',
       voucherTypeDesc: 'voucher_type_desc',
       voyageName: 'voyage_name',
@@ -472,6 +488,9 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
       arrCityCode: 'string',
@@ -518,12 +537,14 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       feeType: 'string',
       feeTypeDesc: 'string',
       flightNo: 'string',
+      foreignersTag: 'string',
       index: 'string',
       insOrderId: 'string',
       insuranceFee: 'number',
       insuranceNumber: 'string',
       insuranceProductName: 'string',
       invoiceTitle: 'string',
+      location: 'string',
       mappingCompanyCode: 'string',
       mostDifferenceDeptTime: 'string',
       mostDifferenceDiscount: 'string',
@@ -556,6 +577,7 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       status: 'number',
       statusDesc: 'string',
       subOrderId: 'string',
@@ -565,11 +587,13 @@ export class IeFlightBillSettlementQueryResponseBodyModuleDataList extends $dara
       ticketId: 'string',
       trade: 'string',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
       travelerMemberTypeName: 'string',
       travelerName: 'string',
+      tripType: 'number',
       voucherType: 'number',
       voucherTypeDesc: 'string',
       voyageName: 'string',

@@ -43,6 +43,9 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 1004430880
    */
   applyId?: string;
+  approverEmail?: string;
+  approverId?: string;
+  approverName?: string;
   /**
    * @example
    * CKG
@@ -110,6 +113,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * YS
    */
   cabinClass?: string;
+  cabinClassCode?: string;
   capitalDirection?: string;
   cascadeDepartment?: string;
   categoryDesc?: string;
@@ -195,6 +199,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    */
   flightNo?: string;
   flightTripType?: string;
+  foreignersTag?: string;
   /**
    * @example
    * 1
@@ -227,6 +232,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    * 100.0
    */
   itineraryPrice?: number;
+  location?: string;
   mappingCompanyCode?: string;
   /**
    * @example
@@ -347,6 +353,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    */
   settlementTime?: string;
   settlementType?: string;
+  sio?: string;
   /**
    * @example
    * 0
@@ -384,6 +391,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
    */
   trade?: string;
   tradeActionDesc?: string;
+  travelerEmail?: string;
   /**
    * @example
    * A1234
@@ -423,6 +431,9 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       applyDepCityName: 'apply_dep_city_name',
       applyExtendField: 'apply_extend_field',
       applyId: 'apply_id',
+      approverEmail: 'approver_email',
+      approverId: 'approver_id',
+      approverName: 'approver_name',
       arrAirportCode: 'arr_airport_code',
       arrCity: 'arr_city',
       arrCityCode: 'arr_city_code',
@@ -442,6 +453,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       businessTripResult: 'business_trip_result',
       cabin: 'cabin',
       cabinClass: 'cabin_class',
+      cabinClassCode: 'cabin_class_code',
       capitalDirection: 'capital_direction',
       cascadeDepartment: 'cascade_department',
       categoryDesc: 'category_desc',
@@ -471,6 +483,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       feeTypeDesc: 'fee_type_desc',
       flightNo: 'flight_no',
       flightTripType: 'flight_trip_type',
+      foreignersTag: 'foreigners_tag',
       index: 'index',
       insOrderId: 'ins_order_id',
       insuranceFee: 'insurance_fee',
@@ -479,6 +492,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       itemType: 'item_type',
       itineraryNum: 'itinerary_num',
       itineraryPrice: 'itinerary_price',
+      location: 'location',
       mappingCompanyCode: 'mapping_company_code',
       mileage: 'mileage',
       mostDifferenceDeptTime: 'most_difference_dept_time',
@@ -515,6 +529,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       settlementGrantFee: 'settlement_grant_fee',
       settlementTime: 'settlement_time',
       settlementType: 'settlement_type',
+      sio: 'sio',
       status: 'status',
       statusDesc: 'status_desc',
       subOrderId: 'sub_order_id',
@@ -524,6 +539,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       ticketId: 'ticket_id',
       trade: 'trade',
       tradeActionDesc: 'trade_action_desc',
+      travelerEmail: 'traveler_email',
       travelerId: 'traveler_id',
       travelerJobNo: 'traveler_job_no',
       travelerMemberType: 'traveler_member_type',
@@ -550,6 +566,9 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       applyDepCityName: 'string',
       applyExtendField: 'string',
       applyId: 'string',
+      approverEmail: 'string',
+      approverId: 'string',
+      approverName: 'string',
       arrAirportCode: 'string',
       arrCity: 'string',
       arrCityCode: 'string',
@@ -569,6 +588,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       businessTripResult: 'string',
       cabin: 'string',
       cabinClass: 'string',
+      cabinClassCode: 'string',
       capitalDirection: 'string',
       cascadeDepartment: 'string',
       categoryDesc: 'string',
@@ -598,6 +618,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       feeTypeDesc: 'string',
       flightNo: 'string',
       flightTripType: 'string',
+      foreignersTag: 'string',
       index: 'string',
       insOrderId: 'string',
       insuranceFee: 'number',
@@ -606,6 +627,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       itemType: 'string',
       itineraryNum: 'string',
       itineraryPrice: 'number',
+      location: 'string',
       mappingCompanyCode: 'string',
       mileage: 'number',
       mostDifferenceDeptTime: 'string',
@@ -642,6 +664,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       settlementGrantFee: 'number',
       settlementTime: 'string',
       settlementType: 'string',
+      sio: 'string',
       status: 'number',
       statusDesc: 'string',
       subOrderId: 'string',
@@ -651,6 +674,7 @@ export class CooperatorFlightBillSettlementQueryResponseBodyModuleItems extends 
       ticketId: 'string',
       trade: 'string',
       tradeActionDesc: 'string',
+      travelerEmail: 'string',
       travelerId: 'string',
       travelerJobNo: 'string',
       travelerMemberType: 'string',
