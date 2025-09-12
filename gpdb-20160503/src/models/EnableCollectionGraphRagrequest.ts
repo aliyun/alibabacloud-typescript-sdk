@@ -1,0 +1,128 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class EnableCollectionGraphRAGRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * document
+   */
+  collection?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  entityTypes?: string[];
+  /**
+   * @example
+   * knowledge-extract-standard
+   */
+  LLMModel?: string;
+  /**
+   * @example
+   * Simplified Chinese
+   */
+  language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testaccount
+   */
+  managerAccount?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  managerAccountPassword?: string;
+  /**
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  relationshipTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      entityTypes: 'EntityTypes',
+      LLMModel: 'LLMModel',
+      language: 'Language',
+      managerAccount: 'ManagerAccount',
+      managerAccountPassword: 'ManagerAccountPassword',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      relationshipTypes: 'RelationshipTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      entityTypes: { 'type': 'array', 'itemType': 'string' },
+      LLMModel: 'string',
+      language: 'string',
+      managerAccount: 'string',
+      managerAccountPassword: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      relationshipTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.entityTypes)) {
+      $dara.Model.validateArray(this.entityTypes);
+    }
+    if(Array.isArray(this.relationshipTypes)) {
+      $dara.Model.validateArray(this.relationshipTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

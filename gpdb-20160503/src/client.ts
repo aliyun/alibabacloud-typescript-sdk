@@ -8143,6 +8143,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 知识库开启构建知识图谱
+   * 
+   * @param tmpReq - EnableCollectionGraphRAGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCollectionGraphRAGResponse
+   */
+  async enableCollectionGraphRAGWithOptions(tmpReq: $_model.EnableCollectionGraphRAGRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCollectionGraphRAGResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableCollectionGraphRAGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entityTypes)) {
+      request.entityTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entityTypes, "EntityTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.relationshipTypes)) {
+      request.relationshipTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.relationshipTypes, "RelationshipTypes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.entityTypesShrink)) {
+      query["EntityTypes"] = request.entityTypesShrink;
+    }
+
+    if (!$dara.isNull(request.LLMModel)) {
+      query["LLMModel"] = request.LLMModel;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.managerAccount)) {
+      query["ManagerAccount"] = request.managerAccount;
+    }
+
+    if (!$dara.isNull(request.managerAccountPassword)) {
+      query["ManagerAccountPassword"] = request.managerAccountPassword;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relationshipTypesShrink)) {
+      query["RelationshipTypes"] = request.relationshipTypesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCollectionGraphRAG",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCollectionGraphRAGResponse>(await this.callApi(params, req, runtime), new $_model.EnableCollectionGraphRAGResponse({}));
+  }
+
+  /**
+   * 知识库开启构建知识图谱
+   * 
+   * @param request - EnableCollectionGraphRAGRequest
+   * @returns EnableCollectionGraphRAGResponse
+   */
+  async enableCollectionGraphRAG(request: $_model.EnableCollectionGraphRAGRequest): Promise<$_model.EnableCollectionGraphRAGResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCollectionGraphRAGWithOptions(request, runtime);
+  }
+
+  /**
    * Enables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After resource group management is enabled, the resource management mode of the instance is changed from resource queue to resource group.
    * 
    * @remarks
@@ -8344,6 +8440,72 @@ export default class Client extends OpenApi {
   async getAccount(request: $_model.GetAccountRequest): Promise<$_model.GetAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取构建知识图谱任务
+   * 
+   * @param request - GetGraphRAGJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGraphRAGJobResponse
+   */
+  async getGraphRAGJobWithOptions(request: $_model.GetGraphRAGJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGraphRAGJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGraphRAGJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGraphRAGJobResponse>(await this.callApi(params, req, runtime), new $_model.GetGraphRAGJobResponse({}));
+  }
+
+  /**
+   * 获取构建知识图谱任务
+   * 
+   * @param request - GetGraphRAGJobRequest
+   * @returns GetGraphRAGJobResponse
+   */
+  async getGraphRAGJob(request: $_model.GetGraphRAGJobRequest): Promise<$_model.GetGraphRAGJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGraphRAGJobWithOptions(request, runtime);
   }
 
   /**
