@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
+import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 
 
 export class CreateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
@@ -5888,6 +5889,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify DataHub as the event target.
    */
   sinkDataHubParameters?: CreateEventStreamingRequestSinkSinkDataHubParameters;
+  sinkDataWorksTriggerParameters?: SinkDataWorksTriggerParameters;
   sinkDorisParameters?: CreateEventStreamingRequestSinkSinkDorisParameters;
   /**
    * @remarks
@@ -5940,6 +5942,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDataWorksTriggerParameters: 'SinkDataWorksTriggerParameters',
       sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -5963,6 +5966,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: CreateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: CreateEventStreamingRequestSinkSinkDataHubParameters,
+      sinkDataWorksTriggerParameters: SinkDataWorksTriggerParameters,
       sinkDorisParameters: CreateEventStreamingRequestSinkSinkDorisParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
@@ -5998,6 +6002,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDataWorksTriggerParameters && typeof (this.sinkDataWorksTriggerParameters as any).validate === 'function') {
+      (this.sinkDataWorksTriggerParameters as any).validate();
     }
     if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
       (this.sinkDorisParameters as any).validate();

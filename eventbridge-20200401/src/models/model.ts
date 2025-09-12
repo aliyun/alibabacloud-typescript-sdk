@@ -703,6 +703,7 @@ export { UpdateEventStreamingRequestSourceSourceSLSParameters } from './UpdateEv
 export { UpdateEventStreamingRequestSource } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestTransforms } from './UpdateEventStreamingRequest';
 export { SinkBaiLianParameters } from './SinkBaiLianParameters';
+export { SinkDataWorksTriggerParameters } from './SinkDataWorksTriggerParameters';
 export { SourceMySQLParameters } from './SourceMySqlparameters';
 export { CheckServiceLinkedRoleForProductRequest } from './CheckServiceLinkedRoleForProductRequest';
 export { CheckServiceLinkedRoleForProductResponseBody } from './CheckServiceLinkedRoleForProductResponseBody';

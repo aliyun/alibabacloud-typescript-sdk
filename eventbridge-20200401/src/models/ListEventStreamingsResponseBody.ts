@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
+import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow extends $dara.Model {
@@ -5197,6 +5198,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
   sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
   sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
+  sinkDataWorksTriggerParameters?: SinkDataWorksTriggerParameters;
   sinkDorisParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters;
   /**
    * @remarks
@@ -5244,6 +5246,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDataWorksTriggerParameters: 'SinkDataWorksTriggerParameters',
       sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -5266,6 +5269,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters,
       sinkDataHubParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters,
+      sinkDataWorksTriggerParameters: SinkDataWorksTriggerParameters,
       sinkDorisParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters,
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
       sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
@@ -5300,6 +5304,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDataWorksTriggerParameters && typeof (this.sinkDataWorksTriggerParameters as any).validate === 'function') {
+      (this.sinkDataWorksTriggerParameters as any).validate();
     }
     if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
       (this.sinkDorisParameters as any).validate();

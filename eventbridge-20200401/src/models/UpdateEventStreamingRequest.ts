@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
+import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 
 
 export class UpdateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
@@ -6710,6 +6711,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify DataHub as the event target.
    */
   sinkDataHubParameters?: UpdateEventStreamingRequestSinkSinkDataHubParameters;
+  sinkDataWorksTriggerParameters?: SinkDataWorksTriggerParameters;
   /**
    * @remarks
    * The type of the event source.
@@ -6774,6 +6776,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
       sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
+      sinkDataWorksTriggerParameters: 'SinkDataWorksTriggerParameters',
       sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -6797,6 +6800,7 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
       sinkCustomizedKafkaParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
       sinkDashVectorParameters: UpdateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: UpdateEventStreamingRequestSinkSinkDataHubParameters,
+      sinkDataWorksTriggerParameters: SinkDataWorksTriggerParameters,
       sinkDorisParameters: UpdateEventStreamingRequestSinkSinkDorisParameters,
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
@@ -6832,6 +6836,9 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkDataHubParameters && typeof (this.sinkDataHubParameters as any).validate === 'function') {
       (this.sinkDataHubParameters as any).validate();
+    }
+    if(this.sinkDataWorksTriggerParameters && typeof (this.sinkDataWorksTriggerParameters as any).validate === 'function') {
+      (this.sinkDataWorksTriggerParameters as any).validate();
     }
     if(this.sinkDorisParameters && typeof (this.sinkDorisParameters as any).validate === 'function') {
       (this.sinkDorisParameters as any).validate();
