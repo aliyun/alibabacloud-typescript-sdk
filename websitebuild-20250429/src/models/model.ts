@@ -1,4 +1,6 @@
 export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBody';
+export { GetDomainInfoForPartnerResponseBodyDataOwnership } from './GetDomainInfoForPartnerResponseBody';
+export { GetDomainInfoForPartnerResponseBodyData } from './GetDomainInfoForPartnerResponseBody';
 export { GetIcpFilingInfoForPartnerResponseBodyData } from './GetIcpFilingInfoForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyDataCredentials } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyData } from './GetUserTmpIdentityForPartnerResponseBody';
@@ -14,6 +16,9 @@ export { CreateLogoTaskResponse } from './CreateLogoTaskResponse';
 export { GetCreateLogoTaskRequest } from './GetCreateLogoTaskRequest';
 export { GetCreateLogoTaskResponseBody } from './GetCreateLogoTaskResponseBody';
 export { GetCreateLogoTaskResponse } from './GetCreateLogoTaskResponse';
+export { GetDomainInfoForPartnerRequest } from './GetDomainInfoForPartnerRequest';
+export { GetDomainInfoForPartnerResponseBody } from './GetDomainInfoForPartnerResponseBody';
+export { GetDomainInfoForPartnerResponse } from './GetDomainInfoForPartnerResponse';
 export { GetIcpFilingInfoForPartnerRequest } from './GetIcpFilingInfoForPartnerRequest';
 export { GetIcpFilingInfoForPartnerResponseBody } from './GetIcpFilingInfoForPartnerResponseBody';
 export { GetIcpFilingInfoForPartnerResponse } from './GetIcpFilingInfoForPartnerResponse';

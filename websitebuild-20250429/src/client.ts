@@ -126,6 +126,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提供给服务商的域名查询接口
+   * 
+   * @param request - GetDomainInfoForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDomainInfoForPartnerResponse
+   */
+  async getDomainInfoForPartnerWithOptions(request: $_model.GetDomainInfoForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDomainInfoForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDomainInfoForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDomainInfoForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetDomainInfoForPartnerResponse({}));
+  }
+
+  /**
+   * 提供给服务商的域名查询接口
+   * 
+   * @param request - GetDomainInfoForPartnerRequest
+   * @returns GetDomainInfoForPartnerResponse
+   */
+  async getDomainInfoForPartner(request: $_model.GetDomainInfoForPartnerRequest): Promise<$_model.GetDomainInfoForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDomainInfoForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 查询域名备案信息
    * 
    * @param request - GetIcpFilingInfoForPartnerRequest
