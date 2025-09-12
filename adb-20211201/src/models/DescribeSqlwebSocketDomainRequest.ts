@@ -15,6 +15,7 @@ export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
    * amv-bp1lw6g669zpi660
    */
   DBClusterId?: string;
+  module?: string;
   /**
    * @remarks
    * The region ID
@@ -30,6 +31,7 @@ export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      module: 'Module',
       regionId: 'RegionId',
     };
   }
@@ -37,6 +39,7 @@ export class DescribeSQLWebSocketDomainRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      module: 'string',
       regionId: 'string',
     };
   }
