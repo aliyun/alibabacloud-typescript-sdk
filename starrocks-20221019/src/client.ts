@@ -101,6 +101,14 @@ export default class Client extends OpenApi {
       body["AdminPassword"] = request.adminPassword;
     }
 
+    if (!$dara.isNull(request.agentNodeGroup)) {
+      body["AgentNodeGroup"] = request.agentNodeGroup;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
@@ -123,6 +131,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.frontendNodeGroups)) {
       body["FrontendNodeGroups"] = request.frontendNodeGroups;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      body["GatewayType"] = request.gatewayType;
     }
 
     if (!$dara.isNull(request.instanceName)) {
@@ -647,6 +659,10 @@ export default class Client extends OpenApi {
   async modifyDiskSizeWithOptions(request: $_model.ModifyDiskSizeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDiskSizeResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fastMode)) {
+      query["FastMode"] = request.fastMode;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

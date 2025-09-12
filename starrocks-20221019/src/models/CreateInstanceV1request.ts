@@ -4,6 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class CreateInstanceV1RequestAgentNodeGroup extends $dara.Model {
+  cu?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'cu',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceV1RequestBackendNodeGroups extends $dara.Model {
   /**
    * @example
@@ -315,6 +338,8 @@ export class CreateInstanceV1Request extends $dara.Model {
    * password_example
    */
   adminPassword?: string;
+  agentNodeGroup?: CreateInstanceV1RequestAgentNodeGroup;
+  autoPay?: boolean;
   /**
    * @example
    * true
@@ -337,6 +362,7 @@ export class CreateInstanceV1Request extends $dara.Model {
    */
   encrypted?: boolean;
   frontendNodeGroups?: CreateInstanceV1RequestFrontendNodeGroups[];
+  gatewayType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -434,12 +460,15 @@ export class CreateInstanceV1Request extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adminPassword: 'AdminPassword',
+      agentNodeGroup: 'AgentNodeGroup',
+      autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       backendNodeGroups: 'BackendNodeGroups',
       clientToken: 'ClientToken',
       duration: 'Duration',
       encrypted: 'Encrypted',
       frontendNodeGroups: 'FrontendNodeGroups',
+      gatewayType: 'GatewayType',
       instanceName: 'InstanceName',
       kmsKeyId: 'KmsKeyId',
       observerNodeGroups: 'ObserverNodeGroups',
@@ -462,12 +491,15 @@ export class CreateInstanceV1Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adminPassword: 'string',
+      agentNodeGroup: CreateInstanceV1RequestAgentNodeGroup,
+      autoPay: 'boolean',
       autoRenew: 'boolean',
       backendNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestBackendNodeGroups },
       clientToken: 'string',
       duration: 'number',
       encrypted: 'boolean',
       frontendNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestFrontendNodeGroups },
+      gatewayType: 'string',
       instanceName: 'string',
       kmsKeyId: 'string',
       observerNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestObserverNodeGroups },
@@ -488,6 +520,9 @@ export class CreateInstanceV1Request extends $dara.Model {
   }
 
   validate() {
+    if(this.agentNodeGroup && typeof (this.agentNodeGroup as any).validate === 'function') {
+      (this.agentNodeGroup as any).validate();
+    }
     if(Array.isArray(this.backendNodeGroups)) {
       $dara.Model.validateArray(this.backendNodeGroups);
     }

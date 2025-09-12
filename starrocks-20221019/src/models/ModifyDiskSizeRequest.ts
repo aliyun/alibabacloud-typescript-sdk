@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDiskSizeRequest extends $dara.Model {
+  fastMode?: boolean;
   /**
    * @remarks
    * The instance ID.
@@ -36,6 +37,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
   target?: number;
   static names(): { [key: string]: string } {
     return {
+      fastMode: 'FastMode',
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
       promotionOptionNo: 'PromotionOptionNo',
@@ -45,6 +47,7 @@ export class ModifyDiskSizeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fastMode: 'boolean',
       instanceId: 'string',
       nodeGroupId: 'string',
       promotionOptionNo: 'string',

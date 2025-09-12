@@ -1,3 +1,4 @@
+export { CreateInstanceV1RequestAgentNodeGroup } from './CreateInstanceV1request';
 export { CreateInstanceV1RequestBackendNodeGroups } from './CreateInstanceV1request';
 export { CreateInstanceV1RequestFrontendNodeGroups } from './CreateInstanceV1request';
 export { CreateInstanceV1RequestObserverNodeGroups } from './CreateInstanceV1request';
