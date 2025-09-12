@@ -1191,6 +1191,10 @@ export default class Client extends OpenApi {
       query["NotifyStrategy"] = request.notifyStrategy;
     }
 
+    if (!$dara.isNull(request.stsRoleArn)) {
+      query["StsRoleArn"] = request.stsRoleArn;
+    }
+
     if (!$dara.isNull(request.subscriptionName)) {
       query["SubscriptionName"] = request.subscriptionName;
     }

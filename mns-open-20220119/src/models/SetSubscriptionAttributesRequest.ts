@@ -86,6 +86,11 @@ export class SetSubscriptionAttributesRequest extends $dara.Model {
    */
   notifyStrategy?: string;
   /**
+   * @example
+   * acs:ram::1234567890:role/roleName
+   */
+  stsRoleArn?: string;
+  /**
    * @remarks
    * The name of the subscription.
    * 
@@ -110,6 +115,7 @@ export class SetSubscriptionAttributesRequest extends $dara.Model {
     return {
       dlqPolicy: 'DlqPolicy',
       notifyStrategy: 'NotifyStrategy',
+      stsRoleArn: 'StsRoleArn',
       subscriptionName: 'SubscriptionName',
       tenantRateLimitPolicy: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
@@ -120,6 +126,7 @@ export class SetSubscriptionAttributesRequest extends $dara.Model {
     return {
       dlqPolicy: SetSubscriptionAttributesRequestDlqPolicy,
       notifyStrategy: 'string',
+      stsRoleArn: 'string',
       subscriptionName: 'string',
       tenantRateLimitPolicy: SetSubscriptionAttributesRequestTenantRateLimitPolicy,
       topicName: 'string',

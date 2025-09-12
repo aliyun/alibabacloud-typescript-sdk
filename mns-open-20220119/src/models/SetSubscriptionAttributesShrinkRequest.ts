@@ -20,6 +20,11 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
    */
   notifyStrategy?: string;
   /**
+   * @example
+   * acs:ram::1234567890:role/roleName
+   */
+  stsRoleArn?: string;
+  /**
    * @remarks
    * The name of the subscription.
    * 
@@ -44,6 +49,7 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
     return {
       dlqPolicyShrink: 'DlqPolicy',
       notifyStrategy: 'NotifyStrategy',
+      stsRoleArn: 'StsRoleArn',
       subscriptionName: 'SubscriptionName',
       tenantRateLimitPolicyShrink: 'TenantRateLimitPolicy',
       topicName: 'TopicName',
@@ -54,6 +60,7 @@ export class SetSubscriptionAttributesShrinkRequest extends $dara.Model {
     return {
       dlqPolicyShrink: 'string',
       notifyStrategy: 'string',
+      stsRoleArn: 'string',
       subscriptionName: 'string',
       tenantRateLimitPolicyShrink: 'string',
       topicName: 'string',
