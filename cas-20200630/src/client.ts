@@ -415,6 +415,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建外部子CA证书
+   * 
+   * @param tmpReq - CreateExternalCACertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExternalCACertificateResponse
+   */
+  async createExternalCACertificateWithOptions(tmpReq: $_model.CreateExternalCACertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExternalCACertificateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateExternalCACertificateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apiPassthrough)) {
+      request.apiPassthroughShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiPassthrough, "ApiPassthrough", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiPassthroughShrink)) {
+      query["ApiPassthrough"] = request.apiPassthroughShrink;
+    }
+
+    if (!$dara.isNull(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.validity)) {
+      query["Validity"] = request.validity;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExternalCACertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExternalCACertificateResponse>(await this.callApi(params, req, runtime), new $_model.CreateExternalCACertificateResponse({}));
+  }
+
+  /**
+   * 创建外部子CA证书
+   * 
+   * @param request - CreateExternalCACertificateRequest
+   * @returns CreateExternalCACertificateResponse
+   */
+  async createExternalCACertificate(request: $_model.CreateExternalCACertificateRequest): Promise<$_model.CreateExternalCACertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createExternalCACertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Revokes a client certificate or a server certificate.
    * 
    * @remarks
@@ -1484,6 +1544,52 @@ export default class Client extends OpenApi {
   async listClientCertificate(request: $_model.ListClientCertificateRequest): Promise<$_model.ListClientCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询私有CA机构证书
+   * 
+   * @param request - ListPcaCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPcaCaCertificateResponse
+   */
+  async listPcaCaCertificateWithOptions(request: $_model.ListPcaCaCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPcaCaCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPcaCaCertificate",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPcaCaCertificateResponse>(await this.callApi(params, req, runtime), new $_model.ListPcaCaCertificateResponse({}));
+  }
+
+  /**
+   * 查询私有CA机构证书
+   * 
+   * @param request - ListPcaCaCertificateRequest
+   * @returns ListPcaCaCertificateResponse
+   */
+  async listPcaCaCertificate(request: $_model.ListPcaCaCertificateRequest): Promise<$_model.ListPcaCaCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPcaCaCertificateWithOptions(request, runtime);
   }
 
   /**

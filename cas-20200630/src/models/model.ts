@@ -4,6 +4,9 @@ export { CreateCustomCertificateRequestApiPassthroughExtensions } from './Create
 export { CreateCustomCertificateRequestApiPassthroughSubjectCustomAttributes } from './CreateCustomCertificateRequest';
 export { CreateCustomCertificateRequestApiPassthroughSubject } from './CreateCustomCertificateRequest';
 export { CreateCustomCertificateRequestApiPassthrough } from './CreateCustomCertificateRequest';
+export { CreateExternalCACertificateRequestApiPassthroughExtensions } from './CreateExternalCacertificateRequest';
+export { CreateExternalCACertificateRequestApiPassthroughSubject } from './CreateExternalCacertificateRequest';
+export { CreateExternalCACertificateRequestApiPassthrough } from './CreateExternalCacertificateRequest';
 export { DescribeCACertificateResponseBodyCertificate } from './DescribeCacertificateResponseBody';
 export { DescribeCACertificateListResponseBodyCertificateList } from './DescribeCacertificateListResponseBody';
 export { DescribeClientCertificateResponseBodyCertificate } from './DescribeClientCertificateResponseBody';
@@ -11,6 +14,7 @@ export { DescribeClientCertificateStatusResponseBodyCertificateStatus } from './
 export { GetCAInstanceStatusResponseBodyInstanceStatusList } from './GetCainstanceStatusResponseBody';
 export { ListCertResponseBodyList } from './ListCertResponseBody';
 export { ListClientCertificateResponseBodyCertificateList } from './ListClientCertificateResponseBody';
+export { ListPcaCaCertificateResponseBodyList } from './ListPcaCaCertificateResponseBody';
 export { ListRevokeCertificateResponseBodyCertificateList } from './ListRevokeCertificateResponseBody';
 export { CreateClientCertificateRequest } from './CreateClientCertificateRequest';
 export { CreateClientCertificateResponseBody } from './CreateClientCertificateResponseBody';
@@ -21,6 +25,10 @@ export { CreateClientCertificateWithCsrResponse } from './CreateClientCertificat
 export { CreateCustomCertificateRequest } from './CreateCustomCertificateRequest';
 export { CreateCustomCertificateResponseBody } from './CreateCustomCertificateResponseBody';
 export { CreateCustomCertificateResponse } from './CreateCustomCertificateResponse';
+export { CreateExternalCACertificateRequest } from './CreateExternalCacertificateRequest';
+export { CreateExternalCACertificateShrinkRequest } from './CreateExternalCacertificateShrinkRequest';
+export { CreateExternalCACertificateResponseBody } from './CreateExternalCacertificateResponseBody';
+export { CreateExternalCACertificateResponse } from './CreateExternalCacertificateResponse';
 export { CreateRevokeClientCertificateRequest } from './CreateRevokeClientCertificateRequest';
 export { CreateRevokeClientCertificateResponseBody } from './CreateRevokeClientCertificateResponseBody';
 export { CreateRevokeClientCertificateResponse } from './CreateRevokeClientCertificateResponse';
@@ -65,6 +73,9 @@ export { ListCertResponse } from './ListCertResponse';
 export { ListClientCertificateRequest } from './ListClientCertificateRequest';
 export { ListClientCertificateResponseBody } from './ListClientCertificateResponseBody';
 export { ListClientCertificateResponse } from './ListClientCertificateResponse';
+export { ListPcaCaCertificateRequest } from './ListPcaCaCertificateRequest';
+export { ListPcaCaCertificateResponseBody } from './ListPcaCaCertificateResponseBody';
+export { ListPcaCaCertificateResponse } from './ListPcaCaCertificateResponse';
 export { ListRevokeCertificateRequest } from './ListRevokeCertificateRequest';
 export { ListRevokeCertificateResponseBody } from './ListRevokeCertificateResponseBody';
 export { ListRevokeCertificateResponse } from './ListRevokeCertificateResponse';
