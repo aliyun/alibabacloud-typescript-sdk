@@ -39,6 +39,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
    * 2.2.0
    */
   appVersion?: string;
+  autoLoginStatus?: string;
   /**
    * @example
    * Apple M1
@@ -159,6 +160,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
     return {
       appStatus: 'AppStatus',
       appVersion: 'AppVersion',
+      autoLoginStatus: 'AutoLoginStatus',
       CPU: 'CPU',
       createTime: 'CreateTime',
       department: 'Department',
@@ -198,6 +200,7 @@ export class ListUserDevicesResponseBodyDevices extends $dara.Model {
     return {
       appStatus: 'string',
       appVersion: 'string',
+      autoLoginStatus: 'string',
       CPU: 'string',
       createTime: 'string',
       department: 'string',

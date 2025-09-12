@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserDevicesRequest extends $dara.Model {
   appStatuses?: string[];
   appVersions?: string[];
+  autoLoginStatuses?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -64,6 +65,7 @@ export class ListUserDevicesRequest extends $dara.Model {
     return {
       appStatuses: 'AppStatuses',
       appVersions: 'AppVersions',
+      autoLoginStatuses: 'AutoLoginStatuses',
       currentPage: 'CurrentPage',
       department: 'Department',
       deviceBelong: 'DeviceBelong',
@@ -92,6 +94,7 @@ export class ListUserDevicesRequest extends $dara.Model {
     return {
       appStatuses: { 'type': 'array', 'itemType': 'string' },
       appVersions: { 'type': 'array', 'itemType': 'string' },
+      autoLoginStatuses: { 'type': 'array', 'itemType': 'string' },
       currentPage: 'number',
       department: 'string',
       deviceBelong: 'string',
@@ -122,6 +125,9 @@ export class ListUserDevicesRequest extends $dara.Model {
     }
     if(Array.isArray(this.appVersions)) {
       $dara.Model.validateArray(this.appVersions);
+    }
+    if(Array.isArray(this.autoLoginStatuses)) {
+      $dara.Model.validateArray(this.autoLoginStatuses);
     }
     if(Array.isArray(this.deviceStatuses)) {
       $dara.Model.validateArray(this.deviceStatuses);
