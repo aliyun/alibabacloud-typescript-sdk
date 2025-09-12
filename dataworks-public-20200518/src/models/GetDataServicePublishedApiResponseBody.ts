@@ -1142,6 +1142,11 @@ export class GetDataServicePublishedApiResponseBodyData extends $dara.Model {
    */
   scriptDetails?: GetDataServicePublishedApiResponseBodyDataScriptDetails;
   /**
+   * @example
+   * 0
+   */
+  sqlMode?: number;
+  /**
    * @remarks
    * The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
    * 
@@ -1196,6 +1201,7 @@ export class GetDataServicePublishedApiResponseBodyData extends $dara.Model {
       requestMethod: 'RequestMethod',
       responseContentType: 'ResponseContentType',
       scriptDetails: 'ScriptDetails',
+      sqlMode: 'SqlMode',
       status: 'Status',
       tenantId: 'TenantId',
       timeout: 'Timeout',
@@ -1222,6 +1228,7 @@ export class GetDataServicePublishedApiResponseBodyData extends $dara.Model {
       requestMethod: 'number',
       responseContentType: 'number',
       scriptDetails: GetDataServicePublishedApiResponseBodyDataScriptDetails,
+      sqlMode: 'number',
       status: 'number',
       tenantId: 'number',
       timeout: 'number',
