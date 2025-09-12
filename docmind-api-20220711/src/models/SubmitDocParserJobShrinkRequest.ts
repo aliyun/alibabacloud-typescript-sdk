@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitDocParserJobShrinkRequest extends $dara.Model {
+  customOssConfigShrink?: string;
   enhancementMode?: string;
   /**
    * @example
@@ -20,6 +21,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
    */
   fileUrl?: string;
   formulaEnhancement?: boolean;
+  LLMParamShrink?: string;
   llmEnhancement?: boolean;
   multimediaParametersShrink?: string;
   option?: string;
@@ -29,11 +31,13 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   pageIndex?: string;
   static names(): { [key: string]: string } {
     return {
+      customOssConfigShrink: 'CustomOssConfig',
       enhancementMode: 'EnhancementMode',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
       formulaEnhancement: 'FormulaEnhancement',
+      LLMParamShrink: 'LLMParam',
       llmEnhancement: 'LlmEnhancement',
       multimediaParametersShrink: 'MultimediaParameters',
       option: 'Option',
@@ -46,11 +50,13 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customOssConfigShrink: 'string',
       enhancementMode: 'string',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
       formulaEnhancement: 'boolean',
+      LLMParamShrink: 'string',
       llmEnhancement: 'boolean',
       multimediaParametersShrink: 'string',
       option: 'string',
