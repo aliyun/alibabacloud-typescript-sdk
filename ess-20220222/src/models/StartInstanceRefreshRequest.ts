@@ -2,7 +2,127 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class StartInstanceRefreshRequestCheckpoints extends $dara.Model {
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars extends $dara.Model {
+  fieldRefFieldPath?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRefFieldPath: 'FieldRefFieldPath',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRefFieldPath: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceRefreshRequestDesiredConfigurationContainers extends $dara.Model {
+  args?: string[];
+  commands?: string[];
+  environmentVars?: StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars[];
+  image?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      commands: 'Commands',
+      environmentVars: 'EnvironmentVars',
+      image: 'Image',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      environmentVars: { 'type': 'array', 'itemType': StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars },
+      image: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.environmentVars)) {
+      $dara.Model.validateArray(this.environmentVars);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides extends $dara.Model {
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model {
+  containers?: StartInstanceRefreshRequestDesiredConfigurationContainers[];
   /**
    * @remarks
    * The image ID.
@@ -17,6 +137,9 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model
    * m-2ze8cqacj7opnf***
    */
   imageId?: string;
+  launchTemplateId?: string;
+  launchTemplateOverrides?: StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides[];
+  launchTemplateVersion?: string;
   /**
    * @remarks
    * The ID of the scaling configuration.
@@ -29,19 +152,33 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model
   scalingConfigurationId?: string;
   static names(): { [key: string]: string } {
     return {
+      containers: 'Containers',
       imageId: 'ImageId',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateOverrides: 'LaunchTemplateOverrides',
+      launchTemplateVersion: 'LaunchTemplateVersion',
       scalingConfigurationId: 'ScalingConfigurationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      containers: { 'type': 'array', 'itemType': StartInstanceRefreshRequestDesiredConfigurationContainers },
       imageId: 'string',
+      launchTemplateId: 'string',
+      launchTemplateOverrides: { 'type': 'array', 'itemType': StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides },
+      launchTemplateVersion: 'string',
       scalingConfigurationId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.containers)) {
+      $dara.Model.validateArray(this.containers);
+    }
+    if(Array.isArray(this.launchTemplateOverrides)) {
+      $dara.Model.validateArray(this.launchTemplateOverrides);
+    }
     super.validate();
   }
 
@@ -51,6 +188,8 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model
 }
 
 export class StartInstanceRefreshRequest extends $dara.Model {
+  checkpointPauseTime?: number;
+  checkpoints?: StartInstanceRefreshRequestCheckpoints[];
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
@@ -129,6 +268,8 @@ export class StartInstanceRefreshRequest extends $dara.Model {
   skipMatching?: boolean;
   static names(): { [key: string]: string } {
     return {
+      checkpointPauseTime: 'CheckpointPauseTime',
+      checkpoints: 'Checkpoints',
       clientToken: 'ClientToken',
       desiredConfiguration: 'DesiredConfiguration',
       maxHealthyPercentage: 'MaxHealthyPercentage',
@@ -143,6 +284,8 @@ export class StartInstanceRefreshRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkpointPauseTime: 'number',
+      checkpoints: { 'type': 'array', 'itemType': StartInstanceRefreshRequestCheckpoints },
       clientToken: 'string',
       desiredConfiguration: StartInstanceRefreshRequestDesiredConfiguration,
       maxHealthyPercentage: 'number',
@@ -156,6 +299,9 @@ export class StartInstanceRefreshRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.checkpoints)) {
+      $dara.Model.validateArray(this.checkpoints);
+    }
     if(this.desiredConfiguration && typeof (this.desiredConfiguration as any).validate === 'function') {
       (this.desiredConfiguration as any).validate();
     }

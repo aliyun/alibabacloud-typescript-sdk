@@ -7997,6 +7997,14 @@ export default class Client extends OpenApi {
   async startInstanceRefreshWithOptions(request: $_model.StartInstanceRefreshRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartInstanceRefreshResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.checkpointPauseTime)) {
+      query["CheckpointPauseTime"] = request.checkpointPauseTime;
+    }
+
+    if (!$dara.isNull(request.checkpoints)) {
+      query["Checkpoints"] = request.checkpoints;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }

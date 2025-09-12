@@ -121,6 +121,10 @@ export { DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePools }
 export { DescribeElasticStrengthResponseBodyElasticStrengthModels } from './DescribeElasticStrengthResponseBody';
 export { DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth } from './DescribeElasticStrengthResponseBody';
 export { DescribeElasticStrengthResponseBodyResourcePools } from './DescribeElasticStrengthResponseBody';
+export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints } from './DescribeInstanceRefreshesResponseBody';
+export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars } from './DescribeInstanceRefreshesResponseBody';
+export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainers } from './DescribeInstanceRefreshesResponseBody';
+export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides } from './DescribeInstanceRefreshesResponseBody';
 export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration } from './DescribeInstanceRefreshesResponseBody';
 export { DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks } from './DescribeInstanceRefreshesResponseBody';
 export { DescribeLifecycleActionsResponseBodyLifecycleActions } from './DescribeLifecycleActionsResponseBody';
@@ -250,6 +254,10 @@ export { ScaleWithAdjustmentRequestOverridesContainerOverrides } from './ScaleWi
 export { ScaleWithAdjustmentRequestOverrides } from './ScaleWithAdjustmentRequest';
 export { ScaleWithAdjustmentResponseBodyPlanResultResourceAllocations } from './ScaleWithAdjustmentResponseBody';
 export { ScaleWithAdjustmentResponseBodyPlanResult } from './ScaleWithAdjustmentResponseBody';
+export { StartInstanceRefreshRequestCheckpoints } from './StartInstanceRefreshRequest';
+export { StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars } from './StartInstanceRefreshRequest';
+export { StartInstanceRefreshRequestDesiredConfigurationContainers } from './StartInstanceRefreshRequest';
+export { StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides } from './StartInstanceRefreshRequest';
 export { StartInstanceRefreshRequestDesiredConfiguration } from './StartInstanceRefreshRequest';
 export { TagResourcesRequestTags } from './TagResourcesRequest';
 export { ApplyEciScalingConfigurationRequest } from './ApplyEciScalingConfigurationRequest';

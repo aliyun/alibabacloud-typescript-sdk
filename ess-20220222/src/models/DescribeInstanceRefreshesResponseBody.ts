@@ -2,34 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image file that provides the image resource for Auto Scaling to create instances.
-   * 
-   * @example
-   * m-uf6g5noisr****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The ID of the scaling configuration.
-   * 
-   * @example
-   * asc-wz91ibkhfor****
-   */
-  scalingConfigurationId?: string;
+export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints extends $dara.Model {
+  percentage?: number;
   static names(): { [key: string]: string } {
     return {
-      imageId: 'ImageId',
-      scalingConfigurationId: 'ScalingConfigurationId',
+      percentage: 'Percentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageId: 'string',
-      scalingConfigurationId: 'string',
+      percentage: 'number',
     };
   }
 
@@ -42,7 +25,163 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredCon
   }
 }
 
+export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars extends $dara.Model {
+  fieldRefFieldPath?: string;
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldRefFieldPath: 'FieldRefFieldPath',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldRefFieldPath: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainers extends $dara.Model {
+  args?: string[];
+  commands?: string[];
+  environmentVars?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars[];
+  image?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      commands: 'Commands',
+      environmentVars: 'EnvironmentVars',
+      image: 'Image',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'array', 'itemType': 'string' },
+      commands: { 'type': 'array', 'itemType': 'string' },
+      environmentVars: { 'type': 'array', 'itemType': DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars },
+      image: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.environmentVars)) {
+      $dara.Model.validateArray(this.environmentVars);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides extends $dara.Model {
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration extends $dara.Model {
+  containers?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainers[];
+  /**
+   * @remarks
+   * The ID of the image file that provides the image resource for Auto Scaling to create instances.
+   * 
+   * @example
+   * m-uf6g5noisr****
+   */
+  imageId?: string;
+  launchTemplateId?: string;
+  launchTemplateOverrides?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides[];
+  launchTemplateVersion?: string;
+  /**
+   * @remarks
+   * The ID of the scaling configuration.
+   * 
+   * @example
+   * asc-wz91ibkhfor****
+   */
+  scalingConfigurationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containers: 'Containers',
+      imageId: 'ImageId',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateOverrides: 'LaunchTemplateOverrides',
+      launchTemplateVersion: 'LaunchTemplateVersion',
+      scalingConfigurationId: 'ScalingConfigurationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containers: { 'type': 'array', 'itemType': DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainers },
+      imageId: 'string',
+      launchTemplateId: 'string',
+      launchTemplateOverrides: { 'type': 'array', 'itemType': DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides },
+      launchTemplateVersion: 'string',
+      scalingConfigurationId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.containers)) {
+      $dara.Model.validateArray(this.containers);
+    }
+    if(Array.isArray(this.launchTemplateOverrides)) {
+      $dara.Model.validateArray(this.launchTemplateOverrides);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $dara.Model {
+  checkpointPauseTime?: number;
+  checkpoints?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints[];
   /**
    * @remarks
    * The desired configurations of the instance refresh task.
@@ -164,6 +303,8 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
   totalNeedUpdateCapacity?: number;
   static names(): { [key: string]: string } {
     return {
+      checkpointPauseTime: 'CheckpointPauseTime',
+      checkpoints: 'Checkpoints',
       desiredConfiguration: 'DesiredConfiguration',
       detail: 'Detail',
       endTime: 'EndTime',
@@ -182,6 +323,8 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
 
   static types(): { [key: string]: any } {
     return {
+      checkpointPauseTime: 'number',
+      checkpoints: { 'type': 'array', 'itemType': DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints },
       desiredConfiguration: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfiguration,
       detail: 'string',
       endTime: 'string',
@@ -199,6 +342,9 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
   }
 
   validate() {
+    if(Array.isArray(this.checkpoints)) {
+      $dara.Model.validateArray(this.checkpoints);
+    }
     if(this.desiredConfiguration && typeof (this.desiredConfiguration as any).validate === 'function') {
       (this.desiredConfiguration as any).validate();
     }
