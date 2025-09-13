@@ -11,6 +11,8 @@ export { CreateClusterRequestNetworksNewVpdInfoVpdSubnets } from './CreateCluste
 export { CreateClusterRequestNetworksNewVpdInfo } from './CreateClusterRequest';
 export { CreateClusterRequestNetworksVpdInfo } from './CreateClusterRequest';
 export { CreateClusterRequestNetworks } from './CreateClusterRequest';
+export { CreateClusterRequestNodeGroupsHyperNodesDataDisk } from './CreateClusterRequest';
+export { CreateClusterRequestNodeGroupsHyperNodes } from './CreateClusterRequest';
 export { CreateClusterRequestNodeGroupsNodesDataDisk } from './CreateClusterRequest';
 export { CreateClusterRequestNodeGroupsNodes } from './CreateClusterRequest';
 export { CreateClusterRequestNodeGroupsSystemDisk } from './CreateClusterRequest';
@@ -60,6 +62,8 @@ export { ExtendClusterRequestIpAllocationPolicyMachineTypePolicy } from './Exten
 export { ExtendClusterRequestIpAllocationPolicyNodePolicyBonds } from './ExtendClusterRequest';
 export { ExtendClusterRequestIpAllocationPolicyNodePolicy } from './ExtendClusterRequest';
 export { ExtendClusterRequestIpAllocationPolicy } from './ExtendClusterRequest';
+export { ExtendClusterRequestNodeGroupsHyperNodesDataDisk } from './ExtendClusterRequest';
+export { ExtendClusterRequestNodeGroupsHyperNodes } from './ExtendClusterRequest';
 export { ExtendClusterRequestNodeGroupsNodeTag } from './ExtendClusterRequest';
 export { ExtendClusterRequestNodeGroupsNodesDataDisk } from './ExtendClusterRequest';
 export { ExtendClusterRequestNodeGroupsNodes } from './ExtendClusterRequest';
@@ -97,6 +101,7 @@ export { ListVscsShrinkRequestTag } from './ListVscsShrinkRequest';
 export { ListVscsResponseBodyVscsTags } from './ListVscsResponseBody';
 export { ListVscsResponseBodyVscs } from './ListVscsResponseBody';
 export { ReimageNodesRequestNodes } from './ReimageNodesRequest';
+export { ShrinkClusterRequestNodeGroupsHyperNodes } from './ShrinkClusterRequest';
 export { ShrinkClusterRequestNodeGroupsNodes } from './ShrinkClusterRequest';
 export { ShrinkClusterRequestNodeGroups } from './ShrinkClusterRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';

@@ -302,6 +302,79 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
   }
 }
 
+export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
+  category?: string;
+  deleteWithNode?: boolean;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithNode: 'DeleteWithNode',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithNode: 'boolean',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExtendClusterRequestNodeGroupsHyperNodes extends $dara.Model {
+  dataDisk?: ExtendClusterRequestNodeGroupsHyperNodesDataDisk[];
+  hostname?: string;
+  hyperNodeId?: string;
+  loginPassword?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataDisk: 'DataDisk',
+      hostname: 'Hostname',
+      hyperNodeId: 'HyperNodeId',
+      loginPassword: 'LoginPassword',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisk: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsHyperNodesDataDisk },
+      hostname: 'string',
+      hyperNodeId: 'string',
+      loginPassword: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataDisk)) {
+      $dara.Model.validateArray(this.dataDisk);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
   /**
    * @remarks
@@ -512,6 +585,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
    * Set the hostnames for the purchased nodes. This parameter does not take effect when the Amount parameter is set to 0.
    */
   hostnames?: string[];
+  hyperNodes?: ExtendClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
    * Set the login password for the purchased nodes. This parameter is not effective when the Amount parameter is set to 0.
@@ -585,6 +659,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
       autoRenew: 'AutoRenew',
       chargeType: 'ChargeType',
       hostnames: 'Hostnames',
+      hyperNodes: 'HyperNodes',
       loginPassword: 'LoginPassword',
       nodeGroupId: 'NodeGroupId',
       nodeTag: 'NodeTag',
@@ -603,6 +678,7 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
       autoRenew: 'boolean',
       chargeType: 'string',
       hostnames: { 'type': 'array', 'itemType': 'string' },
+      hyperNodes: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsHyperNodes },
       loginPassword: 'string',
       nodeGroupId: 'string',
       nodeTag: { 'type': 'array', 'itemType': ExtendClusterRequestNodeGroupsNodeTag },
@@ -618,6 +694,9 @@ export class ExtendClusterRequestNodeGroups extends $dara.Model {
   validate() {
     if(Array.isArray(this.hostnames)) {
       $dara.Model.validateArray(this.hostnames);
+    }
+    if(Array.isArray(this.hyperNodes)) {
+      $dara.Model.validateArray(this.hyperNodes);
     }
     if(Array.isArray(this.nodeTag)) {
       $dara.Model.validateArray(this.nodeTag);

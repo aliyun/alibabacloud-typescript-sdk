@@ -682,6 +682,79 @@ export class CreateClusterRequestNetworks extends $dara.Model {
   }
 }
 
+export class CreateClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
+  category?: string;
+  deleteWithNode?: boolean;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithNode: 'DeleteWithNode',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithNode: 'boolean',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestNodeGroupsHyperNodes extends $dara.Model {
+  dataDisk?: CreateClusterRequestNodeGroupsHyperNodesDataDisk[];
+  hostname?: string;
+  hyperNodeId?: string;
+  loginPassword?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataDisk: 'DataDisk',
+      hostname: 'Hostname',
+      hyperNodeId: 'HyperNodeId',
+      loginPassword: 'LoginPassword',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisk: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsHyperNodesDataDisk },
+      hostname: 'string',
+      hyperNodeId: 'string',
+      loginPassword: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataDisk)) {
+      $dara.Model.validateArray(this.dataDisk);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   /**
    * @remarks
@@ -885,6 +958,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * true
    */
   fileSystemMountEnabled?: boolean;
+  hyperNodes?: CreateClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
    * System image ID
@@ -970,6 +1044,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileSystemMountEnabled: 'FileSystemMountEnabled',
+      hyperNodes: 'HyperNodes',
       imageId: 'ImageId',
       keyPairName: 'KeyPairName',
       loginPassword: 'LoginPassword',
@@ -987,6 +1062,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileSystemMountEnabled: 'boolean',
+      hyperNodes: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsHyperNodes },
       imageId: 'string',
       keyPairName: 'string',
       loginPassword: 'string',
@@ -1002,6 +1078,9 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.hyperNodes)) {
+      $dara.Model.validateArray(this.hyperNodes);
+    }
     if(Array.isArray(this.nodes)) {
       $dara.Model.validateArray(this.nodes);
     }

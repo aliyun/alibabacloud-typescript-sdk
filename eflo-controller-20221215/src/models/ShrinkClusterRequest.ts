@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ShrinkClusterRequestNodeGroupsHyperNodes extends $dara.Model {
+  hyperNodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hyperNodeId: 'HyperNodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hyperNodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ShrinkClusterRequestNodeGroupsNodes extends $dara.Model {
   /**
    * @remarks
@@ -33,6 +56,7 @@ export class ShrinkClusterRequestNodeGroupsNodes extends $dara.Model {
 }
 
 export class ShrinkClusterRequestNodeGroups extends $dara.Model {
+  hyperNodes?: ShrinkClusterRequestNodeGroupsHyperNodes[];
   /**
    * @remarks
    * The node group ID.
@@ -48,6 +72,7 @@ export class ShrinkClusterRequestNodeGroups extends $dara.Model {
   nodes?: ShrinkClusterRequestNodeGroupsNodes[];
   static names(): { [key: string]: string } {
     return {
+      hyperNodes: 'HyperNodes',
       nodeGroupId: 'NodeGroupId',
       nodes: 'Nodes',
     };
@@ -55,12 +80,16 @@ export class ShrinkClusterRequestNodeGroups extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hyperNodes: { 'type': 'array', 'itemType': ShrinkClusterRequestNodeGroupsHyperNodes },
       nodeGroupId: 'string',
       nodes: { 'type': 'array', 'itemType': ShrinkClusterRequestNodeGroupsNodes },
     };
   }
 
   validate() {
+    if(Array.isArray(this.hyperNodes)) {
+      $dara.Model.validateArray(this.hyperNodes);
+    }
     if(Array.isArray(this.nodes)) {
       $dara.Model.validateArray(this.nodes);
     }
