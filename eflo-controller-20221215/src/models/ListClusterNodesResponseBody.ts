@@ -152,6 +152,11 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    */
   hpnZone?: string;
   /**
+   * @example
+   * e01-cn-2r42tmj4z02
+   */
+  hyperNodeId?: string;
+  /**
    * @remarks
    * The system image ID.
    * 
@@ -281,6 +286,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       fileSystemMountEnabled: 'FileSystemMountEnabled',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
+      hyperNodeId: 'HyperNodeId',
       imageId: 'ImageId',
       imageName: 'ImageName',
       machineType: 'MachineType',
@@ -306,6 +312,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       fileSystemMountEnabled: 'boolean',
       hostname: 'string',
       hpnZone: 'string',
+      hyperNodeId: 'string',
       imageId: 'string',
       imageName: 'string',
       machineType: 'string',
