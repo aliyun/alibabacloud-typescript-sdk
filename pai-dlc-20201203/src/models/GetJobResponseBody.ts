@@ -379,6 +379,103 @@ export class GetJobResponseBodyPods extends $dara.Model {
   }
 }
 
+export class GetJobResponseBodyRestartRecordDetailErrorInfoList extends $dara.Model {
+  addJobLevelBlacklist?: boolean;
+  addNodeToBlacklist?: boolean;
+  detailErrorMsg?: string;
+  errorCode?: string;
+  errorMsg?: string;
+  errorSource?: string;
+  node?: string;
+  pod?: string;
+  triggerRestart?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addJobLevelBlacklist: 'AddJobLevelBlacklist',
+      addNodeToBlacklist: 'AddNodeToBlacklist',
+      detailErrorMsg: 'DetailErrorMsg',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      errorSource: 'ErrorSource',
+      node: 'Node',
+      pod: 'Pod',
+      triggerRestart: 'TriggerRestart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addJobLevelBlacklist: 'boolean',
+      addNodeToBlacklist: 'boolean',
+      detailErrorMsg: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+      errorSource: 'string',
+      node: 'string',
+      pod: 'string',
+      triggerRestart: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyRestartRecord extends $dara.Model {
+  detailErrorInfoList?: GetJobResponseBodyRestartRecordDetailErrorInfoList[];
+  jobRestartCount?: number;
+  occurPhase?: string;
+  occurTime?: string;
+  reason?: string;
+  restartDurationInSec?: number;
+  restartFailReason?: string;
+  restartStatus?: string;
+  triggerID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailErrorInfoList: 'DetailErrorInfoList',
+      jobRestartCount: 'JobRestartCount',
+      occurPhase: 'OccurPhase',
+      occurTime: 'OccurTime',
+      reason: 'Reason',
+      restartDurationInSec: 'RestartDurationInSec',
+      restartFailReason: 'RestartFailReason',
+      restartStatus: 'RestartStatus',
+      triggerID: 'TriggerID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailErrorInfoList: { 'type': 'array', 'itemType': GetJobResponseBodyRestartRecordDetailErrorInfoList },
+      jobRestartCount: 'number',
+      occurPhase: 'string',
+      occurTime: 'string',
+      reason: 'string',
+      restartDurationInSec: 'number',
+      restartFailReason: 'string',
+      restartStatus: 'string',
+      triggerID: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detailErrorInfoList)) {
+      $dara.Model.validateArray(this.detailErrorInfoList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyUserVpc extends $dara.Model {
   /**
    * @remarks
@@ -655,6 +752,7 @@ export class GetJobResponseBody extends $dara.Model {
    * ECS
    */
   resourceType?: string;
+  restartRecord?: GetJobResponseBodyRestartRecord[];
   /**
    * @remarks
    * The number of retries and the maximum number of retries used by the job.
@@ -791,6 +889,7 @@ export class GetJobResponseBody extends $dara.Model {
       resourceId: 'ResourceId',
       resourceLevel: 'ResourceLevel',
       resourceType: 'ResourceType',
+      restartRecord: 'RestartRecord',
       restartTimes: 'RestartTimes',
       settings: 'Settings',
       status: 'Status',
@@ -837,6 +936,7 @@ export class GetJobResponseBody extends $dara.Model {
       resourceId: 'string',
       resourceLevel: 'string',
       resourceType: 'string',
+      restartRecord: { 'type': 'array', 'itemType': GetJobResponseBodyRestartRecord },
       restartTimes: 'string',
       settings: JobSettings,
       status: 'string',
@@ -874,6 +974,9 @@ export class GetJobResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.pods)) {
       $dara.Model.validateArray(this.pods);
+    }
+    if(Array.isArray(this.restartRecord)) {
+      $dara.Model.validateArray(this.restartRecord);
     }
     if(this.settings && typeof (this.settings as any).validate === 'function') {
       (this.settings as any).validate();

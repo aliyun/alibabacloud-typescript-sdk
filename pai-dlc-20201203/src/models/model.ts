@@ -12,6 +12,8 @@ export { GetJobResponseBodyCodeSource } from './GetJobResponseBody';
 export { GetJobResponseBodyDataSources } from './GetJobResponseBody';
 export { GetJobResponseBodyPodsHistoryPods } from './GetJobResponseBody';
 export { GetJobResponseBodyPods } from './GetJobResponseBody';
+export { GetJobResponseBodyRestartRecordDetailErrorInfoList } from './GetJobResponseBody';
+export { GetJobResponseBodyRestartRecord } from './GetJobResponseBody';
 export { GetJobResponseBodyUserVpc } from './GetJobResponseBody';
 export { AIMasterMessage } from './AimasterMessage';
 export { AliyunAccounts } from './AliyunAccounts';
