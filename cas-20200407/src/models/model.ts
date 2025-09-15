@@ -5,6 +5,7 @@ export { DescribeCloudResourceStatusResponseBodyData } from './DescribeCloudReso
 export { DescribeDeploymentJobResponseBodyCasContacts } from './DescribeDeploymentJobResponseBody';
 export { DescribeDeploymentJobStatusResponseBodyProductWorkerCount } from './DescribeDeploymentJobStatusResponseBody';
 export { GetUserCertificateDetailResponseBodyCertChain } from './GetUserCertificateDetailResponseBody';
+export { GetUserCertificateDetailResponseBodyTags } from './GetUserCertificateDetailResponseBody';
 export { ListCertResponseBodyCertList } from './ListCertResponseBody';
 export { ListCertWarehouseResponseBodyCertWarehouseList } from './ListCertWarehouseResponseBody';
 export { ListCloudAccessResponseBodyCloudAccessList } from './ListCloudAccessResponseBody';

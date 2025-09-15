@@ -72,6 +72,32 @@ export class GetUserCertificateDetailResponseBodyCertChain extends $dara.Model {
   }
 }
 
+export class GetUserCertificateDetailResponseBodyTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserCertificateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -332,6 +358,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
    * 2018-07-13
    */
   startDate?: string;
+  tags?: GetUserCertificateDetailResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
@@ -365,6 +392,7 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
       signCert: 'SignCert',
       signPrivateKey: 'SignPrivateKey',
       startDate: 'StartDate',
+      tags: 'Tags',
     };
   }
 
@@ -401,12 +429,16 @@ export class GetUserCertificateDetailResponseBody extends $dara.Model {
       signCert: 'string',
       signPrivateKey: 'string',
       startDate: 'string',
+      tags: { 'type': 'array', 'itemType': GetUserCertificateDetailResponseBodyTags },
     };
   }
 
   validate() {
     if(Array.isArray(this.certChain)) {
       $dara.Model.validateArray(this.certChain);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
