@@ -1159,6 +1159,11 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
    */
   scriptDetails?: ListDataServicePublishedApisResponseBodyDataApisScriptDetails;
   /**
+   * @example
+   * 0
+   */
+  sqlMode?: number;
+  /**
    * @remarks
    * The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
    * 
@@ -1213,6 +1218,7 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
       requestMethod: 'RequestMethod',
       responseContentType: 'ResponseContentType',
       scriptDetails: 'ScriptDetails',
+      sqlMode: 'SqlMode',
       status: 'Status',
       tenantId: 'TenantId',
       timeout: 'Timeout',
@@ -1239,6 +1245,7 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
       requestMethod: 'number',
       responseContentType: 'number',
       scriptDetails: ListDataServicePublishedApisResponseBodyDataApisScriptDetails,
+      sqlMode: 'number',
       status: 'number',
       tenantId: 'number',
       timeout: 'number',
