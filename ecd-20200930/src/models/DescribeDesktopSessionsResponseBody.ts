@@ -28,6 +28,54 @@ export class DescribeDesktopSessionsResponseBodySessionsResourceGroups extends $
   }
 }
 
+export class DescribeDesktopSessionsResponseBodySessionsTerminalInfo extends $dara.Model {
+  /**
+   * @example
+   * Mac
+   */
+  model?: string;
+  /**
+   * @example
+   * Mac
+   */
+  productName?: string;
+  /**
+   * @example
+   * 96c530bc-6095-4014-8bbc-d461b8ac****
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * EBFDC7773BEBAD418A9F89429652****
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      model: 'Model',
+      productName: 'ProductName',
+      serialNumber: 'SerialNumber',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: 'string',
+      productName: 'string',
+      serialNumber: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
@@ -196,6 +244,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * monthPackage
    */
   subPayType?: string;
+  terminalInfo?: DescribeDesktopSessionsResponseBodySessionsTerminalInfo;
   /**
    * @remarks
    * The total connection duration. Unit: seconds.
@@ -225,6 +274,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       sessionStartTime: 'SessionStartTime',
       sessionStatus: 'SessionStatus',
       subPayType: 'SubPayType',
+      terminalInfo: 'TerminalInfo',
       totalConnectionTime: 'TotalConnectionTime',
     };
   }
@@ -250,6 +300,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
       sessionStartTime: 'string',
       sessionStatus: 'string',
       subPayType: 'string',
+      terminalInfo: DescribeDesktopSessionsResponseBodySessionsTerminalInfo,
       totalConnectionTime: 'number',
     };
   }
@@ -257,6 +308,9 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   validate() {
     if(Array.isArray(this.resourceGroups)) {
       $dara.Model.validateArray(this.resourceGroups);
+    }
+    if(this.terminalInfo && typeof (this.terminalInfo as any).validate === 'function') {
+      (this.terminalInfo as any).validate();
     }
     super.validate();
   }

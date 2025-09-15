@@ -2,6 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extends $dara.Model {
+  /**
+   * @example
+   * wuying_mac_x86_64
+   */
+  model?: string;
+  /**
+   * @example
+   * Mac
+   */
+  productName?: string;
+  /**
+   * @example
+   * 96c530bc-6095-4014-8bbc-d461b8ac****
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * EBFDC7773BEBAD418A9F89429652****
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      model: 'Model',
+      productName: 'ProductName',
+      serialNumber: 'SerialNumber',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: 'string',
+      productName: 'string',
+      serialNumber: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
@@ -173,6 +221,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * Connected
    */
   sessionStatus?: string;
+  terminalInfo?: DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo;
   /**
    * @remarks
    * The total duration of the sessions.
@@ -201,6 +250,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
       protocolType: 'ProtocolType',
       sessionIdleTime: 'SessionIdleTime',
       sessionStatus: 'SessionStatus',
+      terminalInfo: 'TerminalInfo',
       totalConnectionDuration: 'TotalConnectionDuration',
     };
   }
@@ -225,11 +275,15 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
       protocolType: 'string',
       sessionIdleTime: 'number',
       sessionStatus: 'string',
+      terminalInfo: DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo,
       totalConnectionDuration: 'number',
     };
   }
 
   validate() {
+    if(this.terminalInfo && typeof (this.terminalInfo as any).validate === 'function') {
+      (this.terminalInfo as any).validate();
+    }
     super.validate();
   }
 

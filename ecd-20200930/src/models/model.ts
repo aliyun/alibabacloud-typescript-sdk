@@ -12,10 +12,12 @@ export { CreateCdsFileResponseBodyFileModel } from './CreateCdsFileResponseBody'
 export { CreateCenterPolicyRequestAuthorizeAccessPolicyRule } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestAuthorizeSecurityPolicyRule } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestClientType } from './CreateCenterPolicyRequest';
+export { CreateCenterPolicyRequestClipboardGraineds } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestDeviceRedirects } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestDeviceRules } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestDomainResolveRule } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestNetRedirectRule } from './CreateCenterPolicyRequest';
+export { CreateCenterPolicyRequestRecordEventLevels } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestUsbSupplyRedirectRule } from './CreateCenterPolicyRequest';
 export { CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds } from './CreateCloudDriveServiceResponseBody';
 export { CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder } from './CreateCloudDriveServiceResponseBody';
@@ -73,6 +75,7 @@ export { DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels } f
 export { DescribeCloudDriveUsersResponseBodyCloudDriveUsers } from './DescribeCloudDriveUsersResponseBody';
 export { DescribeConfigGroupResponseBodyData } from './DescribeConfigGroupResponseBody';
 export { DescribeCustomizedListHeadersResponseBodyHeaders } from './DescribeCustomizedListHeadersResponseBody';
+export { DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo } from './DescribeDesktopGroupSessionsResponseBody';
 export { DescribeDesktopGroupSessionsResponseBodySessions } from './DescribeDesktopGroupSessionsResponseBody';
 export { DescribeDesktopGroupsRequestTag } from './DescribeDesktopGroupsRequest';
 export { DescribeDesktopGroupsResponseBodyDesktopGroupsCountPerStatus } from './DescribeDesktopGroupsResponseBody';
@@ -83,6 +86,7 @@ export { DescribeDesktopOversoldGroupResponseBodyData } from './DescribeDesktopO
 export { DescribeDesktopOversoldUserResponseBodyData } from './DescribeDesktopOversoldUserResponseBody';
 export { DescribeDesktopOversoldUserGroupResponseBodyData } from './DescribeDesktopOversoldUserGroupResponseBody';
 export { DescribeDesktopSessionsResponseBodySessionsResourceGroups } from './DescribeDesktopSessionsResponseBody';
+export { DescribeDesktopSessionsResponseBodySessionsTerminalInfo } from './DescribeDesktopSessionsResponseBody';
 export { DescribeDesktopSessionsResponseBodySessions } from './DescribeDesktopSessionsResponseBody';
 export { DescribeDesktopTypesResponseBodyDesktopTypes } from './DescribeDesktopTypesResponseBody';
 export { DescribeDesktopsRequestTag } from './DescribeDesktopsRequest';
@@ -141,6 +145,7 @@ export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects } f
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule } from './DescribePolicyGroupsResponseBody';
+export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroups } from './DescribePolicyGroupsResponseBody';
 export { DescribePriceResponseBodyPriceInfoPricePromotions } from './DescribePriceResponseBody';
@@ -208,10 +213,12 @@ export { ListUserAdOrganizationUnitsResponseBodyOUNames } from './ListUserAdOrga
 export { ModifyCenterPolicyRequestAuthorizeAccessPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestClientType } from './ModifyCenterPolicyRequest';
+export { ModifyCenterPolicyRequestClipboardGraineds } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestDeviceRedirects } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestDeviceRules } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestDomainResolveRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestNetRedirectRule } from './ModifyCenterPolicyRequest';
+export { ModifyCenterPolicyRequestRecordEventLevels } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestRevokeAccessPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestRevokeSecurityPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestUsbSupplyRedirectRule } from './ModifyCenterPolicyRequest';

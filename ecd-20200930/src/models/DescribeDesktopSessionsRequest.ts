@@ -48,6 +48,12 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * alice
    */
   endUserIdFilter?: string;
+  fillHardwareInfo?: boolean;
+  /**
+   * @example
+   * zh-CN
+   */
+  language?: string;
   /**
    * @remarks
    * The office network ID.
@@ -127,6 +133,8 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       endTime: 'EndTime',
       endUserId: 'EndUserId',
       endUserIdFilter: 'EndUserIdFilter',
+      fillHardwareInfo: 'FillHardwareInfo',
+      language: 'Language',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -146,6 +154,8 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
       endTime: 'string',
       endUserId: 'string',
       endUserIdFilter: 'string',
+      fillHardwareInfo: 'boolean',
+      language: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

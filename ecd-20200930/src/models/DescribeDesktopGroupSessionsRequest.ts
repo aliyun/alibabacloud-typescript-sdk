@@ -3,6 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
+  desktopGroupIds?: string[];
+  /**
+   * @example
+   * ecd-4oyi32wmrctgx****
+   */
+  desktopGroupName?: string;
   /**
    * @remarks
    * The end of the time range to query.
@@ -19,6 +25,12 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
    * xianqiu
    */
   endUserId?: string;
+  fillTerminalInfo?: boolean;
+  /**
+   * @example
+   * zh-CN
+   */
+  language?: string;
   /**
    * @remarks
    * The number of entries per page.
@@ -92,8 +104,12 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      desktopGroupIds: 'DesktopGroupIds',
+      desktopGroupName: 'DesktopGroupName',
       endTime: 'EndTime',
       endUserId: 'EndUserId',
+      fillTerminalInfo: 'FillTerminalInfo',
+      language: 'Language',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownType: 'OwnType',
@@ -105,8 +121,12 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
+      desktopGroupName: 'string',
       endTime: 'string',
       endUserId: 'string',
+      fillTerminalInfo: 'boolean',
+      language: 'string',
       maxResults: 'number',
       nextToken: 'string',
       ownType: 'number',
@@ -117,6 +137,9 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.desktopGroupIds)) {
+      $dara.Model.validateArray(this.desktopGroupIds);
+    }
     super.validate();
   }
 

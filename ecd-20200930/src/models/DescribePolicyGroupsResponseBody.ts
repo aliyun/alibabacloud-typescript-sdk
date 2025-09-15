@@ -471,6 +471,32 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule
   }
 }
 
+export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels extends $dara.Model {
+  eventLevel?: string;
+  eventType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventLevel: 'EventLevel',
+      eventType: 'EventType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventLevel: 'string',
+      eventType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule extends $dara.Model {
   /**
    * @remarks
@@ -605,6 +631,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * The security group rules.
    */
   authorizeSecurityPolicyRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
+  /**
+   * @example
+   * off
+   */
+  autoReconnect?: string;
   /**
    * @remarks
    * Indicates whether the webcam redirection feature is enabled.
@@ -965,6 +996,11 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   mobileRestart?: string;
   /**
+   * @example
+   * off
+   */
+  mobileSafeMenu?: string;
+  /**
    * @remarks
    * Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
    * 
@@ -979,6 +1015,16 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * off
    */
   mobileShutdown?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileWuyingKeeper?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileWyAssistant?: string;
   /**
    * @remarks
    * The name of the cloud computer policy.
@@ -1117,11 +1163,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 10
    */
   recordEventDuration?: number;
+  recordEventFileExts?: string[];
   /**
    * @remarks
    * The array of absolute paths of the monitored files in the screen recording audit policy.
    */
   recordEventFilePaths?: string[];
+  recordEventLevels?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels[];
   /**
    * @remarks
    * The array of absolute paths of the monitored registry entries in the screen recording audit policy.
@@ -1602,6 +1650,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
+      autoReconnect: 'AutoReconnect',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
       clientTypes: 'ClientTypes',
@@ -1645,7 +1694,10 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       memorySampleDuration: 'MemorySampleDuration',
       memorySingleRateLimit: 'MemorySingleRateLimit',
       mobileRestart: 'MobileRestart',
+      mobileSafeMenu: 'MobileSafeMenu',
       mobileShutdown: 'MobileShutdown',
+      mobileWuyingKeeper: 'MobileWuyingKeeper',
+      mobileWyAssistant: 'MobileWyAssistant',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -1659,7 +1711,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordContent: 'RecordContent',
       recordContentExpires: 'RecordContentExpires',
       recordEventDuration: 'RecordEventDuration',
+      recordEventFileExts: 'RecordEventFileExts',
       recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventLevels: 'RecordEventLevels',
       recordEventRegisters: 'RecordEventRegisters',
       recording: 'Recording',
       recordingAudio: 'RecordingAudio',
@@ -1719,6 +1773,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       appContentProtection: 'string',
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
+      autoReconnect: 'string',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes },
@@ -1762,7 +1817,10 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       memorySampleDuration: 'number',
       memorySingleRateLimit: 'number',
       mobileRestart: 'string',
+      mobileSafeMenu: 'string',
       mobileShutdown: 'string',
+      mobileWuyingKeeper: 'string',
+      mobileWyAssistant: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule },
@@ -1776,7 +1834,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordContent: 'string',
       recordContentExpires: 'number',
       recordEventDuration: 'number',
+      recordEventFileExts: { 'type': 'array', 'itemType': 'string' },
       recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventLevels: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels },
       recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
       recording: 'string',
       recordingAudio: 'string',
@@ -1861,8 +1921,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
     if(Array.isArray(this.preemptLoginUsers)) {
       $dara.Model.validateArray(this.preemptLoginUsers);
     }
+    if(Array.isArray(this.recordEventFileExts)) {
+      $dara.Model.validateArray(this.recordEventFileExts);
+    }
     if(Array.isArray(this.recordEventFilePaths)) {
       $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventLevels)) {
+      $dara.Model.validateArray(this.recordEventLevels);
     }
     if(Array.isArray(this.recordEventRegisters)) {
       $dara.Model.validateArray(this.recordEventRegisters);

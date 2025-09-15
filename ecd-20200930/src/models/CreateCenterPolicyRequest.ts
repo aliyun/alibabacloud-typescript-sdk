@@ -214,6 +214,35 @@ export class CreateCenterPolicyRequestClientType extends $dara.Model {
   }
 }
 
+export class CreateCenterPolicyRequestClipboardGraineds extends $dara.Model {
+  clipboardSize?: number;
+  clipboardType?: string;
+  grainedType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipboardSize: 'ClipboardSize',
+      clipboardType: 'ClipboardType',
+      grainedType: 'GrainedType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipboardSize: 'number',
+      clipboardType: 'string',
+      grainedType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCenterPolicyRequestDeviceRedirects extends $dara.Model {
   /**
    * @remarks
@@ -476,6 +505,40 @@ export class CreateCenterPolicyRequestNetRedirectRule extends $dara.Model {
   }
 }
 
+export class CreateCenterPolicyRequestRecordEventLevels extends $dara.Model {
+  /**
+   * @example
+   * HIGH
+   */
+  eventLevel?: string;
+  /**
+   * @example
+   * StartApplication
+   */
+  eventType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventLevel: 'EventLevel',
+      eventType: 'EventType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventLevel: 'string',
+      eventType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model {
   /**
    * @remarks
@@ -593,6 +656,11 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    */
   authorizeSecurityPolicyRule?: CreateCenterPolicyRequestAuthorizeSecurityPolicyRule[];
   /**
+   * @example
+   * off
+   */
+  autoReconnect?: string;
+  /**
    * @remarks
    * The business type.
    * 
@@ -641,6 +709,12 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * off
    */
   clipboard?: string;
+  clipboardGraineds?: CreateCenterPolicyRequestClipboardGraineds[];
+  /**
+   * @example
+   * GLOBAL
+   */
+  clipboardScope?: string;
   /**
    * @remarks
    * Specifies whether to enable color enhancement for design and 3D applications.
@@ -963,6 +1037,11 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    */
   mobileRestart?: string;
   /**
+   * @example
+   * off
+   */
+  mobileSafeMenu?: string;
+  /**
    * @remarks
    * Specifies whether to display the Stop button in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
    * 
@@ -977,6 +1056,16 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * off
    */
   mobileShutdown?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileWuyingKeeper?: string;
+  /**
+   * @example
+   * off
+   */
+  mobileWyAssistant?: string;
   /**
    * @remarks
    * The policy name.
@@ -1070,11 +1159,13 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * 10
    */
   recordEventDuration?: number;
+  recordEventFileExts?: string[];
   /**
    * @remarks
    * The absolute paths to screen recording files.
    */
   recordEventFilePaths?: string[];
+  recordEventLevels?: CreateCenterPolicyRequestRecordEventLevels[];
   /**
    * @remarks
    * The absolute paths to screen recording registries.
@@ -1600,11 +1691,14 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
       authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
+      autoReconnect: 'AutoReconnect',
       businessType: 'BusinessType',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
       clientType: 'ClientType',
       clipboard: 'Clipboard',
+      clipboardGraineds: 'ClipboardGraineds',
+      clipboardScope: 'ClipboardScope',
       colorEnhancement: 'ColorEnhancement',
       cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
@@ -1641,7 +1735,10 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       memorySampleDuration: 'MemorySampleDuration',
       memorySingleRateLimit: 'MemorySingleRateLimit',
       mobileRestart: 'MobileRestart',
+      mobileSafeMenu: 'MobileSafeMenu',
       mobileShutdown: 'MobileShutdown',
+      mobileWuyingKeeper: 'MobileWuyingKeeper',
+      mobileWyAssistant: 'MobileWyAssistant',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -1650,7 +1747,9 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       printerRedirect: 'PrinterRedirect',
       qualityEnhancement: 'QualityEnhancement',
       recordEventDuration: 'RecordEventDuration',
+      recordEventFileExts: 'RecordEventFileExts',
       recordEventFilePaths: 'RecordEventFilePaths',
+      recordEventLevels: 'RecordEventLevels',
       recordEventRegisters: 'RecordEventRegisters',
       recordEvents: 'RecordEvents',
       recording: 'Recording',
@@ -1713,11 +1812,14 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       appContentProtection: 'string',
       authorizeAccessPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeAccessPolicyRule },
       authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeSecurityPolicyRule },
+      autoReconnect: 'string',
       businessType: 'number',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
       clientType: { 'type': 'array', 'itemType': CreateCenterPolicyRequestClientType },
       clipboard: 'string',
+      clipboardGraineds: { 'type': 'array', 'itemType': CreateCenterPolicyRequestClipboardGraineds },
+      clipboardScope: 'string',
       colorEnhancement: 'string',
       cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
@@ -1754,7 +1856,10 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       memorySampleDuration: 'number',
       memorySingleRateLimit: 'number',
       mobileRestart: 'string',
+      mobileSafeMenu: 'string',
       mobileShutdown: 'string',
+      mobileWuyingKeeper: 'string',
+      mobileWyAssistant: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestNetRedirectRule },
@@ -1763,7 +1868,9 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       printerRedirect: 'string',
       qualityEnhancement: 'string',
       recordEventDuration: 'number',
+      recordEventFileExts: { 'type': 'array', 'itemType': 'string' },
       recordEventFilePaths: { 'type': 'array', 'itemType': 'string' },
+      recordEventLevels: { 'type': 'array', 'itemType': CreateCenterPolicyRequestRecordEventLevels },
       recordEventRegisters: { 'type': 'array', 'itemType': 'string' },
       recordEvents: { 'type': 'array', 'itemType': 'string' },
       recording: 'string',
@@ -1830,6 +1937,9 @@ export class CreateCenterPolicyRequest extends $dara.Model {
     if(Array.isArray(this.clientType)) {
       $dara.Model.validateArray(this.clientType);
     }
+    if(Array.isArray(this.clipboardGraineds)) {
+      $dara.Model.validateArray(this.clipboardGraineds);
+    }
     if(Array.isArray(this.cpuProcessors)) {
       $dara.Model.validateArray(this.cpuProcessors);
     }
@@ -1848,8 +1958,14 @@ export class CreateCenterPolicyRequest extends $dara.Model {
     if(Array.isArray(this.netRedirectRule)) {
       $dara.Model.validateArray(this.netRedirectRule);
     }
+    if(Array.isArray(this.recordEventFileExts)) {
+      $dara.Model.validateArray(this.recordEventFileExts);
+    }
     if(Array.isArray(this.recordEventFilePaths)) {
       $dara.Model.validateArray(this.recordEventFilePaths);
+    }
+    if(Array.isArray(this.recordEventLevels)) {
+      $dara.Model.validateArray(this.recordEventLevels);
     }
     if(Array.isArray(this.recordEventRegisters)) {
       $dara.Model.validateArray(this.recordEventRegisters);

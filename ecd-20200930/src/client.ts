@@ -2355,6 +2355,10 @@ export default class Client extends OpenApi {
       query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule;
     }
 
+    if (!$dara.isNull(request.autoReconnect)) {
+      query["AutoReconnect"] = request.autoReconnect;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
     }
@@ -2373,6 +2377,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clipboard)) {
       query["Clipboard"] = request.clipboard;
+    }
+
+    if (!$dara.isNull(request.clipboardGraineds)) {
+      query["ClipboardGraineds"] = request.clipboardGraineds;
+    }
+
+    if (!$dara.isNull(request.clipboardScope)) {
+      query["ClipboardScope"] = request.clipboardScope;
     }
 
     if (!$dara.isNull(request.colorEnhancement)) {
@@ -2519,8 +2531,20 @@ export default class Client extends OpenApi {
       query["MobileRestart"] = request.mobileRestart;
     }
 
+    if (!$dara.isNull(request.mobileSafeMenu)) {
+      query["MobileSafeMenu"] = request.mobileSafeMenu;
+    }
+
     if (!$dara.isNull(request.mobileShutdown)) {
       query["MobileShutdown"] = request.mobileShutdown;
+    }
+
+    if (!$dara.isNull(request.mobileWuyingKeeper)) {
+      query["MobileWuyingKeeper"] = request.mobileWuyingKeeper;
+    }
+
+    if (!$dara.isNull(request.mobileWyAssistant)) {
+      query["MobileWyAssistant"] = request.mobileWyAssistant;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -2555,8 +2579,16 @@ export default class Client extends OpenApi {
       query["RecordEventDuration"] = request.recordEventDuration;
     }
 
+    if (!$dara.isNull(request.recordEventFileExts)) {
+      query["RecordEventFileExts"] = request.recordEventFileExts;
+    }
+
     if (!$dara.isNull(request.recordEventFilePaths)) {
       query["RecordEventFilePaths"] = request.recordEventFilePaths;
+    }
+
+    if (!$dara.isNull(request.recordEventLevels)) {
+      query["RecordEventLevels"] = request.recordEventLevels;
     }
 
     if (!$dara.isNull(request.recordEventRegisters)) {
@@ -7358,12 +7390,28 @@ export default class Client extends OpenApi {
   async describeDesktopGroupSessionsWithOptions(request: $_model.DescribeDesktopGroupSessionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDesktopGroupSessionsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.desktopGroupIds)) {
+      query["DesktopGroupIds"] = request.desktopGroupIds;
+    }
+
+    if (!$dara.isNull(request.desktopGroupName)) {
+      query["DesktopGroupName"] = request.desktopGroupName;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.fillTerminalInfo)) {
+      query["FillTerminalInfo"] = request.fillTerminalInfo;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!$dara.isNull(request.maxResults)) {
@@ -7791,6 +7839,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserIdFilter)) {
       query["EndUserIdFilter"] = request.endUserIdFilter;
+    }
+
+    if (!$dara.isNull(request.fillHardwareInfo)) {
+      query["FillHardwareInfo"] = request.fillHardwareInfo;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
     }
 
     if (!$dara.isNull(request.officeSiteId)) {
@@ -13562,6 +13618,10 @@ export default class Client extends OpenApi {
       query["AuthorizeSecurityPolicyRule"] = request.authorizeSecurityPolicyRule;
     }
 
+    if (!$dara.isNull(request.autoReconnect)) {
+      query["AutoReconnect"] = request.autoReconnect;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
     }
@@ -13580,6 +13640,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clipboard)) {
       query["Clipboard"] = request.clipboard;
+    }
+
+    if (!$dara.isNull(request.clipboardGraineds)) {
+      query["ClipboardGraineds"] = request.clipboardGraineds;
+    }
+
+    if (!$dara.isNull(request.clipboardScope)) {
+      query["ClipboardScope"] = request.clipboardScope;
     }
 
     if (!$dara.isNull(request.colorEnhancement)) {
@@ -13726,8 +13794,20 @@ export default class Client extends OpenApi {
       query["MobileRestart"] = request.mobileRestart;
     }
 
+    if (!$dara.isNull(request.mobileSafeMenu)) {
+      query["MobileSafeMenu"] = request.mobileSafeMenu;
+    }
+
     if (!$dara.isNull(request.mobileShutdown)) {
       query["MobileShutdown"] = request.mobileShutdown;
+    }
+
+    if (!$dara.isNull(request.mobileWuyingKeeper)) {
+      query["MobileWuyingKeeper"] = request.mobileWuyingKeeper;
+    }
+
+    if (!$dara.isNull(request.mobileWyAssistant)) {
+      query["MobileWyAssistant"] = request.mobileWyAssistant;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -13766,8 +13846,16 @@ export default class Client extends OpenApi {
       query["RecordEventDuration"] = request.recordEventDuration;
     }
 
+    if (!$dara.isNull(request.recordEventFileExts)) {
+      query["RecordEventFileExts"] = request.recordEventFileExts;
+    }
+
     if (!$dara.isNull(request.recordEventFilePaths)) {
       query["RecordEventFilePaths"] = request.recordEventFilePaths;
+    }
+
+    if (!$dara.isNull(request.recordEventLevels)) {
+      query["RecordEventLevels"] = request.recordEventLevels;
     }
 
     if (!$dara.isNull(request.recordEventRegisters)) {
