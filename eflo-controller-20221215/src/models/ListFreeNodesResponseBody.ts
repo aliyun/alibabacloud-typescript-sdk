@@ -76,6 +76,11 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
    */
   hpnZone?: string;
   /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  hyperNodeId?: string;
+  /**
    * @remarks
    * The instance type.
    * 
@@ -134,6 +139,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
       createTime: 'CreateTime',
       expiredTime: 'ExpiredTime',
       hpnZone: 'HpnZone',
+      hyperNodeId: 'HyperNodeId',
       machineType: 'MachineType',
       nodeId: 'NodeId',
       operatingState: 'OperatingState',
@@ -150,6 +156,7 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
       createTime: 'string',
       expiredTime: 'string',
       hpnZone: 'string',
+      hyperNodeId: 'string',
       machineType: 'string',
       nodeId: 'string',
       operatingState: 'string',

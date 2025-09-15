@@ -203,6 +203,11 @@ export class DescribeNodeResponseBody extends $dara.Model {
    */
   hpnZone?: string;
   /**
+   * @example
+   * e01-cn-zvp2tgykr08
+   */
+  hyperNodeId?: string;
+  /**
    * @remarks
    * The image ID.
    * 
@@ -336,6 +341,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       fileSystemMountEnabled: 'FileSystemMountEnabled',
       hostname: 'Hostname',
       hpnZone: 'HpnZone',
+      hyperNodeId: 'HyperNodeId',
       imageId: 'ImageId',
       imageName: 'ImageName',
       machineType: 'MachineType',
@@ -363,6 +369,7 @@ export class DescribeNodeResponseBody extends $dara.Model {
       fileSystemMountEnabled: 'boolean',
       hostname: 'string',
       hpnZone: 'string',
+      hyperNodeId: 'string',
       imageId: 'string',
       imageName: 'string',
       machineType: 'string',
