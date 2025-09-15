@@ -830,6 +830,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a hybrid cloud cluster.
+   * 
+   * @param request - CreateHybridCloudClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHybridCloudClusterResponse
+   */
+  async createHybridCloudClusterWithOptions(request: $_model.CreateHybridCloudClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHybridCloudClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!$dara.isNull(request.accessRegion)) {
+      query["AccessRegion"] = request.accessRegion;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.httpPorts)) {
+      query["HttpPorts"] = request.httpPorts;
+    }
+
+    if (!$dara.isNull(request.httpsPorts)) {
+      query["HttpsPorts"] = request.httpsPorts;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logFieldsNotReturned)) {
+      query["LogFieldsNotReturned"] = request.logFieldsNotReturned;
+    }
+
+    if (!$dara.isNull(request.protectionServerCount)) {
+      query["ProtectionServerCount"] = request.protectionServerCount;
+    }
+
+    if (!$dara.isNull(request.proxyStatus)) {
+      query["ProxyStatus"] = request.proxyStatus;
+    }
+
+    if (!$dara.isNull(request.proxyType)) {
+      query["ProxyType"] = request.proxyType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHybridCloudCluster",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHybridCloudClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateHybridCloudClusterResponse({}));
+  }
+
+  /**
+   * Creates a hybrid cloud cluster.
+   * 
+   * @param request - CreateHybridCloudClusterRequest
+   * @returns CreateHybridCloudClusterResponse
+   */
+  async createHybridCloudCluster(request: $_model.CreateHybridCloudClusterRequest): Promise<$_model.CreateHybridCloudClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHybridCloudClusterWithOptions(request, runtime);
+  }
+
+  /**
    * 新增集群规则信息
    * 
    * @param request - CreateHybridCloudClusterRuleRequest
@@ -3850,6 +3952,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询日志服务支持的所有字段
+   * 
+   * @param tmpReq - DescribeCommonLogFieldsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCommonLogFieldsResponse
+   */
+  async describeCommonLogFieldsWithOptions(tmpReq: $_model.DescribeCommonLogFieldsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCommonLogFieldsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeCommonLogFieldsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.logKeyList)) {
+      request.logKeyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.logKeyList, "LogKeyList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.isRequired)) {
+      query["IsRequired"] = request.isRequired;
+    }
+
+    if (!$dara.isNull(request.logKeyListShrink)) {
+      query["LogKeyList"] = request.logKeyListShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCommonLogFields",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCommonLogFieldsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCommonLogFieldsResponse({}));
+  }
+
+  /**
+   * 查询日志服务支持的所有字段
+   * 
+   * @param request - DescribeCommonLogFieldsRequest
+   * @returns DescribeCommonLogFieldsResponse
+   */
+  async describeCommonLogFields(request: $_model.DescribeCommonLogFieldsRequest): Promise<$_model.DescribeCommonLogFieldsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCommonLogFieldsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询自定义正则规则编译结果
    * 
    * @param request - DescribeCustomBaseRuleCompileResultRequest
@@ -3997,6 +4167,72 @@ export default class Client extends OpenApi {
   async describeDefaultHttps(request: $_model.DescribeDefaultHttpsRequest): Promise<$_model.DescribeDefaultHttpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDefaultHttpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询可以被防护组绑定的防护对象列表
+   * 
+   * @param request - DescribeDefenseGroupValidResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseGroupValidResourcesResponse
+   */
+  async describeDefenseGroupValidResourcesWithOptions(request: $_model.DescribeDefenseGroupValidResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseGroupValidResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDefenseGroupValidResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDefenseGroupValidResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDefenseGroupValidResourcesResponse({}));
+  }
+
+  /**
+   * 分页查询可以被防护组绑定的防护对象列表
+   * 
+   * @param request - DescribeDefenseGroupValidResourcesRequest
+   * @returns DescribeDefenseGroupValidResourcesResponse
+   */
+  async describeDefenseGroupValidResources(request: $_model.DescribeDefenseGroupValidResourcesRequest): Promise<$_model.DescribeDefenseGroupValidResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDefenseGroupValidResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -4877,6 +5113,76 @@ export default class Client extends OpenApi {
   async describeDefenseTemplateValidGroups(request: $_model.DescribeDefenseTemplateValidGroupsRequest): Promise<$_model.DescribeDefenseTemplateValidGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDefenseTemplateValidGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询可以被自定义模板绑定的防护对象列表
+   * 
+   * @param request - DescribeDefenseTemplateValidResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseTemplateValidResourcesResponse
+   */
+  async describeDefenseTemplateValidResourcesWithOptions(request: $_model.DescribeDefenseTemplateValidResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDefenseTemplateValidResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.defenseScene)) {
+      query["DefenseScene"] = request.defenseScene;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDefenseTemplateValidResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDefenseTemplateValidResourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDefenseTemplateValidResourcesResponse({}));
+  }
+
+  /**
+   * 分页查询可以被自定义模板绑定的防护对象列表
+   * 
+   * @param request - DescribeDefenseTemplateValidResourcesRequest
+   * @returns DescribeDefenseTemplateValidResourcesResponse
+   */
+  async describeDefenseTemplateValidResources(request: $_model.DescribeDefenseTemplateValidResourcesRequest): Promise<$_model.DescribeDefenseTemplateValidResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDefenseTemplateValidResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -8992,6 +9298,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户日志配置
+   * 
+   * @param request - DescribeUserLogFieldConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserLogFieldConfigResponse
+   */
+  async describeUserLogFieldConfigWithOptions(request: $_model.DescribeUserLogFieldConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserLogFieldConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserLogFieldConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserLogFieldConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserLogFieldConfigResponse({}));
+  }
+
+  /**
+   * 查询用户日志配置
+   * 
+   * @param request - DescribeUserLogFieldConfigRequest
+   * @returns DescribeUserLogFieldConfigResponse
+   */
+  async describeUserLogFieldConfig(request: $_model.DescribeUserLogFieldConfigRequest): Promise<$_model.DescribeUserLogFieldConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserLogFieldConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries available regions for log storage.
    * 
    * @param request - DescribeUserSlsLogRegionsRequest
@@ -11429,6 +11789,130 @@ export default class Client extends OpenApi {
   async modifyTemplateResources(request: $_model.ModifyTemplateResourcesRequest): Promise<$_model.ModifyTemplateResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyTemplateResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改用户日志服务的默认字段配置
+   * 
+   * @param request - ModifyUserLogFieldConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserLogFieldConfigResponse
+   */
+  async modifyUserLogFieldConfigWithOptions(request: $_model.ModifyUserLogFieldConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserLogFieldConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.extendConfig)) {
+      query["ExtendConfig"] = request.extendConfig;
+    }
+
+    if (!$dara.isNull(request.fieldList)) {
+      query["FieldList"] = request.fieldList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logDeliveryStrategy)) {
+      query["LogDeliveryStrategy"] = request.logDeliveryStrategy;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyUserLogFieldConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyUserLogFieldConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyUserLogFieldConfigResponse({}));
+  }
+
+  /**
+   * 修改用户日志服务的默认字段配置
+   * 
+   * @param request - ModifyUserLogFieldConfigRequest
+   * @returns ModifyUserLogFieldConfigResponse
+   */
+  async modifyUserLogFieldConfig(request: $_model.ModifyUserLogFieldConfigRequest): Promise<$_model.ModifyUserLogFieldConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyUserLogFieldConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 开通或关闭WAF日志服务
+   * 
+   * @param request - ModifyUserWafLogStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserWafLogStatusResponse
+   */
+  async modifyUserWafLogStatusWithOptions(request: $_model.ModifyUserWafLogStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserWafLogStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logRegionId)) {
+      query["LogRegionId"] = request.logRegionId;
+    }
+
+    if (!$dara.isNull(request.logStatus)) {
+      query["LogStatus"] = request.logStatus;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyUserWafLogStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyUserWafLogStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyUserWafLogStatusResponse({}));
+  }
+
+  /**
+   * 开通或关闭WAF日志服务
+   * 
+   * @param request - ModifyUserWafLogStatusRequest
+   * @returns ModifyUserWafLogStatusResponse
+   */
+  async modifyUserWafLogStatus(request: $_model.ModifyUserWafLogStatusRequest): Promise<$_model.ModifyUserWafLogStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyUserWafLogStatusWithOptions(request, runtime);
   }
 
   /**
