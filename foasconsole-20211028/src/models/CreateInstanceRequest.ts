@@ -1,10 +1,148 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateInstanceRequestHaResourceSpec } from "./CreateInstanceRequestHaResourceSpec";
-import { CreateInstanceRequestResourceSpec } from "./CreateInstanceRequestResourceSpec";
-import { CreateInstanceRequestStorage } from "./CreateInstanceRequestStorage";
-import { CreateInstanceRequestTag } from "./CreateInstanceRequestTag";
 
+
+export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestResourceSpec extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
+  cpu?: number;
+  /**
+   * @example
+   * 120
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestStorageOss extends $dara.Model {
+  /**
+   * @example
+   * oss-flink-cn-shanghai-260343971602724445
+   */
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestStorage extends $dara.Model {
+  fullyManaged?: boolean;
+  oss?: CreateInstanceRequestStorageOss;
+  static names(): { [key: string]: string } {
+    return {
+      fullyManaged: 'FullyManaged',
+      oss: 'Oss',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fullyManaged: 'boolean',
+      oss: CreateInstanceRequestStorageOss,
+    };
+  }
+
+  validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateInstanceRequest extends $dara.Model {
   architectureType?: string;

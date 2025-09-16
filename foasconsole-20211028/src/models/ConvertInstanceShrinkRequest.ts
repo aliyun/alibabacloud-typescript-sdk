@@ -40,6 +40,7 @@ export class ConvertInstanceShrinkRequest extends $dara.Model {
    * Month
    */
   pricingCycle?: string;
+  promotionCode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -48,6 +49,7 @@ export class ConvertInstanceShrinkRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
@@ -55,7 +57,9 @@ export class ConvertInstanceShrinkRequest extends $dara.Model {
       isAutoRenew: 'IsAutoRenew',
       namespaceResourceSpecsShrink: 'NamespaceResourceSpecs',
       pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
       region: 'Region',
+      usePromotionCode: 'UsePromotionCode',
     };
   }
 
@@ -66,7 +70,9 @@ export class ConvertInstanceShrinkRequest extends $dara.Model {
       isAutoRenew: 'boolean',
       namespaceResourceSpecsShrink: 'string',
       pricingCycle: 'string',
+      promotionCode: 'string',
       region: 'string',
+      usePromotionCode: 'boolean',
     };
   }
 

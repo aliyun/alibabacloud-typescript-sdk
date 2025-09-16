@@ -2,20 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeInstancesResponseBodyInstancesElasticResourceSpec extends $dara.Model {
-  cpu?: number;
-  memoryGB?: number;
+export class StageWithWeight extends $dara.Model {
+  stepIndex?: number;
+  stepName?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
+      stepIndex: 'StepIndex',
+      stepName: 'StepName',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cpu: 'number',
-      memoryGB: 'number',
+      stepIndex: 'number',
+      stepName: 'string',
+      weight: 'number',
     };
   }
 

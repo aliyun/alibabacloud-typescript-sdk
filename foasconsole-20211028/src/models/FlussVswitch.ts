@@ -2,32 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeInstancesResponseBodyInstancesResourceSpec extends $dara.Model {
-  /**
-   * @example
-   * 10
-   */
-  cpu?: number;
-  /**
-   * @example
-   * 40
-   */
-  memoryGB?: number;
+export class FlussVswitch extends $dara.Model {
+  vSwitchIds?: string[];
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      cpu: 'Cpu',
-      memoryGB: 'MemoryGB',
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cpu: 'number',
-      memoryGB: 'number',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
     super.validate();
   }
 

@@ -1,8 +1,86 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ModifyNamespaceSpecV2RequestElasticResourceSpec } from "./ModifyNamespaceSpecV2requestElasticResourceSpec";
-import { ModifyNamespaceSpecV2RequestGuaranteedResourceSpec } from "./ModifyNamespaceSpecV2requestGuaranteedResourceSpec";
 
+
+export class ModifyNamespaceSpecV2RequestElasticResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 52
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyNamespaceSpecV2RequestGuaranteedResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 40
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModifyNamespaceSpecV2Request extends $dara.Model {
   elasticResourceSpec?: ModifyNamespaceSpecV2RequestElasticResourceSpec;

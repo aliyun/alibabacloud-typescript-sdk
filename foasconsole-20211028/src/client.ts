@@ -121,8 +121,16 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
     if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -778,6 +786,8 @@ export default class Client extends OpenApi {
   /**
    * 修改集群交换机
    * 
+   * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
+   * 
    * @param tmpReq - ModifyInstanceVswitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceVswitchResponse
@@ -827,9 +837,12 @@ export default class Client extends OpenApi {
   /**
    * 修改集群交换机
    * 
+   * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
+   * 
    * @param request - ModifyInstanceVswitchRequest
    * @returns ModifyInstanceVswitchResponse
    */
+  // Deprecated
   async modifyInstanceVswitch(request: $_model.ModifyInstanceVswitchRequest): Promise<$_model.ModifyInstanceVswitchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceVswitchWithOptions(request, runtime);
@@ -918,7 +931,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPrepayInstanceSpecResponse
    */
-  // Deprecated
   async modifyPrepayInstanceSpecWithOptions(tmpReq: $_model.ModifyPrepayInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPrepayInstanceSpecResponse> {
     tmpReq.validate();
     let request = new $_model.ModifyPrepayInstanceSpecShrinkRequest({ });
@@ -1004,7 +1016,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPrepayNamespaceSpecResponse
    */
-  // Deprecated
   async modifyPrepayNamespaceSpecWithOptions(tmpReq: $_model.ModifyPrepayNamespaceSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPrepayNamespaceSpecResponse> {
     tmpReq.validate();
     let request = new $_model.ModifyPrepayNamespaceSpecShrinkRequest({ });
@@ -1097,8 +1108,16 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
     if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1401,8 +1420,16 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
     if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1455,8 +1482,16 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
     if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

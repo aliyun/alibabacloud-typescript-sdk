@@ -1,17 +1,15 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight } from "./DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight";
+import { StageWithWeight } from "./StageWithWeight";
 
 
-export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage extends $dara.Model {
-  clusterId?: string;
+export class ClusterStage extends $dara.Model {
   currentStage?: number;
   message?: string;
   status?: string;
-  totalStageWithWeight?: DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight[];
+  totalStageWithWeight?: StageWithWeight[];
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
       currentStage: 'CurrentStage',
       message: 'Message',
       status: 'Status',
@@ -21,11 +19,10 @@ export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage exte
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
       currentStage: 'number',
       message: 'string',
       status: 'string',
-      totalStageWithWeight: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight },
+      totalStageWithWeight: { 'type': 'array', 'itemType': StageWithWeight },
     };
   }
 

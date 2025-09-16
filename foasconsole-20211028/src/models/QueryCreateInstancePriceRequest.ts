@@ -1,9 +1,127 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QueryCreateInstancePriceRequestHaResourceSpec } from "./QueryCreateInstancePriceRequestHaResourceSpec";
-import { QueryCreateInstancePriceRequestResourceSpec } from "./QueryCreateInstancePriceRequestResourceSpec";
-import { QueryCreateInstancePriceRequestStorage } from "./QueryCreateInstancePriceRequestStorage";
 
+
+export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
+  /**
+   * **if can be null:**
+   * false
+   */
+  cpu?: number;
+  /**
+   * **if can be null:**
+   * false
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceRequestResourceSpec extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
+  cpu?: number;
+  /**
+   * @example
+   * 16
+   */
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceRequestStorageOss extends $dara.Model {
+  /**
+   * @example
+   * quicktracing
+   */
+  bucket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceRequestStorage extends $dara.Model {
+  oss?: QueryCreateInstancePriceRequestStorageOss;
+  static names(): { [key: string]: string } {
+    return {
+      oss: 'Oss',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      oss: QueryCreateInstancePriceRequestStorageOss,
+    };
+  }
+
+  validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QueryCreateInstancePriceRequest extends $dara.Model {
   architectureType?: string;

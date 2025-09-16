@@ -27,6 +27,7 @@ export class RenewInstanceRequest extends $dara.Model {
    * Month
    */
   pricingCycle?: string;
+  promotionCode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -35,12 +36,15 @@ export class RenewInstanceRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {
       duration: 'Duration',
       instanceId: 'InstanceId',
       pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
       region: 'Region',
+      usePromotionCode: 'UsePromotionCode',
     };
   }
 
@@ -49,7 +53,9 @@ export class RenewInstanceRequest extends $dara.Model {
       duration: 'number',
       instanceId: 'string',
       pricingCycle: 'string',
+      promotionCode: 'string',
       region: 'string',
+      usePromotionCode: 'boolean',
     };
   }
 
