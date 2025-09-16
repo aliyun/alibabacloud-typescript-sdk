@@ -27,6 +27,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * {"enableMonitor":"0", "enableReport":"1"}
    */
   configurationShrink?: string;
+  createAsync?: boolean;
   /**
    * @remarks
    * The instances in which you want to create the application. You can create applications in an existing virtual private cloud (VPC).
@@ -77,6 +78,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       areaId: 'AreaId',
       clientToken: 'ClientToken',
       configurationShrink: 'Configuration',
+      createAsync: 'CreateAsync',
       instancesShrink: 'Instances',
       name: 'Name',
       processVariablesShrink: 'ProcessVariables',
@@ -91,6 +93,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       areaId: 'string',
       clientToken: 'string',
       configurationShrink: 'string',
+      createAsync: 'boolean',
       instancesShrink: 'string',
       name: 'string',
       processVariablesShrink: 'string',

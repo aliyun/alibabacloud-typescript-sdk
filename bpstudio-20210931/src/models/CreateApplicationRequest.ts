@@ -79,6 +79,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * {"enableMonitor":"0", "enableReport":"1"}
    */
   configuration?: { [key: string]: string };
+  createAsync?: boolean;
   /**
    * @remarks
    * The instances in which you want to create the application. You can create applications in an existing virtual private cloud (VPC).
@@ -129,6 +130,7 @@ export class CreateApplicationRequest extends $dara.Model {
       areaId: 'AreaId',
       clientToken: 'ClientToken',
       configuration: 'Configuration',
+      createAsync: 'CreateAsync',
       instances: 'Instances',
       name: 'Name',
       processVariables: 'ProcessVariables',
@@ -143,6 +145,7 @@ export class CreateApplicationRequest extends $dara.Model {
       areaId: 'string',
       clientToken: 'string',
       configuration: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      createAsync: 'boolean',
       instances: { 'type': 'array', 'itemType': CreateApplicationRequestInstances },
       name: 'string',
       processVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },

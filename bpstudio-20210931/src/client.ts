@@ -219,6 +219,10 @@ export default class Client extends OpenApi {
       body["Configuration"] = request.configurationShrink;
     }
 
+    if (!$dara.isNull(request.createAsync)) {
+      body["CreateAsync"] = request.createAsync;
+    }
+
     if (!$dara.isNull(request.instancesShrink)) {
       body["Instances"] = request.instancesShrink;
     }
@@ -269,6 +273,66 @@ export default class Client extends OpenApi {
   async createApplication(request: $_model.CreateApplicationRequest): Promise<$_model.CreateApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param tmpReq - CreateTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskResponse
+   */
+  async createTaskWithOptions(tmpReq: $_model.CreateTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.variables)) {
+      request.variablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.variables, "Variables", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      body["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.variablesShrink)) {
+      body["Variables"] = request.variablesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTask",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateTaskResponse({}));
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param request - CreateTaskRequest
+   * @returns CreateTaskResponse
+   */
+  async createTask(request: $_model.CreateTaskRequest): Promise<$_model.CreateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTaskWithOptions(request, runtime);
   }
 
   /**
@@ -509,6 +573,48 @@ export default class Client extends OpenApi {
   async executeOperationSync(request: $_model.ExecuteOperationSyncRequest): Promise<$_model.ExecuteOperationSyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeOperationSyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param request - ExecuteTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteTaskResponse
+   */
+  async executeTaskWithOptions(request: $_model.ExecuteTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteTask",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteTaskResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteTaskResponse({}));
+  }
+
+  /**
+   * 创建任务
+   * 
+   * @param request - ExecuteTaskRequest
+   * @returns ExecuteTaskResponse
+   */
+  async executeTask(request: $_model.ExecuteTaskRequest): Promise<$_model.ExecuteTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeTaskWithOptions(request, runtime);
   }
 
   /**
@@ -957,6 +1063,48 @@ export default class Client extends OpenApi {
   async getResult4QueryInstancePrice4Modify(request: $_model.GetResult4QueryInstancePrice4ModifyRequest): Promise<$_model.GetResult4QueryInstancePrice4ModifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getResult4QueryInstancePrice4ModifyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Task信息
+   * 
+   * @param request - GetTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
+   */
+  async getTaskWithOptions(request: $_model.GetTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTask",
+      version: "2021-09-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetTaskResponse({}));
+  }
+
+  /**
+   * 获取Task信息
+   * 
+   * @param request - GetTaskRequest
+   * @returns GetTaskResponse
+   */
+  async getTask(request: $_model.GetTaskRequest): Promise<$_model.GetTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTaskWithOptions(request, runtime);
   }
 
   /**
