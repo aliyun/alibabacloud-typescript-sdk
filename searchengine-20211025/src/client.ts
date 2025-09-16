@@ -74,6 +74,10 @@ export default class Client extends OpenApi {
       body["partition"] = request.partition;
     }
 
+    if (!$dara.isNull(request.path)) {
+      body["path"] = request.path;
+    }
+
     if (!$dara.isNull(request.tag)) {
       body["tag"] = request.tag;
     }
@@ -4578,6 +4582,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑索引表
+   * 
    * @param request - ModifyIndexRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4663,6 +4669,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑索引表
+   * 
    * @param request - ModifyIndexRequest
    * @returns ModifyIndexResponse
    */

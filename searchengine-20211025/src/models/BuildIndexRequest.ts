@@ -59,6 +59,7 @@ export class BuildIndexRequest extends $dara.Model {
    * 20201010
    */
   partition?: string;
+  path?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,6 +70,7 @@ export class BuildIndexRequest extends $dara.Model {
       domain: 'domain',
       generation: 'generation',
       partition: 'partition',
+      path: 'path',
       tag: 'tag',
     };
   }
@@ -82,6 +84,7 @@ export class BuildIndexRequest extends $dara.Model {
       domain: 'string',
       generation: 'number',
       partition: 'string',
+      path: 'string',
       tag: 'string',
     };
   }
