@@ -1784,6 +1784,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增HTTP入站请求头规则
+   * 
+   * @param tmpReq - CreateHttpIncomingRequestHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async createHttpIncomingRequestHeaderModificationRuleWithOptions(tmpReq: $_model.CreateHttpIncomingRequestHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpIncomingRequestHeaderModificationRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.requestHeaderModification)) {
+      request.requestHeaderModificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestHeaderModification, "RequestHeaderModification", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.requestHeaderModificationShrink)) {
+      query["RequestHeaderModification"] = request.requestHeaderModificationShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHttpIncomingRequestHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHttpIncomingRequestHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateHttpIncomingRequestHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 新增HTTP入站请求头规则
+   * 
+   * @param request - CreateHttpIncomingRequestHeaderModificationRuleRequest
+   * @returns CreateHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async createHttpIncomingRequestHeaderModificationRule(request: $_model.CreateHttpIncomingRequestHeaderModificationRuleRequest): Promise<$_model.CreateHttpIncomingRequestHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增HTTP入站响应头规则
+   * 
+   * @param tmpReq - CreateHttpIncomingResponseHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async createHttpIncomingResponseHeaderModificationRuleWithOptions(tmpReq: $_model.CreateHttpIncomingResponseHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHttpIncomingResponseHeaderModificationRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateHttpIncomingResponseHeaderModificationRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.responseHeaderModification)) {
+      request.responseHeaderModificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.responseHeaderModification, "ResponseHeaderModification", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.responseHeaderModificationShrink)) {
+      query["ResponseHeaderModification"] = request.responseHeaderModificationShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHttpIncomingResponseHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHttpIncomingResponseHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateHttpIncomingResponseHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 新增HTTP入站响应头规则
+   * 
+   * @param request - CreateHttpIncomingResponseHeaderModificationRuleRequest
+   * @returns CreateHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async createHttpIncomingResponseHeaderModificationRule(request: $_model.CreateHttpIncomingResponseHeaderModificationRuleRequest): Promise<$_model.CreateHttpIncomingResponseHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Add HTTP Request Header Rule
    * 
    * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
@@ -4861,6 +5005,98 @@ export default class Client extends OpenApi {
   async deleteEdgeContainerAppVersion(request: $_model.DeleteEdgeContainerAppVersionRequest): Promise<$_model.DeleteEdgeContainerAppVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEdgeContainerAppVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除HTTP入站请求头规则
+   * 
+   * @param request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async deleteHttpIncomingRequestHeaderModificationRuleWithOptions(request: $_model.DeleteHttpIncomingRequestHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpIncomingRequestHeaderModificationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHttpIncomingRequestHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHttpIncomingRequestHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHttpIncomingRequestHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 删除HTTP入站请求头规则
+   * 
+   * @param request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
+   * @returns DeleteHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async deleteHttpIncomingRequestHeaderModificationRule(request: $_model.DeleteHttpIncomingRequestHeaderModificationRuleRequest): Promise<$_model.DeleteHttpIncomingRequestHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除HTTP入站响应头规则
+   * 
+   * @param request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async deleteHttpIncomingResponseHeaderModificationRuleWithOptions(request: $_model.DeleteHttpIncomingResponseHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHttpIncomingResponseHeaderModificationRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHttpIncomingResponseHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHttpIncomingResponseHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHttpIncomingResponseHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 删除HTTP入站响应头规则
+   * 
+   * @param request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
+   * @returns DeleteHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async deleteHttpIncomingResponseHeaderModificationRule(request: $_model.DeleteHttpIncomingResponseHeaderModificationRuleRequest): Promise<$_model.DeleteHttpIncomingResponseHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
   }
 
   /**
@@ -8306,6 +8542,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询HTTP入站请求头规则详情
+   * 
+   * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async getHttpIncomingRequestHeaderModificationRuleWithOptions(request: $_model.GetHttpIncomingRequestHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHttpIncomingRequestHeaderModificationRuleResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHttpIncomingRequestHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHttpIncomingRequestHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetHttpIncomingRequestHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 查询HTTP入站请求头规则详情
+   * 
+   * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
+   * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async getHttpIncomingRequestHeaderModificationRule(request: $_model.GetHttpIncomingRequestHeaderModificationRuleRequest): Promise<$_model.GetHttpIncomingRequestHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询HTTP入站响应头规则
+   * 
+   * @param request - GetHttpIncomingResponseHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async getHttpIncomingResponseHeaderModificationRuleWithOptions(request: $_model.GetHttpIncomingResponseHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHttpIncomingResponseHeaderModificationRuleResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHttpIncomingResponseHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHttpIncomingResponseHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetHttpIncomingResponseHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 查询HTTP入站响应头规则
+   * 
+   * @param request - GetHttpIncomingResponseHeaderModificationRuleRequest
+   * @returns GetHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async getHttpIncomingResponseHeaderModificationRule(request: $_model.GetHttpIncomingResponseHeaderModificationRuleRequest): Promise<$_model.GetHttpIncomingResponseHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Query HTTP Request Header Rule Details
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
@@ -10957,6 +11269,82 @@ export default class Client extends OpenApi {
   async listEdgeRoutineRecords(request: $_model.ListEdgeRoutineRecordsRequest): Promise<$_model.ListEdgeRoutineRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEdgeRoutineRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询HTTP入站请求头规则列表
+   * 
+   * @param request - ListHttpIncomingRequestHeaderModificationRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHttpIncomingRequestHeaderModificationRulesResponse
+   */
+  async listHttpIncomingRequestHeaderModificationRulesWithOptions(request: $_model.ListHttpIncomingRequestHeaderModificationRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHttpIncomingRequestHeaderModificationRulesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHttpIncomingRequestHeaderModificationRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHttpIncomingRequestHeaderModificationRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListHttpIncomingRequestHeaderModificationRulesResponse({}));
+  }
+
+  /**
+   * 查询HTTP入站请求头规则列表
+   * 
+   * @param request - ListHttpIncomingRequestHeaderModificationRulesRequest
+   * @returns ListHttpIncomingRequestHeaderModificationRulesResponse
+   */
+  async listHttpIncomingRequestHeaderModificationRules(request: $_model.ListHttpIncomingRequestHeaderModificationRulesRequest): Promise<$_model.ListHttpIncomingRequestHeaderModificationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHttpIncomingRequestHeaderModificationRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询HTTP入站响应头规则列表
+   * 
+   * @param request - ListHttpIncomingResponseHeaderModificationRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHttpIncomingResponseHeaderModificationRulesResponse
+   */
+  async listHttpIncomingResponseHeaderModificationRulesWithOptions(request: $_model.ListHttpIncomingResponseHeaderModificationRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHttpIncomingResponseHeaderModificationRulesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHttpIncomingResponseHeaderModificationRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHttpIncomingResponseHeaderModificationRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListHttpIncomingResponseHeaderModificationRulesResponse({}));
+  }
+
+  /**
+   * 查询HTTP入站响应头规则列表
+   * 
+   * @param request - ListHttpIncomingResponseHeaderModificationRulesRequest
+   * @returns ListHttpIncomingResponseHeaderModificationRulesResponse
+   */
+  async listHttpIncomingResponseHeaderModificationRules(request: $_model.ListHttpIncomingResponseHeaderModificationRulesRequest): Promise<$_model.ListHttpIncomingResponseHeaderModificationRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHttpIncomingResponseHeaderModificationRulesWithOptions(request, runtime);
   }
 
   /**
@@ -15175,6 +15563,150 @@ export default class Client extends OpenApi {
   async updateEdgeContainerAppResourceReserve(request: $_model.UpdateEdgeContainerAppResourceReserveRequest): Promise<$_model.UpdateEdgeContainerAppResourceReserveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEdgeContainerAppResourceReserveWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改HTTP入站请求头规则
+   * 
+   * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async updateHttpIncomingRequestHeaderModificationRuleWithOptions(tmpReq: $_model.UpdateHttpIncomingRequestHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpIncomingRequestHeaderModificationRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.requestHeaderModification)) {
+      request.requestHeaderModificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestHeaderModification, "RequestHeaderModification", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.requestHeaderModificationShrink)) {
+      query["RequestHeaderModification"] = request.requestHeaderModificationShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateHttpIncomingRequestHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateHttpIncomingRequestHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateHttpIncomingRequestHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 修改HTTP入站请求头规则
+   * 
+   * @param request - UpdateHttpIncomingRequestHeaderModificationRuleRequest
+   * @returns UpdateHttpIncomingRequestHeaderModificationRuleResponse
+   */
+  async updateHttpIncomingRequestHeaderModificationRule(request: $_model.UpdateHttpIncomingRequestHeaderModificationRuleRequest): Promise<$_model.UpdateHttpIncomingRequestHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateHttpIncomingRequestHeaderModificationRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改HTTP入站响应头规则
+   * 
+   * @param tmpReq - UpdateHttpIncomingResponseHeaderModificationRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async updateHttpIncomingResponseHeaderModificationRuleWithOptions(tmpReq: $_model.UpdateHttpIncomingResponseHeaderModificationRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHttpIncomingResponseHeaderModificationRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateHttpIncomingResponseHeaderModificationRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.responseHeaderModification)) {
+      request.responseHeaderModificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.responseHeaderModification, "ResponseHeaderModification", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.responseHeaderModificationShrink)) {
+      query["ResponseHeaderModification"] = request.responseHeaderModificationShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateHttpIncomingResponseHeaderModificationRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateHttpIncomingResponseHeaderModificationRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateHttpIncomingResponseHeaderModificationRuleResponse({}));
+  }
+
+  /**
+   * 修改HTTP入站响应头规则
+   * 
+   * @param request - UpdateHttpIncomingResponseHeaderModificationRuleRequest
+   * @returns UpdateHttpIncomingResponseHeaderModificationRuleResponse
+   */
+  async updateHttpIncomingResponseHeaderModificationRule(request: $_model.UpdateHttpIncomingResponseHeaderModificationRuleRequest): Promise<$_model.UpdateHttpIncomingResponseHeaderModificationRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateHttpIncomingResponseHeaderModificationRuleWithOptions(request, runtime);
   }
 
   /**
