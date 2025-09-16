@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectorsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of Connector IDs. Up to 100 Connector IDs can be entered.
+   */
   connectorIds?: string[];
   /**
    * @remarks
+   * The page number of the current page in a paginated query. Range: 1~10000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,19 +19,42 @@ export class ListConnectorsRequest extends $dara.Model {
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Connector name. Length: 1~128 characters, supporting Chinese and both uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+   * 
    * @example
    * connector_name
    */
   name?: string;
   /**
    * @remarks
+   * The number of items per page in a paginated query. Range: 1~1000.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Connector connection status. Values:
+   * - **Online**: Online.
+   * - **Offline**: Offline.
+   * 
+   * @example
+   * Online
+   */
   status?: string;
+  /**
+   * @remarks
+   * Connector instance status. Values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
+   * @example
+   * Enabled
+   */
   switchStatus?: string;
   static names(): { [key: string]: string } {
     return {

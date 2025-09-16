@@ -2,6 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateWmEmbedTaskRequestAudioControlMetadataControl extends $dara.Model {
+  enable?: boolean;
+  xmpKvBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      xmpKvBase64: 'XmpKvBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      xmpKvBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestAudioControl extends $dara.Model {
+  metadataControl?: CreateWmEmbedTaskRequestAudioControlMetadataControl;
+  static names(): { [key: string]: string } {
+    return {
+      metadataControl: 'MetadataControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadataControl: CreateWmEmbedTaskRequestAudioControlMetadataControl,
+    };
+  }
+
+  validate() {
+    if(this.metadataControl && typeof (this.metadataControl as any).validate === 'function') {
+      (this.metadataControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmEmbedTaskRequestCsvControl extends $dara.Model {
   embedBitsNumberInEachTime?: number;
   embedColumn?: number;
@@ -280,6 +332,7 @@ export class CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin extend
 
 export class CreateWmEmbedTaskRequestImageControlLogoVisibleControl extends $dara.Model {
   angle?: number;
+  enhance?: boolean;
   logoBase64?: string;
   margin?: CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin;
   mode?: string;
@@ -294,6 +347,7 @@ export class CreateWmEmbedTaskRequestImageControlLogoVisibleControl extends $dar
   static names(): { [key: string]: string } {
     return {
       angle: 'Angle',
+      enhance: 'Enhance',
       logoBase64: 'LogoBase64',
       margin: 'Margin',
       mode: 'Mode',
@@ -311,6 +365,7 @@ export class CreateWmEmbedTaskRequestImageControlLogoVisibleControl extends $dar
   static types(): { [key: string]: any } {
     return {
       angle: 'number',
+      enhance: 'boolean',
       logoBase64: 'string',
       margin: CreateWmEmbedTaskRequestImageControlLogoVisibleControlMargin,
       mode: 'string',
@@ -498,7 +553,142 @@ export class CreateWmEmbedTaskRequestImageControl extends $dara.Model {
   }
 }
 
+export class CreateWmEmbedTaskRequestVideoControlMetadataControl extends $dara.Model {
+  enable?: boolean;
+  xmpKvBase64?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      xmpKvBase64: 'XmpKvBase64',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      xmpKvBase64: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestVideoControlTextVisibleControlMargin extends $dara.Model {
+  bottom?: number;
+  right?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bottom: 'Bottom',
+      right: 'Right',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bottom: 'number',
+      right: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestVideoControlTextVisibleControl extends $dara.Model {
+  fontColor?: string;
+  fontSize?: number;
+  margin?: CreateWmEmbedTaskRequestVideoControlTextVisibleControlMargin;
+  mode?: string;
+  opacity?: number;
+  posX?: number;
+  posY?: number;
+  visible?: boolean;
+  visibleText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      margin: 'Margin',
+      mode: 'Mode',
+      opacity: 'Opacity',
+      posX: 'PosX',
+      posY: 'PosY',
+      visible: 'Visible',
+      visibleText: 'VisibleText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fontColor: 'string',
+      fontSize: 'number',
+      margin: CreateWmEmbedTaskRequestVideoControlTextVisibleControlMargin,
+      mode: 'string',
+      opacity: 'number',
+      posX: 'number',
+      posY: 'number',
+      visible: 'boolean',
+      visibleText: 'string',
+    };
+  }
+
+  validate() {
+    if(this.margin && typeof (this.margin as any).validate === 'function') {
+      (this.margin as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWmEmbedTaskRequestVideoControl extends $dara.Model {
+  metadataControl?: CreateWmEmbedTaskRequestVideoControlMetadataControl;
+  textVisibleControl?: CreateWmEmbedTaskRequestVideoControlTextVisibleControl;
+  static names(): { [key: string]: string } {
+    return {
+      metadataControl: 'MetadataControl',
+      textVisibleControl: 'TextVisibleControl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadataControl: CreateWmEmbedTaskRequestVideoControlMetadataControl,
+      textVisibleControl: CreateWmEmbedTaskRequestVideoControlTextVisibleControl,
+    };
+  }
+
+  validate() {
+    if(this.metadataControl && typeof (this.metadataControl as any).validate === 'function') {
+      (this.metadataControl as any).validate();
+    }
+    if(this.textVisibleControl && typeof (this.textVisibleControl as any).validate === 'function') {
+      (this.textVisibleControl as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWmEmbedTaskRequest extends $dara.Model {
+  audioControl?: CreateWmEmbedTaskRequestAudioControl;
   csvControl?: CreateWmEmbedTaskRequestCsvControl;
   documentControl?: CreateWmEmbedTaskRequestDocumentControl;
   /**
@@ -528,11 +718,13 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
    * 2
    */
   imageEmbedLevel?: number;
+  invisibleEnable?: boolean;
   /**
    * @example
    * 3000k
    */
   videoBitrate?: string;
+  videoControl?: CreateWmEmbedTaskRequestVideoControl;
   /**
    * @example
    * false
@@ -563,6 +755,7 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
+      audioControl: 'AudioControl',
       csvControl: 'CsvControl',
       documentControl: 'DocumentControl',
       fileUrl: 'FileUrl',
@@ -570,7 +763,9 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
       imageControl: 'ImageControl',
       imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
       imageEmbedLevel: 'ImageEmbedLevel',
+      invisibleEnable: 'InvisibleEnable',
       videoBitrate: 'VideoBitrate',
+      videoControl: 'VideoControl',
       videoIsLong: 'VideoIsLong',
       wmInfoBytesB64: 'WmInfoBytesB64',
       wmInfoSize: 'WmInfoSize',
@@ -581,6 +776,7 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioControl: CreateWmEmbedTaskRequestAudioControl,
       csvControl: CreateWmEmbedTaskRequestCsvControl,
       documentControl: CreateWmEmbedTaskRequestDocumentControl,
       fileUrl: 'string',
@@ -588,7 +784,9 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
       imageControl: CreateWmEmbedTaskRequestImageControl,
       imageEmbedJpegQuality: 'number',
       imageEmbedLevel: 'number',
+      invisibleEnable: 'boolean',
       videoBitrate: 'string',
+      videoControl: CreateWmEmbedTaskRequestVideoControl,
       videoIsLong: 'boolean',
       wmInfoBytesB64: 'string',
       wmInfoSize: 'number',
@@ -598,6 +796,9 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.audioControl && typeof (this.audioControl as any).validate === 'function') {
+      (this.audioControl as any).validate();
+    }
     if(this.csvControl && typeof (this.csvControl as any).validate === 'function') {
       (this.csvControl as any).validate();
     }
@@ -606,6 +807,9 @@ export class CreateWmEmbedTaskRequest extends $dara.Model {
     }
     if(this.imageControl && typeof (this.imageControl as any).validate === 'function') {
       (this.imageControl as any).validate();
+    }
+    if(this.videoControl && typeof (this.videoControl as any).validate === 'function') {
+      (this.videoControl as any).validate();
     }
     super.validate();
   }

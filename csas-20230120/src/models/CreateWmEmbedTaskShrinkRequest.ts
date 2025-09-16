@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
+  audioControlShrink?: string;
   csvControlShrink?: string;
   documentControlShrink?: string;
   /**
@@ -32,11 +33,13 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
    * 2
    */
   imageEmbedLevel?: number;
+  invisibleEnable?: boolean;
   /**
    * @example
    * 3000k
    */
   videoBitrate?: string;
+  videoControlShrink?: string;
   /**
    * @example
    * false
@@ -67,6 +70,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
   wmType?: string;
   static names(): { [key: string]: string } {
     return {
+      audioControlShrink: 'AudioControl',
       csvControlShrink: 'CsvControl',
       documentControlShrink: 'DocumentControl',
       fileUrl: 'FileUrl',
@@ -74,7 +78,9 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
       imageControlShrink: 'ImageControl',
       imageEmbedJpegQuality: 'ImageEmbedJpegQuality',
       imageEmbedLevel: 'ImageEmbedLevel',
+      invisibleEnable: 'InvisibleEnable',
       videoBitrate: 'VideoBitrate',
+      videoControlShrink: 'VideoControl',
       videoIsLong: 'VideoIsLong',
       wmInfoBytesB64: 'WmInfoBytesB64',
       wmInfoSize: 'WmInfoSize',
@@ -85,6 +91,7 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioControlShrink: 'string',
       csvControlShrink: 'string',
       documentControlShrink: 'string',
       fileUrl: 'string',
@@ -92,7 +99,9 @@ export class CreateWmEmbedTaskShrinkRequest extends $dara.Model {
       imageControlShrink: 'string',
       imageEmbedJpegQuality: 'number',
       imageEmbedLevel: 'number',
+      invisibleEnable: 'boolean',
       videoBitrate: 'string',
+      videoControlShrink: 'string',
       videoIsLong: 'boolean',
       wmInfoBytesB64: 'string',
       wmInfoSize: 'number',

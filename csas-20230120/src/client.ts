@@ -1027,6 +1027,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateWmEmbedTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.audioControl)) {
+      request.audioControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioControl, "AudioControl", "json");
+    }
+
     if (!$dara.isNull(tmpReq.csvControl)) {
       request.csvControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.csvControl, "CsvControl", "json");
     }
@@ -1039,12 +1043,19 @@ export default class Client extends OpenApi {
       request.imageControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageControl, "ImageControl", "json");
     }
 
-    let query = { };
-    if (!$dara.isNull(request.csvControlShrink)) {
-      query["CsvControl"] = request.csvControlShrink;
+    if (!$dara.isNull(tmpReq.videoControl)) {
+      request.videoControlShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoControl, "VideoControl", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audioControlShrink)) {
+      body["AudioControl"] = request.audioControlShrink;
+    }
+
+    if (!$dara.isNull(request.csvControlShrink)) {
+      body["CsvControl"] = request.csvControlShrink;
+    }
+
     if (!$dara.isNull(request.documentControlShrink)) {
       body["DocumentControl"] = request.documentControlShrink;
     }
@@ -1069,8 +1080,16 @@ export default class Client extends OpenApi {
       body["ImageEmbedLevel"] = request.imageEmbedLevel;
     }
 
+    if (!$dara.isNull(request.invisibleEnable)) {
+      body["InvisibleEnable"] = request.invisibleEnable;
+    }
+
     if (!$dara.isNull(request.videoBitrate)) {
       body["VideoBitrate"] = request.videoBitrate;
+    }
+
+    if (!$dara.isNull(request.videoControlShrink)) {
+      body["VideoControl"] = request.videoControlShrink;
     }
 
     if (!$dara.isNull(request.videoIsLong)) {
@@ -1094,7 +1113,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -3034,7 +3052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询connector
+   * Batch query connectors
    * 
    * @param request - ListConnectorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3061,7 +3079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询connector
+   * Batch query connectors
    * 
    * @param request - ListConnectorsRequest
    * @returns ListConnectorsResponse

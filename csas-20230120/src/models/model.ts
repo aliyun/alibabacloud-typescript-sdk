@@ -40,6 +40,8 @@ export { CreateWmBaseImageRequestImageControlTextVisibleControlMargin } from './
 export { CreateWmBaseImageRequestImageControlTextVisibleControl } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageRequestImageControl } from './CreateWmBaseImageRequest';
 export { CreateWmBaseImageResponseBodyData } from './CreateWmBaseImageResponseBody';
+export { CreateWmEmbedTaskRequestAudioControlMetadataControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestAudioControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestCsvControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgInvisibleControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestDocumentControlBackgroundControlBgVisibleControl } from './CreateWmEmbedTaskRequest';
@@ -51,6 +53,10 @@ export { CreateWmEmbedTaskRequestImageControlMetadataControl } from './CreateWmE
 export { CreateWmEmbedTaskRequestImageControlTextVisibleControlMargin } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestImageControlTextVisibleControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskRequestImageControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestVideoControlMetadataControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestVideoControlTextVisibleControlMargin } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestVideoControlTextVisibleControl } from './CreateWmEmbedTaskRequest';
+export { CreateWmEmbedTaskRequestVideoControl } from './CreateWmEmbedTaskRequest';
 export { CreateWmEmbedTaskResponseBodyData } from './CreateWmEmbedTaskResponseBody';
 export { CreateWmExtractTaskRequestCsvControl } from './CreateWmExtractTaskRequest';
 export { CreateWmExtractTaskRequestImageExtractParamsOpenApi } from './CreateWmExtractTaskRequest';

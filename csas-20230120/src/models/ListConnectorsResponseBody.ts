@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Model {
   /**
+   * @remarks
+   * Internal network access application ID.
+   * 
    * @example
    * pa-application-e12860ef6c48****
    */
   applicationId?: string;
   /**
+   * @remarks
+   * Internal network access application name.
+   * 
    * @example
    * application_name
    */
@@ -37,9 +43,37 @@ export class ListConnectorsResponseBodyConnectorsApplications extends $dara.Mode
 }
 
 export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.Model {
+  /**
+   * @remarks
+   * Connection status between ConnectorClient and ConnectorServer.
+   * 
+   * @example
+   * Disconnected
+   */
   connectionStatus?: string;
+  /**
+   * @remarks
+   * Unique device identifier for the ConnectorClient.
+   * 
+   * @example
+   * C50A2386-F851-4F11-920B-DF7148DA0C22
+   */
   devTag?: string;
+  /**
+   * @remarks
+   * Hostname of the ConnectorClient.
+   * 
+   * @example
+   * connector_client
+   */
   hostname?: string;
+  /**
+   * @remarks
+   * Public IP of the ConnectorClient.
+   * 
+   * @example
+   * 192.0.2.1
+   */
   publicIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,11 +104,17 @@ export class ListConnectorsResponseBodyConnectorsConnectorClients extends $dara.
 
 export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model {
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 23:00
    */
   end?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 20:00
    */
@@ -103,43 +143,88 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model
 }
 
 export class ListConnectorsResponseBodyConnectors extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of associated internal network access applications.
+   */
   applications?: ListConnectorsResponseBodyConnectorsApplications[];
+  /**
+   * @remarks
+   * Cluster IP.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   clusterIP?: string;
+  /**
+   * @remarks
+   * Cluster port.
+   * 
+   * @example
+   * 8000
+   */
   clusterPort?: string;
+  /**
+   * @remarks
+   * Collection of deployed ConnectorClients.
+   */
   connectorClients?: ListConnectorsResponseBodyConnectorsConnectorClients[];
   /**
    * @remarks
-   * ConnectorID。
+   * Connector ID.
    * 
    * @example
    * connector-94db94e06b98****
    */
   connectorId?: string;
   /**
+   * @remarks
+   * Creation time of the Connector.
+   * 
    * @example
    * 2022-09-27 18:10:25
    */
   createTime?: string;
   /**
+   * @remarks
+   * Connector name.
+   * 
    * @example
    * connector_name
    */
   name?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Connector connection status. Values:
+   * - **Online**: Online.
+   * - **Offline**: Offline.
+   * 
    * @example
    * Online
    */
   status?: string;
   /**
+   * @remarks
+   * Connector instance status. Values:
+   * - **Enabled**: Enabled.
+   * - **Disabled**: Disabled.
+   * 
    * @example
    * Enabled
    */
   switchStatus?: string;
+  /**
+   * @remarks
+   * Connector upgrade time.
+   */
   upgradeTime?: ListConnectorsResponseBodyConnectorsUpgradeTime;
   static names(): { [key: string]: string } {
     return {
@@ -192,13 +277,23 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
 }
 
 export class ListConnectorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of Connectors.
+   */
   connectors?: ListConnectorsResponseBodyConnectors[];
   /**
+   * @remarks
+   * ID of the current request.
+   * 
    * @example
    * 58D6B23E-E5DA-5418-8F61-51A3B5A30049
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of Connectors.
+   * 
    * @example
    * 1
    */
