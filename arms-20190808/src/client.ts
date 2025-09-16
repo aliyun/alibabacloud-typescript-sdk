@@ -14404,6 +14404,10 @@ export default class Client extends OpenApi {
       query["Stop"] = request.stop;
     }
 
+    if (!$dara.isNull(request.webSDKConfigJson)) {
+      query["WebSDKConfigJson"] = request.webSDKConfigJson;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

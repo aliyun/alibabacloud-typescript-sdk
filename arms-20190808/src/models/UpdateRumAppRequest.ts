@@ -111,6 +111,7 @@ export class UpdateRumAppRequest extends $dara.Model {
    * true
    */
   stop?: boolean;
+  webSDKConfigJson?: string;
   static names(): { [key: string]: string } {
     return {
       appConfig: 'AppConfig',
@@ -126,6 +127,7 @@ export class UpdateRumAppRequest extends $dara.Model {
       restart: 'Restart',
       serviceDomainOperationJson: 'ServiceDomainOperationJson',
       stop: 'Stop',
+      webSDKConfigJson: 'WebSDKConfigJson',
     };
   }
 
@@ -144,6 +146,7 @@ export class UpdateRumAppRequest extends $dara.Model {
       restart: 'boolean',
       serviceDomainOperationJson: 'string',
       stop: 'boolean',
+      webSDKConfigJson: 'string',
     };
   }
 

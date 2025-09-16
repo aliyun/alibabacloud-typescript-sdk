@@ -415,6 +415,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
    * RUM
    */
   type?: string;
+  webSDKConfigJson?: string;
   static names(): { [key: string]: string } {
     return {
       appConfig: 'AppConfig',
@@ -439,6 +440,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
       status: 'Status',
       tags: 'Tags',
       type: 'Type',
+      webSDKConfigJson: 'WebSDKConfigJson',
     };
   }
 
@@ -466,6 +468,7 @@ export class GetRumAppInfoResponseBodyData extends $dara.Model {
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetRumAppInfoResponseBodyDataTags },
       type: 'string',
+      webSDKConfigJson: 'string',
     };
   }
 
