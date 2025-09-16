@@ -250,6 +250,7 @@ export { DescribeNetworkAttributeResponseBodyLoadBalancerIds } from './DescribeN
 export { DescribeNetworkAttributeResponseBodyNatGatewayIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyNetworkInterfaceIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyRouteTableIds } from './DescribeNetworkAttributeResponseBody';
+export { DescribeNetworkAttributeResponseBodySecondaryCidrBlocks } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkAttributeResponseBodyVSwitchIds } from './DescribeNetworkAttributeResponseBody';
 export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6SetsIpv6Set } from './DescribeNetworkInterfacesResponseBody';
 export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets } from './DescribeNetworkInterfacesResponseBody';
@@ -259,6 +260,7 @@ export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfa
 export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet } from './DescribeNetworkInterfacesResponseBody';
 export { DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets } from './DescribeNetworkInterfacesResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkRouteTableIds } from './DescribeNetworksResponseBody';
+export { DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkTagsTag } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkTags } from './DescribeNetworksResponseBody';
 export { DescribeNetworksResponseBodyNetworksNetworkVSwitchIds } from './DescribeNetworksResponseBody';

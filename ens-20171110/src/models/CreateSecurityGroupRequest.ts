@@ -47,6 +47,8 @@ export class CreateSecurityGroupRequestPermissions extends $dara.Model {
    * TCP
    */
   ipProtocol?: string;
+  ipv6DestCidrIp?: string;
+  ipv6SourceCidrIp?: string;
   /**
    * @remarks
    * The action of the security group rule. Valid values:
@@ -110,6 +112,8 @@ export class CreateSecurityGroupRequestPermissions extends $dara.Model {
       destCidrIp: 'DestCidrIp',
       direction: 'Direction',
       ipProtocol: 'IpProtocol',
+      ipv6DestCidrIp: 'Ipv6DestCidrIp',
+      ipv6SourceCidrIp: 'Ipv6SourceCidrIp',
       policy: 'Policy',
       portRange: 'PortRange',
       priority: 'Priority',
@@ -124,6 +128,8 @@ export class CreateSecurityGroupRequestPermissions extends $dara.Model {
       destCidrIp: 'string',
       direction: 'string',
       ipProtocol: 'string',
+      ipv6DestCidrIp: 'string',
+      ipv6SourceCidrIp: 'string',
       policy: 'string',
       portRange: 'string',
       priority: 'number',

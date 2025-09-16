@@ -28,6 +28,32 @@ export class DescribeNetworksResponseBodyNetworksNetworkRouteTableIds extends $d
   }
 }
 
+export class DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks extends $dara.Model {
+  secondaryCidrBlock?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      secondaryCidrBlock: 'SecondaryCidrBlock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secondaryCidrBlock: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.secondaryCidrBlock)) {
+      $dara.Model.validateArray(this.secondaryCidrBlock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworksResponseBodyNetworksNetworkTagsTag extends $dara.Model {
   /**
    * @remarks
@@ -224,6 +250,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
    * rtb-5**
    */
   routerTableId?: string;
+  secondaryCidrBlocks?: DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks;
   /**
    * @remarks
    * The status of the network. Valid values:
@@ -254,6 +281,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       routeTableId: 'RouteTableId',
       routeTableIds: 'RouteTableIds',
       routerTableId: 'RouterTableId',
+      secondaryCidrBlocks: 'SecondaryCidrBlocks',
       status: 'Status',
       tags: 'Tags',
       vSwitchIds: 'VSwitchIds',
@@ -273,6 +301,7 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
       routeTableId: 'string',
       routeTableIds: DescribeNetworksResponseBodyNetworksNetworkRouteTableIds,
       routerTableId: 'string',
+      secondaryCidrBlocks: DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks,
       status: 'string',
       tags: DescribeNetworksResponseBodyNetworksNetworkTags,
       vSwitchIds: DescribeNetworksResponseBodyNetworksNetworkVSwitchIds,
@@ -282,6 +311,9 @@ export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
   validate() {
     if(this.routeTableIds && typeof (this.routeTableIds as any).validate === 'function') {
       (this.routeTableIds as any).validate();
+    }
+    if(this.secondaryCidrBlocks && typeof (this.secondaryCidrBlocks as any).validate === 'function') {
+      (this.secondaryCidrBlocks as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
