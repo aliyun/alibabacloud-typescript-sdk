@@ -61,14 +61,14 @@ export class CreateImageCacheShrinkRequestImageRegistryCredentials extends $dara
    * @example
    * myusername
    */
-  userName?: string;
+  username?: string;
   static names(): { [key: string]: string } {
     return {
       password: 'Password',
       server: 'Server',
       skipCertVerification: 'SkipCertVerification',
       usePlainHttp: 'UsePlainHttp',
-      userName: 'UserName',
+      username: 'Username',
     };
   }
 
@@ -78,7 +78,7 @@ export class CreateImageCacheShrinkRequestImageRegistryCredentials extends $dara
       server: 'string',
       skipCertVerification: 'boolean',
       usePlainHttp: 'boolean',
-      userName: 'string',
+      username: 'string',
     };
   }
 
