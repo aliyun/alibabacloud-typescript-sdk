@@ -769,6 +769,11 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
 export class DescribeUserResourcesResponseBody extends $dara.Model {
   /**
    * @example
+   * 100
+   */
+  maxResults?: number;
+  /**
+   * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
    */
   nextToken?: string;
@@ -784,23 +789,32 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
    */
   requestId?: string;
   resources?: DescribeUserResourcesResponseBodyResources[];
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       queryFailedResourceTypes: 'QueryFailedResourceTypes',
       rankVersion: 'RankVersion',
       requestId: 'RequestId',
       resources: 'Resources',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
       nextToken: 'string',
       queryFailedResourceTypes: { 'type': 'array', 'itemType': 'string' },
       rankVersion: 'number',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResources },
+      totalCount: 'number',
     };
   }
 

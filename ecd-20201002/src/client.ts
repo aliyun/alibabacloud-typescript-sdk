@@ -681,6 +681,14 @@ export default class Client extends OpenApi {
       query["ProtocolType"] = request.protocolType;
     }
 
+    if (!$dara.isNull(request.queryDesktopDurationList)) {
+      query["QueryDesktopDurationList"] = request.queryDesktopDurationList;
+    }
+
+    if (!$dara.isNull(request.queryDesktopTimers)) {
+      query["QueryDesktopTimers"] = request.queryDesktopTimers;
+    }
+
     if (!$dara.isNull(request.queryFotaUpdate)) {
       query["QueryFotaUpdate"] = request.queryFotaUpdate;
     }

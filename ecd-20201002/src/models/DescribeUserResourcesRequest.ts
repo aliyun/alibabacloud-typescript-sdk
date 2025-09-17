@@ -44,6 +44,8 @@ export class DescribeUserResourcesRequest extends $dara.Model {
   /**
    * @example
    * false
+   * 
+   * @deprecated
    */
   dualCenterForward?: boolean;
   /**
@@ -86,6 +88,16 @@ export class DescribeUserResourcesRequest extends $dara.Model {
    * ASP
    */
   protocolType?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  queryDesktopDurationList?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  queryDesktopTimers?: boolean;
   /**
    * @example
    * false
@@ -142,6 +154,8 @@ export class DescribeUserResourcesRequest extends $dara.Model {
       orderBy: 'OrderBy',
       productTypes: 'ProductTypes',
       protocolType: 'ProtocolType',
+      queryDesktopDurationList: 'QueryDesktopDurationList',
+      queryDesktopTimers: 'QueryDesktopTimers',
       queryFotaUpdate: 'QueryFotaUpdate',
       refreshFotaUpdate: 'RefreshFotaUpdate',
       resourceIds: 'ResourceIds',
@@ -173,6 +187,8 @@ export class DescribeUserResourcesRequest extends $dara.Model {
       orderBy: 'string',
       productTypes: { 'type': 'array', 'itemType': 'string' },
       protocolType: 'string',
+      queryDesktopDurationList: 'boolean',
+      queryDesktopTimers: 'boolean',
       queryFotaUpdate: 'boolean',
       refreshFotaUpdate: 'boolean',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
