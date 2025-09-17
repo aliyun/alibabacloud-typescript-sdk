@@ -1,2039 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CancelTaskResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceRequest extends $tea.Model {
-  /**
-   * @example
-   * {
-   *      "AccountName": "cctest",
-   *      "AccountPassword": "Aa1234****"
-   * }
-   */
-  body?: { [key: string]: any };
-  /**
-   * @example
-   * 1e810dfe1468721d0664a49b9d9f74f4
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-      clientToken: 'clientToken',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      clientToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * cctest
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * Instance/r-8vbf5abe31c9c4d4/Account/cctest
-   */
-  resourcePath?: string;
-  /**
-   * @example
-   * task-433aead756057fff8189a7ce5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      resourceId: 'resourceId',
-      resourcePath: 'resourcePath',
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceId: 'string',
-      resourcePath: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteResourceRequest extends $tea.Model {
-  /**
-   * @example
-   * 1e810dfe1468721d0664a49b9d9f74f4
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'clientToken',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteResourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * task-433aead756057fff8189a7ce5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceRequest extends $tea.Model {
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @example
-   * {
-   *         "LoadBalancerName": "cc-test",
-   *         "LoadBalancerSpec": "slb.s3.small",
-   *         "InternetChargeType": "paybybandwidth",
-   *         "AddressType": "internet",
-   *         "PaymentType": "PayAsYouGo",
-   *         "Bandwidth": 6
-   *       }
-   */
-  resourceAttributes?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'regionId',
-      resourceAttributes: 'resourceAttributes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @example
-   * {
-   *         "LoadBalancerName": "cc-test",
-   *         "LoadBalancerSpec": "slb.s3.small",
-   *         "InternetChargeType": "paybybandwidth",
-   *         "AddressType": "internet",
-   *         "PaymentType": "PayAsYouGo",
-   *         "Bandwidth": 6
-   *       }
-   */
-  resourceAttributesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'regionId',
-      resourceAttributesShrink: 'resourceAttributes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceAttributesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceResponseBody extends $tea.Model {
-  price?: GetPriceResponseBodyPrice;
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      price: 'price',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      price: GetPriceResponseBodyPrice,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetPriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetPriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * zh_CH
-   */
-  xAcsAcceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAcceptLanguage: 'x-acs-accept-language',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAcceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  resourceType?: GetResourceTypeResponseBodyResourceType;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      resourceType: GetResourceTypeResponseBodyResourceType,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourceTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourceTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesRequest extends $tea.Model {
-  filter?: { [key: string]: any };
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesShrinkRequest extends $tea.Model {
-  filterShrink?: string;
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterShrink: 'filter',
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterShrink: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  resource?: GetResourcesResponseBodyResource;
-  resources?: GetResourcesResponseBodyResources[];
-  /**
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      requestId: 'requestId',
-      resource: 'resource',
-      resources: 'resources',
-      totalCount: 'totalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      resource: GetResourcesResponseBodyResource,
-      resources: { 'type': 'array', 'itemType': GetResourcesResponseBodyResources },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  task?: GetTaskResponseBodyTask;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      task: 'task',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      task: GetTaskResponseBodyTask,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataSourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * RegionId
-   */
-  attributeName?: string;
-  filter?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      attributeName: 'attributeName',
-      filter: 'filter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeName: 'string',
-      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataSourcesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * RegionId
-   */
-  attributeName?: string;
-  filterShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributeName: 'attributeName',
-      filterShrink: 'filter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributeName: 'string',
-      filterShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataSourcesResponseBody extends $tea.Model {
-  dataSources?: ListDataSourcesResponseBodyDataSources[];
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSources: 'dataSources',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSources: { 'type': 'array', 'itemType': ListDataSourcesResponseBodyDataSources },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataSourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDataSourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDataSourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * zh_CH
-   */
-  xAcsAcceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAcceptLanguage: 'x-acs-accept-language',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAcceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * ECS
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * Redis
-   */
-  nextToken?: string;
-  products?: ListProductsResponseBodyProducts[];
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      products: 'products',
-      requestId: 'requestId',
-      totalCount: 'totalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      products: { 'type': 'array', 'itemType': ListProductsResponseBodyProducts },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListProductsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListProductsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesHeaders extends $tea.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @example
-   * zh_CH
-   */
-  xAcsAcceptLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      xAcsAcceptLanguage: 'x-acs-accept-language',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xAcsAcceptLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * ECS::Disk
-   */
-  nextToken?: string;
-  resourceTypes?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      resourceTypes: 'resourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * ECS::Disk
-   */
-  nextToken?: string;
-  resourceTypesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      resourceTypesShrink: 'resourceTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      resourceTypesShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @example
-   * ECS::Disk
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  resourceTypes?: ListResourceTypesResponseBodyResourceTypes[];
-  /**
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'maxResults',
-      nextToken: 'nextToken',
-      requestId: 'requestId',
-      resourceTypes: 'resourceTypes',
-      totalCount: 'totalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      nextToken: 'string',
-      requestId: 'string',
-      resourceTypes: { 'type': 'array', 'itemType': ListResourceTypesResponseBodyResourceTypes },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListResourceTypesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListResourceTypesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourceRequest extends $tea.Model {
-  /**
-   * @example
-   * {
-   *      "AccountPassword": "4321****",
-   *      "Description": "cctest"
-   * }
-   */
-  body?: { [key: string]: any };
-  /**
-   * @example
-   * 1e810dfe1468721d0664a49b9d9f74f4
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-      clientToken: 'clientToken',
-      regionId: 'regionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      clientToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * task-433aead756057fff8189a7ce5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceResponseBodyPriceModuleDetails extends $tea.Model {
-  /**
-   * @example
-   * 0.02
-   */
-  costAfterDiscount?: number;
-  /**
-   * @example
-   * 0.0
-   */
-  invoiceDiscount?: number;
-  /**
-   * @example
-   * InstanceRent
-   */
-  moduleCode?: string;
-  /**
-   * @example
-   * InstanceRent
-   */
-  moduleName?: string;
-  /**
-   * @example
-   * 1000.0
-   */
-  originalCost?: number;
-  /**
-   * @example
-   * 1.0
-   */
-  priceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      costAfterDiscount: 'costAfterDiscount',
-      invoiceDiscount: 'invoiceDiscount',
-      moduleCode: 'moduleCode',
-      moduleName: 'moduleName',
-      originalCost: 'originalCost',
-      priceType: 'priceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      costAfterDiscount: 'number',
-      invoiceDiscount: 'number',
-      moduleCode: 'string',
-      moduleName: 'string',
-      originalCost: 'number',
-      priceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceResponseBodyPricePromotionDetails extends $tea.Model {
-  /**
-   * @example
-   * 37284
-   */
-  promotionDesc?: string;
-  promotionId?: number;
-  promotionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      promotionDesc: 'promotionDesc',
-      promotionId: 'promotionId',
-      promotionName: 'promotionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionDesc: 'string',
-      promotionId: 'number',
-      promotionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPriceResponseBodyPrice extends $tea.Model {
-  /**
-   * @example
-   * CNY
-   */
-  currency?: string;
-  /**
-   * @example
-   * 0.0
-   */
-  discountPrice?: number;
-  moduleDetails?: GetPriceResponseBodyPriceModuleDetails[];
-  /**
-   * @example
-   * 760.0
-   */
-  originalPrice?: number;
-  promotionDetails?: GetPriceResponseBodyPricePromotionDetails[];
-  /**
-   * @example
-   * 0.0
-   */
-  tradePrice?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currency: 'currency',
-      discountPrice: 'discountPrice',
-      moduleDetails: 'moduleDetails',
-      originalPrice: 'originalPrice',
-      promotionDetails: 'promotionDetails',
-      tradePrice: 'tradePrice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currency: 'string',
-      discountPrice: 'number',
-      moduleDetails: { 'type': 'array', 'itemType': GetPriceResponseBodyPriceModuleDetails },
-      originalPrice: 'number',
-      promotionDetails: { 'type': 'array', 'itemType': GetPriceResponseBodyPricePromotionDetails },
-      tradePrice: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlersCreate extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlersDelete extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlersGet extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlersList extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlersUpdate extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeHandlers extends $tea.Model {
-  create?: GetResourceTypeResponseBodyResourceTypeHandlersCreate;
-  delete?: GetResourceTypeResponseBodyResourceTypeHandlersDelete;
-  get?: GetResourceTypeResponseBodyResourceTypeHandlersGet;
-  list?: GetResourceTypeResponseBodyResourceTypeHandlersList;
-  update?: GetResourceTypeResponseBodyResourceTypeHandlersUpdate;
-  static names(): { [key: string]: string } {
-    return {
-      create: 'create',
-      delete: 'delete',
-      get: 'get',
-      list: 'list',
-      update: 'update',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      create: GetResourceTypeResponseBodyResourceTypeHandlersCreate,
-      delete: GetResourceTypeResponseBodyResourceTypeHandlersDelete,
-      get: GetResourceTypeResponseBodyResourceTypeHandlersGet,
-      list: GetResourceTypeResponseBodyResourceTypeHandlersList,
-      update: GetResourceTypeResponseBodyResourceTypeHandlersUpdate,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceTypeInfo extends $tea.Model {
-  /**
-   * @example
-   * paid
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * region
-   */
-  deliveryScope?: string;
-  /**
-   * @example
-   * An ECS instance is equivalent to a virtual machine, including the most basic computing components such as CPU, memory, operating system, network, and disk. You can easily customize and change the configuration of the instance. You have full control over the virtual machine.
-   */
-  description?: string;
-  /**
-   * @example
-   * Instance
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'chargeType',
-      deliveryScope: 'deliveryScope',
-      description: 'description',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      deliveryScope: 'string',
-      description: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourceTypeResponseBodyResourceType extends $tea.Model {
-  createOnlyProperties?: string[];
-  deleteOnlyProperties?: string[];
-  filterProperties?: string[];
-  getOnlyProperties?: string[];
-  getResponseProperties?: string[];
-  handlers?: GetResourceTypeResponseBodyResourceTypeHandlers;
-  info?: GetResourceTypeResponseBodyResourceTypeInfo;
-  listOnlyProperties?: string[];
-  listResponseProperties?: string[];
-  /**
-   * @example
-   * /properties/InstanceId
-   */
-  primaryIdentifier?: string;
-  /**
-   * @example
-   * ECS
-   */
-  product?: string;
-  properties?: { [key: string]: any };
-  publicProperties?: string[];
-  readOnlyProperties?: string[];
-  required?: string[];
-  /**
-   * @example
-   * Instance
-   */
-  resourceType?: string;
-  sensitiveInfoProperties?: string[];
-  updateOnlyProperties?: string[];
-  updateTypeProperties?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      createOnlyProperties: 'createOnlyProperties',
-      deleteOnlyProperties: 'deleteOnlyProperties',
-      filterProperties: 'filterProperties',
-      getOnlyProperties: 'getOnlyProperties',
-      getResponseProperties: 'getResponseProperties',
-      handlers: 'handlers',
-      info: 'info',
-      listOnlyProperties: 'listOnlyProperties',
-      listResponseProperties: 'listResponseProperties',
-      primaryIdentifier: 'primaryIdentifier',
-      product: 'product',
-      properties: 'properties',
-      publicProperties: 'publicProperties',
-      readOnlyProperties: 'readOnlyProperties',
-      required: 'required',
-      resourceType: 'resourceType',
-      sensitiveInfoProperties: 'sensitiveInfoProperties',
-      updateOnlyProperties: 'updateOnlyProperties',
-      updateTypeProperties: 'updateTypeProperties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      deleteOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      filterProperties: { 'type': 'array', 'itemType': 'string' },
-      getOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      getResponseProperties: { 'type': 'array', 'itemType': 'string' },
-      handlers: GetResourceTypeResponseBodyResourceTypeHandlers,
-      info: GetResourceTypeResponseBodyResourceTypeInfo,
-      listOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      listResponseProperties: { 'type': 'array', 'itemType': 'string' },
-      primaryIdentifier: 'string',
-      product: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      publicProperties: { 'type': 'array', 'itemType': 'string' },
-      readOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      required: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      sensitiveInfoProperties: { 'type': 'array', 'itemType': 'string' },
-      updateOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      updateTypeProperties: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesResponseBodyResource extends $tea.Model {
-  /**
-   * @example
-   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
-   */
-  resourceAttributes?: { [key: string]: any };
-  /**
-   * @example
-   * cctest
-   */
-  resourceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceAttributes: 'resourceAttributes',
-      resourceId: 'resourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetResourcesResponseBodyResources extends $tea.Model {
-  /**
-   * @example
-   * {"Status":"Available","Description":"","AccountPrivilege":"RoleReadWrite","InstanceId":"r-8vbf5abe31c9c4d4","RegionId":"cn-zhangjiakou","AccountType":"Normal","TypeInfo":{},"AccountName":"cctest"}
-   */
-  resourceAttributes?: { [key: string]: any };
-  /**
-   * @example
-   * cctest
-   */
-  resourceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceAttributes: 'resourceAttributes',
-      resourceId: 'resourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      resourceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResponseBodyTaskError extends $tea.Model {
-  /**
-   * @example
-   * OperationFailure.OperationFailed
-   */
-  code?: string;
-  /**
-   * @example
-   * {
-   *      "requestId": "123****",
-   *      "errorCode": "InvalidRamUser.NoPermission",
-   *      "errorMsg": "Ram user is not authorized to perform the operation."
-   * }
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTaskResponseBodyTask extends $tea.Model {
-  /**
-   * @example
-   * 2022-10-09T00:46:03Z
-   */
-  createTime?: string;
-  error?: GetTaskResponseBodyTaskError;
-  /**
-   * @example
-   * ECS
-   */
-  product?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @example
-   * i-8vbascjthm7kzhp3****
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * Instance/i-8vbascjthm7kzhp3****
-   * Instance/r-8vbf5abe31c9c4d4/Account/cctest
-   */
-  resourcePath?: string;
-  /**
-   * @example
-   * Instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @example
-   * Create
-   */
-  taskAction?: string;
-  /**
-   * @example
-   * task-433aead756057fff8189a7ce5****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'createTime',
-      error: 'error',
-      product: 'product',
-      regionId: 'regionId',
-      resourceId: 'resourceId',
-      resourcePath: 'resourcePath',
-      resourceType: 'resourceType',
-      status: 'status',
-      taskAction: 'taskAction',
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      error: GetTaskResponseBodyTaskError,
-      product: 'string',
-      regionId: 'string',
-      resourceId: 'string',
-      resourcePath: 'string',
-      resourceType: 'string',
-      status: 'string',
-      taskAction: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDataSourcesResponseBodyDataSources extends $tea.Model {
-  /**
-   * @example
-   * cn-beijing
-   */
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListProductsResponseBodyProducts extends $tea.Model {
-  /**
-   * @example
-   * ECS
-   */
-  productCode?: string;
-  /**
-   * @example
-   * Elastic Compute Service
-   */
-  productName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productCode: 'productCode',
-      productName: 'productName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productCode: 'string',
-      productName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlersCreate extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlersDelete extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlersGet extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlersList extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlersUpdate extends $tea.Model {
-  permissions?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      permissions: 'permissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      permissions: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesHandlers extends $tea.Model {
-  create?: ListResourceTypesResponseBodyResourceTypesHandlersCreate;
-  delete?: ListResourceTypesResponseBodyResourceTypesHandlersDelete;
-  get?: ListResourceTypesResponseBodyResourceTypesHandlersGet;
-  list?: ListResourceTypesResponseBodyResourceTypesHandlersList;
-  update?: ListResourceTypesResponseBodyResourceTypesHandlersUpdate;
-  static names(): { [key: string]: string } {
-    return {
-      create: 'create',
-      delete: 'delete',
-      get: 'get',
-      list: 'list',
-      update: 'update',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      create: ListResourceTypesResponseBodyResourceTypesHandlersCreate,
-      delete: ListResourceTypesResponseBodyResourceTypesHandlersDelete,
-      get: ListResourceTypesResponseBodyResourceTypesHandlersGet,
-      list: ListResourceTypesResponseBodyResourceTypesHandlersList,
-      update: ListResourceTypesResponseBodyResourceTypesHandlersUpdate,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypesInfo extends $tea.Model {
-  /**
-   * @example
-   * paid
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * region
-   */
-  deliveryScope?: string;
-  /**
-   * @example
-   * An ECS instance is equivalent to a virtual machine, including the most basic computing components such as CPU, memory, operating system, network, and disk. You can easily customize and change the configuration of the instance. You have full control over the virtual machine.
-   */
-  description?: string;
-  /**
-   * @example
-   * Instance
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'chargeType',
-      deliveryScope: 'deliveryScope',
-      description: 'description',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      deliveryScope: 'string',
-      description: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourceTypesResponseBodyResourceTypes extends $tea.Model {
-  createOnlyProperties?: string[];
-  deleteOnlyProperties?: string[];
-  filterProperties?: string[];
-  getOnlyProperties?: string[];
-  getResponseProperties?: string[];
-  handlers?: ListResourceTypesResponseBodyResourceTypesHandlers;
-  info?: ListResourceTypesResponseBodyResourceTypesInfo;
-  listOnlyProperties?: string[];
-  listResponseProperties?: string[];
-  /**
-   * @example
-   * /properties/InstanceId
-   */
-  primaryIdentifier?: string;
-  /**
-   * @example
-   * ECS
-   */
-  product?: string;
-  properties?: { [key: string]: any };
-  publicProperties?: string[];
-  readOnlyProperties?: string[];
-  required?: string[];
-  /**
-   * @example
-   * Instance
-   */
-  resourceType?: string;
-  sensitiveInfoProperties?: string[];
-  updateOnlyProperties?: string[];
-  updateTypeProperties?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      createOnlyProperties: 'createOnlyProperties',
-      deleteOnlyProperties: 'deleteOnlyProperties',
-      filterProperties: 'filterProperties',
-      getOnlyProperties: 'getOnlyProperties',
-      getResponseProperties: 'getResponseProperties',
-      handlers: 'handlers',
-      info: 'info',
-      listOnlyProperties: 'listOnlyProperties',
-      listResponseProperties: 'listResponseProperties',
-      primaryIdentifier: 'primaryIdentifier',
-      product: 'product',
-      properties: 'properties',
-      publicProperties: 'publicProperties',
-      readOnlyProperties: 'readOnlyProperties',
-      required: 'required',
-      resourceType: 'resourceType',
-      sensitiveInfoProperties: 'sensitiveInfoProperties',
-      updateOnlyProperties: 'updateOnlyProperties',
-      updateTypeProperties: 'updateTypeProperties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      deleteOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      filterProperties: { 'type': 'array', 'itemType': 'string' },
-      getOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      getResponseProperties: { 'type': 'array', 'itemType': 'string' },
-      handlers: ListResourceTypesResponseBodyResourceTypesHandlers,
-      info: ListResourceTypesResponseBodyResourceTypesInfo,
-      listOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      listResponseProperties: { 'type': 'array', 'itemType': 'string' },
-      primaryIdentifier: 'string',
-      product: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      publicProperties: { 'type': 'array', 'itemType': 'string' },
-      readOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      required: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      sensitiveInfoProperties: { 'type': 'array', 'itemType': 'string' },
-      updateOnlyProperties: { 'type': 'array', 'itemType': 'string' },
-      updateTypeProperties: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -2042,54 +18,65 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-   * 取消任务
+   * Calls this operation to cancel a specified asynchronous task.
+   * 
+   * @remarks
+   * Only tasks that are in the Pending or Running state can be canceled.
+   * You can call the CancelTask operation to cancel a Cloud Control API task, but the tasks that have been started in the downstream Alibaba Cloud services cannot be canceled.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelTaskResponse
    */
-  async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async cancelTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelTask",
       version: "2022-08-30",
       protocol: "HTTPS",
-      pathname: `/api/v1/tasks/${OpenApiUtil.getEncodeParam(taskId)}/operation/cancel`,
+      pathname: `/api/v1/tasks/${$dara.URL.percentEncode(taskId)}/operation/cancel`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    return $dara.cast<$_model.CancelTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelTaskResponse({}));
   }
 
   /**
-   * 取消任务
+   * Calls this operation to cancel a specified asynchronous task.
+   * 
+   * @remarks
+   * Only tasks that are in the Pending or Running state can be canceled.
+   * You can call the CancelTask operation to cancel a Cloud Control API task, but the tasks that have been started in the downstream Alibaba Cloud services cannot be canceled.
    * @returns CancelTaskResponse
    */
-  async cancelTask(taskId: string): Promise<CancelTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelTask(taskId: string): Promise<$_model.CancelTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelTaskWithOptions(taskId, headers, runtime);
   }
 
   /**
-   * 创建资源
+   * Calls this operation to create resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - CreateResourceRequest
@@ -2097,23 +84,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceResponse
    */
-  async createResourceWithOptions(requestPath: string, request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
-    Util.validateModel(request);
+  async createResourceWithOptions(requestPath: string, request: $_model.CreateResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateResource",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2124,47 +111,63 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
+    return $dara.cast<$_model.CreateResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateResourceResponse({}));
   }
 
   /**
-   * 创建资源
+   * Calls this operation to create resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - CreateResourceRequest
    * @returns CreateResourceResponse
    */
-  async createResource(requestPath: string, request: CreateResourceRequest): Promise<CreateResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createResource(requestPath: string, request: $_model.CreateResourceRequest): Promise<$_model.CreateResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceWithOptions(requestPath, request, headers, runtime);
   }
 
   /**
-   * 删除资源
+   * Calls this operation to delete resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
-   * @param request - DeleteResourceRequest
+   * @param tmpReq - DeleteResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceResponse
    */
-  async deleteResourceWithOptions(requestPath: string, request: DeleteResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
-    Util.validateModel(request);
+  async deleteResourceWithOptions(requestPath: string, tmpReq: $_model.DeleteResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteResourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.filterShrink)) {
+      query["filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteResource",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2175,24 +178,27 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
+    return $dara.cast<$_model.DeleteResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteResourceResponse({}));
   }
 
   /**
-   * 删除资源
+   * Calls this operation to delete resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - DeleteResourceRequest
    * @returns DeleteResourceResponse
    */
-  async deleteResource(requestPath: string, request: DeleteResourceRequest): Promise<DeleteResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteResource(requestPath: string, request: $_model.DeleteResourceRequest): Promise<$_model.DeleteResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(requestPath, request, headers, runtime);
   }
 
   /**
-   * 查询价格
+   * An RFQ interface through which users can query resource prices.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - GetPriceRequest
@@ -2200,28 +206,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPriceResponse
    */
-  async getPriceWithOptions(requestPath: string, tmpReq: GetPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPriceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetPriceShrinkRequest({ });
+  async getPriceWithOptions(requestPath: string, tmpReq: $_model.GetPriceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPriceResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetPriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceAttributes)) {
+    if (!$dara.isNull(tmpReq.resourceAttributes)) {
       request.resourceAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceAttributes, "resourceAttributes", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceAttributesShrink)) {
+    if (!$dara.isNull(request.resourceAttributesShrink)) {
       query["resourceAttributes"] = request.resourceAttributesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPrice",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2232,44 +238,44 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetPriceResponse>(await this.callApi(params, req, runtime), new GetPriceResponse({}));
+    return $dara.cast<$_model.GetPriceResponse>(await this.callApi(params, req, runtime), new $_model.GetPriceResponse({}));
   }
 
   /**
-   * 查询价格
+   * An RFQ interface through which users can query resource prices.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - GetPriceRequest
    * @returns GetPriceResponse
    */
-  async getPrice(requestPath: string, request: GetPriceRequest): Promise<GetPriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getPrice(requestPath: string, request: $_model.GetPriceRequest): Promise<$_model.GetPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPriceWithOptions(requestPath, request, headers, runtime);
   }
 
   /**
-   * 获取资源元数据
+   * You can call the operation to obtain resource metadata.
    * 
    * @param requestPath - the whole path of resource string
    * @param headers - GetResourceTypeHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceTypeResponse
    */
-  async getResourceTypeWithOptions(requestPath: string, headers: GetResourceTypeHeaders, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
+  async getResourceTypeWithOptions(requestPath: string, headers: $_model.GetResourceTypeHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceTypeResponse> {
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAcceptLanguage)) {
-      realHeaders["x-acs-accept-language"] = Util.toJSONString(headers.xAcsAcceptLanguage);
+    if (!$dara.isNull(headers.xAcsAcceptLanguage)) {
+      realHeaders["x-acs-accept-language"] = String(headers.xAcsAcceptLanguage);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResourceType",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2280,23 +286,27 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
+    return $dara.cast<$_model.GetResourceTypeResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceTypeResponse({}));
   }
 
   /**
-   * 获取资源元数据
+   * You can call the operation to obtain resource metadata.
    * 
    * @param requestPath - the whole path of resource string
    * @returns GetResourceTypeResponse
    */
-  async getResourceType(requestPath: string): Promise<GetResourceTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new GetResourceTypeHeaders({ });
+  async getResourceType(requestPath: string): Promise<$_model.GetResourceTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetResourceTypeHeaders({ });
     return await this.getResourceTypeWithOptions(requestPath, headers, runtime);
   }
 
   /**
-   * 查询资源
+   * You can call the operation to query resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
+   * You can call this operation to query resources List and Get based on different request paths.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - GetResourcesRequest
@@ -2304,36 +314,36 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourcesResponse
    */
-  async getResourcesWithOptions(requestPath: string, tmpReq: GetResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourcesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new GetResourcesShrinkRequest({ });
+  async getResourcesWithOptions(requestPath: string, tmpReq: $_model.GetResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetResourcesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filter)) {
+    if (!$dara.isNull(tmpReq.filter)) {
       request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filterShrink)) {
+    if (!$dara.isNull(request.filterShrink)) {
       query["filter"] = request.filterShrink;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetResources",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2344,65 +354,69 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetResourcesResponse>(await this.callApi(params, req, runtime), new GetResourcesResponse({}));
+    return $dara.cast<$_model.GetResourcesResponse>(await this.callApi(params, req, runtime), new $_model.GetResourcesResponse({}));
   }
 
   /**
-   * 查询资源
+   * You can call the operation to query resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
+   * You can call this operation to query resources List and Get based on different request paths.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - GetResourcesRequest
    * @returns GetResourcesResponse
    */
-  async getResources(requestPath: string, request: GetResourcesRequest): Promise<GetResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getResources(requestPath: string, request: $_model.GetResourcesRequest): Promise<$_model.GetResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getResourcesWithOptions(requestPath, request, headers, runtime);
   }
 
   /**
-   * 查询任务
+   * Calls this operation to query a specified asynchronous task.
    * 
    * @remarks
-   * GET /api/v1/tasks/{taskId}。
+   * GET /api/v1/tasks/{taskId}.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResponse
    */
-  async getTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTask",
       version: "2022-08-30",
       protocol: "HTTPS",
-      pathname: `/api/v1/tasks/${OpenApiUtil.getEncodeParam(taskId)}`,
+      pathname: `/api/v1/tasks/${$dara.URL.percentEncode(taskId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+    return $dara.cast<$_model.GetTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetTaskResponse({}));
   }
 
   /**
-   * 查询任务
+   * Calls this operation to query a specified asynchronous task.
    * 
    * @remarks
-   * GET /api/v1/tasks/{taskId}。
+   * GET /api/v1/tasks/{taskId}.
    * @returns GetTaskResponse
    */
-  async getTask(taskId: string): Promise<GetTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getTask(taskId: string): Promise<$_model.GetTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskWithOptions(taskId, headers, runtime);
   }
 
   /**
-   * 列举资源属性可选值
+   * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
    * 
    * @param requestPath - the whole path of resource string
    * @param tmpReq - ListDataSourcesRequest
@@ -2410,28 +424,28 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataSourcesResponse
    */
-  async listDataSourcesWithOptions(requestPath: string, tmpReq: ListDataSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListDataSourcesShrinkRequest({ });
+  async listDataSourcesWithOptions(requestPath: string, tmpReq: $_model.ListDataSourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataSourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataSourcesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.filter)) {
+    if (!$dara.isNull(tmpReq.filter)) {
       request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "filter", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.attributeName)) {
+    if (!$dara.isNull(request.attributeName)) {
       query["attributeName"] = request.attributeName;
     }
 
-    if (!Util.isUnset(request.filterShrink)) {
+    if (!$dara.isNull(request.filterShrink)) {
       query["filter"] = request.filterShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDataSources",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2442,162 +456,167 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
+    return $dara.cast<$_model.ListDataSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataSourcesResponse({}));
   }
 
   /**
-   * 列举资源属性可选值
+   * You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - ListDataSourcesRequest
    * @returns ListDataSourcesResponse
    */
-  async listDataSources(requestPath: string, request: ListDataSourcesRequest): Promise<ListDataSourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listDataSources(requestPath: string, request: $_model.ListDataSourcesRequest): Promise<$_model.ListDataSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listDataSourcesWithOptions(requestPath, request, headers, runtime);
   }
 
   /**
-   * 列举资源类型
+   * Calls this operation to list the supported services.
    * 
    * @remarks
-   * GET /api/v1/providers/{provider}/products。
+   * GET /api/v1/providers/{provider}/products.
    * 
    * @param request - ListProductsRequest
    * @param headers - ListProductsHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProductsResponse
    */
-  async listProductsWithOptions(provider: string, request: ListProductsRequest, headers: ListProductsHeaders, runtime: $Util.RuntimeOptions): Promise<ListProductsResponse> {
-    Util.validateModel(request);
+  async listProductsWithOptions(provider: string, request: $_model.ListProductsRequest, headers: $_model.ListProductsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAcceptLanguage)) {
-      realHeaders["x-acs-accept-language"] = Util.toJSONString(headers.xAcsAcceptLanguage);
+    if (!$dara.isNull(headers.xAcsAcceptLanguage)) {
+      realHeaders["x-acs-accept-language"] = String(headers.xAcsAcceptLanguage);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProducts",
       version: "2022-08-30",
       protocol: "HTTPS",
-      pathname: `/api/v1/providers/${OpenApiUtil.getEncodeParam(provider)}/products`,
+      pathname: `/api/v1/providers/${$dara.URL.percentEncode(provider)}/products`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListProductsResponse>(await this.callApi(params, req, runtime), new ListProductsResponse({}));
+    return $dara.cast<$_model.ListProductsResponse>(await this.callApi(params, req, runtime), new $_model.ListProductsResponse({}));
   }
 
   /**
-   * 列举资源类型
+   * Calls this operation to list the supported services.
    * 
    * @remarks
-   * GET /api/v1/providers/{provider}/products。
+   * GET /api/v1/providers/{provider}/products.
    * 
    * @param request - ListProductsRequest
    * @returns ListProductsResponse
    */
-  async listProducts(provider: string, request: ListProductsRequest): Promise<ListProductsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListProductsHeaders({ });
+  async listProducts(provider: string, request: $_model.ListProductsRequest): Promise<$_model.ListProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListProductsHeaders({ });
     return await this.listProductsWithOptions(provider, request, headers, runtime);
   }
 
   /**
-   * 列举资源类型
+   * Calls this operation to list the resource types of a service.
    * 
    * @remarks
-   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes.
    * 
    * @param tmpReq - ListResourceTypesRequest
    * @param headers - ListResourceTypesHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceTypesResponse
    */
-  async listResourceTypesWithOptions(provider: string, product: string, tmpReq: ListResourceTypesRequest, headers: ListResourceTypesHeaders, runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListResourceTypesShrinkRequest({ });
+  async listResourceTypesWithOptions(provider: string, product: string, tmpReq: $_model.ListResourceTypesRequest, headers: $_model.ListResourceTypesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceTypesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListResourceTypesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceTypes)) {
+    if (!$dara.isNull(tmpReq.resourceTypes)) {
       request.resourceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceTypes, "resourceTypes", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceTypesShrink)) {
+    if (!$dara.isNull(request.resourceTypesShrink)) {
       query["resourceTypes"] = request.resourceTypesShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xAcsAcceptLanguage)) {
-      realHeaders["x-acs-accept-language"] = Util.toJSONString(headers.xAcsAcceptLanguage);
+    if (!$dara.isNull(headers.xAcsAcceptLanguage)) {
+      realHeaders["x-acs-accept-language"] = String(headers.xAcsAcceptLanguage);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceTypes",
       version: "2022-08-30",
       protocol: "HTTPS",
-      pathname: `/api/v1/providers/${OpenApiUtil.getEncodeParam(provider)}/products/${OpenApiUtil.getEncodeParam(product)}/resourceTypes`,
+      pathname: `/api/v1/providers/${$dara.URL.percentEncode(provider)}/products/${$dara.URL.percentEncode(product)}/resourceTypes`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
+    return $dara.cast<$_model.ListResourceTypesResponse>(await this.callApi(params, req, runtime), new $_model.ListResourceTypesResponse({}));
   }
 
   /**
-   * 列举资源类型
+   * Calls this operation to list the resource types of a service.
    * 
    * @remarks
-   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes。
+   * GET /api/v1/providers/{provider}/products/{product}/resourceTypes.
    * 
    * @param request - ListResourceTypesRequest
    * @returns ListResourceTypesResponse
    */
-  async listResourceTypes(provider: string, product: string, request: ListResourceTypesRequest): Promise<ListResourceTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListResourceTypesHeaders({ });
+  async listResourceTypes(provider: string, product: string, request: $_model.ListResourceTypesRequest): Promise<$_model.ListResourceTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ListResourceTypesHeaders({ });
     return await this.listResourceTypesWithOptions(provider, product, request, headers, runtime);
   }
 
   /**
-   * 更新资源
+   * Calls this operation to update resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+   * If resources fail to be updated at any time, the Cloud Control API does not roll the resource back to the original status.
+   * The resource APIs cannot be rolled back. If the API operation is partially failed to be called, you can call the GetResource operation to view the latest status of the resource. If necessary, you can call the UpdateResource or DeleteResource operation to manually compensate for the failure.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - UpdateResourceRequest
@@ -2605,23 +624,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourceResponse
    */
-  async updateResourceWithOptions(requestPath: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
-    Util.validateModel(request);
+  async updateResourceWithOptions(requestPath: string, request: $_model.UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResourceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateResource",
       version: "2022-08-30",
       protocol: "HTTPS",
@@ -2632,18 +651,23 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
+    return $dara.cast<$_model.UpdateResourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateResourceResponse({}));
   }
 
   /**
-   * 更新资源
+   * Calls this operation to update resources.
+   * 
+   * @remarks
+   * You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+   * If resources fail to be updated at any time, the Cloud Control API does not roll the resource back to the original status.
+   * The resource APIs cannot be rolled back. If the API operation is partially failed to be called, you can call the GetResource operation to view the latest status of the resource. If necessary, you can call the UpdateResource or DeleteResource operation to manually compensate for the failure.
    * 
    * @param requestPath - the whole path of resource string
    * @param request - UpdateResourceRequest
    * @returns UpdateResourceResponse
    */
-  async updateResource(requestPath: string, request: UpdateResourceRequest): Promise<UpdateResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateResource(requestPath: string, request: $_model.UpdateResourceRequest): Promise<$_model.UpdateResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceWithOptions(requestPath, request, headers, runtime);
   }
