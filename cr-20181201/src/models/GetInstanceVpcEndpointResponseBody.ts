@@ -20,6 +20,11 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $dara.Model {
    */
   ip?: string;
   /**
+   * @example
+   * PRIVATE_ZONE_CONFLICT_AT_{private_zone_id}
+   */
+  issue?: string;
+  /**
    * @remarks
    * The status of the VPC. Valid values:
    * 
@@ -50,6 +55,7 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $dara.Model {
     return {
       defaultAccess: 'DefaultAccess',
       ip: 'Ip',
+      issue: 'Issue',
       status: 'Status',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
@@ -60,6 +66,7 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $dara.Model {
     return {
       defaultAccess: 'boolean',
       ip: 'string',
+      issue: 'string',
       status: 'string',
       vpcId: 'string',
       vswitchId: 'string',
