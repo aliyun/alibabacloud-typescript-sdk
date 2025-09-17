@@ -286,7 +286,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSmsTemplateResponse
    */
-  // Deprecated
   async addSmsTemplateWithOptions(request: $_model.AddSmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddSmsTemplateResponse> {
     request.validate();
     let query = { };
@@ -929,6 +928,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.trafficDriving)) {
+      query["TrafficDriving"] = request.trafficDriving;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1989,7 +1992,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySmsTemplateResponse
    */
-  // Deprecated
   async modifySmsTemplateWithOptions(request: $_model.ModifySmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySmsTemplateResponse> {
     request.validate();
     let query = { };
@@ -2951,7 +2953,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmsTemplateResponse
    */
-  // Deprecated
   async querySmsTemplateWithOptions(request: $_model.QuerySmsTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySmsTemplateResponse> {
     request.validate();
     let query = { };
@@ -3407,6 +3408,84 @@ export default class Client extends OpenApi {
   async sendCardSms(request: $_model.SendCardSmsRequest): Promise<$_model.SendCardSmsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendCardSmsWithOptions(request, runtime);
+  }
+
+  /**
+   * 发送物流短信
+   * 
+   * @param request - SendLogisticsSmsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendLogisticsSmsResponse
+   */
+  async sendLogisticsSmsWithOptions(request: $_model.SendLogisticsSmsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendLogisticsSmsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.expressCompanyCode)) {
+      query["ExpressCompanyCode"] = request.expressCompanyCode;
+    }
+
+    if (!$dara.isNull(request.mailNo)) {
+      query["MailNo"] = request.mailNo;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.platformCompanyCode)) {
+      query["PlatformCompanyCode"] = request.platformCompanyCode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!$dara.isNull(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!$dara.isNull(request.templateParam)) {
+      query["TemplateParam"] = request.templateParam;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendLogisticsSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendLogisticsSmsResponse>(await this.callApi(params, req, runtime), new $_model.SendLogisticsSmsResponse({}));
+  }
+
+  /**
+   * 发送物流短信
+   * 
+   * @param request - SendLogisticsSmsRequest
+   * @returns SendLogisticsSmsResponse
+   */
+  async sendLogisticsSms(request: $_model.SendLogisticsSmsRequest): Promise<$_model.SendLogisticsSmsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendLogisticsSmsWithOptions(request, runtime);
   }
 
   /**
@@ -4266,6 +4345,10 @@ export default class Client extends OpenApi {
       query["TemplateType"] = request.templateType;
     }
 
+    if (!$dara.isNull(request.trafficDriving)) {
+      query["TrafficDriving"] = request.trafficDriving;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4357,6 +4440,68 @@ export default class Client extends OpenApi {
   async validPhoneCode(request: $_model.ValidPhoneCodeRequest): Promise<$_model.ValidPhoneCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.validPhoneCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 物流短信运单号校验
+   * 
+   * @param request - VerifyLogisticsSmsMailNoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyLogisticsSmsMailNoResponse
+   */
+  async verifyLogisticsSmsMailNoWithOptions(request: $_model.VerifyLogisticsSmsMailNoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyLogisticsSmsMailNoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.expressCompanyCode)) {
+      query["ExpressCompanyCode"] = request.expressCompanyCode;
+    }
+
+    if (!$dara.isNull(request.mailNo)) {
+      query["MailNo"] = request.mailNo;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.platformCompanyCode)) {
+      query["PlatformCompanyCode"] = request.platformCompanyCode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyLogisticsSmsMailNo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyLogisticsSmsMailNoResponse>(await this.callApi(params, req, runtime), new $_model.VerifyLogisticsSmsMailNoResponse({}));
+  }
+
+  /**
+   * 物流短信运单号校验
+   * 
+   * @param request - VerifyLogisticsSmsMailNoRequest
+   * @returns VerifyLogisticsSmsMailNoResponse
+   */
+  async verifyLogisticsSmsMailNo(request: $_model.VerifyLogisticsSmsMailNoRequest): Promise<$_model.VerifyLogisticsSmsMailNoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyLogisticsSmsMailNoWithOptions(request, runtime);
   }
 
 }

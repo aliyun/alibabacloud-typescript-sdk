@@ -2,45 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChangeSignatureQualificationResponseBodyData extends $dara.Model {
-  data?: { [key: string]: any };
+export class SendLogisticsSmsResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 示例值
+   * 示例值示例值示例值
    */
-  errCode?: string;
-  /**
-   * @example
-   * 示例值示例值
-   */
-  errMessage?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
+  bizId?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
-      errCode: 'ErrCode',
-      errMessage: 'ErrMessage',
-      success: 'Success',
+      bizId: 'BizId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errCode: 'string',
-      errMessage: 'string',
-      success: 'boolean',
+      bizId: 'string',
     };
   }
 
   validate() {
-    if(this.data) {
-      $dara.Model.validateMap(this.data);
-    }
     super.validate();
   }
 
@@ -49,22 +29,22 @@ export class ChangeSignatureQualificationResponseBodyData extends $dara.Model {
   }
 }
 
-export class ChangeSignatureQualificationResponseBody extends $dara.Model {
+export class SendLogisticsSmsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
-   * OK
+   * 示例值示例值示例值
    */
   code?: string;
-  data?: ChangeSignatureQualificationResponseBodyData;
+  data?: SendLogisticsSmsResponseBodyData;
   /**
    * @example
-   * OK
+   * 示例值示例值
    */
   message?: string;
   /**
    * @example
-   * 0A974B78-02BF-4C79-ADF3-90CFBA1B55B1
+   * 示例值示例值
    */
   requestId?: string;
   /**
@@ -87,7 +67,7 @@ export class ChangeSignatureQualificationResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: ChangeSignatureQualificationResponseBodyData,
+      data: SendLogisticsSmsResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',

@@ -101,6 +101,7 @@ export class CreateSmsTemplateShrinkRequest extends $dara.Model {
    * 0
    */
   templateType?: number;
+  trafficDriving?: string;
   static names(): { [key: string]: string } {
     return {
       applySceneContent: 'ApplySceneContent',
@@ -115,6 +116,7 @@ export class CreateSmsTemplateShrinkRequest extends $dara.Model {
       templateName: 'TemplateName',
       templateRule: 'TemplateRule',
       templateType: 'TemplateType',
+      trafficDriving: 'TrafficDriving',
     };
   }
 
@@ -132,6 +134,7 @@ export class CreateSmsTemplateShrinkRequest extends $dara.Model {
       templateName: 'string',
       templateRule: 'string',
       templateType: 'number',
+      trafficDriving: 'string',
     };
   }
 

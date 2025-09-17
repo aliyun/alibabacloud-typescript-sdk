@@ -2,49 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSmartShortUrlResponseBodyModel extends $dara.Model {
+export class VerifyLogisticsSmsMailNoResponseBodyData extends $dara.Model {
   /**
    * @example
    * 示例值
    */
-  domain?: string;
-  /**
-   * @example
-   * 11
-   */
-  expiration?: number;
+  expressCompanyCode?: string;
   /**
    * @example
    * 示例值
    */
-  phoneNumber?: string;
+  mobileSuffix?: string;
   /**
    * @example
-   * 示例值
+   * false
    */
-  shortName?: string;
-  /**
-   * @example
-   * 示例值示例值
-   */
-  shortUrl?: string;
+  verifyResult?: boolean;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
-      expiration: 'Expiration',
-      phoneNumber: 'PhoneNumber',
-      shortName: 'ShortName',
-      shortUrl: 'ShortUrl',
+      expressCompanyCode: 'ExpressCompanyCode',
+      mobileSuffix: 'MobileSuffix',
+      verifyResult: 'VerifyResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
-      expiration: 'number',
-      phoneNumber: 'string',
-      shortName: 'string',
-      shortUrl: 'string',
+      expressCompanyCode: 'string',
+      mobileSuffix: 'string',
+      verifyResult: 'boolean',
     };
   }
 
@@ -57,44 +43,54 @@ export class CreateSmartShortUrlResponseBodyModel extends $dara.Model {
   }
 }
 
-export class CreateSmartShortUrlResponseBody extends $dara.Model {
+export class VerifyLogisticsSmsMailNoResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   /**
    * @example
-   * 示例值示例值示例值
+   * 示例值
    */
   code?: string;
+  data?: VerifyLogisticsSmsMailNoResponseBodyData;
   /**
    * @example
    * 示例值示例值示例值
    */
   message?: string;
-  model?: CreateSmartShortUrlResponseBodyModel[];
   /**
    * @example
-   * 示例值示例值
+   * 示例值示例值示例值
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
-      model: 'Model',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
+      data: VerifyLogisticsSmsMailNoResponseBodyData,
       message: 'string',
-      model: { 'type': 'array', 'itemType': CreateSmartShortUrlResponseBodyModel },
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
   validate() {
-    if(Array.isArray(this.model)) {
-      $dara.Model.validateArray(this.model);
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
     }
     super.validate();
   }

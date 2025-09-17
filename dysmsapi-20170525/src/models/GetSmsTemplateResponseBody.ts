@@ -1,9 +1,98 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetSmsTemplateResponseBodyAuditInfo } from "./GetSmsTemplateResponseBodyAuditInfo";
-import { GetSmsTemplateResponseBodyFileUrlList } from "./GetSmsTemplateResponseBodyFileUrlList";
-import { GetSmsTemplateResponseBodyMoreDataFileUrlList } from "./GetSmsTemplateResponseBodyMoreDataFileUrlList";
 
+
+export class GetSmsTemplateResponseBodyAuditInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Audit date and time.
+   * 
+   * @example
+   * 2024-06-03 11:20:34
+   */
+  auditDate?: string;
+  /**
+   * @remarks
+   * Reasons for failed audit.
+   * 
+   * @example
+   * 模板内容中包含错别字。
+   */
+  rejectInfo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditDate: 'AuditDate',
+      rejectInfo: 'RejectInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditDate: 'string',
+      rejectInfo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyFileUrlList extends $dara.Model {
+  fileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.fileUrl)) {
+      $dara.Model.validateArray(this.fileUrl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $dara.Model {
+  moreDataFileUrl?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      moreDataFileUrl: 'MoreDataFileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moreDataFileUrl: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.moreDataFileUrl)) {
+      $dara.Model.validateArray(this.moreDataFileUrl);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetSmsTemplateResponseBody extends $dara.Model {
   /**
