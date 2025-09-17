@@ -3894,6 +3894,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建四层应用
+   * 
+   * @param tmpReq - CreateTransportLayerApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTransportLayerApplicationResponse
+   */
+  async createTransportLayerApplicationWithOptions(tmpReq: $_model.CreateTransportLayerApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTransportLayerApplicationResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateTransportLayerApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.crossBorderOptimization)) {
+      query["CrossBorderOptimization"] = request.crossBorderOptimization;
+    }
+
+    if (!$dara.isNull(request.ipAccessRule)) {
+      query["IpAccessRule"] = request.ipAccessRule;
+    }
+
+    if (!$dara.isNull(request.ipv6)) {
+      query["Ipv6"] = request.ipv6;
+    }
+
+    if (!$dara.isNull(request.recordName)) {
+      query["RecordName"] = request.recordName;
+    }
+
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTransportLayerApplication",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTransportLayerApplicationResponse>(await this.callApi(params, req, runtime), new $_model.CreateTransportLayerApplicationResponse({}));
+  }
+
+  /**
+   * 创建四层应用
+   * 
+   * @param request - CreateTransportLayerApplicationRequest
+   * @returns CreateTransportLayerApplicationResponse
+   */
+  async createTransportLayerApplication(request: $_model.CreateTransportLayerApplicationRequest): Promise<$_model.CreateTransportLayerApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTransportLayerApplicationWithOptions(request, runtime);
+  }
+
+  /**
    * 创建网页监测配置
    * 
    * @param request - CreateUrlObservationRequest
@@ -5815,6 +5883,10 @@ export default class Client extends OpenApi {
       query["RecordId"] = request.recordId;
     }
 
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6341,6 +6413,52 @@ export default class Client extends OpenApi {
   async deleteSiteOriginClientCertificate(request: $_model.DeleteSiteOriginClientCertificateRequest): Promise<$_model.DeleteSiteOriginClientCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSiteOriginClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除四层应用
+   * 
+   * @param request - DeleteTransportLayerApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTransportLayerApplicationResponse
+   */
+  async deleteTransportLayerApplicationWithOptions(request: $_model.DeleteTransportLayerApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTransportLayerApplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTransportLayerApplication",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTransportLayerApplicationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTransportLayerApplicationResponse({}));
+  }
+
+  /**
+   * 删除四层应用
+   * 
+   * @param request - DeleteTransportLayerApplicationRequest
+   * @returns DeleteTransportLayerApplicationResponse
+   */
+  async deleteTransportLayerApplication(request: $_model.DeleteTransportLayerApplicationRequest): Promise<$_model.DeleteTransportLayerApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTransportLayerApplicationWithOptions(request, runtime);
   }
 
   /**
@@ -10278,6 +10396,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询四层应用详情
+   * 
+   * @param request - GetTransportLayerApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTransportLayerApplicationResponse
+   */
+  async getTransportLayerApplicationWithOptions(request: $_model.GetTransportLayerApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTransportLayerApplicationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTransportLayerApplication",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTransportLayerApplicationResponse>(await this.callApi(params, req, runtime), new $_model.GetTransportLayerApplicationResponse({}));
+  }
+
+  /**
+   * 查询四层应用详情
+   * 
+   * @param request - GetTransportLayerApplicationRequest
+   * @returns GetTransportLayerApplicationResponse
+   */
+  async getTransportLayerApplication(request: $_model.GetTransportLayerApplicationRequest): Promise<$_model.GetTransportLayerApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTransportLayerApplicationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the execution status and running information of a file upload task based on the task ID.
    * 
    * @param request - GetUploadTaskRequest
@@ -12731,6 +12887,44 @@ export default class Client extends OpenApi {
   async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询四层应用列表
+   * 
+   * @param request - ListTransportLayerApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTransportLayerApplicationsResponse
+   */
+  async listTransportLayerApplicationsWithOptions(request: $_model.ListTransportLayerApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTransportLayerApplicationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTransportLayerApplications",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTransportLayerApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListTransportLayerApplicationsResponse({}));
+  }
+
+  /**
+   * 查询四层应用列表
+   * 
+   * @param request - ListTransportLayerApplicationsRequest
+   * @returns ListTransportLayerApplicationsResponse
+   */
+  async listTransportLayerApplications(request: $_model.ListTransportLayerApplicationsRequest): Promise<$_model.ListTransportLayerApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTransportLayerApplicationsWithOptions(request, runtime);
   }
 
   /**
@@ -17799,6 +17993,74 @@ export default class Client extends OpenApi {
   async updateTieredCache(request: $_model.UpdateTieredCacheRequest): Promise<$_model.UpdateTieredCacheResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTieredCacheWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改四层应用
+   * 
+   * @param tmpReq - UpdateTransportLayerApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTransportLayerApplicationResponse
+   */
+  async updateTransportLayerApplicationWithOptions(tmpReq: $_model.UpdateTransportLayerApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTransportLayerApplicationResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateTransportLayerApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.crossBorderOptimization)) {
+      query["CrossBorderOptimization"] = request.crossBorderOptimization;
+    }
+
+    if (!$dara.isNull(request.ipAccessRule)) {
+      query["IpAccessRule"] = request.ipAccessRule;
+    }
+
+    if (!$dara.isNull(request.ipv6)) {
+      query["Ipv6"] = request.ipv6;
+    }
+
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTransportLayerApplication",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTransportLayerApplicationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTransportLayerApplicationResponse({}));
+  }
+
+  /**
+   * 修改四层应用
+   * 
+   * @param request - UpdateTransportLayerApplicationRequest
+   * @returns UpdateTransportLayerApplicationResponse
+   */
+  async updateTransportLayerApplication(request: $_model.UpdateTransportLayerApplicationRequest): Promise<$_model.UpdateTransportLayerApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTransportLayerApplicationWithOptions(request, runtime);
   }
 
   /**

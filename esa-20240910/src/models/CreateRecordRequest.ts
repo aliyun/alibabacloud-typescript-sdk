@@ -355,6 +355,8 @@ export class CreateRecordRequest extends $dara.Model {
    * @remarks
    * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 30
    */

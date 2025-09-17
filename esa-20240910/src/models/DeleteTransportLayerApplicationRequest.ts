@@ -2,29 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteRecordRequest extends $dara.Model {
+export class DeleteTransportLayerApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
-   * 
    * This parameter is required.
    * 
    * @example
-   * 1234567890123
+   * 170996390868****
    */
-  recordId?: number;
-  securityToken?: string;
+  applicationId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      recordId: 'RecordId',
-      securityToken: 'SecurityToken',
+      applicationId: 'ApplicationId',
+      siteId: 'SiteId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      recordId: 'number',
-      securityToken: 'string',
+      applicationId: 'number',
+      siteId: 'number',
     };
   }
 
