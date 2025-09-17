@@ -8,6 +8,7 @@ export class OpenStructSaseUser extends $dara.Model {
   createTimeUnix?: number;
   customFields?: IdpCustomField[];
   departments?: OpenStructSaseDepartment[];
+  description?: string;
   email?: string;
   idpConfigId?: string;
   leaveTimeUnix?: number;
@@ -25,6 +26,7 @@ export class OpenStructSaseUser extends $dara.Model {
       createTimeUnix: 'CreateTimeUnix',
       customFields: 'CustomFields',
       departments: 'Departments',
+      description: 'Description',
       email: 'Email',
       idpConfigId: 'IdpConfigId',
       leaveTimeUnix: 'LeaveTimeUnix',
@@ -45,6 +47,7 @@ export class OpenStructSaseUser extends $dara.Model {
       createTimeUnix: 'number',
       customFields: { 'type': 'array', 'itemType': IdpCustomField },
       departments: { 'type': 'array', 'itemType': OpenStructSaseDepartment },
+      description: 'string',
       email: 'string',
       idpConfigId: 'string',
       leaveTimeUnix: 'number',
