@@ -463,6 +463,8 @@ export class CreateDomainRequestRedirect extends $dara.Model {
    * www.aliyundoc.com
    */
   sniHost?: string;
+  WLProxyClientIp?: boolean;
+  webServerType?: boolean;
   /**
    * @remarks
    * The timeout period of write connections. Unit: seconds. Valid values: 1 to 3600.
@@ -471,6 +473,8 @@ export class CreateDomainRequestRedirect extends $dara.Model {
    * 200
    */
   writeTimeout?: number;
+  XClientIp?: boolean;
+  XTrueIp?: boolean;
   /**
    * @remarks
    * Specifies whether to use the X-Forward-For-Proto header field to pass the protocol used by WAF to forward requests to the origin server. Valid values:
@@ -500,7 +504,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
       routingRules: 'RoutingRules',
       sniEnabled: 'SniEnabled',
       sniHost: 'SniHost',
+      WLProxyClientIp: 'WLProxyClientIp',
+      webServerType: 'WebServerType',
       writeTimeout: 'WriteTimeout',
+      XClientIp: 'XClientIp',
+      XTrueIp: 'XTrueIp',
       xffProto: 'XffProto',
     };
   }
@@ -523,7 +531,11 @@ export class CreateDomainRequestRedirect extends $dara.Model {
       routingRules: 'string',
       sniEnabled: 'boolean',
       sniHost: 'string',
+      WLProxyClientIp: 'boolean',
+      webServerType: 'boolean',
       writeTimeout: 'number',
+      XClientIp: 'boolean',
+      XTrueIp: 'boolean',
       xffProto: 'boolean',
     };
   }

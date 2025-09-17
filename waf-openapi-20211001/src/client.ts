@@ -5886,6 +5886,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the system status of a node in a hybrid cloud cluster.
+   * 
+   * @param request - DescribeHybridCloudBasicMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudBasicMonitorResponse
+   */
+  async describeHybridCloudBasicMonitorWithOptions(request: $_model.DescribeHybridCloudBasicMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudBasicMonitorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mid)) {
+      query["Mid"] = request.mid;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudBasicMonitor",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudBasicMonitorResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudBasicMonitorResponse({}));
+  }
+
+  /**
+   * Queries the system status of a node in a hybrid cloud cluster.
+   * 
+   * @param request - DescribeHybridCloudBasicMonitorRequest
+   * @returns DescribeHybridCloudBasicMonitorResponse
+   */
+  async describeHybridCloudBasicMonitor(request: $_model.DescribeHybridCloudBasicMonitorRequest): Promise<$_model.DescribeHybridCloudBasicMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudBasicMonitorWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the rule information about a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
@@ -5995,6 +6049,84 @@ export default class Client extends OpenApi {
   async describeHybridCloudClusterRules(request: $_model.DescribeHybridCloudClusterRulesRequest): Promise<$_model.DescribeHybridCloudClusterRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeHybridCloudClusterRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 集群机器列表
+   * 
+   * @param request - DescribeHybridCloudClusterServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudClusterServersResponse
+   */
+  async describeHybridCloudClusterServersWithOptions(request: $_model.DescribeHybridCloudClusterServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudClusterServersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
+    if (!$dara.isNull(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudClusterServers",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudClusterServersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudClusterServersResponse({}));
+  }
+
+  /**
+   * 集群机器列表
+   * 
+   * @param request - DescribeHybridCloudClusterServersRequest
+   * @returns DescribeHybridCloudClusterServersResponse
+   */
+  async describeHybridCloudClusterServers(request: $_model.DescribeHybridCloudClusterServersRequest): Promise<$_model.DescribeHybridCloudClusterServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudClusterServersWithOptions(request, runtime);
   }
 
   /**
@@ -6122,6 +6254,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of applications running on a hybrid cloud cluster node.
+   * 
+   * @param request - DescribeHybridCloudProcessMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudProcessMonitorResponse
+   */
+  async describeHybridCloudProcessMonitorWithOptions(request: $_model.DescribeHybridCloudProcessMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudProcessMonitorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mid)) {
+      query["Mid"] = request.mid;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudProcessMonitor",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudProcessMonitorResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudProcessMonitorResponse({}));
+  }
+
+  /**
+   * Queries the status of applications running on a hybrid cloud cluster node.
+   * 
+   * @param request - DescribeHybridCloudProcessMonitorRequest
+   * @returns DescribeHybridCloudProcessMonitorResponse
+   */
+  async describeHybridCloudProcessMonitor(request: $_model.DescribeHybridCloudProcessMonitorRequest): Promise<$_model.DescribeHybridCloudProcessMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudProcessMonitorWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询混合云域名详情
+   * 
+   * @param request - DescribeHybridCloudResourceDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudResourceDetailResponse
+   */
+  async describeHybridCloudResourceDetailWithOptions(request: $_model.DescribeHybridCloudResourceDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudResourceDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backend)) {
+      query["Backend"] = request.backend;
+    }
+
+    if (!$dara.isNull(request.cnameEnabled)) {
+      query["CnameEnabled"] = request.cnameEnabled;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudResourceDetail",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudResourceDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudResourceDetailResponse({}));
+  }
+
+  /**
+   * 查询混合云域名详情
+   * 
+   * @param request - DescribeHybridCloudResourceDetailRequest
+   * @returns DescribeHybridCloudResourceDetailResponse
+   */
+  async describeHybridCloudResourceDetail(request: $_model.DescribeHybridCloudResourceDetailRequest): Promise<$_model.DescribeHybridCloudResourceDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudResourceDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
    * 
    * @param request - DescribeHybridCloudResourcesRequest
@@ -6192,6 +6448,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取SDK信息
+   * 
+   * @param request - DescribeHybridCloudSdkServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudSdkServersResponse
+   */
+  async describeHybridCloudSdkServersWithOptions(request: $_model.DescribeHybridCloudSdkServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudSdkServersResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudSdkServers",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudSdkServersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudSdkServersResponse({}));
+  }
+
+  /**
+   * 获取SDK信息
+   * 
+   * @param request - DescribeHybridCloudSdkServersRequest
+   * @returns DescribeHybridCloudSdkServersResponse
+   */
+  async describeHybridCloudSdkServers(request: $_model.DescribeHybridCloudSdkServersRequest): Promise<$_model.DescribeHybridCloudSdkServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudSdkServersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
    * 
    * @param request - DescribeHybridCloudServerRegionsRequest
@@ -6247,6 +6541,56 @@ export default class Client extends OpenApi {
   async describeHybridCloudServerRegions(request: $_model.DescribeHybridCloudServerRegionsRequest): Promise<$_model.DescribeHybridCloudServerRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeHybridCloudServerRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询接入区域
+   * 
+   * @param request - DescribeHybridCloudSupportRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudSupportRegionsResponse
+   */
+  async describeHybridCloudSupportRegionsWithOptions(request: $_model.DescribeHybridCloudSupportRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudSupportRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudSupportRegions",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudSupportRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudSupportRegionsResponse({}));
+  }
+
+  /**
+   * 查询接入区域
+   * 
+   * @param request - DescribeHybridCloudSupportRegionsRequest
+   * @returns DescribeHybridCloudSupportRegionsResponse
+   */
+  async describeHybridCloudSupportRegions(request: $_model.DescribeHybridCloudSupportRegionsRequest): Promise<$_model.DescribeHybridCloudSupportRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudSupportRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -6317,6 +6661,56 @@ export default class Client extends OpenApi {
   async describeHybridCloudUnassignedMachines(request: $_model.DescribeHybridCloudUnassignedMachinesRequest): Promise<$_model.DescribeHybridCloudUnassignedMachinesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeHybridCloudUnassignedMachinesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the ports that are not supported by the hybrid cloud mode.
+   * 
+   * @param request - DescribeHybridCloudUnsupportPortsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudUnsupportPortsResponse
+   */
+  async describeHybridCloudUnsupportPortsWithOptions(request: $_model.DescribeHybridCloudUnsupportPortsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudUnsupportPortsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudUnsupportPorts",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudUnsupportPortsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudUnsupportPortsResponse({}));
+  }
+
+  /**
+   * Queries the ports that are not supported by the hybrid cloud mode.
+   * 
+   * @param request - DescribeHybridCloudUnsupportPortsRequest
+   * @returns DescribeHybridCloudUnsupportPortsResponse
+   */
+  async describeHybridCloudUnsupportPorts(request: $_model.DescribeHybridCloudUnsupportPortsRequest): Promise<$_model.DescribeHybridCloudUnsupportPortsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudUnsupportPortsWithOptions(request, runtime);
   }
 
   /**
@@ -11037,6 +11431,112 @@ export default class Client extends OpenApi {
   async modifyDomainPunishStatus(request: $_model.ModifyDomainPunishStatusRequest): Promise<$_model.ModifyDomainPunishStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDomainPunishStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies information about a hybrid cloud cluster.
+   * 
+   * @param request - ModifyHybridCloudClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHybridCloudClusterResponse
+   */
+  async modifyHybridCloudClusterWithOptions(request: $_model.ModifyHybridCloudClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyHybridCloudClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessMode)) {
+      query["AccessMode"] = request.accessMode;
+    }
+
+    if (!$dara.isNull(request.accessRegion)) {
+      query["AccessRegion"] = request.accessRegion;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.httpPorts)) {
+      query["HttpPorts"] = request.httpPorts;
+    }
+
+    if (!$dara.isNull(request.httpsPorts)) {
+      query["HttpsPorts"] = request.httpsPorts;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logFieldsNotReturned)) {
+      query["LogFieldsNotReturned"] = request.logFieldsNotReturned;
+    }
+
+    if (!$dara.isNull(request.protectionServerCount)) {
+      query["ProtectionServerCount"] = request.protectionServerCount;
+    }
+
+    if (!$dara.isNull(request.proxyStatus)) {
+      query["ProxyStatus"] = request.proxyStatus;
+    }
+
+    if (!$dara.isNull(request.proxyType)) {
+      query["ProxyType"] = request.proxyType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["RuleStatus"] = request.ruleStatus;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyHybridCloudCluster",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyHybridCloudClusterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyHybridCloudClusterResponse({}));
+  }
+
+  /**
+   * Modifies information about a hybrid cloud cluster.
+   * 
+   * @param request - ModifyHybridCloudClusterRequest
+   * @returns ModifyHybridCloudClusterResponse
+   */
+  async modifyHybridCloudCluster(request: $_model.ModifyHybridCloudClusterRequest): Promise<$_model.ModifyHybridCloudClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyHybridCloudClusterWithOptions(request, runtime);
   }
 
   /**

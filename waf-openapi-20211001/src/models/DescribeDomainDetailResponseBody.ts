@@ -563,6 +563,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * www.aliyundoc.com
    */
   sniHost?: string;
+  WLProxyClientIp?: boolean;
+  webServerType?: boolean;
   /**
    * @remarks
    * The write timeout period. Unit: seconds. Valid values: 5 to 1800.
@@ -571,6 +573,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * 200
    */
   writeTimeout?: number;
+  XClientIp?: boolean;
+  XTrueIp?: boolean;
   /**
    * @remarks
    * Indicates whether the X-Forward-For-Proto header is used to identify the protocol used by WAF to forward requests to the origin server. Valid values:
@@ -600,7 +604,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       retry: 'Retry',
       sniEnabled: 'SniEnabled',
       sniHost: 'SniHost',
+      WLProxyClientIp: 'WLProxyClientIp',
+      webServerType: 'WebServerType',
       writeTimeout: 'WriteTimeout',
+      XClientIp: 'XClientIp',
+      XTrueIp: 'XTrueIp',
       xffProto: 'XffProto',
     };
   }
@@ -623,7 +631,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       retry: 'boolean',
       sniEnabled: 'boolean',
       sniHost: 'string',
+      WLProxyClientIp: 'boolean',
+      webServerType: 'boolean',
       writeTimeout: 'number',
+      XClientIp: 'boolean',
+      XTrueIp: 'boolean',
       xffProto: 'boolean',
     };
   }
