@@ -1,7 +1,7 @@
-export { GetConnectionTicketResponseBodyBindQueueInfo } from './GetConnectionTicketResponseBodyBindQueueInfo';
-export { GetConnectionTicketResponseBodyPolicy } from './GetConnectionTicketResponseBodyPolicy';
-export { ListPublishedAppInfoResponseBodyAppModels } from './ListPublishedAppInfoResponseBodyAppModels';
-export { ListRunningAppsResponseBodyRunningCloudApps } from './ListRunningAppsResponseBodyRunningCloudApps';
+export { GetConnectionTicketResponseBodyBindQueueInfo } from './GetConnectionTicketResponseBody';
+export { GetConnectionTicketResponseBodyPolicy } from './GetConnectionTicketResponseBody';
+export { ListPublishedAppInfoResponseBodyAppModels } from './ListPublishedAppInfoResponseBody';
+export { ListRunningAppsResponseBodyRunningCloudApps } from './ListRunningAppsResponseBody';
 export { GetConnectionTicketRequest } from './GetConnectionTicketRequest';
 export { GetConnectionTicketResponseBody } from './GetConnectionTicketResponseBody';
 export { GetConnectionTicketResponse } from './GetConnectionTicketResponse';

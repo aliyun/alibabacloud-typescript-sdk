@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("appstream-center", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -154,7 +153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectionTicketResponse({}));
+    return $dara.cast<$_model.GetConnectionTicketResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetConnectionTicketResponse({}));
   }
 
   /**
@@ -252,7 +251,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ListPublishedAppInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListPublishedAppInfoResponse({}));
+    return $dara.cast<$_model.ListPublishedAppInfoResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ListPublishedAppInfoResponse({}));
   }
 
   /**
@@ -338,7 +337,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ListRunningAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListRunningAppsResponse({}));
+    return $dara.cast<$_model.ListRunningAppsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ListRunningAppsResponse({}));
   }
 
   /**
@@ -428,7 +427,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.ResetAppResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ResetAppResourcesResponse({}));
+    return $dara.cast<$_model.ResetAppResourcesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ResetAppResourcesResponse({}));
   }
 
   /**
@@ -518,7 +517,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.RestartAppResourcesResponse>(await this.callApi(params, req, runtime), new $_model.RestartAppResourcesResponse({}));
+    return $dara.cast<$_model.RestartAppResourcesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.RestartAppResourcesResponse({}));
   }
 
   /**
@@ -608,7 +607,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StartAppResourcesResponse>(await this.callApi(params, req, runtime), new $_model.StartAppResourcesResponse({}));
+    return $dara.cast<$_model.StartAppResourcesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StartAppResourcesResponse({}));
   }
 
   /**
@@ -730,7 +729,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StopAppResponse>(await this.callApi(params, req, runtime), new $_model.StopAppResponse({}));
+    return $dara.cast<$_model.StopAppResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StopAppResponse({}));
   }
 
   /**
@@ -820,7 +819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.StopAppResourcesResponse>(await this.callApi(params, req, runtime), new $_model.StopAppResourcesResponse({}));
+    return $dara.cast<$_model.StopAppResourcesResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.StopAppResourcesResponse({}));
   }
 
   /**
@@ -910,7 +909,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.UnbindResponse>(await this.callApi(params, req, runtime), new $_model.UnbindResponse({}));
+    return $dara.cast<$_model.UnbindResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.UnbindResponse({}));
   }
 
   /**

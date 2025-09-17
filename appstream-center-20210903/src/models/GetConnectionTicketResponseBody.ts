@@ -1,8 +1,78 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetConnectionTicketResponseBodyBindQueueInfo } from "./GetConnectionTicketResponseBodyBindQueueInfo";
-import { GetConnectionTicketResponseBodyPolicy } from "./GetConnectionTicketResponseBodyPolicy";
 
+
+/**
+ */
+export class GetConnectionTicketResponseBodyBindQueueInfo extends $dara.Model {
+  queueStatus?: string;
+  rank?: number;
+  readyTimeout?: number;
+  remainingTime?: number;
+  requestKey?: string;
+  targetId?: string;
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      queueStatus: 'QueueStatus',
+      rank: 'Rank',
+      readyTimeout: 'ReadyTimeout',
+      remainingTime: 'RemainingTime',
+      requestKey: 'RequestKey',
+      targetId: 'TargetId',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queueStatus: 'string',
+      rank: 'number',
+      readyTimeout: 'number',
+      remainingTime: 'number',
+      requestKey: 'string',
+      targetId: 'string',
+      waitTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConnectionTicketResponseBodyPolicy extends $dara.Model {
+  resolutionAdaptive?: string;
+  resolutionHeight?: number;
+  resolutionWidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resolutionAdaptive: 'ResolutionAdaptive',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionWidth: 'ResolutionWidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resolutionAdaptive: 'string',
+      resolutionHeight: 'number',
+      resolutionWidth: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
