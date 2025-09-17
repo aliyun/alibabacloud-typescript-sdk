@@ -3,7 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPermissionApplyOrdersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 设置申请单类型，枚举值为：
+   * 
+   * - [ MaxComputeTable]  MaxCompute表权限申请单
+   * - [ MaxComputeFunction] MaxCompute函数申请单
+   * - [ MaxComputeResource] MaxCompute资源申请单
+   * - [ DLFSchema] DLF1.0版本Schema权限申请单
+   * - [ DLFTable] DLF1.0版本表权限申请单
+   * - [ DLFColumn] DLF1.0版本列权限申请单
+   * - [ DsApiDeploy] 发布数据服务权限申请单
+   * 
+   * @example
+   * MaxComputeTable
+   */
   applyType?: string;
+  /**
+   * @remarks
+   * 查询的数据目录名称。
+   * 
+   * @example
+   * hive
+   */
   catalogName?: string;
   /**
    * @remarks
@@ -19,8 +41,6 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
    * 
    * @example
    * odps
-   * 
-   * @deprecated
    */
   engineType?: string;
   /**
@@ -50,8 +70,6 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
    * 
    * @example
    * 1
-   * 
-   * @deprecated
    */
   orderType?: number;
   /**

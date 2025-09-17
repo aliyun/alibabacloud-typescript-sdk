@@ -150,6 +150,8 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
    * The content of the permission request order.
    */
   approveContent?: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContent;
+  finishApprovalComment?: string;
+  finishApprovalTimestamp?: number;
   /**
    * @remarks
    * The ID of the permission request order.
@@ -176,6 +178,8 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
       applyBaseId: 'ApplyBaseId',
       applyTimestamp: 'ApplyTimestamp',
       approveContent: 'ApproveContent',
+      finishApprovalComment: 'FinishApprovalComment',
+      finishApprovalTimestamp: 'FinishApprovalTimestamp',
       flowId: 'FlowId',
       flowStatus: 'FlowStatus',
     };
@@ -186,6 +190,8 @@ export class ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrder extends 
       applyBaseId: 'string',
       applyTimestamp: 'number',
       approveContent: ListPermissionApplyOrdersResponseBodyApplyOrdersApplyOrderApproveContent,
+      finishApprovalComment: 'string',
+      finishApprovalTimestamp: 'number',
       flowId: 'string',
       flowStatus: 'number',
     };

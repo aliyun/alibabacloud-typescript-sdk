@@ -12634,7 +12634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of permission request orders.
+   * Views permission requests.
    * 
    * @param request - ListPermissionApplyOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12713,7 +12713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of permission request orders.
+   * Views permission requests.
    * 
    * @param request - ListPermissionApplyOrdersRequest
    * @returns ListPermissionApplyOrdersResponse

@@ -338,6 +338,8 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
    * The content of the permission request.
    */
   approveContent?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent;
+  finishAapprovalTimestamp?: number;
+  finishApprovalComment?: string;
   /**
    * @remarks
    * The ID of the permission request order.
@@ -370,6 +372,8 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
       applyTimestamp: 'ApplyTimestamp',
       approveAccountList: 'ApproveAccountList',
       approveContent: 'ApproveContent',
+      finishAapprovalTimestamp: 'FinishAapprovalTimestamp',
+      finishApprovalComment: 'FinishApprovalComment',
       flowId: 'FlowId',
       flowStatus: 'FlowStatus',
       granteeObjectList: 'GranteeObjectList',
@@ -382,6 +386,8 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
       applyTimestamp: 'number',
       approveAccountList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveAccountList },
       approveContent: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent,
+      finishAapprovalTimestamp: 'number',
+      finishApprovalComment: 'string',
       flowId: 'string',
       flowStatus: 'number',
       granteeObjectList: { 'type': 'array', 'itemType': GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailGranteeObjectList },
