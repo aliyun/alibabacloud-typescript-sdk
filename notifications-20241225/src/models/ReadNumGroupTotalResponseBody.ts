@@ -3,12 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadNumGroupTotalResponseBodyData extends $dara.Model {
+  groupCode?: string;
   id?: number;
   readCount?: number;
   totalCount?: number;
   unReadCount?: number;
   static names(): { [key: string]: string } {
     return {
+      groupCode: 'GroupCode',
       id: 'Id',
       readCount: 'ReadCount',
       totalCount: 'TotalCount',
@@ -18,6 +20,7 @@ export class ReadNumGroupTotalResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      groupCode: 'string',
       id: 'number',
       readCount: 'number',
       totalCount: 'number',

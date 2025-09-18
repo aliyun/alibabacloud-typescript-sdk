@@ -67,6 +67,8 @@ export class ReadMessageListRequest extends $dara.Model {
    * /
    */
   cookies?: string;
+  groupCode?: string;
+  history?: string;
   /**
    * @remarks
    * 栏位 nav代表控制台topbar
@@ -157,6 +159,8 @@ export class ReadMessageListRequest extends $dara.Model {
       clientSource: 'ClientSource',
       content: 'Content',
       cookies: 'Cookies',
+      groupCode: 'GroupCode',
+      history: 'History',
       loc: 'Loc',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -180,6 +184,8 @@ export class ReadMessageListRequest extends $dara.Model {
       clientSource: 'string',
       content: 'string',
       cookies: 'string',
+      groupCode: 'string',
+      history: 'string',
       loc: 'string',
       maxResults: 'number',
       nextToken: 'string',

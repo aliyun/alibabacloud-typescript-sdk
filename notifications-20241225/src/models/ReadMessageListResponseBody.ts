@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReadMessageListResponseBodyDataRows extends $dara.Model {
+  categoryCode?: string;
   /**
    * @remarks
    * CategoryName
@@ -99,6 +100,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
   titleh?: string;
   static names(): { [key: string]: string } {
     return {
+      categoryCode: 'CategoryCode',
       categoryName: 'CategoryName',
       class: 'Class',
       classId: 'ClassId',
@@ -117,6 +119,7 @@ export class ReadMessageListResponseBodyDataRows extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryCode: 'string',
       categoryName: 'string',
       class: 'string',
       classId: 'number',

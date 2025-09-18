@@ -10,6 +10,8 @@ export class ReadMessageContentRequest extends $dara.Model {
   classId?: number;
   clientSource?: string;
   cookies?: string;
+  groupCode?: string;
+  history?: boolean;
   msgId?: string;
   srcUrl?: string;
   status?: number;
@@ -24,6 +26,8 @@ export class ReadMessageContentRequest extends $dara.Model {
       classId: 'ClassId',
       clientSource: 'ClientSource',
       cookies: 'Cookies',
+      groupCode: 'GroupCode',
+      history: 'History',
       msgId: 'MsgId',
       srcUrl: 'SrcUrl',
       status: 'Status',
@@ -41,6 +45,8 @@ export class ReadMessageContentRequest extends $dara.Model {
       classId: 'number',
       clientSource: 'string',
       cookies: 'string',
+      groupCode: 'string',
+      history: 'boolean',
       msgId: 'string',
       srcUrl: 'string',
       status: 'number',

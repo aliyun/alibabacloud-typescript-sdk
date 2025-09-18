@@ -145,6 +145,10 @@ export default class Client extends OpenApi {
       body["Cookies"] = request.cookies;
     }
 
+    if (!$dara.isNull(request.groupCode)) {
+      body["GroupCode"] = request.groupCode;
+    }
+
     if (!$dara.isNull(request.srcUrl)) {
       body["SrcUrl"] = request.srcUrl;
     }
@@ -221,6 +225,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cookies)) {
       body["Cookies"] = request.cookies;
+    }
+
+    if (!$dara.isNull(request.groupCode)) {
+      body["GroupCode"] = request.groupCode;
     }
 
     if (!$dara.isNull(request.srcUrl)) {
@@ -453,6 +461,14 @@ export default class Client extends OpenApi {
       body["Cookies"] = request.cookies;
     }
 
+    if (!$dara.isNull(request.groupCode)) {
+      body["GroupCode"] = request.groupCode;
+    }
+
+    if (!$dara.isNull(request.history)) {
+      body["History"] = request.history;
+    }
+
     if (!$dara.isNull(request.msgId)) {
       body["MsgId"] = request.msgId;
     }
@@ -541,6 +557,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cookies)) {
       body["Cookies"] = request.cookies;
+    }
+
+    if (!$dara.isNull(request.groupCode)) {
+      body["GroupCode"] = request.groupCode;
+    }
+
+    if (!$dara.isNull(request.history)) {
+      body["History"] = request.history;
     }
 
     if (!$dara.isNull(request.loc)) {

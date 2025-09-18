@@ -10,6 +10,7 @@ export class ReadAllMessageRequest extends $dara.Model {
   classId?: number;
   clientSource?: string;
   cookies?: string;
+  groupCode?: string;
   srcUrl?: string;
   tenantCode?: string;
   uidType?: string;
@@ -22,6 +23,7 @@ export class ReadAllMessageRequest extends $dara.Model {
       classId: 'ClassId',
       clientSource: 'ClientSource',
       cookies: 'Cookies',
+      groupCode: 'GroupCode',
       srcUrl: 'SrcUrl',
       tenantCode: 'TenantCode',
       uidType: 'UidType',
@@ -37,6 +39,7 @@ export class ReadAllMessageRequest extends $dara.Model {
       classId: 'number',
       clientSource: 'string',
       cookies: 'string',
+      groupCode: 'string',
       srcUrl: 'string',
       tenantCode: 'string',
       uidType: 'string',
