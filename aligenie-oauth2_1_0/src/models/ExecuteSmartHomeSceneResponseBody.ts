@@ -2,21 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class PushDeviceNotificationRequestTenantInfo extends $dara.Model {
+export class ExecuteSmartHomeSceneResponseBody extends $dara.Model {
   /**
    * @example
-   * 12797******304102
+   * 435CF567-12DC-5761-AFA8-650774502E2D
    */
-  subjectId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      subjectId: 'SubjectId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subjectId: 'string',
+      requestId: 'string',
     };
   }
 

@@ -136,6 +136,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行场景（全屋）
+   * 
+   * @param request - ExecuteSmartHomeSceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteSmartHomeSceneResponse
+   */
+  async executeSmartHomeSceneWithOptions(request: $_model.ExecuteSmartHomeSceneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteSmartHomeSceneResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.familyId)) {
+      body["FamilyId"] = request.familyId;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteSmartHomeScene",
+      version: "oauth2_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/oauth2/iot/smart_home/scene/execute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteSmartHomeSceneResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteSmartHomeSceneResponse({}));
+  }
+
+  /**
+   * 执行场景（全屋）
+   * 
+   * @param request - ExecuteSmartHomeSceneRequest
+   * @returns ExecuteSmartHomeSceneResponse
+   */
+  async executeSmartHomeScene(request: $_model.ExecuteSmartHomeSceneRequest): Promise<$_model.ExecuteSmartHomeSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeSmartHomeSceneWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取场景列表
    * 
    * @param headers - map
@@ -168,6 +217,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSceneListWithOptions(headers, runtime);
+  }
+
+  /**
+   * 获取场景列表（全屋）
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmartHomeSceneListResponse
+   */
+  async getSmartHomeSceneListWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSmartHomeSceneListResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSmartHomeSceneList",
+      version: "oauth2_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/oauth2/iot/smart_home/scene/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSmartHomeSceneListResponse>(await this.callApi(params, req, runtime), new $_model.GetSmartHomeSceneListResponse({}));
+  }
+
+  /**
+   * 获取场景列表（全屋）
+   * @returns GetSmartHomeSceneListResponse
+   */
+  async getSmartHomeSceneList(): Promise<$_model.GetSmartHomeSceneListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSmartHomeSceneListWithOptions(headers, runtime);
   }
 
   /**

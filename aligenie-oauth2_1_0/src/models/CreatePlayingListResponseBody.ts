@@ -3,8 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePlayingListResponseBody extends $dara.Model {
-  code?: string;
-  message?: string;
   /**
    * @example
    * 10002398812
@@ -12,16 +10,12 @@ export class CreatePlayingListResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }
