@@ -183,6 +183,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  emptyDirDesc?: string;
   /**
    * @remarks
    * Indicates whether access to Application High Availability Service (AHAS) is enabled. Take note of the following rules:
@@ -896,6 +897,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
+      emptyDirDesc: 'EmptyDirDesc',
       enableAhas: 'EnableAhas',
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
@@ -977,6 +979,7 @@ export class DeployApplicationShrinkRequest extends $dara.Model {
       deploy: 'string',
       dotnet: 'string',
       edasContainerVersion: 'string',
+      emptyDirDesc: 'string',
       enableAhas: 'string',
       enableCpuBurst: 'boolean',
       enableGreyTagRoute: 'boolean',

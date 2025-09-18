@@ -706,6 +706,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!$dara.isNull(request.emptyDirDesc)) {
+      body["EmptyDirDesc"] = request.emptyDirDesc;
+    }
+
     if (!$dara.isNull(request.enableSidecarResourceIsolated)) {
       body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated;
     }
@@ -2738,6 +2742,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.configMapMountDesc)) {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
+    }
+
+    if (!$dara.isNull(request.emptyDirDesc)) {
+      body["EmptyDirDesc"] = request.emptyDirDesc;
     }
 
     if (!$dara.isNull(request.enableSidecarResourceIsolated)) {
@@ -6908,6 +6916,47 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishWebApplicationRevisionWithOptions(ApplicationId, request, headers, runtime);
+  }
+
+  /**
+   * @param request - QueryArmsEnableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryArmsEnableResponse
+   */
+  async queryArmsEnableWithOptions(request: $_model.QueryArmsEnableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryArmsEnableResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryArmsEnable",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/arms/queryArms`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryArmsEnableResponse>(await this.callApi(params, req, runtime), new $_model.QueryArmsEnableResponse({}));
+  }
+
+  /**
+   * @param request - QueryArmsEnableRequest
+   * @returns QueryArmsEnableResponse
+   */
+  async queryArmsEnable(request: $_model.QueryArmsEnableRequest): Promise<$_model.QueryArmsEnableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryArmsEnableWithOptions(request, headers, runtime);
   }
 
   /**

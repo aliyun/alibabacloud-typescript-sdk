@@ -62,6 +62,32 @@ export class DescribeApplicationConfigResponseBodyDataConfigMapMountDesc extends
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataEmptyDirDesc extends $dara.Model {
+  mountPath?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc extends $dara.Model {
   /**
    * @remarks
@@ -122,6 +148,32 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfigConfig
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc extends $dara.Model {
+  mountPath?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataInitContainersConfig extends $dara.Model {
   /**
    * @remarks
@@ -156,6 +208,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
    * The information of ConfigMap.
    */
   configMapMountDesc?: DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc[];
+  emptyDirDesc?: DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc[];
   /**
    * @remarks
    * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
@@ -197,6 +250,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMapMountDesc: 'ConfigMapMountDesc',
+      emptyDirDesc: 'EmptyDirDesc',
       envs: 'Envs',
       imageUrl: 'ImageUrl',
       name: 'Name',
@@ -208,6 +262,7 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
       command: 'string',
       commandArgs: 'string',
       configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc },
+      emptyDirDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc },
       envs: 'string',
       imageUrl: 'string',
       name: 'string',
@@ -217,6 +272,9 @@ export class DescribeApplicationConfigResponseBodyDataInitContainersConfig exten
   validate() {
     if(Array.isArray(this.configMapMountDesc)) {
       $dara.Model.validateArray(this.configMapMountDesc);
+    }
+    if(Array.isArray(this.emptyDirDesc)) {
+      $dara.Model.validateArray(this.emptyDirDesc);
     }
     super.validate();
   }
@@ -874,6 +932,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  emptyDirDesc?: DescribeApplicationConfigResponseBodyDataEmptyDirDesc[];
   /**
    * @remarks
    * Indicates whether access to Application High Availability Service (AHAS) is enabled. Valid values:
@@ -1573,6 +1632,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       diskSize: 'DiskSize',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
+      emptyDirDesc: 'EmptyDirDesc',
       enableAhas: 'EnableAhas',
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
@@ -1669,6 +1729,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       diskSize: 'number',
       dotnet: 'string',
       edasContainerVersion: 'string',
+      emptyDirDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataEmptyDirDesc },
       enableAhas: 'string',
       enableCpuBurst: 'string',
       enableGreyTagRoute: 'boolean',
@@ -1746,6 +1807,9 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.configMapMountDesc)) {
       $dara.Model.validateArray(this.configMapMountDesc);
+    }
+    if(Array.isArray(this.emptyDirDesc)) {
+      $dara.Model.validateArray(this.emptyDirDesc);
     }
     if(Array.isArray(this.initContainersConfig)) {
       $dara.Model.validateArray(this.initContainersConfig);

@@ -6,6 +6,7 @@ export class InitContainerConfig extends $dara.Model {
   command?: string;
   commandArgs?: string;
   configMapMountDesc?: string;
+  emptyDirDesc?: string;
   envs?: string;
   imageUrl?: string;
   name?: string;
@@ -14,6 +15,7 @@ export class InitContainerConfig extends $dara.Model {
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMapMountDesc: 'ConfigMapMountDesc',
+      emptyDirDesc: 'EmptyDirDesc',
       envs: 'Envs',
       imageUrl: 'ImageUrl',
       name: 'Name',
@@ -25,6 +27,7 @@ export class InitContainerConfig extends $dara.Model {
       command: 'string',
       commandArgs: 'string',
       configMapMountDesc: 'string',
+      emptyDirDesc: 'string',
       envs: 'string',
       imageUrl: 'string',
       name: 'string',

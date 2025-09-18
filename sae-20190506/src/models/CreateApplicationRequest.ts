@@ -203,6 +203,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * 3.5.3
    */
   edasContainerVersion?: string;
+  emptyDirDesc?: string;
   /**
    * @remarks
    * Enable CPU Burst.
@@ -862,6 +863,7 @@ export class CreateApplicationRequest extends $dara.Model {
       diskSize: 'DiskSize',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
+      emptyDirDesc: 'EmptyDirDesc',
       enableCpuBurst: 'EnableCpuBurst',
       enableEbpf: 'EnableEbpf',
       enableNewArms: 'EnableNewArms',
@@ -947,6 +949,7 @@ export class CreateApplicationRequest extends $dara.Model {
       diskSize: 'number',
       dotnet: 'string',
       edasContainerVersion: 'string',
+      emptyDirDesc: 'string',
       enableCpuBurst: 'boolean',
       enableEbpf: 'string',
       enableNewArms: 'boolean',

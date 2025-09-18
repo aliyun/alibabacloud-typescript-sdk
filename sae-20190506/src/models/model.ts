@@ -76,7 +76,9 @@ export { DescribeAppServiceDetailResponseBodyDataMethodsParameterDefinitions } f
 export { DescribeAppServiceDetailResponseBodyDataMethods } from './DescribeAppServiceDetailResponseBody';
 export { DescribeAppServiceDetailResponseBodyData } from './DescribeAppServiceDetailResponseBody';
 export { DescribeApplicationConfigResponseBodyDataConfigMapMountDesc } from './DescribeApplicationConfigResponseBody';
+export { DescribeApplicationConfigResponseBodyDataEmptyDirDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfigConfigMapMountDesc } from './DescribeApplicationConfigResponseBody';
+export { DescribeApplicationConfigResponseBodyDataInitContainersConfigEmptyDirDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataInitContainersConfig } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataMountDesc } from './DescribeApplicationConfigResponseBody';
 export { DescribeApplicationConfigResponseBodyDataOssMountDescs } from './DescribeApplicationConfigResponseBody';
@@ -251,6 +253,7 @@ export { ListSwimmingLaneGatewayRoutesResponseBodyData } from './ListSwimmingLan
 export { ListSwimmingLaneGroupTagsResponseBodyData } from './ListSwimmingLaneGroupTagsResponseBody';
 export { ListTagResourcesResponseBodyDataTagResources } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyData } from './ListTagResourcesResponseBody';
+export { QueryArmsEnableResponseBodyData } from './QueryArmsEnableResponseBody';
 export { QueryResourceStaticsResponseBodyDataRealTimeRes } from './QueryResourceStaticsResponseBody';
 export { QueryResourceStaticsResponseBodyDataSummary } from './QueryResourceStaticsResponseBody';
 export { QueryResourceStaticsResponseBodyData } from './QueryResourceStaticsResponseBody';
@@ -751,6 +754,9 @@ export { OpenSaeServiceResponseBody } from './OpenSaeServiceResponseBody';
 export { OpenSaeServiceResponse } from './OpenSaeServiceResponse';
 export { PublishWebApplicationRevisionRequest } from './PublishWebApplicationRevisionRequest';
 export { PublishWebApplicationRevisionResponse } from './PublishWebApplicationRevisionResponse';
+export { QueryArmsEnableRequest } from './QueryArmsEnableRequest';
+export { QueryArmsEnableResponseBody } from './QueryArmsEnableResponseBody';
+export { QueryArmsEnableResponse } from './QueryArmsEnableResponse';
 export { QueryResourceStaticsRequest } from './QueryResourceStaticsRequest';
 export { QueryResourceStaticsResponseBody } from './QueryResourceStaticsResponseBody';
 export { QueryResourceStaticsResponse } from './QueryResourceStaticsResponse';
