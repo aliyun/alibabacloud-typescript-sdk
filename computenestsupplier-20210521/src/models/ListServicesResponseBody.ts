@@ -119,6 +119,35 @@ export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
   }
 }
 
+export class ListServicesResponseBodyServicesServiceLocaleConfigs extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServicesResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
@@ -351,6 +380,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
    * The information about the service.
    */
   serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
+  serviceLocaleConfigs?: ListServicesResponseBodyServicesServiceLocaleConfigs[];
   /**
    * @remarks
    * The type of the service. Valid values:
@@ -525,6 +555,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       serviceDiscoverable: 'ServiceDiscoverable',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
+      serviceLocaleConfigs: 'ServiceLocaleConfigs',
       serviceType: 'ServiceType',
       shareType: 'ShareType',
       sourceImage: 'SourceImage',
@@ -567,6 +598,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       serviceDiscoverable: 'string',
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
+      serviceLocaleConfigs: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceLocaleConfigs },
       serviceType: 'string',
       shareType: 'string',
       sourceImage: 'string',
@@ -592,6 +624,9 @@ export class ListServicesResponseBodyServices extends $dara.Model {
     }
     if(Array.isArray(this.serviceInfos)) {
       $dara.Model.validateArray(this.serviceInfos);
+    }
+    if(Array.isArray(this.serviceLocaleConfigs)) {
+      $dara.Model.validateArray(this.serviceLocaleConfigs);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

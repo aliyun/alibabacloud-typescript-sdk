@@ -884,6 +884,35 @@ export class GetServiceResponseBodyServiceInfos extends $dara.Model {
   }
 }
 
+export class GetServiceResponseBodyServiceLocaleConfigs extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceResponseBodyStatistic extends $dara.Model {
   /**
    * @remarks
@@ -1355,6 +1384,7 @@ export class GetServiceResponseBody extends $dara.Model {
    * The information about the service.
    */
   serviceInfos?: GetServiceResponseBodyServiceInfos[];
+  serviceLocaleConfigs?: GetServiceResponseBodyServiceLocaleConfigs[];
   /**
    * @remarks
    * The URL of the service page.
@@ -1604,6 +1634,7 @@ export class GetServiceResponseBody extends $dara.Model {
       serviceDocumentInfos: 'ServiceDocumentInfos',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
+      serviceLocaleConfigs: 'ServiceLocaleConfigs',
       serviceProductUrl: 'ServiceProductUrl',
       serviceType: 'ServiceType',
       shareType: 'ShareType',
@@ -1665,6 +1696,7 @@ export class GetServiceResponseBody extends $dara.Model {
       serviceDocumentInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceDocumentInfos },
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
+      serviceLocaleConfigs: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceLocaleConfigs },
       serviceProductUrl: 'string',
       serviceType: 'string',
       shareType: 'string',
@@ -1707,6 +1739,9 @@ export class GetServiceResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.serviceInfos)) {
       $dara.Model.validateArray(this.serviceInfos);
+    }
+    if(Array.isArray(this.serviceLocaleConfigs)) {
+      $dara.Model.validateArray(this.serviceLocaleConfigs);
     }
     if(this.statistic && typeof (this.statistic as any).validate === 'function') {
       (this.statistic as any).validate();

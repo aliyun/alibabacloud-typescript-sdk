@@ -175,6 +175,35 @@ export class UpdateServiceShrinkRequestServiceInfo extends $dara.Model {
   }
 }
 
+export class UpdateServiceShrinkRequestServiceLocaleConfigs extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceShrinkRequest extends $dara.Model {
   /**
    * @remarks
@@ -345,6 +374,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
    * The service details.
    */
   serviceInfo?: UpdateServiceShrinkRequestServiceInfo[];
+  serviceLocaleConfigs?: UpdateServiceShrinkRequestServiceLocaleConfigs[];
   /**
    * @remarks
    * The service type. Valid values:
@@ -440,6 +470,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
       resellable: 'Resellable',
       serviceId: 'ServiceId',
       serviceInfo: 'ServiceInfo',
+      serviceLocaleConfigs: 'ServiceLocaleConfigs',
       serviceType: 'ServiceType',
       serviceVersion: 'ServiceVersion',
       shareType: 'ShareType',
@@ -472,6 +503,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
       resellable: 'boolean',
       serviceId: 'string',
       serviceInfo: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceInfo },
+      serviceLocaleConfigs: { 'type': 'array', 'itemType': UpdateServiceShrinkRequestServiceLocaleConfigs },
       serviceType: 'string',
       serviceVersion: 'string',
       shareType: 'string',
@@ -486,6 +518,9 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.serviceInfo)) {
       $dara.Model.validateArray(this.serviceInfo);
+    }
+    if(Array.isArray(this.serviceLocaleConfigs)) {
+      $dara.Model.validateArray(this.serviceLocaleConfigs);
     }
     super.validate();
   }

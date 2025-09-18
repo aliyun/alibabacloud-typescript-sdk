@@ -360,6 +360,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建运维公告
+   * 
+   * @param tmpReq - CreateOpsNoticeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpsNoticeResponse
+   */
+  async createOpsNoticeWithOptions(tmpReq: $_model.CreateOpsNoticeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOpsNoticeResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateOpsNoticeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.attributesShrink)) {
+      query["Attributes"] = request.attributesShrink;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.severity)) {
+      query["Severity"] = request.severity;
+    }
+
+    if (!$dara.isNull(request.solutions)) {
+      query["Solutions"] = request.solutions;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOpsNotice",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOpsNoticeResponse>(await this.callApi(params, req, runtime), new $_model.CreateOpsNoticeResponse({}));
+  }
+
+  /**
+   * 创建运维公告
+   * 
+   * @param request - CreateOpsNoticeRequest
+   * @returns CreateOpsNoticeResponse
+   */
+  async createOpsNotice(request: $_model.CreateOpsNoticeRequest): Promise<$_model.CreateOpsNoticeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOpsNoticeWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a service.
    * 
    * @param tmpReq - CreateServiceRequest
@@ -1528,6 +1612,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看运维公告详情
+   * 
+   * @param request - GetOpsNoticeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOpsNoticeResponse
+   */
+  async getOpsNoticeWithOptions(request: $_model.GetOpsNoticeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOpsNoticeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.noticeId)) {
+      query["NoticeId"] = request.noticeId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOpsNotice",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOpsNoticeResponse>(await this.callApi(params, req, runtime), new $_model.GetOpsNoticeResponse({}));
+  }
+
+  /**
+   * 查看运维公告详情
+   * 
+   * @param request - GetOpsNoticeRequest
+   * @returns GetOpsNoticeResponse
+   */
+  async getOpsNotice(request: $_model.GetOpsNoticeRequest): Promise<$_model.GetOpsNoticeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOpsNoticeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a service.
    * 
    * @param request - GetServiceRequest
@@ -2499,6 +2629,60 @@ export default class Client extends OpenApi {
   async listArtifacts(request: $_model.ListArtifactsRequest): Promise<$_model.ListArtifactsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listArtifactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询运维公告
+   * 
+   * @param request - ListOpsNoticesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOpsNoticesResponse
+   */
+  async listOpsNoticesWithOptions(request: $_model.ListOpsNoticesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOpsNoticesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOpsNotices",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOpsNoticesResponse>(await this.callApi(params, req, runtime), new $_model.ListOpsNoticesResponse({}));
+  }
+
+  /**
+   * 查询运维公告
+   * 
+   * @param request - ListOpsNoticesRequest
+   * @returns ListOpsNoticesResponse
+   */
+  async listOpsNotices(request: $_model.ListOpsNoticesRequest): Promise<$_model.ListOpsNoticesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOpsNoticesWithOptions(request, runtime);
   }
 
   /**
@@ -4479,6 +4663,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceInfo)) {
       query["ServiceInfo"] = request.serviceInfo;
+    }
+
+    if (!$dara.isNull(request.serviceLocaleConfigs)) {
+      query["ServiceLocaleConfigs"] = request.serviceLocaleConfigs;
     }
 
     if (!$dara.isNull(request.serviceType)) {
