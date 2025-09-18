@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComponentsRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用名称列表。
+   * The application name.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListComponentsRequest extends $dara.Model {
   applicationNames?: string[];
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,20 +23,23 @@ export class ListComponentsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 组件名称列表。
+   * The list of component names.
    * 
    * @example
    * ["HDFS"]
    */
   componentNames?: string[];
   /**
+   * @remarks
+   * The list of component status.
+   * 
    * @example
    * null
    */
   componentStates?: string[];
   /**
    * @remarks
-   * 一次获取的最大记录数。取值范围：1~100。
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -44,7 +47,7 @@ export class ListComponentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 标记当前开始读取的位置，置空表示从头开始。
+   * The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
    * ""
@@ -52,7 +55,7 @@ export class ListComponentsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 地域ID。
+   * The region ID. You can call the [ListRegions](url) view.
    * 
    * This parameter is required.
    * 

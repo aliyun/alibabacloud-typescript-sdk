@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttribute extends $dara.Model {
   /**
    * @remarks
-   * 值表述。
+   * Value description.
    * 
    * @example
    * 描述
@@ -13,7 +13,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
   description?: string;
   /**
    * @remarks
-   * 值步长。
+   * The size of the value increment.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
   valueIncrementStep?: string;
   /**
    * @remarks
-   * 最大值。
+   * The maximum range of values.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
   valueMaximum?: string;
   /**
    * @remarks
-   * 最小值。
+   * The minimum range of values.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
   valueMinimum?: string;
   /**
    * @remarks
-   * 属性值类型。
+   * The value type of the column.
    * 
    * @example
    * int
@@ -45,7 +45,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
   valueType?: string;
   /**
    * @remarks
-   * 值单位。
+   * The unit of the value.
    * 
    * @example
    * number
@@ -85,7 +85,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParamsValueAttrib
 export class GetApplicationResponseBodyApplicationActionsActionParams extends $dara.Model {
   /**
    * @remarks
-   * 动作参数描述。
+   * Description
    * 
    * @example
    * start
@@ -93,7 +93,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParams extends $d
   description?: string;
   /**
    * @remarks
-   * 动作参数KEY。
+   * The parameter name.
    * 
    * @example
    * timeout
@@ -101,7 +101,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParams extends $d
   key?: string;
   /**
    * @remarks
-   * 动作参数属性。
+   * The parameter value attribute.
    */
   valueAttribute?: GetApplicationResponseBodyApplicationActionsActionParamsValueAttribute;
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class GetApplicationResponseBodyApplicationActionsActionParams extends $d
 export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
   /**
    * @remarks
-   * 操作名称。
+   * The action name.
    * 
    * @example
    * decommission
@@ -143,12 +143,12 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * 操作参数。
+   * The list of action parameters.
    */
   actionParams?: GetApplicationResponseBodyApplicationActionsActionParams[];
   /**
    * @remarks
-   * 命令。
+   * The action command.
    * 
    * @example
    * decommission
@@ -156,7 +156,7 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * 组件名称。
+   * The component name.
    * 
    * @example
    * DataNode
@@ -164,7 +164,7 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * 操作描述。
+   * The description of the action.
    * 
    * @example
    * 描述
@@ -172,7 +172,11 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 执行范围。
+   * The execution scope. Valid values:
+   * 
+   * *   APPLICATION: the application scope.
+   * *   COMPONENT: the component scope.
+   * *   COMPONENT_INSTANCE: the component instance scope.
    * 
    * @example
    * COMPONENT_INSTANCE
@@ -215,12 +219,12 @@ export class GetApplicationResponseBodyApplicationActions extends $dara.Model {
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
-   * 操作列表。
+   * The list of actions supported by the application.
    */
   actions?: GetApplicationResponseBodyApplicationActions[];
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * HDFS
@@ -228,7 +232,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 应用操作状态。
+   * The status of the application.
    * 
    * @example
    * RUNNING
@@ -236,7 +240,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationState?: string;
   /**
    * @remarks
-   * 应用版本。
+   * The application version.
    * 
    * @example
    * 2.8.1
@@ -244,7 +248,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   applicationVersion?: string;
   /**
    * @remarks
-   * 社区版本。
+   * The community version.
    * 
    * @example
    * 2.8.1
@@ -283,10 +287,14 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
 }
 
 export class GetApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application.
+   */
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * 9E3A7161-EB7B-172B-8D18-FFB06BA3****

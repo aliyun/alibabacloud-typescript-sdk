@@ -17,8 +17,6 @@ export class ApplicationConfigFile extends $dara.Model {
    * @remarks
    * 配置文件名称。
    * 
-   * This parameter is required.
-   * 
    * @example
    * core-site.xml
    */

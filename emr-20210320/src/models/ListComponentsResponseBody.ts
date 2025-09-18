@@ -6,7 +6,7 @@ import { Attribute } from "./Attribute";
 export class ListComponentsResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * @example
    * KNOX
@@ -14,12 +14,12 @@ export class ListComponentsResponseBodyComponents extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 属性列表。
+   * The list of attributes.
    */
   attributes?: Attribute[];
   /**
    * @remarks
-   * 组件名称。
+   * The component name.
    * 
    * @example
    * KNOX
@@ -27,7 +27,7 @@ export class ListComponentsResponseBodyComponents extends $dara.Model {
   componentName?: string;
   /**
    * @remarks
-   * 命名空间。
+   * The reserved field.
    * 
    * @example
    * “”
@@ -35,7 +35,7 @@ export class ListComponentsResponseBodyComponents extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 安装该组件的机器总数。
+   * The total number of instances on which the component is installed.
    * 
    * @example
    * 1
@@ -74,10 +74,14 @@ export class ListComponentsResponseBodyComponents extends $dara.Model {
 }
 
 export class ListComponentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of component information.
+   */
   components?: ListComponentsResponseBodyComponents[];
   /**
    * @remarks
-   * 本次请求所返回的最大记录条数。
+   * The maximum number of entries returned.
    * 
    * @example
    * 20
@@ -85,7 +89,7 @@ export class ListComponentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -93,7 +97,7 @@ export class ListComponentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * FFAC608A-5DC3-174F-93C6-9F88CA6D5875
@@ -101,7 +105,7 @@ export class ListComponentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次请求条件下的数据总量。
+   * The total number of entries returned.
    * 
    * @example
    * 200

@@ -23,6 +23,18 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
+   * 实例付费类型枚举值：
+   * - ONDEMAND: 按量付费实例
+   * - SPOT: 竞价实例
+   * 默认为null代表全选
+   * 举例: ["ONDEMAND", "SPOT"]
+   * 
+   * @example
+   * ONDEMAND
+   */
+  instanceChargeTypes?: string[];
+  /**
+   * @remarks
    * The number of entries to return on each page.
    * 
    * @example
@@ -74,6 +86,10 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
    * SCALE_IN
    */
   scalingActivityType?: string;
+  /**
+   * @example
+   * MANAGED
+   */
   scalingPolicyType?: string;
   /**
    * @remarks
@@ -95,6 +111,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       endTime: 'EndTime',
+      instanceChargeTypes: 'InstanceChargeTypes',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       nodeGroupId: 'NodeGroupId',
@@ -111,6 +128,7 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
     return {
       clusterId: 'string',
       endTime: 'number',
+      instanceChargeTypes: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
       nodeGroupId: 'string',
@@ -124,6 +142,9 @@ export class ListAutoScalingActivitiesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.instanceChargeTypes)) {
+      $dara.Model.validateArray(this.instanceChargeTypes);
+    }
     if(Array.isArray(this.scalingActivityStates)) {
       $dara.Model.validateArray(this.scalingActivityStates);
     }

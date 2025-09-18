@@ -2,6 +2,45 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListAutoScalingActivitiesResponseBodyScalingActivitiesInstanceTypeDetails extends $dara.Model {
+  /**
+   * @example
+   * ecs.g6.xlarge
+   */
+  instanceType?: string;
+  onDemandInstanceIds?: string[];
+  spotInstanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      onDemandInstanceIds: 'OnDemandInstanceIds',
+      spotInstanceIds: 'SpotInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      onDemandInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      spotInstanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.onDemandInstanceIds)) {
+      $dara.Model.validateArray(this.onDemandInstanceIds);
+    }
+    if(Array.isArray(this.spotInstanceIds)) {
+      $dara.Model.validateArray(this.spotInstanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dara.Model {
   /**
    * @remarks
@@ -67,6 +106,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
    * 10
    */
   expectNum?: number;
+  instanceTypeDetails?: ListAutoScalingActivitiesResponseBodyScalingActivitiesInstanceTypeDetails[];
   instanceTypeToNum?: { [key: string]: number };
   /**
    * @remarks
@@ -92,6 +132,10 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
    * op-13c37a77c505****
    */
   operationId?: string;
+  /**
+   * @example
+   * PRIORITY
+   */
   policyType?: string;
   /**
    * @remarks
@@ -118,6 +162,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
       description: 'Description',
       endTime: 'EndTime',
       expectNum: 'ExpectNum',
+      instanceTypeDetails: 'InstanceTypeDetails',
       instanceTypeToNum: 'InstanceTypeToNum',
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
@@ -137,6 +182,7 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
       description: 'string',
       endTime: 'number',
       expectNum: 'number',
+      instanceTypeDetails: { 'type': 'array', 'itemType': ListAutoScalingActivitiesResponseBodyScalingActivitiesInstanceTypeDetails },
       instanceTypeToNum: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       nodeGroupId: 'string',
       nodeGroupName: 'string',
@@ -148,6 +194,9 @@ export class ListAutoScalingActivitiesResponseBodyScalingActivities extends $dar
   }
 
   validate() {
+    if(Array.isArray(this.instanceTypeDetails)) {
+      $dara.Model.validateArray(this.instanceTypeDetails);
+    }
     if(this.instanceTypeToNum) {
       $dara.Model.validateMap(this.instanceTypeToNum);
     }

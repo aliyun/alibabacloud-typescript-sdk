@@ -17,8 +17,6 @@ export class CreateNodeGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the node group.
-   * 
-   * This parameter is required.
    */
   nodeGroup?: NodeGroupConfig;
   /**

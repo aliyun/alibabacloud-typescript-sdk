@@ -692,6 +692,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ExportApplicationConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportApplicationConfigsResponse
+   */
+  async exportApplicationConfigsWithOptions(request: $_model.ExportApplicationConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportApplicationConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationConfigFiles)) {
+      query["ApplicationConfigFiles"] = request.applicationConfigFiles;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.exportMode)) {
+      query["ExportMode"] = request.exportMode;
+    }
+
+    if (!$dara.isNull(request.fileFormat)) {
+      query["FileFormat"] = request.fileFormat;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportApplicationConfigs",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportApplicationConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ExportApplicationConfigsResponse({}));
+  }
+
+  /**
+   * @param request - ExportApplicationConfigsRequest
+   * @returns ExportApplicationConfigsResponse
+   */
+  async exportApplicationConfigs(request: $_model.ExportApplicationConfigsRequest): Promise<$_model.ExportApplicationConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportApplicationConfigsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the detailed configuration information about an API operation template.
    * 
    * @param request - GetApiTemplateRequest
@@ -738,6 +792,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an application.
+   * 
    * @remarks
    * 查询应用详情。
    * 
@@ -778,6 +834,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an application.
+   * 
    * @remarks
    * 查询应用详情。
    * 
@@ -2259,6 +2317,10 @@ export default class Client extends OpenApi {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.instanceChargeTypes)) {
+      query["InstanceChargeTypes"] = request.instanceChargeTypes;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -2402,6 +2464,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of component instances.
+   * 
    * @param request - ListComponentInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListComponentInstancesResponse
@@ -2467,6 +2531,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of component instances.
+   * 
    * @param request - ListComponentInstancesRequest
    * @returns ListComponentInstancesResponse
    */
@@ -2476,6 +2542,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of components.
+   * 
    * @param request - ListComponentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListComponentsResponse
@@ -2529,6 +2597,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves a list of components.
+   * 
    * @param request - ListComponentsRequest
    * @returns ListComponentsResponse
    */

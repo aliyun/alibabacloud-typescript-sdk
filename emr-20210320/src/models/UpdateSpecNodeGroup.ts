@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSpecNodeGroup extends $dara.Model {
+  modifyType?: string;
   /**
    * @remarks
    * 新实例类型。
@@ -25,6 +26,7 @@ export class UpdateSpecNodeGroup extends $dara.Model {
   nodeGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      modifyType: 'ModifyType',
       newInstanceType: 'NewInstanceType',
       nodeGroupId: 'NodeGroupId',
     };
@@ -32,6 +34,7 @@ export class UpdateSpecNodeGroup extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      modifyType: 'string',
       newInstanceType: 'string',
       nodeGroupId: 'string',
     };

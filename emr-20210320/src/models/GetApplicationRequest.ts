@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用名称。
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetApplicationRequest extends $dara.Model {
   applicationName?: string;
   /**
    * @remarks
-   * 集群ID。
+   * The request ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetApplicationRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 地域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 

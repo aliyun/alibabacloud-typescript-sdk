@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComponentInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用名称列表。
+   * The list of component names.
    * 
    * @example
    * c-b933c5aac8fe****
@@ -13,7 +13,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
   applicationNames?: string[];
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,20 +23,23 @@ export class ListComponentInstancesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 组件名称列表。
+   * The list of component names.
    * 
    * @example
    * ["HDFS"]
    */
   componentNames?: string[];
   /**
+   * @remarks
+   * The list of component status.
+   * 
    * @example
    * null
    */
   componentStates?: string[];
   /**
    * @remarks
-   * 一次获取的最大记录数。取值范围：1~100。
+   * The maximum number of entries returned.
    * 
    * @example
    * 10
@@ -44,7 +47,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 标记当前开始读取的位置，置空表示从头开始。
+   * The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
    * 
    * @example
    * “”
@@ -52,7 +55,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 节点ID列表。
+   * The list of instance IDs.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -60,7 +63,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
   nodeIds?: string[];
   /**
    * @remarks
-   * 节点名称列表。
+   * The instance IDs.
    * 
    * @example
    * 20
@@ -68,7 +71,7 @@ export class ListComponentInstancesRequest extends $dara.Model {
   nodeNames?: string[];
   /**
    * @remarks
-   * 地域ID。
+   * The region ID. You can call the [ListRegions](url) view.
    * 
    * This parameter is required.
    * 
@@ -77,6 +80,9 @@ export class ListComponentInstancesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-i
    */

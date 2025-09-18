@@ -74,6 +74,7 @@ export class InstanceType extends $dara.Model {
    * 40
    */
   localStorageCapacity?: number;
+  modifyType?: string;
   /**
    * @remarks
    * 是否IO优化类型。
@@ -91,6 +92,7 @@ export class InstanceType extends $dara.Model {
       instanceTypeFamily: 'InstanceTypeFamily',
       localStorageAmount: 'LocalStorageAmount',
       localStorageCapacity: 'LocalStorageCapacity',
+      modifyType: 'ModifyType',
       optimized: 'Optimized',
     };
   }
@@ -104,6 +106,7 @@ export class InstanceType extends $dara.Model {
       instanceTypeFamily: 'string',
       localStorageAmount: 'number',
       localStorageCapacity: 'number',
+      modifyType: 'string',
       optimized: 'boolean',
     };
   }
