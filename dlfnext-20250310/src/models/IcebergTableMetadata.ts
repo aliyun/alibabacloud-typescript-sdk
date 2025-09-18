@@ -8,12 +8,14 @@ import { IcebergPartitionField } from "./IcebergPartitionField";
 export class IcebergTableMetadata extends $dara.Model {
   currentSnapshot?: IcebergSnapshot;
   fields?: IcebergNestedField[];
+  identifierFieldIds?: number[];
   partitionFields?: IcebergPartitionField[];
   properties?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       currentSnapshot: 'currentSnapshot',
       fields: 'fields',
+      identifierFieldIds: 'identifierFieldIds',
       partitionFields: 'partitionFields',
       properties: 'properties',
     };
@@ -23,6 +25,7 @@ export class IcebergTableMetadata extends $dara.Model {
     return {
       currentSnapshot: IcebergSnapshot,
       fields: { 'type': 'array', 'itemType': IcebergNestedField },
+      identifierFieldIds: { 'type': 'array', 'itemType': 'number' },
       partitionFields: { 'type': 'array', 'itemType': IcebergPartitionField },
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
@@ -34,6 +37,9 @@ export class IcebergTableMetadata extends $dara.Model {
     }
     if(Array.isArray(this.fields)) {
       $dara.Model.validateArray(this.fields);
+    }
+    if(Array.isArray(this.identifierFieldIds)) {
+      $dara.Model.validateArray(this.identifierFieldIds);
     }
     if(Array.isArray(this.partitionFields)) {
       $dara.Model.validateArray(this.partitionFields);

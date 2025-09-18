@@ -39,6 +39,7 @@ export class TableSummary extends $dara.Model {
    */
   totalFileCount?: number;
   totalFileSizeInBytes?: number;
+  totalMetaSizeInBytes?: number;
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -58,6 +59,7 @@ export class TableSummary extends $dara.Model {
       tableName: 'tableName',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
+      totalMetaSizeInBytes: 'totalMetaSizeInBytes',
       updatedAt: 'updatedAt',
     };
   }
@@ -80,6 +82,7 @@ export class TableSummary extends $dara.Model {
       tableName: 'string',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
+      totalMetaSizeInBytes: 'number',
       updatedAt: 'number',
     };
   }

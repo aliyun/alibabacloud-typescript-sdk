@@ -14,11 +14,13 @@ export class ListTableDetailsRequest extends $dara.Model {
    */
   pageToken?: string;
   tableNamePattern?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'maxResults',
       pageToken: 'pageToken',
       tableNamePattern: 'tableNamePattern',
+      type: 'type',
     };
   }
 
@@ -27,6 +29,7 @@ export class ListTableDetailsRequest extends $dara.Model {
       maxResults: 'number',
       pageToken: 'string',
       tableNamePattern: 'string',
+      type: 'string',
     };
   }
 

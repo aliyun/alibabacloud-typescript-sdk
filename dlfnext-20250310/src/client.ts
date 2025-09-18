@@ -1650,6 +1650,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据湖表的临时访问凭证
+   * 
+   * @param request - GetTableTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableTokenResponse
+   */
+  async getTableTokenWithOptions(catalogId: string, database: string, table: string, request: $_model.GetTableTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isInternal)) {
+      query["isInternal"] = request.isInternal;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableToken",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/token`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetTableTokenResponse({}));
+  }
+
+  /**
+   * 获取数据湖表的临时访问凭证
+   * 
+   * @param request - GetTableTokenRequest
+   * @returns GetTableTokenResponse
+   */
+  async getTableToken(catalogId: string, database: string, table: string, request: $_model.GetTableTokenRequest): Promise<$_model.GetTableTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableTokenWithOptions(catalogId, database, table, request, headers, runtime);
+  }
+
+  /**
    * 获取用户
    * 
    * @param request - GetUserRequest
@@ -2608,6 +2653,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tableNamePattern)) {
       query["tableNamePattern"] = request.tableNamePattern;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

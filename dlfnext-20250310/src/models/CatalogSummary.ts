@@ -21,6 +21,7 @@ export class CatalogSummary extends $dara.Model {
   throughputMonthly?: number;
   totalFileCount?: MoMValues;
   totalFileSizeInBytes?: MoMValues;
+  totalMetaSizeInBytes?: MoMValues;
   static names(): { [key: string]: string } {
     return {
       apiVisitCountMonthly: 'apiVisitCountMonthly',
@@ -36,6 +37,7 @@ export class CatalogSummary extends $dara.Model {
       throughputMonthly: 'throughputMonthly',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
+      totalMetaSizeInBytes: 'totalMetaSizeInBytes',
     };
   }
 
@@ -54,6 +56,7 @@ export class CatalogSummary extends $dara.Model {
       throughputMonthly: 'number',
       totalFileCount: MoMValues,
       totalFileSizeInBytes: MoMValues,
+      totalMetaSizeInBytes: MoMValues,
     };
   }
 
@@ -72,6 +75,9 @@ export class CatalogSummary extends $dara.Model {
     }
     if(this.totalFileSizeInBytes && typeof (this.totalFileSizeInBytes as any).validate === 'function') {
       (this.totalFileSizeInBytes as any).validate();
+    }
+    if(this.totalMetaSizeInBytes && typeof (this.totalMetaSizeInBytes as any).validate === 'function') {
+      (this.totalMetaSizeInBytes as any).validate();
     }
     super.validate();
   }
