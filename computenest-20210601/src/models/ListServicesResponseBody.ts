@@ -156,6 +156,35 @@ export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
   }
 }
 
+export class ListServicesResponseBodyServicesServiceLocaleConfigs extends $dara.Model {
+  enValue?: string;
+  originalValue?: string;
+  zhValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enValue: 'EnValue',
+      originalValue: 'OriginalValue',
+      zhValue: 'ZhValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enValue: 'string',
+      originalValue: 'string',
+      zhValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServicesResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
@@ -273,6 +302,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
    * The service information.
    */
   serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
+  serviceLocaleConfigs?: ListServicesResponseBodyServicesServiceLocaleConfigs[];
   /**
    * @remarks
    * The URL of the service page.
@@ -413,6 +443,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       score: 'Score',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
+      serviceLocaleConfigs: 'ServiceLocaleConfigs',
       serviceProductUrl: 'ServiceProductUrl',
       serviceType: 'ServiceType',
       status: 'Status',
@@ -441,6 +472,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
       score: 'number',
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
+      serviceLocaleConfigs: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceLocaleConfigs },
       serviceProductUrl: 'string',
       serviceType: 'string',
       status: 'string',
@@ -464,6 +496,9 @@ export class ListServicesResponseBodyServices extends $dara.Model {
     }
     if(Array.isArray(this.serviceInfos)) {
       $dara.Model.validateArray(this.serviceInfos);
+    }
+    if(Array.isArray(this.serviceLocaleConfigs)) {
+      $dara.Model.validateArray(this.serviceLocaleConfigs);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

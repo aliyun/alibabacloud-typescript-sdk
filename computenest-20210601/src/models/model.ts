@@ -28,6 +28,7 @@ export { GetServiceResponseBodyServiceDocumentInfos } from './GetServiceResponse
 export { GetServiceResponseBodyServiceInfosAgreements } from './GetServiceResponseBody';
 export { GetServiceResponseBodyServiceInfosSoftwares } from './GetServiceResponseBody';
 export { GetServiceResponseBodyServiceInfos } from './GetServiceResponseBody';
+export { GetServiceResponseBodyServiceLocaleConfigs } from './GetServiceResponseBody';
 export { GetServiceResponseBodySupportContacts } from './GetServiceResponseBody';
 export { GetServiceResponseBodyTags } from './GetServiceResponseBody';
 export { GetServiceEstimateCostRequestCommodity } from './GetServiceEstimateCostRequest';
@@ -79,6 +80,7 @@ export { ListServicesRequestTag } from './ListServicesRequest';
 export { ListServicesResponseBodyServicesCommodity } from './ListServicesResponseBody';
 export { ListServicesResponseBodyServicesServiceInfosSoftwares } from './ListServicesResponseBody';
 export { ListServicesResponseBodyServicesServiceInfos } from './ListServicesResponseBody';
+export { ListServicesResponseBodyServicesServiceLocaleConfigs } from './ListServicesResponseBody';
 export { ListServicesResponseBodyServicesTags } from './ListServicesResponseBody';
 export { ListServicesResponseBodyServices } from './ListServicesResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
