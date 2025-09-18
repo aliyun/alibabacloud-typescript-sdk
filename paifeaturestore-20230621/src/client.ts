@@ -1574,6 +1574,10 @@ export default class Client extends OpenApi {
   async listDatasourceTablesWithOptions(InstanceId: string, DatasourceId: string, request: $_model.ListDatasourceTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasourceTablesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
     if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
