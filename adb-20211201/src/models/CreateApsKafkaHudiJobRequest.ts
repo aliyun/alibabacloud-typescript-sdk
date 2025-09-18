@@ -116,9 +116,6 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
    */
   incrementalComputeUnit?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 0
    */
