@@ -20,6 +20,7 @@ export { CreateEnsSaleControlRequestSaleControlsConditionControls } from './Crea
 export { CreateEnsSaleControlRequestSaleControlsModuleValue } from './CreateEnsSaleControlRequest';
 export { CreateEnsSaleControlRequestSaleControls } from './CreateEnsSaleControlRequest';
 export { CreateFileSystemRequestOrderDetails } from './CreateFileSystemRequest';
+export { CreateFileSystemResponseBodyAllocationIds } from './CreateFileSystemResponseBody';
 export { CreateInstanceRequestDataDisk } from './CreateInstanceRequest';
 export { CreateInstanceRequestSystemDisk } from './CreateInstanceRequest';
 export { CreateInstanceResponseBodyInstanceIds } from './CreateInstanceResponseBody';
