@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTransportLayerApplicationRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteTransportLayerApplicationRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * This parameter is required.
    * 
    * @example

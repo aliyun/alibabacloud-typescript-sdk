@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTransportLayerApplicationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Layer 4 application ID
+   * 
    * @example
    * 165503967****
    */
   applicationId?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 9e5448c7-edaf-49aa-9887-0fcd0832306c
    */

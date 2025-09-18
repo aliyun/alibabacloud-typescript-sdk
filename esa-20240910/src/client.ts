@@ -3894,7 +3894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建四层应用
+   * Create Transport Layer Application
    * 
    * @param tmpReq - CreateTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3933,6 +3933,10 @@ export default class Client extends OpenApi {
       query["SiteId"] = request.siteId;
     }
 
+    if (!$dara.isNull(request.staticIp)) {
+      query["StaticIp"] = request.staticIp;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3951,7 +3955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建四层应用
+   * Create Transport Layer Application
    * 
    * @param request - CreateTransportLayerApplicationRequest
    * @returns CreateTransportLayerApplicationResponse
@@ -6416,7 +6420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除四层应用
+   * Delete Transport Layer Application
    * 
    * @param request - DeleteTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6451,7 +6455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除四层应用
+   * Delete Transport Layer Application
    * 
    * @param request - DeleteTransportLayerApplicationRequest
    * @returns DeleteTransportLayerApplicationResponse
@@ -10396,7 +10400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询四层应用详情
+   * Query details of the transport layer application
    * 
    * @param request - GetTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10423,7 +10427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询四层应用详情
+   * Query details of the transport layer application
    * 
    * @param request - GetTransportLayerApplicationRequest
    * @returns GetTransportLayerApplicationResponse
@@ -12890,7 +12894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询四层应用列表
+   * List of Transport Layer Applications
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12917,7 +12921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询四层应用列表
+   * List of Transport Layer Applications
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @returns ListTransportLayerApplicationsResponse
@@ -17996,7 +18000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改四层应用
+   * Modify Transport Layer Application
    * 
    * @param tmpReq - UpdateTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18035,6 +18039,10 @@ export default class Client extends OpenApi {
       query["SiteId"] = request.siteId;
     }
 
+    if (!$dara.isNull(request.staticIp)) {
+      query["StaticIp"] = request.staticIp;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18053,7 +18061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改四层应用
+   * Modify Transport Layer Application
    * 
    * @param request - UpdateTransportLayerApplicationRequest
    * @returns UpdateTransportLayerApplicationResponse

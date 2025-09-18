@@ -70,28 +70,7 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
 }
 
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
-  /**
-   * @remarks
-   * The regions for canary release.
-   */
-  canaryAreaList?: string[];
-  /**
-   * @remarks
-   * The version number for canary release.
-   * 
-   * @example
-   * 1710120201067577628
-   */
-  canaryCodeVersion?: string;
   codeDeploy?: GetRoutineResponseBodyEnvsCodeDeploy;
-  /**
-   * @remarks
-   * The version number of the code in the environment.
-   * 
-   * @example
-   * 1710120201067577628
-   */
-  codeVersion?: string;
   /**
    * @remarks
    * The environment type.
@@ -102,28 +81,19 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
   env?: string;
   static names(): { [key: string]: string } {
     return {
-      canaryAreaList: 'CanaryAreaList',
-      canaryCodeVersion: 'CanaryCodeVersion',
       codeDeploy: 'CodeDeploy',
-      codeVersion: 'CodeVersion',
       env: 'Env',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      canaryAreaList: { 'type': 'array', 'itemType': 'string' },
-      canaryCodeVersion: 'string',
       codeDeploy: GetRoutineResponseBodyEnvsCodeDeploy,
-      codeVersion: 'string',
       env: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.canaryAreaList)) {
-      $dara.Model.validateArray(this.canaryAreaList);
-    }
     if(this.codeDeploy && typeof (this.codeDeploy as any).validate === 'function') {
       (this.codeDeploy as any).validate();
     }
