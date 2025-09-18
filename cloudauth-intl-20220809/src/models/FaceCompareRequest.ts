@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCompareRequest extends $dara.Model {
   /**
    * @example
+   * N
+   */
+  facePictureQualityCheck?: string;
+  /**
+   * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
    */
   merchantBizId?: string;
@@ -22,6 +27,7 @@ export class FaceCompareRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      facePictureQualityCheck: 'FacePictureQualityCheck',
       merchantBizId: 'MerchantBizId',
       sourceFacePicture: 'SourceFacePicture',
       sourceFacePictureUrl: 'SourceFacePictureUrl',
@@ -32,6 +38,7 @@ export class FaceCompareRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      facePictureQualityCheck: 'string',
       merchantBizId: 'string',
       sourceFacePicture: 'string',
       sourceFacePictureUrl: 'string',

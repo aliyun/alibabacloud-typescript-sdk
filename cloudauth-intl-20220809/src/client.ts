@@ -1140,6 +1140,10 @@ export default class Client extends OpenApi {
   async faceCompareWithOptions(request: $_model.FaceCompareRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceCompareResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.facePictureQualityCheck)) {
+      query["FacePictureQualityCheck"] = request.facePictureQualityCheck;
+    }
+
     if (!$dara.isNull(request.merchantBizId)) {
       query["MerchantBizId"] = request.merchantBizId;
     }
