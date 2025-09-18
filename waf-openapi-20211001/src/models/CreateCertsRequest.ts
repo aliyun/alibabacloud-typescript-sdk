@@ -33,6 +33,8 @@ export class CreateCertsRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * waf_v2_public_cn-20p****nw01
    */
