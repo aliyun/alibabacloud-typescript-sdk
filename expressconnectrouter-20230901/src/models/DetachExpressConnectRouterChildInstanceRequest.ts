@@ -56,6 +56,7 @@ export class DetachExpressConnectRouterChildInstanceRequest extends $dara.Model 
    * ecr-mezk2idmsd0vx2****
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       childInstanceId: 'ChildInstanceId',
@@ -63,6 +64,7 @@ export class DetachExpressConnectRouterChildInstanceRequest extends $dara.Model 
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -73,6 +75,7 @@ export class DetachExpressConnectRouterChildInstanceRequest extends $dara.Model 
       clientToken: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 

@@ -98,6 +98,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
    * tr-2ze4i71c6be454e2l****
    */
   transitRouterId?: string;
+  version?: string;
   /**
    * @remarks
    * The VPC ID.
@@ -118,6 +119,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       transitRouterId: 'TransitRouterId',
+      version: 'Version',
       vpcId: 'VpcId',
     };
   }
@@ -134,6 +136,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
       maxResults: 'number',
       nextToken: 'string',
       transitRouterId: 'string',
+      version: 'string',
       vpcId: 'string',
     };
   }

@@ -95,6 +95,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
    * cn-hangzhou
    */
   queryRegionId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       asPath: 'AsPath',
@@ -107,6 +108,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
       nextToken: 'NextToken',
       nexthopInstanceId: 'NexthopInstanceId',
       queryRegionId: 'QueryRegionId',
+      version: 'Version',
     };
   }
 
@@ -122,6 +124,7 @@ export class DescribeExpressConnectRouterRouteEntriesRequest extends $dara.Model
       nextToken: 'string',
       nexthopInstanceId: 'string',
       queryRegionId: 'string',
+      version: 'string',
     };
   }
 

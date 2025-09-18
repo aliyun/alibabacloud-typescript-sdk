@@ -29,10 +29,12 @@ export class ListExpressConnectRouterSupportedRegionRequest extends $dara.Model 
    * VBR
    */
   nodeType?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       nodeType: 'NodeType',
+      version: 'Version',
     };
   }
 
@@ -40,6 +42,7 @@ export class ListExpressConnectRouterSupportedRegionRequest extends $dara.Model 
     return {
       clientToken: 'string',
       nodeType: 'string',
+      version: 'string',
     };
   }
 

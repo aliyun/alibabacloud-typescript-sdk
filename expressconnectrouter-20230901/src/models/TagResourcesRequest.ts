@@ -96,6 +96,7 @@ export class TagResourcesRequest extends $dara.Model {
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -103,6 +104,7 @@ export class TagResourcesRequest extends $dara.Model {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -113,6 +115,7 @@ export class TagResourcesRequest extends $dara.Model {
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+      version: 'string',
     };
   }
 

@@ -84,12 +84,14 @@ export class ModifyExpressConnectRouterInterRegionTransitModeRequest extends $da
    * The cross-region forwarding modes.
    */
   transitModeList?: ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       transitModeList: 'TransitModeList',
+      version: 'Version',
     };
   }
 
@@ -99,6 +101,7 @@ export class ModifyExpressConnectRouterInterRegionTransitModeRequest extends $da
       dryRun: 'boolean',
       ecrId: 'string',
       transitModeList: { 'type': 'array', 'itemType': ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList },
+      version: 'string',
     };
   }
 

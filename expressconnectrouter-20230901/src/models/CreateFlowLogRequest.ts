@@ -171,6 +171,7 @@ export class CreateFlowLogRequest extends $dara.Model {
    */
   samplingRate?: string;
   tag?: CreateFlowLogRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -186,6 +187,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       samplingRate: 'SamplingRate',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -204,6 +206,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       resourceGroupId: 'string',
       samplingRate: 'string',
       tag: { 'type': 'array', 'itemType': CreateFlowLogRequestTag },
+      version: 'string',
     };
   }
 

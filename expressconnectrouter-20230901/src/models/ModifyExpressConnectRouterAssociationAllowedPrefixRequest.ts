@@ -63,6 +63,7 @@ export class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends $
    */
   ecrId?: string;
   ownerAccount?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       allowedPrefixes: 'AllowedPrefixes',
@@ -72,6 +73,7 @@ export class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends $
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       ownerAccount: 'OwnerAccount',
+      version: 'Version',
     };
   }
 
@@ -84,6 +86,7 @@ export class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends $
       dryRun: 'boolean',
       ecrId: 'string',
       ownerAccount: 'string',
+      version: 'string',
     };
   }
 

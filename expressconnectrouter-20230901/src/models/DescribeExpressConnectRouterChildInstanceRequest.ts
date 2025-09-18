@@ -87,6 +87,7 @@ export class DescribeExpressConnectRouterChildInstanceRequest extends $dara.Mode
    * AAAAAYws9fJ0Ur4MGm/5OkDoW/Zn0J0/sCjivzwX9oBcwFnWaaas/kSG+J/WzLOxJHS4****
    */
   nextToken?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       associationId: 'AssociationId',
@@ -98,6 +99,7 @@ export class DescribeExpressConnectRouterChildInstanceRequest extends $dara.Mode
       ecrId: 'EcrId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      version: 'Version',
     };
   }
 
@@ -112,6 +114,7 @@ export class DescribeExpressConnectRouterChildInstanceRequest extends $dara.Mode
       ecrId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      version: 'string',
     };
   }
 

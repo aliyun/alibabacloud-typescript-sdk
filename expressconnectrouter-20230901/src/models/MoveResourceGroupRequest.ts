@@ -52,6 +52,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
    * EXPRESSCONNECTROUTER
    */
   resourceType?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -59,6 +60,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
       newResourceGroupId: 'NewResourceGroupId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
+      version: 'Version',
     };
   }
 
@@ -69,6 +71,7 @@ export class MoveResourceGroupRequest extends $dara.Model {
       newResourceGroupId: 'string',
       resourceId: 'string',
       resourceType: 'string',
+      version: 'string',
     };
   }
 

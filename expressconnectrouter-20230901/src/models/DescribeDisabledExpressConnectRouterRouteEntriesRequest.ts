@@ -55,6 +55,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends $da
    * FFv4fzkNPW8Z+cZ+DBXXQ3Gmf3XlCgpBH43oaTYTAAcGc708Zb+pDyAGVJBo/MKsyrtZfPnX9Ztf02vgdIDyaNe8UuZdf/JJk069qxGKzqSKg=
    */
   nextToken?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -62,6 +63,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends $da
       ecrId: 'EcrId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      version: 'Version',
     };
   }
 
@@ -72,6 +74,7 @@ export class DescribeDisabledExpressConnectRouterRouteEntriesRequest extends $da
       ecrId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      version: 'string',
     };
   }
 

@@ -117,6 +117,7 @@ export class CreateExpressConnectRouterRequest extends $dara.Model {
    * You can specify at most 20 tags in each call.
    */
   tag?: CreateExpressConnectRouterRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       alibabaSideAsn: 'AlibabaSideAsn',
@@ -126,6 +127,7 @@ export class CreateExpressConnectRouterRequest extends $dara.Model {
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -138,6 +140,7 @@ export class CreateExpressConnectRouterRequest extends $dara.Model {
       name: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateExpressConnectRouterRequestTag },
+      version: 'string',
     };
   }
 

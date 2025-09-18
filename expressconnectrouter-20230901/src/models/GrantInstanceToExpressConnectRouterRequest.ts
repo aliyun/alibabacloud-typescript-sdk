@@ -79,6 +79,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
    * VBR
    */
   instanceType?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -88,6 +89,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
       instanceId: 'InstanceId',
       instanceRegionId: 'InstanceRegionId',
       instanceType: 'InstanceType',
+      version: 'Version',
     };
   }
 
@@ -100,6 +102,7 @@ export class GrantInstanceToExpressConnectRouterRequest extends $dara.Model {
       instanceId: 'string',
       instanceRegionId: 'string',
       instanceType: 'string',
+      version: 'string',
     };
   }
 

@@ -56,6 +56,7 @@ export class DisableExpressConnectRouterRouteEntriesRequest extends $dara.Model 
    * tr-hp3u4u5f03tfuljis****
    */
   nexthopInstanceId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -63,6 +64,7 @@ export class DisableExpressConnectRouterRouteEntriesRequest extends $dara.Model 
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       nexthopInstanceId: 'NexthopInstanceId',
+      version: 'Version',
     };
   }
 
@@ -73,6 +75,7 @@ export class DisableExpressConnectRouterRouteEntriesRequest extends $dara.Model 
       dryRun: 'boolean',
       ecrId: 'string',
       nexthopInstanceId: 'string',
+      version: 'string',
     };
   }
 

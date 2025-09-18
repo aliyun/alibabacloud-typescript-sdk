@@ -67,6 +67,7 @@ export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $da
    * VPC
    */
   instanceType?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       associationId: 'AssociationId',
@@ -75,6 +76,7 @@ export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $da
       ecrId: 'EcrId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      version: 'Version',
     };
   }
 
@@ -86,6 +88,7 @@ export class DescribeExpressConnectRouterAllowedPrefixHistoryRequest extends $da
       ecrId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      version: 'string',
     };
   }
 

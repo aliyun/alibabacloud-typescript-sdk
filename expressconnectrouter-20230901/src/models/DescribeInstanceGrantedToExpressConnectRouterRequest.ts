@@ -158,6 +158,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterRequest extends $dara.
    * The tags.
    */
   tagModels?: DescribeInstanceGrantedToExpressConnectRouterRequestTagModels[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       callerType: 'CallerType',
@@ -172,6 +173,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterRequest extends $dara.
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
       tagModels: 'TagModels',
+      version: 'Version',
     };
   }
 
@@ -189,6 +191,7 @@ export class DescribeInstanceGrantedToExpressConnectRouterRequest extends $dara.
       nextToken: 'string',
       resourceGroupId: 'string',
       tagModels: { 'type': 'array', 'itemType': DescribeInstanceGrantedToExpressConnectRouterRequestTagModels },
+      version: 'string',
     };
   }
 

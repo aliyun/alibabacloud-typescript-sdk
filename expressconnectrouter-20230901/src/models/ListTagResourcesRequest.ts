@@ -90,6 +90,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * You can specify at most 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -97,6 +98,7 @@ export class ListTagResourcesRequest extends $dara.Model {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -107,6 +109,7 @@ export class ListTagResourcesRequest extends $dara.Model {
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+      version: 'string',
     };
   }
 

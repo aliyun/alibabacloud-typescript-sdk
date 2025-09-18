@@ -46,12 +46,14 @@ export class DeleteFlowlogRequest extends $dara.Model {
    * flowlog-m5evbtbpt****
    */
   flowLogId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       flowLogId: 'FlowLogId',
+      version: 'Version',
     };
   }
 
@@ -61,6 +63,7 @@ export class DeleteFlowlogRequest extends $dara.Model {
       dryRun: 'boolean',
       ecrId: 'string',
       flowLogId: 'string',
+      version: 'string',
     };
   }
 

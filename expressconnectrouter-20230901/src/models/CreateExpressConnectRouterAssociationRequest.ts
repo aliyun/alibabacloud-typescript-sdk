@@ -108,6 +108,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
    * 189159362009****
    */
   transitRouterOwnerId?: number;
+  version?: string;
   /**
    * @remarks
    * The VPC ID.
@@ -139,6 +140,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
       ecrId: 'EcrId',
       transitRouterId: 'TransitRouterId',
       transitRouterOwnerId: 'TransitRouterOwnerId',
+      version: 'Version',
       vpcId: 'VpcId',
       vpcOwnerId: 'VpcOwnerId',
     };
@@ -157,6 +159,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
       ecrId: 'string',
       transitRouterId: 'string',
       transitRouterOwnerId: 'number',
+      version: 'string',
       vpcId: 'string',
       vpcOwnerId: 'number',
     };

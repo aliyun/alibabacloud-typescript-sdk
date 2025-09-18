@@ -61,6 +61,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * The keys of the tags that you want to remove from the ECRs.
    */
   tagKey?: string[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       all: 'All',
@@ -69,6 +70,7 @@ export class UntagResourcesRequest extends $dara.Model {
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      version: 'Version',
     };
   }
 
@@ -80,6 +82,7 @@ export class UntagResourcesRequest extends $dara.Model {
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tagKey: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
     };
   }
 

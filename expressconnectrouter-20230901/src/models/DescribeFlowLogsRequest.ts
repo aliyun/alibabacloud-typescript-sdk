@@ -141,6 +141,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   projectName?: string;
   resourceGroupId?: string;
   tag?: DescribeFlowLogsRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -155,6 +156,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
       projectName: 'ProjectName',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -172,6 +174,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
       projectName: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeFlowLogsRequestTag },
+      version: 'string',
     };
   }
 

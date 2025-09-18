@@ -56,6 +56,7 @@ export class ModifyExpressConnectRouterRequest extends $dara.Model {
    * test
    */
   name?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -63,6 +64,7 @@ export class ModifyExpressConnectRouterRequest extends $dara.Model {
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       name: 'Name',
+      version: 'Version',
     };
   }
 
@@ -73,6 +75,7 @@ export class ModifyExpressConnectRouterRequest extends $dara.Model {
       dryRun: 'boolean',
       ecrId: 'string',
       name: 'string',
+      version: 'string',
     };
   }
 

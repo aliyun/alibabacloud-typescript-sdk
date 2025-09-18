@@ -46,12 +46,14 @@ export class CheckAddRegionToExpressConnectRouterRequest extends $dara.Model {
    * cn-hangzhou
    */
   freshRegionId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
       freshRegionId: 'FreshRegionId',
+      version: 'Version',
     };
   }
 
@@ -61,6 +63,7 @@ export class CheckAddRegionToExpressConnectRouterRequest extends $dara.Model {
       dryRun: 'boolean',
       ecrId: 'string',
       freshRegionId: 'string',
+      version: 'string',
     };
   }
 

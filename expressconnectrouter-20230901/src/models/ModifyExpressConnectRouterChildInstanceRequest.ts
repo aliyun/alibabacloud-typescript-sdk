@@ -42,6 +42,7 @@ export class ModifyExpressConnectRouterChildInstanceRequest extends $dara.Model 
    * ecr-gny3gqp41n7vrrn5iz
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       childInstanceId: 'ChildInstanceId',
@@ -50,6 +51,7 @@ export class ModifyExpressConnectRouterChildInstanceRequest extends $dara.Model 
       description: 'Description',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -61,6 +63,7 @@ export class ModifyExpressConnectRouterChildInstanceRequest extends $dara.Model 
       description: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 

@@ -36,11 +36,13 @@ export class DeleteExpressConnectRouterRequest extends $dara.Model {
    * ecr-fu8rszhgv7623c****
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -49,6 +51,7 @@ export class DeleteExpressConnectRouterRequest extends $dara.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 

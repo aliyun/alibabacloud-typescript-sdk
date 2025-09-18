@@ -38,6 +38,11 @@ export default class Client extends OpenApi {
    */
   async activateFlowLogWithOptions(request: $_model.ActivateFlowLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateFlowLogResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -56,6 +61,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -95,6 +101,11 @@ export default class Client extends OpenApi {
    */
   async attachExpressConnectRouterChildInstanceWithOptions(request: $_model.AttachExpressConnectRouterChildInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachExpressConnectRouterChildInstanceResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.childInstanceId)) {
       body["ChildInstanceId"] = request.childInstanceId;
@@ -129,6 +140,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -168,6 +180,11 @@ export default class Client extends OpenApi {
    */
   async checkAddRegionToExpressConnectRouterWithOptions(request: $_model.CheckAddRegionToExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAddRegionToExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -186,6 +203,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -225,6 +243,11 @@ export default class Client extends OpenApi {
    */
   async createExpressConnectRouterWithOptions(request: $_model.CreateExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.alibabaSideAsn)) {
       body["AlibabaSideAsn"] = request.alibabaSideAsn;
@@ -255,6 +278,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -294,6 +318,11 @@ export default class Client extends OpenApi {
    */
   async createExpressConnectRouterAssociationWithOptions(request: $_model.CreateExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExpressConnectRouterAssociationResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.allowedPrefixes)) {
       body["AllowedPrefixes"] = request.allowedPrefixes;
@@ -348,6 +377,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -417,6 +447,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -476,6 +510,11 @@ export default class Client extends OpenApi {
    */
   async deactivateFlowLogWithOptions(request: $_model.DeactivateFlowLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeactivateFlowLogResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -494,6 +533,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -535,6 +575,11 @@ export default class Client extends OpenApi {
    */
   async deleteExpressConnectRouterWithOptions(request: $_model.DeleteExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -549,6 +594,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -590,6 +636,11 @@ export default class Client extends OpenApi {
    */
   async deleteExpressConnectRouterAssociationWithOptions(request: $_model.DeleteExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExpressConnectRouterAssociationResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.associationId)) {
       body["AssociationId"] = request.associationId;
@@ -612,6 +663,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -651,6 +703,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.flowLogId)) {
       query["FlowLogId"] = request.flowLogId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
     }
 
     let body : {[key: string ]: any} = { };
@@ -704,6 +760,11 @@ export default class Client extends OpenApi {
    */
   async describeDisabledExpressConnectRouterRouteEntriesWithOptions(request: $_model.DescribeDisabledExpressConnectRouterRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDisabledExpressConnectRouterRouteEntriesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -726,6 +787,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -762,6 +824,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterWithOptions(request: $_model.DescribeExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -796,6 +863,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -832,6 +900,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterAllowedPrefixHistoryWithOptions(request: $_model.DescribeExpressConnectRouterAllowedPrefixHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterAllowedPrefixHistoryResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.associationId)) {
       body["AssociationId"] = request.associationId;
@@ -858,6 +931,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -894,6 +968,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterAssociationWithOptions(request: $_model.DescribeExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterAssociationResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.associationId)) {
       body["AssociationId"] = request.associationId;
@@ -940,6 +1019,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -976,6 +1056,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterChildInstanceWithOptions(request: $_model.DescribeExpressConnectRouterChildInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterChildInstanceResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.associationId)) {
       body["AssociationId"] = request.associationId;
@@ -1014,6 +1099,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1050,6 +1136,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterInterRegionTransitModeWithOptions(request: $_model.DescribeExpressConnectRouterInterRegionTransitModeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterInterRegionTransitModeResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1064,6 +1155,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1100,6 +1192,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterRegionWithOptions(request: $_model.DescribeExpressConnectRouterRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterRegionResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1114,6 +1211,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1150,6 +1248,11 @@ export default class Client extends OpenApi {
    */
   async describeExpressConnectRouterRouteEntriesWithOptions(request: $_model.DescribeExpressConnectRouterRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterRouteEntriesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.asPath)) {
       body["AsPath"] = request.asPath;
@@ -1192,6 +1295,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1265,6 +1369,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1316,6 +1424,11 @@ export default class Client extends OpenApi {
    */
   async describeInstanceGrantedToExpressConnectRouterWithOptions(request: $_model.DescribeInstanceGrantedToExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceGrantedToExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.callerType)) {
       body["CallerType"] = request.callerType;
@@ -1366,6 +1479,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1405,6 +1519,11 @@ export default class Client extends OpenApi {
    */
   async detachExpressConnectRouterChildInstanceWithOptions(request: $_model.DetachExpressConnectRouterChildInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachExpressConnectRouterChildInstanceResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.childInstanceId)) {
       body["ChildInstanceId"] = request.childInstanceId;
@@ -1427,6 +1546,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1466,6 +1586,11 @@ export default class Client extends OpenApi {
    */
   async disableExpressConnectRouterRouteEntriesWithOptions(request: $_model.DisableExpressConnectRouterRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableExpressConnectRouterRouteEntriesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1488,6 +1613,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1524,6 +1650,11 @@ export default class Client extends OpenApi {
    */
   async enableExpressConnectRouterRouteEntriesWithOptions(request: $_model.EnableExpressConnectRouterRouteEntriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableExpressConnectRouterRouteEntriesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1546,6 +1677,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1586,6 +1718,11 @@ export default class Client extends OpenApi {
    */
   async forceDeleteExpressConnectRouterWithOptions(request: $_model.ForceDeleteExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ForceDeleteExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1600,6 +1737,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1643,6 +1781,11 @@ export default class Client extends OpenApi {
    */
   async grantInstanceToExpressConnectRouterWithOptions(request: $_model.GrantInstanceToExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GrantInstanceToExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1673,6 +1816,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1712,6 +1856,11 @@ export default class Client extends OpenApi {
    */
   async listExpressConnectRouterSupportedRegionWithOptions(request: $_model.ListExpressConnectRouterSupportedRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExpressConnectRouterSupportedRegionResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1722,6 +1871,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1758,6 +1908,11 @@ export default class Client extends OpenApi {
    */
   async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
@@ -1780,6 +1935,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1819,6 +1975,11 @@ export default class Client extends OpenApi {
    */
   async modifyExpressConnectRouterWithOptions(request: $_model.ModifyExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -1841,6 +2002,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1880,6 +2042,11 @@ export default class Client extends OpenApi {
    */
   async modifyExpressConnectRouterAssociationWithOptions(request: $_model.ModifyExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterAssociationResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.associationId)) {
       body["AssociationId"] = request.associationId;
@@ -1902,6 +2069,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1938,6 +2106,11 @@ export default class Client extends OpenApi {
    */
   async modifyExpressConnectRouterAssociationAllowedPrefixWithOptions(request: $_model.ModifyExpressConnectRouterAssociationAllowedPrefixRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterAssociationAllowedPrefixResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.allowedPrefixes)) {
       body["AllowedPrefixes"] = request.allowedPrefixes;
@@ -1968,6 +2141,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2004,6 +2178,11 @@ export default class Client extends OpenApi {
    */
   async modifyExpressConnectRouterChildInstanceWithOptions(request: $_model.ModifyExpressConnectRouterChildInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterChildInstanceResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.childInstanceId)) {
       body["ChildInstanceId"] = request.childInstanceId;
@@ -2030,6 +2209,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2066,6 +2246,11 @@ export default class Client extends OpenApi {
    */
   async modifyExpressConnectRouterInterRegionTransitModeWithOptions(request: $_model.ModifyExpressConnectRouterInterRegionTransitModeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyExpressConnectRouterInterRegionTransitModeResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -2084,6 +2269,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2135,6 +2321,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.samplingRate)) {
       query["SamplingRate"] = request.samplingRate;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
     }
 
     let body : {[key: string ]: any} = { };
@@ -2192,6 +2382,11 @@ export default class Client extends OpenApi {
    */
   async moveResourceGroupWithOptions(request: $_model.MoveResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveResourceGroupResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -2214,6 +2409,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2250,6 +2446,11 @@ export default class Client extends OpenApi {
    */
   async revokeInstanceFromExpressConnectRouterWithOptions(request: $_model.RevokeInstanceFromExpressConnectRouterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeInstanceFromExpressConnectRouterResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -2280,6 +2481,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2319,6 +2521,11 @@ export default class Client extends OpenApi {
    */
   async synchronizeExpressConnectRouterInterRegionBandwidthWithOptions(request: $_model.SynchronizeExpressConnectRouterInterRegionBandwidthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SynchronizeExpressConnectRouterInterRegionBandwidthResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -2333,6 +2540,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2372,6 +2580,11 @@ export default class Client extends OpenApi {
    */
   async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
@@ -2394,6 +2607,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2430,6 +2644,11 @@ export default class Client extends OpenApi {
    */
   async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.all)) {
       body["All"] = request.all;
@@ -2456,6 +2675,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

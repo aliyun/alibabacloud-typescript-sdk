@@ -120,6 +120,7 @@ export class DescribeExpressConnectRouterRequest extends $dara.Model {
    * The resource tags. You can specify up to 20 tags.
    */
   tag?: DescribeExpressConnectRouterRequestTag[];
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -130,6 +131,7 @@ export class DescribeExpressConnectRouterRequest extends $dara.Model {
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
+      version: 'Version',
     };
   }
 
@@ -143,6 +145,7 @@ export class DescribeExpressConnectRouterRequest extends $dara.Model {
       nextToken: 'string',
       resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribeExpressConnectRouterRequestTag },
+      version: 'string',
     };
   }
 

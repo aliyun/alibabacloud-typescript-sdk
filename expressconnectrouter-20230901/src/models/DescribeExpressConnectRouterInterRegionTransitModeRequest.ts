@@ -36,11 +36,13 @@ export class DescribeExpressConnectRouterInterRegionTransitModeRequest extends $
    * ecr-mezk2idmsd0vx2****
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -49,6 +51,7 @@ export class DescribeExpressConnectRouterInterRegionTransitModeRequest extends $
       clientToken: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 

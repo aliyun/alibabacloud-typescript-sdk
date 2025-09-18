@@ -90,6 +90,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
    * 1:4096
    */
   samplingRate?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -100,6 +101,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
       flowLogName: 'FlowLogName',
       interval: 'Interval',
       samplingRate: 'SamplingRate',
+      version: 'Version',
     };
   }
 
@@ -113,6 +115,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
       flowLogName: 'string',
       interval: 'number',
       samplingRate: 'string',
+      version: 'string',
     };
   }
 

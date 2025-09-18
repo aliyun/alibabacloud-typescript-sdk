@@ -57,6 +57,7 @@ export class DeleteExpressConnectRouterAssociationRequest extends $dara.Model {
    * ecr-mezk2idmsd0vx2****
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       associationId: 'AssociationId',
@@ -64,6 +65,7 @@ export class DeleteExpressConnectRouterAssociationRequest extends $dara.Model {
       deleteAttachment: 'DeleteAttachment',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -74,6 +76,7 @@ export class DeleteExpressConnectRouterAssociationRequest extends $dara.Model {
       deleteAttachment: 'boolean',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 

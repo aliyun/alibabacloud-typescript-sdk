@@ -34,6 +34,7 @@ export class ModifyExpressConnectRouterAssociationRequest extends $dara.Model {
    * ecr-mezk2idmsd0vx2****
    */
   ecrId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       associationId: 'AssociationId',
@@ -41,6 +42,7 @@ export class ModifyExpressConnectRouterAssociationRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      version: 'Version',
     };
   }
 
@@ -51,6 +53,7 @@ export class ModifyExpressConnectRouterAssociationRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      version: 'string',
     };
   }
 
