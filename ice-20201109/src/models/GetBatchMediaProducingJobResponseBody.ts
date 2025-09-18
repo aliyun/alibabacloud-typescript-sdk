@@ -155,6 +155,8 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
    * }
    */
   extend?: string;
+  extendInput?: string;
+  extendOutput?: string;
   /**
    * @remarks
    * The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
@@ -227,6 +229,8 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
       createTime: 'CreateTime',
       editingConfig: 'EditingConfig',
       extend: 'Extend',
+      extendInput: 'ExtendInput',
+      extendOutput: 'ExtendOutput',
       inputConfig: 'InputConfig',
       jobId: 'JobId',
       jobType: 'JobType',
@@ -244,6 +248,8 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
       createTime: 'string',
       editingConfig: 'string',
       extend: 'string',
+      extendInput: 'string',
+      extendOutput: 'string',
       inputConfig: 'string',
       jobId: 'string',
       jobType: 'string',

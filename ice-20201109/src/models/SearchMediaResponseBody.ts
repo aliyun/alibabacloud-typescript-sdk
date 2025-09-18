@@ -867,6 +867,11 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    */
   status?: string;
   /**
+   * @example
+   * Active
+   */
+  streamStatus?: string;
+  /**
    * @remarks
    * The title of the media asset.
    */
@@ -918,6 +923,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       source: 'Source',
       spriteImages: 'SpriteImages',
       status: 'Status',
+      streamStatus: 'StreamStatus',
       title: 'Title',
       transcodeStatus: 'TranscodeStatus',
       uploadSource: 'UploadSource',
@@ -948,6 +954,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
       source: 'string',
       spriteImages: 'string',
       status: 'string',
+      streamStatus: 'string',
       title: 'string',
       transcodeStatus: 'string',
       uploadSource: 'string',

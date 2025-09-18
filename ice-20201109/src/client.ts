@@ -564,6 +564,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打标流媒资
+   * 
+   * @param request - AddStreamTagToSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddStreamTagToSearchLibResponse
+   */
+  async addStreamTagToSearchLibWithOptions(request: $_model.AddStreamTagToSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddStreamTagToSearchLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!$dara.isNull(request.msgBody)) {
+      query["MsgBody"] = request.msgBody;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddStreamTagToSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddStreamTagToSearchLibResponse>(await this.callApi(params, req, runtime), new $_model.AddStreamTagToSearchLibResponse({}));
+  }
+
+  /**
+   * 打标流媒资
+   * 
+   * @param request - AddStreamTagToSearchLibRequest
+   * @returns AddStreamTagToSearchLibResponse
+   */
+  async addStreamTagToSearchLib(request: $_model.AddStreamTagToSearchLibRequest): Promise<$_model.AddStreamTagToSearchLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addStreamTagToSearchLibWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a template.
    * 
    * @remarks
@@ -1037,6 +1091,56 @@ export default class Client extends OpenApi {
   async closeMediaConnectFlowFailover(request: $_model.CloseMediaConnectFlowFailoverRequest): Promise<$_model.CloseMediaConnectFlowFailoverResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.closeMediaConnectFlowFailoverWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭流媒资
+   * 
+   * @param request - CloseStreamToSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseStreamToSearchLibResponse
+   */
+  async closeStreamToSearchLibWithOptions(request: $_model.CloseStreamToSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloseStreamToSearchLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseStreamToSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloseStreamToSearchLibResponse>(await this.callApi(params, req, runtime), new $_model.CloseStreamToSearchLibResponse({}));
+  }
+
+  /**
+   * 关闭流媒资
+   * 
+   * @param request - CloseStreamToSearchLibRequest
+   * @returns CloseStreamToSearchLibResponse
+   */
+  async closeStreamToSearchLib(request: $_model.CloseStreamToSearchLibRequest): Promise<$_model.CloseStreamToSearchLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.closeStreamToSearchLibWithOptions(request, runtime);
   }
 
   /**
@@ -2765,6 +2869,56 @@ export default class Client extends OpenApi {
   async createSourceLocation(request: $_model.CreateSourceLocationRequest): Promise<$_model.CreateSourceLocationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSourceLocationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建流媒资
+   * 
+   * @param request - CreateStreamToSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStreamToSearchLibResponse
+   */
+  async createStreamToSearchLibWithOptions(request: $_model.CreateStreamToSearchLibRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStreamToSearchLibResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStreamToSearchLib",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStreamToSearchLibResponse>(await this.callApi(params, req, runtime), new $_model.CreateStreamToSearchLibResponse({}));
+  }
+
+  /**
+   * 创建流媒资
+   * 
+   * @param request - CreateStreamToSearchLibRequest
+   * @returns CreateStreamToSearchLibResponse
+   */
+  async createStreamToSearchLib(request: $_model.CreateStreamToSearchLibRequest): Promise<$_model.CreateStreamToSearchLibResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStreamToSearchLibWithOptions(request, runtime);
   }
 
   /**
@@ -8571,6 +8725,80 @@ export default class Client extends OpenApi {
   async getStorageList(request: $_model.GetStorageListRequest): Promise<$_model.GetStorageListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getStorageListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询流媒资打标
+   * 
+   * @param request - GetStreamTagListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStreamTagListResponse
+   */
+  async getStreamTagListWithOptions(request: $_model.GetStreamTagListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStreamTagListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchLibName)) {
+      query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStreamTagList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStreamTagListResponse>(await this.callApi(params, req, runtime), new $_model.GetStreamTagListResponse({}));
+  }
+
+  /**
+   * 查询流媒资打标
+   * 
+   * @param request - GetStreamTagListRequest
+   * @returns GetStreamTagListResponse
+   */
+  async getStreamTagList(request: $_model.GetStreamTagListRequest): Promise<$_model.GetStreamTagListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStreamTagListWithOptions(request, runtime);
   }
 
   /**
