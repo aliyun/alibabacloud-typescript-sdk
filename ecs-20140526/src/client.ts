@@ -5380,6 +5380,10 @@ export default class Client extends OpenApi {
       query["SecurityGroupIds"] = request.securityGroupIds;
     }
 
+    if (!$dara.isNull(request.securityOptions)) {
+      query["SecurityOptions"] = request.securityOptions;
+    }
+
     if (!$dara.isNull(request.spotDuration)) {
       query["SpotDuration"] = request.spotDuration;
     }
@@ -5652,6 +5656,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityGroupIds)) {
       query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
+    if (!$dara.isNull(request.securityOptions)) {
+      query["SecurityOptions"] = request.securityOptions;
     }
 
     if (!$dara.isNull(request.spotDuration)) {
@@ -33754,12 +33762,18 @@ export default class Client extends OpenApi {
    * *   The port forwarding feature supports only TCP port forwarding. UDP port forwarding is not supported.
    * *   If you want to permanently close a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
    * 
-   * @param request - StartTerminalSessionRequest
+   * @param tmpReq - StartTerminalSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartTerminalSessionResponse
    */
-  async startTerminalSessionWithOptions(request: $_model.StartTerminalSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartTerminalSessionResponse> {
-    request.validate();
+  async startTerminalSessionWithOptions(tmpReq: $_model.StartTerminalSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartTerminalSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartTerminalSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.encryptionOptions)) {
+      request.encryptionOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encryptionOptions, "EncryptionOptions", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.commandLine)) {
       query["CommandLine"] = request.commandLine;
@@ -33767,6 +33781,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.connectionType)) {
       query["ConnectionType"] = request.connectionType;
+    }
+
+    if (!$dara.isNull(request.encryptionOptionsShrink)) {
+      query["EncryptionOptions"] = request.encryptionOptionsShrink;
     }
 
     if (!$dara.isNull(request.instanceId)) {

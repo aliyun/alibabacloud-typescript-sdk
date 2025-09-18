@@ -586,6 +586,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
    * true
    */
   isSupportIoOptimized?: boolean;
+  licenseType?: string;
   /**
    * @remarks
    * Indicates whether the image supports logons of non-root users. Valid values:
@@ -724,6 +725,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       isSubscribed: 'IsSubscribed',
       isSupportCloudinit: 'IsSupportCloudinit',
       isSupportIoOptimized: 'IsSupportIoOptimized',
+      licenseType: 'LicenseType',
       loginAsNonRootSupported: 'LoginAsNonRootSupported',
       OSName: 'OSName',
       OSNameEn: 'OSNameEn',
@@ -761,6 +763,7 @@ export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
       isSubscribed: 'boolean',
       isSupportCloudinit: 'boolean',
       isSupportIoOptimized: 'boolean',
+      licenseType: 'string',
       loginAsNonRootSupported: 'boolean',
       OSName: 'string',
       OSNameEn: 'string',

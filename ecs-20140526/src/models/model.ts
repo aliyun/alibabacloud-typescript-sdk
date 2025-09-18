@@ -83,12 +83,14 @@ export { CreateLaunchTemplateRequestSystemDisk } from './CreateLaunchTemplateReq
 export { CreateLaunchTemplateRequestDataDisk } from './CreateLaunchTemplateRequest';
 export { CreateLaunchTemplateRequestImageOptions } from './CreateLaunchTemplateRequest';
 export { CreateLaunchTemplateRequestNetworkInterface } from './CreateLaunchTemplateRequest';
+export { CreateLaunchTemplateRequestSecurityOptions } from './CreateLaunchTemplateRequest';
 export { CreateLaunchTemplateRequestTag } from './CreateLaunchTemplateRequest';
 export { CreateLaunchTemplateRequestTemplateTag } from './CreateLaunchTemplateRequest';
 export { CreateLaunchTemplateVersionRequestSystemDisk } from './CreateLaunchTemplateVersionRequest';
 export { CreateLaunchTemplateVersionRequestDataDisk } from './CreateLaunchTemplateVersionRequest';
 export { CreateLaunchTemplateVersionRequestImageOptions } from './CreateLaunchTemplateVersionRequest';
 export { CreateLaunchTemplateVersionRequestNetworkInterface } from './CreateLaunchTemplateVersionRequest';
+export { CreateLaunchTemplateVersionRequestSecurityOptions } from './CreateLaunchTemplateVersionRequest';
 export { CreateLaunchTemplateVersionRequestTag } from './CreateLaunchTemplateVersionRequest';
 export { CreateNatGatewayRequestBandwidthPackage } from './CreateNatGatewayRequest';
 export { CreateNatGatewayResponseBodyBandwidthPackageIds } from './CreateNatGatewayResponseBody';
@@ -514,6 +516,7 @@ export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaun
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfacesNetworkInterface } from './DescribeLaunchTemplateVersionsResponseBody';
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataNetworkInterfaces } from './DescribeLaunchTemplateVersionsResponseBody';
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds } from './DescribeLaunchTemplateVersionsResponseBody';
+export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions } from './DescribeLaunchTemplateVersionsResponseBody';
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTagsInstanceTag } from './DescribeLaunchTemplateVersionsResponseBody';
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTags } from './DescribeLaunchTemplateVersionsResponseBody';
 export { DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateData } from './DescribeLaunchTemplateVersionsResponseBody';
@@ -865,6 +868,7 @@ export { StartImagePipelineExecutionRequestTag } from './StartImagePipelineExecu
 export { StartImagePipelineExecutionRequestTemplateTag } from './StartImagePipelineExecutionRequest';
 export { StartInstancesResponseBodyInstanceResponsesInstanceResponse } from './StartInstancesResponseBody';
 export { StartInstancesResponseBodyInstanceResponses } from './StartInstancesResponseBody';
+export { StartTerminalSessionRequestEncryptionOptions } from './StartTerminalSessionRequest';
 export { StopInstancesResponseBodyInstanceResponsesInstanceResponse } from './StopInstancesResponseBody';
 export { StopInstancesResponseBodyInstanceResponses } from './StopInstancesResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
@@ -1930,6 +1934,7 @@ export { StartInstancesRequest } from './StartInstancesRequest';
 export { StartInstancesResponseBody } from './StartInstancesResponseBody';
 export { StartInstancesResponse } from './StartInstancesResponse';
 export { StartTerminalSessionRequest } from './StartTerminalSessionRequest';
+export { StartTerminalSessionShrinkRequest } from './StartTerminalSessionShrinkRequest';
 export { StartTerminalSessionResponseBody } from './StartTerminalSessionResponseBody';
 export { StartTerminalSessionResponse } from './StartTerminalSessionResponse';
 export { StopInstanceRequest } from './StopInstanceRequest';

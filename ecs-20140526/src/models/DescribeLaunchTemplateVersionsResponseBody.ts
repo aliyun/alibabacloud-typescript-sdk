@@ -482,6 +482,29 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
   }
 }
 
+export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions extends $dara.Model {
+  trustedSystemMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trustedSystemMode: 'TrustedSystemMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trustedSystemMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataTagsInstanceTag extends $dara.Model {
   /**
    * @remarks
@@ -876,6 +899,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
    * >  `SecurityGroupId` and `SecurityGroupIds` are mutually exclusive in the response.
    */
   securityGroupIds?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds;
+  securityOptions?: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Valid values:
@@ -987,6 +1011,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
@@ -1037,6 +1062,7 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityGroupIds,
+      securityOptions: DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSecurityOptions,
       spotDuration: 'number',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
@@ -1063,6 +1089,9 @@ export class DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSets
     }
     if(this.securityGroupIds && typeof (this.securityGroupIds as any).validate === 'function') {
       (this.securityGroupIds as any).validate();
+    }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();

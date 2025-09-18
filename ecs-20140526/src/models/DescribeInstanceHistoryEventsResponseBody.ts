@@ -273,6 +273,8 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
    * The inactive disks that were released and whose data must be cleared.
    */
   inactiveDisks?: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks;
+  metricName?: string;
+  metricValue?: string;
   /**
    * @remarks
    * The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
@@ -338,6 +340,8 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       hostId: 'HostId',
       hostType: 'HostType',
       inactiveDisks: 'InactiveDisks',
+      metricName: 'MetricName',
+      metricValue: 'MetricValue',
       migrationOptions: 'MigrationOptions',
       onlineRepairPolicy: 'OnlineRepairPolicy',
       punishDomain: 'PunishDomain',
@@ -357,6 +361,8 @@ export class DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInst
       hostId: 'string',
       hostType: 'string',
       inactiveDisks: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeInactiveDisks,
+      metricName: 'string',
+      metricValue: 'string',
       migrationOptions: DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttributeMigrationOptions,
       onlineRepairPolicy: 'string',
       punishDomain: 'string',

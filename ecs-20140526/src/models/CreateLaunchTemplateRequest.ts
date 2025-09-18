@@ -587,6 +587,29 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $dara.Model {
   }
 }
 
+export class CreateLaunchTemplateRequestSecurityOptions extends $dara.Model {
+  trustedSystemMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trustedSystemMode: 'TrustedSystemMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trustedSystemMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLaunchTemplateRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -1057,6 +1080,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
    * sg-bp15ed6xe1yxeycg7****
    */
   securityGroupIds?: string[];
+  securityOptions?: CreateLaunchTemplateRequestSecurityOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
@@ -1201,6 +1225,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       securityGroupIds: 'SecurityGroupIds',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotPriceLimit: 'SpotPriceLimit',
       spotStrategy: 'SpotStrategy',
@@ -1260,6 +1285,7 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      securityOptions: CreateLaunchTemplateRequestSecurityOptions,
       spotDuration: 'number',
       spotPriceLimit: 'number',
       spotStrategy: 'string',
@@ -1289,6 +1315,9 @@ export class CreateLaunchTemplateRequest extends $dara.Model {
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);
+    }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

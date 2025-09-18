@@ -135,7 +135,15 @@ export class DescribeInstanceAttributeResponseBodyInnerIpAddress extends $dara.M
 
 export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.Model {
   bandwidthWeighting?: string;
+  /**
+   * @example
+   * false
+   */
   enableJumboFrame?: boolean;
+  /**
+   * @example
+   * False
+   */
   enableNetworkEncryption?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -431,6 +439,10 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * false
    */
   enableJumboFrame?: boolean;
+  /**
+   * @example
+   * True
+   */
   enableNetworkEncryption?: boolean;
   /**
    * @remarks
@@ -555,6 +567,12 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * 16384
    */
   memory?: number;
+  /**
+   * @remarks
+   * Details about network options.
+   * 
+   * >  This parameter is in invitational preview and is not publicly available.
+   */
   networkOptions?: DescribeInstanceAttributeResponseBodyNetworkOptions;
   /**
    * @remarks

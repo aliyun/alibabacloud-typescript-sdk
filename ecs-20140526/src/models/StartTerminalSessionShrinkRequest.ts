@@ -2,36 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StartTerminalSessionRequestEncryptionOptions extends $dara.Model {
-  enabled?: boolean;
-  KMSKeyId?: string;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enabled: 'Enabled',
-      KMSKeyId: 'KMSKeyId',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enabled: 'boolean',
-      KMSKeyId: 'string',
-      mode: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartTerminalSessionRequest extends $dara.Model {
+export class StartTerminalSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The command to run after the session is initiated. The command length cannot exceed 512 characters.
@@ -53,7 +24,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
    * Intranet
    */
   connectionType?: string;
-  encryptionOptions?: StartTerminalSessionRequestEncryptionOptions;
+  encryptionOptionsShrink?: string;
   /**
    * @remarks
    * The instance IDs.
@@ -108,7 +79,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
     return {
       commandLine: 'CommandLine',
       connectionType: 'ConnectionType',
-      encryptionOptions: 'EncryptionOptions',
+      encryptionOptionsShrink: 'EncryptionOptions',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -126,7 +97,7 @@ export class StartTerminalSessionRequest extends $dara.Model {
     return {
       commandLine: 'string',
       connectionType: 'string',
-      encryptionOptions: StartTerminalSessionRequestEncryptionOptions,
+      encryptionOptionsShrink: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
@@ -141,9 +112,6 @@ export class StartTerminalSessionRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.encryptionOptions && typeof (this.encryptionOptions as any).validate === 'function') {
-      (this.encryptionOptions as any).validate();
-    }
     if(Array.isArray(this.instanceId)) {
       $dara.Model.validateArray(this.instanceId);
     }
