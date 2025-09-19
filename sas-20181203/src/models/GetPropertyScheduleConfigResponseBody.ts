@@ -1,0 +1,111 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetPropertyScheduleConfigResponseBodyPropertyScheduleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The timestamp when the next collection of asset fingerprints starts. Unit: milliseconds.
+   * 
+   * @example
+   * 1671630647018
+   */
+  nextScheduleTime?: number;
+  /**
+   * @remarks
+   * The collection frequency of asset fingerprints. Valid values:
+   * 
+   * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
+   * *   **1**: collects asset fingerprints once an hour.
+   * *   **3**: collects asset fingerprints once every 3 hours.
+   * *   **12**: collects asset fingerprints once every 12 hours.
+   * *   **24**: collects asset fingerprints once a day.
+   * *   **168**: collects asset fingerprints once every 7 days.
+   * 
+   * @example
+   * 3
+   */
+  scheduleTime?: string;
+  /**
+   * @remarks
+   * The type of the asset fingerprints. Valid values:
+   * 
+   * *   **scheduler_port_period**: listening port
+   * *   **scheduler_process_period**: running process
+   * *   **scheduler_account_period**: account
+   * *   **scheduler_software_period**: software
+   * *   **scheduler_cron_period**: scheduled task
+   * *   **scheduler_sca_period**: middleware
+   * *   **scheduler_autorun_period**: startup item
+   * *   **scheduler_lkm_period**: kernel module
+   * *   **scheduler_sca_proxy_period**: website
+   * 
+   * @example
+   * scheduler_account_period
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextScheduleTime: 'NextScheduleTime',
+      scheduleTime: 'ScheduleTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextScheduleTime: 'number',
+      scheduleTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPropertyScheduleConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations for the collection frequency of asset fingerprints.
+   */
+  propertyScheduleConfig?: GetPropertyScheduleConfigResponseBodyPropertyScheduleConfig;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * B37C9052-A73E-4707-A024-92477028****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      propertyScheduleConfig: 'PropertyScheduleConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyScheduleConfig: GetPropertyScheduleConfigResponseBodyPropertyScheduleConfig,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.propertyScheduleConfig && typeof (this.propertyScheduleConfig as any).validate === 'function') {
+      (this.propertyScheduleConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

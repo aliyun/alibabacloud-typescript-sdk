@@ -1,0 +1,256 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepairRepairConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the repair process during the repair operation.
+   * 
+   * @example
+   * cd7c4d34c1034de08308535d6cee***
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * Name of the repair parameter.
+   * 
+   * @example
+   * IpList
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Display name.
+   * 
+   * @example
+   * IP List
+   */
+  showName?: string;
+  /**
+   * @remarks
+   * JSON string for the custom configuration type of the check item.
+   * 
+   * @example
+   * {\\"type\\":\\"STRING\\",\\"range\\":[0,64]}
+   */
+  typeDefine?: string;
+  /**
+   * @remarks
+   * Real-time value of the parameter for the instance.
+   * 
+   * @example
+   * 192.168.1XX.1XX
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      name: 'Name',
+      showName: 'ShowName',
+      typeDefine: 'TypeDefine',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      name: 'string',
+      showName: 'string',
+      typeDefine: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepair extends $dara.Model {
+  /**
+   * @remarks
+   * Timestamp for processing the risk. Unit: milliseconds.
+   * 
+   * @example
+   * 1719923175000
+   */
+  operateTime?: number;
+  /**
+   * @remarks
+   * Fix the corresponding configuration information.
+   */
+  repairConfigs?: ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepairRepairConfigs[];
+  /**
+   * @remarks
+   * Status of the corresponding task.
+   * 
+   * @example
+   * REPAIR_SUCCESS_VERIFIED
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Display name of the repair task status.
+   * 
+   * @example
+   * repair success verified
+   */
+  statusShowName?: string;
+  /**
+   * @remarks
+   * TaskId of the operation task.
+   * 
+   * @example
+   * 6a829841e335b0fb6e0014463284****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operateTime: 'OperateTime',
+      repairConfigs: 'RepairConfigs',
+      status: 'Status',
+      statusShowName: 'StatusShowName',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operateTime: 'number',
+      repairConfigs: { 'type': 'array', 'itemType': ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepairRepairConfigs },
+      status: 'string',
+      statusShowName: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.repairConfigs)) {
+      $dara.Model.validateArray(this.repairConfigs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOperationCheckResponseBodyOperationTaskInstanceDetails extends $dara.Model {
+  /**
+   * @remarks
+   * Check item ID.
+   * 
+   * @example
+   * 58
+   */
+  checkId?: number;
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * @example
+   * lb-2zefdwrre8ey8ewr0****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Information about the repair task.
+   */
+  repair?: ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepair[];
+  /**
+   * @remarks
+   * The operation type of the corresponding task:
+   *  - **REPAIR**: Repair task 
+   * - **ROLLBACK**: Rollback task
+   * 
+   * @example
+   * REPAIR
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkId: 'CheckId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repair: 'Repair',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkId: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      repair: { 'type': 'array', 'itemType': ListOperationCheckResponseBodyOperationTaskInstanceDetailsRepair },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.repair)) {
+      $dara.Model.validateArray(this.repair);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOperationCheckResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Detailed information about the operation instances.
+   */
+  operationTaskInstanceDetails?: ListOperationCheckResponseBodyOperationTaskInstanceDetails[];
+  /**
+   * @remarks
+   * The ID of the current call request, which is a unique identifier generated by Alibaba Cloud for the request, and can be used for troubleshooting and problem localization.
+   * 
+   * @example
+   * A3D7C47D-3F11-57BB-90E8-E5C20C61****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationTaskInstanceDetails: 'OperationTaskInstanceDetails',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationTaskInstanceDetails: { 'type': 'array', 'itemType': ListOperationCheckResponseBodyOperationTaskInstanceDetails },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operationTaskInstanceDetails)) {
+      $dara.Model.validateArray(this.operationTaskInstanceDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

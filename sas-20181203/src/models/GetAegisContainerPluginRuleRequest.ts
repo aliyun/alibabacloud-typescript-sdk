@@ -1,0 +1,62 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetAegisContainerPluginRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the defense rule against container escapes.
+   * 
+   * >  You can call the [ListAegisContainerPluginRule](~~ListAegisContainerPluginRule~~) operation to obtain the ID.
+   * 
+   * @example
+   * 1141****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   **0**: custom rule
+   * *   **1**: system rule
+   * 
+   * @example
+   * 0
+   */
+  ruleType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+      ruleType: 'RuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      lang: 'string',
+      ruleType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

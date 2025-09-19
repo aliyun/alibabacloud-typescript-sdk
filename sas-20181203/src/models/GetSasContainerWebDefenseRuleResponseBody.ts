@@ -1,0 +1,271 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePathConfDTOList extends $dara.Model {
+  /**
+   * @remarks
+   * Backup path.
+   * 
+   * @example
+   * /usr/path/
+   */
+  backupPath?: string;
+  /**
+   * @remarks
+   * Action to be executed.
+   * - **block** : Block
+   * - **audit** : Alert
+   * 
+   * @example
+   * audit
+   */
+  defenseMode?: string;
+  /**
+   * @remarks
+   * Defense path
+   * 
+   * @example
+   * /test11*
+   */
+  defensePath?: string;
+  /**
+   * @remarks
+   * Excluded files.
+   * 
+   * @example
+   * file1
+   */
+  excludeFile?: string;
+  /**
+   * @remarks
+   * Excluded file path.
+   * 
+   * @example
+   * /test2/sub1,/test2/sub2
+   */
+  excludeFilePath?: string;
+  /**
+   * @remarks
+   * Exclude file types.
+   * 
+   * @example
+   * doc
+   */
+  excludeFileType?: string;
+  /**
+   * @remarks
+   * Protection mode.
+   * - **0**: Basic mode (whitelist)
+   * - **1**: Advanced mode (blacklist)
+   * 
+   * @example
+   * 0
+   */
+  guardType?: number;
+  /**
+   * @remarks
+   * Included files.
+   * 
+   * @example
+   * webapp
+   */
+  includeFile?: string;
+  /**
+   * @remarks
+   * Type of included files.
+   * 
+   * @example
+   * doc
+   */
+  includeFileType?: string;
+  /**
+   * @remarks
+   * Whitelist process list.
+   */
+  processPathList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      backupPath: 'BackupPath',
+      defenseMode: 'DefenseMode',
+      defensePath: 'DefensePath',
+      excludeFile: 'ExcludeFile',
+      excludeFilePath: 'ExcludeFilePath',
+      excludeFileType: 'ExcludeFileType',
+      guardType: 'GuardType',
+      includeFile: 'IncludeFile',
+      includeFileType: 'IncludeFileType',
+      processPathList: 'ProcessPathList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupPath: 'string',
+      defenseMode: 'string',
+      defensePath: 'string',
+      excludeFile: 'string',
+      excludeFilePath: 'string',
+      excludeFileType: 'string',
+      guardType: 'number',
+      includeFile: 'string',
+      includeFileType: 'string',
+      processPathList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.processPathList)) {
+      $dara.Model.validateArray(this.processPathList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule extends $dara.Model {
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 1000**0002
+   */
+  aliUid?: number;
+  /**
+   * @remarks
+   * Total number of applications.
+   * 
+   * @example
+   * 1
+   */
+  appTotalCount?: number;
+  /**
+   * @remarks
+   * Timestamp when the rule was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1709173360000
+   */
+  gmtCreate?: number;
+  /**
+   * @remarks
+   * Timestamp when the rule was last modified. Unit: milliseconds.
+   * 
+   * @example
+   * 1655432638000
+   */
+  gmtModified?: number;
+  /**
+   * @remarks
+   * Rule ID.
+   * 
+   * @example
+   * 100
+   */
+  id?: number;
+  /**
+   * @remarks
+   * List of configured file paths.
+   */
+  pathConfDTOList?: GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePathConfDTOList[];
+  /**
+   * @remarks
+   * Rule name.
+   * 
+   * @example
+   * FiledefenseRule.
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * Rule status. The value descriptions are as follows:
+   * 
+   * - **1**: Enabled
+   * - **0**: Disabled
+   * 
+   * @example
+   * 1
+   */
+  ruleStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      appTotalCount: 'AppTotalCount',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      pathConfDTOList: 'PathConfDTOList',
+      ruleName: 'RuleName',
+      ruleStatus: 'RuleStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      appTotalCount: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      pathConfDTOList: { 'type': 'array', 'itemType': GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRulePathConfDTOList },
+      ruleName: 'string',
+      ruleStatus: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pathConfDTOList)) {
+      $dara.Model.validateArray(this.pathConfDTOList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSasContainerWebDefenseRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the container file defense rule.
+   */
+  containerWebDefenseRule?: GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule;
+  /**
+   * @remarks
+   * The ID of the current request, which is a unique identifier generated by Alibaba Cloud for this request and can be used for troubleshooting and issue localization.
+   * 
+   * @example
+   * BA674E4**62FB5133
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerWebDefenseRule: 'ContainerWebDefenseRule',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerWebDefenseRule: GetSasContainerWebDefenseRuleResponseBodyContainerWebDefenseRule,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.containerWebDefenseRule && typeof (this.containerWebDefenseRule as any).validate === 'function') {
+      (this.containerWebDefenseRule as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
