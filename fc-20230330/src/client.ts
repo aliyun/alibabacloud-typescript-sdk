@@ -243,6 +243,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建会话资源
+   * 
+   * @param request - CreateSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSessionResponse
+   */
+  async createSessionWithOptions(functionName: string, request: $_model.CreateSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSessionResponse>(await this.callApi(params, req, runtime), new $_model.CreateSessionResponse({}));
+  }
+
+  /**
+   * 创建会话资源
+   * 
+   * @param request - CreateSessionRequest
+   * @returns CreateSessionResponse
+   */
+  async createSession(functionName: string, request: $_model.CreateSessionRequest): Promise<$_model.CreateSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSessionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
    * 创建函数触发器。
    * 
    * @param request - CreateTriggerRequest
@@ -665,6 +711,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteScalingConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 删除会话资源
+   * 
+   * @param request - DeleteSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSessionResponse
+   */
+  async deleteSessionWithOptions(functionName: string, sessionId: string, request: $_model.DeleteSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions/${$dara.URL.percentEncode(sessionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteSessionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSessionResponse({}));
+  }
+
+  /**
+   * 删除会话资源
+   * 
+   * @param request - DeleteSessionRequest
+   * @returns DeleteSessionResponse
+   */
+  async deleteSession(functionName: string, sessionId: string, request: $_model.DeleteSessionRequest): Promise<$_model.DeleteSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSessionWithOptions(functionName, sessionId, request, headers, runtime);
   }
 
   /**
@@ -1315,6 +1406,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getScalingConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 获取函数会话信息。
+   * 
+   * @param request - GetSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSessionResponse
+   */
+  async getSessionWithOptions(functionName: string, sessionId: string, request: $_model.GetSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions/${$dara.URL.percentEncode(sessionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSessionResponse>(await this.callApi(params, req, runtime), new $_model.GetSessionResponse({}));
+  }
+
+  /**
+   * 获取函数会话信息。
+   * 
+   * @param request - GetSessionRequest
+   * @returns GetSessionResponse
+   */
+  async getSession(functionName: string, sessionId: string, request: $_model.GetSessionRequest): Promise<$_model.GetSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSessionWithOptions(functionName, sessionId, request, headers, runtime);
   }
 
   /**
@@ -2168,6 +2304,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出函数会话信息
+   * 
+   * @param request - ListSessionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSessionsResponse
+   */
+  async listSessionsWithOptions(functionName: string, request: $_model.ListSessionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSessionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sessionStatus)) {
+      query["sessionStatus"] = request.sessionStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSessions",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListSessionsResponse({}));
+  }
+
+  /**
+   * 列出函数会话信息
+   * 
+   * @param request - ListSessionsRequest
+   * @returns ListSessionsResponse
+   */
+  async listSessions(functionName: string, request: $_model.ListSessionsRequest): Promise<$_model.ListSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSessionsWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
    * Lists all tagged resources.
    * 
    * @param tmpReq - ListTagResourcesRequest
@@ -2869,6 +3066,52 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFunctionWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 更新会话配置
+   * 
+   * @param request - UpdateSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSessionResponse
+   */
+  async updateSessionWithOptions(functionName: string, sessionId: string, request: $_model.UpdateSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSession",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/sessions/${$dara.URL.percentEncode(sessionId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSessionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSessionResponse({}));
+  }
+
+  /**
+   * 更新会话配置
+   * 
+   * @param request - UpdateSessionRequest
+   * @returns UpdateSessionResponse
+   */
+  async updateSession(functionName: string, sessionId: string, request: $_model.UpdateSessionRequest): Promise<$_model.UpdateSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSessionWithOptions(functionName, sessionId, request, headers, runtime);
   }
 
   /**
