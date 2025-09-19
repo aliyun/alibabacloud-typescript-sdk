@@ -132,6 +132,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增推送告警的策略
+   * 
+   * @param request - CreateAlertStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertStrategyResponse
+   */
+  async createAlertStrategyWithOptions(request: $_model.CreateAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertStrategy",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/createStrategy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertStrategyResponse({}));
+  }
+
+  /**
+   * 新增推送告警的策略
+   * 
+   * @param request - CreateAlertStrategyRequest
+   * @returns CreateAlertStrategyResponse
+   */
+  async createAlertStrategy(request: $_model.CreateAlertStrategyRequest): Promise<$_model.CreateAlertStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertStrategyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 用户删除推送告警的策略
+   * 
+   * @param request - DeleteAlertStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertStrategyResponse
+   */
+  async deleteAlertStrategyWithOptions(request: $_model.DeleteAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertStrategyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertStrategy",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/deleteStrategy`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertStrategyResponse({}));
+  }
+
+  /**
+   * 用户删除推送告警的策略
+   * 
+   * @param request - DeleteAlertStrategyRequest
+   * @returns DeleteAlertStrategyResponse
+   */
+  async deleteAlertStrategy(request: $_model.DeleteAlertStrategyRequest): Promise<$_model.DeleteAlertStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertStrategyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取copilot服务的返回结果
    * 
    * @param request - GenerateCopilotResponseRequest
@@ -473,6 +571,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAgentTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据策略id，获取用户的一条告警
+   * 
+   * @param request - GetAlertStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlertStrategyResponse
+   */
+  async getAlertStrategyWithOptions(request: $_model.GetAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlertStrategyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlertStrategy",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/getStrategy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlertStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetAlertStrategyResponse({}));
+  }
+
+  /**
+   * 根据策略id，获取用户的一条告警
+   * 
+   * @param request - GetAlertStrategyRequest
+   * @returns GetAlertStrategyResponse
+   */
+  async getAlertStrategy(request: $_model.GetAlertStrategyRequest): Promise<$_model.GetAlertStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlertStrategyWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1870,6 +2013,179 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取所有告警项
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertItemsResponse
+   */
+  async listAlertItemsWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertItemsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertItems",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/listItems`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertItemsResponse({}));
+  }
+
+  /**
+   * 获取所有告警项
+   * @returns ListAlertItemsResponse
+   */
+  async listAlertItems(): Promise<$_model.ListAlertItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertItemsWithOptions(headers, runtime);
+  }
+
+  /**
+   * 用于获取用户所有推送告警的策略
+   * 
+   * @param request - ListAlertStrategiesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertStrategiesResponse
+   */
+  async listAlertStrategiesWithOptions(request: $_model.ListAlertStrategiesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertStrategiesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      query["current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertStrategies",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/listStrategies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertStrategiesResponse({}));
+  }
+
+  /**
+   * 用于获取用户所有推送告警的策略
+   * 
+   * @param request - ListAlertStrategiesRequest
+   * @returns ListAlertStrategiesResponse
+   */
+  async listAlertStrategies(request: $_model.ListAlertStrategiesRequest): Promise<$_model.ListAlertStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertStrategiesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+   * 
+   * @param request - ListAllInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllInstancesResponse
+   */
+  async listAllInstancesWithOptions(request: $_model.ListAllInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAllInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      query["current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.filters)) {
+      query["filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["instanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.managedType)) {
+      query["managedType"] = request.managedType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["pluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAllInstances",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/instance/listAllInstances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAllInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListAllInstancesResponse({}));
+  }
+
+  /**
+   * 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+   * 
+   * @param request - ListAllInstancesRequest
+   * @returns ListAllInstancesResponse
+   */
+  async listAllInstances(request: $_model.ListAllInstancesRequest): Promise<$_model.ListAllInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAllInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取集群组件安装记录
    * 
    * @param request - ListClusterAgentInstallRecordsRequest
@@ -2834,6 +3150,112 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uninstallAgentForClusterWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 用户更新推送告警策略的状态
+   * 
+   * @param request - UpdateAlertEnabledRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertEnabledResponse
+   */
+  async updateAlertEnabledWithOptions(request: $_model.UpdateAlertEnabledRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertEnabledResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertEnabled",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/updateEnabled`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertEnabledResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertEnabledResponse({}));
+  }
+
+  /**
+   * 用户更新推送告警策略的状态
+   * 
+   * @param request - UpdateAlertEnabledRequest
+   * @returns UpdateAlertEnabledResponse
+   */
+  async updateAlertEnabled(request: $_model.UpdateAlertEnabledRequest): Promise<$_model.UpdateAlertEnabledResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertEnabledWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新推送告警策略
+   * 
+   * @param request - UpdateAlertStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertStrategyResponse
+   */
+  async updateAlertStrategyWithOptions(request: $_model.UpdateAlertStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertStrategy",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/updateStrategy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertStrategyResponse({}));
+  }
+
+  /**
+   * 更新推送告警策略
+   * 
+   * @param request - UpdateAlertStrategyRequest
+   * @returns UpdateAlertStrategyResponse
+   */
+  async updateAlertStrategy(request: $_model.UpdateAlertStrategyRequest): Promise<$_model.UpdateAlertStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertStrategyWithOptions(request, headers, runtime);
   }
 
   /**
