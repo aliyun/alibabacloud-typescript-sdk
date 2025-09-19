@@ -1,28 +1,38 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ResidentConfig } from "./ResidentConfig";
+import { ScalingPolicy } from "./ScalingPolicy";
+import { ScheduledPolicy } from "./ScheduledPolicy";
 
 
 export class PutScalingConfigInput extends $dara.Model {
-  residentConfig?: ResidentConfig;
-  resourceType?: string;
+  horizontalScalingPolicies?: ScalingPolicy[];
+  minInstances?: number;
+  residentPoolId?: string;
+  scheduledPolicies?: ScheduledPolicy[];
   static names(): { [key: string]: string } {
     return {
-      residentConfig: 'residentConfig',
-      resourceType: 'resourceType',
+      horizontalScalingPolicies: 'horizontalScalingPolicies',
+      minInstances: 'minInstances',
+      residentPoolId: 'residentPoolId',
+      scheduledPolicies: 'scheduledPolicies',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      residentConfig: ResidentConfig,
-      resourceType: 'string',
+      horizontalScalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
+      minInstances: 'number',
+      residentPoolId: 'string',
+      scheduledPolicies: { 'type': 'array', 'itemType': ScheduledPolicy },
     };
   }
 
   validate() {
-    if(this.residentConfig && typeof (this.residentConfig as any).validate === 'function') {
-      (this.residentConfig as any).validate();
+    if(Array.isArray(this.horizontalScalingPolicies)) {
+      $dara.Model.validateArray(this.horizontalScalingPolicies);
+    }
+    if(Array.isArray(this.scheduledPolicies)) {
+      $dara.Model.validateArray(this.scheduledPolicies);
     }
     super.validate();
   }

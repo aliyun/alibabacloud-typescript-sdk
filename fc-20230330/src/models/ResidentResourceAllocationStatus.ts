@@ -5,7 +5,7 @@ import { ResidentResourceAllocation } from "./ResidentResourceAllocation";
 
 export class ResidentResourceAllocationStatus extends $dara.Model {
   lastAllocatedTime?: string;
-  lastAllocation?: ResidentResourceAllocation;
+  lastAllocation?: ResidentResourceAllocation[];
   static names(): { [key: string]: string } {
     return {
       lastAllocatedTime: 'lastAllocatedTime',
@@ -16,13 +16,13 @@ export class ResidentResourceAllocationStatus extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       lastAllocatedTime: 'string',
-      lastAllocation: ResidentResourceAllocation,
+      lastAllocation: { 'type': 'array', 'itemType': ResidentResourceAllocation },
     };
   }
 
   validate() {
-    if(this.lastAllocation && typeof (this.lastAllocation as any).validate === 'function') {
-      (this.lastAllocation as any).validate();
+    if(Array.isArray(this.lastAllocation)) {
+      $dara.Model.validateArray(this.lastAllocation);
     }
     super.validate();
   }

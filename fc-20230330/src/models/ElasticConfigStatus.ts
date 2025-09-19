@@ -12,6 +12,7 @@ export class ElasticConfigStatus extends $dara.Model {
   residentPoolId?: string;
   scalingPolicies?: ScalingPolicy[];
   scheduledPolicies?: ScheduledPolicy[];
+  targetInstances?: number;
   static names(): { [key: string]: string } {
     return {
       currentError: 'currentError',
@@ -21,6 +22,7 @@ export class ElasticConfigStatus extends $dara.Model {
       residentPoolId: 'residentPoolId',
       scalingPolicies: 'scalingPolicies',
       scheduledPolicies: 'scheduledPolicies',
+      targetInstances: 'targetInstances',
     };
   }
 
@@ -33,6 +35,7 @@ export class ElasticConfigStatus extends $dara.Model {
       residentPoolId: 'string',
       scalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
       scheduledPolicies: { 'type': 'array', 'itemType': ScheduledPolicy },
+      targetInstances: 'number',
     };
   }
 

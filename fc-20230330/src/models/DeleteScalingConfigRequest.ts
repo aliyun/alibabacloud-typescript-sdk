@@ -2,14 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListScalingConfigStatusOutput extends $dara.Model {
+export class DeleteScalingConfigRequest extends $dara.Model {
+  /**
+   * @example
+   * LATEST
+   */
+  qualifier?: string;
   static names(): { [key: string]: string } {
     return {
+      qualifier: 'qualifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      qualifier: 'string',
     };
   }
 

@@ -623,6 +623,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除弹性配置
+   * 
+   * @param request - DeleteScalingConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScalingConfigResponse
+   */
+  async deleteScalingConfigWithOptions(functionName: string, request: $_model.DeleteScalingConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScalingConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScalingConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/scaling-config`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScalingConfigResponse({}));
+  }
+
+  /**
+   * 删除弹性配置
+   * 
+   * @param request - DeleteScalingConfigRequest
+   * @returns DeleteScalingConfigResponse
+   */
+  async deleteScalingConfig(functionName: string, request: $_model.DeleteScalingConfigRequest): Promise<$_model.DeleteScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteScalingConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
    * Deletes a trigger.
    * 
    * @param headers - map
@@ -1225,6 +1270,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 获取弹性配置
+   * 
+   * @param request - GetScalingConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScalingConfigResponse
+   */
+  async getScalingConfigWithOptions(functionName: string, request: $_model.GetScalingConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetScalingConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScalingConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/scaling-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetScalingConfigResponse({}));
+  }
+
+  /**
+   * 获取弹性配置
+   * 
+   * @param request - GetScalingConfigRequest
+   * @returns GetScalingConfigResponse
+   */
+  async getScalingConfig(functionName: string, request: $_model.GetScalingConfigRequest): Promise<$_model.GetScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getScalingConfigWithOptions(functionName, request, headers, runtime);
   }
 
   /**
@@ -2025,6 +2115,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取弹性配置列表
+   * 
+   * @param request - ListScalingConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScalingConfigsResponse
+   */
+  async listScalingConfigsWithOptions(request: $_model.ListScalingConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListScalingConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.functionName)) {
+      query["functionName"] = request.functionName;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScalingConfigs",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/scaling-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScalingConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListScalingConfigsResponse({}));
+  }
+
+  /**
+   * 获取弹性配置列表
+   * 
+   * @param request - ListScalingConfigsRequest
+   * @returns ListScalingConfigsResponse
+   */
+  async listScalingConfigs(request: $_model.ListScalingConfigsRequest): Promise<$_model.ListScalingConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listScalingConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Lists all tagged resources.
    * 
    * @param tmpReq - ListTagResourcesRequest
@@ -2402,6 +2545,52 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
+  }
+
+  /**
+   * 设置弹性配置
+   * 
+   * @param request - PutScalingConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutScalingConfigResponse
+   */
+  async putScalingConfigWithOptions(functionName: string, request: $_model.PutScalingConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PutScalingConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.qualifier)) {
+      query["qualifier"] = request.qualifier;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutScalingConfig",
+      version: "2023-03-30",
+      protocol: "HTTPS",
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/scaling-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.PutScalingConfigResponse({}));
+  }
+
+  /**
+   * 设置弹性配置
+   * 
+   * @param request - PutScalingConfigRequest
+   * @returns PutScalingConfigResponse
+   */
+  async putScalingConfig(functionName: string, request: $_model.PutScalingConfigRequest): Promise<$_model.PutScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putScalingConfigWithOptions(functionName, request, headers, runtime);
   }
 
   /**

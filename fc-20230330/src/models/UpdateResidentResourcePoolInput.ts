@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateResidentResourcePoolInput extends $dara.Model {
   name?: string;
+  useScaling?: boolean;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      useScaling: 'useScaling',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      useScaling: 'boolean',
     };
   }
 
