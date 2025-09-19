@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDifyEditionsResponseBodyData extends $dara.Model {
   community?: string[];
   enterprise?: string[];
+  openCommunity?: string[];
   static names(): { [key: string]: string } {
     return {
       community: 'Community',
       enterprise: 'Enterprise',
+      openCommunity: 'OpenCommunity',
     };
   }
 
@@ -16,6 +18,7 @@ export class DescribeDifyEditionsResponseBodyData extends $dara.Model {
     return {
       community: { 'type': 'array', 'itemType': 'string' },
       enterprise: { 'type': 'array', 'itemType': 'string' },
+      openCommunity: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -25,6 +28,9 @@ export class DescribeDifyEditionsResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.enterprise)) {
       $dara.Model.validateArray(this.enterprise);
+    }
+    if(Array.isArray(this.openCommunity)) {
+      $dara.Model.validateArray(this.openCommunity);
     }
     super.validate();
   }

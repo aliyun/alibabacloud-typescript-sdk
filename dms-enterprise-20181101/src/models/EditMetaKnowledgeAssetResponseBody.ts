@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EditMetaKnowledgeAssetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
   errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * C51420E3-144A-4A94-B473-8662FCF4AD10
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

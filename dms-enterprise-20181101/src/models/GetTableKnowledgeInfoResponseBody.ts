@@ -4,10 +4,30 @@ import { TableKnowledgeInfo } from "./TableKnowledgeInfo";
 
 
 export class GetTableKnowledgeInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
   errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * bill_orders
+   */
   table?: TableKnowledgeInfo;
   static names(): { [key: string]: string } {
     return {

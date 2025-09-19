@@ -621,6 +621,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * 
+   * @remarks
+   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * 
+   * @param request - AnswerSqlSyntaxByMetaAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnswerSqlSyntaxByMetaAgentResponse
+   */
+  async answerSqlSyntaxByMetaAgentWithOptions(request: $_model.AnswerSqlSyntaxByMetaAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AnswerSqlSyntaxByMetaAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnswerSqlSyntaxByMetaAgent",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AnswerSqlSyntaxByMetaAgentResponse>(await this.callApi(params, req, runtime), new $_model.AnswerSqlSyntaxByMetaAgentResponse({}));
+  }
+
+  /**
+   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * 
+   * @remarks
+   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * 
+   * @param request - AnswerSqlSyntaxByMetaAgentRequest
+   * @returns AnswerSqlSyntaxByMetaAgentResponse
+   */
+  async answerSqlSyntaxByMetaAgent(request: $_model.AnswerSqlSyntaxByMetaAgentRequest): Promise<$_model.AnswerSqlSyntaxByMetaAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.answerSqlSyntaxByMetaAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Reviews a ticket.
    * 
    * @param request - ApproveOrderRequest
@@ -5746,6 +5802,70 @@ export default class Client extends OpenApi {
   async executeStructSync(request: $_model.ExecuteStructSyncRequest): Promise<$_model.ExecuteStructSyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeStructSyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * 
+   * @remarks
+   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * 
+   * @param request - FixSqlByMetaAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FixSqlByMetaAgentResponse
+   */
+  async fixSqlByMetaAgentWithOptions(request: $_model.FixSqlByMetaAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FixSqlByMetaAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.error)) {
+      query["Error"] = request.error;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FixSqlByMetaAgent",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FixSqlByMetaAgentResponse>(await this.callApi(params, req, runtime), new $_model.FixSqlByMetaAgentResponse({}));
+  }
+
+  /**
+   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * 
+   * @remarks
+   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * 
+   * @param request - FixSqlByMetaAgentRequest
+   * @returns FixSqlByMetaAgentResponse
+   */
+  async fixSqlByMetaAgent(request: $_model.FixSqlByMetaAgentRequest): Promise<$_model.FixSqlByMetaAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fixSqlByMetaAgentWithOptions(request, runtime);
   }
 
   /**
@@ -14224,6 +14344,66 @@ export default class Client extends OpenApi {
   async offlineTaskFlow(request: $_model.OfflineTaskFlowRequest): Promise<$_model.OfflineTaskFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.offlineTaskFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * 
+   * @remarks
+   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * 
+   * @param request - OptimizeSqlByMetaAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OptimizeSqlByMetaAgentResponse
+   */
+  async optimizeSqlByMetaAgentWithOptions(request: $_model.OptimizeSqlByMetaAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OptimizeSqlByMetaAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      query["Sql"] = request.sql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OptimizeSqlByMetaAgent",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OptimizeSqlByMetaAgentResponse>(await this.callApi(params, req, runtime), new $_model.OptimizeSqlByMetaAgentResponse({}));
+  }
+
+  /**
+   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * 
+   * @remarks
+   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * 
+   * @param request - OptimizeSqlByMetaAgentRequest
+   * @returns OptimizeSqlByMetaAgentResponse
+   */
+  async optimizeSqlByMetaAgent(request: $_model.OptimizeSqlByMetaAgentRequest): Promise<$_model.OptimizeSqlByMetaAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.optimizeSqlByMetaAgentWithOptions(request, runtime);
   }
 
   /**

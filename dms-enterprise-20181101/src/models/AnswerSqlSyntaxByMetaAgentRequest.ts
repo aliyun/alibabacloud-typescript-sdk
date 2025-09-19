@@ -2,24 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GenMetaKnowledgeAssetRequest extends $dara.Model {
+export class AnswerSqlSyntaxByMetaAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1860****
+   * 1***
    */
-  dbId?: number;
+  dbId?: string;
+  /**
+   * @example
+   * qwen-plus
+   */
+  model?: string;
+  /**
+   * @example
+   * 怎么获取当前时间的字符串
+   */
+  query?: string;
   static names(): { [key: string]: string } {
     return {
       dbId: 'DbId',
+      model: 'Model',
+      query: 'Query',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dbId: 'number',
+      dbId: 'string',
+      model: 'string',
+      query: 'string',
     };
   }
 

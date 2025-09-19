@@ -3,7 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDifyInstanceResponseBodyData extends $dara.Model {
+  appUuid?: string;
   instanceId?: string;
+  instanceName?: string;
   replicas?: number;
   resourceQuota?: string;
   securityGroupId?: string;
@@ -14,7 +16,9 @@ export class CreateDifyInstanceResponseBodyData extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      appUuid: 'AppUuid',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       replicas: 'Replicas',
       resourceQuota: 'ResourceQuota',
       securityGroupId: 'SecurityGroupId',
@@ -28,7 +32,9 @@ export class CreateDifyInstanceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appUuid: 'string',
       instanceId: 'string',
+      instanceName: 'string',
       replicas: 'number',
       resourceQuota: 'string',
       securityGroupId: 'string',

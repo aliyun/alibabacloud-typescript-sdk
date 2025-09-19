@@ -2,41 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTableKnowledgeInfoRequest extends $dara.Model {
+export class OptimizeSqlByMetaAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 325
+   * 1***
    */
-  dbId?: number;
+  dbId?: string;
+  /**
+   * @example
+   * qwen-plus
+   */
+  model?: string;
+  /**
+   * @example
+   * 是否为慢SQL
+   */
+  query?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * table_name
+   * select * from table where col = 1
    */
-  tableName?: string;
-  /**
-   * @example
-   * dbo
-   */
-  tableSchemaName?: string;
+  sql?: string;
   static names(): { [key: string]: string } {
     return {
       dbId: 'DbId',
-      tableName: 'TableName',
-      tableSchemaName: 'TableSchemaName',
+      model: 'Model',
+      query: 'Query',
+      sql: 'Sql',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dbId: 'number',
-      tableName: 'string',
-      tableSchemaName: 'string',
+      dbId: 'string',
+      model: 'string',
+      query: 'string',
+      sql: 'string',
     };
   }
 

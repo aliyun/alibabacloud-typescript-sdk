@@ -9,6 +9,7 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
   enterpriseInternetUrl?: string;
   enterpriseIntranetUrl?: string;
   instanceId?: string;
+  instanceName?: string;
   internetUrl?: string;
   intranetUrl?: string;
   majorVersion?: string;
@@ -25,6 +26,7 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
       enterpriseInternetUrl: 'EnterpriseInternetUrl',
       enterpriseIntranetUrl: 'EnterpriseIntranetUrl',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       internetUrl: 'InternetUrl',
       intranetUrl: 'IntranetUrl',
       majorVersion: 'MajorVersion',
@@ -44,6 +46,7 @@ export class ListDifyInstancesResponseBodyRootData extends $dara.Model {
       enterpriseInternetUrl: 'string',
       enterpriseIntranetUrl: 'string',
       instanceId: 'string',
+      instanceName: 'string',
       internetUrl: 'string',
       intranetUrl: 'string',
       majorVersion: 'string',
