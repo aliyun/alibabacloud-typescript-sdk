@@ -74,6 +74,8 @@ export class UpdateGatewayRequest extends $dara.Model {
    * 2
    */
   replicas?: number;
+  vSwitchIds?: string[];
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       enableInternet: 'EnableInternet',
@@ -83,6 +85,8 @@ export class UpdateGatewayRequest extends $dara.Model {
       isDefault: 'IsDefault',
       name: 'Name',
       replicas: 'Replicas',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -95,10 +99,15 @@ export class UpdateGatewayRequest extends $dara.Model {
       isDefault: 'boolean',
       name: 'string',
       replicas: 'number',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
     super.validate();
   }
 

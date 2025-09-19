@@ -386,6 +386,10 @@ export default class Client extends OpenApi {
       body["EnableIntranet"] = request.enableIntranet;
     }
 
+    if (!$dara.isNull(request.gatewayType)) {
+      body["GatewayType"] = request.gatewayType;
+    }
+
     if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
@@ -2858,12 +2862,28 @@ export default class Client extends OpenApi {
   async listGatewayWithOptions(request: $_model.ListGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.gatewayId)) {
       query["GatewayId"] = request.gatewayId;
     }
 
     if (!$dara.isNull(request.gatewayName)) {
       query["GatewayName"] = request.gatewayName;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      query["GatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.internetEnabled)) {
+      query["InternetEnabled"] = request.internetEnabled;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -2876,6 +2896,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4241,6 +4269,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.vSwitchIds)) {
+      body["VSwitchIds"] = request.vSwitchIds;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

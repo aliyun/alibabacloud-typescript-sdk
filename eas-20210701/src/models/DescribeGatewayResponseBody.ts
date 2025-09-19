@@ -91,6 +91,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-hangzhou.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
+  intranetEnabled?: boolean;
   /**
    * @remarks
    * Indicates whether it is the default private gateway.
@@ -161,6 +162,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       internetEnabled: 'InternetEnabled',
       internetStatus: 'InternetStatus',
       intranetDomain: 'IntranetDomain',
+      intranetEnabled: 'IntranetEnabled',
       isDefault: 'IsDefault',
       replicas: 'Replicas',
       requestId: 'RequestId',
@@ -182,6 +184,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
       internetEnabled: 'boolean',
       internetStatus: 'string',
       intranetDomain: 'string',
+      intranetEnabled: 'boolean',
       isDefault: 'boolean',
       replicas: 'number',
       requestId: 'string',

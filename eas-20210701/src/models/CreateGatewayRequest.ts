@@ -56,6 +56,7 @@ export class CreateGatewayRequest extends $dara.Model {
    * true
    */
   enableIntranet?: boolean;
+  gatewayType?: string;
   /**
    * @remarks
    * The instance type used by the private gateway. Valid values:
@@ -64,8 +65,6 @@ export class CreateGatewayRequest extends $dara.Model {
    * *   4c8g
    * *   8c16g
    * *   16c32g
-   * 
-   * This parameter is required.
    * 
    * @example
    * ecs.c6.4xlarge
@@ -94,6 +93,7 @@ export class CreateGatewayRequest extends $dara.Model {
       chargeType: 'ChargeType',
       enableInternet: 'EnableInternet',
       enableIntranet: 'EnableIntranet',
+      gatewayType: 'GatewayType',
       instanceType: 'InstanceType',
       name: 'Name',
       replicas: 'Replicas',
@@ -107,6 +107,7 @@ export class CreateGatewayRequest extends $dara.Model {
       chargeType: 'string',
       enableInternet: 'boolean',
       enableIntranet: 'boolean',
+      gatewayType: 'string',
       instanceType: 'string',
       name: 'string',
       replicas: 'number',

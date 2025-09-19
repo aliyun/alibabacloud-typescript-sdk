@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayRequest extends $dara.Model {
+  chargeType?: string;
   /**
    * @remarks
    * The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
@@ -19,6 +20,9 @@ export class ListGatewayRequest extends $dara.Model {
    * mygateway1
    */
   gatewayName?: string;
+  gatewayType?: string;
+  internetEnabled?: boolean;
+  order?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -43,23 +47,37 @@ export class ListGatewayRequest extends $dara.Model {
    * eas-r-4gt8twzwllfo******
    */
   resourceName?: string;
+  sort?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       gatewayId: 'GatewayId',
       gatewayName: 'GatewayName',
+      gatewayType: 'GatewayType',
+      internetEnabled: 'InternetEnabled',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceName: 'ResourceName',
+      sort: 'Sort',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       gatewayId: 'string',
       gatewayName: 'string',
+      gatewayType: 'string',
+      internetEnabled: 'boolean',
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceName: 'string',
+      sort: 'string',
+      status: 'string',
     };
   }
 

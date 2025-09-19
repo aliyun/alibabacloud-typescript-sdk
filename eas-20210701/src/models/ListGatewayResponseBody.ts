@@ -70,6 +70,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
+  intranetEnabled?: boolean;
   /**
    * @remarks
    * Indicates whether it is the default private gateway.
@@ -130,6 +131,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       internetDomain: 'InternetDomain',
       internetEnabled: 'InternetEnabled',
       intranetDomain: 'IntranetDomain',
+      intranetEnabled: 'IntranetEnabled',
       isDefault: 'IsDefault',
       replicas: 'Replicas',
       SSLRedirectionEnabled: 'SSLRedirectionEnabled',
@@ -148,6 +150,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
       internetDomain: 'string',
       internetEnabled: 'boolean',
       intranetDomain: 'string',
+      intranetEnabled: 'boolean',
       isDefault: 'boolean',
       replicas: 'number',
       SSLRedirectionEnabled: 'boolean',
