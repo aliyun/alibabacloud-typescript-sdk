@@ -39,7 +39,7 @@ export default class Client extends OpenApi {
    * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
    * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
    * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-   * *   You can provision at most 50 CIDR blocks to each pool.
+   * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
    * 
    * @param request - AddIpamPoolCidrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ export default class Client extends OpenApi {
    * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
    * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
    * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-   * *   You can provision at most 50 CIDR blocks to each pool.
+   * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
    * 
    * @param request - AddIpamPoolCidrRequest
    * @returns AddIpamPoolCidrResponse
@@ -362,6 +362,9 @@ export default class Client extends OpenApi {
   /**
    * Creates an IP Address Manager (IPAM) pool.
    * 
+   * @remarks
+   * The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+   * 
    * @param request - CreateIpamPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIpamPoolResponse
@@ -468,6 +471,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an IP Address Manager (IPAM) pool.
+   * 
+   * @remarks
+   * The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
    * 
    * @param request - CreateIpamPoolRequest
    * @returns CreateIpamPoolResponse

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddIpamPoolCidrRequest extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block that you want to provision.
-   * 
-   * >  Only IPv4 CIDR blocks are supported.
+   * The CIDR block to be provisioned. 
+   * > For private top-level pools, provisioning can only be done by entering a CIDR block.
    * 
    * @example
    * 192.168.1.0/24
@@ -44,6 +43,14 @@ export class AddIpamPoolCidrRequest extends $dara.Model {
    * ipam-pool-6rcq3tobayc20t****
    */
   ipamPoolId?: string;
+  /**
+   * @remarks
+   * Provision CIDR address segments through a mask method.  
+   * > The public IPv6 top-level pool only supports provisioning via a mask.
+   * 
+   * @example
+   * 24
+   */
   netmaskLength?: number;
   /**
    * @remarks

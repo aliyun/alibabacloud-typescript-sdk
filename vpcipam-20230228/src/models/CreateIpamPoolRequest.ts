@@ -49,9 +49,9 @@ export class CreateIpamPoolRequestTag extends $dara.Model {
 export class CreateIpamPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The default network mask assigned to the IPAM pool.
+   * The default network mask assigned by the IPAM address pool.  
    * 
-   * An IPv4 mask must be **0 to 32** bits in length.
+   * > The IPv4 network mask value range is 0 to 32 bits, and the IPv6 network mask value range is 0 to 128 bits.
    * 
    * @example
    * 28
@@ -59,9 +59,8 @@ export class CreateIpamPoolRequest extends $dara.Model {
   allocationDefaultCidrMask?: number;
   /**
    * @remarks
-   * The maximum network mask assigned to the IPAM pool.
-   * 
-   * An IPv4 mask must be **0 to 32** bits in length.
+   * The maximum network mask assigned by the IPAM address pool.  
+   * > The IPv4 network mask value range is **0 to 32** bits, and the IPv6 network mask value range is **0 to 128** bits.
    * 
    * @example
    * 32
@@ -69,9 +68,8 @@ export class CreateIpamPoolRequest extends $dara.Model {
   allocationMaxCidrMask?: number;
   /**
    * @remarks
-   * The minimum network mask assigned to the IPAM pool.
-   * 
-   * An IPv4 mask must be **0 to 32** bits in length.
+   * The minimum network mask assigned by the IPAM address pool.  
+   * > The IPv4 network mask value range is **0 to 32** bits, and the IPv6 network mask value range is **0 to 128** bits.
    * 
    * @example
    * 8
@@ -108,7 +106,9 @@ export class CreateIpamPoolRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The IP version. Only **IPv4** is supported.
+   * IP address protocol version. Values:
+   * - **IPv4**: IPv4 protocol.
+   * - **IPv6**: IPv6 protocol.
    * 
    * @example
    * IPv4
@@ -116,9 +116,8 @@ export class CreateIpamPoolRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The description of the IPAM pool.
-   * 
-   * It must be 2 to 256 characters in length. It must start with a letter, but cannot start with a `http://` or `https://`. This parameter is empty by default.
+   * Description of the IPAM address pool. 
+   * The length should be between 1 to 256 characters, and it must start with an uppercase or lowercase English letter or a Chinese character, but cannot begin with `http://` or `https://`. If left blank, the default value is empty.
    * 
    * @example
    * test description
@@ -144,6 +143,20 @@ export class CreateIpamPoolRequest extends $dara.Model {
    * ipam-scope-glfmcyldpm8lsy****
    */
   ipamScopeId?: string;
+  /**
+   * @remarks
+   * The type of the IPv6 CIDR block of the VPC. Valid values:
+   * 
+   * *   **BGP** (default)
+   * *   **ChinaMobile**
+   * *   **ChinaUnicom**
+   * *   **ChinaTelecom**
+   * 
+   * >  If you are allowed to use single-ISP bandwidth, you can set the value to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+   * 
+   * @example
+   * BGP
+   */
   ipv6Isp?: string;
   ownerAccount?: string;
   ownerId?: number;

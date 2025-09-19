@@ -81,6 +81,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $dara.Model {
    * true
    */
   autoImport?: boolean;
+  cidrs?: string[];
   /**
    * @remarks
    * The time when the IPAM pool was created.
@@ -249,6 +250,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $dara.Model {
       allocationMaxCidrMask: 'AllocationMaxCidrMask',
       allocationMinCidrMask: 'AllocationMinCidrMask',
       autoImport: 'AutoImport',
+      cidrs: 'Cidrs',
       createTime: 'CreateTime',
       hasSubPool: 'HasSubPool',
       ipVersion: 'IpVersion',
@@ -278,6 +280,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $dara.Model {
       allocationMaxCidrMask: 'number',
       allocationMinCidrMask: 'number',
       autoImport: 'boolean',
+      cidrs: { 'type': 'array', 'itemType': 'string' },
       createTime: 'string',
       hasSubPool: 'boolean',
       ipVersion: 'string',
@@ -302,6 +305,9 @@ export class ListIpamPoolsResponseBodyIpamPools extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.cidrs)) {
+      $dara.Model.validateArray(this.cidrs);
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
