@@ -127,6 +127,9 @@ export class PushShrinkRequest extends $dara.Model {
    * https://xxxx.xxx
    */
   androidOpenUrl?: string;
+  androidOppoPrivateContentParametersShrink?: string;
+  androidOppoPrivateMsgTemplateId?: string;
+  androidOppoPrivateTitleParametersShrink?: string;
   /**
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -309,9 +312,6 @@ export class PushShrinkRequest extends $dara.Model {
    * false
    */
   trim?: boolean;
-  androidOppoPrivateContentParametersShrink?: string;
-  androidOppoPrivateMsgTemplateId?: string;
-  androidOppoPrivateTitleParametersShrink?: string;
   /**
    * @example
    * DEV
@@ -425,6 +425,9 @@ export class PushShrinkRequest extends $dara.Model {
       androidNotifyType: 'AndroidNotifyType',
       androidOpenType: 'AndroidOpenType',
       androidOpenUrl: 'AndroidOpenUrl',
+      androidOppoPrivateContentParametersShrink: 'AndroidOppoPrivateContentParameters',
+      androidOppoPrivateMsgTemplateId: 'AndroidOppoPrivateMsgTemplateId',
+      androidOppoPrivateTitleParametersShrink: 'AndroidOppoPrivateTitleParameters',
       androidPopupActivity: 'AndroidPopupActivity',
       androidPopupBody: 'AndroidPopupBody',
       androidPopupTitle: 'AndroidPopupTitle',
@@ -477,9 +480,6 @@ export class PushShrinkRequest extends $dara.Model {
       targetValue: 'TargetValue',
       title: 'Title',
       trim: 'Trim',
-      androidOppoPrivateContentParametersShrink: 'androidOppoPrivateContentParameters',
-      androidOppoPrivateMsgTemplateId: 'androidOppoPrivateMsgTemplateId',
-      androidOppoPrivateTitleParametersShrink: 'androidOppoPrivateTitleParameters',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
@@ -540,6 +540,9 @@ export class PushShrinkRequest extends $dara.Model {
       androidNotifyType: 'string',
       androidOpenType: 'string',
       androidOpenUrl: 'string',
+      androidOppoPrivateContentParametersShrink: 'string',
+      androidOppoPrivateMsgTemplateId: 'string',
+      androidOppoPrivateTitleParametersShrink: 'string',
       androidPopupActivity: 'string',
       androidPopupBody: 'string',
       androidPopupTitle: 'string',
@@ -592,9 +595,6 @@ export class PushShrinkRequest extends $dara.Model {
       targetValue: 'string',
       title: 'string',
       trim: 'boolean',
-      androidOppoPrivateContentParametersShrink: 'string',
-      androidOppoPrivateMsgTemplateId: 'string',
-      androidOppoPrivateTitleParametersShrink: 'string',
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',

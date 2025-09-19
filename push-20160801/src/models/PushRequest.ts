@@ -127,6 +127,9 @@ export class PushRequest extends $dara.Model {
    * https://xxxx.xxx
    */
   androidOpenUrl?: string;
+  androidOppoPrivateContentParameters?: { [key: string]: string };
+  androidOppoPrivateMsgTemplateId?: string;
+  androidOppoPrivateTitleParameters?: { [key: string]: string };
   /**
    * @example
    * com.alibaba.cloudpushdemo.bizactivity
@@ -309,9 +312,6 @@ export class PushRequest extends $dara.Model {
    * false
    */
   trim?: boolean;
-  androidOppoPrivateContentParameters?: { [key: string]: string };
-  androidOppoPrivateMsgTemplateId?: string;
-  androidOppoPrivateTitleParameters?: { [key: string]: string };
   /**
    * @example
    * DEV
@@ -425,6 +425,9 @@ export class PushRequest extends $dara.Model {
       androidNotifyType: 'AndroidNotifyType',
       androidOpenType: 'AndroidOpenType',
       androidOpenUrl: 'AndroidOpenUrl',
+      androidOppoPrivateContentParameters: 'AndroidOppoPrivateContentParameters',
+      androidOppoPrivateMsgTemplateId: 'AndroidOppoPrivateMsgTemplateId',
+      androidOppoPrivateTitleParameters: 'AndroidOppoPrivateTitleParameters',
       androidPopupActivity: 'AndroidPopupActivity',
       androidPopupBody: 'AndroidPopupBody',
       androidPopupTitle: 'AndroidPopupTitle',
@@ -477,9 +480,6 @@ export class PushRequest extends $dara.Model {
       targetValue: 'TargetValue',
       title: 'Title',
       trim: 'Trim',
-      androidOppoPrivateContentParameters: 'androidOppoPrivateContentParameters',
-      androidOppoPrivateMsgTemplateId: 'androidOppoPrivateMsgTemplateId',
-      androidOppoPrivateTitleParameters: 'androidOppoPrivateTitleParameters',
       iOSApnsEnv: 'iOSApnsEnv',
       iOSBadge: 'iOSBadge',
       iOSBadgeAutoIncrement: 'iOSBadgeAutoIncrement',
@@ -540,6 +540,9 @@ export class PushRequest extends $dara.Model {
       androidNotifyType: 'string',
       androidOpenType: 'string',
       androidOpenUrl: 'string',
+      androidOppoPrivateContentParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      androidOppoPrivateMsgTemplateId: 'string',
+      androidOppoPrivateTitleParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       androidPopupActivity: 'string',
       androidPopupBody: 'string',
       androidPopupTitle: 'string',
@@ -592,9 +595,6 @@ export class PushRequest extends $dara.Model {
       targetValue: 'string',
       title: 'string',
       trim: 'boolean',
-      androidOppoPrivateContentParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      androidOppoPrivateMsgTemplateId: 'string',
-      androidOppoPrivateTitleParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       iOSApnsEnv: 'string',
       iOSBadge: 'number',
       iOSBadgeAutoIncrement: 'boolean',
