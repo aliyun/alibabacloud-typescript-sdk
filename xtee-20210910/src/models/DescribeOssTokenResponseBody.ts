@@ -8,7 +8,7 @@ export class DescribeOssTokenResponseBody extends $dara.Model {
    * AccessKeyId for OSS file upload.
    * 
    * @example
-   * LTAI5tJWSnmmTpJGN6sJCNG3
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**

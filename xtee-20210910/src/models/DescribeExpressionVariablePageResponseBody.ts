@@ -29,7 +29,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   gmtModified?: number;
   /**
    * @remarks
-   * Primary key of custom variable
+   * Primary key of custom variable.
    * 
    * @example
    * 2793
@@ -37,12 +37,25 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   id?: number;
   /**
    * @remarks
-   * Variable return type
+   * Query variable name.
+   * 
+   * @example
+   * ex_OERlw0Zqfb23
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Variable return type.
    * 
    * @example
    * DOUBLE
    */
   outputs?: string;
+  /**
+   * @remarks
+   * Associated Strategies.
+   */
+  ruleList?: string[];
   /**
    * @remarks
    * Status.
@@ -73,7 +86,9 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
       eventName: 'eventName',
       gmtModified: 'gmtModified',
       id: 'id',
+      name: 'name',
       outputs: 'outputs',
+      ruleList: 'ruleList',
       status: 'status',
       title: 'title',
       version: 'version',
@@ -86,7 +101,9 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
       eventName: 'string',
       gmtModified: 'number',
       id: 'number',
+      name: 'string',
       outputs: 'string',
+      ruleList: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       title: 'string',
       version: 'number',
@@ -94,6 +111,9 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
   }
 
   validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
     super.validate();
   }
 
@@ -105,7 +125,7 @@ export class DescribeExpressionVariablePageResponseBodyResultObject extends $dar
 export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * Request ID.
    * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
@@ -121,7 +141,7 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * Page size, with a default value of 10.
    * 
    * @example
    * 10
@@ -129,12 +149,12 @@ export class DescribeExpressionVariablePageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Returned object
+   * Returned object.
    */
   resultObject?: DescribeExpressionVariablePageResponseBodyResultObject[];
   /**
    * @remarks
-   * Total number of items
+   * Total number of items.
    * 
    * @example
    * 31

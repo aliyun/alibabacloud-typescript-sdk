@@ -8,7 +8,7 @@ export class DescribeSampleUploadPolicyResponseBody extends $dara.Model {
    * OSS access key ID.
    * 
    * @example
-   * LTAI5t9k9MsS9TipR9yW5urk
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**

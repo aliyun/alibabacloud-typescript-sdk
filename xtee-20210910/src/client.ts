@@ -4532,6 +4532,10 @@ export default class Client extends OpenApi {
       query["regId"] = request.regId;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5166,7 +5170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件历史列表
+   * Query Event History List
    * 
    * @param request - DescribeEventLogPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5313,7 +5317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件历史列表
+   * Query Event History List
    * 
    * @param request - DescribeEventLogPageRequest
    * @returns DescribeEventLogPageResponse
@@ -5652,7 +5656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件变量
+   * Query event variables
+   * 
+   * @remarks
+   * Cumulative Variable List Query
    * 
    * @param request - DescribeEventVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5707,7 +5714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件变量
+   * Query event variables
+   * 
+   * @remarks
+   * Cumulative Variable List Query
    * 
    * @param request - DescribeEventVariableListRequest
    * @returns DescribeEventVariableListResponse
@@ -5896,6 +5906,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Self-service call list.
+   * 
    * @param request - DescribeExcuteNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExcuteNumResponse
@@ -5945,6 +5957,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Self-service call list.
+   * 
    * @param request - DescribeExcuteNumRequest
    * @returns DescribeExcuteNumResponse
    */
@@ -6150,7 +6164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Custom Variables
+   * Paged Query for Custom Variables.
    * 
    * @param request - DescribeExpressionVariablePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6209,7 +6223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paged Query for Custom Variables
+   * Paged Query for Custom Variables.
    * 
    * @param request - DescribeExpressionVariablePageRequest
    * @returns DescribeExpressionVariablePageResponse
@@ -7946,6 +7960,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query Operation Log Monitoring Statistics
+   * 
+   * @param request - DescribeOperationLogMonitoringRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOperationLogMonitoringResponse
+   */
+  async describeOperationLogMonitoringWithOptions(request: $_model.DescribeOperationLogMonitoringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOperationLogMonitoringResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["regId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userNameSearch)) {
+      query["userNameSearch"] = request.userNameSearch;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOperationLogMonitoring",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOperationLogMonitoringResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOperationLogMonitoringResponse({}));
+  }
+
+  /**
+   * Query Operation Log Monitoring Statistics
+   * 
+   * @param request - DescribeOperationLogMonitoringRequest
+   * @returns DescribeOperationLogMonitoringResponse
+   */
+  async describeOperationLogMonitoring(request: $_model.DescribeOperationLogMonitoringRequest): Promise<$_model.DescribeOperationLogMonitoringResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOperationLogMonitoringWithOptions(request, runtime);
+  }
+
+  /**
    * Query event list by event name
    * 
    * @param request - DescribeOperationLogPageListRequest
@@ -7967,6 +8039,10 @@ export default class Client extends OpenApi {
       query["endDate"] = request.endDate;
     }
 
+    if (!$dara.isNull(request.operationSummary)) {
+      query["operationSummary"] = request.operationSummary;
+    }
+
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
@@ -7977,6 +8053,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startDate)) {
       query["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userNameSearch)) {
+      query["userNameSearch"] = request.userNameSearch;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9720,6 +9800,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query SAF permissions.
+   * 
    * @param request - DescribeSafConsoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSafConsoleResponse
@@ -9757,6 +9839,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query SAF permissions.
+   * 
    * @param request - DescribeSafConsoleRequest
    * @returns DescribeSafConsoleResponse
    */
@@ -12797,6 +12881,84 @@ export default class Client extends OpenApi {
   async describeVariableSceneList(request: $_model.DescribeVariableSceneListRequest): Promise<$_model.DescribeVariableSceneListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVariableSceneListWithOptions(request, runtime);
+  }
+
+  /**
+   * Variable Version List Query
+   * 
+   * @param request - DescribeVersionPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVersionPageListResponse
+   */
+  async describeVersionPageListWithOptions(request: $_model.DescribeVersionPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVersionPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["currentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.objectCode)) {
+      query["objectCode"] = request.objectCode;
+    }
+
+    if (!$dara.isNull(request.objectId)) {
+      query["objectId"] = request.objectId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.paging)) {
+      query["paging"] = request.paging;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["regId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVersionPageList",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVersionPageListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVersionPageListResponse({}));
+  }
+
+  /**
+   * Variable Version List Query
+   * 
+   * @param request - DescribeVersionPageListRequest
+   * @returns DescribeVersionPageListResponse
+   */
+  async describeVersionPageList(request: $_model.DescribeVersionPageListRequest): Promise<$_model.DescribeVersionPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVersionPageListWithOptions(request, runtime);
   }
 
   /**

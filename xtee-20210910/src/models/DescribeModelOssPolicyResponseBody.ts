@@ -8,7 +8,7 @@ export class DescribeModelOssPolicyResponseBody extends $dara.Model {
    * Access ID for OSS.
    * 
    * @example
-   * LTAIpeYTKEbC0v10
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeModelOssPolicyResponseBody extends $dara.Model {
    * Address.
    * 
    * @example
-   * https://saf-ai.oss-cn-shanghai.aliyuncs.com
+   * https://xxxxxxxx-xxxxxxx.aliyuncs.com
    */
   host?: string;
   /**

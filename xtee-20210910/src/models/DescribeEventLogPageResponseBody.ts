@@ -4,51 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Account ID.
+   * 
    * @example
    * 1631801314885832
    */
   accountId?: string;
   /**
+   * @remarks
+   * Email.
+   * 
    * @example
    * xxxx@123.com
    */
   email?: string;
   /**
    * @remarks
-   * ip。
+   * IP address.
    * 
    * @example
    * 10.200.5.100
    */
   ip?: string;
   /**
+   * @remarks
+   * Mobile phone number.
+   * 
    * @example
    * 13817606333
    */
   mobile?: string;
+  /**
+   * @remarks
+   * Nickname.
+   * 
+   * @example
+   * 昵称
+   */
   nickName?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 546F8063-0104-5271-9EB7-56FB3F375BAD
    */
   requestId?: string;
   /**
+   * @remarks
+   * Score.
+   * 
    * @example
    * 10.0
    */
   score?: string;
+  /**
+   * @remarks
+   * Event name.
+   * 
+   * @example
+   * 注册事件
+   */
   service?: string;
   /**
+   * @remarks
+   * Tags.
+   * 
    * @example
    * rm0102
    */
   tags?: string;
   /**
+   * @remarks
+   * Transaction time.
+   * 
    * @example
    * 1737101348000
    */
   timestamp?: string;
   /**
+   * @remarks
+   * Device ID.
+   * 
    * @example
    * 4239
    */
@@ -96,27 +134,46 @@ export class DescribeEventLogPageResponseBodyResultObject extends $dara.Model {
 
 export class DescribeEventLogPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A32FE941-35F2-5378-B37C-4B8FDB16F094
    */
   requestId?: string;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Page size, default value is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Returned object.
+   */
   resultObject?: DescribeEventLogPageResponseBodyResultObject[];
   /**
+   * @remarks
+   * Total number of items.
+   * 
    * @example
    * 6
    */
   totalItem?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 9
    */

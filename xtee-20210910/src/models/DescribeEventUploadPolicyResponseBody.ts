@@ -8,7 +8,7 @@ export class DescribeEventUploadPolicyResponseBody extends $dara.Model {
    * ID for accessing OSS
    * 
    * @example
-   * LTAI5tPXz8Y9tLVh5xxnnEAC
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**

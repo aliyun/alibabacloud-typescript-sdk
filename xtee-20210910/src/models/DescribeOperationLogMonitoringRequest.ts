@@ -2,11 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeOperationLogPageListRequest extends $dara.Model {
+export class DescribeOperationLogMonitoringRequest extends $dara.Model {
   /**
    * @remarks
-   * Set the language type for request and response messages, default value is **zh**. Values:
-   * - **zh**: Chinese
+   * Language type of the returned message. Values:
+   * 
+   * - **zh** (default): Chinese
    * - **en**: English
    * 
    * @example
@@ -15,36 +16,12 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Current page number.
+   * End date (in yyyy-MM-dd format, and the interval from the start date cannot exceed 90 days)
    * 
    * @example
-   * 1
+   * 2025-07-30
    */
-  currentPage?: number;
-  /**
-   * @remarks
-   * End time.
-   * 
-   * @example
-   * 1733364850919
-   */
-  endDate?: number;
-  /**
-   * @remarks
-   * Operation Summary.
-   * 
-   * @example
-   * Update
-   */
-  operationSummary?: string;
-  /**
-   * @remarks
-   * Page size, default value is 10
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
+  endDate?: string;
   /**
    * @remarks
    * Region code.
@@ -55,15 +32,15 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   regId?: string;
   /**
    * @remarks
-   * Start time.
+   * Start date (in yyyy-MM-dd format, and the interval from the current date cannot exceed 90 days)
    * 
    * @example
-   * 1733364850919
+   * 2025-07-19
    */
-  startDate?: number;
+  startDate?: string;
   /**
    * @remarks
-   * User Name Search.
+   * Operator.
    * 
    * @example
    * root
@@ -72,10 +49,7 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      currentPage: 'currentPage',
       endDate: 'endDate',
-      operationSummary: 'operationSummary',
-      pageSize: 'pageSize',
       regId: 'regId',
       startDate: 'startDate',
       userNameSearch: 'userNameSearch',
@@ -85,12 +59,9 @@ export class DescribeOperationLogPageListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      currentPage: 'number',
-      endDate: 'number',
-      operationSummary: 'string',
-      pageSize: 'number',
+      endDate: 'string',
       regId: 'string',
-      startDate: 'number',
+      startDate: 'string',
       userNameSearch: 'string',
     };
   }

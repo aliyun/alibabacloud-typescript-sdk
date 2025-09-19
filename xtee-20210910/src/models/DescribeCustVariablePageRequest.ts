@@ -15,7 +15,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * Creation type
+   * Creation type.
    * 
    * @example
    * NORMAL
@@ -31,7 +31,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Description
+   * Description.
    * 
    * @example
    * 累计变量描述
@@ -39,7 +39,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Event code
+   * Event code.
    * 
    * @example
    * de_aheldm3876
@@ -47,7 +47,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Number of records per page, default value: 10
+   * Number of records per page, default value: 10.
    * 
    * @example
    * 10
@@ -55,12 +55,20 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Region code
+   * Region code.
    * 
    * @example
    * cn-hangzhou
    */
   regId?: string;
+  /**
+   * @remarks
+   * status.
+   * 
+   * @example
+   * ENABLE
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
@@ -70,6 +78,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
       eventCode: 'eventCode',
       pageSize: 'pageSize',
       regId: 'regId',
+      status: 'status',
     };
   }
 
@@ -82,6 +91,7 @@ export class DescribeCustVariablePageRequest extends $dara.Model {
       eventCode: 'string',
       pageSize: 'number',
       regId: 'string',
+      status: 'string',
     };
   }
 

@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeExcuteNumResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Service category names.
+   */
   categories?: string[];
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: string[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * A32FE941-35F2-5378-B37C-4B8FDB16F094
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

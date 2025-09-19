@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSafConsoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * A32FE941-35F2-5378-B37C-4B8FDB16F094
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result.
+   */
   bizData?: string[];
   static names(): { [key: string]: string } {
     return {

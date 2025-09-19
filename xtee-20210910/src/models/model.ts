@@ -141,6 +141,7 @@ export { DescribeNameListLimitResponseBodyResultObject } from './DescribeNameLis
 export { DescribeNameListPageListResponseBodyResultObject } from './DescribeNameListPageListResponseBody';
 export { DescribeNameListTypeListResponseBodyResultObject } from './DescribeNameListTypeListResponseBody';
 export { DescribeNameListVariablePageListResponseBodyResultObject } from './DescribeNameListVariablePageListResponseBody';
+export { DescribeOperationLogMonitoringResponseBodyResultObject } from './DescribeOperationLogMonitoringResponseBody';
 export { DescribeOperationLogPageListResponseBodyResultObject } from './DescribeOperationLogPageListResponseBody';
 export { DescribeOperatorListResponseBodyResultObjectOperatorsRightVariables } from './DescribeOperatorListResponseBody';
 export { DescribeOperatorListResponseBodyResultObjectOperators } from './DescribeOperatorListResponseBody';
@@ -239,6 +240,7 @@ export { DescribeVariableDetailResponseBodyResultObjectBaseInfo } from './Descri
 export { DescribeVariableDetailResponseBodyResultObject } from './DescribeVariableDetailResponseBody';
 export { DescribeVariableListResponseBodyResultObject } from './DescribeVariableListResponseBody';
 export { DescribeVariableSceneListResponseBodyResultObject } from './DescribeVariableSceneListResponseBody';
+export { DescribeVersionPageListResponseBodyResultObject } from './DescribeVersionPageListResponseBody';
 export { DownloadSmapleBatchResponseBodyResultObject } from './DownloadSmapleBatchResponseBody';
 export { ImportFieldResponseBodyResultObject } from './ImportFieldResponseBody';
 export { ModifyCustVariableResponseBodyResultObject } from './ModifyCustVariableResponseBody';
@@ -646,6 +648,9 @@ export { DescribeNameListTypeListResponse } from './DescribeNameListTypeListResp
 export { DescribeNameListVariablePageListRequest } from './DescribeNameListVariablePageListRequest';
 export { DescribeNameListVariablePageListResponseBody } from './DescribeNameListVariablePageListResponseBody';
 export { DescribeNameListVariablePageListResponse } from './DescribeNameListVariablePageListResponse';
+export { DescribeOperationLogMonitoringRequest } from './DescribeOperationLogMonitoringRequest';
+export { DescribeOperationLogMonitoringResponseBody } from './DescribeOperationLogMonitoringResponseBody';
+export { DescribeOperationLogMonitoringResponse } from './DescribeOperationLogMonitoringResponse';
 export { DescribeOperationLogPageListRequest } from './DescribeOperationLogPageListRequest';
 export { DescribeOperationLogPageListResponseBody } from './DescribeOperationLogPageListResponseBody';
 export { DescribeOperationLogPageListResponse } from './DescribeOperationLogPageListResponse';
@@ -907,6 +912,9 @@ export { DescribeVariableMarketListResponse } from './DescribeVariableMarketList
 export { DescribeVariableSceneListRequest } from './DescribeVariableSceneListRequest';
 export { DescribeVariableSceneListResponseBody } from './DescribeVariableSceneListResponseBody';
 export { DescribeVariableSceneListResponse } from './DescribeVariableSceneListResponse';
+export { DescribeVersionPageListRequest } from './DescribeVersionPageListRequest';
+export { DescribeVersionPageListResponseBody } from './DescribeVersionPageListResponseBody';
+export { DescribeVersionPageListResponse } from './DescribeVersionPageListResponse';
 export { DownloadSmapleBatchRequest } from './DownloadSmapleBatchRequest';
 export { DownloadSmapleBatchResponseBody } from './DownloadSmapleBatchResponseBody';
 export { DownloadSmapleBatchResponse } from './DownloadSmapleBatchResponse';

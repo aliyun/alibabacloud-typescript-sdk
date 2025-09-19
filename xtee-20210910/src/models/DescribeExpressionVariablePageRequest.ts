@@ -25,7 +25,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Event code
+   * Event code.
    * 
    * @example
    * de_aamexg3015,de_aamexg3342
@@ -33,7 +33,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * Variable return type
+   * Variable return type.
    * 
    * @example
    * STRING
@@ -41,7 +41,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * Page size, with a default value of 10
+   * Page size, with a default value of 10.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Region code
+   * Region code.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class DescribeExpressionVariablePageRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Variable name/description
+   * Variable name/description.
    * 
    * @example
    * 自定义变量

@@ -8,7 +8,7 @@ export class DescribeSampleBatchOssPolicyResponseBody extends $dara.Model {
    * OSS Access ID
    * 
    * @example
-   * LTAI5tE7sActovY6Hvpu5oTh
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**

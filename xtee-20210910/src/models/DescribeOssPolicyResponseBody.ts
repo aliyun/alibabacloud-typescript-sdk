@@ -8,7 +8,7 @@ export class DescribeOssPolicyResponseBody extends $dara.Model {
    * accessId, a parameter used in OSS SDK uploads, corresponding to OSSAccessKeyId
    * 
    * @example
-   * LTAIpeYTKEbC0v10
+   * LTAxxxxxxxxxxxx
    */
   accessId?: string;
   /**
