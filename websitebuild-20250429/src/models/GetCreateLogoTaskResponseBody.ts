@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
   /**
    * @example
