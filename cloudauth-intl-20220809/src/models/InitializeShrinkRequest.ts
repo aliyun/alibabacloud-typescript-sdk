@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeShrinkRequest extends $dara.Model {
   appQualityCheck?: string;
   authorize?: string;
+  /**
+   * @example
+   * 0
+   */
+  autoRegistration?: string;
   callbackToken?: string;
   callbackUrl?: string;
   chameleonFrameEnable?: string;
@@ -28,12 +33,27 @@ export class InitializeShrinkRequest extends $dara.Model {
   documentNumber?: string;
   editOcrResult?: string;
   experienceCode?: string;
+  /**
+   * @example
+   * 0e0c34a77f
+   */
+  faceGroupCodes?: string;
   facePictureBase64?: string;
   /**
    * @example
    * ***
    */
   facePictureUrl?: string;
+  /**
+   * @example
+   * 0e0c34a77f
+   */
+  faceRegisterGroupCode?: string;
+  /**
+   * @example
+   * 0.5
+   */
+  faceVerifyThreshold?: string;
   /**
    * @example
    * *
@@ -85,9 +105,19 @@ export class InitializeShrinkRequest extends $dara.Model {
   productFlow?: string;
   /**
    * @example
+   * 1
+   */
+  returnFaces?: string;
+  /**
+   * @example
    * http*****
    */
   returnUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  saveFacePicture?: string;
   /**
    * @example
    * PAY**
@@ -98,11 +128,27 @@ export class InitializeShrinkRequest extends $dara.Model {
   showGuidePage?: string;
   showOcrResult?: string;
   styleConfig?: string;
+  /**
+   * @example
+   * base64
+   */
+  targetFacePicture?: string;
+  /**
+   * @example
+   * https://www.xxxxx.com/1.jpg
+   */
+  targetFacePictureUrl?: string;
   useNFC?: string;
+  /**
+   * @example
+   * 0
+   */
+  verifyModel?: string;
   static names(): { [key: string]: string } {
     return {
       appQualityCheck: 'AppQualityCheck',
       authorize: 'Authorize',
+      autoRegistration: 'AutoRegistration',
       callbackToken: 'CallbackToken',
       callbackUrl: 'CallbackUrl',
       chameleonFrameEnable: 'ChameleonFrameEnable',
@@ -118,8 +164,11 @@ export class InitializeShrinkRequest extends $dara.Model {
       documentNumber: 'DocumentNumber',
       editOcrResult: 'EditOcrResult',
       experienceCode: 'ExperienceCode',
+      faceGroupCodes: 'FaceGroupCodes',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
+      faceRegisterGroupCode: 'FaceRegisterGroupCode',
+      faceVerifyThreshold: 'FaceVerifyThreshold',
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
@@ -134,14 +183,19 @@ export class InitializeShrinkRequest extends $dara.Model {
       procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
       productFlow: 'ProductFlow',
+      returnFaces: 'ReturnFaces',
       returnUrl: 'ReturnUrl',
+      saveFacePicture: 'SaveFacePicture',
       sceneCode: 'SceneCode',
       securityLevel: 'SecurityLevel',
       showAlbumIcon: 'ShowAlbumIcon',
       showGuidePage: 'ShowGuidePage',
       showOcrResult: 'ShowOcrResult',
       styleConfig: 'StyleConfig',
+      targetFacePicture: 'TargetFacePicture',
+      targetFacePictureUrl: 'TargetFacePictureUrl',
       useNFC: 'UseNFC',
+      verifyModel: 'VerifyModel',
     };
   }
 
@@ -149,6 +203,7 @@ export class InitializeShrinkRequest extends $dara.Model {
     return {
       appQualityCheck: 'string',
       authorize: 'string',
+      autoRegistration: 'string',
       callbackToken: 'string',
       callbackUrl: 'string',
       chameleonFrameEnable: 'string',
@@ -164,8 +219,11 @@ export class InitializeShrinkRequest extends $dara.Model {
       documentNumber: 'string',
       editOcrResult: 'string',
       experienceCode: 'string',
+      faceGroupCodes: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
+      faceRegisterGroupCode: 'string',
+      faceVerifyThreshold: 'string',
       idFaceQuality: 'string',
       idSpoof: 'string',
       idThreshold: 'string',
@@ -180,14 +238,19 @@ export class InitializeShrinkRequest extends $dara.Model {
       procedurePriority: 'string',
       productCode: 'string',
       productFlow: 'string',
+      returnFaces: 'string',
       returnUrl: 'string',
+      saveFacePicture: 'string',
       sceneCode: 'string',
       securityLevel: 'string',
       showAlbumIcon: 'string',
       showGuidePage: 'string',
       showOcrResult: 'string',
       styleConfig: 'string',
+      targetFacePicture: 'string',
+      targetFacePictureUrl: 'string',
       useNFC: 'string',
+      verifyModel: 'string',
     };
   }
 

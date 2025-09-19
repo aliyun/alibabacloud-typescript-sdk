@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class FaceCompareResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The face comparison score. The value ranges from 0 to 100.
+   * 
    * @example
    * 98
    */
   faceComparisonScore?: number;
   /**
+   * @remarks
+   * The final authentication result. Valid values:
+   * 
+   * - **Y**: The authentication is passed.
+   * 
+   * - **N**: The authentication failed.
+   * 
    * @example
    * Y
    */
   passed?: string;
   /**
+   * @remarks
+   * The transaction ID.
+   * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
    */
@@ -45,11 +58,17 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
 
 export class FaceCompareResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The [response code](https://www.alibabacloud.com/help/en/ekyc/latest/facecompare?spm=a3c0i.23458820.2359477120.28.21167d3fzUmXQC#c43fd16d07mae).
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The detailed description of the response code.
+   * 
    * @example
    * success
    */
@@ -62,6 +81,10 @@ export class FaceCompareResponseBody extends $dara.Model {
    * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result object
+   */
   result?: FaceCompareResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

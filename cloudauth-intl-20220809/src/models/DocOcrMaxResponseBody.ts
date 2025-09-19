@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DocOcrMaxResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Card and document recognition result	Only returned when the interface response is successful
+   * 
    * @example
    * {
    *   "docType": "PPTW01",
@@ -23,16 +26,28 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
    */
   extIdInfo?: string;
   /**
+   * @remarks
+   * Whether the authentication passed.
+   * 
+   * - Y: Passed.
+   * - N: Not passed.
+   * 
    * @example
    * Y
    */
   passed?: string;
   /**
+   * @remarks
+   * Sub-result code.
+   * 
    * @example
    * 200
    */
   subCode?: string;
   /**
+   * @remarks
+   * Authentication ID
+   * 
    * @example
    * hk573be80f944d95ac812e0*******a8
    */
@@ -66,23 +81,33 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
 
 export class DocOcrMaxResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 4EB35****87EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result
+   */
   result?: DocOcrMaxResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

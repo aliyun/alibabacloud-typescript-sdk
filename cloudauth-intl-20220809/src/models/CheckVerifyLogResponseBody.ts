@@ -33,12 +33,39 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
    * OCR拍摄证件页面
    */
   interruptPage?: string;
+  /**
+   * @remarks
+   * The page where the authentication process stops. Possible English values:
+   * 
+   * The following are the values in an unordered list:
+   * 
+   * - LOADING
+   * 
+   * - GUIDE
+   * 
+   * - FACE
+   * 
+   * - OCR_SCAN
+   * 
+   * - OCR_RESULT
+   * 
+   * - NFC_INPUT
+   * 
+   * - NFC_READ
+   * 
+   * @example
+   * LOADING
+   */
   interruptPageEn?: string;
   /**
    * @remarks
    * SDK operation log details
    */
   logInfo?: string[];
+  /**
+   * @remarks
+   * SDK Operation Log Details (English Version)
+   */
   logInfoEn?: string[];
   /**
    * @remarks

@@ -66,7 +66,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址相似比对
+   * Address Similarity Comparison
+   * 
+   * @remarks
+   * API for comparing two addresses, standardizing and checking address consistency.
    * 
    * @param request - AddressCompareIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -109,7 +112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址相似比对
+   * Address Similarity Comparison
+   * 
+   * @remarks
+   * API for comparing two addresses, standardizing and checking address consistency.
    * 
    * @param request - AddressCompareIntlRequest
    * @returns AddressCompareIntlResponse
@@ -208,7 +214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址核验
+   * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
    * 
    * @param request - AddressVerifyV2IntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -259,7 +265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 地址核验
+   * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
    * 
    * @param request - AddressVerifyV2IntlRequest
    * @returns AddressVerifyV2IntlResponse
@@ -751,7 +757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸凭证核验
+   * Face Credential Verification
+   * 
+   * @remarks
+   * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -804,7 +813,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸凭证核验
+   * Face Credential Verification
+   * 
+   * @remarks
+   * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @returns DeepfakeDetectIntlResponse
@@ -949,7 +961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全球证件ocr识别接口
+   * Global Document OCR Recognition Interface
    * 
    * @param request - DocOcrMaxRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1028,7 +1040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全球证件ocr识别接口
+   * Global Document OCR Recognition Interface
    * 
    * @param request - DocOcrMaxRequest
    * @returns DocOcrMaxResponse
@@ -1039,7 +1051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ekyc纯服务端接口
+   * This topic describes how to integrate with ID Verification using only the server-side API.
    * 
    * @param request - EkycVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,7 +1132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ekyc纯服务端接口
+   * This topic describes how to integrate with ID Verification using only the server-side API.
    * 
    * @param request - EkycVerifyRequest
    * @returns EkycVerifyResponse
@@ -1131,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸比对
+   * This topic describes how to integrate FaceCompare using only the server-side API.
    * 
    * @param request - FaceCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1184,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸比对
+   * This topic describes how to integrate FaceCompare using only the server-side API.
    * 
    * @param request - FaceCompareRequest
    * @returns FaceCompareResponse
@@ -1195,7 +1207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 国际人脸保镖纯服务端接口
+   * This topic describes how to set up the server for FACE_GUARD.
    * 
    * @param request - FaceGuardRiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1238,7 +1250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 国际人脸保镖纯服务端接口
+   * This topic describes how to set up the server for FACE_GUARD.
    * 
    * @param request - FaceGuardRiskRequest
    * @returns FaceGuardRiskResponse
@@ -1249,7 +1261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 静默活体API 纯服务端
+   * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
    * 
    * @param request - FaceLivenessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1310,7 +1322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 静默活体API 纯服务端
+   * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen
    * 
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
@@ -1375,7 +1387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素有效期核验
+   * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,7 +1450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素有效期核验
+   * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @returns Id2MetaPeriodVerifyIntlResponse
@@ -1449,7 +1461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素国际版接口
+   * Verifies that a name and an ID card number are consistent.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1492,7 +1504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份二要素国际版接口
+   * Verifies that a name and an ID card number are consistent.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @returns Id2MetaVerifyIntlResponse
@@ -1524,6 +1536,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.authorize)) {
       query["Authorize"] = request.authorize;
+    }
+
+    if (!$dara.isNull(request.autoRegistration)) {
+      query["AutoRegistration"] = request.autoRegistration;
     }
 
     if (!$dara.isNull(request.callbackToken)) {
@@ -1586,8 +1602,20 @@ export default class Client extends OpenApi {
       query["ExperienceCode"] = request.experienceCode;
     }
 
+    if (!$dara.isNull(request.faceGroupCodes)) {
+      query["FaceGroupCodes"] = request.faceGroupCodes;
+    }
+
     if (!$dara.isNull(request.facePictureUrl)) {
       query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!$dara.isNull(request.faceRegisterGroupCode)) {
+      query["FaceRegisterGroupCode"] = request.faceRegisterGroupCode;
+    }
+
+    if (!$dara.isNull(request.faceVerifyThreshold)) {
+      query["FaceVerifyThreshold"] = request.faceVerifyThreshold;
     }
 
     if (!$dara.isNull(request.idFaceQuality)) {
@@ -1646,8 +1674,16 @@ export default class Client extends OpenApi {
       query["ProductFlow"] = request.productFlow;
     }
 
+    if (!$dara.isNull(request.returnFaces)) {
+      query["ReturnFaces"] = request.returnFaces;
+    }
+
     if (!$dara.isNull(request.returnUrl)) {
       query["ReturnUrl"] = request.returnUrl;
+    }
+
+    if (!$dara.isNull(request.saveFacePicture)) {
+      query["SaveFacePicture"] = request.saveFacePicture;
     }
 
     if (!$dara.isNull(request.sceneCode)) {
@@ -1674,8 +1710,20 @@ export default class Client extends OpenApi {
       query["StyleConfig"] = request.styleConfig;
     }
 
+    if (!$dara.isNull(request.targetFacePicture)) {
+      query["TargetFacePicture"] = request.targetFacePicture;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureUrl)) {
+      query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
+    }
+
     if (!$dara.isNull(request.useNFC)) {
       query["UseNFC"] = request.useNFC;
+    }
+
+    if (!$dara.isNull(request.verifyModel)) {
+      query["VerifyModel"] = request.verifyModel;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1713,7 +1761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户端连接保持
+   * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
    * 
    * @param request - KeepaliveIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1736,7 +1784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 客户端连接保持
+   * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
    * @returns KeepaliveIntlResponse
    */
   async keepaliveIntl(): Promise<$_model.KeepaliveIntlResponse> {
@@ -1745,7 +1793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号二要素核验API
+   * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1788,7 +1836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手机号二要素核验API
+   * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @returns Mobile2MetaVerifyIntlResponse

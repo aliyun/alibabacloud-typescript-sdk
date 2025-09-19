@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
+   * The mobile number.
+   * 
+   * >
+   * > - If **paramType** is set to **normal**, enter the plaintext value.
+   * > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,12 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
+   * The parameter type:
+   * 
+   * - **normal**: plaintext
+   * 
+   * - **md5**: MD5-encrypted
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +33,8 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
+   * The product to use. Set this parameter to the static value **MOBILE_2META**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,7 +43,16 @@ export class Mobile2MetaVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
+   * The name.
+   * 
+   * > 
+   * > - If **paramType** is set to **normal**, enter the plaintext value.
+   * > - If **paramType** is set to **md5**, enter the 32-bit lowercase MD5 string.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Zhang*
    */
   userName?: string;
   static names(): { [key: string]: string } {
