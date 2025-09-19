@@ -708,6 +708,10 @@ export default class Client extends OpenApi {
       query["AndroidHonorTargetUserType"] = request.androidHonorTargetUserType;
     }
 
+    if (!$dara.isNull(request.androidHuaweiLiveNotificationPayload)) {
+      query["AndroidHuaweiLiveNotificationPayload"] = request.androidHuaweiLiveNotificationPayload;
+    }
+
     if (!$dara.isNull(request.androidHuaweiReceiptId)) {
       query["AndroidHuaweiReceiptId"] = request.androidHuaweiReceiptId;
     }
@@ -922,6 +926,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.harmonyInboxContent)) {
       query["HarmonyInboxContent"] = request.harmonyInboxContent;
+    }
+
+    if (!$dara.isNull(request.harmonyLiveViewPayload)) {
+      query["HarmonyLiveViewPayload"] = request.harmonyLiveViewPayload;
     }
 
     if (!$dara.isNull(request.harmonyNotificationSlotType)) {

@@ -24,6 +24,7 @@ export class PushShrinkRequest extends $dara.Model {
    */
   androidExtParameters?: string;
   androidHonorTargetUserType?: number;
+  androidHuaweiLiveNotificationPayload?: string;
   /**
    * @example
    * RCP4C123456
@@ -224,6 +225,7 @@ export class PushShrinkRequest extends $dara.Model {
   harmonyExtensionPush?: boolean;
   harmonyImageUrl?: string;
   harmonyInboxContent?: string;
+  harmonyLiveViewPayload?: string;
   harmonyNotificationSlotType?: string;
   harmonyNotifyId?: number;
   harmonyReceiptId?: string;
@@ -401,6 +403,7 @@ export class PushShrinkRequest extends $dara.Model {
       androidBigTitle: 'AndroidBigTitle',
       androidExtParameters: 'AndroidExtParameters',
       androidHonorTargetUserType: 'AndroidHonorTargetUserType',
+      androidHuaweiLiveNotificationPayload: 'AndroidHuaweiLiveNotificationPayload',
       androidHuaweiReceiptId: 'AndroidHuaweiReceiptId',
       androidHuaweiTargetUserType: 'AndroidHuaweiTargetUserType',
       androidImageUrl: 'AndroidImageUrl',
@@ -455,6 +458,7 @@ export class PushShrinkRequest extends $dara.Model {
       harmonyExtensionPush: 'HarmonyExtensionPush',
       harmonyImageUrl: 'HarmonyImageUrl',
       harmonyInboxContent: 'HarmonyInboxContent',
+      harmonyLiveViewPayload: 'HarmonyLiveViewPayload',
       harmonyNotificationSlotType: 'HarmonyNotificationSlotType',
       harmonyNotifyId: 'HarmonyNotifyId',
       harmonyReceiptId: 'HarmonyReceiptId',
@@ -516,6 +520,7 @@ export class PushShrinkRequest extends $dara.Model {
       androidBigTitle: 'string',
       androidExtParameters: 'string',
       androidHonorTargetUserType: 'number',
+      androidHuaweiLiveNotificationPayload: 'string',
       androidHuaweiReceiptId: 'string',
       androidHuaweiTargetUserType: 'number',
       androidImageUrl: 'string',
@@ -570,6 +575,7 @@ export class PushShrinkRequest extends $dara.Model {
       harmonyExtensionPush: 'boolean',
       harmonyImageUrl: 'string',
       harmonyInboxContent: 'string',
+      harmonyLiveViewPayload: 'string',
       harmonyNotificationSlotType: 'string',
       harmonyNotifyId: 'number',
       harmonyReceiptId: 'string',
