@@ -320,6 +320,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改类目解析配置
+   * 
+   * @param tmpReq - ChangeParseSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeParseSettingResponse
+   */
+  async changeParseSettingWithOptions(WorkspaceId: string, tmpReq: $_model.ChangeParseSettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeParseSettingResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChangeParseSettingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.parserConfig)) {
+      request.parserConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parserConfig, "ParserConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.parser)) {
+      body["Parser"] = request.parser;
+    }
+
+    if (!$dara.isNull(request.parserConfigShrink)) {
+      body["ParserConfig"] = request.parserConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeParseSetting",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/parser/settings`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeParseSettingResponse>(await this.callApi(params, req, runtime), new $_model.ChangeParseSettingResponse({}));
+  }
+
+  /**
+   * 修改类目解析配置
+   * 
+   * @param request - ChangeParseSettingRequest
+   * @returns ChangeParseSettingResponse
+   */
+  async changeParseSetting(WorkspaceId: string, request: $_model.ChangeParseSettingRequest): Promise<$_model.ChangeParseSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.changeParseSettingWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建并发布智能体应用
    * 
    * @param tmpReq - CreateAndPulishAgentRequest
@@ -1237,6 +1300,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件支持的解析器类型
+   * 
+   * @param request - GetAvailableParserTypesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvailableParserTypesResponse
+   */
+  async getAvailableParserTypesWithOptions(WorkspaceId: string, request: $_model.GetAvailableParserTypesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAvailableParserTypesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAvailableParserTypes",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/parser/parsertype`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAvailableParserTypesResponse>(await this.callApi(params, req, runtime), new $_model.GetAvailableParserTypesResponse({}));
+  }
+
+  /**
+   * 获取文件支持的解析器类型
+   * 
+   * @param request - GetAvailableParserTypesRequest
+   * @returns GetAvailableParserTypesResponse
+   */
+  async getAvailableParserTypes(WorkspaceId: string, request: $_model.GetAvailableParserTypesRequest): Promise<$_model.GetAvailableParserTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAvailableParserTypesWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the current status of a specified knowledge base creation or add document job.
    * 
    * @remarks
@@ -1374,6 +1482,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取类目解析配置
+   * 
+   * @param request - GetParseSettingsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParseSettingsResponse
+   */
+  async getParseSettingsWithOptions(WorkspaceId: string, request: $_model.GetParseSettingsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetParseSettingsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetParseSettings",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/parser/settings`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetParseSettingsResponse>(await this.callApi(params, req, runtime), new $_model.GetParseSettingsResponse({}));
+  }
+
+  /**
+   * 获取类目解析配置
+   * 
+   * @param request - GetParseSettingsRequest
+   * @returns GetParseSettingsResponse
+   */
+  async getParseSettings(WorkspaceId: string, request: $_model.GetParseSettingsRequest): Promise<$_model.GetParseSettingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getParseSettingsWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Obtains a prompt template based on the template ID.
    * 
    * @param headers - map
@@ -1441,6 +1594,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPublishedAgentWithOptions(workspaceId, appCode, headers, runtime);
+  }
+
+  /**
+   * 高代码部署服务
+   * 
+   * @param request - HighCodeDeployRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HighCodeDeployResponse
+   */
+  async highCodeDeployWithOptions(workspaceId: string, request: $_model.HighCodeDeployRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.HighCodeDeployResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentDesc)) {
+      body["agentDesc"] = request.agentDesc;
+    }
+
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      body["agentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.sourceCodeName)) {
+      body["sourceCodeName"] = request.sourceCodeName;
+    }
+
+    if (!$dara.isNull(request.sourceCodeOssUrl)) {
+      body["sourceCodeOssUrl"] = request.sourceCodeOssUrl;
+    }
+
+    if (!$dara.isNull(request.telemetryEnabled)) {
+      body["telemetryEnabled"] = request.telemetryEnabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HighCodeDeploy",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/openapi/${$dara.URL.percentEncode(workspaceId)}/highCode/publish`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HighCodeDeployResponse>(await this.callApi(params, req, runtime), new $_model.HighCodeDeployResponse({}));
+  }
+
+  /**
+   * 高代码部署服务
+   * 
+   * @param request - HighCodeDeployRequest
+   * @returns HighCodeDeployResponse
+   */
+  async highCodeDeploy(workspaceId: string, request: $_model.HighCodeDeployRequest): Promise<$_model.HighCodeDeployResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.highCodeDeployWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
