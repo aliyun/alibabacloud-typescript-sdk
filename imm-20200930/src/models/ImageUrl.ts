@@ -2,23 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DataIngestionStatistic extends $dara.Model {
-  skipFiles?: number;
-  submitFailure?: number;
-  submitSuccess?: number;
+export class ImageURL extends $dara.Model {
+  thumbnail?: string;
+  URL?: string;
   static names(): { [key: string]: string } {
     return {
-      skipFiles: 'SkipFiles',
-      submitFailure: 'SubmitFailure',
-      submitSuccess: 'SubmitSuccess',
+      thumbnail: 'Thumbnail',
+      URL: 'URL',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      skipFiles: 'number',
-      submitFailure: 'number',
-      submitSuccess: 'number',
+      thumbnail: 'string',
+      URL: 'string',
     };
   }
 

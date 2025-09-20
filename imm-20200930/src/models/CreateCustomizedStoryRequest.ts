@@ -1,8 +1,70 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCustomizedStoryRequestCover } from "./CreateCustomizedStoryRequestCover";
-import { CreateCustomizedStoryRequestFiles } from "./CreateCustomizedStoryRequestFiles";
 
+
+export class CreateCustomizedStoryRequestCover extends $dara.Model {
+  /**
+   * @remarks
+   * The URI of the cover image.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket1/cover
+   */
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomizedStoryRequestFiles extends $dara.Model {
+  /**
+   * @remarks
+   * The URIs of the files.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"URI":"oss://bucket1/file1"}]
+   */
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateCustomizedStoryRequest extends $dara.Model {
   /**

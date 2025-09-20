@@ -1,7 +1,162 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetImageModerationResultResponseBodyModerationResult } from "./GetImageModerationResultResponseBodyModerationResult";
 
+
+export class GetImageModerationResultResponseBodyModerationResultFramesBlockFrames extends $dara.Model {
+  /**
+   * @remarks
+   * The label of the violation.
+   * 
+   * @example
+   * {
+   *       "test": "val"
+   * }
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The offset of the frame.
+   * 
+   * @example
+   * 2
+   */
+  offset?: number;
+  /**
+   * @remarks
+   * The confidence level of the violation.
+   * 
+   * @example
+   * 30
+   */
+  rate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      offset: 'Offset',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      offset: 'number',
+      rate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageModerationResultResponseBodyModerationResultFrames extends $dara.Model {
+  /**
+   * @remarks
+   * The violated frames.
+   */
+  blockFrames?: GetImageModerationResultResponseBodyModerationResultFramesBlockFrames[];
+  /**
+   * @remarks
+   * The total number of detected frames.
+   * 
+   * @example
+   * 30
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockFrames: 'BlockFrames',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockFrames: { 'type': 'array', 'itemType': GetImageModerationResultResponseBodyModerationResultFramesBlockFrames },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.blockFrames)) {
+      $dara.Model.validateArray(this.blockFrames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageModerationResultResponseBodyModerationResult extends $dara.Model {
+  /**
+   * @remarks
+   * List of categories.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The information about video and motion detection frames.
+   */
+  frames?: GetImageModerationResultResponseBodyModerationResultFrames;
+  /**
+   * @remarks
+   * The recommended operation. Valid values:
+   * 
+   * *   pass: The image has passed the check. No action is required.
+   * *   review: The image contains suspected violations and requires human review.
+   * *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+   * 
+   * @example
+   * block
+   */
+  suggestion?: string;
+  /**
+   * @remarks
+   * The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      frames: 'Frames',
+      suggestion: 'Suggestion',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      frames: GetImageModerationResultResponseBodyModerationResultFrames,
+      suggestion: 'string',
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(this.frames && typeof (this.frames as any).validate === 'function') {
+      (this.frames as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetImageModerationResultResponseBody extends $dara.Model {
   /**

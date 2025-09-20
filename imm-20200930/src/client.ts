@@ -657,6 +657,70 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContextualAnswerResponse
    */
+  async *contextualAnswerWithSSE(tmpReq: $_model.ContextualAnswerRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ContextualAnswerResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.ContextualAnswerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.files)) {
+      request.filesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.files, "Files", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filesShrink)) {
+      body["Files"] = request.filesShrink;
+    }
+
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ContextualAnswer",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.ContextualAnswerResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.ContextualAnswerResponse({}));
+    }
+  }
+
+  /**
+   * AI 助手二期，问答API
+   * 
+   * @param tmpReq - ContextualAnswerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContextualAnswerResponse
+   */
   async contextualAnswerWithOptions(tmpReq: $_model.ContextualAnswerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContextualAnswerResponse> {
     tmpReq.validate();
     let request = new $_model.ContextualAnswerShrinkRequest({ });
@@ -5131,7 +5195,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDRMLicenseResponse
    */
-  // Deprecated
   async getDRMLicenseWithOptions(request: $_model.GetDRMLicenseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDRMLicenseResponse> {
     request.validate();
     let query = { };

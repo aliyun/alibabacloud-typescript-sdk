@@ -1,10 +1,112 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DataIngestionActions } from "./DataIngestionActions";
 import { Input } from "./Input";
-import { DataIngestionNotification } from "./DataIngestionNotification";
-import { DataIngestionStatistic } from "./DataIngestionStatistic";
+import { MNS } from "./Mns";
+import { RocketMQ } from "./RocketMq";
+import { FastFailPolicy } from "./FastFailPolicy";
 
+
+export class DataIngestionActions extends $dara.Model {
+  fastFailPolicy?: FastFailPolicy;
+  name?: string;
+  parameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fastFailPolicy: 'FastFailPolicy',
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fastFailPolicy: FastFailPolicy,
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.fastFailPolicy && typeof (this.fastFailPolicy as any).validate === 'function') {
+      (this.fastFailPolicy as any).validate();
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataIngestionNotification extends $dara.Model {
+  endpoint?: string;
+  MNS?: MNS;
+  rocketMQ?: RocketMQ;
+  topic?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      MNS: 'MNS',
+      rocketMQ: 'RocketMQ',
+      topic: 'Topic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      MNS: MNS,
+      rocketMQ: RocketMQ,
+      topic: 'string',
+    };
+  }
+
+  validate() {
+    if(this.MNS && typeof (this.MNS as any).validate === 'function') {
+      (this.MNS as any).validate();
+    }
+    if(this.rocketMQ && typeof (this.rocketMQ as any).validate === 'function') {
+      (this.rocketMQ as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataIngestionStatistic extends $dara.Model {
+  skipFiles?: number;
+  submitFailure?: number;
+  submitSuccess?: number;
+  static names(): { [key: string]: string } {
+    return {
+      skipFiles: 'SkipFiles',
+      submitFailure: 'SubmitFailure',
+      submitSuccess: 'SubmitSuccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipFiles: 'number',
+      submitFailure: 'number',
+      submitSuccess: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DataIngestion extends $dara.Model {
   actions?: DataIngestionActions[];

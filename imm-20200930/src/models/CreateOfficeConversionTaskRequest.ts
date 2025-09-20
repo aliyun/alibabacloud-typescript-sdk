@@ -2,9 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 import { CredentialConfig } from "./CredentialConfig";
 import { Notification } from "./Notification";
-import { CreateOfficeConversionTaskRequestSources } from "./CreateOfficeConversionTaskRequestSources";
 import { TrimPolicy } from "./TrimPolicy";
 
+
+export class CreateOfficeConversionTaskRequestSources extends $dara.Model {
+  rotate?: number;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rotate: 'Rotate',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rotate: 'number',
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateOfficeConversionTaskRequest extends $dara.Model {
   /**

@@ -2,20 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateOfficeConversionTaskRequestSources extends $dara.Model {
-  rotate?: number;
-  URI?: string;
+export class CustomPrompt extends $dara.Model {
+  roleDefinition?: string;
   static names(): { [key: string]: string } {
     return {
-      rotate: 'Rotate',
-      URI: 'URI',
+      roleDefinition: 'RoleDefinition',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rotate: 'number',
-      URI: 'string',
+      roleDefinition: 'string',
     };
   }
 

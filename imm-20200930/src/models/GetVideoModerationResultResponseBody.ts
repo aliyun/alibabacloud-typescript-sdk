@@ -1,7 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetVideoModerationResultResponseBodyModerationResult } from "./GetVideoModerationResultResponseBodyModerationResult";
 
+
+export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames extends $dara.Model {
+  /**
+   * @example
+   * {"teat":"val"}
+   */
+  label?: string;
+  /**
+   * @example
+   * 1
+   */
+  offset?: number;
+  /**
+   * @example
+   * 10
+   */
+  rate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      offset: 'Offset',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      offset: 'number',
+      rate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoModerationResultResponseBodyModerationResultFrames extends $dara.Model {
+  blockFrames?: GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames[];
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      blockFrames: 'BlockFrames',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blockFrames: { 'type': 'array', 'itemType': GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.blockFrames)) {
+      $dara.Model.validateArray(this.blockFrames);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVideoModerationResultResponseBodyModerationResult extends $dara.Model {
+  categories?: string[];
+  frames?: GetVideoModerationResultResponseBodyModerationResultFrames;
+  /**
+   * @example
+   * block
+   */
+  suggestion?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      frames: 'Frames',
+      suggestion: 'Suggestion',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      frames: GetVideoModerationResultResponseBodyModerationResultFrames,
+      suggestion: 'string',
+      URI: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(this.frames && typeof (this.frames as any).validate === 'function') {
+      (this.frames as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetVideoModerationResultResponseBody extends $dara.Model {
   /**

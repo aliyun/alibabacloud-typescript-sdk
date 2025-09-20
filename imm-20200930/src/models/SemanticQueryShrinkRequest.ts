@@ -49,8 +49,6 @@ export class SemanticQueryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The content of the query that you input.
-   * 
-   * This parameter is required.
    */
   query?: string;
   /**

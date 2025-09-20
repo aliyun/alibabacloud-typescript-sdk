@@ -1,8 +1,107 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SimpleQueryResponseBodyAggregations } from "./SimpleQueryResponseBodyAggregations";
 import { File } from "./File";
 
+
+export class SimpleQueryResponseBodyAggregationsGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The number of results in the grouped aggregation.
+   * 
+   * @example
+   * 5
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The value for the grouped aggregation.
+   * 
+   * @example
+   * 100
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SimpleQueryResponseBodyAggregations extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the field.
+   * 
+   * @example
+   * Size
+   */
+  field?: string;
+  /**
+   * @remarks
+   * The grouped aggregations. This parameter is returned only when the group operator is specified in the Aggregations request parameter.
+   */
+  groups?: SimpleQueryResponseBodyAggregationsGroups[];
+  /**
+   * @remarks
+   * The operator.
+   * 
+   * @example
+   * sum
+   */
+  operation?: string;
+  /**
+   * @remarks
+   * The statistical result.
+   * 
+   * @example
+   * 200
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      groups: 'Groups',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      groups: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregationsGroups },
+      operation: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groups)) {
+      $dara.Model.validateArray(this.groups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SimpleQueryResponseBody extends $dara.Model {
   /**
