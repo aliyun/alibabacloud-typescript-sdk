@@ -2844,6 +2844,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 扩容实例的独立机身存储
+   * 
+   * @param request - ExpandPhoneDataVolumeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExpandPhoneDataVolumeResponse
+   */
+  async expandPhoneDataVolumeWithOptions(request: $_model.ExpandPhoneDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExpandPhoneDataVolumeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.phoneDataVolume)) {
+      query["PhoneDataVolume"] = request.phoneDataVolume;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExpandPhoneDataVolume",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExpandPhoneDataVolumeResponse>(await this.callApi(params, req, runtime), new $_model.ExpandPhoneDataVolumeResponse({}));
+  }
+
+  /**
+   * 扩容实例的独立机身存储
+   * 
+   * @param request - ExpandPhoneDataVolumeRequest
+   * @returns ExpandPhoneDataVolumeResponse
+   */
+  async expandPhoneDataVolume(request: $_model.ExpandPhoneDataVolumeRequest): Promise<$_model.ExpandPhoneDataVolumeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.expandPhoneDataVolumeWithOptions(request, runtime);
+  }
+
+  /**
    * Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
    * 
    * @remarks
