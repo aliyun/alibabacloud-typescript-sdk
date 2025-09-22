@@ -508,6 +508,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 图片审核
+   * 
+   * @param request - ImageQueueModerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageQueueModerationResponse
+   */
+  async imageQueueModerationWithOptions(request: $_model.ImageQueueModerationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImageQueueModerationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImageQueueModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImageQueueModerationResponse>(await this.callApi(params, req, runtime), new $_model.ImageQueueModerationResponse({}));
+  }
+
+  /**
+   * 图片审核
+   * 
+   * @param request - ImageQueueModerationRequest
+   * @returns ImageQueueModerationResponse
+   */
+  async imageQueueModeration(request: $_model.ImageQueueModerationRequest): Promise<$_model.ImageQueueModerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.imageQueueModerationWithOptions(request, runtime);
+  }
+
+  /**
    * Content Security Manual Review Result Callback Interface
    * 
    * @param request - ManualCallbackRequest
