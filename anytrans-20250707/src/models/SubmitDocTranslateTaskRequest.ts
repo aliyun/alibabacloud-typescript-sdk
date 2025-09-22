@@ -104,6 +104,10 @@ export class SubmitDocTranslateTaskRequestExtTextTransform extends $dara.Model {
 }
 
 export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
+  /**
+   * @example
+   * This text comes from a rigorous academic paper. Please provide a translation that complies with academic standards.
+   */
   domainHint?: string;
   examples?: SubmitDocTranslateTaskRequestExtExamples[];
   sensitives?: string[];
@@ -183,7 +187,7 @@ export class SubmitDocTranslateTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * https://xxx-hangzhou.aliyuncs.com/docs/tmp/%E6%A0%B7%E4%BE%8B_%E6%97%A0%E5%9B%BE.pdf?OSSAccessKeyId=LTAI5tBVMtznbk7xyCa56gof&Expires=1755883153&Signature=H23MpMZqFVPGTPCU2GtFqOFfmII%3D
+   * https://xxx-hangzhou.aliyuncs.com/docs/tmp/%E6%A0%B7%E4%BE%8B_%E6%97%A0%E5%9B%BE.pdf
    */
   text?: string;
   /**
