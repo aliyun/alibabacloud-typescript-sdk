@@ -2,51 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateRoutineCodeDeploymentShrinkRequest extends $dara.Model {
+export class GetRoutineCodeVersionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    */
-  codeVersionsShrink?: string;
+  codeVersion?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * staging
-   */
-  env?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test
+   * GetRoutineCodeVersion
    */
   name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * percentage
-   */
-  strategy?: string;
   static names(): { [key: string]: string } {
     return {
-      codeVersionsShrink: 'CodeVersions',
-      env: 'Env',
+      codeVersion: 'CodeVersion',
       name: 'Name',
-      strategy: 'Strategy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      codeVersionsShrink: 'string',
-      env: 'string',
+      codeVersion: 'string',
       name: 'string',
-      strategy: 'string',
     };
   }
 

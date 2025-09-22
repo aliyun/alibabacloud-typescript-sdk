@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.Model {
+  /**
+   * @example
+   * 1723599747213377175
+   */
   codeVersion?: string;
+  /**
+   * @example
+   * 100
+   */
   percentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30,8 +38,20 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
 
 export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
   codeVersions?: CreateRoutineCodeDeploymentResponseBodyCodeVersions[];
+  /**
+   * @example
+   * 234
+   */
   deploymentId?: string;
+  /**
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
   requestId?: string;
+  /**
+   * @example
+   * percentage
+   */
   strategy?: string;
   static names(): { [key: string]: string } {
     return {

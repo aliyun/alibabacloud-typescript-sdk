@@ -9740,6 +9740,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Routine某版本代码
+   * 
+   * @param request - GetRoutineCodeVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRoutineCodeVersionResponse
+   */
+  async getRoutineCodeVersionWithOptions(request: $_model.GetRoutineCodeVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRoutineCodeVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.codeVersion)) {
+      body["CodeVersion"] = request.codeVersion;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRoutineCodeVersion",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRoutineCodeVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetRoutineCodeVersionResponse({}));
+  }
+
+  /**
+   * 查询Routine某版本代码
+   * 
+   * @param request - GetRoutineCodeVersionRequest
+   * @returns GetRoutineCodeVersionResponse
+   */
+  async getRoutineCodeVersion(request: $_model.GetRoutineCodeVersionRequest): Promise<$_model.GetRoutineCodeVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRoutineCodeVersionWithOptions(request, runtime);
+  }
+
+  /**
    * 查询单条边缘函数路由配置
    * 
    * @param request - GetRoutineRouteRequest
@@ -14037,6 +14083,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
     if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -17363,6 +17413,52 @@ export default class Client extends OpenApi {
   async updateRewriteUrlRule(request: $_model.UpdateRewriteUrlRuleRequest): Promise<$_model.UpdateRewriteUrlRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRewriteUrlRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Routine描述信息
+   * 
+   * @param request - UpdateRoutineConfigDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRoutineConfigDescriptionResponse
+   */
+  async updateRoutineConfigDescriptionWithOptions(request: $_model.UpdateRoutineConfigDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRoutineConfigDescriptionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRoutineConfigDescription",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRoutineConfigDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRoutineConfigDescriptionResponse({}));
+  }
+
+  /**
+   * 修改Routine描述信息
+   * 
+   * @param request - UpdateRoutineConfigDescriptionRequest
+   * @returns UpdateRoutineConfigDescriptionResponse
+   */
+  async updateRoutineConfigDescription(request: $_model.UpdateRoutineConfigDescriptionRequest): Promise<$_model.UpdateRoutineConfigDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRoutineConfigDescriptionWithOptions(request, runtime);
   }
 
   /**

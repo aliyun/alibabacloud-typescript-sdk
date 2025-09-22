@@ -6,11 +6,17 @@ export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model 
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1723599747213377175
    */
   codeVersion?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100
    */
   percentage?: number;
   static names(): { [key: string]: string } {
@@ -47,12 +53,15 @@ export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * production
+   * staging
    */
   env?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test
    */
   name?: string;
   /**

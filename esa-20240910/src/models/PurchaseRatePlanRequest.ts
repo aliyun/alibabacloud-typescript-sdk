@@ -22,6 +22,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
+  channel?: string;
   /**
    * @remarks
    * The billing method. Valid values:
@@ -93,6 +94,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      channel: 'Channel',
       chargeType: 'ChargeType',
       coverage: 'Coverage',
       period: 'Period',
@@ -108,6 +110,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      channel: 'string',
       chargeType: 'string',
       coverage: 'string',
       period: 'number',
