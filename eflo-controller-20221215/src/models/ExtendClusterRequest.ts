@@ -416,6 +416,7 @@ export class ExtendClusterRequestNodeGroupsNodeTag extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
+  burstingEnabled?: boolean;
   /**
    * @remarks
    * Type
@@ -440,6 +441,7 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
    * PL0
    */
   performanceLevel?: string;
+  provisionedIops?: number;
   /**
    * @remarks
    * Disk Size
@@ -450,18 +452,22 @@ export class ExtendClusterRequestNodeGroupsNodesDataDisk extends $dara.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       deleteWithNode: 'DeleteWithNode',
       performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
       size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       category: 'string',
       deleteWithNode: 'boolean',
       performanceLevel: 'string',
+      provisionedIops: 'number',
       size: 'number',
     };
   }
