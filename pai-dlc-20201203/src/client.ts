@@ -407,6 +407,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取 Dashboard 链接
+   * 
+   * @param request - GetDashboardRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDashboardResponse
+   */
+  async getDashboardWithOptions(jobId: string, request: $_model.GetDashboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDashboardResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isShared)) {
+      query["isShared"] = request.isShared;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDashboard",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(jobId)}/dashboard`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDashboardResponse>(await this.callApi(params, req, runtime), new $_model.GetDashboardResponse({}));
+  }
+
+  /**
+   * 获取 Dashboard 链接
+   * 
+   * @param request - GetDashboardRequest
+   * @returns GetDashboardResponse
+   */
+  async getDashboard(jobId: string, request: $_model.GetDashboardRequest): Promise<$_model.GetDashboardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDashboardWithOptions(jobId, request, headers, runtime);
+  }
+
+  /**
    * Obtains the configuration and runtime information of a job.
    * 
    * @param request - GetJobRequest
