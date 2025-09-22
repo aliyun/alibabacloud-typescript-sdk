@@ -609,6 +609,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通义多模态翻译术语编辑
+   * 
+   * @param tmpReq - TermEditRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TermEditResponse
+   */
+  async termEditWithOptions(tmpReq: $_model.TermEditRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TermEditResponse> {
+    tmpReq.validate();
+    let request = new $_model.TermEditShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "ext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      body["scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.sourceLanguage)) {
+      body["sourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!$dara.isNull(request.targetLanguage)) {
+      body["targetLanguage"] = request.targetLanguage;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TermEdit",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/intervene/edit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TermEditResponse>(await this.callApi(params, req, runtime), new $_model.TermEditResponse({}));
+  }
+
+  /**
+   * 通义多模态翻译术语编辑
+   * 
+   * @param request - TermEditRequest
+   * @returns TermEditResponse
+   */
+  async termEdit(request: $_model.TermEditRequest): Promise<$_model.TermEditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.termEditWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通义多模态翻译术语查询
+   * 
+   * @param request - TermQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TermQueryResponse
+   */
+  async termQueryWithOptions(request: $_model.TermQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TermQueryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scene)) {
+      body["scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.sourceLanguage)) {
+      body["sourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!$dara.isNull(request.targetLanguage)) {
+      body["targetLanguage"] = request.targetLanguage;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      body["text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TermQuery",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/intervene/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TermQueryResponse>(await this.callApi(params, req, runtime), new $_model.TermQueryResponse({}));
+  }
+
+  /**
+   * 通义多模态翻译术语查询
+   * 
+   * @param request - TermQueryRequest
+   * @returns TermQueryResponse
+   */
+  async termQuery(request: $_model.TermQueryRequest): Promise<$_model.TermQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.termQueryWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 通义多模态翻译文本翻译
    * 
    * @param tmpReq - TextTranslateRequest

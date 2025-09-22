@@ -40,6 +40,12 @@ export { SubmitLongTextTranslateTaskRequestExtTerminologies } from './SubmitLong
 export { SubmitLongTextTranslateTaskRequestExtTextTransform } from './SubmitLongTextTranslateTaskRequest';
 export { SubmitLongTextTranslateTaskRequestExt } from './SubmitLongTextTranslateTaskRequest';
 export { SubmitLongTextTranslateTaskResponseBodyData } from './SubmitLongTextTranslateTaskResponseBody';
+export { TermEditRequestExtTerms } from './TermEditRequest';
+export { TermEditRequestExt } from './TermEditRequest';
+export { TermEditResponseBodyDataTerms } from './TermEditResponseBody';
+export { TermEditResponseBodyData } from './TermEditResponseBody';
+export { TermQueryResponseBodyDataTerms } from './TermQueryResponseBody';
+export { TermQueryResponseBodyData } from './TermQueryResponseBody';
 export { TextTranslateRequestExtExamples } from './TextTranslateRequest';
 export { TextTranslateRequestExtTerminologies } from './TextTranslateRequest';
 export { TextTranslateRequestExtTextTransform } from './TextTranslateRequest';
@@ -78,6 +84,13 @@ export { SubmitLongTextTranslateTaskRequest } from './SubmitLongTextTranslateTas
 export { SubmitLongTextTranslateTaskShrinkRequest } from './SubmitLongTextTranslateTaskShrinkRequest';
 export { SubmitLongTextTranslateTaskResponseBody } from './SubmitLongTextTranslateTaskResponseBody';
 export { SubmitLongTextTranslateTaskResponse } from './SubmitLongTextTranslateTaskResponse';
+export { TermEditRequest } from './TermEditRequest';
+export { TermEditShrinkRequest } from './TermEditShrinkRequest';
+export { TermEditResponseBody } from './TermEditResponseBody';
+export { TermEditResponse } from './TermEditResponse';
+export { TermQueryRequest } from './TermQueryRequest';
+export { TermQueryResponseBody } from './TermQueryResponseBody';
+export { TermQueryResponse } from './TermQueryResponse';
 export { TextTranslateRequest } from './TextTranslateRequest';
 export { TextTranslateShrinkRequest } from './TextTranslateShrinkRequest';
 export { TextTranslateResponseBody } from './TextTranslateResponseBody';
