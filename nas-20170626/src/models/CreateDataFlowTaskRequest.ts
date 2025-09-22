@@ -193,6 +193,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
    * Import
    */
   taskAction?: string;
+  transferFileListPath?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -208,6 +209,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
       includes: 'Includes',
       srcTaskId: 'SrcTaskId',
       taskAction: 'TaskAction',
+      transferFileListPath: 'TransferFileListPath',
     };
   }
 
@@ -226,6 +228,7 @@ export class CreateDataFlowTaskRequest extends $dara.Model {
       includes: 'string',
       srcTaskId: 'string',
       taskAction: 'string',
+      transferFileListPath: 'string',
     };
   }
 

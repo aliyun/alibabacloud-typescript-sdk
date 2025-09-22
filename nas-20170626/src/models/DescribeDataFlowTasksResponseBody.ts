@@ -410,6 +410,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
    * taskId-12345678
    */
   taskId?: string;
+  transferFileListPath?: string;
   static names(): { [key: string]: string } {
     return {
       conflictPolicy: 'ConflictPolicy',
@@ -434,6 +435,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
       status: 'Status',
       taskAction: 'TaskAction',
       taskId: 'TaskId',
+      transferFileListPath: 'TransferFileListPath',
     };
   }
 
@@ -461,6 +463,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $dara.Model {
       status: 'string',
       taskAction: 'string',
       taskId: 'string',
+      transferFileListPath: 'string',
     };
   }
 
