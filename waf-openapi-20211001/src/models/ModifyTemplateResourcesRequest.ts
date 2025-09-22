@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyTemplateResourcesRequest extends $dara.Model {
+  bindAssets?: string[];
   /**
    * @remarks
    * The protected object groups that you want to associate with the template. Specify the value in the [**"group1","group2",...**] format.
@@ -54,6 +55,7 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
    * 2291
    */
   templateId?: number;
+  unbindAssets?: string[];
   /**
    * @remarks
    * The protected object groups that you want to disassociate from the template. Specify the value in the [**"group1","group2",...**] format.
@@ -66,12 +68,14 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
   unbindResources?: string[];
   static names(): { [key: string]: string } {
     return {
+      bindAssets: 'BindAssets',
       bindResourceGroups: 'BindResourceGroups',
       bindResources: 'BindResources',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       templateId: 'TemplateId',
+      unbindAssets: 'UnbindAssets',
       unbindResourceGroups: 'UnbindResourceGroups',
       unbindResources: 'UnbindResources',
     };
@@ -79,23 +83,31 @@ export class ModifyTemplateResourcesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindAssets: { 'type': 'array', 'itemType': 'string' },
       bindResourceGroups: { 'type': 'array', 'itemType': 'string' },
       bindResources: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       templateId: 'number',
+      unbindAssets: { 'type': 'array', 'itemType': 'string' },
       unbindResourceGroups: { 'type': 'array', 'itemType': 'string' },
       unbindResources: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.bindAssets)) {
+      $dara.Model.validateArray(this.bindAssets);
+    }
     if(Array.isArray(this.bindResourceGroups)) {
       $dara.Model.validateArray(this.bindResourceGroups);
     }
     if(Array.isArray(this.bindResources)) {
       $dara.Model.validateArray(this.bindResources);
+    }
+    if(Array.isArray(this.unbindAssets)) {
+      $dara.Model.validateArray(this.unbindAssets);
     }
     if(Array.isArray(this.unbindResourceGroups)) {
       $dara.Model.validateArray(this.unbindResourceGroups);

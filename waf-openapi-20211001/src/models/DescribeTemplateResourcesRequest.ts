@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTemplateResourcesRequest extends $dara.Model {
   /**
+   * @example
+   * abc.com
+   */
+  assetApi?: string;
+  /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
@@ -62,6 +67,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      assetApi: 'AssetApi',
       instanceId: 'InstanceId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -75,6 +81,7 @@ export class DescribeTemplateResourcesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assetApi: 'string',
       instanceId: 'string',
       maxResults: 'number',
       nextToken: 'string',

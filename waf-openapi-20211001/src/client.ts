@@ -9259,6 +9259,10 @@ export default class Client extends OpenApi {
   async describeTemplateResourcesWithOptions(request: $_model.DescribeTemplateResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTemplateResourcesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.assetApi)) {
+      query["AssetApi"] = request.assetApi;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -12231,6 +12235,10 @@ export default class Client extends OpenApi {
   async modifyTemplateResourcesWithOptions(request: $_model.ModifyTemplateResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTemplateResourcesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bindAssets)) {
+      query["BindAssets"] = request.bindAssets;
+    }
+
     if (!$dara.isNull(request.bindResourceGroups)) {
       query["BindResourceGroups"] = request.bindResourceGroups;
     }
@@ -12253,6 +12261,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.unbindAssets)) {
+      query["UnbindAssets"] = request.unbindAssets;
     }
 
     if (!$dara.isNull(request.unbindResourceGroups)) {

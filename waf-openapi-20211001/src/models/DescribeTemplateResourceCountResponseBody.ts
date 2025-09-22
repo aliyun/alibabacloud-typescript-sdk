@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTemplateResourceCountResponseBodyResourceCount extends $dara.Model {
   /**
+   * @example
+   * 10
+   */
+  assetCount?: number;
+  /**
    * @remarks
    * The number of protected object groups.
    * 
@@ -29,6 +34,7 @@ export class DescribeTemplateResourceCountResponseBodyResourceCount extends $dar
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
+      assetCount: 'AssetCount',
       groupCount: 'GroupCount',
       singleCount: 'SingleCount',
       templateId: 'TemplateId',
@@ -37,6 +43,7 @@ export class DescribeTemplateResourceCountResponseBodyResourceCount extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      assetCount: 'number',
       groupCount: 'number',
       singleCount: 'number',
       templateId: 'number',
