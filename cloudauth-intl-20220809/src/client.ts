@@ -541,7 +541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别
+   * Credential Recognition
+   * 
+   * @remarks
+   * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -594,7 +597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别
+   * Credential Recognition
+   * 
+   * @remarks
+   * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @returns CredentialRecognitionIntlResponse
@@ -1333,7 +1339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 防伪回调接口
+   * Anti-Fraud Callback Interface
    * 
    * @param request - FraudResultCallBackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1376,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 防伪回调接口
+   * Anti-Fraud Callback Interface
    * 
    * @param request - FraudResultCallBackRequest
    * @returns FraudResultCallBackResponse

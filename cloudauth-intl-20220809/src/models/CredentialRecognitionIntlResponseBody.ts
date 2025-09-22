@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Identified key information in JSON format.
+   * 
    * @example
    * {
    *   "address": "",
@@ -12,11 +15,19 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
    */
   extIdInfo?: string;
   /**
+   * @remarks
+   * Authentication result description
+   * 
    * @example
    * 200
    */
   subCode?: string;
   /**
+   * @remarks
+   * Extraction result. Values:
+   * - S: Success.
+   * - F: Failure.
+   * 
    * @example
    * S
    */
@@ -48,20 +59,33 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
 
 export class CredentialRecognitionIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Response message for the returned information.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4EB35****87EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result.
+   */
   result?: CredentialRecognitionIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
