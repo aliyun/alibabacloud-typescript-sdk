@@ -109,6 +109,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通义多模态翻译获文档翻译任务
+   * 
+   * @param request - GetDocTranslateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocTranslateTaskResponse
+   */
+  async getDocTranslateTaskWithOptions(request: $_model.GetDocTranslateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocTranslateTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDocTranslateTask",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/doc/get`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetDocTranslateTaskResponse({}));
+  }
+
+  /**
+   * 通义多模态翻译获文档翻译任务
+   * 
+   * @param request - GetDocTranslateTaskRequest
+   * @returns GetDocTranslateTaskResponse
+   */
+  async getDocTranslateTask(request: $_model.GetDocTranslateTaskRequest): Promise<$_model.GetDocTranslateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDocTranslateTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 通义多模态翻译获取html翻译结果
    * 
    * @param request - GetHtmlTranslateTaskRequest
@@ -253,6 +302,81 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLongTextTranslateTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通义多模态翻译提交文档翻译任务
+   * 
+   * @param tmpReq - SubmitDocTranslateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDocTranslateTaskResponse
+   */
+  async submitDocTranslateTaskWithOptions(tmpReq: $_model.SubmitDocTranslateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocTranslateTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitDocTranslateTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "ext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extShrink)) {
+      body["ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.format)) {
+      body["format"] = request.format;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      body["scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.sourceLanguage)) {
+      body["sourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!$dara.isNull(request.targetLanguage)) {
+      body["targetLanguage"] = request.targetLanguage;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      body["text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitDocTranslateTask",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/doc/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitDocTranslateTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDocTranslateTaskResponse({}));
+  }
+
+  /**
+   * 通义多模态翻译提交文档翻译任务
+   * 
+   * @param request - SubmitDocTranslateTaskRequest
+   * @returns SubmitDocTranslateTaskResponse
+   */
+  async submitDocTranslateTask(request: $_model.SubmitDocTranslateTaskRequest): Promise<$_model.SubmitDocTranslateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitDocTranslateTaskWithOptions(request, headers, runtime);
   }
 
   /**
