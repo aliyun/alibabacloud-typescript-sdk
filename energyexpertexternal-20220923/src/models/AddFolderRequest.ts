@@ -2,34 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetVLExtractionResultResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+export class AddFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * Confidence of Key
+   * This parameter is required.
    * 
    * @example
-   * 0.9994202852249146
+   * “abc” “1234”
    */
-  keyConfidence?: number;
+  folderName?: string;
   /**
    * @remarks
-   * Confidence of Value
+   * This parameter is required.
    * 
    * @example
-   * 0.9794202852249146
+   * "0" ：parent folder is root
+   * "4b648f6d11344f258df876cbdc24dc1f" ： folderId
    */
-  valueConfidence?: number;
+  parentFolderId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyConfidence: 'keyConfidence',
-      valueConfidence: 'valueConfidence',
+      folderName: 'folderName',
+      parentFolderId: 'parentFolderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyConfidence: 'number',
-      valueConfidence: 'number',
+      folderName: 'string',
+      parentFolderId: 'string',
     };
   }
 

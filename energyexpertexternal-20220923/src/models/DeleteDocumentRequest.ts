@@ -2,13 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitDocExtractionTaskResponseBodyData extends $dara.Model {
+export class DeleteDocumentRequest extends $dara.Model {
   /**
-   * @remarks
-   * Task ID.
-   * 
    * @example
-   * 864773ec-d35b-4c36-8871-52d07fbe806d
+   * 74ec62f4f4e74e5882d4086a40f2b9c6
    */
   taskId?: string;
   static names(): { [key: string]: string } {

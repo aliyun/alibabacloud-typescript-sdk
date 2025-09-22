@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateChatSessionResponseBodyData extends $dara.Model {
+export class DeleteFolderResponseBody extends $dara.Model {
+  data?: boolean;
   /**
-   * @remarks
-   * Q&A session ID, used to record multiple Q&A sessions of the same user.
-   * 
    * @example
-   * 596ac39c-8855-4128-bad7-78aebeff48fc
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
    */
-  sessionId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      sessionId: 'sessionId',
+      data: 'data',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sessionId: 'string',
+      data: 'boolean',
+      requestId: 'string',
     };
   }
 

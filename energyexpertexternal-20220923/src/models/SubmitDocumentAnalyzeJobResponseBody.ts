@@ -1,7 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { SubmitDocumentAnalyzeJobResponseBodyData } from "./SubmitDocumentAnalyzeJobResponseBodyData";
 
+
+export class SubmitDocumentAnalyzeJobResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * adkc-kk2k41-kk2ol-222424
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubmitDocumentAnalyzeJobResponseBody extends $dara.Model {
   /**

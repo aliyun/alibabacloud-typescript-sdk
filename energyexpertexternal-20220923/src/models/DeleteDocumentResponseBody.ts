@@ -2,34 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+export class DeleteDocumentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Key confidence
-   * 
-   * @example
-   * 0.9994202852249146
+   * Returns true on success, false otherwise
    */
-  keyConfidence?: number;
+  data?: boolean;
   /**
    * @remarks
-   * Value confidence
+   * Id of the request
    * 
    * @example
-   * 0.9794202852249146
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
    */
-  valueConfidence?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      keyConfidence: 'keyConfidence',
-      valueConfidence: 'valueConfidence',
+      data: 'data',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      keyConfidence: 'number',
-      valueConfidence: 'number',
+      data: 'boolean',
+      requestId: 'string',
     };
   }
 

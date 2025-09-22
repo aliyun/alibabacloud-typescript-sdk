@@ -2,28 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ContentItemExtInfoPos extends $dara.Model {
+export class DeleteFolderRequest extends $dara.Model {
   /**
    * @example
-   * 1
+   * 53c0412ea5c343dcad324137622210b3
    */
-  x?: number;
-  /**
-   * @example
-   * 2
-   */
-  y?: number;
+  folderId?: string;
   static names(): { [key: string]: string } {
     return {
-      x: 'x',
-      y: 'y',
+      folderId: 'folderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      x: 'number',
-      y: 'number',
+      folderId: 'string',
     };
   }
 

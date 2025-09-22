@@ -66,6 +66,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建文件夹
+   * 
+   * @param request - AddFolderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFolderResponse
+   */
+  async addFolderWithOptions(request: $_model.AddFolderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddFolderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderName)) {
+      body["folderName"] = request.folderName;
+    }
+
+    if (!$dara.isNull(request.parentFolderId)) {
+      body["parentFolderId"] = request.parentFolderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddFolder",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/folder/add`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddFolderResponse>(await this.callApi(params, req, runtime), new $_model.AddFolderResponse({}));
+  }
+
+  /**
+   * 创建文件夹
+   * 
+   * @param request - AddFolderRequest
+   * @returns AddFolderResponse
+   */
+  async addFolder(request: $_model.AddFolderRequest): Promise<$_model.AddFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addFolderWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Get Document Results
    * 
    * @remarks
@@ -432,6 +481,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChatStreamResponse
    */
+  async *chatStreamWithSSE(request: $_model.ChatStreamRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatStreamResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.question)) {
+      body["question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatStream",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v2/aidoc/document/chat/stream`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.ChatStreamResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.ChatStreamResponse({}));
+    }
+  }
+
+  /**
+   * Knowledge Base Q&A
+   * 
+   * @remarks
+   * - The interface provides Q&A services within the scope of the selected directory in the session.
+   * - The sessionId information is obtained through GetChatSessionList.
+   * - You can also create a new session via the CreateChatSession interface.
+   * 
+   * @param request - ChatStreamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatStreamResponse
+   */
   async chatStreamWithOptions(request: $_model.ChatStreamRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChatStreamResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -529,6 +633,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createChatSessionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除解析过的文件
+   * 
+   * @param request - DeleteDocumentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocumentResponse
+   */
+  async deleteDocumentWithOptions(request: $_model.DeleteDocumentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDocumentResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDocument",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDocumentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDocumentResponse({}));
+  }
+
+  /**
+   * 删除解析过的文件
+   * 
+   * @param request - DeleteDocumentRequest
+   * @returns DeleteDocumentResponse
+   */
+  async deleteDocument(request: $_model.DeleteDocumentRequest): Promise<$_model.DeleteDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDocumentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除文件夹
+   * 
+   * @param request - DeleteFolderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolderWithOptions(request: $_model.DeleteFolderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFolderResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.folderId)) {
+      query["folderId"] = request.folderId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFolder",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/folder/delete`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFolderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFolderResponse({}));
+  }
+
+  /**
+   * 删除文件夹
+   * 
+   * @param request - DeleteFolderRequest
+   * @returns DeleteFolderResponse
+   */
+  async deleteFolder(request: $_model.DeleteFolderRequest): Promise<$_model.DeleteFolderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFolderWithOptions(request, headers, runtime);
   }
 
   /**

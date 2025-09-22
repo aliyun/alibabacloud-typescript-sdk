@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDocExtractionTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Document parsing type:
+   * Document extraction type:
    * Supports rag and long text understanding types, default is rag.
    * 
    * @example
@@ -30,10 +30,10 @@ export class SubmitDocExtractionTaskRequest extends $dara.Model {
    * 
    * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages, 100 MB in size)
    * 
-   * > The relationship between file parsing methods and supported document types
-   * > - Long text RAG: Supports pdf, doc/docx, up to 1000 pages
-   * > - Image processing: Supports pdf, jpg, jpeg, png, bmp
-   * > - Long text understanding: Supports pdf, doc/docx, xls/xlsx
+   * > The relationship between file extraction methods and supported document types
+   * > - Long text RAG: Supports pdf, doc/docx, xlsx, csv, txt, up to 1000 pages
+   * > - Image processing: Supports pdf, jpg, jpeg, png, bmp, jpe, tif, tiff, webp, heic
+   * > - Long text understanding: Supports doc/docx, xlsx, pdf, csv, txt
    * 
    * @example
    * fileUrl：https://example.com/example.pdf
@@ -51,7 +51,7 @@ export class SubmitDocExtractionTaskRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
+   * A unique extraction template ID used to specify the content to be extracted from the document. You need to log in to the template management page to configure the template and obtain the corresponding template ID.
    * 
    * This parameter is required.
    * 
