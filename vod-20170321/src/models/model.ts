@@ -99,6 +99,7 @@ export { DescribeVodUserDomainsResponseBodyDomainsPageDataSourcesSource } from '
 export { DescribeVodUserDomainsResponseBodyDomainsPageDataSources } from './DescribeVodUserDomainsResponseBody';
 export { DescribeVodUserDomainsResponseBodyDomainsPageData } from './DescribeVodUserDomainsResponseBody';
 export { DescribeVodUserDomainsResponseBodyDomains } from './DescribeVodUserDomainsResponseBody';
+export { DescribeVodUserVipsByDomainResponseBodyVips } from './DescribeVodUserVipsByDomainResponseBody';
 export { GetAIImageJobsResponseBodyAIImageJobList } from './GetAiimageJobsResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataAudioResult } from './GetAimediaAuditJobResponseBody';
 export { GetAIMediaAuditJobResponseBodyMediaAuditJobDataImageResultResult } from './GetAimediaAuditJobResponseBody';
@@ -520,6 +521,9 @@ export { DescribeVodTranscodeDataResponse } from './DescribeVodTranscodeDataResp
 export { DescribeVodUserDomainsRequest } from './DescribeVodUserDomainsRequest';
 export { DescribeVodUserDomainsResponseBody } from './DescribeVodUserDomainsResponseBody';
 export { DescribeVodUserDomainsResponse } from './DescribeVodUserDomainsResponse';
+export { DescribeVodUserVipsByDomainRequest } from './DescribeVodUserVipsByDomainRequest';
+export { DescribeVodUserVipsByDomainResponseBody } from './DescribeVodUserVipsByDomainResponseBody';
+export { DescribeVodUserVipsByDomainResponse } from './DescribeVodUserVipsByDomainResponse';
 export { DescribeVodVerifyContentRequest } from './DescribeVodVerifyContentRequest';
 export { DescribeVodVerifyContentResponseBody } from './DescribeVodVerifyContentResponseBody';
 export { DescribeVodVerifyContentResponse } from './DescribeVodVerifyContentResponse';

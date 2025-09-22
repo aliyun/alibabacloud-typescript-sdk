@@ -5544,6 +5544,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取域名Vip
+   * 
+   * @param request - DescribeVodUserVipsByDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVodUserVipsByDomainResponse
+   */
+  async describeVodUserVipsByDomainWithOptions(request: $_model.DescribeVodUserVipsByDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVodUserVipsByDomainResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.available)) {
+      query["Available"] = request.available;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVodUserVipsByDomain",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVodUserVipsByDomainResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVodUserVipsByDomainResponse({}));
+  }
+
+  /**
+   * 获取域名Vip
+   * 
+   * @param request - DescribeVodUserVipsByDomainRequest
+   * @returns DescribeVodUserVipsByDomainResponse
+   */
+  async describeVodUserVipsByDomain(request: $_model.DescribeVodUserVipsByDomainRequest): Promise<$_model.DescribeVodUserVipsByDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVodUserVipsByDomainWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the ownership verification content.
    * 
    * @remarks
