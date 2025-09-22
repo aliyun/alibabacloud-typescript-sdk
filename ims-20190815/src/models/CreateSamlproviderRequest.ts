@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSAMLProviderRequest extends $dara.Model {
+  authnSignAlgo?: string;
   /**
    * @remarks
    * The description.
@@ -35,6 +36,7 @@ export class CreateSAMLProviderRequest extends $dara.Model {
   SAMLProviderName?: string;
   static names(): { [key: string]: string } {
     return {
+      authnSignAlgo: 'AuthnSignAlgo',
       description: 'Description',
       encodedSAMLMetadataDocument: 'EncodedSAMLMetadataDocument',
       SAMLProviderName: 'SAMLProviderName',
@@ -43,6 +45,7 @@ export class CreateSAMLProviderRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authnSignAlgo: 'string',
       description: 'string',
       encodedSAMLMetadataDocument: 'string',
       SAMLProviderName: 'string',

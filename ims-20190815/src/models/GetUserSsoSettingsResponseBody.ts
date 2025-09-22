@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
+  authnSignAlgo?: string;
   /**
    * @remarks
    * The auxiliary domain name.
@@ -42,6 +43,7 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
+      authnSignAlgo: 'AuthnSignAlgo',
       auxiliaryDomain: 'AuxiliaryDomain',
       metadataDocument: 'MetadataDocument',
       ssoEnabled: 'SsoEnabled',
@@ -51,6 +53,7 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authnSignAlgo: 'string',
       auxiliaryDomain: 'string',
       metadataDocument: 'string',
       ssoEnabled: 'boolean',

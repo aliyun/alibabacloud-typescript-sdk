@@ -647,6 +647,10 @@ export default class Client extends OpenApi {
   async createSAMLProviderWithOptions(request: $_model.CreateSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSAMLProviderResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authnSignAlgo)) {
+      query["AuthnSignAlgo"] = request.authnSignAlgo;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -3965,6 +3969,10 @@ export default class Client extends OpenApi {
   async setUserSsoSettingsWithOptions(request: $_model.SetUserSsoSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetUserSsoSettingsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authnSignAlgo)) {
+      query["AuthnSignAlgo"] = request.authnSignAlgo;
+    }
+
     if (!$dara.isNull(request.auxiliaryDomain)) {
       query["AuxiliaryDomain"] = request.auxiliaryDomain;
     }
@@ -4632,6 +4640,10 @@ export default class Client extends OpenApi {
   async updateSAMLProviderWithOptions(request: $_model.UpdateSAMLProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSAMLProviderResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authnSignAlgo)) {
+      query["AuthnSignAlgo"] = request.authnSignAlgo;
+    }
+
     if (!$dara.isNull(request.newDescription)) {
       query["NewDescription"] = request.newDescription;
     }

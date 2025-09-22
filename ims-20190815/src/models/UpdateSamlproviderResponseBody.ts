@@ -11,6 +11,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
    * acs:ram::177242285274****:saml-provider/test-provider
    */
   arn?: string;
+  authnSignAlgo?: string;
   /**
    * @remarks
    * The point in time at which the IdP was created. The time is displayed in UTC.
@@ -46,6 +47,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      authnSignAlgo: 'AuthnSignAlgo',
       createDate: 'CreateDate',
       description: 'Description',
       SAMLProviderName: 'SAMLProviderName',
@@ -56,6 +58,7 @@ export class UpdateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      authnSignAlgo: 'string',
       createDate: 'string',
       description: 'string',
       SAMLProviderName: 'string',
