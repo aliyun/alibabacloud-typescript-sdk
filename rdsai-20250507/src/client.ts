@@ -418,6 +418,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看实例存储配置
+   * 
+   * @param request - DescribeInstanceStorageConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceStorageConfigResponse
+   */
+  async describeInstanceStorageConfigWithOptions(request: $_model.DescribeInstanceStorageConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceStorageConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceStorageConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceStorageConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceStorageConfigResponse({}));
+  }
+
+  /**
+   * 查看实例存储配置
+   * 
+   * @param request - DescribeInstanceStorageConfigRequest
+   * @returns DescribeInstanceStorageConfigResponse
+   */
+  async describeInstanceStorageConfig(request: $_model.DescribeInstanceStorageConfigRequest): Promise<$_model.DescribeInstanceStorageConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceStorageConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Supabase Auth相关配置
+   * 
+   * @param tmpReq - ModifyInstanceAuthConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceAuthConfigResponse
+   */
+  async modifyInstanceAuthConfigWithOptions(tmpReq: $_model.ModifyInstanceAuthConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceAuthConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstanceAuthConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configList)) {
+      request.configListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configList, "ConfigList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configListShrink)) {
+      query["ConfigList"] = request.configListShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceAuthConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceAuthConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceAuthConfigResponse({}));
+  }
+
+  /**
+   * 修改Supabase Auth相关配置
+   * 
+   * @param request - ModifyInstanceAuthConfigRequest
+   * @returns ModifyInstanceAuthConfigResponse
+   */
+  async modifyInstanceAuthConfig(request: $_model.ModifyInstanceAuthConfigRequest): Promise<$_model.ModifyInstanceAuthConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceAuthConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 修改服务白名单
    * 
    * @param request - ModifyInstanceIpWhitelistRequest
@@ -477,6 +579,254 @@ export default class Client extends OpenApi {
   async modifyInstanceIpWhitelist(request: $_model.ModifyInstanceIpWhitelistRequest): Promise<$_model.ModifyInstanceIpWhitelistResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceIpWhitelistWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例存储配置
+   * 
+   * @param tmpReq - ModifyInstanceStorageConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceStorageConfigResponse
+   */
+  async modifyInstanceStorageConfigWithOptions(tmpReq: $_model.ModifyInstanceStorageConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceStorageConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstanceStorageConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configList)) {
+      request.configListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configList, "ConfigList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configListShrink)) {
+      query["ConfigList"] = request.configListShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceStorageConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceStorageConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceStorageConfigResponse({}));
+  }
+
+  /**
+   * 修改实例存储配置
+   * 
+   * @param request - ModifyInstanceStorageConfigRequest
+   * @returns ModifyInstanceStorageConfigResponse
+   */
+  async modifyInstanceStorageConfig(request: $_model.ModifyInstanceStorageConfigRequest): Promise<$_model.ModifyInstanceStorageConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceStorageConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置实例密码
+   * 
+   * @param request - ResetInstancePasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetInstancePasswordResponse
+   */
+  async resetInstancePasswordWithOptions(request: $_model.ResetInstancePasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetInstancePasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dashboardPassword)) {
+      query["DashboardPassword"] = request.dashboardPassword;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetInstancePassword",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetInstancePasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetInstancePasswordResponse({}));
+  }
+
+  /**
+   * 重置实例密码
+   * 
+   * @param request - ResetInstancePasswordRequest
+   * @returns ResetInstancePasswordResponse
+   */
+  async resetInstancePassword(request: $_model.ResetInstancePasswordRequest): Promise<$_model.ResetInstancePasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetInstancePasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * 重启实例
+   * 
+   * @param request - RestartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartInstanceResponse
+   */
+  async restartInstanceWithOptions(request: $_model.RestartInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartInstance",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RestartInstanceResponse({}));
+  }
+
+  /**
+   * 重启实例
+   * 
+   * @param request - RestartInstanceRequest
+   * @returns RestartInstanceResponse
+   */
+  async restartInstance(request: $_model.RestartInstanceRequest): Promise<$_model.RestartInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动实例
+   * 
+   * @param request - StartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartInstanceResponse
+   */
+  async startInstanceWithOptions(request: $_model.StartInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartInstance",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StartInstanceResponse({}));
+  }
+
+  /**
+   * 启动实例
+   * 
+   * @param request - StartInstanceRequest
+   * @returns StartInstanceResponse
+   */
+  async startInstance(request: $_model.StartInstanceRequest): Promise<$_model.StartInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 暂停实例
+   * 
+   * @param request - StopInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopInstanceResponse
+   */
+  async stopInstanceWithOptions(request: $_model.StopInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopInstance",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopInstanceResponse({}));
+  }
+
+  /**
+   * 暂停实例
+   * 
+   * @param request - StopInstanceRequest
+   * @returns StopInstanceResponse
+   */
+  async stopInstance(request: $_model.StopInstanceRequest): Promise<$_model.StopInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopInstanceWithOptions(request, runtime);
   }
 
 }
