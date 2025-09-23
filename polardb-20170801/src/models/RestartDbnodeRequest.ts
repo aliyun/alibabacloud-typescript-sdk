@@ -15,15 +15,23 @@ export class RestartDBNodeRequest extends $dara.Model {
    * pi-*************
    */
   DBNodeId?: string;
+  fromTimeService?: string;
   ownerAccount?: string;
   ownerId?: number;
+  plannedEndTime?: string;
+  plannedStartTime?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       DBNodeId: 'DBNodeId',
+      fromTimeService: 'FromTimeService',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      plannedEndTime: 'PlannedEndTime',
+      plannedStartTime: 'PlannedStartTime',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -32,8 +40,12 @@ export class RestartDBNodeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBNodeId: 'string',
+      fromTimeService: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      plannedEndTime: 'string',
+      plannedStartTime: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

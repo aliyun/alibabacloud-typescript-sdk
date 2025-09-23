@@ -27,6 +27,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
    * 2020-03-23T21:35:43Z
    */
   creationTime?: string;
+  DBNodeCXLRemoteMemory?: string;
   /**
    * @remarks
    * Node specification.
@@ -232,6 +233,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
       addedCpuCores: 'AddedCpuCores',
       cpuCores: 'CpuCores',
       creationTime: 'CreationTime',
+      DBNodeCXLRemoteMemory: 'DBNodeCXLRemoteMemory',
       DBNodeClass: 'DBNodeClass',
       DBNodeDescription: 'DBNodeDescription',
       DBNodeId: 'DBNodeId',
@@ -263,6 +265,7 @@ export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
       addedCpuCores: 'string',
       cpuCores: 'string',
       creationTime: 'string',
+      DBNodeCXLRemoteMemory: 'string',
       DBNodeClass: 'string',
       DBNodeDescription: 'string',
       DBNodeId: 'string',

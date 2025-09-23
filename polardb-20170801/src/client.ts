@@ -76,6 +76,270 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - AbortDBClusterMigrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortDBClusterMigrationResponse
+   */
+  async abortDBClusterMigrationWithOptions(request: $_model.AbortDBClusterMigrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbortDBClusterMigrationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AbortDBClusterMigration",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AbortDBClusterMigrationResponse>(await this.callApi(params, req, runtime), new $_model.AbortDBClusterMigrationResponse({}));
+  }
+
+  /**
+   * @param request - AbortDBClusterMigrationRequest
+   * @returns AbortDBClusterMigrationResponse
+   */
+  async abortDBClusterMigration(request: $_model.AbortDBClusterMigrationRequest): Promise<$_model.AbortDBClusterMigrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.abortDBClusterMigrationWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加角色权限
+   * 
+   * @param request - AddEncryptionDBRolePrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddEncryptionDBRolePrivilegeResponse
+   */
+  async addEncryptionDBRolePrivilegeWithOptions(request: $_model.AddEncryptionDBRolePrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddEncryptionDBRolePrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeConfig)) {
+      query["RolePrivilegeConfig"] = request.rolePrivilegeConfig;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeName)) {
+      query["RolePrivilegeName"] = request.rolePrivilegeName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddEncryptionDBRolePrivilege",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddEncryptionDBRolePrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.AddEncryptionDBRolePrivilegeResponse({}));
+  }
+
+  /**
+   * 添加角色权限
+   * 
+   * @param request - AddEncryptionDBRolePrivilegeRequest
+   * @returns AddEncryptionDBRolePrivilegeResponse
+   */
+  async addEncryptionDBRolePrivilege(request: $_model.AddEncryptionDBRolePrivilegeRequest): Promise<$_model.AddEncryptionDBRolePrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addEncryptionDBRolePrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加sql防火墙配置
+   * 
+   * @param request - AddFirewallRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFirewallRulesResponse
+   */
+  async addFirewallRulesWithOptions(request: $_model.AddFirewallRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFirewallRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddFirewallRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddFirewallRulesResponse>(await this.callApi(params, req, runtime), new $_model.AddFirewallRulesResponse({}));
+  }
+
+  /**
+   * 添加sql防火墙配置
+   * 
+   * @param request - AddFirewallRulesRequest
+   * @returns AddFirewallRulesResponse
+   */
+  async addFirewallRules(request: $_model.AddFirewallRulesRequest): Promise<$_model.AddFirewallRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addFirewallRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 添加SQL限流规则
+   * 
+   * @param request - AddSQLRateLimitingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSQLRateLimitingRulesResponse
+   */
+  async addSQLRateLimitingRulesWithOptions(request: $_model.AddSQLRateLimitingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddSQLRateLimitingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddSQLRateLimitingRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddSQLRateLimitingRulesResponse>(await this.callApi(params, req, runtime), new $_model.AddSQLRateLimitingRulesResponse({}));
+  }
+
+  /**
+   * 添加SQL限流规则
+   * 
+   * @param request - AddSQLRateLimitingRulesRequest
+   * @returns AddSQLRateLimitingRulesResponse
+   */
+  async addSQLRateLimitingRules(request: $_model.AddSQLRateLimitingRulesRequest): Promise<$_model.AddSQLRateLimitingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addSQLRateLimitingRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels O\\&M events at a time.
    * 
    * @param request - CancelActiveOperationTasksRequest
@@ -139,6 +403,72 @@ export default class Client extends OpenApi {
   async cancelActiveOperationTasks(request: $_model.CancelActiveOperationTasksRequest): Promise<$_model.CancelActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消周期任务策略
+   * 
+   * @param request - CancelCronJobPolicyServerlessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelCronJobPolicyServerlessResponse
+   */
+  async cancelCronJobPolicyServerlessWithOptions(request: $_model.CancelCronJobPolicyServerlessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelCronJobPolicyServerlessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelCronJobPolicyServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelCronJobPolicyServerlessResponse>(await this.callApi(params, req, runtime), new $_model.CancelCronJobPolicyServerlessResponse({}));
+  }
+
+  /**
+   * 取消周期任务策略
+   * 
+   * @param request - CancelCronJobPolicyServerlessRequest
+   * @returns CancelCronJobPolicyServerlessResponse
+   */
+  async cancelCronJobPolicyServerless(request: $_model.CancelCronJobPolicyServerlessRequest): Promise<$_model.CancelCronJobPolicyServerlessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelCronJobPolicyServerlessWithOptions(request, runtime);
   }
 
   /**
@@ -267,6 +597,68 @@ export default class Client extends OpenApi {
   async checkAccountName(request: $_model.CheckAccountNameRequest): Promise<$_model.CheckAccountNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAccountNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 检查连接串
+   * 
+   * @param request - CheckConnectionStringRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckConnectionStringResponse
+   */
+  async checkConnectionStringWithOptions(request: $_model.CheckConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckConnectionStringResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckConnectionString",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckConnectionStringResponse>(await this.callApi(params, req, runtime), new $_model.CheckConnectionStringResponse({}));
+  }
+
+  /**
+   * 检查连接串
+   * 
+   * @param request - CheckConnectionStringRequest
+   * @returns CheckConnectionStringResponse
+   */
+  async checkConnectionString(request: $_model.CheckConnectionStringRequest): Promise<$_model.CheckConnectionStringResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkConnectionStringWithOptions(request, runtime);
   }
 
   /**
@@ -586,6 +978,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ContinueDBClusterMigrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContinueDBClusterMigrationResponse
+   */
+  async continueDBClusterMigrationWithOptions(request: $_model.ContinueDBClusterMigrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContinueDBClusterMigrationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.forceSwitch)) {
+      query["ForceSwitch"] = request.forceSwitch;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ContinueDBClusterMigration",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ContinueDBClusterMigrationResponse>(await this.callApi(params, req, runtime), new $_model.ContinueDBClusterMigrationResponse({}));
+  }
+
+  /**
+   * @param request - ContinueDBClusterMigrationRequest
+   * @returns ContinueDBClusterMigrationResponse
+   */
+  async continueDBClusterMigration(request: $_model.ContinueDBClusterMigrationRequest): Promise<$_model.ContinueDBClusterMigrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.continueDBClusterMigrationWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a database account for a PolarDB cluster.
    * 
    * @param request - CreateAccountRequest
@@ -895,6 +1357,124 @@ export default class Client extends OpenApi {
   async createColdStorageInstance(request: $_model.CreateColdStorageInstanceRequest): Promise<$_model.CreateColdStorageInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createColdStorageInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * serverless创建周期任务策略
+   * 
+   * @param request - CreateCronJobPolicyServerlessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCronJobPolicyServerlessResponse
+   */
+  async createCronJobPolicyServerlessWithOptions(request: $_model.CreateCronJobPolicyServerlessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCronJobPolicyServerlessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowShutDown)) {
+      query["AllowShutDown"] = request.allowShutDown;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleApRoNumMax)) {
+      query["ScaleApRoNumMax"] = request.scaleApRoNumMax;
+    }
+
+    if (!$dara.isNull(request.scaleApRoNumMin)) {
+      query["ScaleApRoNumMin"] = request.scaleApRoNumMin;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!$dara.isNull(request.scaleRoNumMax)) {
+      query["ScaleRoNumMax"] = request.scaleRoNumMax;
+    }
+
+    if (!$dara.isNull(request.scaleRoNumMin)) {
+      query["ScaleRoNumMin"] = request.scaleRoNumMin;
+    }
+
+    if (!$dara.isNull(request.secondsUntilAutoPause)) {
+      query["SecondsUntilAutoPause"] = request.secondsUntilAutoPause;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleCpuEnlargeThreshold)) {
+      query["ServerlessRuleCpuEnlargeThreshold"] = request.serverlessRuleCpuEnlargeThreshold;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleCpuShrinkThreshold)) {
+      query["ServerlessRuleCpuShrinkThreshold"] = request.serverlessRuleCpuShrinkThreshold;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleMode)) {
+      query["ServerlessRuleMode"] = request.serverlessRuleMode;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCronJobPolicyServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCronJobPolicyServerlessResponse>(await this.callApi(params, req, runtime), new $_model.CreateCronJobPolicyServerlessResponse({}));
+  }
+
+  /**
+   * serverless创建周期任务策略
+   * 
+   * @param request - CreateCronJobPolicyServerlessRequest
+   * @returns CreateCronJobPolicyServerlessResponse
+   */
+  async createCronJobPolicyServerless(request: $_model.CreateCronJobPolicyServerlessRequest): Promise<$_model.CreateCronJobPolicyServerlessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCronJobPolicyServerlessWithOptions(request, runtime);
   }
 
   /**
@@ -1662,6 +2242,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建插件
+   * 
+   * @param request - CreateExtensionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExtensionsResponse
+   */
+  async createExtensionsWithOptions(request: $_model.CreateExtensionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExtensionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!$dara.isNull(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sourceDBName)) {
+      query["SourceDBName"] = request.sourceDBName;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExtensions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExtensionsResponse>(await this.callApi(params, req, runtime), new $_model.CreateExtensionsResponse({}));
+  }
+
+  /**
+   * 创建插件
+   * 
+   * @param request - CreateExtensionsRequest
+   * @returns CreateExtensionsResponse
+   */
+  async createExtensions(request: $_model.CreateExtensionsRequest): Promise<$_model.CreateExtensionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createExtensionsWithOptions(request, runtime);
+  }
+
+  /**
    * 创建全球数据网络
    * 
    * @param request - CreateGlobalDataNetworkRequest
@@ -1895,6 +2569,100 @@ export default class Client extends OpenApi {
   async createGlobalSecurityIPGroup(request: $_model.CreateGlobalSecurityIPGroupRequest): Promise<$_model.CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建网络通道
+   * 
+   * @param request - CreateNetworkChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkChannelResponse
+   */
+  async createNetworkChannelWithOptions(request: $_model.CreateNetworkChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNetworkChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.notes)) {
+      query["Notes"] = request.notes;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.targetDBClusterId)) {
+      query["TargetDBClusterId"] = request.targetDBClusterId;
+    }
+
+    if (!$dara.isNull(request.targetIp)) {
+      query["TargetIp"] = request.targetIp;
+    }
+
+    if (!$dara.isNull(request.targetPort)) {
+      query["TargetPort"] = request.targetPort;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNetworkChannel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNetworkChannelResponse>(await this.callApi(params, req, runtime), new $_model.CreateNetworkChannelResponse({}));
+  }
+
+  /**
+   * 创建网络通道
+   * 
+   * @param request - CreateNetworkChannelRequest
+   * @returns CreateNetworkChannelResponse
+   */
+  async createNetworkChannel(request: $_model.CreateNetworkChannelRequest): Promise<$_model.CreateNetworkChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNetworkChannelWithOptions(request, runtime);
   }
 
   /**
@@ -2760,6 +3528,212 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除角色
+   * 
+   * @param request - DeleteEncryptionDBRolePrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEncryptionDBRolePrivilegeResponse
+   */
+  async deleteEncryptionDBRolePrivilegeWithOptions(request: $_model.DeleteEncryptionDBRolePrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEncryptionDBRolePrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeNameList)) {
+      query["RolePrivilegeNameList"] = request.rolePrivilegeNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEncryptionDBRolePrivilege",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEncryptionDBRolePrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEncryptionDBRolePrivilegeResponse({}));
+  }
+
+  /**
+   * 删除角色
+   * 
+   * @param request - DeleteEncryptionDBRolePrivilegeRequest
+   * @returns DeleteEncryptionDBRolePrivilegeResponse
+   */
+  async deleteEncryptionDBRolePrivilege(request: $_model.DeleteEncryptionDBRolePrivilegeRequest): Promise<$_model.DeleteEncryptionDBRolePrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEncryptionDBRolePrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除插件
+   * 
+   * @param request - DeleteExtensionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExtensionsResponse
+   */
+  async deleteExtensionsWithOptions(request: $_model.DeleteExtensionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExtensionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!$dara.isNull(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteExtensions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteExtensionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteExtensionsResponse({}));
+  }
+
+  /**
+   * 删除插件
+   * 
+   * @param request - DeleteExtensionsRequest
+   * @returns DeleteExtensionsResponse
+   */
+  async deleteExtensions(request: $_model.DeleteExtensionsRequest): Promise<$_model.DeleteExtensionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteExtensionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除sql防火墙
+   * 
+   * @param request - DeleteFirewallRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFirewallRulesResponse
+   */
+  async deleteFirewallRulesWithOptions(request: $_model.DeleteFirewallRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFirewallRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFirewallRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFirewallRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFirewallRulesResponse({}));
+  }
+
+  /**
+   * 删除sql防火墙
+   * 
+   * @param request - DeleteFirewallRulesRequest
+   * @returns DeleteFirewallRulesResponse
+   */
+  async deleteFirewallRules(request: $_model.DeleteFirewallRulesRequest): Promise<$_model.DeleteFirewallRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFirewallRulesWithOptions(request, runtime);
+  }
+
+  /**
    * DeleteGlobalDataNetwork
    * 
    * @param request - DeleteGlobalDataNetworkRequest
@@ -2998,6 +3972,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除网络通道
+   * 
+   * @param request - DeleteNetworkChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkChannelResponse
+   */
+  async deleteNetworkChannelWithOptions(request: $_model.DeleteNetworkChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNetworkChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNetworkChannel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNetworkChannelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNetworkChannelResponse({}));
+  }
+
+  /**
+   * 删除网络通道
+   * 
+   * @param request - DeleteNetworkChannelRequest
+   * @returns DeleteNetworkChannelResponse
+   */
+  async deleteNetworkChannel(request: $_model.DeleteNetworkChannelRequest): Promise<$_model.DeleteNetworkChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNetworkChannelWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a parameter template of a PolarDB cluster.
    * 
    * @remarks
@@ -3072,6 +4124,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除SQL限流规则
+   * 
+   * @param request - DeleteSQLRateLimitingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSQLRateLimitingRulesResponse
+   */
+  async deleteSQLRateLimitingRulesWithOptions(request: $_model.DeleteSQLRateLimitingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSQLRateLimitingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSQLRateLimitingRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSQLRateLimitingRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSQLRateLimitingRulesResponse({}));
+  }
+
+  /**
+   * 删除SQL限流规则
+   * 
+   * @param request - DeleteSQLRateLimitingRulesRequest
+   * @returns DeleteSQLRateLimitingRulesResponse
+   */
+  async deleteSQLRateLimitingRules(request: $_model.DeleteSQLRateLimitingRulesRequest): Promise<$_model.DeleteSQLRateLimitingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSQLRateLimitingRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看custom实例详情
+   * 
+   * @param request - DescribeAIDBClusterAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterAttributeResponse
+   */
+  async describeAIDBClusterAttributeWithOptions(request: $_model.DescribeAIDBClusterAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterAttributeResponse({}));
+  }
+
+  /**
+   * 查看custom实例详情
+   * 
+   * @param request - DescribeAIDBClusterAttributeRequest
+   * @returns DescribeAIDBClusterAttributeResponse
+   */
+  async describeAIDBClusterAttribute(request: $_model.DescribeAIDBClusterAttributeRequest): Promise<$_model.DescribeAIDBClusterAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * 获取ai容器性能指标
    * 
    * @param request - DescribeAIDBClusterPerformanceRequest
@@ -3127,6 +4299,96 @@ export default class Client extends OpenApi {
   async describeAIDBClusterPerformance(request: $_model.DescribeAIDBClusterPerformanceRequest): Promise<$_model.DescribeAIDBClusterPerformanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAIDBClusterPerformanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看custom集群列表
+   * 
+   * @param request - DescribeAIDBClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClustersResponse
+   */
+  async describeAIDBClustersWithOptions(request: $_model.DescribeAIDBClustersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClustersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aiNodeType)) {
+      query["AiNodeType"] = request.aiNodeType;
+    }
+
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterIds)) {
+      query["DBClusterIds"] = request.DBClusterIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterStatus)) {
+      query["DBClusterStatus"] = request.DBClusterStatus;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusters",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClustersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClustersResponse({}));
+  }
+
+  /**
+   * 查看custom集群列表
+   * 
+   * @param request - DescribeAIDBClustersRequest
+   * @returns DescribeAIDBClustersResponse
+   */
+  async describeAIDBClusters(request: $_model.DescribeAIDBClustersRequest): Promise<$_model.DescribeAIDBClustersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClustersWithOptions(request, runtime);
   }
 
   /**
@@ -3378,6 +4640,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户的运维配置信息，目前包括主动运维窗口信息
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConfWithOptions(request: $_model.DescribeActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeActiveOperationMaintainConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * 获取用户的运维配置信息，目前包括主动运维窗口信息
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConf(request: $_model.DescribeActiveOperationMaintainConfRequest): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
    * 用户侧查询运维任务
    * 
    * @param request - DescribeActiveOperationTasksRequest
@@ -3547,6 +4875,64 @@ export default class Client extends OpenApi {
   async describeAutoRenewAttribute(request: $_model.DescribeAutoRenewAttributeRequest): Promise<$_model.DescribeAutoRenewAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAutoRenewAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询可用跨地域备份地域列表
+   * 
+   * @param request - DescribeAvailableCrossRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableCrossRegionsResponse
+   */
+  async describeAvailableCrossRegionsWithOptions(request: $_model.DescribeAvailableCrossRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAvailableCrossRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAvailableCrossRegions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAvailableCrossRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAvailableCrossRegionsResponse({}));
+  }
+
+  /**
+   * 查询可用跨地域备份地域列表
+   * 
+   * @param request - DescribeAvailableCrossRegionsRequest
+   * @returns DescribeAvailableCrossRegionsResponse
+   */
+  async describeAvailableCrossRegions(request: $_model.DescribeAvailableCrossRegionsRequest): Promise<$_model.DescribeAvailableCrossRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAvailableCrossRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -4036,6 +5422,332 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询冷存储实例信息
+   * 
+   * @param request - DescribeColdStorageInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeColdStorageInstanceResponse
+   */
+  async describeColdStorageInstanceWithOptions(request: $_model.DescribeColdStorageInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeColdStorageInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeColdStorageInstance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeColdStorageInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeColdStorageInstanceResponse({}));
+  }
+
+  /**
+   * 查询冷存储实例信息
+   * 
+   * @param request - DescribeColdStorageInstanceRequest
+   * @returns DescribeColdStorageInstanceResponse
+   */
+  async describeColdStorageInstance(request: $_model.DescribeColdStorageInstanceRequest): Promise<$_model.DescribeColdStorageInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeColdStorageInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询周期任务策略
+   * 
+   * @param request - DescribeCronJobPolicyServerlessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCronJobPolicyServerlessResponse
+   */
+  async describeCronJobPolicyServerlessWithOptions(request: $_model.DescribeCronJobPolicyServerlessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCronJobPolicyServerlessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCronJobPolicyServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCronJobPolicyServerlessResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCronJobPolicyServerlessResponse({}));
+  }
+
+  /**
+   * 查询周期任务策略
+   * 
+   * @param request - DescribeCronJobPolicyServerlessRequest
+   * @returns DescribeCronJobPolicyServerlessResponse
+   */
+  async describeCronJobPolicyServerless(request: $_model.DescribeCronJobPolicyServerlessRequest): Promise<$_model.DescribeCronJobPolicyServerlessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCronJobPolicyServerlessWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询跨云支持的规格列表
+   * 
+   * @param request - DescribeCrossCloudLevelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCrossCloudLevelsResponse
+   */
+  async describeCrossCloudLevelsWithOptions(request: $_model.DescribeCrossCloudLevelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCrossCloudLevelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCrossCloudLevels",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCrossCloudLevelsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCrossCloudLevelsResponse({}));
+  }
+
+  /**
+   * 查询跨云支持的规格列表
+   * 
+   * @param request - DescribeCrossCloudLevelsRequest
+   * @returns DescribeCrossCloudLevelsResponse
+   */
+  async describeCrossCloudLevels(request: $_model.DescribeCrossCloudLevelsRequest): Promise<$_model.DescribeCrossCloudLevelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCrossCloudLevelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看跨云开区信息
+   * 
+   * @param request - DescribeCrossCloudRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCrossCloudRegionResponse
+   */
+  async describeCrossCloudRegionWithOptions(request: $_model.DescribeCrossCloudRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCrossCloudRegionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
+    if (!$dara.isNull(request.crossCloudRegionId)) {
+      query["CrossCloudRegionId"] = request.crossCloudRegionId;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCrossCloudRegion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCrossCloudRegionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCrossCloudRegionResponse({}));
+  }
+
+  /**
+   * 查看跨云开区信息
+   * 
+   * @param request - DescribeCrossCloudRegionRequest
+   * @returns DescribeCrossCloudRegionResponse
+   */
+  async describeCrossCloudRegion(request: $_model.DescribeCrossCloudRegionRequest): Promise<$_model.DescribeCrossCloudRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCrossCloudRegionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询跨云地域映射
+   * 
+   * @param request - DescribeCrossCloudRegionMappingToAliyunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCrossCloudRegionMappingToAliyunResponse
+   */
+  async describeCrossCloudRegionMappingToAliyunWithOptions(request: $_model.DescribeCrossCloudRegionMappingToAliyunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCrossCloudRegionMappingToAliyunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aliyunRegionId)) {
+      query["AliyunRegionId"] = request.aliyunRegionId;
+    }
+
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
+    if (!$dara.isNull(request.crossCloudRegionId)) {
+      query["CrossCloudRegionId"] = request.crossCloudRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCrossCloudRegionMappingToAliyun",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCrossCloudRegionMappingToAliyunResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCrossCloudRegionMappingToAliyunResponse({}));
+  }
+
+  /**
+   * 查询跨云地域映射
+   * 
+   * @param request - DescribeCrossCloudRegionMappingToAliyunRequest
+   * @returns DescribeCrossCloudRegionMappingToAliyunResponse
+   */
+  async describeCrossCloudRegionMappingToAliyun(request: $_model.DescribeCrossCloudRegionMappingToAliyunRequest): Promise<$_model.DescribeCrossCloudRegionMappingToAliyunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCrossCloudRegionMappingToAliyunWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the IP address whitelists and security groups of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterAccessWhitelistRequest
@@ -4362,6 +6074,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeDBClusterEncryptionKey
+   * 
+   * @param request - DescribeDBClusterEncryptionKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterEncryptionKeyResponse
+   */
+  async describeDBClusterEncryptionKeyWithOptions(request: $_model.DescribeDBClusterEncryptionKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterEncryptionKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterEncryptionKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterEncryptionKeyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterEncryptionKeyResponse({}));
+  }
+
+  /**
+   * DescribeDBClusterEncryptionKey
+   * 
+   * @param request - DescribeDBClusterEncryptionKeyRequest
+   * @returns DescribeDBClusterEncryptionKeyResponse
+   */
+  async describeDBClusterEncryptionKey(request: $_model.DescribeDBClusterEncryptionKeyRequest): Promise<$_model.DescribeDBClusterEncryptionKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterEncryptionKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the endpoints of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterEndpointsRequest
@@ -4550,6 +6308,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeDBClusterNetInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterNetInfoResponse
+   */
+  async describeDBClusterNetInfoWithOptions(request: $_model.DescribeDBClusterNetInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterNetInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionStringType)) {
+      query["ConnectionStringType"] = request.connectionStringType;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterNetInfo",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterNetInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterNetInfoResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDBClusterNetInfoRequest
+   * @returns DescribeDBClusterNetInfoResponse
+   */
+  async describeDBClusterNetInfo(request: $_model.DescribeDBClusterNetInfoRequest): Promise<$_model.DescribeDBClusterNetInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterNetInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the parameters of a PolarDB cluster.
    * 
    * @param request - DescribeDBClusterParametersRequest
@@ -4703,6 +6519,72 @@ export default class Client extends OpenApi {
   async describeDBClusterPerformance(request: $_model.DescribeDBClusterPerformanceRequest): Promise<$_model.DescribeDBClusterPerformanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询代理详情
+   * 
+   * @param request - DescribeDBClusterProxyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterProxyResponse
+   */
+  async describeDBClusterProxyWithOptions(request: $_model.DescribeDBClusterProxyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterProxyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterProxy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterProxyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterProxyResponse({}));
+  }
+
+  /**
+   * 查询代理详情
+   * 
+   * @param request - DescribeDBClusterProxyRequest
+   * @returns DescribeDBClusterProxyResponse
+   */
+  async describeDBClusterProxy(request: $_model.DescribeDBClusterProxyRequest): Promise<$_model.DescribeDBClusterProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterProxyWithOptions(request, runtime);
   }
 
   /**
@@ -5212,6 +7094,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeDBInstancePerformanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstancePerformanceResponse
+   */
+  async describeDBInstancePerformanceWithOptions(request: $_model.DescribeDBInstancePerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstancePerformanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstancePerformance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstancePerformanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstancePerformanceResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDBInstancePerformanceRequest
+   * @returns DescribeDBInstancePerformanceResponse
+   */
+  async describeDBInstancePerformance(request: $_model.DescribeDBInstancePerformanceRequest): Promise<$_model.DescribeDBInstancePerformanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstancePerformanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
    * 
    * @remarks
@@ -5277,6 +7225,170 @@ export default class Client extends OpenApi {
   async describeDBLinks(request: $_model.DescribeDBLinksRequest): Promise<$_model.DescribeDBLinksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBLinksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例日志
+   * 
+   * @param request - DescribeDBLogFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBLogFilesResponse
+   */
+  async describeDBLogFilesWithOptions(request: $_model.DescribeDBLogFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBLogFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.describeSimulateSwitchMode)) {
+      query["DescribeSimulateSwitchMode"] = request.describeSimulateSwitchMode;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.simulateListId)) {
+      query["SimulateListId"] = request.simulateListId;
+    }
+
+    if (!$dara.isNull(request.simulateModeList)) {
+      query["SimulateModeList"] = request.simulateModeList;
+    }
+
+    if (!$dara.isNull(request.simulateStatusList)) {
+      query["SimulateStatusList"] = request.simulateStatusList;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBLogFiles",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBLogFilesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBLogFilesResponse({}));
+  }
+
+  /**
+   * 查询实例日志
+   * 
+   * @param request - DescribeDBLogFilesRequest
+   * @returns DescribeDBLogFilesResponse
+   */
+  async describeDBLogFiles(request: $_model.DescribeDBLogFilesRequest): Promise<$_model.DescribeDBLogFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBLogFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询可用内核小版本列表
+   * 
+   * @param request - DescribeDBMiniEngineVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBMiniEngineVersionsResponse
+   */
+  async describeDBMiniEngineVersionsWithOptions(request: $_model.DescribeDBMiniEngineVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBMiniEngineVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.architecture)) {
+      query["Architecture"] = request.architecture;
+    }
+
+    if (!$dara.isNull(request.creationCategory)) {
+      query["CreationCategory"] = request.creationCategory;
+    }
+
+    if (!$dara.isNull(request.DBMinorVersion)) {
+      query["DBMinorVersion"] = request.DBMinorVersion;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBMiniEngineVersions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBMiniEngineVersionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBMiniEngineVersionsResponse({}));
+  }
+
+  /**
+   * 查询可用内核小版本列表
+   * 
+   * @param request - DescribeDBMiniEngineVersionsRequest
+   * @returns DescribeDBMiniEngineVersionsResponse
+   */
+  async describeDBMiniEngineVersions(request: $_model.DescribeDBMiniEngineVersionsRequest): Promise<$_model.DescribeDBMiniEngineVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBMiniEngineVersionsWithOptions(request, runtime);
   }
 
   /**
@@ -5735,6 +7847,234 @@ export default class Client extends OpenApi {
   async describeDetachedBackups(request: $_model.DescribeDetachedBackupsRequest): Promise<$_model.DescribeDetachedBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取角色权限列表
+   * 
+   * @param request - DescribeEncryptionDBRolePrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEncryptionDBRolePrivilegeResponse
+   */
+  async describeEncryptionDBRolePrivilegeWithOptions(request: $_model.DescribeEncryptionDBRolePrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEncryptionDBRolePrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeNameList)) {
+      query["RolePrivilegeNameList"] = request.rolePrivilegeNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEncryptionDBRolePrivilege",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEncryptionDBRolePrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEncryptionDBRolePrivilegeResponse({}));
+  }
+
+  /**
+   * 获取角色权限列表
+   * 
+   * @param request - DescribeEncryptionDBRolePrivilegeRequest
+   * @returns DescribeEncryptionDBRolePrivilegeResponse
+   */
+  async describeEncryptionDBRolePrivilege(request: $_model.DescribeEncryptionDBRolePrivilegeRequest): Promise<$_model.DescribeEncryptionDBRolePrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEncryptionDBRolePrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取加密信息
+   * 
+   * @param request - DescribeEncryptionDBSecretRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEncryptionDBSecretResponse
+   */
+  async describeEncryptionDBSecretWithOptions(request: $_model.DescribeEncryptionDBSecretRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEncryptionDBSecretResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEncryptionDBSecret",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEncryptionDBSecretResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEncryptionDBSecretResponse({}));
+  }
+
+  /**
+   * 获取加密信息
+   * 
+   * @param request - DescribeEncryptionDBSecretRequest
+   * @returns DescribeEncryptionDBSecretResponse
+   */
+  async describeEncryptionDBSecret(request: $_model.DescribeEncryptionDBSecretRequest): Promise<$_model.DescribeEncryptionDBSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEncryptionDBSecretWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询插件详情
+   * 
+   * @param request - DescribeExtensionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeExtensionsResponse
+   */
+  async describeExtensionsWithOptions(request: $_model.DescribeExtensionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExtensionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeExtensions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeExtensionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeExtensionsResponse({}));
+  }
+
+  /**
+   * 查询插件详情
+   * 
+   * @param request - DescribeExtensionsRequest
+   * @returns DescribeExtensionsResponse
+   */
+  async describeExtensions(request: $_model.DescribeExtensionsRequest): Promise<$_model.DescribeExtensionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeExtensionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询sql防火墙信息
+   * 
+   * @param request - DescribeFirewallRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFirewallRulesResponse
+   */
+  async describeFirewallRulesWithOptions(request: $_model.DescribeFirewallRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFirewallRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFirewallRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFirewallRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFirewallRulesResponse({}));
+  }
+
+  /**
+   * 查询sql防火墙信息
+   * 
+   * @param request - DescribeFirewallRulesRequest
+   * @returns DescribeFirewallRulesResponse
+   */
+  async describeFirewallRules(request: $_model.DescribeFirewallRulesRequest): Promise<$_model.DescribeFirewallRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFirewallRulesWithOptions(request, runtime);
   }
 
   /**
@@ -6248,6 +8588,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 任务中心任务统计
+   * 
+   * @param request - DescribeHistoryTasksStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryTasksStatResponse
+   */
+  async describeHistoryTasksStatWithOptions(request: $_model.DescribeHistoryTasksStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHistoryTasksStatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromExecTime)) {
+      query["FromExecTime"] = request.fromExecTime;
+    }
+
+    if (!$dara.isNull(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.toExecTime)) {
+      query["ToExecTime"] = request.toExecTime;
+    }
+
+    if (!$dara.isNull(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHistoryTasksStat",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHistoryTasksStatResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHistoryTasksStatResponse({}));
+  }
+
+  /**
+   * 任务中心任务统计
+   * 
+   * @param request - DescribeHistoryTasksStatRequest
+   * @returns DescribeHistoryTasksStatResponse
+   */
+  async describeHistoryTasksStat(request: $_model.DescribeHistoryTasksStatRequest): Promise<$_model.DescribeHistoryTasksStatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHistoryTasksStatWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information of a license order.
    * 
    * @param request - DescribeLicenseOrderDetailsRequest
@@ -6381,6 +8815,68 @@ export default class Client extends OpenApi {
   async describeLicenseOrders(request: $_model.DescribeLicenseOrdersRequest): Promise<$_model.DescribeLicenseOrdersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeLicenseOrdersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询库表恢复可恢复时间范围
+   * 
+   * @param request - DescribeLocalAvailableRecoveryTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLocalAvailableRecoveryTimeResponse
+   */
+  async describeLocalAvailableRecoveryTimeWithOptions(request: $_model.DescribeLocalAvailableRecoveryTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLocalAvailableRecoveryTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLocalAvailableRecoveryTime",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLocalAvailableRecoveryTimeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLocalAvailableRecoveryTimeResponse({}));
+  }
+
+  /**
+   * 查询库表恢复可恢复时间范围
+   * 
+   * @param request - DescribeLocalAvailableRecoveryTimeRequest
+   * @returns DescribeLocalAvailableRecoveryTimeResponse
+   */
+  async describeLocalAvailableRecoveryTime(request: $_model.DescribeLocalAvailableRecoveryTimeRequest): Promise<$_model.DescribeLocalAvailableRecoveryTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLocalAvailableRecoveryTimeWithOptions(request, runtime);
   }
 
   /**
@@ -6575,6 +9071,150 @@ export default class Client extends OpenApi {
   async describeMetaList(request: $_model.DescribeMetaListRequest): Promise<$_model.DescribeMetaListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeMetaListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询参数修改历史
+   * 
+   * @param request - DescribeModifyParameterLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModifyParameterLogResponse
+   */
+  async describeModifyParameterLogWithOptions(request: $_model.DescribeModifyParameterLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModifyParameterLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModifyParameterLog",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModifyParameterLogResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModifyParameterLogResponse({}));
+  }
+
+  /**
+   * 查询参数修改历史
+   * 
+   * @param request - DescribeModifyParameterLogRequest
+   * @returns DescribeModifyParameterLogResponse
+   */
+  async describeModifyParameterLog(request: $_model.DescribeModifyParameterLogRequest): Promise<$_model.DescribeModifyParameterLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModifyParameterLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网络通道
+   * 
+   * @param request - DescribeNetworkChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkChannelResponse
+   */
+  async describeNetworkChannelWithOptions(request: $_model.DescribeNetworkChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNetworkChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetworkChannel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNetworkChannelResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNetworkChannelResponse({}));
+  }
+
+  /**
+   * 查询网络通道
+   * 
+   * @param request - DescribeNetworkChannelRequest
+   * @returns DescribeNetworkChannelResponse
+   */
+  async describeNetworkChannel(request: $_model.DescribeNetworkChannelRequest): Promise<$_model.DescribeNetworkChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetworkChannelWithOptions(request, runtime);
   }
 
   /**
@@ -6994,6 +9634,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeRdsVSwitchsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRdsVSwitchsResponse
+   */
+  async describeRdsVSwitchsWithOptions(request: $_model.DescribeRdsVSwitchsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRdsVSwitchsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRdsVSwitchs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRdsVSwitchsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRdsVSwitchsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRdsVSwitchsRequest
+   * @returns DescribeRdsVSwitchsResponse
+   */
+  async describeRdsVSwitchs(request: $_model.DescribeRdsVSwitchsRequest): Promise<$_model.DescribeRdsVSwitchsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRdsVSwitchsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRdsVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRdsVpcsResponse
+   */
+  async describeRdsVpcsWithOptions(request: $_model.DescribeRdsVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRdsVpcsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRdsVpcs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRdsVpcsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRdsVpcsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRdsVpcsRequest
+   * @returns DescribeRdsVpcsResponse
+   */
+  async describeRdsVpcs(request: $_model.DescribeRdsVpcsRequest): Promise<$_model.DescribeRdsVpcsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRdsVpcsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the regions and zones available for PolarDB.
    * 
    * @param request - DescribeRegionsRequest
@@ -7045,6 +9817,108 @@ export default class Client extends OpenApi {
   async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资源包列表
+   * 
+   * @param request - DescribeResourcePackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourcePackagesResponse
+   */
+  async describeResourcePackagesWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourcePackagesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourcePackages",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourcePackagesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourcePackagesResponse({}));
+  }
+
+  /**
+   * 查询资源包列表
+   * @returns DescribeResourcePackagesResponse
+   */
+  async describeResourcePackages(): Promise<$_model.DescribeResourcePackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourcePackagesWithOptions(runtime);
+  }
+
+  /**
+   * 查询SQL限流规则信息
+   * 
+   * @param request - DescribeSQLRateLimitingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLRateLimitingRulesResponse
+   */
+  async describeSQLRateLimitingRulesWithOptions(request: $_model.DescribeSQLRateLimitingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSQLRateLimitingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSQLRateLimitingRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSQLRateLimitingRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSQLRateLimitingRulesResponse({}));
+  }
+
+  /**
+   * 查询SQL限流规则信息
+   * 
+   * @param request - DescribeSQLRateLimitingRulesRequest
+   * @returns DescribeSQLRateLimitingRulesResponse
+   */
+  async describeSQLRateLimitingRules(request: $_model.DescribeSQLRateLimitingRulesRequest): Promise<$_model.DescribeSQLRateLimitingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSQLRateLimitingRulesWithOptions(request, runtime);
   }
 
   /**
@@ -7422,6 +10296,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询校验报告
+   * 
+   * @param request - DescribeUpgradeReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUpgradeReportResponse
+   */
+  async describeUpgradeReportWithOptions(request: $_model.DescribeUpgradeReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUpgradeReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creationCategory)) {
+      query["CreationCategory"] = request.creationCategory;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sourceDBClusterId)) {
+      query["SourceDBClusterId"] = request.sourceDBClusterId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUpgradeReport",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUpgradeReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUpgradeReportResponse({}));
+  }
+
+  /**
+   * 查询校验报告
+   * 
+   * @param request - DescribeUpgradeReportRequest
+   * @returns DescribeUpgradeReportResponse
+   */
+  async describeUpgradeReport(request: $_model.DescribeUpgradeReportRequest): Promise<$_model.DescribeUpgradeReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUpgradeReportWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
    * 
    * @param request - DescribeUserEncryptionKeyListRequest
@@ -7485,6 +10453,88 @@ export default class Client extends OpenApi {
   async describeUserEncryptionKeyList(request: $_model.DescribeUserEncryptionKeyListRequest): Promise<$_model.DescribeUserEncryptionKeyListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询交换机信息
+   * 
+   * @param request - DescribeVSwitchListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVSwitchListResponse
+   */
+  async describeVSwitchListWithOptions(request: $_model.DescribeVSwitchListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVSwitchListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.vSwitchIds)) {
+      query["VSwitchIds"] = request.vSwitchIds;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVSwitchList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVSwitchListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVSwitchListResponse({}));
+  }
+
+  /**
+   * 查询交换机信息
+   * 
+   * @param request - DescribeVSwitchListRequest
+   * @returns DescribeVSwitchListResponse
+   */
+  async describeVSwitchList(request: $_model.DescribeVSwitchListRequest): Promise<$_model.DescribeVSwitchListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVSwitchListWithOptions(request, runtime);
   }
 
   /**
@@ -7574,6 +10624,204 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询vpc
+   * 
+   * @param request - DescribeVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcsWithOptions(request: $_model.DescribeVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVpcsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVpcs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVpcsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVpcsResponse({}));
+  }
+
+  /**
+   * 查询vpc
+   * 
+   * @param request - DescribeVpcsRequest
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcs(request: $_model.DescribeVpcsRequest): Promise<$_model.DescribeVpcsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVpcsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取可用区
+   * 
+   * @param request - DescribeZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesResponse
+   */
+  async describeZonesWithOptions(request: $_model.DescribeZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeZonesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.extra)) {
+      query["Extra"] = request.extra;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeZones",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeZonesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeZonesResponse({}));
+  }
+
+  /**
+   * 获取可用区
+   * 
+   * @param request - DescribeZonesRequest
+   * @returns DescribeZonesResponse
+   */
+  async describeZones(request: $_model.DescribeZonesRequest): Promise<$_model.DescribeZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeZonesWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭集群的关系性
+   * 
+   * @param request - DisableDBClusterOrcaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDBClusterOrcaResponse
+   */
+  async disableDBClusterOrcaWithOptions(request: $_model.DisableDBClusterOrcaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDBClusterOrcaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cleanData)) {
+      query["CleanData"] = request.cleanData;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableDBClusterOrca",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableDBClusterOrcaResponse>(await this.callApi(params, req, runtime), new $_model.DisableDBClusterOrcaResponse({}));
+  }
+
+  /**
+   * 关闭集群的关系性
+   * 
+   * @param request - DisableDBClusterOrcaRequest
+   * @returns DisableDBClusterOrcaResponse
+   */
+  async disableDBClusterOrca(request: $_model.DisableDBClusterOrcaRequest): Promise<$_model.DisableDBClusterOrcaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableDBClusterOrcaWithOptions(request, runtime);
+  }
+
+  /**
    * Disables a stable serverless cluster.
    * 
    * @param request - DisableDBClusterServerlessRequest
@@ -7629,6 +10877,64 @@ export default class Client extends OpenApi {
   async disableDBClusterServerless(request: $_model.DisableDBClusterServerlessRequest): Promise<$_model.DisableDBClusterServerlessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableDBClusterServerlessWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启集群的关系性
+   * 
+   * @param request - EnableDBClusterOrcaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDBClusterOrcaResponse
+   */
+  async enableDBClusterOrcaWithOptions(request: $_model.EnableDBClusterOrcaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDBClusterOrcaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableDBClusterOrca",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableDBClusterOrcaResponse>(await this.callApi(params, req, runtime), new $_model.EnableDBClusterOrcaResponse({}));
+  }
+
+  /**
+   * 开启集群的关系性
+   * 
+   * @param request - EnableDBClusterOrcaRequest
+   * @returns EnableDBClusterOrcaResponse
+   */
+  async enableDBClusterOrca(request: $_model.EnableDBClusterOrcaRequest): Promise<$_model.EnableDBClusterOrcaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableDBClusterOrcaWithOptions(request, runtime);
   }
 
   /**
@@ -7780,6 +11086,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用/禁用SQL限流规则
+   * 
+   * @param request - EnableSQLRateLimitingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSQLRateLimitingRulesResponse
+   */
+  async enableSQLRateLimitingRulesWithOptions(request: $_model.EnableSQLRateLimitingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableSQLRateLimitingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleNameList)) {
+      query["RuleNameList"] = request.ruleNameList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableSQLRateLimitingRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableSQLRateLimitingRulesResponse>(await this.callApi(params, req, runtime), new $_model.EnableSQLRateLimitingRulesResponse({}));
+  }
+
+  /**
+   * 启用/禁用SQL限流规则
+   * 
+   * @param request - EnableSQLRateLimitingRulesRequest
+   * @returns EnableSQLRateLimitingRulesResponse
+   */
+  async enableSQLRateLimitingRules(request: $_model.EnableSQLRateLimitingRulesRequest): Promise<$_model.EnableSQLRateLimitingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableSQLRateLimitingRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Evaluates available resources.
    * 
    * @param request - EvaluateRegionResourceRequest
@@ -7874,6 +11246,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用跨云 OpenAPI
+   * 
+   * @param request - ExecuteCrossCloudOpenAPIRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteCrossCloudOpenAPIResponse
+   */
+  async executeCrossCloudOpenAPIWithOptions(request: $_model.ExecuteCrossCloudOpenAPIRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteCrossCloudOpenAPIResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.proxyInfo)) {
+      query["ProxyInfo"] = request.proxyInfo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteCrossCloudOpenAPI",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteCrossCloudOpenAPIResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteCrossCloudOpenAPIResponse({}));
+  }
+
+  /**
+   * 调用跨云 OpenAPI
+   * 
+   * @param request - ExecuteCrossCloudOpenAPIRequest
+   * @returns ExecuteCrossCloudOpenAPIResponse
+   */
+  async executeCrossCloudOpenAPI(request: $_model.ExecuteCrossCloudOpenAPIRequest): Promise<$_model.ExecuteCrossCloudOpenAPIResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeCrossCloudOpenAPIWithOptions(request, runtime);
+  }
+
+  /**
    * Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
    * 
    * @param request - FailoverDBClusterRequest
@@ -7945,6 +11359,92 @@ export default class Client extends OpenApi {
   async failoverDBCluster(request: $_model.FailoverDBClusterRequest): Promise<$_model.FailoverDBClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.failoverDBClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成校验报告
+   * 
+   * @param request - GenerateUpgradeReportForSyncCloneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateUpgradeReportForSyncCloneResponse
+   */
+  async generateUpgradeReportForSyncCloneWithOptions(request: $_model.GenerateUpgradeReportForSyncCloneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateUpgradeReportForSyncCloneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creationCategory)) {
+      query["CreationCategory"] = request.creationCategory;
+    }
+
+    if (!$dara.isNull(request.creationOption)) {
+      query["CreationOption"] = request.creationOption;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reserve)) {
+      query["Reserve"] = request.reserve;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sourceDBClusterId)) {
+      query["SourceDBClusterId"] = request.sourceDBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateUpgradeReportForSyncClone",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateUpgradeReportForSyncCloneResponse>(await this.callApi(params, req, runtime), new $_model.GenerateUpgradeReportForSyncCloneResponse({}));
+  }
+
+  /**
+   * 生成校验报告
+   * 
+   * @param request - GenerateUpgradeReportForSyncCloneRequest
+   * @returns GenerateUpgradeReportForSyncCloneResponse
+   */
+  async generateUpgradeReportForSyncClone(request: $_model.GenerateUpgradeReportForSyncCloneRequest): Promise<$_model.GenerateUpgradeReportForSyncCloneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateUpgradeReportForSyncCloneWithOptions(request, runtime);
   }
 
   /**
@@ -8032,6 +11532,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询订单
+   * 
+   * @param request - ListOrdersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOrdersResponse
+   */
+  async listOrdersWithOptions(request: $_model.ListOrdersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOrdersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderStatus)) {
+      query["OrderStatus"] = request.orderStatus;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOrders",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOrdersResponse>(await this.callApi(params, req, runtime), new $_model.ListOrdersResponse({}));
+  }
+
+  /**
+   * 查询订单
+   * 
+   * @param request - ListOrdersRequest
+   * @returns ListOrdersResponse
+   */
+  async listOrders(request: $_model.ListOrdersRequest): Promise<$_model.ListOrdersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listOrdersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
    * 
    * @param request - ListTagResourcesRequest
@@ -8106,6 +11684,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListTagResourcesForRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesForRegionResponse
+   */
+  async listTagResourcesForRegionWithOptions(request: $_model.ListTagResourcesForRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesForRegionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResourcesForRegion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesForRegionResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesForRegionResponse({}));
+  }
+
+  /**
+   * @param request - ListTagResourcesForRegionRequest
+   * @returns ListTagResourcesForRegionResponse
+   */
+  async listTagResourcesForRegion(request: $_model.ListTagResourcesForRegionRequest): Promise<$_model.ListTagResourcesForRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesForRegionWithOptions(request, runtime);
+  }
+
+  /**
    * Manually starts a cluster.
    * 
    * @param request - ManuallyStartDBClusterRequest
@@ -8165,6 +11805,68 @@ export default class Client extends OpenApi {
   async manuallyStartDBCluster(request: $_model.ManuallyStartDBClusterRequest): Promise<$_model.ManuallyStartDBClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.manuallyStartDBClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改AI实例名称
+   * 
+   * @param request - ModifyAIDBClusterDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAIDBClusterDescriptionResponse
+   */
+  async modifyAIDBClusterDescriptionWithOptions(request: $_model.ModifyAIDBClusterDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAIDBClusterDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAIDBClusterDescription",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAIDBClusterDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAIDBClusterDescriptionResponse({}));
+  }
+
+  /**
+   * 修改AI实例名称
+   * 
+   * @param request - ModifyAIDBClusterDescriptionRequest
+   * @returns ModifyAIDBClusterDescriptionResponse
+   */
+  async modifyAIDBClusterDescription(request: $_model.ModifyAIDBClusterDescriptionRequest): Promise<$_model.ModifyAIDBClusterDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAIDBClusterDescriptionWithOptions(request, runtime);
   }
 
   /**
@@ -8231,6 +11933,72 @@ export default class Client extends OpenApi {
   async modifyAccountDescription(request: $_model.ModifyAccountDescriptionRequest): Promise<$_model.ModifyAccountDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyAccountLockStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountLockStateResponse
+   */
+  async modifyAccountLockStateWithOptions(request: $_model.ModifyAccountLockStateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountLockStateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountLockState)) {
+      query["AccountLockState"] = request.accountLockState;
+    }
+
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPasswordValidTime)) {
+      query["AccountPasswordValidTime"] = request.accountPasswordValidTime;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAccountLockState",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAccountLockStateResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountLockStateResponse({}));
+  }
+
+  /**
+   * @param request - ModifyAccountLockStateRequest
+   * @returns ModifyAccountLockStateResponse
+   */
+  async modifyAccountLockState(request: $_model.ModifyAccountLockStateRequest): Promise<$_model.ModifyAccountLockStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAccountLockStateWithOptions(request, runtime);
   }
 
   /**
@@ -8301,6 +12069,96 @@ export default class Client extends OpenApi {
   async modifyAccountPassword(request: $_model.ModifyAccountPasswordRequest): Promise<$_model.ModifyAccountPasswordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置用户的运维信息，目前包括主动运维窗口信息
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConfWithOptions(request: $_model.ModifyActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.cycleTime)) {
+      query["CycleTime"] = request.cycleTime;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      query["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.maintainEndTime)) {
+      query["MaintainEndTime"] = request.maintainEndTime;
+    }
+
+    if (!$dara.isNull(request.maintainStartTime)) {
+      query["MaintainStartTime"] = request.maintainStartTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyActiveOperationMaintainConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new $_model.ModifyActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * 配置用户的运维信息，目前包括主动运维窗口信息
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConf(request: $_model.ModifyActiveOperationMaintainConfRequest): Promise<$_model.ModifyActiveOperationMaintainConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyActiveOperationMaintainConfWithOptions(request, runtime);
   }
 
   /**
@@ -8579,6 +12437,128 @@ export default class Client extends OpenApi {
   async modifyBackupPolicy(request: $_model.ModifyBackupPolicyRequest): Promise<$_model.ModifyBackupPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改周期任务策略
+   * 
+   * @param request - ModifyCronJobPolicyServerlessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCronJobPolicyServerlessResponse
+   */
+  async modifyCronJobPolicyServerlessWithOptions(request: $_model.ModifyCronJobPolicyServerlessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCronJobPolicyServerlessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowShutDown)) {
+      query["AllowShutDown"] = request.allowShutDown;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleApRoNumMax)) {
+      query["ScaleApRoNumMax"] = request.scaleApRoNumMax;
+    }
+
+    if (!$dara.isNull(request.scaleApRoNumMin)) {
+      query["ScaleApRoNumMin"] = request.scaleApRoNumMin;
+    }
+
+    if (!$dara.isNull(request.scaleMax)) {
+      query["ScaleMax"] = request.scaleMax;
+    }
+
+    if (!$dara.isNull(request.scaleMin)) {
+      query["ScaleMin"] = request.scaleMin;
+    }
+
+    if (!$dara.isNull(request.scaleRoNumMax)) {
+      query["ScaleRoNumMax"] = request.scaleRoNumMax;
+    }
+
+    if (!$dara.isNull(request.scaleRoNumMin)) {
+      query["ScaleRoNumMin"] = request.scaleRoNumMin;
+    }
+
+    if (!$dara.isNull(request.secondsUntilAutoPause)) {
+      query["SecondsUntilAutoPause"] = request.secondsUntilAutoPause;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleCpuEnlargeThreshold)) {
+      query["ServerlessRuleCpuEnlargeThreshold"] = request.serverlessRuleCpuEnlargeThreshold;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleCpuShrinkThreshold)) {
+      query["ServerlessRuleCpuShrinkThreshold"] = request.serverlessRuleCpuShrinkThreshold;
+    }
+
+    if (!$dara.isNull(request.serverlessRuleMode)) {
+      query["ServerlessRuleMode"] = request.serverlessRuleMode;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCronJobPolicyServerless",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCronJobPolicyServerlessResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCronJobPolicyServerlessResponse({}));
+  }
+
+  /**
+   * 修改周期任务策略
+   * 
+   * @param request - ModifyCronJobPolicyServerlessRequest
+   * @returns ModifyCronJobPolicyServerlessResponse
+   */
+  async modifyCronJobPolicyServerless(request: $_model.ModifyCronJobPolicyServerlessRequest): Promise<$_model.ModifyCronJobPolicyServerlessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCronJobPolicyServerlessWithOptions(request, runtime);
   }
 
   /**
@@ -9342,6 +13322,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改dts源实例、目标实例
+   * 
+   * @param request - ModifyDBClusterMigrationEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterMigrationEndpointResponse
+   */
+  async modifyDBClusterMigrationEndpointWithOptions(request: $_model.ModifyDBClusterMigrationEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterMigrationEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.migrationConfig)) {
+      query["MigrationConfig"] = request.migrationConfig;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterMigrationEndpoint",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBClusterMigrationEndpointResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterMigrationEndpointResponse({}));
+  }
+
+  /**
+   * 修改dts源实例、目标实例
+   * 
+   * @param request - ModifyDBClusterMigrationEndpointRequest
+   * @returns ModifyDBClusterMigrationEndpointResponse
+   */
+  async modifyDBClusterMigrationEndpoint(request: $_model.ModifyDBClusterMigrationEndpointRequest): Promise<$_model.ModifyDBClusterMigrationEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterMigrationEndpointWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
    * 
    * @remarks
@@ -10100,6 +14142,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改集群VSwitch参数
+   * 
+   * @param request - ModifyDBClusterVpcRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterVpcResponse
+   */
+  async modifyDBClusterVpcWithOptions(request: $_model.ModifyDBClusterVpcRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterVpcResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.existedEndpointSwitchType)) {
+      query["ExistedEndpointSwitchType"] = request.existedEndpointSwitchType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterVpc",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBClusterVpcResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterVpcResponse({}));
+  }
+
+  /**
+   * 修改集群VSwitch参数
+   * 
+   * @param request - ModifyDBClusterVpcRequest
+   * @returns ModifyDBClusterVpcResponse
+   */
+  async modifyDBClusterVpc(request: $_model.ModifyDBClusterVpcRequest): Promise<$_model.ModifyDBClusterVpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterVpcWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the description of a database in a PolarDB for MySQL cluster.
    * 
    * @param request - ModifyDBDescriptionRequest
@@ -10338,6 +14450,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ModifyDBNodeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBNodeConfigResponse
+   */
+  async modifyDBNodeConfigWithOptions(request: $_model.ModifyDBNodeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      query["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBNodeConfig",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBNodeConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBNodeConfigResponse({}));
+  }
+
+  /**
+   * @param request - ModifyDBNodeConfigRequest
+   * @returns ModifyDBNodeConfigResponse
+   */
+  async modifyDBNodeConfig(request: $_model.ModifyDBNodeConfigRequest): Promise<$_model.ModifyDBNodeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBNodeConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 修改物理节点描述
    * 
    * @param request - ModifyDBNodeDescriptionRequest
@@ -10467,6 +14649,72 @@ export default class Client extends OpenApi {
   async modifyDBNodeHotReplicaMode(request: $_model.ModifyDBNodeHotReplicaModeRequest): Promise<$_model.ModifyDBNodeHotReplicaModeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBNodeHotReplicaModeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改节点的Scc
+   * 
+   * @param request - ModifyDBNodeSccModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBNodeSccModeResponse
+   */
+  async modifyDBNodeSccModeWithOptions(request: $_model.ModifyDBNodeSccModeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeSccModeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sccMode)) {
+      query["SccMode"] = request.sccMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBNodeSccMode",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBNodeSccModeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBNodeSccModeResponse({}));
+  }
+
+  /**
+   * 修改节点的Scc
+   * 
+   * @param request - ModifyDBNodeSccModeRequest
+   * @returns ModifyDBNodeSccModeResponse
+   */
+  async modifyDBNodeSccMode(request: $_model.ModifyDBNodeSccModeRequest): Promise<$_model.ModifyDBNodeSccModeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBNodeSccModeWithOptions(request, runtime);
   }
 
   /**
@@ -10635,6 +14883,208 @@ export default class Client extends OpenApi {
   async modifyDBNodesParameters(request: $_model.ModifyDBNodesParametersRequest): Promise<$_model.ModifyDBNodesParametersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBNodesParametersWithOptions(request, runtime);
+  }
+
+  /**
+   * 变更角色权限
+   * 
+   * @param request - ModifyEncryptionDBRolePrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEncryptionDBRolePrivilegeResponse
+   */
+  async modifyEncryptionDBRolePrivilegeWithOptions(request: $_model.ModifyEncryptionDBRolePrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEncryptionDBRolePrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeConfig)) {
+      query["RolePrivilegeConfig"] = request.rolePrivilegeConfig;
+    }
+
+    if (!$dara.isNull(request.rolePrivilegeName)) {
+      query["RolePrivilegeName"] = request.rolePrivilegeName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyEncryptionDBRolePrivilege",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyEncryptionDBRolePrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyEncryptionDBRolePrivilegeResponse({}));
+  }
+
+  /**
+   * 变更角色权限
+   * 
+   * @param request - ModifyEncryptionDBRolePrivilegeRequest
+   * @returns ModifyEncryptionDBRolePrivilegeResponse
+   */
+  async modifyEncryptionDBRolePrivilege(request: $_model.ModifyEncryptionDBRolePrivilegeRequest): Promise<$_model.ModifyEncryptionDBRolePrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyEncryptionDBRolePrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 变更加密策略
+   * 
+   * @param request - ModifyEncryptionDBSecretRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEncryptionDBSecretResponse
+   */
+  async modifyEncryptionDBSecretWithOptions(request: $_model.ModifyEncryptionDBSecretRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyEncryptionDBSecretResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.encryptionDBStatus)) {
+      query["EncryptionDBStatus"] = request.encryptionDBStatus;
+    }
+
+    if (!$dara.isNull(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyEncryptionDBSecret",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyEncryptionDBSecretResponse>(await this.callApi(params, req, runtime), new $_model.ModifyEncryptionDBSecretResponse({}));
+  }
+
+  /**
+   * 变更加密策略
+   * 
+   * @param request - ModifyEncryptionDBSecretRequest
+   * @returns ModifyEncryptionDBSecretResponse
+   */
+  async modifyEncryptionDBSecret(request: $_model.ModifyEncryptionDBSecretRequest): Promise<$_model.ModifyEncryptionDBSecretResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyEncryptionDBSecretWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改sql防火墙配置
+   * 
+   * @param request - ModifyFirewallRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFirewallRulesResponse
+   */
+  async modifyFirewallRulesWithOptions(request: $_model.ModifyFirewallRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFirewallRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyFirewallRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyFirewallRulesResponse>(await this.callApi(params, req, runtime), new $_model.ModifyFirewallRulesResponse({}));
+  }
+
+  /**
+   * 修改sql防火墙配置
+   * 
+   * @param request - ModifyFirewallRulesRequest
+   * @returns ModifyFirewallRulesResponse
+   */
+  async modifyFirewallRules(request: $_model.ModifyFirewallRulesRequest): Promise<$_model.ModifyFirewallRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyFirewallRulesWithOptions(request, runtime);
   }
 
   /**
@@ -11156,6 +15606,192 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置资源包
+   * 
+   * @param request - ModifyResourcePackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourcePackageResponse
+   */
+  async modifyResourcePackageWithOptions(request: $_model.ModifyResourcePackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourcePackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoQuota)) {
+      query["AutoQuota"] = request.autoQuota;
+    }
+
+    if (!$dara.isNull(request.resourcePackageId)) {
+      query["ResourcePackageId"] = request.resourcePackageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyResourcePackage",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyResourcePackageResponse>(await this.callApi(params, req, runtime), new $_model.ModifyResourcePackageResponse({}));
+  }
+
+  /**
+   * 配置资源包
+   * 
+   * @param request - ModifyResourcePackageRequest
+   * @returns ModifyResourcePackageResponse
+   */
+  async modifyResourcePackage(request: $_model.ModifyResourcePackageRequest): Promise<$_model.ModifyResourcePackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyResourcePackageWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改SQL限流规则
+   * 
+   * @param request - ModifySQLRateLimitingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySQLRateLimitingRulesResponse
+   */
+  async modifySQLRateLimitingRulesWithOptions(request: $_model.ModifySQLRateLimitingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySQLRateLimitingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      query["RuleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySQLRateLimitingRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySQLRateLimitingRulesResponse>(await this.callApi(params, req, runtime), new $_model.ModifySQLRateLimitingRulesResponse({}));
+  }
+
+  /**
+   * 修改SQL限流规则
+   * 
+   * @param request - ModifySQLRateLimitingRulesRequest
+   * @returns ModifySQLRateLimitingRulesResponse
+   */
+  async modifySQLRateLimitingRules(request: $_model.ModifySQLRateLimitingRulesRequest): Promise<$_model.ModifySQLRateLimitingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySQLRateLimitingRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改目标计划任务
+   * 
+   * @param request - ModifyScheduleTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyScheduleTaskResponse
+   */
+  async modifyScheduleTaskWithOptions(request: $_model.ModifyScheduleTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyScheduleTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.plannedEndTime)) {
+      query["PlannedEndTime"] = request.plannedEndTime;
+    }
+
+    if (!$dara.isNull(request.plannedStartTime)) {
+      query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyScheduleTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyScheduleTaskResponse({}));
+  }
+
+  /**
+   * 修改目标计划任务
+   * 
+   * @param request - ModifyScheduleTaskRequest
+   * @returns ModifyScheduleTaskResponse
+   */
+  async modifyScheduleTask(request: $_model.ModifyScheduleTaskRequest): Promise<$_model.ModifyScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyScheduleTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Enables the PolarDB for AI feature for a cluster.
    * 
    * @param request - OpenAITaskRequest
@@ -11484,6 +16120,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ResetAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAccountPasswordResponse
+   */
+  async resetAccountPasswordWithOptions(request: $_model.ResetAccountPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetAccountPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetAccountPassword",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetAccountPasswordResponse({}));
+  }
+
+  /**
+   * @param request - ResetAccountPasswordRequest
+   * @returns ResetAccountPasswordResponse
+   */
+  async resetAccountPassword(request: $_model.ResetAccountPasswordRequest): Promise<$_model.ResetAccountPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
    * Rebuilds a secondary cluster in a Global Database Network (GDN).
    * 
    * @param request - ResetGlobalDatabaseNetworkRequest
@@ -11629,12 +16327,28 @@ export default class Client extends OpenApi {
       query["DBNodeId"] = request.DBNodeId;
     }
 
+    if (!$dara.isNull(request.fromTimeService)) {
+      query["FromTimeService"] = request.fromTimeService;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.plannedEndTime)) {
+      query["PlannedEndTime"] = request.plannedEndTime;
+    }
+
+    if (!$dara.isNull(request.plannedStartTime)) {
+      query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -12201,6 +16915,92 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新插件
+   * 
+   * @param request - UpdateExtensionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExtensionsResponse
+   */
+  async updateExtensionsWithOptions(request: $_model.UpdateExtensionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateExtensionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNames)) {
+      query["DBNames"] = request.DBNames;
+    }
+
+    if (!$dara.isNull(request.extensions)) {
+      query["Extensions"] = request.extensions;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateExtensions",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateExtensionsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateExtensionsResponse({}));
+  }
+
+  /**
+   * 更新插件
+   * 
+   * @param request - UpdateExtensionsRequest
+   * @returns UpdateExtensionsResponse
+   */
+  async updateExtensions(request: $_model.UpdateExtensionsRequest): Promise<$_model.UpdateExtensionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateExtensionsWithOptions(request, runtime);
   }
 
   /**
