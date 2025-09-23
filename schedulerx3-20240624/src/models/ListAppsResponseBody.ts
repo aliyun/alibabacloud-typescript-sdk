@@ -68,6 +68,11 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
    * 1827811800555555
    */
   updater?: string;
+  /**
+   * @example
+   * k8s_service
+   */
+  workerRegistry?: string;
   static names(): { [key: string]: string } {
     return {
       accessToken: 'AccessToken',
@@ -84,6 +89,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       maxJobs: 'MaxJobs',
       title: 'Title',
       updater: 'Updater',
+      workerRegistry: 'WorkerRegistry',
     };
   }
 
@@ -103,6 +109,7 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       maxJobs: 'number',
       title: 'string',
       updater: 'string',
+      workerRegistry: 'string',
     };
   }
 

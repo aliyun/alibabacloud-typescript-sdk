@@ -324,17 +324,29 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
 }
 
 export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1758594961000
+   */
+  endTime?: string;
   jobDescription?: string;
   rootProgress?: GetJobExecutionProgressResponseBodyDataRootProgress;
   shardingProgress?: GetJobExecutionProgressResponseBodyDataShardingProgress[];
+  /**
+   * @example
+   * 1758506761000
+   */
+  startTime?: string;
   taskProgress?: GetJobExecutionProgressResponseBodyDataTaskProgress[];
   totalProgress?: GetJobExecutionProgressResponseBodyDataTotalProgress;
   workerProgress?: GetJobExecutionProgressResponseBodyDataWorkerProgress[];
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       jobDescription: 'JobDescription',
       rootProgress: 'RootProgress',
       shardingProgress: 'ShardingProgress',
+      startTime: 'StartTime',
       taskProgress: 'TaskProgress',
       totalProgress: 'TotalProgress',
       workerProgress: 'WorkerProgress',
@@ -343,9 +355,11 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       jobDescription: 'string',
       rootProgress: GetJobExecutionProgressResponseBodyDataRootProgress,
       shardingProgress: { 'type': 'array', 'itemType': GetJobExecutionProgressResponseBodyDataShardingProgress },
+      startTime: 'string',
       taskProgress: { 'type': 'array', 'itemType': GetJobExecutionProgressResponseBodyDataTaskProgress },
       totalProgress: GetJobExecutionProgressResponseBodyDataTotalProgress,
       workerProgress: { 'type': 'array', 'itemType': GetJobExecutionProgressResponseBodyDataWorkerProgress },

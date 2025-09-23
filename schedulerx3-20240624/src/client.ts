@@ -120,6 +120,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.clusterName)) {
       body["ClusterName"] = request.clusterName;
     }
@@ -128,8 +132,16 @@ export default class Client extends OpenApi {
       body["ClusterSpec"] = request.clusterSpec;
     }
 
+    if (!$dara.isNull(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
     if (!$dara.isNull(request.engineType)) {
       body["EngineType"] = request.engineType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      body["PricingCycle"] = request.pricingCycle;
     }
 
     if (!$dara.isNull(request.vSwitchesShrink)) {

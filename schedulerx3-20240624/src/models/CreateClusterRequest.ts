@@ -70,6 +70,11 @@ export class CreateClusterRequestVSwitches extends $dara.Model {
 
 export class CreateClusterRequest extends $dara.Model {
   /**
+   * @example
+   * POSTPAY
+   */
+  chargeType?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -86,6 +91,11 @@ export class CreateClusterRequest extends $dara.Model {
    */
   clusterSpec?: string;
   /**
+   * @example
+   * 3
+   */
+  duration?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -93,6 +103,11 @@ export class CreateClusterRequest extends $dara.Model {
    * xxljob
    */
   engineType?: string;
+  /**
+   * @example
+   * Year
+   */
+  pricingCycle?: string;
   tag?: CreateClusterRequestTag[];
   /**
    * @remarks
@@ -111,9 +126,12 @@ export class CreateClusterRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       clusterName: 'ClusterName',
       clusterSpec: 'ClusterSpec',
+      duration: 'Duration',
       engineType: 'EngineType',
+      pricingCycle: 'PricingCycle',
       tag: 'Tag',
       vSwitches: 'VSwitches',
       vpcId: 'VpcId',
@@ -122,9 +140,12 @@ export class CreateClusterRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       clusterName: 'string',
       clusterSpec: 'string',
+      duration: 'number',
       engineType: 'string',
+      pricingCycle: 'string',
       tag: { 'type': 'array', 'itemType': CreateClusterRequestTag },
       vSwitches: { 'type': 'array', 'itemType': CreateClusterRequestVSwitches },
       vpcId: 'string',

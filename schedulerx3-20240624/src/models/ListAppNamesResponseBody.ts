@@ -15,16 +15,28 @@ export class ListAppNamesResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @example
+   * 1
+   */
+  appType?: number;
+  /**
+   * @example
    * 15
    */
   id?: number;
   title?: string;
+  /**
+   * @example
+   * k8s_service
+   */
+  workerRegistry?: string;
   static names(): { [key: string]: string } {
     return {
       appGroupId: 'AppGroupId',
       appName: 'AppName',
+      appType: 'AppType',
       id: 'Id',
       title: 'Title',
+      workerRegistry: 'WorkerRegistry',
     };
   }
 
@@ -32,8 +44,10 @@ export class ListAppNamesResponseBodyData extends $dara.Model {
     return {
       appGroupId: 'string',
       appName: 'string',
+      appType: 'number',
       id: 'number',
       title: 'string',
+      workerRegistry: 'string',
     };
   }
 
