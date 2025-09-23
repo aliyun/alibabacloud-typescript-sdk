@@ -295,6 +295,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * 6.211
    */
   avgQueryTimeSeconds?: number;
+  avgRequestSize?: number;
+  avgResponseSize?: number;
   /**
    * @example
    * 1
@@ -316,6 +318,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * 2.0
    */
   avgRowsSent?: number;
+  avgRt?: number;
   avgScnt?: number;
   /**
    * @example
@@ -323,6 +326,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    */
   CPUTime?: number;
   CPUTimeSeconds?: number;
+  clientIp?: string;
+  cmd?: string;
   /**
    * @example
    * SELECT b?.id,b?.t?,b?.id,b?.t? FROM testtb? b? JOIN testtb? b? ON b?.id=b?.id WHERE b?.t? LIKE ? ORDER BY b?.t? DESC
@@ -348,6 +353,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * work-wechat-api
    */
   database?: string;
+  dbId?: string;
   /**
    * @example
    * 0
@@ -472,6 +478,8 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * 14.402
    */
   maxQueryTimeSeconds?: number;
+  maxRequestSize?: number;
+  maxResponseSize?: number;
   /**
    * @example
    * 1
@@ -493,6 +501,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * 256
    */
   maxRowsSent?: number;
+  maxRt?: number;
   maxScnt?: number;
   /**
    * @example
@@ -617,6 +626,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
    * 1708568930
    */
   timestamp?: number;
+  totalCount?: number;
   trend?: DescribeSlowLogStatisticResponseBodyDataDataLogsTrend[];
   /**
    * @example
@@ -639,19 +649,25 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       avgPhysicalIOReads: 'AvgPhysicalIOReads',
       avgQueryTime: 'AvgQueryTime',
       avgQueryTimeSeconds: 'AvgQueryTimeSeconds',
+      avgRequestSize: 'AvgRequestSize',
+      avgResponseSize: 'AvgResponseSize',
       avgReturnNum: 'AvgReturnNum',
       avgRows: 'AvgRows',
       avgRowsCountAffected: 'AvgRowsCountAffected',
       avgRowsExamined: 'AvgRowsExamined',
       avgRowsSent: 'AvgRowsSent',
+      avgRt: 'AvgRt',
       avgScnt: 'AvgScnt',
       CPUTime: 'CPUTime',
       CPUTimeSeconds: 'CPUTimeSeconds',
+      clientIp: 'ClientIp',
+      cmd: 'Cmd',
       command: 'Command',
       count: 'Count',
       countRate: 'CountRate',
       DBName: 'DBName',
       database: 'Database',
+      dbId: 'DbId',
       dbInstanceName: 'DbInstanceName',
       docExamined: 'DocExamined',
       docsExamined: 'DocsExamined',
@@ -680,11 +696,14 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       maxPhysicalIOReads: 'MaxPhysicalIOReads',
       maxQueryTime: 'MaxQueryTime',
       maxQueryTimeSeconds: 'MaxQueryTimeSeconds',
+      maxRequestSize: 'MaxRequestSize',
+      maxResponseSize: 'MaxResponseSize',
       maxReturnNum: 'MaxReturnNum',
       maxRows: 'MaxRows',
       maxRowsCountAffected: 'MaxRowsCountAffected',
       maxRowsExamined: 'MaxRowsExamined',
       maxRowsSent: 'MaxRowsSent',
+      maxRt: 'MaxRt',
       maxScnt: 'MaxScnt',
       namespace: 'Namespace',
       nodeType: 'NodeType',
@@ -714,6 +733,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       tableName: 'TableName',
       threadId: 'ThreadId',
       timestamp: 'Timestamp',
+      totalCount: 'TotalCount',
       trend: 'Trend',
       user: 'User',
     };
@@ -735,19 +755,25 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       avgPhysicalIOReads: 'number',
       avgQueryTime: 'number',
       avgQueryTimeSeconds: 'number',
+      avgRequestSize: 'number',
+      avgResponseSize: 'number',
       avgReturnNum: 'number',
       avgRows: 'number',
       avgRowsCountAffected: 'number',
       avgRowsExamined: 'number',
       avgRowsSent: 'number',
+      avgRt: 'number',
       avgScnt: 'number',
       CPUTime: 'number',
       CPUTimeSeconds: 'number',
+      clientIp: 'string',
+      cmd: 'string',
       command: 'string',
       count: 'number',
       countRate: 'number',
       DBName: 'string',
       database: 'string',
+      dbId: 'string',
       dbInstanceName: 'string',
       docExamined: 'number',
       docsExamined: 'number',
@@ -776,11 +802,14 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       maxPhysicalIOReads: 'number',
       maxQueryTime: 'number',
       maxQueryTimeSeconds: 'number',
+      maxRequestSize: 'number',
+      maxResponseSize: 'number',
       maxReturnNum: 'number',
       maxRows: 'number',
       maxRowsCountAffected: 'number',
       maxRowsExamined: 'number',
       maxRowsSent: 'number',
+      maxRt: 'number',
       maxScnt: 'number',
       namespace: 'string',
       nodeType: 'string',
@@ -810,6 +839,7 @@ export class DescribeSlowLogStatisticResponseBodyDataDataLogs extends $dara.Mode
       tableName: 'string',
       threadId: 'string',
       timestamp: 'number',
+      totalCount: 'number',
       trend: { 'type': 'array', 'itemType': DescribeSlowLogStatisticResponseBodyDataDataLogsTrend },
       user: 'string',
     };

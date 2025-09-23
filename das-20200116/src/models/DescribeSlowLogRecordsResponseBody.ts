@@ -67,6 +67,8 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   CPUTimeSeconds?: number;
+  clientIp?: string;
+  cmd?: string;
   /**
    * @example
    * SELECT
@@ -77,6 +79,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * test
    */
   DBName?: string;
+  dbId?: string;
   /**
    * @example
    * rm-2zebg30mk056g****
@@ -137,6 +140,8 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * pro-test
    */
   namespace?: string;
+  nodeId?: string;
+  originTime?: string;
   /**
    * @example
    * 1
@@ -167,6 +172,8 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   queryTimeSeconds?: number;
+  requestSize?: number;
+  responseSize?: number;
   /**
    * @example
    * test
@@ -197,6 +204,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 10
    */
   rowsSent?: number;
+  rt?: number;
   /**
    * @example
    * SELECT * FROM my_table WHERE ROWNUM <= 10
@@ -259,8 +267,11 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       applicationName: 'ApplicationName',
       CPUTime: 'CPUTime',
       CPUTimeSeconds: 'CPUTimeSeconds',
+      clientIp: 'ClientIp',
+      cmd: 'Cmd',
       command: 'Command',
       DBName: 'DBName',
+      dbId: 'DbId',
       dbInstanceName: 'DbInstanceName',
       docsExamined: 'DocsExamined',
       frows: 'Frows',
@@ -273,18 +284,23 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       lockTimeSeconds: 'LockTimeSeconds',
       logicalIOReads: 'LogicalIOReads',
       namespace: 'Namespace',
+      nodeId: 'NodeId',
+      originTime: 'OriginTime',
       physicalIOReads: 'PhysicalIOReads',
       psql: 'Psql',
       queryId: 'QueryId',
       queryStartTime: 'QueryStartTime',
       queryTime: 'QueryTime',
       queryTimeSeconds: 'QueryTimeSeconds',
+      requestSize: 'RequestSize',
+      responseSize: 'ResponseSize',
       returnItemNumbers: 'ReturnItemNumbers',
       returnNum: 'ReturnNum',
       rows: 'Rows',
       rowsCountAffected: 'RowsCountAffected',
       rowsExamined: 'RowsExamined',
       rowsSent: 'RowsSent',
+      rt: 'Rt',
       SQLText: 'SQLText',
       scheme: 'Scheme',
       scnt: 'Scnt',
@@ -306,8 +322,11 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       applicationName: 'string',
       CPUTime: 'number',
       CPUTimeSeconds: 'number',
+      clientIp: 'string',
+      cmd: 'string',
       command: 'string',
       DBName: 'string',
+      dbId: 'string',
       dbInstanceName: 'string',
       docsExamined: 'string',
       frows: 'number',
@@ -320,18 +339,23 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       lockTimeSeconds: 'number',
       logicalIOReads: 'number',
       namespace: 'string',
+      nodeId: 'string',
+      originTime: 'string',
       physicalIOReads: 'number',
       psql: 'string',
       queryId: 'string',
       queryStartTime: 'string',
       queryTime: 'number',
       queryTimeSeconds: 'number',
+      requestSize: 'number',
+      responseSize: 'number',
       returnItemNumbers: 'string',
       returnNum: 'string',
       rows: 'number',
       rowsCountAffected: 'number',
       rowsExamined: 'number',
       rowsSent: 'number',
+      rt: 'number',
       SQLText: 'string',
       scheme: 'string',
       scnt: 'number',

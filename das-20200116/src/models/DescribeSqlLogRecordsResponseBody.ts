@@ -214,6 +214,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
    * 0
    */
   state?: string;
+  tableName?: string;
   /**
    * @remarks
    * The thread ID.
@@ -301,6 +302,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
       sqlText: 'SqlText',
       sqlType: 'SqlType',
       state: 'State',
+      tableName: 'TableName',
       threadId: 'ThreadId',
       traceId: 'TraceId',
       trxId: 'TrxId',
@@ -339,6 +341,7 @@ export class DescribeSqlLogRecordsResponseBodyDataItemsSQLLogRecord extends $dar
       sqlText: 'string',
       sqlType: 'string',
       state: 'string',
+      tableName: 'string',
       threadId: 'number',
       traceId: 'string',
       trxId: 'string',

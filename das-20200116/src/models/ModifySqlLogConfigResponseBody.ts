@@ -127,6 +127,7 @@ export class ModifySqlLogConfigResponseBodyData extends $dara.Model {
    * true
    */
   sqlLogEnable?: boolean;
+  sqlLogSource?: string;
   /**
    * @remarks
    * The state of data migration. Valid values:
@@ -192,6 +193,7 @@ export class ModifySqlLogConfigResponseBodyData extends $dara.Model {
       requestStopTime: 'RequestStopTime',
       retention: 'Retention',
       sqlLogEnable: 'SqlLogEnable',
+      sqlLogSource: 'SqlLogSource',
       sqlLogState: 'SqlLogState',
       sqlLogVisibleTime: 'SqlLogVisibleTime',
       supportVersion: 'SupportVersion',
@@ -214,6 +216,7 @@ export class ModifySqlLogConfigResponseBodyData extends $dara.Model {
       requestStopTime: 'number',
       retention: 'number',
       sqlLogEnable: 'boolean',
+      sqlLogSource: 'string',
       sqlLogState: 'string',
       sqlLogVisibleTime: 'number',
       supportVersion: 'string',
