@@ -90,7 +90,7 @@ export class ListApplicationResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * App listing information
@@ -141,7 +141,7 @@ export class ListApplicationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: { 'type': 'array', 'itemType': ListApplicationResponseBodyData },
       message: 'string',
       nextToken: 'number',

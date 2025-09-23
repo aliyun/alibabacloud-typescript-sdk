@@ -10,7 +10,7 @@ export class DeleteApplicationResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The error message.
@@ -37,7 +37,7 @@ export class DeleteApplicationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
     };

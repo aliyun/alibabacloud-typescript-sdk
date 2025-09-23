@@ -90,7 +90,7 @@ export class GetTokenResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The information about the token.
@@ -123,7 +123,7 @@ export class GetTokenResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: GetTokenResponseBodyData,
       message: 'string',
       requestId: 'string',

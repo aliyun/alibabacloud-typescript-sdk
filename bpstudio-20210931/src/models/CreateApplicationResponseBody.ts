@@ -10,7 +10,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The ID of the application.
@@ -46,7 +46,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: 'string',
       message: 'string',
       requestId: 'string',

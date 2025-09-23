@@ -39,7 +39,7 @@ export class ExecuteOperationSyncResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @example
    * op_xxxxxxxxxxxxxxxxxx_dds_modifyInstanceType_BYSOQGWUV6PME412_ERMEZLXNN3K9N3OL
@@ -66,7 +66,7 @@ export class ExecuteOperationSyncResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: ExecuteOperationSyncResponseBodyData,
       message: 'string',
       requestId: 'string',

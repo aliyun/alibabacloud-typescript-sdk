@@ -10,7 +10,7 @@ export class ExecuteOperationASyncResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The operation ID. You can call the GetExecuteOperationResult operation to asynchronously query the result of an operation. The ID expires after one hour.
@@ -46,7 +46,7 @@ export class ExecuteOperationASyncResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: 'string',
       message: 'string',
       requestId: 'string',

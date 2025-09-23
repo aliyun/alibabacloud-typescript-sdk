@@ -70,7 +70,7 @@ export class GetExecuteOperationResultResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The detailed result of the queried operation.
@@ -103,7 +103,7 @@ export class GetExecuteOperationResultResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: GetExecuteOperationResultResponseBodyData,
       message: 'string',
       requestId: 'string',

@@ -10,7 +10,7 @@ export class ValuateApplicationResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -46,7 +46,7 @@ export class ValuateApplicationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: 'number',
       message: 'string',
       requestId: 'string',

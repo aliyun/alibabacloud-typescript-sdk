@@ -74,7 +74,7 @@ export class GetApplicationVariablesResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   data?: GetApplicationVariablesResponseBodyData[];
   /**
    * @example
@@ -100,7 +100,7 @@ export class GetApplicationVariablesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: { 'type': 'array', 'itemType': GetApplicationVariablesResponseBodyData },
       message: 'string',
       requestId: 'string',

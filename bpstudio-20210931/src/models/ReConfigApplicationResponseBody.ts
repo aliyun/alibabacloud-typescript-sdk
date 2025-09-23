@@ -7,7 +7,7 @@ export class ReConfigApplicationResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @example
    * Success
@@ -31,7 +31,7 @@ export class ReConfigApplicationResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       message: 'string',
       requestId: 'string',
     };

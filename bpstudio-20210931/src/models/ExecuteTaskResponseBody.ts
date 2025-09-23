@@ -55,7 +55,7 @@ export class ExecuteTaskResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   data?: ExecuteTaskResponseBodyData;
   /**
    * @example
@@ -81,7 +81,7 @@ export class ExecuteTaskResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: ExecuteTaskResponseBodyData,
       message: 'string',
       requestId: 'string',

@@ -166,7 +166,7 @@ export class GetTemplateResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   /**
    * @remarks
    * The details of the template.
@@ -199,7 +199,7 @@ export class GetTemplateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: GetTemplateResponseBodyData,
       message: 'string',
       requestId: 'string',

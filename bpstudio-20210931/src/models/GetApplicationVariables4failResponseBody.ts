@@ -69,7 +69,7 @@ export class GetApplicationVariables4FailResponseBody extends $dara.Model {
    * @example
    * 200
    */
-  code?: number;
+  code?: string;
   data?: GetApplicationVariables4FailResponseBodyData[];
   /**
    * @example
@@ -95,7 +95,7 @@ export class GetApplicationVariables4FailResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'number',
+      code: 'string',
       data: { 'type': 'array', 'itemType': GetApplicationVariables4FailResponseBodyData },
       message: 'string',
       requestId: 'string',
