@@ -980,6 +980,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行迁移操作
+   * 
+   * @param request - ExecuteMigrationOperationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteMigrationOperationResponse
+   */
+  async executeMigrationOperationWithOptions(migrationId: string, stageType: string, operationId: string, request: $_model.ExecuteMigrationOperationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteMigrationOperationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operationParam)) {
+      body["operationParam"] = request.operationParam;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteMigrationOperation",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/migrations/${$dara.URL.percentEncode(migrationId)}/stages/${$dara.URL.percentEncode(stageType)}/operations/${$dara.URL.percentEncode(operationId)}/execute`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteMigrationOperationResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteMigrationOperationResponse({}));
+  }
+
+  /**
+   * 执行迁移操作
+   * 
+   * @param request - ExecuteMigrationOperationRequest
+   * @returns ExecuteMigrationOperationResponse
+   */
+  async executeMigrationOperation(migrationId: string, stageType: string, operationId: string, request: $_model.ExecuteMigrationOperationRequest): Promise<$_model.ExecuteMigrationOperationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeMigrationOperationWithOptions(migrationId, stageType, operationId, request, headers, runtime);
+  }
+
+  /**
+   * 完成当前迁移阶段
+   * 
+   * @param request - FinishMigrationStageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishMigrationStageResponse
+   */
+  async finishMigrationStageWithOptions(migrationId: string, stageType: string, request: $_model.FinishMigrationStageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.FinishMigrationStageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FinishMigrationStage",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/migrations/${$dara.URL.percentEncode(migrationId)}/stages/${$dara.URL.percentEncode(stageType)}/finish`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FinishMigrationStageResponse>(await this.callApi(params, req, runtime), new $_model.FinishMigrationStageResponse({}));
+  }
+
+  /**
+   * 完成当前迁移阶段
+   * 
+   * @param request - FinishMigrationStageRequest
+   * @returns FinishMigrationStageResponse
+   */
+  async finishMigrationStage(migrationId: string, stageType: string, request: $_model.FinishMigrationStageRequest): Promise<$_model.FinishMigrationStageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.finishMigrationStageWithOptions(migrationId, stageType, request, headers, runtime);
+  }
+
+  /**
    * Queries the details of a specified consumer group.
    * 
    * @remarks
@@ -2229,6 +2325,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMetricMetaWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询迁移操作列表
+   * 
+   * @param request - ListMigrationOperationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMigrationOperationsResponse
+   */
+  async listMigrationOperationsWithOptions(migrationId: string, stageType: string, request: $_model.ListMigrationOperationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationOperationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["operationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMigrationOperations",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/migrations/${$dara.URL.percentEncode(migrationId)}/stages/${$dara.URL.percentEncode(stageType)}/operations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMigrationOperationsResponse>(await this.callApi(params, req, runtime), new $_model.ListMigrationOperationsResponse({}));
+  }
+
+  /**
+   * 查询迁移操作列表
+   * 
+   * @param request - ListMigrationOperationsRequest
+   * @returns ListMigrationOperationsResponse
+   */
+  async listMigrationOperations(migrationId: string, stageType: string, request: $_model.ListMigrationOperationsRequest): Promise<$_model.ListMigrationOperationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMigrationOperationsWithOptions(migrationId, stageType, request, headers, runtime);
   }
 
   /**
