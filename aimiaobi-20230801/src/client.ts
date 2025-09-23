@@ -360,6 +360,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上传招标书文件
+   * 
+   * @param request - AsyncUploadTenderDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncUploadTenderDocResponse
+   */
+  async asyncUploadTenderDocWithOptions(request: $_model.AsyncUploadTenderDocRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncUploadTenderDocResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.tenderDocName)) {
+      body["TenderDocName"] = request.tenderDocName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncUploadTenderDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncUploadTenderDocResponse>(await this.callApi(params, req, runtime), new $_model.AsyncUploadTenderDocResponse({}));
+  }
+
+  /**
+   * 上传招标书文件
+   * 
+   * @param request - AsyncUploadTenderDocRequest
+   * @returns AsyncUploadTenderDocResponse
+   */
+  async asyncUploadTenderDoc(request: $_model.AsyncUploadTenderDocRequest): Promise<$_model.AsyncUploadTenderDocResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncUploadTenderDocWithOptions(request, runtime);
+  }
+
+  /**
    * 上传剪辑素材
    * 
    * @param tmpReq - AsyncUploadVideoRequest
@@ -425,6 +475,60 @@ export default class Client extends OpenApi {
   async asyncUploadVideo(request: $_model.AsyncUploadVideoRequest): Promise<$_model.AsyncUploadVideoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.asyncUploadVideoWithOptions(request, runtime);
+  }
+
+  /**
+   * 标书写作接口
+   * 
+   * @param request - AsyncWritingBiddingDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AsyncWritingBiddingDocResponse
+   */
+  async asyncWritingBiddingDocWithOptions(request: $_model.AsyncWritingBiddingDocRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AsyncWritingBiddingDocResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.companyKeyword)) {
+      body["CompanyKeyword"] = request.companyKeyword;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AsyncWritingBiddingDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AsyncWritingBiddingDocResponse>(await this.callApi(params, req, runtime), new $_model.AsyncWritingBiddingDocResponse({}));
+  }
+
+  /**
+   * 标书写作接口
+   * 
+   * @param request - AsyncWritingBiddingDocRequest
+   * @returns AsyncWritingBiddingDocResponse
+   */
+  async asyncWritingBiddingDoc(request: $_model.AsyncWritingBiddingDocRequest): Promise<$_model.AsyncWritingBiddingDocResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.asyncWritingBiddingDocWithOptions(request, runtime);
   }
 
   /**
@@ -1604,6 +1708,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 标书下载接口
+   * 
+   * @param request - DownloadBiddingDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadBiddingDocResponse
+   */
+  async downloadBiddingDocWithOptions(request: $_model.DownloadBiddingDocRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadBiddingDocResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadBiddingDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadBiddingDocResponse>(await this.callApi(params, req, runtime), new $_model.DownloadBiddingDocResponse({}));
+  }
+
+  /**
+   * 标书下载接口
+   * 
+   * @param request - DownloadBiddingDocRequest
+   * @returns DownloadBiddingDocResponse
+   */
+  async downloadBiddingDoc(request: $_model.DownloadBiddingDocRequest): Promise<$_model.DownloadBiddingDocResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadBiddingDocWithOptions(request, runtime);
+  }
+
+  /**
    * 编辑审核自定义词库记录
    * 
    * @param tmpReq - EditAuditTermsRequest
@@ -1669,6 +1819,64 @@ export default class Client extends OpenApi {
   async editAuditTerms(request: $_model.EditAuditTermsRequest): Promise<$_model.EditAuditTermsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.editAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
+   * 编辑标书内容接口
+   * 
+   * @param request - EditBiddingDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditBiddingDocResponse
+   */
+  async editBiddingDocWithOptions(request: $_model.EditBiddingDocRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EditBiddingDocResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.contentFormat)) {
+      body["ContentFormat"] = request.contentFormat;
+    }
+
+    if (!$dara.isNull(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EditBiddingDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EditBiddingDocResponse>(await this.callApi(params, req, runtime), new $_model.EditBiddingDocResponse({}));
+  }
+
+  /**
+   * 编辑标书内容接口
+   * 
+   * @param request - EditBiddingDocRequest
+   * @returns EditBiddingDocResponse
+   */
+  async editBiddingDoc(request: $_model.EditBiddingDocRequest): Promise<$_model.EditBiddingDocResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.editBiddingDocWithOptions(request, runtime);
   }
 
   /**
@@ -2713,6 +2921,98 @@ export default class Client extends OpenApi {
   async getAvailableAuditNotes(request: $_model.GetAvailableAuditNotesRequest): Promise<$_model.GetAvailableAuditNotesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAvailableAuditNotesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获得标书写作结果接口
+   * 
+   * @param request - GetBiddingDocInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBiddingDocInfoResponse
+   */
+  async getBiddingDocInfoWithOptions(request: $_model.GetBiddingDocInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBiddingDocInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBiddingDocInfo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBiddingDocInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetBiddingDocInfoResponse({}));
+  }
+
+  /**
+   * 获得标书写作结果接口
+   * 
+   * @param request - GetBiddingDocInfoRequest
+   * @returns GetBiddingDocInfoResponse
+   */
+  async getBiddingDocInfo(request: $_model.GetBiddingDocInfoRequest): Promise<$_model.GetBiddingDocInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBiddingDocInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 获得标书功能剩余额度
+   * 
+   * @param request - GetBiddingRemainLimitNumRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBiddingRemainLimitNumResponse
+   */
+  async getBiddingRemainLimitNumWithOptions(request: $_model.GetBiddingRemainLimitNumRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBiddingRemainLimitNumResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiName)) {
+      body["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBiddingRemainLimitNum",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBiddingRemainLimitNumResponse>(await this.callApi(params, req, runtime), new $_model.GetBiddingRemainLimitNumResponse({}));
+  }
+
+  /**
+   * 获得标书功能剩余额度
+   * 
+   * @param request - GetBiddingRemainLimitNumRequest
+   * @returns GetBiddingRemainLimitNumResponse
+   */
+  async getBiddingRemainLimitNum(request: $_model.GetBiddingRemainLimitNumRequest): Promise<$_model.GetBiddingRemainLimitNumResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBiddingRemainLimitNumWithOptions(request, runtime);
   }
 
   /**
@@ -4583,6 +4883,84 @@ export default class Client extends OpenApi {
   async listAuditTerms(request: $_model.ListAuditTermsRequest): Promise<$_model.ListAuditTermsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAuditTermsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获得标书写作任务列表
+   * 
+   * @param request - ListBiddingDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBiddingDocResponse
+   */
+  async listBiddingDocWithOptions(request: $_model.ListBiddingDocRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBiddingDocResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBiddingDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBiddingDocResponse>(await this.callApi(params, req, runtime), new $_model.ListBiddingDocResponse({}));
+  }
+
+  /**
+   * 获得标书写作任务列表
+   * 
+   * @param request - ListBiddingDocRequest
+   * @returns ListBiddingDocResponse
+   */
+  async listBiddingDoc(request: $_model.ListBiddingDocRequest): Promise<$_model.ListBiddingDocResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBiddingDocWithOptions(request, runtime);
   }
 
   /**
