@@ -76,6 +76,7 @@ export class Function extends $dara.Model {
    * index.handler
    */
   handler?: string;
+  idleTimeout?: number;
   /**
    * @example
    * 1
@@ -130,6 +131,10 @@ export class Function extends $dara.Model {
    */
   runtime?: string;
   sessionAffinity?: string;
+  /**
+   * @example
+   * {\"sseEndpointPath\":\"/sse\", \"sessionConcurrencyPerInstance\":20}
+   */
   sessionAffinityConfig?: string;
   /**
    * @example
@@ -173,6 +178,7 @@ export class Function extends $dara.Model {
       functionName: 'functionName',
       gpuConfig: 'gpuConfig',
       handler: 'handler',
+      idleTimeout: 'idleTimeout',
       instanceConcurrency: 'instanceConcurrency',
       instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
@@ -221,6 +227,7 @@ export class Function extends $dara.Model {
       functionName: 'string',
       gpuConfig: GPUConfig,
       handler: 'string',
+      idleTimeout: 'number',
       instanceConcurrency: 'number',
       instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,

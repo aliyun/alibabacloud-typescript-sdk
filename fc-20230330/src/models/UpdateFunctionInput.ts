@@ -45,6 +45,7 @@ export class UpdateFunctionInput extends $dara.Model {
    * index.handler
    */
   handler?: string;
+  idleTimeout?: number;
   /**
    * @example
    * 1
@@ -99,6 +100,7 @@ export class UpdateFunctionInput extends $dara.Model {
       environmentVariables: 'environmentVariables',
       gpuConfig: 'gpuConfig',
       handler: 'handler',
+      idleTimeout: 'idleTimeout',
       instanceConcurrency: 'instanceConcurrency',
       instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
@@ -132,6 +134,7 @@ export class UpdateFunctionInput extends $dara.Model {
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gpuConfig: GPUConfig,
       handler: 'string',
+      idleTimeout: 'number',
       instanceConcurrency: 'number',
       instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,

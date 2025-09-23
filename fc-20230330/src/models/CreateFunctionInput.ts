@@ -57,6 +57,7 @@ export class CreateFunctionInput extends $dara.Model {
    * index.handler
    */
   handler?: string;
+  idleTimeout?: number;
   /**
    * @example
    * 1
@@ -121,6 +122,7 @@ export class CreateFunctionInput extends $dara.Model {
       functionName: 'functionName',
       gpuConfig: 'gpuConfig',
       handler: 'handler',
+      idleTimeout: 'idleTimeout',
       instanceConcurrency: 'instanceConcurrency',
       instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
@@ -157,6 +159,7 @@ export class CreateFunctionInput extends $dara.Model {
       functionName: 'string',
       gpuConfig: GPUConfig,
       handler: 'string',
+      idleTimeout: 'number',
       instanceConcurrency: 'number',
       instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
