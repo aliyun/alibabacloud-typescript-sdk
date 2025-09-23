@@ -1,0 +1,9 @@
+export { GetAsyncJobResultResponseBodyData } from './GetAsyncJobResultResponseBody';
+export { SegmentVideoBodyResponseBodyData } from './SegmentVideoBodyResponseBody';
+export { GetAsyncJobResultRequest } from './GetAsyncJobResultRequest';
+export { GetAsyncJobResultResponseBody } from './GetAsyncJobResultResponseBody';
+export { GetAsyncJobResultResponse } from './GetAsyncJobResultResponse';
+export { SegmentVideoBodyRequest } from './SegmentVideoBodyRequest';
+export { SegmentVideoBodyAdvanceRequest } from './SegmentVideoBodyAdvanceRequest';
+export { SegmentVideoBodyResponseBody } from './SegmentVideoBodyResponseBody';
+export { SegmentVideoBodyResponse } from './SegmentVideoBodyResponse';
