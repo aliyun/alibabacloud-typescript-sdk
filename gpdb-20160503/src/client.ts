@@ -81,6 +81,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加AI节点
+   * 
+   * @param request - AddAINodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAINodeResponse
+   */
+  async addAINodeWithOptions(request: $_model.AddAINodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAINodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.AINodePoolId)) {
+      query["AINodePoolId"] = request.AINodePoolId;
+    }
+
+    if (!$dara.isNull(request.AINodeSpecInfos)) {
+      query["AINodeSpecInfos"] = request.AINodeSpecInfos;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAINode",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddAINodeResponse>(await this.callApi(params, req, runtime), new $_model.AddAINodeResponse({}));
+  }
+
+  /**
+   * 添加AI节点
+   * 
+   * @param request - AddAINodeRequest
+   * @returns AddAINodeResponse
+   */
+  async addAINode(request: $_model.AddAINodeRequest): Promise<$_model.AddAINodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAINodeWithOptions(request, runtime);
+  }
+
+  /**
    * Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -1797,6 +1847,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模型服务
+   * 
+   * @param tmpReq - CreateModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelServiceResponse
+   */
+  async createModelServiceWithOptions(tmpReq: $_model.CreateModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelServiceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateModelServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.aiNodes)) {
+      request.aiNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aiNodes, "AiNodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modelParams)) {
+      request.modelParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelParams, "ModelParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.aiNodesShrink)) {
+      query["AiNodes"] = request.aiNodesShrink;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enablePublicConnection)) {
+      query["EnablePublicConnection"] = request.enablePublicConnection;
+    }
+
+    if (!$dara.isNull(request.inferenceEngine)) {
+      query["InferenceEngine"] = request.inferenceEngine;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelParamsShrink)) {
+      query["ModelParams"] = request.modelParamsShrink;
+    }
+
+    if (!$dara.isNull(request.replicas)) {
+      query["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelServiceResponse({}));
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - CreateModelServiceRequest
+   * @returns CreateModelServiceResponse
+   */
+  async createModelService(request: $_model.CreateModelServiceRequest): Promise<$_model.CreateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a vector namespace.
    * 
    * @param request - CreateNamespaceRequest
@@ -2562,6 +2706,60 @@ export default class Client extends OpenApi {
   async createVectorIndex(request: $_model.CreateVectorIndexRequest): Promise<$_model.CreateVectorIndexResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createVectorIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除AI节点
+   * 
+   * @param request - DeleteAINodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAINodeResponse
+   */
+  async deleteAINodeWithOptions(request: $_model.DeleteAINodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAINodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.AINodeNum)) {
+      query["AINodeNum"] = request.AINodeNum;
+    }
+
+    if (!$dara.isNull(request.AINodePoolId)) {
+      query["AINodePoolId"] = request.AINodePoolId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.nodeNames)) {
+      query["NodeNames"] = request.nodeNames;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAINode",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAINodeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAINodeResponse({}));
+  }
+
+  /**
+   * 删除AI节点
+   * 
+   * @param request - DeleteAINodeRequest
+   * @returns DeleteAINodeResponse
+   */
+  async deleteAINode(request: $_model.DeleteAINodeRequest): Promise<$_model.DeleteAINodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAINodeWithOptions(request, runtime);
   }
 
   /**
@@ -3372,6 +3570,52 @@ export default class Client extends OpenApi {
   async deleteJDBCDataSource(request: $_model.DeleteJDBCDataSourceRequest): Promise<$_model.DeleteJDBCDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteJDBCDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelServiceWithOptions(request: $_model.DeleteModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelServiceResponse({}));
+  }
+
+  /**
+   * 删除模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelService(request: $_model.DeleteModelServiceRequest): Promise<$_model.DeleteModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelServiceWithOptions(request, runtime);
   }
 
   /**
@@ -6575,6 +6819,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模型服务
+   * 
+   * @param request - DescribeModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelServiceResponse
+   */
+  async describeModelServiceWithOptions(request: $_model.DescribeModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelServiceResponse({}));
+  }
+
+  /**
+   * 查询模型服务
+   * 
+   * @param request - DescribeModelServiceRequest
+   * @returns DescribeModelServiceResponse
+   */
+  async describeModelService(request: $_model.DescribeModelServiceRequest): Promise<$_model.DescribeModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
    * 
    * @param request - DescribeModifyParameterLogRequest
@@ -9115,6 +9405,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举AI节点池
+   * 
+   * @param request - ListAINodePoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAINodePoolsResponse
+   */
+  async listAINodePoolsWithOptions(request: $_model.ListAINodePoolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAINodePoolsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAINodePools",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAINodePoolsResponse>(await this.callApi(params, req, runtime), new $_model.ListAINodePoolsResponse({}));
+  }
+
+  /**
+   * 列举AI节点池
+   * 
+   * @param request - ListAINodePoolsRequest
+   * @returns ListAINodePoolsResponse
+   */
+  async listAINodePools(request: $_model.ListAINodePoolsRequest): Promise<$_model.ListAINodePoolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAINodePoolsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取备份任务列表
    * 
    * @param request - ListBackupJobsRequest
@@ -9653,6 +9989,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模型服务
+   * 
+   * @param request - ListModelServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelServicesResponse
+   */
+  async listModelServicesWithOptions(request: $_model.ListModelServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelServicesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelServices",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelServicesResponse({}));
+  }
+
+  /**
+   * 查询模型服务
+   * 
+   * @param request - ListModelServicesRequest
+   * @returns ListModelServicesResponse
+   */
+  async listModelServices(request: $_model.ListModelServicesRequest): Promise<$_model.ListModelServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelServicesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of namespaces.
    * 
    * @param request - ListNamespacesRequest
@@ -10098,6 +10488,48 @@ export default class Client extends OpenApi {
   async listSupabaseProjects(request: $_model.ListSupabaseProjectsRequest): Promise<$_model.ListSupabaseProjectsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSupabaseProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取支持的模型列表
+   * 
+   * @param request - ListSupportModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupportModelsResponse
+   */
+  async listSupportModelsWithOptions(request: $_model.ListSupportModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupportModelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupportModels",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupportModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListSupportModelsResponse({}));
+  }
+
+  /**
+   * 获取支持的模型列表
+   * 
+   * @param request - ListSupportModelsRequest
+   * @returns ListSupportModelsResponse
+   */
+  async listSupportModels(request: $_model.ListSupportModelsRequest): Promise<$_model.ListSupportModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupportModelsWithOptions(request, runtime);
   }
 
   /**

@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateCollectionRequestSparseVectorIndexConfig extends $dara.Model {
   hnswEfConstruction?: number;
   hnswM?: number;
