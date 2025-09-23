@@ -32,6 +32,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
    * zhitian
    */
   voice?: string;
+  voiceSource?: string;
   /**
    * @remarks
    * The speaker type.
@@ -63,6 +64,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
       supportSampleRate: 'SupportSampleRate',
       tag: 'Tag',
       voice: 'Voice',
+      voiceSource: 'VoiceSource',
       voiceType: 'VoiceType',
       voiceUrl: 'VoiceUrl',
     };
@@ -76,6 +78,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $dara.
       supportSampleRate: 'string',
       tag: 'string',
       voice: 'string',
+      voiceSource: 'string',
       voiceType: 'string',
       voiceUrl: 'string',
     };
