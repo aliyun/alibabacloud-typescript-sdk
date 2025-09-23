@@ -4,6 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class BatchTranslateRequestExtConfig extends $dara.Model {
+  skipCsiCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      skipCsiCheck: 'skipCsiCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipCsiCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchTranslateRequestExtExamples extends $dara.Model {
   src?: string;
   /**
@@ -106,6 +129,7 @@ export class BatchTranslateRequestExtTextTransform extends $dara.Model {
 }
 
 export class BatchTranslateRequestExt extends $dara.Model {
+  config?: BatchTranslateRequestExtConfig;
   /**
    * @example
    * technology
@@ -117,6 +141,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
   textTransform?: BatchTranslateRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
       sensitives: 'sensitives',
@@ -127,6 +152,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: BatchTranslateRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': BatchTranslateRequestExtExamples },
       sensitives: { 'type': 'array', 'itemType': 'string' },
@@ -136,6 +162,9 @@ export class BatchTranslateRequestExt extends $dara.Model {
   }
 
   validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
     if(Array.isArray(this.examples)) {
       $dara.Model.validateArray(this.examples);
     }
@@ -157,6 +186,7 @@ export class BatchTranslateRequestExt extends $dara.Model {
 }
 
 export class BatchTranslateRequest extends $dara.Model {
+  appName?: string;
   ext?: BatchTranslateRequestExt;
   /**
    * @example
@@ -199,6 +229,7 @@ export class BatchTranslateRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      appName: 'appName',
       ext: 'ext',
       format: 'format',
       scene: 'scene',
@@ -211,6 +242,7 @@ export class BatchTranslateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appName: 'string',
       ext: BatchTranslateRequestExt,
       format: 'string',
       scene: 'string',

@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitLongTextTranslateTaskRequestExtConfig extends $dara.Model {
+  skipCsiCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      skipCsiCheck: 'skipCsiCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipCsiCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitLongTextTranslateTaskRequestExtExamples extends $dara.Model {
   src?: string;
   /**
@@ -104,6 +127,7 @@ export class SubmitLongTextTranslateTaskRequestExtTextTransform extends $dara.Mo
 }
 
 export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
+  config?: SubmitLongTextTranslateTaskRequestExtConfig;
   /**
    * @example
    * technology
@@ -115,6 +139,7 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
   textTransform?: SubmitLongTextTranslateTaskRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
       sensitives: 'sensitives',
@@ -125,6 +150,7 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: SubmitLongTextTranslateTaskRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': SubmitLongTextTranslateTaskRequestExtExamples },
       sensitives: { 'type': 'array', 'itemType': 'string' },
@@ -134,6 +160,9 @@ export class SubmitLongTextTranslateTaskRequestExt extends $dara.Model {
   }
 
   validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
     if(Array.isArray(this.examples)) {
       $dara.Model.validateArray(this.examples);
     }

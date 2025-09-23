@@ -2,36 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitDocTranslateTaskRequestExtExamples extends $dara.Model {
-  src?: string;
-  /**
-   * @example
-   * llm
-   */
-  tgt?: string;
-  static names(): { [key: string]: string } {
-    return {
-      src: 'src',
-      tgt: 'tgt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      src: 'string',
-      tgt: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitDocTranslateTaskRequestExtTerminologies extends $dara.Model {
   src?: string;
   /**
@@ -62,89 +32,30 @@ export class SubmitDocTranslateTaskRequestExtTerminologies extends $dara.Model {
   }
 }
 
-export class SubmitDocTranslateTaskRequestExtTextTransform extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  toLower?: boolean;
-  /**
-   * @example
-   * false
-   */
-  toTitle?: boolean;
-  /**
-   * @example
-   * true
-   */
-  toUpper?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      toLower: 'toLower',
-      toTitle: 'toTitle',
-      toUpper: 'toUpper',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      toLower: 'boolean',
-      toTitle: 'boolean',
-      toUpper: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
   /**
    * @example
    * This text comes from a rigorous academic paper. Please provide a translation that complies with academic standards.
    */
   domainHint?: string;
-  examples?: SubmitDocTranslateTaskRequestExtExamples[];
-  sensitives?: string[];
   terminologies?: SubmitDocTranslateTaskRequestExtTerminologies[];
-  textTransform?: SubmitDocTranslateTaskRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
       domainHint: 'domainHint',
-      examples: 'examples',
-      sensitives: 'sensitives',
       terminologies: 'terminologies',
-      textTransform: 'textTransform',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainHint: 'string',
-      examples: { 'type': 'array', 'itemType': SubmitDocTranslateTaskRequestExtExamples },
-      sensitives: { 'type': 'array', 'itemType': 'string' },
       terminologies: { 'type': 'array', 'itemType': SubmitDocTranslateTaskRequestExtTerminologies },
-      textTransform: SubmitDocTranslateTaskRequestExtTextTransform,
     };
   }
 
   validate() {
-    if(Array.isArray(this.examples)) {
-      $dara.Model.validateArray(this.examples);
-    }
-    if(Array.isArray(this.sensitives)) {
-      $dara.Model.validateArray(this.sensitives);
-    }
     if(Array.isArray(this.terminologies)) {
       $dara.Model.validateArray(this.terminologies);
-    }
-    if(this.textTransform && typeof (this.textTransform as any).validate === 'function') {
-      (this.textTransform as any).validate();
     }
     super.validate();
   }

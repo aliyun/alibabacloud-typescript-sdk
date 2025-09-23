@@ -1,3 +1,4 @@
+export { BatchTranslateRequestExtConfig } from './BatchTranslateRequest';
 export { BatchTranslateRequestExtExamples } from './BatchTranslateRequest';
 export { BatchTranslateRequestExtTerminologies } from './BatchTranslateRequest';
 export { BatchTranslateRequestExtTextTransform } from './BatchTranslateRequest';
@@ -20,11 +21,10 @@ export { GetImageTranslateTaskResponseBodyDataTranslation } from './GetImageTran
 export { GetImageTranslateTaskResponseBodyData } from './GetImageTranslateTaskResponseBody';
 export { GetLongTextTranslateTaskResponseBodyDataUsage } from './GetLongTextTranslateTaskResponseBody';
 export { GetLongTextTranslateTaskResponseBodyData } from './GetLongTextTranslateTaskResponseBody';
-export { SubmitDocTranslateTaskRequestExtExamples } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskRequestExtTerminologies } from './SubmitDocTranslateTaskRequest';
-export { SubmitDocTranslateTaskRequestExtTextTransform } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskRequestExt } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskResponseBodyData } from './SubmitDocTranslateTaskResponseBody';
+export { SubmitHtmlTranslateTaskRequestExtConfig } from './SubmitHtmlTranslateTaskRequest';
 export { SubmitHtmlTranslateTaskRequestExtExamples } from './SubmitHtmlTranslateTaskRequest';
 export { SubmitHtmlTranslateTaskRequestExtTerminologies } from './SubmitHtmlTranslateTaskRequest';
 export { SubmitHtmlTranslateTaskRequestExtTextTransform } from './SubmitHtmlTranslateTaskRequest';
@@ -35,6 +35,7 @@ export { SubmitImageTranslateTaskRequestExtTerminologies } from './SubmitImageTr
 export { SubmitImageTranslateTaskRequestExtTextTransform } from './SubmitImageTranslateTaskRequest';
 export { SubmitImageTranslateTaskRequestExt } from './SubmitImageTranslateTaskRequest';
 export { SubmitImageTranslateTaskResponseBodyData } from './SubmitImageTranslateTaskResponseBody';
+export { SubmitLongTextTranslateTaskRequestExtConfig } from './SubmitLongTextTranslateTaskRequest';
 export { SubmitLongTextTranslateTaskRequestExtExamples } from './SubmitLongTextTranslateTaskRequest';
 export { SubmitLongTextTranslateTaskRequestExtTerminologies } from './SubmitLongTextTranslateTaskRequest';
 export { SubmitLongTextTranslateTaskRequestExtTextTransform } from './SubmitLongTextTranslateTaskRequest';
@@ -46,6 +47,7 @@ export { TermEditResponseBodyDataTerms } from './TermEditResponseBody';
 export { TermEditResponseBodyData } from './TermEditResponseBody';
 export { TermQueryResponseBodyDataTerms } from './TermQueryResponseBody';
 export { TermQueryResponseBodyData } from './TermQueryResponseBody';
+export { TextTranslateRequestExtConfig } from './TextTranslateRequest';
 export { TextTranslateRequestExtExamples } from './TextTranslateRequest';
 export { TextTranslateRequestExtTerminologies } from './TextTranslateRequest';
 export { TextTranslateRequestExtTextTransform } from './TextTranslateRequest';

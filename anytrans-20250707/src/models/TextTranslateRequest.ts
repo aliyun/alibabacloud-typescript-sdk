@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class TextTranslateRequestExtConfig extends $dara.Model {
+  skipCsiCheck?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      skipCsiCheck: 'skipCsiCheck',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipCsiCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TextTranslateRequestExtExamples extends $dara.Model {
   src?: string;
   /**
@@ -104,6 +127,7 @@ export class TextTranslateRequestExtTextTransform extends $dara.Model {
 }
 
 export class TextTranslateRequestExt extends $dara.Model {
+  config?: TextTranslateRequestExtConfig;
   /**
    * @example
    * technology
@@ -115,6 +139,7 @@ export class TextTranslateRequestExt extends $dara.Model {
   textTransform?: TextTranslateRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
       sensitives: 'sensitives',
@@ -125,6 +150,7 @@ export class TextTranslateRequestExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: TextTranslateRequestExtConfig,
       domainHint: 'string',
       examples: { 'type': 'array', 'itemType': TextTranslateRequestExtExamples },
       sensitives: { 'type': 'array', 'itemType': 'string' },
@@ -134,6 +160,9 @@ export class TextTranslateRequestExt extends $dara.Model {
   }
 
   validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
     if(Array.isArray(this.examples)) {
       $dara.Model.validateArray(this.examples);
     }

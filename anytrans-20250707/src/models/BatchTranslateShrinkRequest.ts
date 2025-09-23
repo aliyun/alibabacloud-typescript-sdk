@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchTranslateShrinkRequest extends $dara.Model {
+  appName?: string;
   extShrink?: string;
   /**
    * @example
@@ -45,6 +46,7 @@ export class BatchTranslateShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      appName: 'appName',
       extShrink: 'ext',
       format: 'format',
       scene: 'scene',
@@ -57,6 +59,7 @@ export class BatchTranslateShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appName: 'string',
       extShrink: 'string',
       format: 'string',
       scene: 'string',

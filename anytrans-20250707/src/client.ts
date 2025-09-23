@@ -50,6 +50,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["appName"] = request.appName;
+    }
+
     if (!$dara.isNull(request.extShrink)) {
       body["ext"] = request.extShrink;
     }
