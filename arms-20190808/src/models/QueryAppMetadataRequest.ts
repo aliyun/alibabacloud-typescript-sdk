@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAppMetadataRequest extends $dara.Model {
+  endTimeMs?: number;
   /**
    * @remarks
    * The metadata IDs. Separate multiple IDs with commas (,).
@@ -48,21 +49,26 @@ export class QueryAppMetadataRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  startTimeMs?: number;
   static names(): { [key: string]: string } {
     return {
+      endTimeMs: 'EndTimeMs',
       metaIds: 'MetaIds',
       metaType: 'MetaType',
       pid: 'Pid',
       regionId: 'RegionId',
+      startTimeMs: 'StartTimeMs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTimeMs: 'number',
       metaIds: 'string',
       metaType: 'string',
       pid: 'string',
       regionId: 'string',
+      startTimeMs: 'number',
     };
   }
 
