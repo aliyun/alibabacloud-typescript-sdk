@@ -618,6 +618,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+   * 
+   * @param tmpReq - ConfigureResultExportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigureResultExportResponse
+   */
+  async configureResultExportWithOptions(tmpReq: $_model.ConfigureResultExportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigureResultExportResponse> {
+    tmpReq.validate();
+    let request = new $_model.ConfigureResultExportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ossInfo)) {
+      request.ossInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ossInfo, "OssInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.slsInfo)) {
+      request.slsInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.slsInfo, "SlsInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.exportType)) {
+      body["ExportType"] = request.exportType;
+    }
+
+    if (!$dara.isNull(request.ossInfoShrink)) {
+      body["OssInfo"] = request.ossInfoShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.slsInfoShrink)) {
+      body["SlsInfo"] = request.slsInfoShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigureResultExport",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigureResultExportResponse>(await this.callApi(params, req, runtime), new $_model.ConfigureResultExportResponse({}));
+  }
+
+  /**
+   * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+   * 
+   * @param request - ConfigureResultExportRequest
+   * @returns ConfigureResultExportResponse
+   */
+  async configureResultExport(request: $_model.ConfigureResultExportRequest): Promise<$_model.ConfigureResultExportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configureResultExportWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an AnalyticDB Pipeline Service (APS) job.
    * 
    * @remarks
@@ -1406,6 +1474,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 手动创建备份集
+   * 
+   * @param request - CreateBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupResponse
+   */
+  async createBackupWithOptions(request: $_model.CreateBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBackupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBackup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBackupResponse>(await this.callApi(params, req, runtime), new $_model.CreateBackupResponse({}));
+  }
+
+  /**
+   * 手动创建备份集
+   * 
+   * @param request - CreateBackupRequest
+   * @returns CreateBackupResponse
+   */
+  async createBackup(request: $_model.CreateBackupRequest): Promise<$_model.CreateBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBackupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
@@ -1448,6 +1578,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableDefaultResourcePool)) {
       query["EnableDefaultResourcePool"] = request.enableDefaultResourcePool;
+    }
+
+    if (!$dara.isNull(request.enableSSL)) {
+      query["EnableSSL"] = request.enableSSL;
     }
 
     if (!$dara.isNull(request.kmsId)) {
@@ -7431,6 +7565,56 @@ export default class Client extends OpenApi {
   async describeResourceGroupSpec(request: $_model.DescribeResourceGroupSpecRequest): Promise<$_model.DescribeResourceGroupSpecResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeResourceGroupSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户配置的导出信息
+   * 
+   * @param request - DescribeResultExportConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResultExportConfigResponse
+   */
+  async describeResultExportConfigWithOptions(request: $_model.DescribeResultExportConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResultExportConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.exportType)) {
+      query["ExportType"] = request.exportType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResultExportConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResultExportConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResultExportConfigResponse({}));
+  }
+
+  /**
+   * 获取用户配置的导出信息
+   * 
+   * @param request - DescribeResultExportConfigRequest
+   * @returns DescribeResultExportConfigResponse
+   */
+  async describeResultExportConfig(request: $_model.DescribeResultExportConfigRequest): Promise<$_model.DescribeResultExportConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResultExportConfigWithOptions(request, runtime);
   }
 
   /**

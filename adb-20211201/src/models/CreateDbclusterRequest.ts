@@ -125,6 +125,7 @@ export class CreateDBClusterRequest extends $dara.Model {
    * true
    */
   enableDefaultResourcePool?: boolean;
+  enableSSL?: boolean;
   /**
    * @remarks
    * The ID of the key that is used to encrypt disk data.
@@ -344,6 +345,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       DBClusterVersion: 'DBClusterVersion',
       diskEncryption: 'DiskEncryption',
       enableDefaultResourcePool: 'EnableDefaultResourcePool',
+      enableSSL: 'EnableSSL',
       kmsId: 'KmsId',
       payType: 'PayType',
       period: 'Period',
@@ -377,6 +379,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       DBClusterVersion: 'string',
       diskEncryption: 'boolean',
       enableDefaultResourcePool: 'boolean',
+      enableSSL: 'boolean',
       kmsId: 'string',
       payType: 'string',
       period: 'string',

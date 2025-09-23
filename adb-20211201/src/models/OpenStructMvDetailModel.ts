@@ -37,10 +37,13 @@ export class OpenStructMvDetailModelBaseTableInfos extends $dara.Model {
 export class OpenStructMvDetailModel extends $dara.Model {
   baseTableInfos?: OpenStructMvDetailModelBaseTableInfos[];
   baseTableNames?: string[][];
+  enableDelayAlert?: number;
+  enableFailureAlert?: number;
   explicitHit?: number;
   firstRefreshTime?: string;
   implicitHit?: number;
   isInactive?: boolean;
+  latencyTolerance?: number;
   localSize?: number;
   queryRewriteEnabled?: boolean;
   refreshInterval?: string;
@@ -53,10 +56,13 @@ export class OpenStructMvDetailModel extends $dara.Model {
     return {
       baseTableInfos: 'BaseTableInfos',
       baseTableNames: 'BaseTableNames',
+      enableDelayAlert: 'EnableDelayAlert',
+      enableFailureAlert: 'EnableFailureAlert',
       explicitHit: 'ExplicitHit',
       firstRefreshTime: 'FirstRefreshTime',
       implicitHit: 'ImplicitHit',
       isInactive: 'IsInactive',
+      latencyTolerance: 'LatencyTolerance',
       localSize: 'LocalSize',
       queryRewriteEnabled: 'QueryRewriteEnabled',
       refreshInterval: 'RefreshInterval',
@@ -72,10 +78,13 @@ export class OpenStructMvDetailModel extends $dara.Model {
     return {
       baseTableInfos: { 'type': 'array', 'itemType': OpenStructMvDetailModelBaseTableInfos },
       baseTableNames: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+      enableDelayAlert: 'number',
+      enableFailureAlert: 'number',
       explicitHit: 'number',
       firstRefreshTime: 'string',
       implicitHit: 'number',
       isInactive: 'boolean',
+      latencyTolerance: 'number',
       localSize: 'number',
       queryRewriteEnabled: 'boolean',
       refreshInterval: 'string',

@@ -6,16 +6,22 @@ export class OpenStructMvRecommendTaskModel extends $dara.Model {
   createdTime?: string;
   description?: string;
   lastRunAt?: string;
+  minRewriteQueryCount?: number;
+  minRewriteQueryPattern?: number;
   scanQueriesRange?: number;
   schedulingSettings?: string;
+  slowQueryThreshold?: number;
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'CreatedTime',
       description: 'Description',
       lastRunAt: 'LastRunAt',
+      minRewriteQueryCount: 'MinRewriteQueryCount',
+      minRewriteQueryPattern: 'MinRewriteQueryPattern',
       scanQueriesRange: 'ScanQueriesRange',
       schedulingSettings: 'SchedulingSettings',
+      slowQueryThreshold: 'SlowQueryThreshold',
       taskName: 'TaskName',
     };
   }
@@ -25,8 +31,11 @@ export class OpenStructMvRecommendTaskModel extends $dara.Model {
       createdTime: 'string',
       description: 'string',
       lastRunAt: 'string',
+      minRewriteQueryCount: 'number',
+      minRewriteQueryPattern: 'number',
       scanQueriesRange: 'number',
       schedulingSettings: 'string',
+      slowQueryThreshold: 'number',
       taskName: 'string',
     };
   }
