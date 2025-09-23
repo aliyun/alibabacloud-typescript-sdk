@@ -1,245 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class RevokeFeedbackRequest extends $tea.Model {
-  sampleType?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sampleType: 'SampleType',
-      value: 'Value',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      sampleType: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeFeedbackResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RevokeFeedbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeFeedbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RevokeFeedbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFeedbackRequest extends $tea.Model {
-  riskLabel?: string;
-  sampleType?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      riskLabel: 'RiskLabel',
-      sampleType: 'SampleType',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskLabel: 'string',
-      sampleType: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFeedbackResponseBody extends $tea.Model {
-  code?: number;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendFeedbackResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendFeedbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SendFeedbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadSampleApiRequest extends $tea.Model {
-  dataType?: string;
-  dataValue?: string;
-  sampleType?: string;
-  service?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataType: 'DataType',
-      dataValue: 'DataValue',
-      sampleType: 'SampleType',
-      service: 'Service',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataType: 'string',
-      dataValue: 'string',
-      sampleType: 'string',
-      service: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadSampleApiResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UploadSampleApiResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UploadSampleApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UploadSampleApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -248,32 +18,39 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async revokeFeedbackWithOptions(request: RevokeFeedbackRequest, runtime: $Util.RuntimeOptions): Promise<RevokeFeedbackResponse> {
-    Util.validateModel(request);
+  /**
+   * Used for external deletion of community samples in risk identification services.
+   * 
+   * @param request - RevokeFeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeFeedbackResponse
+   */
+  async revokeFeedbackWithOptions(request: $_model.RevokeFeedbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeFeedbackResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.sampleType)) {
+    if (!$dara.isNull(request.sampleType)) {
       body["SampleType"] = request.sampleType;
     }
 
-    if (!Util.isUnset(request.value)) {
+    if (!$dara.isNull(request.value)) {
       body["Value"] = request.value;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RevokeFeedback",
       version: "2021-01-12",
       protocol: "HTTPS",
@@ -284,33 +61,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RevokeFeedbackResponse>(await this.callApi(params, req, runtime), new RevokeFeedbackResponse({}));
+    return $dara.cast<$_model.RevokeFeedbackResponse>(await this.callApi(params, req, runtime), new $_model.RevokeFeedbackResponse({}));
   }
 
-  async revokeFeedback(request: RevokeFeedbackRequest): Promise<RevokeFeedbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Used for external deletion of community samples in risk identification services.
+   * 
+   * @param request - RevokeFeedbackRequest
+   * @returns RevokeFeedbackResponse
+   */
+  async revokeFeedback(request: $_model.RevokeFeedbackRequest): Promise<$_model.RevokeFeedbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeFeedbackWithOptions(request, runtime);
   }
 
-  async sendFeedbackWithOptions(request: SendFeedbackRequest, runtime: $Util.RuntimeOptions): Promise<SendFeedbackResponse> {
-    Util.validateModel(request);
+  /**
+   * Used for the external creation of community samples in risk identification services.
+   * 
+   * @param request - SendFeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendFeedbackResponse
+   */
+  async sendFeedbackWithOptions(request: $_model.SendFeedbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendFeedbackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.riskLabel)) {
+    if (!$dara.isNull(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.riskLabel)) {
       query["RiskLabel"] = request.riskLabel;
     }
 
-    if (!Util.isUnset(request.sampleType)) {
+    if (!$dara.isNull(request.sampleType)) {
       query["SampleType"] = request.sampleType;
     }
 
-    if (!Util.isUnset(request.value)) {
+    if (!$dara.isNull(request.value)) {
       query["Value"] = request.value;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendFeedback",
       version: "2021-01-12",
       protocol: "HTTPS",
@@ -321,37 +115,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendFeedbackResponse>(await this.callApi(params, req, runtime), new SendFeedbackResponse({}));
+    return $dara.cast<$_model.SendFeedbackResponse>(await this.callApi(params, req, runtime), new $_model.SendFeedbackResponse({}));
   }
 
-  async sendFeedback(request: SendFeedbackRequest): Promise<SendFeedbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Used for the external creation of community samples in risk identification services.
+   * 
+   * @param request - SendFeedbackRequest
+   * @returns SendFeedbackResponse
+   */
+  async sendFeedback(request: $_model.SendFeedbackRequest): Promise<$_model.SendFeedbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendFeedbackWithOptions(request, runtime);
   }
 
-  async uploadSampleApiWithOptions(request: UploadSampleApiRequest, runtime: $Util.RuntimeOptions): Promise<UploadSampleApiResponse> {
-    Util.validateModel(request);
+  /**
+   * Single User API for Sample Creation
+   * 
+   * @param request - UploadSampleApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadSampleApiResponse
+   */
+  async uploadSampleApiWithOptions(request: $_model.UploadSampleApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadSampleApiResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dataType)) {
+    if (!$dara.isNull(request.dataType)) {
       query["DataType"] = request.dataType;
     }
 
-    if (!Util.isUnset(request.dataValue)) {
+    if (!$dara.isNull(request.dataValue)) {
       query["DataValue"] = request.dataValue;
     }
 
-    if (!Util.isUnset(request.sampleType)) {
+    if (!$dara.isNull(request.sampleType)) {
       query["SampleType"] = request.sampleType;
     }
 
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       query["Service"] = request.service;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UploadSampleApi",
       version: "2021-01-12",
       protocol: "HTTPS",
@@ -362,11 +169,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadSampleApiResponse>(await this.callApi(params, req, runtime), new UploadSampleApiResponse({}));
+    return $dara.cast<$_model.UploadSampleApiResponse>(await this.callApi(params, req, runtime), new $_model.UploadSampleApiResponse({}));
   }
 
-  async uploadSampleApi(request: UploadSampleApiRequest): Promise<UploadSampleApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Single User API for Sample Creation
+   * 
+   * @param request - UploadSampleApiRequest
+   * @returns UploadSampleApiResponse
+   */
+  async uploadSampleApi(request: $_model.UploadSampleApiRequest): Promise<$_model.UploadSampleApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadSampleApiWithOptions(request, runtime);
   }
 
