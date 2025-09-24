@@ -14,6 +14,7 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
    * MultimodalIntelligentTag
    */
   configType?: string;
+  datasetVersion?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -41,6 +42,7 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       configType: 'ConfigType',
+      datasetVersion: 'DatasetVersion',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       workspaceId: 'WorkspaceId',
@@ -50,6 +52,7 @@ export class ListDatasetJobConfigsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       configType: 'string',
+      datasetVersion: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       workspaceId: 'string',

@@ -36,6 +36,7 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
    * MultimodalIntelligentTag
    */
   configType?: string;
+  datasetVersion?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -50,6 +51,7 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
     return {
       config: 'Config',
       configType: 'ConfigType',
+      datasetVersion: 'DatasetVersion',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -58,6 +60,7 @@ export class CreateDatasetJobConfigRequest extends $dara.Model {
     return {
       config: 'string',
       configType: 'string',
+      datasetVersion: 'string',
       workspaceId: 'string',
     };
   }

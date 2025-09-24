@@ -25,6 +25,11 @@ export class Model extends $dara.Model {
    * @example
    * 2021-01-21T17:12:35Z
    */
+  gmtLatestVersionModifiedTime?: string;
+  /**
+   * @example
+   * 2021-01-21T17:12:35Z
+   */
   gmtModifiedTime?: string;
   labels?: Label[];
   latestVersion?: ModelVersion;
@@ -62,6 +67,11 @@ export class Model extends $dara.Model {
   ownerId?: string;
   /**
    * @example
+   * 1024
+   */
+  parameterSize?: number;
+  /**
+   * @example
    * pai
    */
   provider?: string;
@@ -87,6 +97,7 @@ export class Model extends $dara.Model {
       domain: 'Domain',
       extraInfo: 'ExtraInfo',
       gmtCreateTime: 'GmtCreateTime',
+      gmtLatestVersionModifiedTime: 'GmtLatestVersionModifiedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
       latestVersion: 'LatestVersion',
@@ -98,6 +109,7 @@ export class Model extends $dara.Model {
       orderNumber: 'OrderNumber',
       origin: 'Origin',
       ownerId: 'OwnerId',
+      parameterSize: 'ParameterSize',
       provider: 'Provider',
       tags: 'Tags',
       task: 'Task',
@@ -112,6 +124,7 @@ export class Model extends $dara.Model {
       domain: 'string',
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreateTime: 'string',
+      gmtLatestVersionModifiedTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
       latestVersion: ModelVersion,
@@ -123,6 +136,7 @@ export class Model extends $dara.Model {
       orderNumber: 'number',
       origin: 'string',
       ownerId: 'string',
+      parameterSize: 'number',
       provider: 'string',
       tags: { 'type': 'array', 'itemType': Label },
       task: 'string',

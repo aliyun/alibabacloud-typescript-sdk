@@ -730,6 +730,10 @@ export default class Client extends OpenApi {
       body["ConfigType"] = request.configType;
     }
 
+    if (!$dara.isNull(request.datasetVersion)) {
+      body["DatasetVersion"] = request.datasetVersion;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -1106,6 +1110,10 @@ export default class Client extends OpenApi {
       body["Origin"] = request.origin;
     }
 
+    if (!$dara.isNull(request.parameterSize)) {
+      body["ParameterSize"] = request.parameterSize;
+    }
+
     if (!$dara.isNull(request.tag)) {
       body["Tag"] = request.tag;
     }
@@ -1210,6 +1218,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.compressionSpec)) {
       body["CompressionSpec"] = request.compressionSpec;
+    }
+
+    if (!$dara.isNull(request.distillationSpec)) {
+      body["DistillationSpec"] = request.distillationSpec;
     }
 
     if (!$dara.isNull(request.evaluationSpec)) {
@@ -3446,6 +3458,10 @@ export default class Client extends OpenApi {
       query["ConnectionTypes"] = request.connectionTypesShrink;
     }
 
+    if (!$dara.isNull(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
     if (!$dara.isNull(request.encryptOption)) {
       query["EncryptOption"] = request.encryptOption;
     }
@@ -3524,6 +3540,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListDatasetFileMetasShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryContentTypeIncludeAny)) {
+      request.queryContentTypeIncludeAnyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryContentTypeIncludeAny, "QueryContentTypeIncludeAny", "simple");
+    }
+
     if (!$dara.isNull(tmpReq.queryFileTypeIncludeAny)) {
       request.queryFileTypeIncludeAnyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryFileTypeIncludeAny, "QueryFileTypeIncludeAny", "simple");
     }
@@ -3567,6 +3587,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryContentTypeIncludeAnyShrink)) {
+      query["QueryContentTypeIncludeAny"] = request.queryContentTypeIncludeAnyShrink;
+    }
+
+    if (!$dara.isNull(request.queryExpression)) {
+      query["QueryExpression"] = request.queryExpression;
     }
 
     if (!$dara.isNull(request.queryFileDir)) {
@@ -3678,6 +3706,10 @@ export default class Client extends OpenApi {
       query["ConfigType"] = request.configType;
     }
 
+    if (!$dara.isNull(request.datasetVersion)) {
+      query["DatasetVersion"] = request.datasetVersion;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -3739,12 +3771,24 @@ export default class Client extends OpenApi {
       query["JobAction"] = request.jobAction;
     }
 
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -3869,12 +3913,20 @@ export default class Client extends OpenApi {
   async listDatasetsWithOptions(request: $_model.ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!$dara.isNull(request.dataSourceTypes)) {
       query["DataSourceTypes"] = request.dataSourceTypes;
     }
 
     if (!$dara.isNull(request.dataTypes)) {
       query["DataTypes"] = request.dataTypes;
+    }
+
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
     }
 
     if (!$dara.isNull(request.label)) {
@@ -3903,6 +3955,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.provider)) {
       query["Provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.shareScope)) {
+      query["ShareScope"] = request.shareScope;
     }
 
     if (!$dara.isNull(request.sortBy)) {
@@ -4048,6 +4104,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listExperimentWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列举特性
+   * 
+   * @param request - ListFeaturesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeaturesResponse
+   */
+  async listFeaturesWithOptions(request: $_model.ListFeaturesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFeaturesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFeatures",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/features`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ListFeaturesResponse({}));
+  }
+
+  /**
+   * 列举特性
+   * 
+   * @param request - ListFeaturesRequest
+   * @returns ListFeaturesResponse
+   */
+  async listFeatures(request: $_model.ListFeaturesRequest): Promise<$_model.ListFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFeaturesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4350,6 +4451,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListModelsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.conditions)) {
+      request.conditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.conditions, "Conditions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
@@ -4357,6 +4462,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.collections)) {
       query["Collections"] = request.collections;
+    }
+
+    if (!$dara.isNull(request.conditionsShrink)) {
+      query["Conditions"] = request.conditionsShrink;
     }
 
     if (!$dara.isNull(request.domain)) {
@@ -4881,6 +4990,10 @@ export default class Client extends OpenApi {
   async listWorkspaceUsersWithOptions(WorkspaceId: string, request: $_model.ListWorkspaceUsersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspaceUsersResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
@@ -5667,6 +5780,10 @@ export default class Client extends OpenApi {
       body["Options"] = request.options;
     }
 
+    if (!$dara.isNull(request.sharingConfig)) {
+      body["SharingConfig"] = request.sharingConfig;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -6058,6 +6175,10 @@ export default class Client extends OpenApi {
       body["Origin"] = request.origin;
     }
 
+    if (!$dara.isNull(request.parameterSize)) {
+      body["ParameterSize"] = request.parameterSize;
+    }
+
     if (!$dara.isNull(request.task)) {
       body["Task"] = request.task;
     }
@@ -6109,6 +6230,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.compressionSpec)) {
       body["CompressionSpec"] = request.compressionSpec;
+    }
+
+    if (!$dara.isNull(request.distillationSpec)) {
+      body["DistillationSpec"] = request.distillationSpec;
     }
 
     if (!$dara.isNull(request.evaluationSpec)) {

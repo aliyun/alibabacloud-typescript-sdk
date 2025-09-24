@@ -1,6 +1,33 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DatasetShareRelationship } from "./DatasetShareRelationship";
 
+
+export class UpdateDatasetRequestSharingConfig extends $dara.Model {
+  sharedTo?: DatasetShareRelationship[];
+  static names(): { [key: string]: string } {
+    return {
+      sharedTo: 'SharedTo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sharedTo: { 'type': 'array', 'itemType': DatasetShareRelationship },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sharedTo)) {
+      $dara.Model.validateArray(this.sharedTo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateDatasetRequest extends $dara.Model {
   /**
@@ -36,6 +63,11 @@ export class UpdateDatasetRequest extends $dara.Model {
    * }
    */
   options?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  sharingConfig?: UpdateDatasetRequestSharingConfig;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -43,6 +75,7 @@ export class UpdateDatasetRequest extends $dara.Model {
       mountAccessReadWriteRoleIdList: 'MountAccessReadWriteRoleIdList',
       name: 'Name',
       options: 'Options',
+      sharingConfig: 'SharingConfig',
     };
   }
 
@@ -53,12 +86,16 @@ export class UpdateDatasetRequest extends $dara.Model {
       mountAccessReadWriteRoleIdList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       options: 'string',
+      sharingConfig: UpdateDatasetRequestSharingConfig,
     };
   }
 
   validate() {
     if(Array.isArray(this.mountAccessReadWriteRoleIdList)) {
       $dara.Model.validateArray(this.mountAccessReadWriteRoleIdList);
+    }
+    if(this.sharingConfig && typeof (this.sharingConfig as any).validate === 'function') {
+      (this.sharingConfig as any).validate();
     }
     super.validate();
   }

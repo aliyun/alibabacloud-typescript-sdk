@@ -24,6 +24,7 @@ export class CreateProductOrdersResponseBody extends $dara.Model {
    * 210292536260646
    */
   orderId?: string;
+  productIds?: string[];
   /**
    * @remarks
    * The request ID.
@@ -37,6 +38,7 @@ export class CreateProductOrdersResponseBody extends $dara.Model {
       buyProductRequestId: 'BuyProductRequestId',
       message: 'Message',
       orderId: 'OrderId',
+      productIds: 'ProductIds',
       requestId: 'RequestId',
     };
   }
@@ -46,11 +48,15 @@ export class CreateProductOrdersResponseBody extends $dara.Model {
       buyProductRequestId: 'string',
       message: 'string',
       orderId: 'string',
+      productIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.productIds)) {
+      $dara.Model.validateArray(this.productIds);
+    }
     super.validate();
   }
 

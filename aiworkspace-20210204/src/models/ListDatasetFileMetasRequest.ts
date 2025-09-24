@@ -67,6 +67,8 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
    * @deprecated
    */
   pageSize?: number;
+  queryContentTypeIncludeAny?: string[];
+  queryExpression?: string;
   /**
    * @example
    * cars/20250221/
@@ -171,6 +173,8 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
       nextToken: 'NextToken',
       order: 'Order',
       pageSize: 'PageSize',
+      queryContentTypeIncludeAny: 'QueryContentTypeIncludeAny',
+      queryExpression: 'QueryExpression',
       queryFileDir: 'QueryFileDir',
       queryFileName: 'QueryFileName',
       queryFileTypeIncludeAny: 'QueryFileTypeIncludeAny',
@@ -199,6 +203,8 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
       nextToken: 'string',
       order: 'string',
       pageSize: 'number',
+      queryContentTypeIncludeAny: { 'type': 'array', 'itemType': 'string' },
+      queryExpression: 'string',
       queryFileDir: 'string',
       queryFileName: 'string',
       queryFileTypeIncludeAny: { 'type': 'array', 'itemType': 'string' },
@@ -219,6 +225,9 @@ export class ListDatasetFileMetasRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.queryContentTypeIncludeAny)) {
+      $dara.Model.validateArray(this.queryContentTypeIncludeAny);
+    }
     if(Array.isArray(this.queryFileTypeIncludeAny)) {
       $dara.Model.validateArray(this.queryFileTypeIncludeAny);
     }

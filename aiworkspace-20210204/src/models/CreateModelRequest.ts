@@ -91,6 +91,7 @@ export class CreateModelRequest extends $dara.Model {
    * ModelScope
    */
   origin?: string;
+  parameterSize?: number;
   /**
    * @remarks
    * The tags.
@@ -124,6 +125,7 @@ export class CreateModelRequest extends $dara.Model {
       modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
+      parameterSize: 'ParameterSize',
       tag: 'Tag',
       task: 'Task',
       workspaceId: 'WorkspaceId',
@@ -142,6 +144,7 @@ export class CreateModelRequest extends $dara.Model {
       modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
+      parameterSize: 'number',
       tag: { 'type': 'array', 'itemType': Label },
       task: 'string',
       workspaceId: 'string',

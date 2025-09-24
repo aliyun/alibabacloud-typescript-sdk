@@ -24,6 +24,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
    * {}
    */
   compressionSpec?: { [key: string]: any };
+  distillationSpec?: { [key: string]: any };
   /**
    * @remarks
    * The evaluation configuration.
@@ -215,6 +216,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
     return {
       approvalStatus: 'ApprovalStatus',
       compressionSpec: 'CompressionSpec',
+      distillationSpec: 'DistillationSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
@@ -241,6 +243,7 @@ export class GetModelVersionResponseBody extends $dara.Model {
     return {
       approvalStatus: 'string',
       compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      distillationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
@@ -266,6 +269,9 @@ export class GetModelVersionResponseBody extends $dara.Model {
   validate() {
     if(this.compressionSpec) {
       $dara.Model.validateMap(this.compressionSpec);
+    }
+    if(this.distillationSpec) {
+      $dara.Model.validateMap(this.distillationSpec);
     }
     if(this.evaluationSpec) {
       $dara.Model.validateMap(this.evaluationSpec);

@@ -1,8 +1,111 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetDefaultWorkspaceResponseBodyConditions } from "./GetDefaultWorkspaceResponseBodyConditions";
-import { GetDefaultWorkspaceResponseBodyOwner } from "./GetDefaultWorkspaceResponseBodyOwner";
 
+
+export class GetDefaultWorkspaceResponseBodyConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The returned status code. HTTP status code 200 indicates that the request was successful. Other HTTP status codes indicate that the request failed.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The error message. If the returned status code is 200, this parameter is empty.
+   * 
+   * @example
+   * Create Failed
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * *   CREATING: The workspace is being created.
+   * *   WORKSPACE_CREATED: The workspace is created.
+   * *   MEMBERS_ADDED: The member is added.
+   * *   ENABLED: The workspace is created and the member is added.
+   * 
+   * @example
+   * CREATING
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDefaultWorkspaceResponseBodyOwner extends $dara.Model {
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 17915******4216
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 17915******4216
+   */
+  userKp?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * username
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      userKp: 'UserKp',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      userKp: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetDefaultWorkspaceResponseBody extends $dara.Model {
   /**

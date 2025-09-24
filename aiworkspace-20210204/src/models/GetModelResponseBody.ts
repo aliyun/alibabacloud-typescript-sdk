@@ -48,6 +48,7 @@ export class GetModelResponseBody extends $dara.Model {
    * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
+  gmtLatestVersionModifiedTime?: string;
   /**
    * @remarks
    * The time when the model is last modified, in UTC. The time follows the ISO 8601 standard.
@@ -124,6 +125,7 @@ export class GetModelResponseBody extends $dara.Model {
    * 1234567890******
    */
   ownerId?: string;
+  parameterSize?: number;
   /**
    * @remarks
    * The provider.
@@ -170,6 +172,7 @@ export class GetModelResponseBody extends $dara.Model {
       domain: 'Domain',
       extraInfo: 'ExtraInfo',
       gmtCreateTime: 'GmtCreateTime',
+      gmtLatestVersionModifiedTime: 'GmtLatestVersionModifiedTime',
       gmtModifiedTime: 'GmtModifiedTime',
       labels: 'Labels',
       latestVersion: 'LatestVersion',
@@ -181,6 +184,7 @@ export class GetModelResponseBody extends $dara.Model {
       orderNumber: 'OrderNumber',
       origin: 'Origin',
       ownerId: 'OwnerId',
+      parameterSize: 'ParameterSize',
       provider: 'Provider',
       requestId: 'RequestId',
       task: 'Task',
@@ -195,6 +199,7 @@ export class GetModelResponseBody extends $dara.Model {
       domain: 'string',
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       gmtCreateTime: 'string',
+      gmtLatestVersionModifiedTime: 'string',
       gmtModifiedTime: 'string',
       labels: { 'type': 'array', 'itemType': Label },
       latestVersion: ModelVersion,
@@ -206,6 +211,7 @@ export class GetModelResponseBody extends $dara.Model {
       orderNumber: 'number',
       origin: 'string',
       ownerId: 'string',
+      parameterSize: 'number',
       provider: 'string',
       requestId: 'string',
       task: 'string',

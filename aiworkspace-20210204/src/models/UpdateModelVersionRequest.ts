@@ -23,6 +23,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
    * {}
    */
   compressionSpec?: { [key: string]: any };
+  distillationSpec?: { [key: string]: any };
   /**
    * @remarks
    * The evaluation configuration.
@@ -133,6 +134,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
     return {
       approvalStatus: 'ApprovalStatus',
       compressionSpec: 'CompressionSpec',
+      distillationSpec: 'DistillationSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       inferenceSpec: 'InferenceSpec',
@@ -149,6 +151,7 @@ export class UpdateModelVersionRequest extends $dara.Model {
     return {
       approvalStatus: 'string',
       compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      distillationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -164,6 +167,9 @@ export class UpdateModelVersionRequest extends $dara.Model {
   validate() {
     if(this.compressionSpec) {
       $dara.Model.validateMap(this.compressionSpec);
+    }
+    if(this.distillationSpec) {
+      $dara.Model.validateMap(this.distillationSpec);
     }
     if(this.evaluationSpec) {
       $dara.Model.validateMap(this.evaluationSpec);

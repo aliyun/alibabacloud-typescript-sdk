@@ -67,6 +67,8 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
    * @deprecated
    */
   pageSize?: number;
+  queryContentTypeIncludeAnyShrink?: string;
+  queryExpression?: string;
   /**
    * @example
    * cars/20250221/
@@ -171,6 +173,8 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
       nextToken: 'NextToken',
       order: 'Order',
       pageSize: 'PageSize',
+      queryContentTypeIncludeAnyShrink: 'QueryContentTypeIncludeAny',
+      queryExpression: 'QueryExpression',
       queryFileDir: 'QueryFileDir',
       queryFileName: 'QueryFileName',
       queryFileTypeIncludeAnyShrink: 'QueryFileTypeIncludeAny',
@@ -199,6 +203,8 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
       nextToken: 'string',
       order: 'string',
       pageSize: 'number',
+      queryContentTypeIncludeAnyShrink: 'string',
+      queryExpression: 'string',
       queryFileDir: 'string',
       queryFileName: 'string',
       queryFileTypeIncludeAnyShrink: 'string',

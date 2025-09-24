@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDatasetsRequest extends $dara.Model {
+  accessibility?: string;
   /**
    * @remarks
    * The storage types of the data source. Multiple data source types are separated by commas (,). Valid values:
@@ -28,6 +29,7 @@ export class ListDatasetsRequest extends $dara.Model {
    * COMMON,TEXT
    */
   dataTypes?: string;
+  edition?: string;
   /**
    * @remarks
    * The dataset tag, which is used to filter datasets. Datasets whose tag key or tag value contains a specified string are filtered.
@@ -90,6 +92,7 @@ export class ListDatasetsRequest extends $dara.Model {
    * pai
    */
   provider?: string;
+  shareScope?: string;
   /**
    * @remarks
    * The field used for sorting.
@@ -140,8 +143,10 @@ export class ListDatasetsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       dataSourceTypes: 'DataSourceTypes',
       dataTypes: 'DataTypes',
+      edition: 'Edition',
       label: 'Label',
       name: 'Name',
       order: 'Order',
@@ -149,6 +154,7 @@ export class ListDatasetsRequest extends $dara.Model {
       pageSize: 'PageSize',
       properties: 'Properties',
       provider: 'Provider',
+      shareScope: 'ShareScope',
       sortBy: 'SortBy',
       sourceDatasetId: 'SourceDatasetId',
       sourceId: 'SourceId',
@@ -159,8 +165,10 @@ export class ListDatasetsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       dataSourceTypes: 'string',
       dataTypes: 'string',
+      edition: 'string',
       label: 'string',
       name: 'string',
       order: 'string',
@@ -168,6 +176,7 @@ export class ListDatasetsRequest extends $dara.Model {
       pageSize: 'number',
       properties: 'string',
       provider: 'string',
+      shareScope: 'string',
       sortBy: 'string',
       sourceDatasetId: 'string',
       sourceId: 'string',

@@ -2,31 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateConnectionRequestResourceMeta extends $dara.Model {
+export class ListFeaturesRequest extends $dara.Model {
   /**
-   * @remarks
-   * The instance ID.
-   * 
    * @example
-   * ld-uf69****9nqjjes
+   * PaiConsole:IntegrateWithWorkspace
    */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   */
-  instanceName?: string;
+  names?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
+      names: 'Names',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      instanceName: 'string',
+      names: 'string',
     };
   }
 

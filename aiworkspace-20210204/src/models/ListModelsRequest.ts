@@ -1,7 +1,75 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListModelsRequestTag } from "./ListModelsRequestTag";
 
+
+export class ListModelsRequestConditions extends $dara.Model {
+  column?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'Column',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListModelsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListModelsRequest extends $dara.Model {
   /**
@@ -12,6 +80,7 @@ export class ListModelsRequest extends $dara.Model {
    * AI4D,QuickStart
    */
   collections?: string;
+  conditions?: ListModelsRequestConditions[];
   /**
    * @remarks
    * The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
@@ -124,6 +193,7 @@ export class ListModelsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       collections: 'Collections',
+      conditions: 'Conditions',
       domain: 'Domain',
       label: 'Label',
       modelName: 'ModelName',
@@ -144,6 +214,7 @@ export class ListModelsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       collections: 'string',
+      conditions: { 'type': 'array', 'itemType': ListModelsRequestConditions },
       domain: 'string',
       label: 'string',
       modelName: 'string',
@@ -162,6 +233,9 @@ export class ListModelsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }

@@ -1,11 +1,37 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { Label } from "./Label";
 
+
+export class ModelVersionLabels extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ModelVersion extends $dara.Model {
   approvalStatus?: string;
   compressionSpec?: { [key: string]: any };
+  distillationSpec?: { [key: string]: any };
   evaluationSpec?: { [key: string]: any };
   extraInfo?: { [key: string]: any };
   /**
@@ -29,7 +55,7 @@ export class ModelVersion extends $dara.Model {
    */
   gmtModifiedTime?: string;
   inferenceSpec?: { [key: string]: any };
-  labels?: Label[];
+  labels?: ModelVersionLabels[];
   metrics?: { [key: string]: any };
   options?: string;
   /**
@@ -60,6 +86,7 @@ export class ModelVersion extends $dara.Model {
     return {
       approvalStatus: 'ApprovalStatus',
       compressionSpec: 'CompressionSpec',
+      distillationSpec: 'DistillationSpec',
       evaluationSpec: 'EvaluationSpec',
       extraInfo: 'ExtraInfo',
       formatType: 'FormatType',
@@ -85,6 +112,7 @@ export class ModelVersion extends $dara.Model {
     return {
       approvalStatus: 'string',
       compressionSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      distillationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evaluationSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       extraInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       formatType: 'string',
@@ -92,7 +120,7 @@ export class ModelVersion extends $dara.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       inferenceSpec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      labels: { 'type': 'array', 'itemType': Label },
+      labels: { 'type': 'array', 'itemType': ModelVersionLabels },
       metrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       options: 'string',
       ownerId: 'string',
@@ -109,6 +137,9 @@ export class ModelVersion extends $dara.Model {
   validate() {
     if(this.compressionSpec) {
       $dara.Model.validateMap(this.compressionSpec);
+    }
+    if(this.distillationSpec) {
+      $dara.Model.validateMap(this.distillationSpec);
     }
     if(this.evaluationSpec) {
       $dara.Model.validateMap(this.evaluationSpec);

@@ -19,6 +19,7 @@ export class ListDatasetJobsRequest extends $dara.Model {
    * SemanticIndex
    */
   jobAction?: string;
+  order?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -35,6 +36,8 @@ export class ListDatasetJobsRequest extends $dara.Model {
    * 50
    */
   pageSize?: number;
+  sortBy?: string;
+  status?: string;
   /**
    * @remarks
    * The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
@@ -47,8 +50,11 @@ export class ListDatasetJobsRequest extends $dara.Model {
     return {
       datasetVersion: 'DatasetVersion',
       jobAction: 'JobAction',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      status: 'Status',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -57,8 +63,11 @@ export class ListDatasetJobsRequest extends $dara.Model {
     return {
       datasetVersion: 'string',
       jobAction: 'string',
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      sortBy: 'string',
+      status: 'string',
       workspaceId: 'string',
     };
   }

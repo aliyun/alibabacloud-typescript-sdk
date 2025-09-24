@@ -1,8 +1,69 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ConnectionModels } from "./ConnectionModels";
-import { ConnectionResourceMeta } from "./ConnectionResourceMeta";
 
+
+/**
+ */
+export class ConnectionModels extends $dara.Model {
+  displayName?: string;
+  model?: string;
+  modelType?: string;
+  toolCall?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      model: 'Model',
+      modelType: 'ModelType',
+      toolCall: 'ToolCall',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      model: 'string',
+      modelType: 'string',
+      toolCall: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConnectionResourceMeta extends $dara.Model {
+  extra?: string;
+  instanceId?: string;
+  instanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extra: 'Extra',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extra: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Connection extends $dara.Model {
   accessibility?: string;

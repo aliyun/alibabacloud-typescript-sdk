@@ -7,6 +7,7 @@ export class DatasetJobConfig extends $dara.Model {
   configType?: string;
   createTime?: string;
   datasetJobConfigId?: string;
+  datasetVersion?: string;
   modifyTime?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -15,6 +16,7 @@ export class DatasetJobConfig extends $dara.Model {
       configType: 'ConfigType',
       createTime: 'CreateTime',
       datasetJobConfigId: 'DatasetJobConfigId',
+      datasetVersion: 'DatasetVersion',
       modifyTime: 'ModifyTime',
       workspaceId: 'WorkspaceId',
     };
@@ -26,6 +28,7 @@ export class DatasetJobConfig extends $dara.Model {
       configType: 'string',
       createTime: 'string',
       datasetJobConfigId: 'string',
+      datasetVersion: 'string',
       modifyTime: 'string',
       workspaceId: 'string',
     };

@@ -2,7 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 import { Label } from "./Label";
 import { DatasetVersion } from "./DatasetVersion";
+import { DatasetShareRelationship } from "./DatasetShareRelationship";
 
+
+export class DatasetSharingConfig extends $dara.Model {
+  sharedTo?: DatasetShareRelationship[];
+  static names(): { [key: string]: string } {
+    return {
+      sharedTo: 'SharedTo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sharedTo: { 'type': 'array', 'itemType': DatasetShareRelationship },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sharedTo)) {
+      $dara.Model.validateArray(this.sharedTo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class Dataset extends $dara.Model {
   /**
@@ -46,6 +73,7 @@ export class Dataset extends $dara.Model {
    */
   gmtModifiedTime?: string;
   importInfo?: string;
+  isShared?: boolean;
   labels?: Label[];
   latestVersion?: DatasetVersion;
   /**
@@ -79,6 +107,8 @@ export class Dataset extends $dara.Model {
    * Ecs
    */
   providerType?: string;
+  sharedFrom?: DatasetShareRelationship;
+  sharingConfig?: DatasetSharingConfig;
   /**
    * @example
    * d-bvfasdf4wxxj8o411
@@ -130,6 +160,7 @@ export class Dataset extends $dara.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       importInfo: 'ImportInfo',
+      isShared: 'IsShared',
       labels: 'Labels',
       latestVersion: 'LatestVersion',
       mountAccess: 'MountAccess',
@@ -139,6 +170,8 @@ export class Dataset extends $dara.Model {
       ownerId: 'OwnerId',
       property: 'Property',
       providerType: 'ProviderType',
+      sharedFrom: 'SharedFrom',
+      sharingConfig: 'SharingConfig',
       sourceDatasetId: 'SourceDatasetId',
       sourceDatasetVersion: 'SourceDatasetVersion',
       sourceId: 'SourceId',
@@ -161,6 +194,7 @@ export class Dataset extends $dara.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       importInfo: 'string',
+      isShared: 'boolean',
       labels: { 'type': 'array', 'itemType': Label },
       latestVersion: DatasetVersion,
       mountAccess: 'string',
@@ -170,6 +204,8 @@ export class Dataset extends $dara.Model {
       ownerId: 'string',
       property: 'string',
       providerType: 'string',
+      sharedFrom: DatasetShareRelationship,
+      sharingConfig: DatasetSharingConfig,
       sourceDatasetId: 'string',
       sourceDatasetVersion: 'string',
       sourceId: 'string',
@@ -190,6 +226,12 @@ export class Dataset extends $dara.Model {
     }
     if(Array.isArray(this.mountAccessReadWriteRoleIdList)) {
       $dara.Model.validateArray(this.mountAccessReadWriteRoleIdList);
+    }
+    if(this.sharedFrom && typeof (this.sharedFrom as any).validate === 'function') {
+      (this.sharedFrom as any).validate();
+    }
+    if(this.sharingConfig && typeof (this.sharingConfig as any).validate === 'function') {
+      (this.sharingConfig as any).validate();
     }
     super.validate();
   }

@@ -11,6 +11,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
    * AI4D,QuickStart
    */
   collections?: string;
+  conditionsShrink?: string;
   /**
    * @remarks
    * The domain. Only models in the domain are returned. Valid values: nlp (Natural Language Processing) and cv (Computer Vision).
@@ -123,6 +124,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       collections: 'Collections',
+      conditionsShrink: 'Conditions',
       domain: 'Domain',
       label: 'Label',
       modelName: 'ModelName',
@@ -143,6 +145,7 @@ export class ListModelsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       collections: 'string',
+      conditionsShrink: 'string',
       domain: 'string',
       label: 'string',
       modelName: 'string',

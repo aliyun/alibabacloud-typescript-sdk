@@ -18,6 +18,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
    * The list of connection types.
    */
   connectionTypesShrink?: string;
+  creator?: string;
   /**
    * @remarks
    * The encryption settings. Valid values:
@@ -103,6 +104,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
       connectionIdsShrink: 'ConnectionIds',
       connectionName: 'ConnectionName',
       connectionTypesShrink: 'ConnectionTypes',
+      creator: 'Creator',
       encryptOption: 'EncryptOption',
       maxResults: 'MaxResults',
       model: 'Model',
@@ -120,6 +122,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
       connectionIdsShrink: 'string',
       connectionName: 'string',
       connectionTypesShrink: 'string',
+      creator: 'string',
       encryptOption: 'string',
       maxResults: 'number',
       model: 'string',

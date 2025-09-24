@@ -2,7 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 import { Label } from "./Label";
 import { DatasetVersion } from "./DatasetVersion";
+import { DatasetShareRelationship } from "./DatasetShareRelationship";
 
+
+export class GetDatasetResponseBodySharingConfig extends $dara.Model {
+  sharedTo?: DatasetShareRelationship[];
+  static names(): { [key: string]: string } {
+    return {
+      sharedTo: 'SharedTo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sharedTo: { 'type': 'array', 'itemType': DatasetShareRelationship },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sharedTo)) {
+      $dara.Model.validateArray(this.sharedTo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetDatasetResponseBody extends $dara.Model {
   /**
@@ -125,6 +152,7 @@ export class GetDatasetResponseBody extends $dara.Model {
    * }
    */
   importInfo?: string;
+  isShared?: boolean;
   /**
    * @remarks
    * The tags.
@@ -215,6 +243,8 @@ export class GetDatasetResponseBody extends $dara.Model {
    * 5A14FA81-DD4E-******-6343FE44B941
    */
   requestId?: string;
+  sharedFrom?: DatasetShareRelationship;
+  sharingConfig?: GetDatasetResponseBodySharingConfig;
   /**
    * @remarks
    * The ID of the source dataset generated from a labeling job of iTAG.
@@ -301,6 +331,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       importInfo: 'ImportInfo',
+      isShared: 'IsShared',
       labels: 'Labels',
       latestVersion: 'LatestVersion',
       mountAccess: 'MountAccess',
@@ -312,6 +343,8 @@ export class GetDatasetResponseBody extends $dara.Model {
       provider: 'Provider',
       providerType: 'ProviderType',
       requestId: 'RequestId',
+      sharedFrom: 'SharedFrom',
+      sharingConfig: 'SharingConfig',
       sourceDatasetId: 'SourceDatasetId',
       sourceDatasetVersion: 'SourceDatasetVersion',
       sourceId: 'SourceId',
@@ -334,6 +367,7 @@ export class GetDatasetResponseBody extends $dara.Model {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       importInfo: 'string',
+      isShared: 'boolean',
       labels: { 'type': 'array', 'itemType': Label },
       latestVersion: DatasetVersion,
       mountAccess: 'string',
@@ -345,6 +379,8 @@ export class GetDatasetResponseBody extends $dara.Model {
       provider: 'string',
       providerType: 'string',
       requestId: 'string',
+      sharedFrom: DatasetShareRelationship,
+      sharingConfig: GetDatasetResponseBodySharingConfig,
       sourceDatasetId: 'string',
       sourceDatasetVersion: 'string',
       sourceId: 'string',
@@ -365,6 +401,12 @@ export class GetDatasetResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.mountAccessReadWriteRoleIdList)) {
       $dara.Model.validateArray(this.mountAccessReadWriteRoleIdList);
+    }
+    if(this.sharedFrom && typeof (this.sharedFrom as any).validate === 'function') {
+      (this.sharedFrom as any).validate();
+    }
+    if(this.sharingConfig && typeof (this.sharingConfig as any).validate === 'function') {
+      (this.sharingConfig as any).validate();
     }
     super.validate();
   }

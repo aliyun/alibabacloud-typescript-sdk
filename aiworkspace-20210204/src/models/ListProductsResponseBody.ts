@@ -1,8 +1,90 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListProductsResponseBodyProducts } from "./ListProductsResponseBodyProducts";
-import { ListProductsResponseBodyServices } from "./ListProductsResponseBodyServices";
 
+
+export class ListProductsResponseBodyProducts extends $dara.Model {
+  hasPermissionToPurchase?: boolean;
+  /**
+   * @example
+   * true
+   */
+  isPurchased?: boolean;
+  /**
+   * @example
+   * DataWorks_isolate
+   */
+  productCode?: string;
+  productId?: string;
+  /**
+   * @example
+   * https://common-buy.aliy
+   */
+  purchaseUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasPermissionToPurchase: 'HasPermissionToPurchase',
+      isPurchased: 'IsPurchased',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      purchaseUrl: 'PurchaseUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasPermissionToPurchase: 'boolean',
+      isPurchased: 'boolean',
+      productCode: 'string',
+      productId: 'string',
+      purchaseUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProductsResponseBodyServices extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  isOpen?: boolean;
+  openUrl?: string;
+  /**
+   * @example
+   * oss
+   */
+  serviceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isOpen: 'IsOpen',
+      openUrl: 'OpenUrl',
+      serviceCode: 'ServiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isOpen: 'boolean',
+      openUrl: 'string',
+      serviceCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListProductsResponseBody extends $dara.Model {
   products?: ListProductsResponseBodyProducts[];

@@ -80,6 +80,7 @@ export class UpdateModelRequest extends $dara.Model {
    * ModelScope
    */
   origin?: string;
+  parameterSize?: number;
   /**
    * @remarks
    * The task. This parameter specifies the specific issue that the model resolves. Example: text-classification.
@@ -99,6 +100,7 @@ export class UpdateModelRequest extends $dara.Model {
       modelType: 'ModelType',
       orderNumber: 'OrderNumber',
       origin: 'Origin',
+      parameterSize: 'ParameterSize',
       task: 'Task',
     };
   }
@@ -114,6 +116,7 @@ export class UpdateModelRequest extends $dara.Model {
       modelType: 'string',
       orderNumber: 'number',
       origin: 'string',
+      parameterSize: 'number',
       task: 'string',
     };
   }

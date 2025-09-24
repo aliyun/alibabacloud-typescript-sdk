@@ -18,6 +18,7 @@ export class ListConnectionsRequest extends $dara.Model {
    * The list of connection types.
    */
   connectionTypes?: string[];
+  creator?: string;
   /**
    * @remarks
    * The encryption settings. Valid values:
@@ -103,6 +104,7 @@ export class ListConnectionsRequest extends $dara.Model {
       connectionIds: 'ConnectionIds',
       connectionName: 'ConnectionName',
       connectionTypes: 'ConnectionTypes',
+      creator: 'Creator',
       encryptOption: 'EncryptOption',
       maxResults: 'MaxResults',
       model: 'Model',
@@ -120,6 +122,7 @@ export class ListConnectionsRequest extends $dara.Model {
       connectionIds: { 'type': 'array', 'itemType': 'string' },
       connectionName: 'string',
       connectionTypes: { 'type': 'array', 'itemType': 'string' },
+      creator: 'string',
       encryptOption: 'string',
       maxResults: 'number',
       model: 'string',
