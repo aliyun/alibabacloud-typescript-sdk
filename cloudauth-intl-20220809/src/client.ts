@@ -833,6 +833,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete Face Group
+   * 
+   * @param request - DeleteFaceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceGroupResponse
+   */
+  async deleteFaceGroupWithOptions(request: $_model.DeleteFaceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFaceGroup",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFaceGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceGroupResponse({}));
+  }
+
+  /**
+   * Delete Face Group
+   * 
+   * @param request - DeleteFaceGroupRequest
+   * @returns DeleteFaceGroupResponse
+   */
+  async deleteFaceGroup(request: $_model.DeleteFaceGroupRequest): Promise<$_model.DeleteFaceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFaceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Face
+   * 
+   * @param request - DeleteFaceRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceRecordResponse
+   */
+  async deleteFaceRecordWithOptions(request: $_model.DeleteFaceRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFaceRecord",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFaceRecordResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceRecordResponse({}));
+  }
+
+  /**
+   * Delete Face
+   * 
+   * @param request - DeleteFaceRecordRequest
+   * @returns DeleteFaceRecordResponse
+   */
+  async deleteFaceRecord(request: $_model.DeleteFaceRecordRequest): Promise<$_model.DeleteFaceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFaceRecordWithOptions(request, runtime);
+  }
+
+  /**
    * Delete user authentication record results
    * 
    * @param request - DeleteVerifyResultRequest
@@ -1213,6 +1297,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Face Duplication Detection API
+   * 
+   * @param request - FaceDuplicationCheckIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceDuplicationCheckIntlResponse
+   */
+  async faceDuplicationCheckIntlWithOptions(request: $_model.FaceDuplicationCheckIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceDuplicationCheckIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoRegistration)) {
+      body["AutoRegistration"] = request.autoRegistration;
+    }
+
+    if (!$dara.isNull(request.faceGroupCodes)) {
+      body["FaceGroupCodes"] = request.faceGroupCodes;
+    }
+
+    if (!$dara.isNull(request.faceRegisterGroupCode)) {
+      body["FaceRegisterGroupCode"] = request.faceRegisterGroupCode;
+    }
+
+    if (!$dara.isNull(request.faceVerifyThreshold)) {
+      body["FaceVerifyThreshold"] = request.faceVerifyThreshold;
+    }
+
+    if (!$dara.isNull(request.liveness)) {
+      body["Liveness"] = request.liveness;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      body["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      body["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.returnFaces)) {
+      body["ReturnFaces"] = request.returnFaces;
+    }
+
+    if (!$dara.isNull(request.saveFacePicture)) {
+      body["SaveFacePicture"] = request.saveFacePicture;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    if (!$dara.isNull(request.sourceFacePicture)) {
+      body["SourceFacePicture"] = request.sourceFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceFacePictureUrl)) {
+      body["SourceFacePictureUrl"] = request.sourceFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.targetFacePicture)) {
+      body["TargetFacePicture"] = request.targetFacePicture;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureUrl)) {
+      body["TargetFacePictureUrl"] = request.targetFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.verifyModel)) {
+      body["VerifyModel"] = request.verifyModel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FaceDuplicationCheckIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FaceDuplicationCheckIntlResponse>(await this.callApi(params, req, runtime), new $_model.FaceDuplicationCheckIntlResponse({}));
+  }
+
+  /**
+   * Face Duplication Detection API
+   * 
+   * @param request - FaceDuplicationCheckIntlRequest
+   * @returns FaceDuplicationCheckIntlResponse
+   */
+  async faceDuplicationCheckIntl(request: $_model.FaceDuplicationCheckIntlRequest): Promise<$_model.FaceDuplicationCheckIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.faceDuplicationCheckIntlWithOptions(request, runtime);
+  }
+
+  /**
    * This topic describes how to set up the server for FACE_GUARD.
    * 
    * @param request - FaceGuardRiskRequest
@@ -1521,7 +1709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证初始化
+   * Authentication Initialization
    * 
    * @param tmpReq - InitializeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1756,7 +1944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 认证初始化
+   * Authentication Initialization
    * 
    * @param request - InitializeRequest
    * @returns InitializeResponse
@@ -1908,6 +2096,276 @@ export default class Client extends OpenApi {
   async mobile3MetaVerifyIntl(request: $_model.Mobile3MetaVerifyIntlRequest): Promise<$_model.Mobile3MetaVerifyIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.mobile3MetaVerifyIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改人脸库
+   * 
+   * @param request - ModifyFaceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFaceGroupResponse
+   */
+  async modifyFaceGroupWithOptions(request: $_model.ModifyFaceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFaceGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyFaceGroup",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyFaceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyFaceGroupResponse({}));
+  }
+
+  /**
+   * 修改人脸库
+   * 
+   * @param request - ModifyFaceGroupRequest
+   * @returns ModifyFaceGroupResponse
+   */
+  async modifyFaceGroup(request: $_model.ModifyFaceGroupRequest): Promise<$_model.ModifyFaceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyFaceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增人脸
+   * 
+   * @param request - ModifyFaceRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFaceRecordResponse
+   */
+  async modifyFaceRecordWithOptions(request: $_model.ModifyFaceRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFaceRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceGroupCode)) {
+      body["FaceGroupCode"] = request.faceGroupCode;
+    }
+
+    if (!$dara.isNull(request.imgOssInfos)) {
+      body["ImgOssInfos"] = request.imgOssInfos;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyFaceRecord",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyFaceRecordResponse>(await this.callApi(params, req, runtime), new $_model.ModifyFaceRecordResponse({}));
+  }
+
+  /**
+   * 新增人脸
+   * 
+   * @param request - ModifyFaceRecordRequest
+   * @returns ModifyFaceRecordResponse
+   */
+  async modifyFaceRecord(request: $_model.ModifyFaceRecordRequest): Promise<$_model.ModifyFaceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyFaceRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询人脸库
+   * 
+   * @param request - QueryFaceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFaceGroupResponse
+   */
+  async queryFaceGroupWithOptions(request: $_model.QueryFaceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFaceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.groupCode)) {
+      query["GroupCode"] = request.groupCode;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryFaceGroup",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryFaceGroupResponse>(await this.callApi(params, req, runtime), new $_model.QueryFaceGroupResponse({}));
+  }
+
+  /**
+   * 查询人脸库
+   * 
+   * @param request - QueryFaceGroupRequest
+   * @returns QueryFaceGroupResponse
+   */
+  async queryFaceGroup(request: $_model.QueryFaceGroupRequest): Promise<$_model.QueryFaceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryFaceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询人脸记录
+   * 
+   * @param request - QueryFaceRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFaceRecordResponse
+   */
+  async queryFaceRecordWithOptions(request: $_model.QueryFaceRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFaceRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.faceGroupCode)) {
+      query["FaceGroupCode"] = request.faceGroupCode;
+    }
+
+    if (!$dara.isNull(request.faceId)) {
+      query["FaceId"] = request.faceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.registrationType)) {
+      query["RegistrationType"] = request.registrationType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryFaceRecord",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryFaceRecordResponse>(await this.callApi(params, req, runtime), new $_model.QueryFaceRecordResponse({}));
+  }
+
+  /**
+   * 查询人脸记录
+   * 
+   * @param request - QueryFaceRecordRequest
+   * @returns QueryFaceRecordResponse
+   */
+  async queryFaceRecord(request: $_model.QueryFaceRecordRequest): Promise<$_model.QueryFaceRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryFaceRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取临时token
+   * 
+   * @param request - TempAccessTokenIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TempAccessTokenIntlResponse
+   */
+  async tempAccessTokenIntlWithOptions(request: $_model.TempAccessTokenIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TempAccessTokenIntlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TempAccessTokenIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TempAccessTokenIntlResponse>(await this.callApi(params, req, runtime), new $_model.TempAccessTokenIntlResponse({}));
+  }
+
+  /**
+   * 获取临时token
+   * 
+   * @param request - TempAccessTokenIntlRequest
+   * @returns TempAccessTokenIntlResponse
+   */
+  async tempAccessTokenIntl(request: $_model.TempAccessTokenIntlRequest): Promise<$_model.TempAccessTokenIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tempAccessTokenIntlWithOptions(request, runtime);
   }
 
 }

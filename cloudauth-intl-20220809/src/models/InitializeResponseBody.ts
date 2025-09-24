@@ -4,17 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitializeResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Client configuration
+   * 
    * @example
    * ***
    */
   clientCfg?: string;
+  /**
+   * @remarks
+   * Standard encryption protocol for authentication.
+   * 
+   * > This field is required when integrating with H5 web pages using iframe embedding.
+   * 
+   * @example
+   * hksb7ba1b28130d24e015d*********
+   */
   protocol?: string;
   /**
+   * @remarks
+   * Authentication ID
+   * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
    */
   transactionId?: string;
   /**
+   * @remarks
+   * Web authentication URL
+   * 
    * @example
    * http****
    */
@@ -48,11 +66,17 @@ export class InitializeResponseBodyResult extends $dara.Model {
 
 export class InitializeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * success
    */
@@ -65,6 +89,10 @@ export class InitializeResponseBody extends $dara.Model {
    * 4EB35****87EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result
+   */
   result?: InitializeResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
