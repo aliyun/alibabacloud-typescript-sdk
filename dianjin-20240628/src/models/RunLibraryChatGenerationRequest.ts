@@ -1,9 +1,187 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunLibraryChatGenerationRequestQueryCriteria } from "./RunLibraryChatGenerationRequestQueryCriteria";
-import { RunLibraryChatGenerationRequestTextSearchParameter } from "./RunLibraryChatGenerationRequestTextSearchParameter";
-import { RunLibraryChatGenerationRequestVectorSearchParameter } from "./RunLibraryChatGenerationRequestVectorSearchParameter";
 
+
+export class RunLibraryChatGenerationRequestQueryCriteriaAnd extends $dara.Model {
+  /**
+   * @example
+   * 0.5
+   */
+  boost?: number;
+  /**
+   * @example
+   * city
+   */
+  key?: string;
+  /**
+   * @example
+   * eq
+   */
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boost: 'boost',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boost: 'number',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestQueryCriteriaOr extends $dara.Model {
+  /**
+   * @example
+   * 0.5
+   */
+  boost?: number;
+  /**
+   * @example
+   * city
+   */
+  key?: string;
+  /**
+   * @example
+   * eq
+   */
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      boost: 'boost',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boost: 'number',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestQueryCriteria extends $dara.Model {
+  and?: RunLibraryChatGenerationRequestQueryCriteriaAnd[];
+  or?: RunLibraryChatGenerationRequestQueryCriteriaOr[];
+  static names(): { [key: string]: string } {
+    return {
+      and: 'and',
+      or: 'or',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      and: { 'type': 'array', 'itemType': RunLibraryChatGenerationRequestQueryCriteriaAnd },
+      or: { 'type': 'array', 'itemType': RunLibraryChatGenerationRequestQueryCriteriaOr },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.and)) {
+      $dara.Model.validateArray(this.and);
+    }
+    if(Array.isArray(this.or)) {
+      $dara.Model.validateArray(this.or);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestTextSearchParameter extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  limit?: number;
+  /**
+   * @example
+   * IkMaxWord
+   */
+  searchAnalyzerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+      searchAnalyzerType: 'searchAnalyzerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+      searchAnalyzerType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunLibraryChatGenerationRequestVectorSearchParameter extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  limit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limit: 'limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunLibraryChatGenerationRequest extends $dara.Model {
   docIdList?: string[];

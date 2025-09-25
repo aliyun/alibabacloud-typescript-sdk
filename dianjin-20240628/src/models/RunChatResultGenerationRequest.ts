@@ -1,8 +1,160 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunChatResultGenerationRequestMessages } from "./RunChatResultGenerationRequestMessages";
-import { RunChatResultGenerationRequestTools } from "./RunChatResultGenerationRequestTools";
 
+
+export class RunChatResultGenerationRequestMessages extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunChatResultGenerationRequestToolsFunctionParameters extends $dara.Model {
+  /**
+   * @example
+   * {
+   *                             "location": {
+   *                                 "type": "string",
+   *                                 "description": "The city and state, e.g. San Francisco, CA"
+   *                             },
+   *                             "unit": {
+   *                                 "type": "string",
+   *                                 "enum": [
+   *                                     "celsius",
+   *                                     "fahrenheit"
+   *                                 ]
+   *                             }
+   *                         }
+   */
+  properties?: { [key: string]: any };
+  /**
+   * @example
+   * object
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      properties: 'properties',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.properties) {
+      $dara.Model.validateMap(this.properties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunChatResultGenerationRequestToolsFunction extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * get_time
+   */
+  name?: string;
+  parameters?: RunChatResultGenerationRequestToolsFunctionParameters;
+  required?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      name: 'name',
+      parameters: 'parameters',
+      required: 'required',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      parameters: RunChatResultGenerationRequestToolsFunctionParameters,
+      required: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.parameters && typeof (this.parameters as any).validate === 'function') {
+      (this.parameters as any).validate();
+    }
+    if(Array.isArray(this.required)) {
+      $dara.Model.validateArray(this.required);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunChatResultGenerationRequestTools extends $dara.Model {
+  function?: RunChatResultGenerationRequestToolsFunction;
+  /**
+   * @example
+   * function
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      function: 'function',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      function: RunChatResultGenerationRequestToolsFunction,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.function && typeof (this.function as any).validate === 'function') {
+      (this.function as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunChatResultGenerationRequest extends $dara.Model {
   /**

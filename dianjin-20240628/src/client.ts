@@ -1,10 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import * as $OSSUtil from '@alicloud/oss-util';
-import * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi from '@alicloud/openapi-core';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
 
@@ -20,6 +16,42 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("dianjin", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
+    let request_ = new $dara.Request();
+    let boundary = $dara.Form.getBoundary();
+    request_.protocol = "HTTPS";
+    request_.method = "POST";
+    request_.pathname = `/`;
+    request_.headers = {
+      host: String(form["host"]),
+      date: OpenApiUtil.getDateUTCString(),
+      'user-agent': OpenApiUtil.getUserAgent(""),
+    };
+    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+    request_.body = $dara.Form.toFileForm(form, boundary);
+    let response_ = await $dara.doAction(request_);
+
+    let respMap : {[key: string]: any} = null;
+    let bodyStr = await $dara.Stream.readAsString(response_.body);
+    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+      respMap = $dara.XML.parseXml(bodyStr, null);
+      let err = respMap["Error"];
+      throw new $OpenApi.ClientError({
+        code: String(err["Code"]),
+        message: String(err["Message"]),
+        data: {
+          httpCode: response_.statusCode,
+          requestId: String(err["RequestId"]),
+          hostId: String(err["HostId"]),
+        },
+      });
+    }
+
+    respMap = $dara.XML.parseXml(bodyStr, null);
+    return {
+      ...respMap,
+    };
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
     if (!$dara.isNull(endpoint)) {
@@ -973,6 +1005,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询会话日志
+   * 
+   * @param request - GetDialogLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDialogLogResponse
+   */
+  async getDialogLogWithOptions(workspaceId: string, request: $_model.GetDialogLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDialogLogResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDialogLog",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/dialog/log`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDialogLogResponse>(await this.callApi(params, req, runtime), new $_model.GetDialogLogResponse({}));
+  }
+
+  /**
+   * 查询会话日志
+   * 
+   * @param request - GetDialogLogRequest
+   * @returns GetDialogLogResponse
+   */
+  async getDialogLog(workspaceId: string, request: $_model.GetDialogLogRequest): Promise<$_model.GetDialogLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDialogLogWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取文档的chunk列表
    * 
    * @param request - GetDocumentChunkListRequest
@@ -1751,6 +1832,92 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RealTimeDialogResponse
    */
+  async *realTimeDialogWithSSE(workspaceId: string, request: $_model.RealTimeDialogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RealTimeDialogResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.analysis)) {
+      body["analysis"] = request.analysis;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["bizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.conversationModel)) {
+      body["conversationModel"] = request.conversationModel;
+    }
+
+    if (!$dara.isNull(request.dialogMemoryTurns)) {
+      body["dialogMemoryTurns"] = request.dialogMemoryTurns;
+    }
+
+    if (!$dara.isNull(request.metaData)) {
+      body["metaData"] = request.metaData;
+    }
+
+    if (!$dara.isNull(request.opType)) {
+      body["opType"] = request.opType;
+    }
+
+    if (!$dara.isNull(request.recommend)) {
+      body["recommend"] = request.recommend;
+    }
+
+    if (!$dara.isNull(request.scriptContentPlayed)) {
+      body["scriptContentPlayed"] = request.scriptContentPlayed;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.userVad)) {
+      body["userVad"] = request.userVad;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RealTimeDialog",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/realtime/dialog/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RealTimeDialogResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RealTimeDialogResponse({}));
+    }
+  }
+
+  /**
+   * 实时对话
+   * 
+   * @param request - RealTimeDialogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RealTimeDialogResponse
+   */
   async realTimeDialogWithOptions(workspaceId: string, request: $_model.RealTimeDialogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RealTimeDialogResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -2088,6 +2255,80 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunAgentResponse
    */
+  async *runAgentWithSSE(workspaceId: string, request: $_model.RunAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.botId)) {
+      body["botId"] = request.botId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.useDraft)) {
+      body["useDraft"] = request.useDraft;
+    }
+
+    if (!$dara.isNull(request.userContent)) {
+      body["userContent"] = request.userContent;
+    }
+
+    if (!$dara.isNull(request.userInputs)) {
+      body["userInputs"] = request.userInputs;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["versionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunAgent",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/bot/thread/run`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunAgentResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunAgentResponse({}));
+    }
+  }
+
+  /**
+   * 运行智能体
+   * 
+   * @param request - RunAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAgentResponse
+   */
   async runAgentWithOptions(workspaceId: string, request: $_model.RunAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunAgentResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -2161,6 +2402,72 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunChatResultGenerationResponse
    */
+  async *runChatResultGenerationWithSSE(workspaceId: string, request: $_model.RunChatResultGenerationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunChatResultGenerationResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inferenceParameters)) {
+      body["inferenceParameters"] = request.inferenceParameters;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunChatResultGeneration",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/run/chat/generation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunChatResultGenerationResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunChatResultGenerationResponse({}));
+    }
+  }
+
+  /**
+   * 获取生成式对话结果
+   * 
+   * @param request - RunChatResultGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunChatResultGenerationResponse
+   */
   async runChatResultGenerationWithOptions(workspaceId: string, request: $_model.RunChatResultGenerationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunChatResultGenerationResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -2216,6 +2523,120 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runChatResultGenerationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取生成式对话结果
+   * 
+   * @param request - RunLibraryChatGenerationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunLibraryChatGenerationResponse
+   */
+  async *runLibraryChatGenerationWithSSE(workspaceId: string, request: $_model.RunLibraryChatGenerationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunLibraryChatGenerationResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docIdList)) {
+      body["docIdList"] = request.docIdList;
+    }
+
+    if (!$dara.isNull(request.enableFollowUp)) {
+      body["enableFollowUp"] = request.enableFollowUp;
+    }
+
+    if (!$dara.isNull(request.enableMultiQuery)) {
+      body["enableMultiQuery"] = request.enableMultiQuery;
+    }
+
+    if (!$dara.isNull(request.enableOpenQa)) {
+      body["enableOpenQa"] = request.enableOpenQa;
+    }
+
+    if (!$dara.isNull(request.followUpLlm)) {
+      body["followUpLlm"] = request.followUpLlm;
+    }
+
+    if (!$dara.isNull(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    if (!$dara.isNull(request.llmType)) {
+      body["llmType"] = request.llmType;
+    }
+
+    if (!$dara.isNull(request.multiQueryLlm)) {
+      body["multiQueryLlm"] = request.multiQueryLlm;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.queryCriteria)) {
+      body["queryCriteria"] = request.queryCriteria;
+    }
+
+    if (!$dara.isNull(request.rerankType)) {
+      body["rerankType"] = request.rerankType;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.subQueryList)) {
+      body["subQueryList"] = request.subQueryList;
+    }
+
+    if (!$dara.isNull(request.textSearchParameter)) {
+      body["textSearchParameter"] = request.textSearchParameter;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      body["topK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.vectorSearchParameter)) {
+      body["vectorSearchParameter"] = request.vectorSearchParameter;
+    }
+
+    if (!$dara.isNull(request.withDocumentReference)) {
+      body["withDocumentReference"] = request.withDocumentReference;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunLibraryChatGeneration",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/run/library/chat/generation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunLibraryChatGenerationResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunLibraryChatGenerationResponse({}));
+    }
   }
 
   /**
@@ -2671,12 +3092,20 @@ export default class Client extends OpenApi {
 
   async uploadDocumentAdvance(workspaceId: string, request: $_model.UploadDocumentAdvanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UploadDocumentResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2693,51 +3122,54 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "DianJin",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "DianJin",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = new OSS(ossConfig);
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
     let uploadDocumentReq = new $_model.UploadDocumentRequest({ });
     OpenApiUtil.convert(request, uploadDocumentReq);
     if (!$dara.isNull(request.fileUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.fileUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      uploadDocumentReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      uploadDocumentReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let uploadDocumentResp = await this.uploadDocumentWithOptions(workspaceId, uploadDocumentReq, headers, runtime);

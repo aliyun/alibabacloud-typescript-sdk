@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetLibraryResponseBodyDataIndexSettingRecallStrategy extends $dara.Model {
+export class GetDialogLogRequest extends $dara.Model {
   /**
    * @example
-   * model
+   * 175600129454077743fb03ac54955a4be72ec08f9c216
    */
-  documentRankType?: string;
+  id?: string;
   /**
    * @example
-   * 10
+   * 1758010668S001w4paq82azm
    */
-  limit?: number;
+  sessionId?: string;
   static names(): { [key: string]: string } {
     return {
-      documentRankType: 'documentRankType',
-      limit: 'limit',
+      id: 'id',
+      sessionId: 'sessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      documentRankType: 'string',
-      limit: 'number',
+      id: 'string',
+      sessionId: 'string',
     };
   }
 
