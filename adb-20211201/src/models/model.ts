@@ -170,6 +170,7 @@ export { DescribeResultExportConfigResponseBodyData } from './DescribeResultExpo
 export { DescribeSQLPatternsResponseBodyPatternDetails } from './DescribeSqlpatternsResponseBody';
 export { DescribeSchemasResponseBodyItemsSchema } from './DescribeSchemasResponseBody';
 export { DescribeSchemasResponseBodyItems } from './DescribeSchemasResponseBody';
+export { DescribeSparkAuditLogRecordsResponseBodyItems } from './DescribeSparkAuditLogRecordsResponseBody';
 export { DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics } from './DescribeSparkSqldiagnosisAttributeResponseBody';
 export { DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList } from './DescribeSparkSqldiagnosisListResponseBody';
 export { DescribeSqlPatternResponseBodyItems } from './DescribeSqlPatternResponseBody';
@@ -636,6 +637,9 @@ export { DescribeSparkAppDiagnosisInfoResponse } from './DescribeSparkAppDiagnos
 export { DescribeSparkAppTypeRequest } from './DescribeSparkAppTypeRequest';
 export { DescribeSparkAppTypeResponseBody } from './DescribeSparkAppTypeResponseBody';
 export { DescribeSparkAppTypeResponse } from './DescribeSparkAppTypeResponse';
+export { DescribeSparkAuditLogRecordsRequest } from './DescribeSparkAuditLogRecordsRequest';
+export { DescribeSparkAuditLogRecordsResponseBody } from './DescribeSparkAuditLogRecordsResponseBody';
+export { DescribeSparkAuditLogRecordsResponse } from './DescribeSparkAuditLogRecordsResponse';
 export { DescribeSparkCodeLogRequest } from './DescribeSparkCodeLogRequest';
 export { DescribeSparkCodeLogResponseBody } from './DescribeSparkCodeLogResponseBody';
 export { DescribeSparkCodeLogResponse } from './DescribeSparkCodeLogResponse';
@@ -912,6 +916,9 @@ export { ModifyPerformanceViewRequest } from './ModifyPerformanceViewRequest';
 export { ModifyPerformanceViewShrinkRequest } from './ModifyPerformanceViewShrinkRequest';
 export { ModifyPerformanceViewResponseBody } from './ModifyPerformanceViewResponseBody';
 export { ModifyPerformanceViewResponse } from './ModifyPerformanceViewResponse';
+export { ModifySqlTemplatePositionRequest } from './ModifySqlTemplatePositionRequest';
+export { ModifySqlTemplatePositionResponseBody } from './ModifySqlTemplatePositionResponseBody';
+export { ModifySqlTemplatePositionResponse } from './ModifySqlTemplatePositionResponse';
 export { ModifyUserEniVswitchOptionsRequest } from './ModifyUserEniVswitchOptionsRequest';
 export { ModifyUserEniVswitchOptionsResponseBody } from './ModifyUserEniVswitchOptionsResponseBody';
 export { ModifyUserEniVswitchOptionsResponse } from './ModifyUserEniVswitchOptionsResponse';

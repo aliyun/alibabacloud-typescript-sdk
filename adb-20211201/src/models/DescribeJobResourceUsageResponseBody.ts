@@ -110,6 +110,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
    * job_default
    */
   resourceGroupName?: string;
+  useCachePool?: boolean;
   static names(): { [key: string]: string } {
     return {
       acuUsageDetail: 'AcuUsageDetail',
@@ -117,6 +118,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
       jobId: 'JobId',
       jobStartTime: 'JobStartTime',
       resourceGroupName: 'ResourceGroupName',
+      useCachePool: 'UseCachePool',
     };
   }
 
@@ -127,6 +129,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
       jobId: 'string',
       jobStartTime: 'string',
       resourceGroupName: 'string',
+      useCachePool: 'boolean',
     };
   }
 

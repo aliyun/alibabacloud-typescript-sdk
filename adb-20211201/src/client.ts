@@ -7914,6 +7914,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Spark审计日志
+   * 
+   * @param request - DescribeSparkAuditLogRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSparkAuditLogRecordsResponse
+   */
+  async describeSparkAuditLogRecordsWithOptions(request: $_model.DescribeSparkAuditLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSparkAuditLogRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientIp)) {
+      query["ClientIp"] = request.clientIp;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.proxyUser)) {
+      query["ProxyUser"] = request.proxyUser;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.SQLText)) {
+      query["SQLText"] = request.SQLText;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statementId)) {
+      query["StatementId"] = request.statementId;
+    }
+
+    if (!$dara.isNull(request.statementSource)) {
+      query["StatementSource"] = request.statementSource;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.totalTime)) {
+      query["TotalTime"] = request.totalTime;
+    }
+
+    if (!$dara.isNull(request.user)) {
+      query["User"] = request.user;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSparkAuditLogRecords",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSparkAuditLogRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSparkAuditLogRecordsResponse({}));
+  }
+
+  /**
+   * 查询Spark审计日志
+   * 
+   * @param request - DescribeSparkAuditLogRecordsRequest
+   * @returns DescribeSparkAuditLogRecordsResponse
+   */
+  async describeSparkAuditLogRecords(request: $_model.DescribeSparkAuditLogRecordsRequest): Promise<$_model.DescribeSparkAuditLogRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSparkAuditLogRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the execution logs of Spark code.
    * 
    * @remarks
@@ -13474,6 +13596,60 @@ export default class Client extends OpenApi {
   async modifyPerformanceView(request: $_model.ModifyPerformanceViewRequest): Promise<$_model.ModifyPerformanceViewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改SQL脚本模板位置
+   * 
+   * @param request - ModifySqlTemplatePositionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySqlTemplatePositionResponse
+   */
+  async modifySqlTemplatePositionWithOptions(request: $_model.ModifySqlTemplatePositionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySqlTemplatePositionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.targetTemplateGroupId)) {
+      query["TargetTemplateGroupId"] = request.targetTemplateGroupId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySqlTemplatePosition",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySqlTemplatePositionResponse>(await this.callApi(params, req, runtime), new $_model.ModifySqlTemplatePositionResponse({}));
+  }
+
+  /**
+   * 修改SQL脚本模板位置
+   * 
+   * @param request - ModifySqlTemplatePositionRequest
+   * @returns ModifySqlTemplatePositionResponse
+   */
+  async modifySqlTemplatePosition(request: $_model.ModifySqlTemplatePositionRequest): Promise<$_model.ModifySqlTemplatePositionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySqlTemplatePositionWithOptions(request, runtime);
   }
 
   /**
