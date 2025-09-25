@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSmartStatisticsPageListResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Date. Format: <i>month/day</i>
+   * 
    * @example
    * 11/8
    */
   date?: string;
   /**
+   * @remarks
+   * Pass rate.
+   * 
    * @example
    * 25
    */
   passRate?: string;
   /**
+   * @remarks
+   * Product solution Code, please refer to the Enhanced Real Person Help Documentation.
+   * 
    * @example
    * SMART_VERIFY
    */
   productCode?: string;
   /**
+   * @remarks
+   * Scene ID.
+   * 
    * @example
    * 20**40
    */
   sceneId?: number;
+  /**
+   * @remarks
+   * Scene name.
+   * 
+   * @example
+   * ****实名认证
+   */
   sceneName?: string;
   /**
+   * @remarks
+   * Number of successful calls.
+   * 
    * @example
    * 1
    */
   successCount?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 4
    */
@@ -69,27 +94,46 @@ export class DescribeSmartStatisticsPageListResponseBodyItems extends $dara.Mode
 
 export class DescribeSmartStatisticsPageListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Returned data list.
+   */
   items?: DescribeSmartStatisticsPageListResponseBodyItems[];
   /**
+   * @remarks
+   * Number of items displayed per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * 96943***4E39F805
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 29
    */
   totalCount?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 3
    */

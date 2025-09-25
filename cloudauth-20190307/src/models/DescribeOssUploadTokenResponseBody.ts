@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Model {
   /**
+   * @remarks
+   * OSS bucket for file storage.
+   * 
    * @example
    * cloudauth-zhangjiakou-external
    */
   bucket?: string;
   /**
+   * @remarks
+   * Access endpoint.
+   * 
    * @example
    * https://oss-cn-zhangjiakou.aliyuncs.com
    */
   endPoint?: string;
   /**
+   * @remarks
+   * Expiration time.
+   * 
    * @example
    * 1582636610000
    */
   expired?: number;
   /**
+   * @remarks
+   * The Key required for file upload.
+   * 
    * @example
    * STS.NU8rUBj****
    */
   key?: string;
   /**
+   * @remarks
+   * File storage path.
+   * 
    * @example
    * prod/RdNLC@Ox2n-1s7NMt
    */
   path?: string;
   /**
+   * @remarks
+   * The Secret required for file upload.
+   * 
    * @example
    * FwmnyoqT8dHj7nJLuM67T****
    */
   secret?: string;
   /**
+   * @remarks
+   * The Token required for file upload.
+   * 
    * @example
    * uWia500nTS5knZaDzq4/KqpvhcLnO****
    */
@@ -72,8 +93,15 @@ export class DescribeOssUploadTokenResponseBodyOssUploadToken extends $dara.Mode
 }
 
 export class DescribeOssUploadTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Information about the OSS upload Token.
+   */
   ossUploadToken?: DescribeOssUploadTokenResponseBodyOssUploadToken;
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 2FA2C773-47DB-4156-B1EE-5B047321A939
    */

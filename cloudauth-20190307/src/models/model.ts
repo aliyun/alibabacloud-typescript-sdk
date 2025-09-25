@@ -35,6 +35,7 @@ export { Id2MetaPeriodVerifyResponseBodyResultObject } from './Id2metaPeriodVeri
 export { Id2MetaStandardVerifyResponseBodyResultObject } from './Id2metaStandardVerifyResponseBody';
 export { Id2MetaVerifyResponseBodyResultObject } from './Id2metaVerifyResponseBody';
 export { Id2MetaVerifyWithOCRResponseBodyResultObject } from './Id2metaVerifyWithOcrresponseBody';
+export { Id3MetaVerifyResponseBodyResultObject } from './Id3metaVerifyResponseBody';
 export { InitCardVerifyResponseBodyResultObject } from './InitCardVerifyResponseBody';
 export { InitFaceVerifyResponseBodyResultObject } from './InitFaceVerifyResponseBody';
 export { LivenessFaceVerifyResponseBodyResultObject } from './LivenessFaceVerifyResponseBody';
@@ -141,6 +142,10 @@ export { Id2MetaVerifyWithOCRRequest } from './Id2metaVerifyWithOcrrequest';
 export { Id2MetaVerifyWithOCRAdvanceRequest } from './Id2metaVerifyWithOcradvanceRequest';
 export { Id2MetaVerifyWithOCRResponseBody } from './Id2metaVerifyWithOcrresponseBody';
 export { Id2MetaVerifyWithOCRResponse } from './Id2metaVerifyWithOcrresponse';
+export { Id3MetaVerifyRequest } from './Id3metaVerifyRequest';
+export { Id3MetaVerifyAdvanceRequest } from './Id3metaVerifyAdvanceRequest';
+export { Id3MetaVerifyResponseBody } from './Id3metaVerifyResponseBody';
+export { Id3MetaVerifyResponse } from './Id3metaVerifyResponse';
 export { InitCardVerifyRequest } from './InitCardVerifyRequest';
 export { InitCardVerifyResponseBody } from './InitCardVerifyResponseBody';
 export { InitCardVerifyResponse } from './InitCardVerifyResponse';

@@ -424,6 +424,21 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This interface is used to submit authentication materials for verification and comparison, and it synchronously returns the authentication result.
+   * 
+   * @remarks
+   * - Interface Name: ContrastFaceVerify.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - Interface Description: An interface for real person authentication through server-side integration.
+   * #### Image Format Requirements
+   * When performing real person authentication, please ensure that the images you upload meet all of the following conditions:
+   * - Recent photo with a clear, unobstructed, and natural expression, facing the camera directly.
+   * - Clear and properly exposed photo, without overly dark, bright, or haloed faces, and with minimal angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, with the shorter side recommended to be resized to 720 pixels, and a compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+   * 
    * @param request - ContrastFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContrastFaceVerifyResponse
@@ -527,6 +542,21 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This interface is used to submit authentication materials for verification and comparison, and it synchronously returns the authentication result.
+   * 
+   * @remarks
+   * - Interface Name: ContrastFaceVerify.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - Interface Description: An interface for real person authentication through server-side integration.
+   * #### Image Format Requirements
+   * When performing real person authentication, please ensure that the images you upload meet all of the following conditions:
+   * - Recent photo with a clear, unobstructed, and natural expression, facing the camera directly.
+   * - Clear and properly exposed photo, without overly dark, bright, or haloed faces, and with minimal angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, with the shorter side recommended to be resized to 720 pixels, and a compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in cases of multiple faces, the largest face will be selected.
+   * 
    * @param request - ContrastFaceVerifyRequest
    * @returns ContrastFaceVerifyResponse
    */
@@ -622,6 +652,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateAuthKey to get the authorization key, which is used for offline face recognition SDK activation.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
    * @param request - CreateAuthKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAuthKeyResponse
@@ -663,6 +699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateAuthKey to get the authorization key, which is used for offline face recognition SDK activation.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
    * @param request - CreateAuthKeyRequest
    * @returns CreateAuthKeyResponse
    */
@@ -672,6 +714,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateVerifySetting to create a verification scenario configuration. This operation is equivalent to creating a new verification scenario on the console.
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * 
    * @param request - CreateVerifySettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVerifySettingResponse
@@ -721,6 +768,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call CreateVerifySetting to create a verification scenario configuration. This operation is equivalent to creating a new verification scenario on the console.
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * 
    * @param request - CreateVerifySettingRequest
    * @returns CreateVerifySettingResponse
    */
@@ -886,7 +938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential verification
    * 
    * @param tmpReq - CredentialVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -977,7 +1029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证核验
+   * Credential verification
    * 
    * @param request - CredentialVerifyRequest
    * @returns CredentialVerifyResponse
@@ -1306,7 +1358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片要素核验获取认证结果
+   * Obtain Authentication Results from Image Element Verification
+   * 
+   * @remarks
+   * After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
    * 
    * @param request - DescribeCardVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1337,7 +1392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片要素核验获取认证结果
+   * Obtain Authentication Results from Image Element Verification
+   * 
+   * @remarks
+   * After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
    * 
    * @param request - DescribeCardVerifyRequest
    * @returns DescribeCardVerifyResponse
@@ -1348,6 +1406,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeDeviceInfo to query device-related information, such as the validity period of authorization, business identifiers customized by the access party, and device ID, etc.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * 
    * @param request - DescribeDeviceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeviceInfoResponse
@@ -1401,6 +1464,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeDeviceInfo to query device-related information, such as the validity period of authorization, business identifiers customized by the access party, and device ID, etc.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * 
    * @param request - DescribeDeviceInfoRequest
    * @returns DescribeDeviceInfoResponse
    */
@@ -1410,7 +1478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 金融级人脸保镖服务
+   * Financial-Grade Face Guard Service
    * 
    * @param request - DescribeFaceGuardRiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1453,7 +1521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 金融级人脸保镖服务
+   * Financial-Grade Face Guard Service
    * 
    * @param request - DescribeFaceGuardRiskRequest
    * @returns DescribeFaceGuardRiskResponse
@@ -1464,6 +1532,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * After the mobile end of the integrator receives the callback, its server can call this interface to obtain the corresponding authentication status and authentication information.
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
    * @param request - DescribeFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFaceVerifyResponse
@@ -1501,6 +1575,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * After the mobile end of the integrator receives the callback, its server can call this interface to obtain the corresponding authentication status and authentication information.
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
    * @param request - DescribeFaceVerifyRequest
    * @returns DescribeFaceVerifyResponse
    */
@@ -1510,6 +1590,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
+   * 
    * @param request - DescribeOssUploadTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOssUploadTokenResponse
@@ -1531,6 +1613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
    * @returns DescribeOssUploadTokenResponse
    */
   async describeOssUploadToken(): Promise<$_model.DescribeOssUploadTokenResponse> {
@@ -1539,7 +1622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Open API新增金融级数据统计API
+   * Open API adds financial-grade data statistics API
    * 
    * @param request - DescribePageFaceVerifyDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1590,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Open API新增金融级数据统计API
+   * Open API adds financial-grade data statistics API
    * 
    * @param request - DescribePageFaceVerifyDataRequest
    * @returns DescribePageFaceVerifyDataResponse
@@ -1601,6 +1684,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enhanced Real Person Authentication Call Statistics Pagination Query Interface
+   * 
    * @param request - DescribeSmartStatisticsPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSmartStatisticsPageListResponse
@@ -1650,6 +1735,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enhanced Real Person Authentication Call Statistics Pagination Query Interface
+   * 
    * @param request - DescribeSmartStatisticsPageListRequest
    * @returns DescribeSmartStatisticsPageListResponse
    */
@@ -1659,6 +1746,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the result of real-person authentication.
+   * 
+   * @remarks
+   * Prerequisites: Before accessing this API, please ensure that you have completed the necessary preparations. For more details, see [Real Person Authentication Server-side Preparation](https://help.aliyun.com/document_detail/127471.html) and [Liveness Face Verification Server-side Preparation](https://help.aliyun.com/document_detail/127717.html).
+   * > Alibaba Cloud Real Person Authentication only stores authentication data for the last 180 days. For any subsequent business use, please call this interface in a timely manner to retrieve and store the data yourself to avoid any impact on usage.
+   * Request Method: HTTPS POST and GET.
+   * Interface Description: After the mobile end of the access party receives the callback, its server can call this interface to obtain the corresponding authentication status and authentication information.
+   * Applicable Scope: This interface is applicable to the authentication solution with SDK + server-side integration.
+   * 
    * @param request - DescribeVerifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVerifyResultResponse
@@ -1692,6 +1788,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the result of real-person authentication.
+   * 
+   * @remarks
+   * Prerequisites: Before accessing this API, please ensure that you have completed the necessary preparations. For more details, see [Real Person Authentication Server-side Preparation](https://help.aliyun.com/document_detail/127471.html) and [Liveness Face Verification Server-side Preparation](https://help.aliyun.com/document_detail/127717.html).
+   * > Alibaba Cloud Real Person Authentication only stores authentication data for the last 180 days. For any subsequent business use, please call this interface in a timely manner to retrieve and store the data yourself to avoid any impact on usage.
+   * Request Method: HTTPS POST and GET.
+   * Interface Description: After the mobile end of the access party receives the callback, its server can call this interface to obtain the corresponding authentication status and authentication information.
+   * Applicable Scope: This interface is applicable to the authentication solution with SDK + server-side integration.
+   * 
    * @param request - DescribeVerifyResultRequest
    * @returns DescribeVerifyResultResponse
    */
@@ -1701,6 +1806,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeVerifySDK to get the offline SDK download address.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * Interface Description: Obtain the SDK generation result based on the task ID for generating an offline facial recognition SDK.
+   * 
    * @param request - DescribeVerifySDKRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVerifySDKResponse
@@ -1730,6 +1841,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeVerifySDK to get the offline SDK download address.
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * Interface Description: Obtain the SDK generation result based on the task ID for generating an offline facial recognition SDK.
+   * 
    * @param request - DescribeVerifySDKRequest
    * @returns DescribeVerifySDKResponse
    */
@@ -1739,6 +1856,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeVerifyToken to initiate an authentication request and obtain an authentication Token. This interface is suitable for authentication solutions using SDK + server-side integration.
+   * 
+   * @remarks
+   * Preparation for Access: When integrating this API, please ensure that the corresponding preparations have been completed. For details, see [Overview of Real Person Authentication Solution Integration Process](https://help.aliyun.com/document_detail/127536.html) and [Overview of Live Face Verification Solution (Liveness Detection Solution) Integration Process](https://help.aliyun.com/document_detail/127687.html).
+   * Request Method: HTTPS POST and GET
+   * API Description: Before each authentication, use this interface to obtain an authentication Token (VerifyToken), which is used to link various interfaces in the authentication request.
+   * Applicable Scope: This interface is suitable for wireless SDK integration.
+   * Image Address: Use HTTP or HTTPS addresses that are publicly accessible over the Internet. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * Image Restrictions:
+   * - Relative or absolute paths of local images are not supported.
+   * - The size of a single image should be controlled within 2 MB to avoid algorithm retrieval timeout.
+   * - The face area in the image must be at least 64*64 pixels (px).
+   * - There is an 8 MB size limit for the Body of a single request. Please calculate the total size of all images and other information in the request to ensure it does not exceed the limit.
+   * 
    * @param request - DescribeVerifyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVerifyTokenResponse
@@ -1824,6 +1955,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call DescribeVerifyToken to initiate an authentication request and obtain an authentication Token. This interface is suitable for authentication solutions using SDK + server-side integration.
+   * 
+   * @remarks
+   * Preparation for Access: When integrating this API, please ensure that the corresponding preparations have been completed. For details, see [Overview of Real Person Authentication Solution Integration Process](https://help.aliyun.com/document_detail/127536.html) and [Overview of Live Face Verification Solution (Liveness Detection Solution) Integration Process](https://help.aliyun.com/document_detail/127687.html).
+   * Request Method: HTTPS POST and GET
+   * API Description: Before each authentication, use this interface to obtain an authentication Token (VerifyToken), which is used to link various interfaces in the authentication request.
+   * Applicable Scope: This interface is suitable for wireless SDK integration.
+   * Image Address: Use HTTP or HTTPS addresses that are publicly accessible over the Internet. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * Image Restrictions:
+   * - Relative or absolute paths of local images are not supported.
+   * - The size of a single image should be controlled within 2 MB to avoid algorithm retrieval timeout.
+   * - The face area in the image must be at least 64*64 pixels (px).
+   * - There is an 8 MB size limit for the Body of a single request. Please calculate the total size of all images and other information in the request to ensure it does not exceed the limit.
+   * 
    * @param request - DescribeVerifyTokenRequest
    * @returns DescribeVerifyTokenResponse
    */
@@ -1833,6 +1978,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Detect Validity Attributes in Face Photos
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * Interface Description: Detects the validity-related attributes of faces in the input photo, which helps the business side to determine whether the photo meets their own business retention or comparison requirements. The currently supported face validity-related attributes include: whether it is a face, whether it is blurry, whether glasses are worn, face pose, whether it is a smile, etc.
+   * Instructions for Uploading Image Addresses: When passing in images, you need to upload their corresponding HTTP, OSS addresses, or Base64 encoding.
+   * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - Base64 Encoding: An image encoded through base64, with the format being `base64://<image base64 string>`.
+   * Image Limitations:
+   * - Does not support relative or absolute paths of local images.
+   * - Please keep the size of a single image within 2 MB to avoid algorithm timeout.
+   * - There is an 8 MB size limit for the Body of a single request; please calculate the total size of all images and other information in the request and do not exceed the limit.
+   * - When using Base64 to pass images, the request method needs to be changed to POST; the header description of the image Base64 string, such as `data:image/png;base64`, should be removed.
+   * 
    * @param request - DetectFaceAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetectFaceAttributesResponse
@@ -1866,6 +2025,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Detect Validity Attributes in Face Photos
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * Interface Description: Detects the validity-related attributes of faces in the input photo, which helps the business side to determine whether the photo meets their own business retention or comparison requirements. The currently supported face validity-related attributes include: whether it is a face, whether it is blurry, whether glasses are worn, face pose, whether it is a smile, etc.
+   * Instructions for Uploading Image Addresses: When passing in images, you need to upload their corresponding HTTP, OSS addresses, or Base64 encoding.
+   * - HTTP Address: A publicly accessible HTTP address. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - Base64 Encoding: An image encoded through base64, with the format being `base64://<image base64 string>`.
+   * Image Limitations:
+   * - Does not support relative or absolute paths of local images.
+   * - Please keep the size of a single image within 2 MB to avoid algorithm timeout.
+   * - There is an 8 MB size limit for the Body of a single request; please calculate the total size of all images and other information in the request and do not exceed the limit.
+   * - When using Base64 to pass images, the request method needs to be changed to POST; the header description of the image Base64 string, such as `data:image/png;base64`, should be removed.
+   * 
    * @param request - DetectFaceAttributesRequest
    * @returns DetectFaceAttributesResponse
    */
@@ -2212,6 +2385,160 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Identity Three Elements Verification
+   * 
+   * @remarks
+   * Input name, ID number, and face photo to verify their authenticity and consistency through authoritative sources.
+   * 
+   * @param request - Id3MetaVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id3MetaVerifyResponse
+   */
+  async id3MetaVerifyWithOptions(request: $_model.Id3MetaVerifyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!$dara.isNull(request.faceFile)) {
+      body["FaceFile"] = request.faceFile;
+    }
+
+    if (!$dara.isNull(request.faceUrl)) {
+      body["FaceUrl"] = request.faceUrl;
+    }
+
+    if (!$dara.isNull(request.identifyNum)) {
+      body["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!$dara.isNull(request.paramType)) {
+      body["ParamType"] = request.paramType;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Id3MetaVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.Id3MetaVerifyResponse>(await this.callApi(params, req, runtime), new $_model.Id3MetaVerifyResponse({}));
+  }
+
+  /**
+   * Identity Three Elements Verification
+   * 
+   * @remarks
+   * Input name, ID number, and face photo to verify their authenticity and consistency through authoritative sources.
+   * 
+   * @param request - Id3MetaVerifyRequest
+   * @returns Id3MetaVerifyResponse
+   */
+  async id3MetaVerify(request: $_model.Id3MetaVerifyRequest): Promise<$_model.Id3MetaVerifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.id3MetaVerifyWithOptions(request, runtime);
+  }
+
+  async id3MetaVerifyAdvance(request: $_model.Id3MetaVerifyAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let id3MetaVerifyReq = new $_model.Id3MetaVerifyRequest({ });
+    OpenApiUtil.convert(request, id3MetaVerifyReq);
+    if (!$dara.isNull(request.faceFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.faceFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      id3MetaVerifyReq.faceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let id3MetaVerifyResp = await this.id3MetaVerifyWithOptions(id3MetaVerifyReq, runtime);
+    return id3MetaVerifyResp;
+  }
+
+  /**
    * Initiate an authentication request for image verification
    * 
    * @remarks
@@ -2296,7 +2623,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实人服务端初始化接口
+   * Real-Person Server Initialization Interface
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+   * #### Image Format Requirements
+   * When performing real-person authentication, please provide images that meet all of the following conditions:
+   * - Recent photo with a clear, unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure, no overexposure, underexposure, or halo effects, and no significant angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, recommended short side scaled to 720 pixels, compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in the case of multiple faces, the largest face will be selected.
    * 
    * @param request - InitFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2477,7 +2816,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实人服务端初始化接口
+   * Real-Person Server Initialization Interface
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+   * #### Image Format Requirements
+   * When performing real-person authentication, please provide images that meet all of the following conditions:
+   * - Recent photo with a clear, unobstructed face, natural expression, and facing the camera directly.
+   * - Clear photo with normal exposure, no overexposure, underexposure, or halo effects, and no significant angle deviation.
+   * - Resolution not exceeding 1920*1080, at least 640*480, recommended short side scaled to 720 pixels, compression ratio greater than 0.9.
+   * - Photo size: <1MB.
+   * - Supports 90, 180, and 270-degree photos; in the case of multiple faces, the largest face will be selected.
    * 
    * @param request - InitFaceVerifyRequest
    * @returns InitFaceVerifyResponse
@@ -2550,6 +2901,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Silent Liveness Face (LivenessFaceVerify) refers to a service that performs real face detection by inputting pre-obtained face images through an API. The algorithm primarily identifies whether the face is from a screen recording, printed picture, or other types of liveness attacks. This service is suitable for low-risk business scenarios or in conjunction with offline facial recognition SDKs. If your business has higher requirements for real face security, it is recommended to integrate App or WebSDK mode, or integrate with Deepfake face detection services to assist in identifying more dimensions of face forgery risks.
+   * 
+   * @remarks
+   * Invoke the LivenessFaceVerify interface to perform liveness detection on a face image.
+   * 
    * @param request - LivenessFaceVerifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LivenessFaceVerifyResponse
@@ -2633,6 +2989,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Silent Liveness Face (LivenessFaceVerify) refers to a service that performs real face detection by inputting pre-obtained face images through an API. The algorithm primarily identifies whether the face is from a screen recording, printed picture, or other types of liveness attacks. This service is suitable for low-risk business scenarios or in conjunction with offline facial recognition SDKs. If your business has higher requirements for real face security, it is recommended to integrate App or WebSDK mode, or integrate with Deepfake face detection services to assist in identifying more dimensions of face forgery risks.
+   * 
+   * @remarks
+   * Invoke the LivenessFaceVerify interface to perform liveness detection on a face image.
+   * 
    * @param request - LivenessFaceVerifyRequest
    * @returns LivenessFaceVerifyResponse
    */
@@ -3582,6 +3943,22 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call VerifyMaterial, in a pure server-side access authentication solution, input name, ID number, portrait photo, and front and back photos of the ID card (optional) for real-person authentication, and return the authentication result synchronously.
+   * 
+   * @remarks
+   * Preparation for Access: When integrating this API, please ensure that the corresponding preparatory work has been completed. For details, please refer to [Server-side Access Preparation](https://help.aliyun.com/document_detail/127471.html).
+   * Request Method: HTTPS POST and GET.
+   * API Description: The server of the access party submits the authentication materials to the real-person authentication service for verification and comparison, with the results returned synchronously.
+   * Applicable Scope: This interface is only applicable to pure server-side access authentication solutions.
+   * Image Upload Address Explanation:
+   * - HTTP or HTTPS address: Supports publicly accessible HTTP or HTTPS addresses. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - OSS address: If the images from the access party are local files, Alibaba Cloud also provides an upload SDK, supporting the business party to upload the images to the specified OSS bucket of the real-person authentication service, and use the obtained OSS address as the image address parameter in the interface. If your business needs to use the upload SDK, please submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us for acquisition.
+   * Image Limitations:
+   * - Does not support relative or absolute paths of local images.
+   * - Please keep the size of a single image within 2 MB to avoid algorithm retrieval timeout.
+   * - The face area in the image should be at least 64*64 pixels.
+   * - There is an 8 MB size limit for the Body of a single request. Please calculate the total size of all images and other information in the request, and do not exceed the limit.
+   * 
    * @param request - VerifyMaterialRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyMaterialResponse
@@ -3639,6 +4016,22 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Call VerifyMaterial, in a pure server-side access authentication solution, input name, ID number, portrait photo, and front and back photos of the ID card (optional) for real-person authentication, and return the authentication result synchronously.
+   * 
+   * @remarks
+   * Preparation for Access: When integrating this API, please ensure that the corresponding preparatory work has been completed. For details, please refer to [Server-side Access Preparation](https://help.aliyun.com/document_detail/127471.html).
+   * Request Method: HTTPS POST and GET.
+   * API Description: The server of the access party submits the authentication materials to the real-person authentication service for verification and comparison, with the results returned synchronously.
+   * Applicable Scope: This interface is only applicable to pure server-side access authentication solutions.
+   * Image Upload Address Explanation:
+   * - HTTP or HTTPS address: Supports publicly accessible HTTP or HTTPS addresses. For example, `http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg`.
+   * - OSS address: If the images from the access party are local files, Alibaba Cloud also provides an upload SDK, supporting the business party to upload the images to the specified OSS bucket of the real-person authentication service, and use the obtained OSS address as the image address parameter in the interface. If your business needs to use the upload SDK, please submit a [ticket](https://selfservice.console.aliyun.com/ticket/category/cloudauth/today) to contact us for acquisition.
+   * Image Limitations:
+   * - Does not support relative or absolute paths of local images.
+   * - Please keep the size of a single image within 2 MB to avoid algorithm retrieval timeout.
+   * - The face area in the image should be at least 64*64 pixels.
+   * - There is an 8 MB size limit for the Body of a single request. Please calculate the total size of all images and other information in the request, and do not exceed the limit.
+   * 
    * @param request - VerifyMaterialRequest
    * @returns VerifyMaterialResponse
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVerifySDKRequest extends $dara.Model {
   /**
    * @remarks
+   * The task ID for generating the SDK.
+   * 
    * This parameter is required.
    * 
    * @example

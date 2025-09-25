@@ -4,27 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Date.
+   * 
    * @example
    * 2024-03-24T00:00:00.000Z
    */
   date?: string;
   /**
+   * @remarks
+   * Product scheme code, please refer to the financial-grade real-person help documentation.
+   * 
    * @example
    * ID_PLUS
    */
   productCode?: string;
   /**
+   * @remarks
+   * Scene ID.
+   * 
    * @example
    * 20**40
    */
   sceneId?: string;
+  /**
+   * @remarks
+   * Scene name.
+   * 
+   * @example
+   * ****实名认证
+   */
   sceneName?: string;
   /**
+   * @remarks
+   * Number of successful calls.
+   * 
    * @example
    * 1
    */
   successCount?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 19
    */
@@ -62,42 +84,70 @@ export class DescribePageFaceVerifyDataResponseBodyItems extends $dara.Model {
 
 export class DescribePageFaceVerifyDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: string;
+  /**
+   * @remarks
+   * List of returned data.
+   */
   items?: DescribePageFaceVerifyDataResponseBodyItems[];
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * 473469C7-A***B-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the response was successful.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 100
    */
   totalCount?: string;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 5
    */

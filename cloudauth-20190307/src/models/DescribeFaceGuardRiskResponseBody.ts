@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
+  /**
+   * @remarks
+   * Unique real-person authentication identifier.
+   * 
+   * @example
+   * sha43d9cabd52d370d9f4cca9468f71e
+   */
   certifyId?: string;
   /**
+   * @remarks
+   * Extended information, in JSON format. (Customized return based on tenant requirements)
+   * 
    * @example
    * {
    *   "code": 200
@@ -18,6 +28,17 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
    * }
    */
   riskExtends?: string;
+  /**
+   * @remarks
+   * Device risk tags.
+   * 
+   * - Multiple device risk tags are separated by commas (,). For example, “ROOT,VPN,HOOK”,
+   * 
+   * - For more information about device risk tags and their meanings, please refer to the official documentation on Face Guard Tag Descriptions.
+   * 
+   * @example
+   * ROOT,VPN,HOOK
+   */
   riskTags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,23 +67,33 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
 
 export class DescribeFaceGuardRiskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code, **200** indicates successful response from the interface.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * D6163397-15C5-419C-9ACC-B7C83E0B4C10
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result information.
+   */
   resultObject?: DescribeFaceGuardRiskResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

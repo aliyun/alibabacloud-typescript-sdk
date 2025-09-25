@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose extends $dara.Model {
   /**
+   * @remarks
+   * Pitch angle, in degrees.
+   * 
    * @example
    * -1.5683923959732056
    */
   pitchAngle?: number;
   /**
+   * @remarks
+   * Roll angle, in degrees.
+   * 
    * @example
    * 7.163370132446289
    */
   rollAngle?: number;
   /**
+   * @remarks
+   * Yaw angle, in degrees.
+   * 
    * @example
    * -6.925303936004639
    */
@@ -45,11 +54,17 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling extends $dara.Model {
   /**
+   * @remarks
+   * Smile threshold.
+   * 
    * @example
    * 95
    */
   threshold?: number;
   /**
+   * @remarks
+   * Smile score.
+   * 
    * @example
    * 97
    */
@@ -79,36 +94,75 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes extends $dara.Model {
   /**
+   * @remarks
+   * Face blur level, with higher values indicating more blurriness. Typically, a value ≥2.0 is considered quite blurry. It is recommended to adjust based on actual business data testing.
+   * 
    * @example
    * 0.1419367790222168
    */
   blur?: number;
   /**
+   * @remarks
+   * A score ranging from 0 to 100. The higher the score, the better the quality. It is recommended to consider a score of 50 or above as acceptable quality.
+   * 
    * @example
    * 60
    */
   facequal?: number;
   /**
+   * @remarks
+   * Whether it is a human face. Values:
+   * 
+   * - **None**: Not a human face
+   * - **Face**: Human face
+   * - **Profile**: Profile (head turned left or right by more than 30°)
+   * 
+   * > If no face is detected, the `faceInfos` in the response will be empty; here, `None` means that a face was detected but is considered to be a cartoon, pet, etc.
+   * 
    * @example
    * Face
    */
   facetype?: string;
   /**
+   * @remarks
+   * Whether wearing glasses. Values:
+   * 
+   * - **None**: Not wearing glasses
+   * - **Wear**: Wearing regular glasses
+   * - **Sunglass**: Wearing sunglasses
+   * 
    * @example
    * None
    */
   glasses?: string;
+  /**
+   * @remarks
+   * Face pose.
+   */
   headpose?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesHeadpose;
   /**
+   * @remarks
+   * A score ranging from 0 to 100. The higher the score, the more complete the face. It is recommended to consider a score of 70 or above as acceptable completeness.
+   * 
    * @example
    * 70
    */
   integrity?: number;
   /**
+   * @remarks
+   * Whether wearing a mask. Values:
+   * 
+   * - Wear: Wearing a mask.
+   * - None: Not wearing a mask.
+   * 
    * @example
    * Wear
    */
   respirator?: string;
+  /**
+   * @remarks
+   * Whether smiling.
+   */
   smiling?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributesSmiling;
   static names(): { [key: string]: string } {
     return {
@@ -153,21 +207,33 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect extends $dara.Model {
   /**
+   * @remarks
+   * Height of the face rectangle.
+   * 
    * @example
    * 473
    */
   height?: number;
   /**
+   * @remarks
+   * Distance from the top-left corner of the face rectangle to the left edge of the original image, in pixels.
+   * 
    * @example
    * 354
    */
   left?: number;
   /**
+   * @remarks
+   * Distance from the top-left corner of the face rectangle to the top edge of the original image, in pixels.
+   * 
    * @example
    * 453
    */
   top?: number;
   /**
+   * @remarks
+   * Width of the face rectangle.
+   * 
    * @example
    * 473
    */
@@ -200,7 +266,15 @@ export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectIn
 }
 
 export class DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Face attributes.
+   */
   faceAttributes?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceAttributes;
+  /**
+   * @remarks
+   * Position of the face in the original image.
+   */
   faceRect?: DetectFaceAttributesResponseBodyDataFaceInfosFaceAttributesDetectInfoFaceRect;
   static names(): { [key: string]: string } {
     return {
@@ -258,13 +332,23 @@ export class DetectFaceAttributesResponseBodyDataFaceInfos extends $dara.Model {
 }
 
 export class DetectFaceAttributesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Face detection results.
+   */
   faceInfos?: DetectFaceAttributesResponseBodyDataFaceInfos;
   /**
+   * @remarks
+   * Original image height, in pixels.
+   * 
    * @example
    * 1920
    */
   imgHeight?: number;
   /**
+   * @remarks
+   * Original image width, in pixels.
+   * 
    * @example
    * 1080
    */
@@ -299,22 +383,38 @@ export class DetectFaceAttributesResponseBodyData extends $dara.Model {
 
 export class DetectFaceAttributesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: DetectFaceAttributesResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * Error.InternalError
    */
   message?: string;
   /**
+   * @remarks
+   * ID of this request.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the response was successful.
+   * 
    * @example
    * true
    */

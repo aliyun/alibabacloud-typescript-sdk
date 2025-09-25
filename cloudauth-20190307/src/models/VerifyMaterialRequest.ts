@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyMaterialRequest extends $dara.Model {
   /**
    * @remarks
+   * A unique ID that identifies a single authentication task, not exceeding 64 characters. For a single authentication task, the system supports unlimited submissions until the final authentication is passed and the task is completed.
+   * 
+   * > Different BizIds are required for different authentication tasks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class VerifyMaterialRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Identifier for the business scenario using the real-person authentication service. Please refer to [Business Setup](https://help.aliyun.com/document_detail/127885.html) and complete the creation in the console first.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +27,8 @@ export class VerifyMaterialRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
+   * HTTP or HTTPS link to the frontal face image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,17 +36,25 @@ export class VerifyMaterialRequest extends $dara.Model {
    */
   faceImageUrl?: string;
   /**
+   * @remarks
+   * HTTP or HTTPS link to the national emblem side of the ID card.
+   * 
    * @example
    * http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
    */
   idCardBackImageUrl?: string;
   /**
+   * @remarks
+   * HTTP or HTTPS link to the portrait side of the ID card image.
+   * 
    * @example
    * http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
    */
   idCardFrontImageUrl?: string;
   /**
    * @remarks
+   * ID number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,10 +63,18 @@ export class VerifyMaterialRequest extends $dara.Model {
   idCardNumber?: string;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 张三
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the end user, such as the account ID of the end user.
+   * 
    * @example
    * 54sdj
    */
