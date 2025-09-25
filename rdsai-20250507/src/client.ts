@@ -418,6 +418,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看实例RAG配置
+   * 
+   * @param request - DescribeInstanceRAGConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceRAGConfigResponse
+   */
+  async describeInstanceRAGConfigWithOptions(request: $_model.DescribeInstanceRAGConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceRAGConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceRAGConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceRAGConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceRAGConfigResponse({}));
+  }
+
+  /**
+   * 查看实例RAG配置
+   * 
+   * @param request - DescribeInstanceRAGConfigRequest
+   * @returns DescribeInstanceRAGConfigResponse
+   */
+  async describeInstanceRAGConfig(request: $_model.DescribeInstanceRAGConfigRequest): Promise<$_model.DescribeInstanceRAGConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceRAGConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看实例SSL配置
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSSLResponse
+   */
+  async describeInstanceSSLWithOptions(request: $_model.DescribeInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceSSLResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceSSL",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceSSLResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceSSLResponse({}));
+  }
+
+  /**
+   * 查看实例SSL配置
+   * 
+   * @param request - DescribeInstanceSSLRequest
+   * @returns DescribeInstanceSSLResponse
+   */
+  async describeInstanceSSL(request: $_model.DescribeInstanceSSLRequest): Promise<$_model.DescribeInstanceSSLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceSSLWithOptions(request, runtime);
+  }
+
+  /**
    * 查看实例存储配置
    * 
    * @param request - DescribeInstanceStorageConfigRequest
@@ -579,6 +671,132 @@ export default class Client extends OpenApi {
   async modifyInstanceIpWhitelist(request: $_model.ModifyInstanceIpWhitelistRequest): Promise<$_model.ModifyInstanceIpWhitelistResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceIpWhitelistWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例RAG配置
+   * 
+   * @param tmpReq - ModifyInstanceRAGConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceRAGConfigResponse
+   */
+  async modifyInstanceRAGConfigWithOptions(tmpReq: $_model.ModifyInstanceRAGConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceRAGConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyInstanceRAGConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.configList)) {
+      request.configListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configList, "ConfigList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configListShrink)) {
+      query["ConfigList"] = request.configListShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceRAGConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceRAGConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceRAGConfigResponse({}));
+  }
+
+  /**
+   * 修改实例RAG配置
+   * 
+   * @param request - ModifyInstanceRAGConfigRequest
+   * @returns ModifyInstanceRAGConfigResponse
+   */
+  async modifyInstanceRAGConfig(request: $_model.ModifyInstanceRAGConfigRequest): Promise<$_model.ModifyInstanceRAGConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceRAGConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例SSL配置
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceSSLResponse
+   */
+  async modifyInstanceSSLWithOptions(request: $_model.ModifyInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceSSLResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.CAType)) {
+      query["CAType"] = request.CAType;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.SSLEnabled)) {
+      query["SSLEnabled"] = request.SSLEnabled;
+    }
+
+    if (!$dara.isNull(request.serverCert)) {
+      query["ServerCert"] = request.serverCert;
+    }
+
+    if (!$dara.isNull(request.serverKey)) {
+      query["ServerKey"] = request.serverKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceSSL",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceSSLResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceSSLResponse({}));
+  }
+
+  /**
+   * 修改实例SSL配置
+   * 
+   * @param request - ModifyInstanceSSLRequest
+   * @returns ModifyInstanceSSLResponse
+   */
+  async modifyInstanceSSL(request: $_model.ModifyInstanceSSLRequest): Promise<$_model.ModifyInstanceSSLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceSSLWithOptions(request, runtime);
   }
 
   /**

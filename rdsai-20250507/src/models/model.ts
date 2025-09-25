@@ -4,8 +4,10 @@ export { DescribeInstanceAuthInfoResponseBodyApiKeys } from './DescribeInstanceA
 export { DescribeInstanceAuthInfoResponseBodyConfigList } from './DescribeInstanceAuthInfoResponseBody';
 export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './DescribeInstanceEndpointsResponseBody';
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
+export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';
 export { DescribeInstanceStorageConfigResponseBodyConfigList } from './DescribeInstanceStorageConfigResponseBody';
 export { ModifyInstanceAuthConfigRequestConfigList } from './ModifyInstanceAuthConfigRequest';
+export { ModifyInstanceRAGConfigRequestConfigList } from './ModifyInstanceRagconfigRequest';
 export { ModifyInstanceStorageConfigRequestConfigList } from './ModifyInstanceStorageConfigRequest';
 export { CreateAppInstanceRequest } from './CreateAppInstanceRequest';
 export { CreateAppInstanceShrinkRequest } from './CreateAppInstanceShrinkRequest';
@@ -29,6 +31,12 @@ export { DescribeInstanceEndpointsResponse } from './DescribeInstanceEndpointsRe
 export { DescribeInstanceIpWhitelistRequest } from './DescribeInstanceIpWhitelistRequest';
 export { DescribeInstanceIpWhitelistResponseBody } from './DescribeInstanceIpWhitelistResponseBody';
 export { DescribeInstanceIpWhitelistResponse } from './DescribeInstanceIpWhitelistResponse';
+export { DescribeInstanceRAGConfigRequest } from './DescribeInstanceRagconfigRequest';
+export { DescribeInstanceRAGConfigResponseBody } from './DescribeInstanceRagconfigResponseBody';
+export { DescribeInstanceRAGConfigResponse } from './DescribeInstanceRagconfigResponse';
+export { DescribeInstanceSSLRequest } from './DescribeInstanceSslrequest';
+export { DescribeInstanceSSLResponseBody } from './DescribeInstanceSslresponseBody';
+export { DescribeInstanceSSLResponse } from './DescribeInstanceSslresponse';
 export { DescribeInstanceStorageConfigRequest } from './DescribeInstanceStorageConfigRequest';
 export { DescribeInstanceStorageConfigResponseBody } from './DescribeInstanceStorageConfigResponseBody';
 export { DescribeInstanceStorageConfigResponse } from './DescribeInstanceStorageConfigResponse';
@@ -39,6 +47,13 @@ export { ModifyInstanceAuthConfigResponse } from './ModifyInstanceAuthConfigResp
 export { ModifyInstanceIpWhitelistRequest } from './ModifyInstanceIpWhitelistRequest';
 export { ModifyInstanceIpWhitelistResponseBody } from './ModifyInstanceIpWhitelistResponseBody';
 export { ModifyInstanceIpWhitelistResponse } from './ModifyInstanceIpWhitelistResponse';
+export { ModifyInstanceRAGConfigRequest } from './ModifyInstanceRagconfigRequest';
+export { ModifyInstanceRAGConfigShrinkRequest } from './ModifyInstanceRagconfigShrinkRequest';
+export { ModifyInstanceRAGConfigResponseBody } from './ModifyInstanceRagconfigResponseBody';
+export { ModifyInstanceRAGConfigResponse } from './ModifyInstanceRagconfigResponse';
+export { ModifyInstanceSSLRequest } from './ModifyInstanceSslrequest';
+export { ModifyInstanceSSLResponseBody } from './ModifyInstanceSslresponseBody';
+export { ModifyInstanceSSLResponse } from './ModifyInstanceSslresponse';
 export { ModifyInstanceStorageConfigRequest } from './ModifyInstanceStorageConfigRequest';
 export { ModifyInstanceStorageConfigShrinkRequest } from './ModifyInstanceStorageConfigShrinkRequest';
 export { ModifyInstanceStorageConfigResponseBody } from './ModifyInstanceStorageConfigResponseBody';
