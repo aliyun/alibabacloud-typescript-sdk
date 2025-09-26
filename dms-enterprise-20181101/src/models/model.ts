@@ -138,6 +138,8 @@ export { GetPagedInstanceResponseBodyData } from './GetPagedInstanceResponseBody
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesColumnInfo } from './GetPermApplyOrderDetailResponseBody';
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesDatabaseInfo } from './GetPermApplyOrderDetailResponseBody';
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo } from './GetPermApplyOrderDetailResponseBody';
+export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo } from './GetPermApplyOrderDetailResponseBody';
+export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo } from './GetPermApplyOrderDetailResponseBody';
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesTableInfo } from './GetPermApplyOrderDetailResponseBody';
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources } from './GetPermApplyOrderDetailResponseBody';
 export { GetPermApplyOrderDetailResponseBodyPermApplyOrderDetail } from './GetPermApplyOrderDetailResponseBody';

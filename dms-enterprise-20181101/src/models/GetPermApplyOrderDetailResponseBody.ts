@@ -255,6 +255,70 @@ export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesIns
   }
 }
 
+export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo extends $dara.Model {
+  columnName?: string;
+  dbId?: number;
+  logic?: boolean;
+  matchMode?: string;
+  rowGroupId?: number;
+  schemaName?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      dbId: 'DbId',
+      logic: 'Logic',
+      matchMode: 'MatchMode',
+      rowGroupId: 'RowGroupId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      dbId: 'number',
+      logic: 'boolean',
+      matchMode: 'string',
+      rowGroupId: 'number',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo extends $dara.Model {
+  rowValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rowValue: 'RowValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rowValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesTableInfo extends $dara.Model {
   /**
    * @remarks
@@ -301,6 +365,8 @@ export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources ex
    * The information about the instance.
    */
   instanceInfo?: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo;
+  rowInfo?: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo;
+  rowValueInfo?: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo;
   /**
    * @remarks
    * The information about the table.
@@ -311,6 +377,8 @@ export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources ex
       columnInfo: 'ColumnInfo',
       databaseInfo: 'DatabaseInfo',
       instanceInfo: 'InstanceInfo',
+      rowInfo: 'RowInfo',
+      rowValueInfo: 'RowValueInfo',
       tableInfo: 'TableInfo',
     };
   }
@@ -320,6 +388,8 @@ export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources ex
       columnInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesColumnInfo,
       databaseInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesDatabaseInfo,
       instanceInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesInstanceInfo,
+      rowInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowInfo,
+      rowValueInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesRowValueInfo,
       tableInfo: GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResourcesTableInfo,
     };
   }
@@ -333,6 +403,12 @@ export class GetPermApplyOrderDetailResponseBodyPermApplyOrderDetailResources ex
     }
     if(this.instanceInfo && typeof (this.instanceInfo as any).validate === 'function') {
       (this.instanceInfo as any).validate();
+    }
+    if(this.rowInfo && typeof (this.rowInfo as any).validate === 'function') {
+      (this.rowInfo as any).validate();
+    }
+    if(this.rowValueInfo && typeof (this.rowValueInfo as any).validate === 'function') {
+      (this.rowValueInfo as any).validate();
     }
     if(this.tableInfo && typeof (this.tableInfo as any).validate === 'function') {
       (this.tableInfo as any).validate();
