@@ -4,10 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsAppUninstallSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -15,6 +17,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsAppUninstallSchemaCon
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -62,10 +65,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsAppUninstallSchemaCon
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsDeviceRegistrationSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -73,6 +78,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDeviceRegistrationSch
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -120,10 +126,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDeviceRegistrationSch
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsDlpSendSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -131,6 +139,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDlpSendSchemaConfigFi
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -178,10 +187,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDlpSendSchemaConfig e
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainBlacklistSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -189,6 +200,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainBlacklistSchema
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -236,10 +248,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainBlacklistSchema
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainWhitelistSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -247,6 +261,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainWhitelistSchema
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -294,10 +309,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsDomainWhitelistSchema
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsEndpointHardeningSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -305,6 +322,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsEndpointHardeningSche
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -352,10 +370,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsEndpointHardeningSche
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -363,6 +383,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchema
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -410,10 +431,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsPeripheralBlockSchema
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -421,6 +444,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaCo
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -468,10 +492,12 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareBlockSchemaCo
 
 export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareHardeningSchemaConfigFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -479,6 +505,7 @@ export class UpdateApprovalProcessRequestMatchSchemaConfigsSoftwareHardeningSche
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }

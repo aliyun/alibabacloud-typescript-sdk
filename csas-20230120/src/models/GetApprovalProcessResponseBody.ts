@@ -8,6 +8,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
    * 名称
    */
   displayField?: string;
+  displayFieldValue?: string;
   /**
    * @example
    * 名称
@@ -16,6 +17,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -23,6 +25,7 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPoliciesFieldMap e
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -80,10 +83,12 @@ export class GetApprovalProcessResponseBodyProcessAppUninstallPolicies extends $
 
 export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -91,6 +96,7 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPoliciesFiel
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -148,10 +154,12 @@ export class GetApprovalProcessResponseBodyProcessDeviceRegistrationPolicies ext
 
 export class GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -159,6 +167,7 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPoliciesFieldMap extend
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -216,10 +225,12 @@ export class GetApprovalProcessResponseBodyProcessDlpSendPolicies extends $dara.
 
 export class GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -227,6 +238,7 @@ export class GetApprovalProcessResponseBodyProcessDomainBlacklistPoliciesFieldMa
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -284,10 +296,12 @@ export class GetApprovalProcessResponseBodyProcessDomainBlacklistPolicies extend
 
 export class GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -295,6 +309,7 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPoliciesFieldMa
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -352,10 +367,12 @@ export class GetApprovalProcessResponseBodyProcessDomainWhitelistPolicies extend
 
 export class GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -363,6 +380,7 @@ export class GetApprovalProcessResponseBodyProcessEndpointHardeningPoliciesField
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -416,10 +434,12 @@ export class GetApprovalProcessResponseBodyProcessEndpointHardeningPolicies exte
 
 export class GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -427,6 +447,7 @@ export class GetApprovalProcessResponseBodyProcessPeripheralBlockPoliciesFieldMa
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -514,10 +535,12 @@ export class GetApprovalProcessResponseBodyProcessProcessNodes extends $dara.Mod
 
 export class GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -525,6 +548,7 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPoliciesFieldMap 
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
@@ -582,10 +606,12 @@ export class GetApprovalProcessResponseBodyProcessSoftwareBlockPolicies extends 
 
 export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesFieldMap extends $dara.Model {
   displayField?: string;
+  displayFieldValue?: string;
   systemField?: string;
   static names(): { [key: string]: string } {
     return {
       displayField: 'DisplayField',
+      displayFieldValue: 'DisplayFieldValue',
       systemField: 'SystemField',
     };
   }
@@ -593,6 +619,7 @@ export class GetApprovalProcessResponseBodyProcessSoftwareHardeningPoliciesField
   static types(): { [key: string]: any } {
     return {
       displayField: 'string',
+      displayFieldValue: 'string',
       systemField: 'string',
     };
   }
