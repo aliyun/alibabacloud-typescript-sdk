@@ -3,6 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserLangResponseBodySasUserLang extends $dara.Model {
+  /**
+   * @remarks
+   * The language specified for log analysis. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,7 +36,18 @@ export class GetUserLangResponseBodySasUserLang extends $dara.Model {
 }
 
 export class GetUserLangResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 23AD0BD2-8771-5647-819E-6BA51E21****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The language settings.
+   */
   sasUserLang?: GetUserLangResponseBodySasUserLang;
   static names(): { [key: string]: string } {
     return {

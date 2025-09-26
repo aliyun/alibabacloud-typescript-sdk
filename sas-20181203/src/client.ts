@@ -31092,7 +31092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语言设置
+   * Queries the language settings of log analysis.
    * 
    * @param request - GetUserLangRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31115,7 +31115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取语言设置
+   * Queries the language settings of log analysis.
    * @returns GetUserLangResponse
    */
   async getUserLang(): Promise<$_model.GetUserLangResponse> {

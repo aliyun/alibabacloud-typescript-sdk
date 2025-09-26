@@ -109,6 +109,7 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
    * 1.2.XX.XX
    */
   internetIp?: string;
+  originalAssetInfo?: string;
   /**
    * @remarks
    * The region in which the cloud asset resides.
@@ -152,6 +153,8 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
    * 0
    */
   vendor?: number;
+  vendorUid?: string;
+  vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {
       alarmStatus: 'AlarmStatus',
@@ -164,10 +167,13 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
+      originalAssetInfo: 'OriginalAssetInfo',
       regionId: 'RegionId',
       riskStatus: 'RiskStatus',
       securityInfo: 'SecurityInfo',
       vendor: 'Vendor',
+      vendorUid: 'VendorUid',
+      vendorUserName: 'VendorUserName',
     };
   }
 
@@ -183,10 +189,13 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
       instanceId: 'string',
       instanceName: 'string',
       internetIp: 'string',
+      originalAssetInfo: 'string',
       regionId: 'string',
       riskStatus: 'string',
       securityInfo: 'string',
       vendor: 'number',
+      vendorUid: 'string',
+      vendorUserName: 'string',
     };
   }
 

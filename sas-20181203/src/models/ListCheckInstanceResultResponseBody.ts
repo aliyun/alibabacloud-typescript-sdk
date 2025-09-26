@@ -162,6 +162,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
    * Task is failed.
    */
   statusMessage?: string;
+  vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
@@ -171,6 +172,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
       regionId: 'RegionId',
       status: 'Status',
       statusMessage: 'StatusMessage',
+      vendorUserName: 'VendorUserName',
     };
   }
 
@@ -183,6 +185,7 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
       regionId: 'string',
       status: 'string',
       statusMessage: 'string',
+      vendorUserName: 'string',
     };
   }
 

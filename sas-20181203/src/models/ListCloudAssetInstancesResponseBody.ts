@@ -252,6 +252,8 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    * 0
    */
   vendor?: number;
+  vendorUid?: string;
+  vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {
       alarmStatus: 'AlarmStatus',
@@ -268,6 +270,8 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
       securityInfo: 'SecurityInfo',
       tags: 'Tags',
       vendor: 'Vendor',
+      vendorUid: 'VendorUid',
+      vendorUserName: 'VendorUserName',
     };
   }
 
@@ -287,6 +291,8 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
       securityInfo: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
       vendor: 'number',
+      vendorUid: 'string',
+      vendorUserName: 'string',
     };
   }
 

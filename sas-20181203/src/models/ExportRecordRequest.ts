@@ -15,28 +15,35 @@ export class ExportRecordRequest extends $dara.Model {
   exportFileType?: string;
   /**
    * @remarks
-   * The type of the check result list that you want to export. Valid values:
-   * 
-   * *   **assetInstance**: the list of servers displayed on the Host page
-   * *   **user**: the list of fingerprints for accounts
-   * *   **port**: the list of fingerprints for ports
-   * *   **process**: the list of fingerprints for processes
-   * *   **sca**: the list of fingerprints for middleware assets
-   * *   **database**: the list of fingerprints for databases
-   * *   **web**: the list of fingerprints for web services
-   * *   **software**: the list of fingerprints for software assets
-   * *   **cron**: the list of fingerprints for scheduled tasks
-   * *   **autorun**: the list of fingerprints for startup items
-   * *   **lkm**: the list of fingerprints for kernel modules
-   * *   **webserver**: the list of fingerprints for websites
-   * *   **virusScanExport**: the details of the virus scan tasks
-   * *   **imageVulExport**: the list of image system vulnerabilities
-   * *   **imageBaseLineExport**: the list of check results for image baselines
-   * *   **imageAffectedMaliciousExport**: the list of check results for malicious image samples
-   * *   **baselineCspm**: the list of check results for configuration assessment
-   * *   **attack**: the list of alert events for attack analysis
-   * *   **accessKey**: the list of alerts that are generated for AccessKey pair leaks
-   * *   **exportObjectScanEvents**: the list of alerts generated for malicious files
+   * The type of detection result list to be exported. Values:
+   * - **assetInstance**: List of servers in the asset center 
+   * - **user**: List of asset fingerprints for accounts 
+   * - **port**: List of asset fingerprints for ports 
+   * - **process**: List of asset fingerprints for processes 
+   * - **sca**: List of asset fingerprints for middleware 
+   * - **database**: List of asset fingerprints for databases 
+   * - **web**: List of asset fingerprints for web services 
+   * - **software**: List of asset fingerprints for software 
+   * - **cron**: List of asset fingerprints for scheduled tasks 
+   * - **autorun**: List of asset fingerprints for startup items 
+   * - **lkm**: List of asset fingerprints for kernel modules 
+   * - **webserver**: List of asset fingerprints for web sites 
+   * - **virusScanExport**: List of details for virus scan tasks 
+   * - **imageVulExport**: List of system vulnerabilities in images 
+   * - **imageBaseLineExport**: List of baseline check results in images 
+   * - **imageAffectedMaliciousExport**: List of malicious sample check results in images 
+   * - **baselineCspm**: List of detection results for cloud platform configuration checks 
+   * - **attack**: List of alert events for attack analysis 
+   * - **accessKey**: List of alert events for AK leak detection 
+   * - **exportObjectScanEvents**: List of alert events for malicious file detection 
+   * - **domainDetail**: Website assets 
+   * - **assetsPropertyScaProcessDetail**: RASP protection process for application protection 
+   * - **exportHcWarning**: List of system baseline risks 
+   * - **raspAttackAlert**: List of attack alerts for Application Protection
+   * - **raspApplicationConfiguration**: List of application configurations for Application Protection
+   * - **raspWeaknessDetection**: List of weakness detections for Application Protection
+   * - **raspInMemoryWebshellDetection**: List of in-memory webshell detection alerts for Application Protection
+   * - **raspInMemoryWebshellInsertion**: List of in-memory webshell insertion alerts for Application Protection
    * 
    * This parameter is required.
    * 

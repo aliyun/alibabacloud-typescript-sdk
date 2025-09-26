@@ -566,6 +566,16 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
    */
   vendorName?: string;
   /**
+   * @example
+   * 123
+   */
+  vendorUid?: string;
+  /**
+   * @example
+   * VendorUserName
+   */
+  vendorUserName?: string;
+  /**
    * @remarks
    * The ID of the VPC to which the asset belongs.
    * 
@@ -647,6 +657,8 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       uuid: 'Uuid',
       vendor: 'Vendor',
       vendorName: 'VendorName',
+      vendorUid: 'VendorUid',
+      vendorUserName: 'VendorUserName',
       vpcInstanceId: 'VpcInstanceId',
       vulCount: 'VulCount',
       vulStatus: 'VulStatus',
@@ -708,6 +720,8 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       uuid: 'string',
       vendor: 'number',
       vendorName: 'string',
+      vendorUid: 'string',
+      vendorUserName: 'string',
       vpcInstanceId: 'string',
       vulCount: 'number',
       vulStatus: 'string',

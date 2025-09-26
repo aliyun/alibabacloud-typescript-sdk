@@ -207,6 +207,8 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
    * test
    */
   vendorAuthAlias?: string;
+  vendorUid?: string;
+  vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {
       akType: 'AkType',
@@ -220,6 +222,8 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
       status: 'Status',
       vendor: 'Vendor',
       vendorAuthAlias: 'VendorAuthAlias',
+      vendorUid: 'VendorUid',
+      vendorUserName: 'VendorUserName',
     };
   }
 
@@ -236,6 +240,8 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
       status: 'number',
       vendor: 'string',
       vendorAuthAlias: 'string',
+      vendorUid: 'string',
+      vendorUserName: 'string',
     };
   }
 
