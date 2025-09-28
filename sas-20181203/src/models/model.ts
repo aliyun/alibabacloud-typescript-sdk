@@ -322,6 +322,7 @@ export { DescribeLoginSwitchConfigsResponseBodyConfigList } from './DescribeLogi
 export { DescribeMatchedMaliciousNamesResponseBodyData } from './DescribeMatchedMaliciousNamesResponseBody';
 export { DescribeModuleConfigResponseBodyModuleConfigListItems } from './DescribeModuleConfigResponseBody';
 export { DescribeModuleConfigResponseBodyModuleConfigList } from './DescribeModuleConfigResponseBody';
+export { DescribeMonitorAccountsResponseBodyAccountIdInfos } from './DescribeMonitorAccountsResponseBody';
 export { DescribeNoticeConfigResponseBodyNoticeConfigList } from './DescribeNoticeConfigResponseBody';
 export { DescribeNsasSuspEventTypeResponseBodyEventTypes } from './DescribeNsasSuspEventTypeResponseBody';
 export { DescribeOfflineMachinesResponseBodyMachineList } from './DescribeOfflineMachinesResponseBody';

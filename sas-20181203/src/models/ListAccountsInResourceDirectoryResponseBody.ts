@@ -86,6 +86,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
    * no
    */
   isSiemDaAccount?: string;
+  postBasicService?: number;
   postPayModuleSwitch?: string;
   saleInstance?: string;
   /**
@@ -116,6 +117,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
       isSasDaAccount: 'IsSasDaAccount',
       isSiemControlAccount: 'IsSiemControlAccount',
       isSiemDaAccount: 'IsSiemDaAccount',
+      postBasicService: 'PostBasicService',
       postPayModuleSwitch: 'PostPayModuleSwitch',
       saleInstance: 'SaleInstance',
       sasVersion: 'SasVersion',
@@ -136,6 +138,7 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
       isSasDaAccount: 'string',
       isSiemControlAccount: 'string',
       isSiemDaAccount: 'string',
+      postBasicService: 'number',
       postPayModuleSwitch: 'string',
       saleInstance: 'string',
       sasVersion: 'string',

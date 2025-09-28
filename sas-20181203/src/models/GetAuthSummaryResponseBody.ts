@@ -395,6 +395,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
    * 1
    */
   autoBind?: number;
+  clusterNodeCheck?: number;
   /**
    * @remarks
    * Indicates whether the protection quota is supported for all assets. Valid values:
@@ -499,6 +500,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
       allowUpgradePartialBuy: 'AllowUpgradePartialBuy',
       allowUserUnbind: 'AllowUserUnbind',
       autoBind: 'AutoBind',
+      clusterNodeCheck: 'ClusterNodeCheck',
       defaultAuthToAll: 'DefaultAuthToAll',
       hasPreBindSetting: 'HasPreBindSetting',
       highestVersion: 'HighestVersion',
@@ -520,6 +522,7 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
       allowUpgradePartialBuy: 'number',
       allowUserUnbind: 'number',
       autoBind: 'number',
+      clusterNodeCheck: 'number',
       defaultAuthToAll: 'number',
       hasPreBindSetting: 'boolean',
       highestVersion: 'number',
