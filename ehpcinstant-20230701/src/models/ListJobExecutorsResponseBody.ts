@@ -76,6 +76,7 @@ export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
 }
 
 export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
+  allocationSpec?: string;
   /**
    * @example
    * 0
@@ -112,6 +113,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   tags?: ListJobExecutorsResponseBodyExecutorsTags[];
   static names(): { [key: string]: string } {
     return {
+      allocationSpec: 'AllocationSpec',
       arrayIndex: 'ArrayIndex',
       blockDuration: 'BlockDuration',
       createTime: 'CreateTime',
@@ -131,6 +133,7 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allocationSpec: 'string',
       arrayIndex: 'number',
       blockDuration: 'number',
       createTime: 'string',

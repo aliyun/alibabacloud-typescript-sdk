@@ -90,6 +90,7 @@ export class ListExecutorsResponseBodyExecutorsTags extends $dara.Model {
 }
 
 export class ListExecutorsResponseBodyExecutors extends $dara.Model {
+  allocationSpec?: string;
   appName?: string;
   /**
    * @example
@@ -151,6 +152,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      allocationSpec: 'AllocationSpec',
       appName: 'AppName',
       arrayIndex: 'ArrayIndex',
       blockDuration: 'BlockDuration',
@@ -179,6 +181,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allocationSpec: 'string',
       appName: 'string',
       arrayIndex: 'number',
       blockDuration: 'number',

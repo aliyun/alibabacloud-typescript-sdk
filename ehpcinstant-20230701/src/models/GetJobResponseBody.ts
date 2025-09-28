@@ -331,6 +331,8 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
    */
   cores?: number;
   disks?: GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks[];
+  enableHT?: boolean;
+  hostNamePrefix?: string;
   instanceTypes?: string[];
   /**
    * @example
@@ -341,6 +343,8 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
     return {
       cores: 'Cores',
       disks: 'Disks',
+      enableHT: 'EnableHT',
+      hostNamePrefix: 'HostNamePrefix',
       instanceTypes: 'InstanceTypes',
       memory: 'Memory',
     };
@@ -350,6 +354,8 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model 
     return {
       cores: 'number',
       disks: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks },
+      enableHT: 'boolean',
+      hostNamePrefix: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       memory: 'number',
     };

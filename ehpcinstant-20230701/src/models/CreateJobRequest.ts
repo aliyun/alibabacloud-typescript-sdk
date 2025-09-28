@@ -332,6 +332,8 @@ export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
    */
   cores?: number;
   disks?: CreateJobRequestTasksTaskSpecResourceDisks[];
+  enableHT?: boolean;
+  hostNamePrefix?: string;
   instanceTypes?: string[];
   /**
    * @example
@@ -342,6 +344,8 @@ export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
     return {
       cores: 'Cores',
       disks: 'Disks',
+      enableHT: 'EnableHT',
+      hostNamePrefix: 'HostNamePrefix',
       instanceTypes: 'InstanceTypes',
       memory: 'Memory',
     };
@@ -351,6 +355,8 @@ export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
     return {
       cores: 'number',
       disks: { 'type': 'array', 'itemType': CreateJobRequestTasksTaskSpecResourceDisks },
+      enableHT: 'boolean',
+      hostNamePrefix: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
       memory: 'number',
     };
