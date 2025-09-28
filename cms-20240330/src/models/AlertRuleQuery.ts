@@ -3,6 +3,67 @@ import * as $dara from '@darabonba/typescript';
 import { AlertRuleSlsQueryJoin } from "./AlertRuleSlsQueryJoin";
 
 
+export class AlertRuleQueryEntityFilterFilters extends $dara.Model {
+  field?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'field',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertRuleQueryEntityFilter extends $dara.Model {
+  domain?: string;
+  filters?: AlertRuleQueryEntityFilterFilters[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'domain',
+      filters: 'filters',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      filters: { 'type': 'array', 'itemType': AlertRuleQueryEntityFilterFilters },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AlertRuleQueryQueriesApmFilters extends $dara.Model {
   dim?: string;
   type?: string;
@@ -108,12 +169,16 @@ export class AlertRuleQueryQueries extends $dara.Model {
 export class AlertRuleQuery extends $dara.Model {
   checkAfterDataComplete?: boolean;
   dimensions?: { [key: string]: string }[];
+  domain?: string;
   duration?: number;
+  entityFilter?: AlertRuleQueryEntityFilter;
   expr?: string;
   firstJoin?: AlertRuleSlsQueryJoin;
   groupFieldList?: string[];
   groupId?: string;
   groupType?: string;
+  metric?: string;
+  metricSet?: string;
   namespace?: string;
   queries?: AlertRuleQueryQueries[];
   relationType?: string;
@@ -130,12 +195,16 @@ export class AlertRuleQuery extends $dara.Model {
     return {
       checkAfterDataComplete: 'checkAfterDataComplete',
       dimensions: 'dimensions',
+      domain: 'domain',
       duration: 'duration',
+      entityFilter: 'entityFilter',
       expr: 'expr',
       firstJoin: 'firstJoin',
       groupFieldList: 'groupFieldList',
       groupId: 'groupId',
       groupType: 'groupType',
+      metric: 'metric',
+      metricSet: 'metricSet',
       namespace: 'namespace',
       queries: 'queries',
       relationType: 'relationType',
@@ -149,12 +218,16 @@ export class AlertRuleQuery extends $dara.Model {
     return {
       checkAfterDataComplete: 'boolean',
       dimensions: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      domain: 'string',
       duration: 'number',
+      entityFilter: AlertRuleQueryEntityFilter,
       expr: 'string',
       firstJoin: AlertRuleSlsQueryJoin,
       groupFieldList: { 'type': 'array', 'itemType': 'string' },
       groupId: 'string',
       groupType: 'string',
+      metric: 'string',
+      metricSet: 'string',
       namespace: 'string',
       queries: { 'type': 'array', 'itemType': AlertRuleQueryQueries },
       relationType: 'string',
@@ -167,6 +240,9 @@ export class AlertRuleQuery extends $dara.Model {
   validate() {
     if(Array.isArray(this.dimensions)) {
       $dara.Model.validateArray(this.dimensions);
+    }
+    if(this.entityFilter && typeof (this.entityFilter as any).validate === 'function') {
+      (this.entityFilter as any).validate();
     }
     if(this.firstJoin && typeof (this.firstJoin as any).validate === 'function') {
       (this.firstJoin as any).validate();

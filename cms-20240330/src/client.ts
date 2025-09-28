@@ -1782,6 +1782,105 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询接入中心策略列表信息
+   * 
+   * @param tmpReq - ListIntegrationPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationPoliciesResponse
+   */
+  async listIntegrationPoliciesWithOptions(tmpReq: $_model.ListIntegrationPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPoliciesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListIntegrationPoliciesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addonName)) {
+      query["addonName"] = request.addonName;
+    }
+
+    if (!$dara.isNull(request.entityGroupIds)) {
+      query["entityGroupIds"] = request.entityGroupIds;
+    }
+
+    if (!$dara.isNull(request.filterRegionIds)) {
+      query["filterRegionIds"] = request.filterRegionIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["policyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["policyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      query["policyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.prometheusInstanceId)) {
+      query["prometheusInstanceId"] = request.prometheusInstanceId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["tag"] = request.tagShrink;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntegrationPolicies",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIntegrationPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListIntegrationPoliciesResponse({}));
+  }
+
+  /**
+   * 查询接入中心策略列表信息
+   * 
+   * @param request - ListIntegrationPoliciesRequest
+   * @returns ListIntegrationPoliciesResponse
+   */
+  async listIntegrationPolicies(request: $_model.ListIntegrationPoliciesRequest): Promise<$_model.ListIntegrationPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIntegrationPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取接入中心策略的存储要求信息
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
@@ -1832,6 +1931,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationPolicyCustomScrapeJobRulesWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 策略大盘列表
+   * 
+   * @param request - ListIntegrationPolicyDashboardsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationPolicyDashboardsResponse
+   */
+  async listIntegrationPolicyDashboardsWithOptions(policyId: string, request: $_model.ListIntegrationPolicyDashboardsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyDashboardsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addonName)) {
+      query["addonName"] = request.addonName;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["scene"] = request.scene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntegrationPolicyDashboards",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-policies/${$dara.URL.percentEncode(policyId)}/dashboards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIntegrationPolicyDashboardsResponse>(await this.callApi(params, req, runtime), new $_model.ListIntegrationPolicyDashboardsResponse({}));
+  }
+
+  /**
+   * 策略大盘列表
+   * 
+   * @param request - ListIntegrationPolicyDashboardsRequest
+   * @returns ListIntegrationPolicyDashboardsResponse
+   */
+  async listIntegrationPolicyDashboards(policyId: string, request: $_model.ListIntegrationPolicyDashboardsRequest): Promise<$_model.ListIntegrationPolicyDashboardsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIntegrationPolicyDashboardsWithOptions(policyId, request, headers, runtime);
   }
 
   /**
