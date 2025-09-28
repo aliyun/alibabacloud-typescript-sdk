@@ -790,6 +790,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 因底层升级批量迁移
+   * 
+   * @param tmpReq - BatchEventMigrateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchEventMigrateInstanceResponse
+   */
+  async batchEventMigrateInstanceWithOptions(tmpReq: $_model.BatchEventMigrateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchEventMigrateInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchEventMigrateInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventInfos)) {
+      request.eventInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventInfos, "EventInfos", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.eventInfosShrink)) {
+      query["EventInfos"] = request.eventInfosShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchEventMigrateInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchEventMigrateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.BatchEventMigrateInstanceResponse({}));
+  }
+
+  /**
+   * 因底层升级批量迁移
+   * 
+   * @param request - BatchEventMigrateInstanceRequest
+   * @returns BatchEventMigrateInstanceResponse
+   */
+  async batchEventMigrateInstance(request: $_model.BatchEventMigrateInstanceRequest): Promise<$_model.BatchEventMigrateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchEventMigrateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量因系统维护实例重启
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `Action` 参数固定为 `BatchEventRebootInstance`。
+   * - `Version` 参数固定为 `2017-11-10`。
+   * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+   * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+   * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+   * - 错误情况下，返回相应的错误代码和消息。
+   * 
+   * @param tmpReq - BatchEventRebootInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchEventRebootInstanceResponse
+   */
+  async batchEventRebootInstanceWithOptions(tmpReq: $_model.BatchEventRebootInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchEventRebootInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchEventRebootInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventInfos)) {
+      request.eventInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventInfos, "EventInfos", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.eventInfosShrink)) {
+      query["EventInfos"] = request.eventInfosShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchEventRebootInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchEventRebootInstanceResponse>(await this.callApi(params, req, runtime), new $_model.BatchEventRebootInstanceResponse({}));
+  }
+
+  /**
+   * 批量因系统维护实例重启
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `Action` 参数固定为 `BatchEventRebootInstance`。
+   * - `Version` 参数固定为 `2017-11-10`。
+   * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
+   * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
+   * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
+   * - 错误情况下，返回相应的错误代码和消息。
+   * 
+   * @param request - BatchEventRebootInstanceRequest
+   * @returns BatchEventRebootInstanceResponse
+   */
+  async batchEventRebootInstance(request: $_model.BatchEventRebootInstanceRequest): Promise<$_model.BatchEventRebootInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchEventRebootInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量操作重新部署
+   * 
+   * @param tmpReq - BatchEventRedeployInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchEventRedeployInstanceResponse
+   */
+  async batchEventRedeployInstanceWithOptions(tmpReq: $_model.BatchEventRedeployInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchEventRedeployInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchEventRedeployInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventInfos)) {
+      request.eventInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventInfos, "EventInfos", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.eventInfosShrink)) {
+      query["EventInfos"] = request.eventInfosShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchEventRedeployInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchEventRedeployInstanceResponse>(await this.callApi(params, req, runtime), new $_model.BatchEventRedeployInstanceResponse({}));
+  }
+
+  /**
+   * 批量操作重新部署
+   * 
+   * @param request - BatchEventRedeployInstanceRequest
+   * @returns BatchEventRedeployInstanceResponse
+   */
+  async batchEventRedeployInstance(request: $_model.BatchEventRedeployInstanceRequest): Promise<$_model.BatchEventRedeployInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchEventRedeployInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 清理分发数据
    * 
    * @param request - CleanDistDataRequest
@@ -6107,6 +6269,10 @@ export default class Client extends OpenApi {
       query["NetDistrictCode"] = request.netDistrictCode;
     }
 
+    if (!$dara.isNull(request.netDistrictCodeNode)) {
+      query["NetDistrictCodeNode"] = request.netDistrictCodeNode;
+    }
+
     if (!$dara.isNull(request.netLevelCode)) {
       query["NetLevelCode"] = request.netLevelCode;
     }
@@ -7247,6 +7413,86 @@ export default class Client extends OpenApi {
   async describeHaVips(request: $_model.DescribeHaVipsRequest): Promise<$_model.DescribeHaVipsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeHaVipsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询事件列表
+   * 
+   * @param tmpReq - DescribeHistoryEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryEventsResponse
+   */
+  async describeHistoryEventsWithOptions(tmpReq: $_model.DescribeHistoryEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHistoryEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeHistoryEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eventLevels)) {
+      request.eventLevelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventLevels, "EventLevels", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.eventStatus)) {
+      request.eventStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventStatus, "EventStatus", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.eventTypes)) {
+      request.eventTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventTypes, "EventTypes", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceIds)) {
+      request.resourceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIds, "ResourceIds", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.eventLevelsShrink)) {
+      query["EventLevels"] = request.eventLevelsShrink;
+    }
+
+    if (!$dara.isNull(request.eventStatusShrink)) {
+      query["EventStatus"] = request.eventStatusShrink;
+    }
+
+    if (!$dara.isNull(request.eventTypesShrink)) {
+      query["EventTypes"] = request.eventTypesShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceIdsShrink)) {
+      query["ResourceIds"] = request.resourceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHistoryEvents",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHistoryEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHistoryEventsResponse({}));
+  }
+
+  /**
+   * 查询事件列表
+   * 
+   * @param request - DescribeHistoryEventsRequest
+   * @returns DescribeHistoryEventsResponse
+   */
+  async describeHistoryEvents(request: $_model.DescribeHistoryEventsRequest): Promise<$_model.DescribeHistoryEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHistoryEventsWithOptions(request, runtime);
   }
 
   /**
@@ -10381,6 +10627,190 @@ export default class Client extends OpenApi {
   async distApplicationData(request: $_model.DistApplicationDataRequest): Promise<$_model.DistApplicationDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.distApplicationDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 因底层升级需要迁移
+   * 
+   * @param request - EventMigrateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EventMigrateInstanceResponse
+   */
+  async eventMigrateInstanceWithOptions(request: $_model.EventMigrateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EventMigrateInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataPolicy)) {
+      query["DataPolicy"] = request.dataPolicy;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.opsType)) {
+      query["OpsType"] = request.opsType;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.planTime)) {
+      query["PlanTime"] = request.planTime;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EventMigrateInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EventMigrateInstanceResponse>(await this.callApi(params, req, runtime), new $_model.EventMigrateInstanceResponse({}));
+  }
+
+  /**
+   * 因底层升级需要迁移
+   * 
+   * @param request - EventMigrateInstanceRequest
+   * @returns EventMigrateInstanceResponse
+   */
+  async eventMigrateInstance(request: $_model.EventMigrateInstanceRequest): Promise<$_model.EventMigrateInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.eventMigrateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 因系统维护实例重启
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于触发一个实例的重启事件。
+   * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+   * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+   * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+   * 
+   * @param request - EventRebootInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EventRebootInstanceResponse
+   */
+  async eventRebootInstanceWithOptions(request: $_model.EventRebootInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EventRebootInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.opsType)) {
+      query["OpsType"] = request.opsType;
+    }
+
+    if (!$dara.isNull(request.planTime)) {
+      query["PlanTime"] = request.planTime;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EventRebootInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EventRebootInstanceResponse>(await this.callApi(params, req, runtime), new $_model.EventRebootInstanceResponse({}));
+  }
+
+  /**
+   * 因系统维护实例重启
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该API用于触发一个实例的重启事件。
+   * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
+   * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
+   * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+   * 
+   * @param request - EventRebootInstanceRequest
+   * @returns EventRebootInstanceResponse
+   */
+  async eventRebootInstance(request: $_model.EventRebootInstanceRequest): Promise<$_model.EventRebootInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.eventRebootInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 节点内迁移
+   * 
+   * @param request - EventRedeployInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EventRedeployInstanceResponse
+   */
+  async eventRedeployInstanceWithOptions(request: $_model.EventRedeployInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EventRedeployInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.opsType)) {
+      query["OpsType"] = request.opsType;
+    }
+
+    if (!$dara.isNull(request.planTime)) {
+      query["PlanTime"] = request.planTime;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EventRedeployInstance",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EventRedeployInstanceResponse>(await this.callApi(params, req, runtime), new $_model.EventRedeployInstanceResponse({}));
+  }
+
+  /**
+   * 节点内迁移
+   * 
+   * @param request - EventRedeployInstanceRequest
+   * @returns EventRedeployInstanceResponse
+   */
+  async eventRedeployInstance(request: $_model.EventRedeployInstanceRequest): Promise<$_model.EventRedeployInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.eventRedeployInstanceWithOptions(request, runtime);
   }
 
   /**

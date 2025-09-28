@@ -15,6 +15,7 @@ export class DescribeEnsNetDistrictRequest extends $dara.Model {
    * 100106
    */
   netDistrictCode?: string;
+  netDistrictCodeNode?: boolean;
   /**
    * @remarks
    * The level of the region.
@@ -32,6 +33,7 @@ export class DescribeEnsNetDistrictRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       netDistrictCode: 'NetDistrictCode',
+      netDistrictCodeNode: 'NetDistrictCodeNode',
       netLevelCode: 'NetLevelCode',
     };
   }
@@ -39,6 +41,7 @@ export class DescribeEnsNetDistrictRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       netDistrictCode: 'string',
+      netDistrictCodeNode: 'boolean',
       netLevelCode: 'string',
     };
   }
