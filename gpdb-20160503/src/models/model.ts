@@ -148,6 +148,9 @@ export { ModifyDBResourceGroupRequestResourceGroupItems } from './ModifyDbresour
 export { ModifyRemoteADBDataSourceResponseBodyDataSourceItem } from './ModifyRemoteAdbdataSourceResponseBody';
 export { QueryCollectionDataRequestRelationalTableFilter } from './QueryCollectionDataRequest';
 export { QueryCollectionDataRequestSparseVector } from './QueryCollectionDataRequest';
+export { QueryCollectionDataResponseBodyMatchesMatchSparseValuesIndices } from './QueryCollectionDataResponseBody';
+export { QueryCollectionDataResponseBodyMatchesMatchSparseValuesValues } from './QueryCollectionDataResponseBody';
+export { QueryCollectionDataResponseBodyMatchesMatchSparseValues } from './QueryCollectionDataResponseBody';
 export { QueryCollectionDataResponseBodyMatchesMatchValues } from './QueryCollectionDataResponseBody';
 export { QueryCollectionDataResponseBodyMatchesMatch } from './QueryCollectionDataResponseBody';
 export { QueryCollectionDataResponseBodyMatches } from './QueryCollectionDataResponseBody';

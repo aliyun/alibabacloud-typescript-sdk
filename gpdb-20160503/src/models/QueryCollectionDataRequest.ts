@@ -175,6 +175,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
    * title,content
    */
   includeMetadataFields?: string;
+  includeSparseValues?: boolean;
   /**
    * @remarks
    * Whether to return vector data. Value descriptions:
@@ -296,6 +297,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
       hybridSearch: 'HybridSearch',
       hybridSearchArgs: 'HybridSearchArgs',
       includeMetadataFields: 'IncludeMetadataFields',
+      includeSparseValues: 'IncludeSparseValues',
       includeValues: 'IncludeValues',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -321,6 +323,7 @@ export class QueryCollectionDataRequest extends $dara.Model {
       hybridSearch: 'string',
       hybridSearchArgs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       includeMetadataFields: 'string',
+      includeSparseValues: 'boolean',
       includeValues: 'boolean',
       metrics: 'string',
       namespace: 'string',

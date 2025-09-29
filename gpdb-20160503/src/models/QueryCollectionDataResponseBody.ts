@@ -2,6 +2,90 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryCollectionDataResponseBodyMatchesMatchSparseValuesIndices extends $dara.Model {
+  indice?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      indice: 'Indice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indice: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.indice)) {
+      $dara.Model.validateArray(this.indice);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponseBodyMatchesMatchSparseValuesValues extends $dara.Model {
+  value?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCollectionDataResponseBodyMatchesMatchSparseValues extends $dara.Model {
+  indices?: QueryCollectionDataResponseBodyMatchesMatchSparseValuesIndices;
+  values?: QueryCollectionDataResponseBodyMatchesMatchSparseValuesValues;
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: QueryCollectionDataResponseBodyMatchesMatchSparseValuesIndices,
+      values: QueryCollectionDataResponseBodyMatchesMatchSparseValuesValues,
+    };
+  }
+
+  validate() {
+    if(this.indices && typeof (this.indices as any).validate === 'function') {
+      (this.indices as any).validate();
+    }
+    if(this.values && typeof (this.values as any).validate === 'function') {
+      (this.values as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCollectionDataResponseBodyMatchesMatchValues extends $dara.Model {
   value?: number[];
   static names(): { [key: string]: string } {
@@ -51,6 +135,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
    * 0.12345
    */
   score?: number;
+  sparseValues?: QueryCollectionDataResponseBodyMatchesMatchSparseValues;
   /**
    * @remarks
    * List of vector data.
@@ -62,6 +147,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
       metadata: 'Metadata',
       metadataV2: 'MetadataV2',
       score: 'Score',
+      sparseValues: 'SparseValues',
       values: 'Values',
     };
   }
@@ -72,6 +158,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       metadataV2: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       score: 'number',
+      sparseValues: QueryCollectionDataResponseBodyMatchesMatchSparseValues,
       values: QueryCollectionDataResponseBodyMatchesMatchValues,
     };
   }
@@ -82,6 +169,9 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $dara.Model {
     }
     if(this.metadataV2) {
       $dara.Model.validateMap(this.metadataV2);
+    }
+    if(this.sparseValues && typeof (this.sparseValues as any).validate === 'function') {
+      (this.sparseValues as any).validate();
     }
     if(this.values && typeof (this.values as any).validate === 'function') {
       (this.values as any).validate();

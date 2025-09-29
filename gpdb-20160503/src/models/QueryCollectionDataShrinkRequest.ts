@@ -83,6 +83,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
    * title,content
    */
   includeMetadataFields?: string;
+  includeSparseValues?: boolean;
   /**
    * @remarks
    * Whether to return vector data. Value descriptions:
@@ -204,6 +205,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
       hybridSearch: 'HybridSearch',
       hybridSearchArgsShrink: 'HybridSearchArgs',
       includeMetadataFields: 'IncludeMetadataFields',
+      includeSparseValues: 'IncludeSparseValues',
       includeValues: 'IncludeValues',
       metrics: 'Metrics',
       namespace: 'Namespace',
@@ -229,6 +231,7 @@ export class QueryCollectionDataShrinkRequest extends $dara.Model {
       hybridSearch: 'string',
       hybridSearchArgsShrink: 'string',
       includeMetadataFields: 'string',
+      includeSparseValues: 'boolean',
       includeValues: 'boolean',
       metrics: 'string',
       namespace: 'string',

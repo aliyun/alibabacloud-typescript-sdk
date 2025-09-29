@@ -12504,6 +12504,10 @@ export default class Client extends OpenApi {
       query["IncludeMetadataFields"] = request.includeMetadataFields;
     }
 
+    if (!$dara.isNull(request.includeSparseValues)) {
+      query["IncludeSparseValues"] = request.includeSparseValues;
+    }
+
     if (!$dara.isNull(request.includeValues)) {
       query["IncludeValues"] = request.includeValues;
     }
