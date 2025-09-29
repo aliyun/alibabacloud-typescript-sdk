@@ -541,6 +541,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 凭证识别查询
+   * 
+   * @param request - CredentialGetResultIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialGetResultIntlResponse
+   */
+  async credentialGetResultIntlWithOptions(request: $_model.CredentialGetResultIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialGetResultIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.transactionId)) {
+      query["TransactionId"] = request.transactionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialGetResultIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CredentialGetResultIntlResponse>(await this.callApi(params, req, runtime), new $_model.CredentialGetResultIntlResponse({}));
+  }
+
+  /**
+   * 凭证识别查询
+   * 
+   * @param request - CredentialGetResultIntlRequest
+   * @returns CredentialGetResultIntlResponse
+   */
+  async credentialGetResultIntl(request: $_model.CredentialGetResultIntlRequest): Promise<$_model.CredentialGetResultIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialGetResultIntlWithOptions(request, runtime);
+  }
+
+  /**
    * Credential Recognition
    * 
    * @remarks
@@ -608,6 +650,78 @@ export default class Client extends OpenApi {
   async credentialRecognitionIntl(request: $_model.CredentialRecognitionIntlRequest): Promise<$_model.CredentialRecognitionIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.credentialRecognitionIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * 凭证识别提交
+   * 
+   * @param request - CredentialSubmitIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CredentialSubmitIntlResponse
+   */
+  async credentialSubmitIntlWithOptions(request: $_model.CredentialSubmitIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CredentialSubmitIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.fraudCheck)) {
+      query["FraudCheck"] = request.fraudCheck;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.ocrArea)) {
+      query["OcrArea"] = request.ocrArea;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialOcrPictureBase64)) {
+      body["CredentialOcrPictureBase64"] = request.credentialOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.credentialOcrPictureUrl)) {
+      body["CredentialOcrPictureUrl"] = request.credentialOcrPictureUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CredentialSubmitIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CredentialSubmitIntlResponse>(await this.callApi(params, req, runtime), new $_model.CredentialSubmitIntlResponse({}));
+  }
+
+  /**
+   * 凭证识别提交
+   * 
+   * @param request - CredentialSubmitIntlRequest
+   * @returns CredentialSubmitIntlResponse
+   */
+  async credentialSubmitIntl(request: $_model.CredentialSubmitIntlRequest): Promise<$_model.CredentialSubmitIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.credentialSubmitIntlWithOptions(request, runtime);
   }
 
   /**
@@ -1294,6 +1408,88 @@ export default class Client extends OpenApi {
   async faceCompare(request: $_model.FaceCompareRequest): Promise<$_model.FaceCompareResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.faceCompareWithOptions(request, runtime);
+  }
+
+  /**
+   * 人脸交叉比对
+   * 
+   * @param request - FaceCrossCompareIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceCrossCompareIntlResponse
+   */
+  async faceCrossCompareIntlWithOptions(request: $_model.FaceCrossCompareIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceCrossCompareIntlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.compareModel)) {
+      query["CompareModel"] = request.compareModel;
+    }
+
+    if (!$dara.isNull(request.faceVerifyThreshold)) {
+      query["FaceVerifyThreshold"] = request.faceVerifyThreshold;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!$dara.isNull(request.sourceAFacePicture)) {
+      query["SourceAFacePicture"] = request.sourceAFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceAFacePictureUrl)) {
+      query["SourceAFacePictureUrl"] = request.sourceAFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.sourceBFacePicture)) {
+      query["SourceBFacePicture"] = request.sourceBFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceBFacePictureUrl)) {
+      query["SourceBFacePictureUrl"] = request.sourceBFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.sourceCFacePicture)) {
+      query["SourceCFacePicture"] = request.sourceCFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceCFacePictureUrl)) {
+      query["SourceCFacePictureUrl"] = request.sourceCFacePictureUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FaceCrossCompareIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FaceCrossCompareIntlResponse>(await this.callApi(params, req, runtime), new $_model.FaceCrossCompareIntlResponse({}));
+  }
+
+  /**
+   * 人脸交叉比对
+   * 
+   * @param request - FaceCrossCompareIntlRequest
+   * @returns FaceCrossCompareIntlResponse
+   */
+  async faceCrossCompareIntl(request: $_model.FaceCrossCompareIntlRequest): Promise<$_model.FaceCrossCompareIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.faceCrossCompareIntlWithOptions(request, runtime);
   }
 
   /**
@@ -2366,6 +2562,48 @@ export default class Client extends OpenApi {
   async tempAccessTokenIntl(request: $_model.TempAccessTokenIntlRequest): Promise<$_model.TempAccessTokenIntlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tempAccessTokenIntlWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件临时地址
+   * 
+   * @param request - TempOssUrlIntlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TempOssUrlIntlResponse
+   */
+  async tempOssUrlIntlWithOptions(request: $_model.TempOssUrlIntlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TempOssUrlIntlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.objectName)) {
+      body["ObjectName"] = request.objectName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TempOssUrlIntl",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TempOssUrlIntlResponse>(await this.callApi(params, req, runtime), new $_model.TempOssUrlIntlResponse({}));
+  }
+
+  /**
+   * 获取文件临时地址
+   * 
+   * @param request - TempOssUrlIntlRequest
+   * @returns TempOssUrlIntlResponse
+   */
+  async tempOssUrlIntl(request: $_model.TempOssUrlIntlRequest): Promise<$_model.TempOssUrlIntlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tempOssUrlIntlWithOptions(request, runtime);
   }
 
 }
