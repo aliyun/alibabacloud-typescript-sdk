@@ -11,6 +11,11 @@ export class RunSearchGenerationShrinkRequest extends $dara.Model {
   chatConfigShrink?: string;
   /**
    * @example
+   * http://xxxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
    * qwen-max-latest
    */
   modelId?: string;
@@ -41,6 +46,7 @@ export class RunSearchGenerationShrinkRequest extends $dara.Model {
     return {
       agentContextShrink: 'AgentContext',
       chatConfigShrink: 'ChatConfig',
+      fileUrl: 'FileUrl',
       modelId: 'ModelId',
       originalSessionId: 'OriginalSessionId',
       prompt: 'Prompt',
@@ -53,6 +59,7 @@ export class RunSearchGenerationShrinkRequest extends $dara.Model {
     return {
       agentContextShrink: 'string',
       chatConfigShrink: 'string',
+      fileUrl: 'string',
       modelId: 'string',
       originalSessionId: 'string',
       prompt: 'string',

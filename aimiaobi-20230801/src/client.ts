@@ -9757,6 +9757,10 @@ export default class Client extends OpenApi {
       body["ChatConfig"] = request.chatConfigShrink;
     }
 
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
     if (!$dara.isNull(request.modelId)) {
       body["ModelId"] = request.modelId;
     }
@@ -9833,6 +9837,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.chatConfigShrink)) {
       body["ChatConfig"] = request.chatConfigShrink;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
     }
 
     if (!$dara.isNull(request.modelId)) {

@@ -167,6 +167,40 @@ export class ListSearchTaskDialogueDatasResponseBodyArticles extends $dara.Model
   }
 }
 
+export class ListSearchTaskDialogueDatasResponseBodyAudios extends $dara.Model {
+  /**
+   * @example
+   * http://xxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSearchTaskDialogueDatasResponseBodyImages extends $dara.Model {
   /**
    * @example
@@ -251,6 +285,7 @@ export class ListSearchTaskDialogueDatasResponseBodyVideos extends $dara.Model {
 
 export class ListSearchTaskDialogueDatasResponseBody extends $dara.Model {
   articles?: ListSearchTaskDialogueDatasResponseBodyArticles[];
+  audios?: ListSearchTaskDialogueDatasResponseBodyAudios[];
   /**
    * @example
    * NoData
@@ -306,6 +341,7 @@ export class ListSearchTaskDialogueDatasResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       articles: 'Articles',
+      audios: 'Audios',
       code: 'Code',
       httpStatusCode: 'HttpStatusCode',
       images: 'Images',
@@ -324,6 +360,7 @@ export class ListSearchTaskDialogueDatasResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       articles: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyArticles },
+      audios: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyAudios },
       code: 'string',
       httpStatusCode: 'number',
       images: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyImages },
@@ -342,6 +379,9 @@ export class ListSearchTaskDialogueDatasResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.articles)) {
       $dara.Model.validateArray(this.articles);
+    }
+    if(Array.isArray(this.audios)) {
+      $dara.Model.validateArray(this.audios);
     }
     if(Array.isArray(this.images)) {
       $dara.Model.validateArray(this.images);

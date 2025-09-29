@@ -85,6 +85,412 @@ export class RunSearchGenerationResponseBodyHeader extends $dara.Model {
   }
 }
 
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xxx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 0.9
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 2
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult extends $dara.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos[];
+  /**
+   * @example
+   * http://xxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xxx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      traceabilityId: 'TraceabilityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+      traceabilityId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.article && typeof (this.article as any).validate === 'function') {
+      (this.article as any).validate();
+    }
+    if(Array.isArray(this.clipInfos)) {
+      $dara.Model.validateArray(this.clipInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult extends $dara.Model {
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult[];
+  static names(): { [key: string]: string } {
+    return {
+      searchResult: 'SearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.searchResult)) {
+      $dara.Model.validateArray(this.searchResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 1
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 1
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult extends $dara.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos[];
+  /**
+   * @example
+   * http://xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xxx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.article && typeof (this.article as any).validate === 'function') {
+      (this.article as any).validate();
+    }
+    if(Array.isArray(this.clipInfos)) {
+      $dara.Model.validateArray(this.clipInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult;
+  /**
+   * @example
+   * 1
+   */
+  size?: number;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchResult: 'SearchResult',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult,
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(this.searchResult && typeof (this.searchResult as any).validate === 'function') {
+      (this.searchResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle extends $dara.Model {
   /**
    * @example
@@ -622,6 +1028,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics extends $dara.Model {
+  audioSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult;
   imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult;
   textSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult;
   /**
@@ -632,6 +1039,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult;
   static names(): { [key: string]: string } {
     return {
+      audioSearchResult: 'AudioSearchResult',
       imageSearchResult: 'ImageSearchResult',
       textSearchResult: 'TextSearchResult',
       topic: 'Topic',
@@ -641,6 +1049,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      audioSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult,
       imageSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult,
       textSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult,
       topic: 'string',
@@ -649,6 +1058,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   }
 
   validate() {
+    if(this.audioSearchResult && typeof (this.audioSearchResult as any).validate === 'function') {
+      (this.audioSearchResult as any).validate();
+    }
     if(this.imageSearchResult && typeof (this.imageSearchResult as any).validate === 'function') {
       (this.imageSearchResult as any).validate();
     }
@@ -1156,11 +1568,17 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   mediaId?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: string;
   static names(): { [key: string]: string } {
     return {
       article: 'Article',
       fileUrl: 'FileUrl',
       mediaId: 'MediaId',
+      traceabilityId: 'TraceabilityId',
     };
   }
 
@@ -1169,6 +1587,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle,
       fileUrl: 'string',
       mediaId: 'string',
+      traceabilityId: 'string',
     };
   }
 
@@ -1526,6 +1945,11 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate extends $dara.Model {
   /**
    * @example
+   * image
+   */
+  mediaType?: string;
+  /**
+   * @example
    * 1
    */
   x?: number;
@@ -1541,6 +1965,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   z?: number;
   static names(): { [key: string]: string } {
     return {
+      mediaType: 'MediaType',
       x: 'X',
       y: 'Y',
       z: 'Z',
@@ -1549,6 +1974,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      mediaType: 'string',
       x: 'number',
       y: 'number',
       z: 'number',
@@ -2256,6 +2682,11 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   title?: string;
   /**
    * @example
+   * 1
+   */
+  traceabilityId?: string;
+  /**
+   * @example
    * xx
    */
   url?: string;
@@ -2270,6 +2701,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'SearchSourceType',
       summary: 'Summary',
       title: 'Title',
+      traceabilityId: 'TraceabilityId',
       url: 'Url',
     };
   }
@@ -2285,6 +2717,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       searchSourceType: 'string',
       summary: 'string',
       title: 'string',
+      traceabilityId: 'string',
       url: 'string',
     };
   }
@@ -2377,6 +2810,11 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate extends $dara.Model {
   /**
    * @example
+   * image
+   */
+  mediaType?: string;
+  /**
+   * @example
    * 1
    */
   x?: number;
@@ -2392,6 +2830,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   z?: number;
   static names(): { [key: string]: string } {
     return {
+      mediaType: 'MediaType',
       x: 'X',
       y: 'Y',
       z: 'Z',
@@ -2400,6 +2839,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      mediaType: 'string',
       x: 'number',
       y: 'number',
       z: 'number',
@@ -3147,12 +3587,18 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
    * xx
    */
   mediaId?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: string;
   static names(): { [key: string]: string } {
     return {
       article: 'Article',
       clipInfos: 'ClipInfos',
       fileUrl: 'FileUrl',
       mediaId: 'MediaId',
+      traceabilityId: 'TraceabilityId',
     };
   }
 
@@ -3162,6 +3608,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
       clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos },
       fileUrl: 'string',
       mediaId: 'string',
+      traceabilityId: 'string',
     };
   }
 
@@ -3207,6 +3654,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 }
 
 export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent extends $dara.Model {
+  audioSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult;
   clusterTopicResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult;
   excerptResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult;
   imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult;
@@ -3217,6 +3665,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult;
   static names(): { [key: string]: string } {
     return {
+      audioSearchResult: 'AudioSearchResult',
       clusterTopicResult: 'ClusterTopicResult',
       excerptResult: 'ExcerptResult',
       imageSearchResult: 'ImageSearchResult',
@@ -3230,6 +3679,7 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
 
   static types(): { [key: string]: any } {
     return {
+      audioSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult,
       clusterTopicResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult,
       excerptResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult,
       imageSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult,
@@ -3242,6 +3692,9 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextG
   }
 
   validate() {
+    if(this.audioSearchResult && typeof (this.audioSearchResult as any).validate === 'function') {
+      (this.audioSearchResult as any).validate();
+    }
     if(this.clusterTopicResult && typeof (this.clusterTopicResult as any).validate === 'function') {
       (this.clusterTopicResult as any).validate();
     }
@@ -3429,23 +3882,254 @@ export class RunSearchGenerationResponseBodyPayloadOutputAgentContext extends $d
   }
 }
 
+export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docUuid: 'DocUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docUuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult extends $dara.Model {
+  audios?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios[];
+  images?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages[];
+  /**
+   * @example
+   * xx
+   */
+  multimodalSearchQuery?: string;
+  texts?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts[];
+  videos?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos[];
+  static names(): { [key: string]: string } {
+    return {
+      audios: 'Audios',
+      images: 'Images',
+      multimodalSearchQuery: 'MultimodalSearchQuery',
+      texts: 'Texts',
+      videos: 'Videos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audios: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios },
+      images: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages },
+      multimodalSearchQuery: 'string',
+      texts: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts },
+      videos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audios)) {
+      $dara.Model.validateArray(this.audios);
+    }
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    if(Array.isArray(this.texts)) {
+      $dara.Model.validateArray(this.texts);
+    }
+    if(Array.isArray(this.videos)) {
+      $dara.Model.validateArray(this.videos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputMessages extends $dara.Model {
+  clarifications?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  generateFinished?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  id?: string;
+  /**
+   * @example
+   * generateStartStatement
+   */
+  nodeCode?: string;
+  searchQueries?: string[];
+  /**
+   * @example
+   * xx
+   */
+  searchQuery?: string;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult[];
+  static names(): { [key: string]: string } {
+    return {
+      clarifications: 'Clarifications',
+      content: 'Content',
+      generateFinished: 'GenerateFinished',
+      id: 'Id',
+      nodeCode: 'NodeCode',
+      searchQueries: 'SearchQueries',
+      searchQuery: 'SearchQuery',
+      searchResult: 'SearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clarifications: 'boolean',
+      content: 'string',
+      generateFinished: 'boolean',
+      id: 'string',
+      nodeCode: 'string',
+      searchQueries: { 'type': 'array', 'itemType': 'string' },
+      searchQuery: 'string',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.searchQueries)) {
+      $dara.Model.validateArray(this.searchQueries);
+    }
+    if(Array.isArray(this.searchResult)) {
+      $dara.Model.validateArray(this.searchResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunSearchGenerationResponseBodyPayloadOutput extends $dara.Model {
   agentContext?: RunSearchGenerationResponseBodyPayloadOutputAgentContext;
+  messages?: RunSearchGenerationResponseBodyPayloadOutputMessages[];
   static names(): { [key: string]: string } {
     return {
       agentContext: 'AgentContext',
+      messages: 'Messages',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentContext: RunSearchGenerationResponseBodyPayloadOutputAgentContext,
+      messages: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputMessages },
     };
   }
 
   validate() {
     if(this.agentContext && typeof (this.agentContext as any).validate === 'function') {
       (this.agentContext as any).validate();
+    }
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
     }
     super.validate();
   }

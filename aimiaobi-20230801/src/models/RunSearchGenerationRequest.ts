@@ -428,6 +428,11 @@ export class RunSearchGenerationRequest extends $dara.Model {
   chatConfig?: RunSearchGenerationRequestChatConfig;
   /**
    * @example
+   * http://xxxx
+   */
+  fileUrl?: string;
+  /**
+   * @example
    * qwen-max-latest
    */
   modelId?: string;
@@ -458,6 +463,7 @@ export class RunSearchGenerationRequest extends $dara.Model {
     return {
       agentContext: 'AgentContext',
       chatConfig: 'ChatConfig',
+      fileUrl: 'FileUrl',
       modelId: 'ModelId',
       originalSessionId: 'OriginalSessionId',
       prompt: 'Prompt',
@@ -470,6 +476,7 @@ export class RunSearchGenerationRequest extends $dara.Model {
     return {
       agentContext: RunSearchGenerationRequestAgentContext,
       chatConfig: RunSearchGenerationRequestChatConfig,
+      fileUrl: 'string',
       modelId: 'string',
       originalSessionId: 'string',
       prompt: 'string',

@@ -223,6 +223,7 @@ export { ListPlanningProposalResponseBodyDataOutlines } from './ListPlanningProp
 export { ListPlanningProposalResponseBodyData } from './ListPlanningProposalResponseBody';
 export { ListSearchTaskDialogueDatasResponseBodyArticlesMultimodalMedias } from './ListSearchTaskDialogueDatasResponseBody';
 export { ListSearchTaskDialogueDatasResponseBodyArticles } from './ListSearchTaskDialogueDatasResponseBody';
+export { ListSearchTaskDialogueDatasResponseBodyAudios } from './ListSearchTaskDialogueDatasResponseBody';
 export { ListSearchTaskDialogueDatasResponseBodyImages } from './ListSearchTaskDialogueDatasResponseBody';
 export { ListSearchTaskDialogueDatasResponseBodyVideos } from './ListSearchTaskDialogueDatasResponseBody';
 export { ListSearchTaskDialoguesResponseBodyDataChatConfigSearchParamSearchSources } from './ListSearchTaskDialoguesResponseBody';
@@ -353,6 +354,14 @@ export { RunSearchGenerationRequestChatConfigSearchParamSearchSources } from './
 export { RunSearchGenerationRequestChatConfigSearchParam } from './RunSearchGenerationRequest';
 export { RunSearchGenerationRequestChatConfig } from './RunSearchGenerationRequest';
 export { RunSearchGenerationResponseBodyHeader } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultArticle } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResultClipInfos } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResultSearchResult } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentAudioSearchResult } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultArticle } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResultClipInfos } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResultSearchResult } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsAudioSearchResult } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult } from './RunSearchGenerationResponseBody';
@@ -415,6 +424,12 @@ export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGener
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextTokenCalculate } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutputAgentContext } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultAudios } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultImages } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultTexts } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResultVideos } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessagesSearchResult } from './RunSearchGenerationResponseBody';
+export { RunSearchGenerationResponseBodyPayloadOutputMessages } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadOutput } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayloadUsage } from './RunSearchGenerationResponseBody';
 export { RunSearchGenerationResponseBodyPayload } from './RunSearchGenerationResponseBody';
