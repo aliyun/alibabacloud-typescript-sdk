@@ -902,6 +902,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * internet
    */
   customImageNetworkType?: string;
+  deploymentName?: string;
   /**
    * @remarks
    * The disk size. Unit: GB.
@@ -1629,6 +1630,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
       customImageNetworkType: 'CustomImageNetworkType',
+      deploymentName: 'DeploymentName',
       diskSize: 'DiskSize',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
@@ -1726,6 +1728,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       cpu: 'number',
       customHostAlias: 'string',
       customImageNetworkType: 'string',
+      deploymentName: 'string',
       diskSize: 'number',
       dotnet: 'string',
       edasContainerVersion: 'string',
