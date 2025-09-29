@@ -11,6 +11,7 @@ export class ModifyAutoSnapshotPolicyRequest extends $dara.Model {
    * 0 20 16 ? * 1,2,3,4,5,6,7
    */
   cronExpression?: string;
+  diskType?: string;
   /**
    * @remarks
    * The ID of the automatic snapshot policy.
@@ -50,6 +51,7 @@ export class ModifyAutoSnapshotPolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cronExpression: 'CronExpression',
+      diskType: 'DiskType',
       policyId: 'PolicyId',
       policyName: 'PolicyName',
       regionId: 'RegionId',
@@ -60,6 +62,7 @@ export class ModifyAutoSnapshotPolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cronExpression: 'string',
+      diskType: 'string',
       policyId: 'string',
       policyName: 'string',
       regionId: 'string',

@@ -606,6 +606,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * true
    */
   bundleModels?: CreateDesktopsRequestBundleModels[];
+  channelCookie?: string;
   /**
    * @remarks
    * The billing method of the cloud computers.
@@ -919,6 +920,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       autoRenew: 'AutoRenew',
       bundleId: 'BundleId',
       bundleModels: 'BundleModels',
+      channelCookie: 'ChannelCookie',
       chargeType: 'ChargeType',
       desktopAttachment: 'DesktopAttachment',
       desktopMemberIp: 'DesktopMemberIp',
@@ -961,6 +963,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       autoRenew: 'boolean',
       bundleId: 'string',
       bundleModels: { 'type': 'array', 'itemType': CreateDesktopsRequestBundleModels },
+      channelCookie: 'string',
       chargeType: 'string',
       desktopAttachment: CreateDesktopsRequestDesktopAttachment,
       desktopMemberIp: 'string',

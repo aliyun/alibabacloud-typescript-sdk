@@ -1958,6 +1958,10 @@ export default class Client extends OpenApi {
       query["CronExpression"] = request.cronExpression;
     }
 
+    if (!$dara.isNull(request.diskType)) {
+      query["DiskType"] = request.diskType;
+    }
+
     if (!$dara.isNull(request.policyName)) {
       query["PolicyName"] = request.policyName;
     }
@@ -3568,6 +3572,10 @@ export default class Client extends OpenApi {
       query["BundleModels"] = request.bundleModels;
     }
 
+    if (!$dara.isNull(request.channelCookie)) {
+      query["ChannelCookie"] = request.channelCookie;
+    }
+
     if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -4211,6 +4219,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!$dara.isNull(request.channelCookie)) {
+      query["ChannelCookie"] = request.channelCookie;
     }
 
     if (!$dara.isNull(request.internetChargeType)) {
@@ -13302,6 +13314,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.cronExpression)) {
       query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.diskType)) {
+      query["DiskType"] = request.diskType;
     }
 
     if (!$dara.isNull(request.policyId)) {

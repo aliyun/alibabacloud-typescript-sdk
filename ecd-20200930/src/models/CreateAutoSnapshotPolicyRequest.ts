@@ -13,6 +13,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
    * 0 0 2 ? * 1-7
    */
   cronExpression?: string;
+  diskType?: string;
   /**
    * @remarks
    * The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-). This parameter is empty by default.
@@ -46,6 +47,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cronExpression: 'CronExpression',
+      diskType: 'DiskType',
       policyName: 'PolicyName',
       regionId: 'RegionId',
       retentionDays: 'RetentionDays',
@@ -55,6 +57,7 @@ export class CreateAutoSnapshotPolicyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cronExpression: 'string',
+      diskType: 'string',
       policyName: 'string',
       regionId: 'string',
       retentionDays: 'number',

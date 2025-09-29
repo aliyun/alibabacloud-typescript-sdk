@@ -27,6 +27,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
    * 5
    */
   desktopNum?: number;
+  diskType?: string;
   /**
    * @remarks
    * The ID of the automatic snapshot policy.
@@ -100,6 +101,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
       creationTime: 'CreationTime',
       cronExpression: 'CronExpression',
       desktopNum: 'DesktopNum',
+      diskType: 'DiskType',
       policyId: 'PolicyId',
       policyName: 'PolicyName',
       regionId: 'RegionId',
@@ -114,6 +116,7 @@ export class DescribeAutoSnapshotPolicyResponseBodyAutoSnapshotPolicies extends 
       creationTime: 'string',
       cronExpression: 'string',
       desktopNum: 'number',
+      diskType: 'string',
       policyId: 'string',
       policyName: 'string',
       regionId: 'string',

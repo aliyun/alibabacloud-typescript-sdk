@@ -73,6 +73,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
    * 10
    */
   bandwidth?: number;
+  channelCookie?: string;
   /**
    * @remarks
    * The charge type of the premium bandwidth plan.
@@ -183,6 +184,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bandwidth: 'Bandwidth',
+      channelCookie: 'ChannelCookie',
       internetChargeType: 'InternetChargeType',
       officeSiteId: 'OfficeSiteId',
       payType: 'PayType',
@@ -199,6 +201,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       bandwidth: 'number',
+      channelCookie: 'string',
       internetChargeType: 'string',
       officeSiteId: 'string',
       payType: 'string',

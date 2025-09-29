@@ -860,6 +860,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * The information about the enterprise resource groups.
    */
   resourceGroups?: DescribeDesktopsResponseBodyDesktopsResourceGroups[];
+  serialNumber?: string;
   /**
    * @remarks
    * The type of the session.
@@ -1030,6 +1031,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       progress: 'Progress',
       protocolType: 'ProtocolType',
       resourceGroups: 'ResourceGroups',
+      serialNumber: 'SerialNumber',
       sessionType: 'SessionType',
       sessions: 'Sessions',
       snapshotPolicyId: 'SnapshotPolicyId',
@@ -1100,6 +1102,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       progress: 'string',
       protocolType: 'string',
       resourceGroups: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsResourceGroups },
+      serialNumber: 'string',
       sessionType: 'string',
       sessions: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsSessions },
       snapshotPolicyId: 'string',
