@@ -493,6 +493,239 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @remarks
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @param tmpReq - ChatWithKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithKnowledgeBaseResponse
+   */
+  async chatWithKnowledgeBaseWithOptions(tmpReq: $_model.ChatWithKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatWithKnowledgeBaseResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithKnowledgeBaseShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.knowledgeParams)) {
+      request.knowledgeParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams, "KnowledgeParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modelParams)) {
+      request.modelParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelParams, "ModelParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.includeKnowledgeBaseResults)) {
+      query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults;
+    }
+
+    if (!$dara.isNull(request.knowledgeParamsShrink)) {
+      query["KnowledgeParams"] = request.knowledgeParamsShrink;
+    }
+
+    if (!$dara.isNull(request.modelParamsShrink)) {
+      query["ModelParams"] = request.modelParamsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.promptParams)) {
+      query["PromptParams"] = request.promptParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithKnowledgeBase",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatWithKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.ChatWithKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @remarks
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @param request - ChatWithKnowledgeBaseRequest
+   * @returns ChatWithKnowledgeBaseResponse
+   */
+  async chatWithKnowledgeBase(request: $_model.ChatWithKnowledgeBaseRequest): Promise<$_model.ChatWithKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatWithKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @remarks
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithKnowledgeBaseStreamResponse
+   */
+  async *chatWithKnowledgeBaseStreamWithSSE(tmpReq: $_model.ChatWithKnowledgeBaseStreamRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatWithKnowledgeBaseStreamResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithKnowledgeBaseStreamShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.knowledgeParams)) {
+      request.knowledgeParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams, "KnowledgeParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modelParams)) {
+      request.modelParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelParams, "ModelParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.includeKnowledgeBaseResults)) {
+      query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults;
+    }
+
+    if (!$dara.isNull(request.knowledgeParamsShrink)) {
+      query["KnowledgeParams"] = request.knowledgeParamsShrink;
+    }
+
+    if (!$dara.isNull(request.modelParamsShrink)) {
+      query["ModelParams"] = request.modelParamsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.promptParams)) {
+      query["PromptParams"] = request.promptParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithKnowledgeBaseStream",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.ChatWithKnowledgeBaseStreamResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.ChatWithKnowledgeBaseStreamResponse({}));
+    }
+  }
+
+  /**
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @remarks
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithKnowledgeBaseStreamResponse
+   */
+  async chatWithKnowledgeBaseStreamWithOptions(tmpReq: $_model.ChatWithKnowledgeBaseStreamRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatWithKnowledgeBaseStreamResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithKnowledgeBaseStreamShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.knowledgeParams)) {
+      request.knowledgeParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeParams, "KnowledgeParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modelParams)) {
+      request.modelParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelParams, "ModelParams", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.includeKnowledgeBaseResults)) {
+      query["IncludeKnowledgeBaseResults"] = request.includeKnowledgeBaseResults;
+    }
+
+    if (!$dara.isNull(request.knowledgeParamsShrink)) {
+      query["KnowledgeParams"] = request.knowledgeParamsShrink;
+    }
+
+    if (!$dara.isNull(request.modelParamsShrink)) {
+      query["ModelParams"] = request.modelParamsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.promptParams)) {
+      query["PromptParams"] = request.promptParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithKnowledgeBaseStream",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatWithKnowledgeBaseStreamResponse>(await this.callApi(params, req, runtime), new $_model.ChatWithKnowledgeBaseStreamResponse({}));
+  }
+
+  /**
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @remarks
+   * 通过结合知识库和大模型，提供智能问答服务。
+   * 
+   * @param request - ChatWithKnowledgeBaseStreamRequest
+   * @returns ChatWithKnowledgeBaseStreamResponse
+   */
+  async chatWithKnowledgeBaseStream(request: $_model.ChatWithKnowledgeBaseStreamRequest): Promise<$_model.ChatWithKnowledgeBaseStreamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatWithKnowledgeBaseStreamWithOptions(request, runtime);
+  }
+
+  /**
    * Checks the configurations of a Hadoop data source.
    * 
    * @param request - CheckHadoopDataSourceRequest
