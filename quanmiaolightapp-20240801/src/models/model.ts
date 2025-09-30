@@ -174,6 +174,7 @@ export { SubmitVideoAnalysisTaskRequestVideoRolesTimeIntervals } from './SubmitV
 export { SubmitVideoAnalysisTaskRequestVideoRoles } from './SubmitVideoAnalysisTaskRequest';
 export { SubmitVideoAnalysisTaskResponseBodyData } from './SubmitVideoAnalysisTaskResponseBody';
 export { UpdateVideoAnalysisTaskResponseBodyData } from './UpdateVideoAnalysisTaskResponseBody';
+export { UpdateVideoAnalysisTasksResponseBodyData } from './UpdateVideoAnalysisTasksResponseBody';
 export { CancelAsyncTaskRequest } from './CancelAsyncTaskRequest';
 export { CancelAsyncTaskResponseBody } from './CancelAsyncTaskResponseBody';
 export { CancelAsyncTaskResponse } from './CancelAsyncTaskResponse';
@@ -289,3 +290,7 @@ export { UpdateVideoAnalysisConfigResponse } from './UpdateVideoAnalysisConfigRe
 export { UpdateVideoAnalysisTaskRequest } from './UpdateVideoAnalysisTaskRequest';
 export { UpdateVideoAnalysisTaskResponseBody } from './UpdateVideoAnalysisTaskResponseBody';
 export { UpdateVideoAnalysisTaskResponse } from './UpdateVideoAnalysisTaskResponse';
+export { UpdateVideoAnalysisTasksRequest } from './UpdateVideoAnalysisTasksRequest';
+export { UpdateVideoAnalysisTasksShrinkRequest } from './UpdateVideoAnalysisTasksShrinkRequest';
+export { UpdateVideoAnalysisTasksResponseBody } from './UpdateVideoAnalysisTasksResponseBody';
+export { UpdateVideoAnalysisTasksResponse } from './UpdateVideoAnalysisTasksResponse';

@@ -3419,4 +3419,59 @@ export default class Client extends OpenApi {
     return await this.updateVideoAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
+  /**
+   * 视频理解-批量修改任务状态
+   * 
+   * @param tmpReq - UpdateVideoAnalysisTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoAnalysisTasksResponse
+   */
+  async updateVideoAnalysisTasksWithOptions(workspaceId: string, tmpReq: $_model.UpdateVideoAnalysisTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVideoAnalysisTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateVideoAnalysisTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "taskIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskIdsShrink)) {
+      body["taskIds"] = request.taskIdsShrink;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["taskStatus"] = request.taskStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoAnalysisTasks",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisTasks`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVideoAnalysisTasksResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVideoAnalysisTasksResponse({}));
+  }
+
+  /**
+   * 视频理解-批量修改任务状态
+   * 
+   * @param request - UpdateVideoAnalysisTasksRequest
+   * @returns UpdateVideoAnalysisTasksResponse
+   */
+  async updateVideoAnalysisTasks(workspaceId: string, request: $_model.UpdateVideoAnalysisTasksRequest): Promise<$_model.UpdateVideoAnalysisTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVideoAnalysisTasksWithOptions(workspaceId, request, headers, runtime);
+  }
+
 }
