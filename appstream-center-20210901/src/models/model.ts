@@ -101,6 +101,9 @@ export { DeleteAppInstanceGroupResponse } from './DeleteAppInstanceGroupResponse
 export { DeleteAppInstancesRequest } from './DeleteAppInstancesRequest';
 export { DeleteAppInstancesResponseBody } from './DeleteAppInstancesResponseBody';
 export { DeleteAppInstancesResponse } from './DeleteAppInstancesResponse';
+export { DeleteWuyingServerRequest } from './DeleteWuyingServerRequest';
+export { DeleteWuyingServerResponseBody } from './DeleteWuyingServerResponseBody';
+export { DeleteWuyingServerResponse } from './DeleteWuyingServerResponse';
 export { GetAppInstanceGroupRequest } from './GetAppInstanceGroupRequest';
 export { GetAppInstanceGroupResponseBody } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponse } from './GetAppInstanceGroupResponse';

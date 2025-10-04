@@ -72,6 +72,11 @@ export class CreateWuyingServerRequest extends $dara.Model {
   dataDisk?: CreateWuyingServerRequestDataDisk[];
   /**
    * @example
+   * 6a1b8c3d
+   */
+  idempotenceToken?: string;
+  /**
+   * @example
    * img-bp13mu****
    */
   imageId?: string;
@@ -135,6 +140,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       dataDisk: 'DataDisk',
+      idempotenceToken: 'IdempotenceToken',
       imageId: 'ImageId',
       officeSiteId: 'OfficeSiteId',
       password: 'Password',
@@ -159,6 +165,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       bizRegionId: 'string',
       chargeType: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateWuyingServerRequestDataDisk },
+      idempotenceToken: 'string',
       imageId: 'string',
       officeSiteId: 'string',
       password: 'string',

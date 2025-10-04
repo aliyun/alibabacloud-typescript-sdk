@@ -439,6 +439,10 @@ export default class Client extends OpenApi {
       bodyFlat["DataDisk"] = request.dataDisk;
     }
 
+    if (!$dara.isNull(request.idempotenceToken)) {
+      body["IdempotenceToken"] = request.idempotenceToken;
+    }
+
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
     }
@@ -629,6 +633,48 @@ export default class Client extends OpenApi {
   async deleteAppInstances(request: $_model.DeleteAppInstancesRequest): Promise<$_model.DeleteAppInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除工作站
+   * 
+   * @param request - DeleteWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWuyingServerResponse
+   */
+  async deleteWuyingServerWithOptions(request: $_model.DeleteWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWuyingServerResponse({}));
+  }
+
+  /**
+   * 删除工作站
+   * 
+   * @param request - DeleteWuyingServerRequest
+   * @returns DeleteWuyingServerResponse
+   */
+  async deleteWuyingServer(request: $_model.DeleteWuyingServerRequest): Promise<$_model.DeleteWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWuyingServerWithOptions(request, runtime);
   }
 
   /**
