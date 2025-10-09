@@ -109,6 +109,7 @@ export class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList ex
 }
 
 export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOffsetListOffsetList extends $dara.Model {
+  accumulate?: number;
   /**
    * @remarks
    * The latest offset in the partition of the topic.
@@ -167,6 +168,7 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
   partition?: number;
   static names(): { [key: string]: string } {
     return {
+      accumulate: 'Accumulate',
       brokerOffset: 'BrokerOffset',
       clientId: 'ClientId',
       clientIp: 'ClientIp',
@@ -179,6 +181,7 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
 
   static types(): { [key: string]: any } {
     return {
+      accumulate: 'number',
       brokerOffset: 'number',
       clientId: 'string',
       clientIp: 'string',
