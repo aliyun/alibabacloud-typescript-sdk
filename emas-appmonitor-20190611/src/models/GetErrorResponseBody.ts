@@ -409,6 +409,8 @@ export class GetErrorResponseBodyModel extends $dara.Model {
    * -
    */
   isBackTrace?: number;
+  isJailbroken?: number;
+  isSimulator?: number;
   /**
    * @example
    * 0
@@ -819,6 +821,8 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       inMainProcess: 'InMainProcess',
       installSdCard: 'InstallSdCard',
       isBackTrace: 'IsBackTrace',
+      isJailbroken: 'IsJailbroken',
+      isSimulator: 'IsSimulator',
       isSpeedVersion: 'IsSpeedVersion',
       isp: 'Isp',
       jsBacktrace: 'JsBacktrace',
@@ -966,6 +970,8 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       inMainProcess: 'number',
       installSdCard: 'number',
       isBackTrace: 'number',
+      isJailbroken: 'number',
+      isSimulator: 'number',
       isSpeedVersion: 'number',
       isp: 'string',
       jsBacktrace: 'string',

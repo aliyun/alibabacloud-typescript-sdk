@@ -437,6 +437,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RequestUploadToken
+   * 
    * @param request - RequestUploadTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RequestUploadTokenResponse
@@ -470,6 +472,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RequestUploadToken
+   * 
    * @param request - RequestUploadTokenRequest
    * @returns RequestUploadTokenResponse
    */
@@ -479,6 +483,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * SubmitSymbolic
+   * 
    * @param request - SubmitSymbolicRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitSymbolicResponse
@@ -536,6 +542,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * SubmitSymbolic
+   * 
    * @param request - SubmitSymbolicRequest
    * @returns SubmitSymbolicResponse
    */
