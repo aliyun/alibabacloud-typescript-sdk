@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model {
+  /**
+   * @remarks
+   * The task log.
+   * 
+   * @example
+   * Running on Serverless_resource_group_xxxxx
+   * Begin to check rule ***
+   */
   log?: string;
   /**
+   * @remarks
+   * The starting offset of the next log segment. A value of -1 indicates that all logs have been read.
+   * 
    * @example
    * 512000
    */
@@ -33,8 +44,15 @@ export class GetDataQualityScanRunLogResponseBodyLogSegment extends $dara.Model 
 }
 
 export class GetDataQualityScanRunLogResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The task log information.
+   */
   logSegment?: GetDataQualityScanRunLogResponseBodyLogSegment;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc14115***159376359
    */

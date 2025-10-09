@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataQualityScanResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Returns the ID of the created data source sharing rule, which uniquely identifies the rule.
+   * 
    * @example
    * 676303114031776
    */

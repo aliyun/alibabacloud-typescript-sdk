@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.Model {
   /**
    * @remarks
@@ -179,6 +205,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * 100
    */
   projectId?: number;
+  tags?: ListWorkflowsResponseBodyPagingInfoWorkflowsTags[];
   /**
    * @remarks
    * The trigger method.
@@ -198,6 +225,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
       owner: 'Owner',
       parameters: 'Parameters',
       projectId: 'ProjectId',
+      tags: 'Tags',
       trigger: 'Trigger',
     };
   }
@@ -216,11 +244,15 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
       owner: 'string',
       parameters: 'string',
       projectId: 'number',
+      tags: { 'type': 'array', 'itemType': ListWorkflowsResponseBodyPagingInfoWorkflowsTags },
       trigger: ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger,
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     if(this.trigger && typeof (this.trigger as any).validate === 'function') {
       (this.trigger as any).validate();
     }

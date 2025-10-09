@@ -11,10 +11,17 @@ export class ListNodesRequest extends $dara.Model {
    * 860438872620113XXXX
    */
   containerId?: number;
+  /**
+   * @remarks
+   * The name of the node. Fuzzy search is supported.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the data to retrieve, used for pagination.
    * 
    * @example
    * 1
@@ -22,7 +29,7 @@ export class ListNodesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries per page. Default is 10, and the maximum is 100.
    * 
    * @example
    * 10

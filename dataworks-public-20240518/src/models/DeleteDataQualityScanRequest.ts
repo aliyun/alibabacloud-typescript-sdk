@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteDataQualityScanRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The deprecated parameter. No configuration is required.
+   * 
+   * @example
+   * null
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the data quality monitor.
+   * 
    * @example
    * 123123
    */

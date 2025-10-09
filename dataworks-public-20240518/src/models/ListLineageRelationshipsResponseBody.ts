@@ -4,18 +4,31 @@ import { LineageRelationship } from "./LineageRelationship";
 
 
 export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data tables.
+   */
   lineageRelationships?: LineageRelationship[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 123
    */
@@ -51,13 +64,23 @@ export class ListLineageRelationshipsResponseBodyPagingInfo extends $dara.Model 
 }
 
 export class ListLineageRelationshipsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination result.
+   */
   pagingInfo?: ListLineageRelationshipsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. Used for locating and troubleshooting issues.
+   * 
    * @example
    * SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

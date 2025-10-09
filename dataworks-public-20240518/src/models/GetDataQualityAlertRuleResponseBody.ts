@@ -4,15 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotificationReceivers extends $dara.Model {
   /**
+   * @remarks
+   * Additional configurations required for the alert recipients. When ReceiverType is DingdingUrl, you can set `{"atAll":true}` to mention all members.
+   * 
    * @example
    * {"atAll":true}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of alert recipients.
+   * 
+   * *   ShiftSchedule
+   * *   WebhookUrl
+   * *   FeishuUrl
+   * *   TaskOwner
+   * *   WeixinUrl
+   * *   DingdingUrl
+   * *   DataQualityScanOwner
+   * *   AliUid
+   * 
    * @example
    * TaskOwner
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The value of alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,7 +62,15 @@ export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotification
 }
 
 export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotification extends $dara.Model {
+  /**
+   * @remarks
+   * In Channels, you can set both Email and Sms at the same time. In other cases, only one channel can be set.
+   */
   channels?: string[];
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receivers?: GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -75,8 +102,15 @@ export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotification
 }
 
 export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleTarget extends $dara.Model {
+  /**
+   * @remarks
+   * The list of monitored target IDs.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored target. Only `DataQualityScan` is supported.
+   * 
    * @example
    * DataQualityScan
    */
@@ -109,21 +143,38 @@ export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleTarget exten
 
 export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRule extends $dara.Model {
   /**
+   * @remarks
+   * Alert conditions of the data quality monitoring alert rule.
+   * 
    * @example
    * results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
    */
   condition?: string;
   /**
+   * @remarks
+   * The ID of the data quality monitoring alert rule.
+   * 
    * @example
    * 21045
    */
   id?: number;
+  /**
+   * @remarks
+   * Alert notification settings.
+   */
   notification?: GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleNotification;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 90912
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The monitored target of the data quality monitoring alert rule.
+   */
   target?: GetDataQualityAlertRuleResponseBodyDataQualityAlertRuleTarget;
   static names(): { [key: string]: string } {
     return {
@@ -161,8 +212,15 @@ export class GetDataQualityAlertRuleResponseBodyDataQualityAlertRule extends $da
 }
 
 export class GetDataQualityAlertRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Data quality monitoring alert rules.
+   */
   dataQualityAlertRule?: GetDataQualityAlertRuleResponseBodyDataQualityAlertRule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc14115****159376359
    */

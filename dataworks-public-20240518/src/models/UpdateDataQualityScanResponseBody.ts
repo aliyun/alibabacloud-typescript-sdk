@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataQualityScanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

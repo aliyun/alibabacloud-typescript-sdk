@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityTemplateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The data quality rule template ID.
+   * 
    * @example
    * a7ef0634-20ec-4a7c-a214-54020f91XXXX
    */

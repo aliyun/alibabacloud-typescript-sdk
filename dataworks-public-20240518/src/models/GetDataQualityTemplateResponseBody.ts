@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityTemplateResponseBodyDataQualityTemplate extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data quality rule template was created.
+   * 
    * @example
    * 1606724043000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator of the data quality rule template.
+   * 
    * @example
    * 238428342865
    */
   createUser?: string;
   /**
+   * @remarks
+   * The ID of the data quality rule template.
+   * 
    * @example
    * 10001
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the data quality rule template was updated.
+   * 
    * @example
    * 1606724043000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The last updater of the data quality rule template.
+   * 
    * @example
    * 238428342865
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The owner of the data quality rule template.
+   * 
    * @example
    * 238428342865
    */
   owner?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 97535
    */
   projectId?: number;
   /**
+   * @remarks
+   * Specific configurations of the data quality rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+   * 
    * @example
    * {
    *     "assertion": "anomaly detection fro id_not_null_cnt",
@@ -85,8 +109,15 @@ export class GetDataQualityTemplateResponseBodyDataQualityTemplate extends $dara
 }
 
 export class GetDataQualityTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data quality rule template.
+   */
   dataQualityTemplate?: GetDataQualityTemplateResponseBodyDataQualityTemplate;
   /**
+   * @remarks
+   * The API request ID, which is generated as a UUID.
+   * 
    * @example
    * 0bc14115***159376359
    */

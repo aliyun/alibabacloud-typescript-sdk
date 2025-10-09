@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDataQualityScanRunResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The RunId that was successfully triggered.
+   * 
+   * @example
+   * 248840
+   */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc14115***159376359
    */

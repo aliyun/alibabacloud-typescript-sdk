@@ -151,7 +151,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   id?: number;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * input
@@ -191,7 +191,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable name.
    * 
    * @example
    * 111
@@ -236,17 +236,17 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
 export class ListNodeDependenciesResponseBodyPagingInfoNodesInputs extends $dara.Model {
   /**
    * @remarks
-   * The node outputs.
+   * The list of node outputs.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs[];
   /**
    * @remarks
-   * The tables.
+   * The table list.
    */
   tables?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsTables[];
   /**
    * @remarks
-   * The variables.
+   * The variable list.
    */
   variables?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables[];
   static names(): { [key: string]: string } {
@@ -286,7 +286,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputs extends $dara
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node output.
+   * The output of the node.
    * 
    * @example
    * 463497880880954XXXX
@@ -346,7 +346,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables extend
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The output of the node to which the variable belongs.
+   * The node output corresponding to the variable.
    * 
    * @example
    * 463497880880954XXXX
@@ -392,7 +392,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   id?: number;
   /**
    * @remarks
-   * The name of the variable.
+   * The variable name.
    * 
    * @example
    * output
@@ -477,17 +477,17 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
 export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node outputs.
+   * The list of node outputs.
    */
   nodeOutputs?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs[];
   /**
    * @remarks
-   * The tables.
+   * The table list.
    */
   tables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsTables[];
   /**
    * @remarks
-   * The variables.
+   * The variable list.
    */
   variables?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -648,7 +648,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $da
   instanceMode?: string;
   /**
    * @remarks
-   * The rerun interval after a failure. Unit: milliseconds.
+   * The interval between retries after failure. Unit: milliseconds.
    * 
    * @example
    * 180000
@@ -668,7 +668,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $da
   rerunMode?: string;
   /**
    * @remarks
-   * The number of reruns after a failure.
+   * The number of retries after failure.
    * 
    * @example
    * 3
@@ -754,7 +754,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTags extends $dara.M
 export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression for scheduling.
+   * The cron expression for scheduling.
    * 
    * @example
    * 00 00 00 * * ?
@@ -762,7 +762,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
   cron?: string;
   /**
    * @remarks
-   * The end time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The effective end time of the schedule, in the format yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -770,7 +770,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
   endTime?: string;
   /**
    * @remarks
-   * The trigger ID.
+   * The unique identifier of the trigger.
    * 
    * @example
    * 543680677872062XXXX
@@ -778,7 +778,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
   id?: number;
   /**
    * @remarks
-   * The start time of the validity period of the scheduling. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The effective start time of the schedule, in the format yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -794,13 +794,13 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
   timezone?: string;
   /**
    * @remarks
-   * The type of the trigger.
+   * The trigger type.
    * 
    * Valid values:
    * 
-   * *   Scheduler
-   * *   Manual
-   * *   Streaming
+   * *   Scheduler: periodic scheduling.
+   * *   Manual: manual scheduling.
+   * *   Streaming: streaming scheduler.
    * 
    * @example
    * Scheduler
@@ -840,7 +840,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTrigger extends $dar
 export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The time when the node was created. This value is a UNIX timestamp.
+   * The timestamp when the node was created.
    * 
    * @example
    * 1724505917000
@@ -848,7 +848,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source.
    */
   dataSource?: ListNodeDependenciesResponseBodyPagingInfoNodesDataSource;
   /**
@@ -874,7 +874,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   inputs?: ListNodeDependenciesResponseBodyPagingInfoNodesInputs;
   /**
    * @remarks
-   * The time when the node was last modified. This value is a UNIX timestamp.
+   * The timestamp when the node was last modified.
    * 
    * @example
    * 1724505917000
@@ -1036,7 +1036,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
 export class ListNodeDependenciesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The descendant nodes.
+   * The list of dependent nodes.
    */
   nodes?: ListNodeDependenciesResponseBodyPagingInfoNodes[];
   /**

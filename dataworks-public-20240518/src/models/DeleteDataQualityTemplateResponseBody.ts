@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataQualityTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API request ID, which is generated as a UUID.
+   * 
    * @example
    * 0bc14115****159376359
    */
   requestId?: string;
   /**
+   * @remarks
+   * Deleted
+   * 
    * @example
    * true
    */

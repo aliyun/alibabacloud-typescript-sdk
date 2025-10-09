@@ -4,15 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesNotificationReceivers extends $dara.Model {
   /**
+   * @remarks
+   * Additional configurations required for the alert recipients. When ReceiverType is DingdingUrl, you can set `{"atAll":true}` to mention all members.
+   * 
    * @example
    * {"atAll":true}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of alert recipients.
+   * 
+   * *   ShiftSchedule
+   * *   WebhookUrl
+   * *   FeishuUrl
+   * *   TaskOwner
+   * *   WeixinUrl
+   * *   DingdingUrl
+   * *   DataQualityScanOwner
+   * *   AliUid
+   * 
    * @example
    * AliUid
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The value of alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,7 +62,15 @@ export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesN
 }
 
 export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesNotification extends $dara.Model {
+  /**
+   * @remarks
+   * In Channels, you can set both Email and Sms at the same time. In other cases, only one channel can be set.
+   */
   channels?: string[];
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receivers?: ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -75,8 +102,15 @@ export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesN
 }
 
 export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesTarget extends $dara.Model {
+  /**
+   * @remarks
+   * The list of monitored target IDs
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored target. Only DataQualityScan is supported.
+   * 
    * @example
    * DataQualityScan
    */
@@ -109,21 +143,38 @@ export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesT
 
 export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRules extends $dara.Model {
   /**
+   * @remarks
+   * The alert conditions.
+   * 
    * @example
    * results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
    */
   condition?: string;
   /**
+   * @remarks
+   * The ID of the data quality monitor alert rule.
+   * 
    * @example
    * 26433
    */
   id?: number;
+  /**
+   * @remarks
+   * Alert notification configurations.
+   */
   notification?: ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesNotification;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 59094
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Monitored targets of the data quality alert rule.
+   */
   target?: ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRulesTarget;
   static names(): { [key: string]: string } {
     return {
@@ -161,18 +212,31 @@ export class ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRules 
 }
 
 export class ListDataQualityAlertRulesResponseBodyPageInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert rule configurations.
+   */
   dataQualityAlertRules?: ListDataQualityAlertRulesResponseBodyPageInfoDataQualityAlertRules[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 335
    */
@@ -208,8 +272,15 @@ export class ListDataQualityAlertRulesResponseBodyPageInfo extends $dara.Model {
 }
 
 export class ListDataQualityAlertRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Alert rule configurations.
+   */
   pageInfo?: ListDataQualityAlertRulesResponseBodyPageInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc14115***159376359
    */

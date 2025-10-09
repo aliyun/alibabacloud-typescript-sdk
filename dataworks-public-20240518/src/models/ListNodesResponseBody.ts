@@ -105,7 +105,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsTables extends $dara.Mode
 export class ListNodesResponseBodyPagingInfoNodesInputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The output of the node.
+   * The node output.
    * 
    * @example
    * 623731286945488XXXX
@@ -191,7 +191,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * 222
@@ -236,17 +236,17 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
 export class ListNodesResponseBodyPagingInfoNodesInputs extends $dara.Model {
   /**
    * @remarks
-   * The node outputs.
+   * The node output list.
    */
   nodeOutputs?: ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs[];
   /**
    * @remarks
-   * The tables.
+   * The table list.
    */
   tables?: ListNodesResponseBodyPagingInfoNodesInputsTables[];
   /**
    * @remarks
-   * The variables.
+   * The variable list.
    */
   variables?: ListNodesResponseBodyPagingInfoNodesInputsVariables[];
   static names(): { [key: string]: string } {
@@ -346,7 +346,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsTables extends $dara.Mod
 export class ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode extends $dara.Model {
   /**
    * @remarks
-   * The output of the node.
+   * The node output.
    * 
    * @example
    * 860438872620113XXXX
@@ -405,7 +405,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   node?: ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable. Valid values:
+   * The variable scope. Valid values:
    * 
    * *   NodeParameter
    * *   NodeContext
@@ -418,7 +418,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   scope?: string;
   /**
    * @remarks
-   * The type of the variable. Valid values:
+   * The variable type. Valid values:
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -432,7 +432,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   type?: string;
   /**
    * @remarks
-   * The value of the variable.
+   * The variable value.
    * 
    * @example
    * 111
@@ -477,17 +477,17 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
 export class ListNodesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
   /**
    * @remarks
-   * The node outputs.
+   * The node output list.
    */
   nodeOutputs?: ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs[];
   /**
    * @remarks
-   * The tables.
+   * The table list.
    */
   tables?: ListNodesResponseBodyPagingInfoNodesOutputsTables[];
   /**
    * @remarks
-   * The variables.
+   * The variable list.
    */
   variables?: ListNodesResponseBodyPagingInfoNodesOutputsVariables[];
   static names(): { [key: string]: string } {
@@ -525,6 +525,13 @@ export class ListNodesResponseBodyPagingInfoNodesOutputs extends $dara.Model {
 }
 
 export class ListNodesResponseBodyPagingInfoNodesRuntimeResource extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the identifier of the resource group.
+   * 
+   * @example
+   * S_res_group_XXXX
+   */
   resourceGroup?: string;
   /**
    * @remarks
@@ -679,7 +686,7 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The timeout period.
+   * Timeout.
    * 
    * @example
    * 0
@@ -725,7 +732,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value
+   * The tag value.
    * 
    * @example
    * null
@@ -757,7 +764,7 @@ export class ListNodesResponseBodyPagingInfoNodesTags extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression for scheduling.
+   * The cron expression for scheduling
    * 
    * @example
    * 00 00 00 * * ?
@@ -797,13 +804,13 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The type of the trigger.
+   * The trigger type.
    * 
    * Valid values:
    * 
-   * *   Scheduler
-   * *   Manual
-   * *   Steaming
+   * *   Scheduler: periodic scheduling
+   * *   Manual: manual trigger
+   * *   Streaming: streaming task
    * 
    * @example
    * Scheduler
@@ -843,7 +850,7 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   /**
    * @remarks
-   * The time when the node was created. This value is a UNIX timestamp.
+   * The timestamp when the node in DataStudio was created.
    * 
    * @example
    * 1722910655000
@@ -851,7 +858,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The information about the data source.
+   * The data source.
    */
   dataSource?: ListNodesResponseBodyPagingInfoNodesDataSource;
   /**
@@ -872,12 +879,12 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The input of the node.
+   * The node input.
    */
   inputs?: ListNodesResponseBodyPagingInfoNodesInputs;
   /**
    * @remarks
-   * The time when the node was last modified. This value is a UNIX timestamp.
+   * The timestamp when the node in DataStudio was last modified.
    * 
    * @example
    * 1722910655000
@@ -893,12 +900,12 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the node.
+   * The node output.
    */
   outputs?: ListNodesResponseBodyPagingInfoNodesOutputs;
   /**
    * @remarks
-   * The owner of the node.
+   * The owner of nodes in DataStudio.
    * 
    * @example
    * 110755000425XXXX
@@ -943,7 +950,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   strategy?: ListNodesResponseBodyPagingInfoNodesStrategy;
   /**
    * @remarks
-   * The tags. This parameter is not in use.
+   * The tag information (not in use).
    */
   tags?: ListNodesResponseBodyPagingInfoNodesTags[];
   /**
@@ -1039,7 +1046,7 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
 export class ListNodesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The nodes.
+   * The list of nodes in DataStudio.
    */
   nodes?: ListNodesResponseBodyPagingInfoNodes[];
   /**

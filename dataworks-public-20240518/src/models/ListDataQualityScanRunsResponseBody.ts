@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRunsParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * dt
    */
   name?: string;
   /**
+   * @remarks
+   * The parameter value. You can use a scheduling time expression.
+   * 
    * @example
    * $[yyyy-mm-dd-1]
    */
@@ -38,22 +44,44 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRunsParam
 
 export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data quality monitor starts running.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The time when the data quality monitor stops.
+   * 
    * @example
    * 1710239005403
    */
   finishTime?: number;
   /**
+   * @remarks
+   * The ID of the data quality monitor running record.
+   * 
    * @example
    * 3155
    */
   id?: number;
+  /**
+   * @remarks
+   * The parameters configured for the instance.
+   */
   parameters?: ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRunsParameters[];
   /**
+   * @remarks
+   * The status of the instance.
+   * 
+   * *   Pass
+   * *   Running
+   * *   Error
+   * *   Warn
+   * *   Fail
+   * 
    * @example
    * Fail
    */
@@ -91,18 +119,31 @@ export class ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns exte
 }
 
 export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of data quality monitor run records.
+   */
   dataQualityScanRuns?: ListDataQualityScanRunsResponseBodyPageInfoDataQualityScanRuns[];
   /**
+   * @remarks
+   * The page number of the results. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 324
    */
@@ -138,8 +179,15 @@ export class ListDataQualityScanRunsResponseBodyPageInfo extends $dara.Model {
 }
 
 export class ListDataQualityScanRunsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page information.
+   */
   pageInfo?: ListDataQualityScanRunsResponseBodyPageInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0bc14115***159376359
    */

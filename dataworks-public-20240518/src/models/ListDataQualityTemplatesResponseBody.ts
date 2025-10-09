@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The time when the data quality rule template was created.
+   * 
    * @example
    * 1729816478147
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator of the data quality rule template.
+   * 
    * @example
    * 7892346529452
    */
   createUser?: string;
   /**
+   * @remarks
+   * The ID of the data quality rule template.
+   * 
    * @example
    * 819cf1f8-29be-4f94-a9d0-c5c06c0c3d2a
    */
   id?: string;
   /**
+   * @remarks
+   * The time when the data quality rule template was updated.
+   * 
    * @example
    * 1729816478147
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The last updater of the data quality rule template.
+   * 
    * @example
    * 205250754596036836
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The owner of the data quality rule template.
+   * 
    * @example
    * 205250754596036836
    */
   owner?: string;
   /**
+   * @remarks
+   * The project ID.
+   * 
    * @example
    * 7635
    */
   projectId?: number;
   /**
+   * @remarks
+   * Specific configurations of the data quality rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+   * 
    * @example
    * {
    *     "assertion": "anomaly detection fro id_not_null_cnt",
@@ -85,18 +109,31 @@ export class ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates ex
 }
 
 export class ListDataQualityTemplatesResponseBodyPageInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of rule templates.
+   */
   dataQualityTemplates?: ListDataQualityTemplatesResponseBodyPageInfoDataQualityTemplates[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of pages.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
@@ -132,8 +169,15 @@ export class ListDataQualityTemplatesResponseBodyPageInfo extends $dara.Model {
 }
 
 export class ListDataQualityTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Paged query results of data quality rule templates.
+   */
   pageInfo?: ListDataQualityTemplatesResponseBodyPageInfo;
   /**
+   * @remarks
+   * The API request ID, which is generated as a UUID.
+   * 
    * @example
    * 0bc14115***159376359
    */

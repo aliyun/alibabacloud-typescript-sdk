@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataQualityTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the newly created rule template.
+   * 
    * @example
    * USER-DEFINED:2001
    */
   id?: string;
   /**
+   * @remarks
+   * The API request ID, which is generated as a UUID.
+   * 
    * @example
    * 0bc14115***159376359
    */

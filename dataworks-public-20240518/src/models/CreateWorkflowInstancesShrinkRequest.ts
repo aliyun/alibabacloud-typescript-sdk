@@ -26,7 +26,7 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   defaultRunPropertiesShrink?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
    * *   Prod
    * *   Dev
@@ -60,7 +60,21 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The tag creation policy. Valid values:
+   * 
+   * *   Append: New tags are added on top of the existing tags of the manual workflow.
+   * *   Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+   * 
+   * @example
+   * Append
+   */
   tagCreationPolicy?: string;
+  /**
+   * @remarks
+   * The task tag list.
+   */
   tagsShrink?: string;
   /**
    * @remarks
@@ -77,10 +91,10 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData: The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
-   * *   ManualWorkflow: If you set the Type parameter to ManualWorkflow, you must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not configure the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
-   * *   Manual: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
-   * *   SmokeTest: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
+   * *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
+   * *   ManualWorkflow: Manual workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+   * *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
+   * *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
    * 
    * This parameter is required.
    * 

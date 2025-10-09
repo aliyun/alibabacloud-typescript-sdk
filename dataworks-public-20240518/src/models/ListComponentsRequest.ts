@@ -2,50 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDataQualityTemplatesRequest extends $dara.Model {
+export class ListComponentsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The directory path to which the data quality template belongs.
-   * 
    * @example
-   * /timeliness/ods_layer
-   */
-  catalog?: string;
-  /**
-   * @remarks
-   * Fuzzy match for the template rule name.
-   * 
-   * @example
-   * table_rows
+   * xm_create_test
    */
   name?: string;
   /**
-   * @remarks
-   * The number of records per page. Default value: 10.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The page number of the results. Default value: 1.
-   * 
    * @example
-   * 10
+   * 1000
    */
   pageSize?: number;
   /**
-   * @remarks
-   * The project ID.
-   * 
    * @example
-   * 10000
+   * 100001
    */
   projectId?: number;
   static names(): { [key: string]: string } {
     return {
-      catalog: 'Catalog',
       name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -55,7 +34,6 @@ export class ListDataQualityTemplatesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      catalog: 'string',
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',

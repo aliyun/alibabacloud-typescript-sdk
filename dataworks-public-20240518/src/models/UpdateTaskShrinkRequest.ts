@@ -31,10 +31,10 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -59,7 +59,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
+   * *   T+1: the next day
    * *   Immediately
    * 
    * @example
@@ -68,7 +68,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * SQL node
@@ -99,9 +99,9 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun.
+   * *   FailureAllowed: The task can be rerun only after it fails.
+   * *   AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed
@@ -117,12 +117,12 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * Runtime environment configurations, such as resource group information.
    */
   runtimeResourceShrink?: string;
   /**
    * @remarks
-   * The script information.
+   * The run script information.
    */
   scriptShrink?: string;
   /**
@@ -140,7 +140,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The trigger method.
+   * The triggering method.
    */
   triggerShrink?: string;
   static names(): { [key: string]: string } {

@@ -19,26 +19,44 @@ export class ListLineageRelationshipsRequest extends $dara.Model {
    */
   dstEntityId?: string;
   /**
+   * @remarks
+   * The destination entity name. Supports fuzzy matching.
+   * 
    * @example
    * dstName
    */
   dstEntityName?: string;
   /**
+   * @remarks
+   * The order in which schemas are sorted. Default value: Asc. Valid values:
+   * 
+   * *   Asc: ascending.
+   * *   Desc: descending.
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sort field. Default value: Name.
+   * 
    * @example
    * Name
    */
@@ -59,6 +77,9 @@ export class ListLineageRelationshipsRequest extends $dara.Model {
    */
   srcEntityId?: string;
   /**
+   * @remarks
+   * The source entity name. Supports fuzzy matching.
+   * 
    * @example
    * srcName
    */

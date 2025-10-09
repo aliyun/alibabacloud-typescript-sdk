@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetWorkflowInstanceResponseBodyWorkflowInstanceTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model {
   /**
    * @remarks
@@ -111,6 +137,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * Success
    */
   status?: string;
+  tags?: GetWorkflowInstanceResponseBodyWorkflowInstanceTags[];
   /**
    * @remarks
    * The type of the workflow instance. Valid values:
@@ -148,6 +175,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       projectId: 'ProjectId',
       startedTime: 'StartedTime',
       status: 'Status',
+      tags: 'Tags',
       type: 'Type',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
@@ -168,6 +196,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       projectId: 'number',
       startedTime: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetWorkflowInstanceResponseBodyWorkflowInstanceTags },
       type: 'string',
       workflowId: 'number',
       workflowParameters: 'string',
@@ -175,6 +204,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

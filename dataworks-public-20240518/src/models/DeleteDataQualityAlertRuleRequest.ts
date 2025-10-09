@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteDataQualityAlertRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the data quality rule template.
+   * 
+   * @example
+   * a7ef0634-20ec-4a7c-a214-54020f91XXXX
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {

@@ -37,10 +37,10 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
    * @remarks
    * The dependency type. Valid values:
    * 
-   * *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
-   * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-   * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycleDependsOnChildren: Depends on level-1 downstream nodes across cycles
+   * *   CrossCycleDependsOnSelf: Depends on itself across cycles.
+   * *   CrossCycleDependsOnOtherNode: Depends on other nodes across cycles.
+   * *   Normal: Depends on nodes in the same cycle.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
+   * The output identifier of the upstream task. (This parameter is returned only if `Normal` is set and the node input is configured.)
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -58,7 +58,7 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+   * The ID of the upstream task. (This parameter is returned only if `Normal` or `CrossCycleDependsOnOtherNode` is set and the node input is not configured.)
    * 
    * @example
    * 1234
@@ -102,10 +102,10 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * *   Constant: constant.
+   * *   PassThrough: node output.
+   * *   System: variable.
+   * *   NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -219,10 +219,10 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * *   Constant: constant
-   * *   PassThrough: node output
-   * *   System: variable
-   * *   NodeOutput: script output
+   * *   Constant: constant.
+   * *   PassThrough: node output.
+   * *   System: variable.
+   * *   NodeOutput: script output.
    * 
    * This parameter is required.
    * 
@@ -314,7 +314,7 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID used in the task runtime configuration.
    * 
    * @example
    * i-xxxxxx
@@ -322,7 +322,7 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the scheduling resource group used in the task runtime configuration.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -360,11 +360,13 @@ export class UpdateTaskRequestScript extends $dara.Model {
    * 
    * @example
    * echo "helloWorld"
+   * 
+   * @deprecated
    */
   content?: string;
   /**
    * @remarks
-   * The script parameters.
+   * The script parameter list.
    * 
    * @example
    * para1=$bizdate
@@ -396,7 +398,7 @@ export class UpdateTaskRequestScript extends $dara.Model {
 export class UpdateTaskRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of a tag.
    * 
    * This parameter is required.
    * 
@@ -406,7 +408,7 @@ export class UpdateTaskRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of a tag.
    * 
    * @example
    * value1
@@ -438,15 +440,16 @@ export class UpdateTaskRequestTags extends $dara.Model {
 export class UpdateTaskRequestTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The Cron expression. This parameter takes effect only if the Type parameter is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
+  cycleType?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -466,7 +469,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
+   * The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -474,10 +477,10 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The triggering type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler: periodically triggered
+   * *   Manual
    * 
    * @example
    * Scheduler
@@ -486,6 +489,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cron: 'Cron',
+      cycleType: 'CycleType',
       endTime: 'EndTime',
       recurrence: 'Recurrence',
       startTime: 'StartTime',
@@ -496,6 +500,7 @@ export class UpdateTaskRequestTrigger extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cron: 'string',
+      cycleType: 'string',
       endTime: 'string',
       recurrence: 'string',
       startTime: 'string',
@@ -541,10 +546,10 @@ export class UpdateTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -569,7 +574,7 @@ export class UpdateTaskRequest extends $dara.Model {
    * @remarks
    * The instance generation mode. Valid values:
    * 
-   * *   T+1
+   * *   T+1: the next day
    * *   Immediately
    * 
    * @example
@@ -578,7 +583,7 @@ export class UpdateTaskRequest extends $dara.Model {
   instanceMode?: string;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * SQL node
@@ -609,9 +614,9 @@ export class UpdateTaskRequest extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun.
+   * *   FailureAllowed: The task can be rerun only after it fails.
+   * *   AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed
@@ -627,12 +632,12 @@ export class UpdateTaskRequest extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * Runtime environment configurations, such as resource group information.
    */
   runtimeResource?: UpdateTaskRequestRuntimeResource;
   /**
    * @remarks
-   * The script information.
+   * The run script information.
    */
   script?: UpdateTaskRequestScript;
   /**
@@ -650,7 +655,7 @@ export class UpdateTaskRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The trigger method.
+   * The triggering method.
    */
   trigger?: UpdateTaskRequestTrigger;
   static names(): { [key: string]: string } {

@@ -7,9 +7,9 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
    * @remarks
    * The alert notification method. Valid values:
    * 
-   * *   Sms
-   * *   Mail
-   * *   SmsMail
+   * *   Sms: SMS only.
+   * *   Mail: mail only.
+   * *   SmsMail: SMS and mail.
    * 
    * @example
    * Sms
@@ -19,9 +19,9 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
    * @remarks
    * The alerting policy. Valid values:
    * 
-   * *   Success: An alert is reported when data backfill succeeds.
-   * *   Failure: An alert is reported when data backfill fails.
-   * *   SuccessFailure: An alert is reported regardless of whether data backfill succeeds or fails.
+   * *   Success: Alerts on success.
+   * *   Failure: Alerts on failure.
+   * *   SuccessFailure: Alerts on both success and failure.
    * 
    * @example
    * Succes
@@ -53,7 +53,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to block running if the analysis fails. If you set the Type parameter to SupplementData, this parameter is required. Valid values: true and false.
+   * Specifies whether to block execution if the analysis fails. Required when Type is set to SupplementData.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
   blocked?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the analysis feature. If you set the Type parameter to SupplementData, this parameter is required. Valid values: true and false.
+   * Specifies whether to enable the analysis feature. Required when Type is set to SupplementData.
    * 
    * @example
    * true
@@ -93,7 +93,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends $dara.Model {
   /**
    * @remarks
-   * The end time of running. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. This parameter is required if you configure the RunPolicy parameter.
+   * The end time of running. Configure this parameter in the `hh:mm:ss` format (24-hour clock). This parameter is required if you configure the RunPolicy parameter.
    * 
    * @example
    * 23:59:59
@@ -101,7 +101,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether the instances can be run immediately during the time period in the future. Valid values: true and false.
+   * Specifies whether a task whose scheduled run time is in the future can be run immediately. Default value: false.
    * 
    * @example
    * false
@@ -109,7 +109,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   immediately?: boolean;
   /**
    * @remarks
-   * The start time of running. Configure this parameter in the `hh:mm:ss` format. The time must be in the 24-hour clock. This parameter is required if you configure the RunPolicy parameter.
+   * The start time of running. Configure this parameter in the `hh:mm:ss` format (24-hour clock). This parameter is required if you configure the RunPolicy parameter.
    * 
    * @example
    * 00:00:00
@@ -117,7 +117,7 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
   startTime?: string;
   /**
    * @remarks
-   * The type of the time period during which the data is backfilled. This parameter is required if you configure the RunPolicy parameter.
+   * The time period type. This parameter is required if you configure the RunPolicy parameter. Valid values:
    * 
    * *   Daily
    * *   Weekend
@@ -161,37 +161,37 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   alert?: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert;
   /**
    * @remarks
-   * The configurations for analysis. If you set the Type parameter to SupplementData, this parameter is required.
+   * The analysis configuration. Required when Type is set to SupplementData.
    */
   analysis?: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis;
   /**
    * @remarks
-   * The IDs of the projects that do not need to be run.
+   * The IDs of the projects not to run.
    */
   excludeProjectIds?: number[];
   /**
    * @remarks
-   * The IDs of the tasks that do not need to be run.
+   * The IDs of the tasks not to run.
    */
   excludeTaskIds?: number[];
   /**
    * @remarks
-   * The IDs of the projects that need to be run.
+   * The IDs of the projects to run.
    */
   includeProjectIds?: number[];
   /**
    * @remarks
-   * The IDs of the tasks that need to be run.
+   * The IDs of the tasks to run.
    */
   includeTaskIds?: number[];
   /**
    * @remarks
-   * The data backfill mode. Default value: ManualSelection. If you set the Type parameter to SupplementData, this parameter is required. Valid values:
+   * The data backfill mode. Default value: ManualSelection. Required when Type is set to SupplementData.
    * 
-   * *   General: You can specify only `one root task ID`. The `IncludeTaskIds` parameter is optional. If you do not configure the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.
-   * *   ManualSelection: You can specify `multiple root task IDs`. The `IncludeTaskIds` parameter is optional. If you do not configure the IncludeTaskIds parameter, the tasks that are specified by the `RootTaskIds` parameter are included by default.
-   * *   Chain: If you set the Mode parameter to Chain, you must leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
-   * *   AllDownstream: You can specify only one `root task ID`.
+   * *   General: You can specify only one value for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it\\"s not specified, it defaults to including `RootTaskIds`.
+   * *   ManualSelection: You can specify multiple values for `RootTaskIds`. The `IncludeTaskIds` parameter is optional. If it is not specified, it defaults to including `RootTaskIds`.
+   * *   Chain: If you set the Mode parameter to Chain, leave the `RootTaskIds` parameter empty and set the `IncludeTaskIds` parameter to the start task ID and the end task ID.
+   * *   AllDownstream: Only one `RootTaskId` can be specified.
    * 
    * @example
    * ManualSelection
@@ -199,10 +199,10 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   mode?: string;
   /**
    * @remarks
-   * The running order. Valid values:
+   * The execution order. Default value: Asc.
    * 
-   * *   Asc (default): The tasks are sorted by data timestamp in ascending order.
-   * *   Desc: The tasks are sorted by data timestamp in descending order.
+   * *   Asc: ascending by business date.
+   * *   Desc: descending by business date.
    * 
    * @example
    * Asc
@@ -210,7 +210,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   order?: string;
   /**
    * @remarks
-   * The number of tasks that can be run in parallel. If you specify a value that ranges from 2 to 10, the value indicates the number of tasks that can be run in parallel. If you set the value to 1, the tasks are run one by one. If you set the Type parameter to SupplementData, this parameter is required.
+   * The task concurrency. Values from 2 to 10 indicate concurrency. A value of 1 indicates sequential execution. Required when Type = SupplementData.
    * 
    * @example
    * 2
@@ -218,7 +218,7 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   parallelism?: number;
   /**
    * @remarks
-   * The running priority. Valid values: 1 to 11. A larger value indicates a higher priority.
+   * The execution priority, range: 1–11. A higher value indicates higher priority.
    * 
    * @example
    * 1
@@ -226,10 +226,10 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   priority?: number;
   /**
    * @remarks
-   * The weight policy for the priority. Valid values:
+   * The priority weighting policy.
    * 
-   * *   `Disable`: No weight policy for the priority is enabled. This is the default value.
-   * *   `Upstream`: The sum of the weights for the ancestor nodes of the current node is calculated. The more ancestor nodes, the higher the weight.
+   * *   `Disable` (default): Do not enable.
+   * *   `Upstream`: The priority is based on the total weight of upstream nodes. The deeper the hierarchy, the higher the weight.
    * 
    * @example
    * Upstream
@@ -237,22 +237,22 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
   priorityWeightStrategy?: string;
   /**
    * @remarks
-   * The root task IDs.
+   * The list of root task IDs.
    * 
-   * *   If you set the Type parameter to SupplementData and the Mode parameter to a value other than Chain, the RootTaskIds parameter is required.
-   * *   If you set the Type parameter to ManualWorkflow, the RootTaskIds parameter is optional. If you do not configure the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
-   * *   If you set the Type parameter to Manual, the RootTaskIds parameter is required. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
-   * *   If you set the Type parameter to SmokeTest, the RootTaskIds parameter is required. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
+   * *   When Type is set to SupplementData, RootTaskIds is required unless Mode is set to Chain.
+   * *   When Type is set to ManualWorkflow, RootTaskIds is optional. If it is not specified, the default root nodes of the manual workflow are used.
+   * *   When Type is set to Manual, RootTaskIds is required and specifies the list of manual tasks to run.
+   * *   When Type is set to SmokeTest, RootTaskIds is required and specifies the list of test tasks to run.
    */
   rootTaskIds?: number[];
   /**
    * @remarks
-   * The policy for running. If you leave this parameter empty, the task configuration is used.
+   * The run policy. If the parameter is left empty, the task configuration is used.
    */
   runPolicy?: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy;
   /**
    * @remarks
-   * The identifier of the custom resource group for scheduling. If you leave this parameter empty, the runtime configuration is used.
+   * Custom scheduling resource group ID. If left empty, the task configuration is used.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -430,7 +430,21 @@ export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
 }
 
 export class CreateWorkflowInstancesRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tagKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -479,7 +493,7 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
   defaultRunProperties?: CreateWorkflowInstancesRequestDefaultRunProperties;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
    * *   Prod
    * *   Dev
@@ -513,7 +527,21 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The tag creation policy. Valid values:
+   * 
+   * *   Append: New tags are added on top of the existing tags of the manual workflow.
+   * *   Overwrite: Existing tags of the manual workflow are not inherited. New tags are created directly.
+   * 
+   * @example
+   * Append
+   */
   tagCreationPolicy?: string;
+  /**
+   * @remarks
+   * The task tag list.
+   */
   tags?: CreateWorkflowInstancesRequestTags[];
   /**
    * @remarks
@@ -530,10 +558,10 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SupplementData: The values of the RootTaskIds and IncludeTaskIds parameters vary based on the value of the Mode parameter. For more information, see the Mode parameter in this API operation.
-   * *   ManualWorkflow: If you set the Type parameter to ManualWorkflow, you must set the WorkflowId parameter to the ID of the manually triggered workflow. The RootTaskIds parameter is optional. If you do not configure the RootTaskIds parameter, the IDs of the default root nodes of the manually triggered workflow are used.
-   * *   Manual: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the manually triggered tasks that need to be run.
-   * *   SmokeTest: You need to configure only the RootTaskIds parameter. The RootTaskIds parameter specifies the IDs of the test tasks that need to be run.
+   * *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
+   * *   ManualWorkflow: Manual workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+   * *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
+   * *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
    * 
    * This parameter is required.
    * 

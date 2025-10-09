@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityAlertRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The data quality monitoring alert rule ID.
+   * 
    * @example
    * 113642
    */

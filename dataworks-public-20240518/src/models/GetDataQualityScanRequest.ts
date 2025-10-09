@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityScanRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the monitor.
+   * 
    * @example
    * 10001
    */

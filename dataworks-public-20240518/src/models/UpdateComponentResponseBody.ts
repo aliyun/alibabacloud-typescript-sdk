@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteDataQualityTemplateRequest extends $dara.Model {
+export class UpdateComponentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom rule template.
+   * Id of the request
    * 
    * @example
-   * USER_DEFINED:2001
+   * 0bc1ec92159376
    */
-  id?: string;
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 

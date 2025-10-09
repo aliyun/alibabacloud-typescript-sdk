@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extends $dara.Model {
   /**
    * @example
@@ -108,6 +134,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * Success
    */
   status?: string;
+  tags?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags[];
   /**
    * @example
    * Normal
@@ -136,6 +163,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       projectId: 'ProjectId',
       startedTime: 'StartedTime',
       status: 'Status',
+      tags: 'Tags',
       type: 'Type',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
@@ -156,6 +184,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       projectId: 'number',
       startedTime: 'number',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags },
       type: 'string',
       workflowId: 'number',
       workflowParameters: 'string',
@@ -163,6 +192,9 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

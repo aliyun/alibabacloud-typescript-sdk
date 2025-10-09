@@ -540,6 +540,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建组件
+   * 
+   * @param request - CreateComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComponentResponse
+   */
+  async createComponentWithOptions(request: $_model.CreateComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComponentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComponent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComponentResponse>(await this.callApi(params, req, runtime), new $_model.CreateComponentResponse({}));
+  }
+
+  /**
+   * 创建组件
+   * 
+   * @param request - CreateComponentRequest
+   * @returns CreateComponentResponse
+   */
+  async createComponent(request: $_model.CreateComponentRequest): Promise<$_model.CreateComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComponentWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an alert rule for a synchronization task.
    * 
    * @param tmpReq - CreateDIAlarmRuleRequest
@@ -792,7 +842,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量告警规则
+   * Creates a data quality monitoring alert rule in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - CreateDataQualityAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -845,7 +898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量告警规则
+   * Creates a data quality monitoring alert rule in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateDataQualityAlertRuleRequest
    * @returns CreateDataQualityAlertRuleResponse
@@ -1190,7 +1246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控
+   * Creates a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - CreateDataQualityScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,7 +1342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控
+   * Creates a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateDataQualityScanRequest
    * @returns CreateDataQualityScanResponse
@@ -1294,7 +1356,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Triggers a data quality monitoring task and returns the run instance ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - CreateDataQualityScanRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1347,7 +1412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Triggers a data quality monitoring task and returns the run instance ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateDataQualityScanRunRequest
    * @returns CreateDataQualityScanRunResponse
@@ -1358,7 +1426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量模板
+   * Creates a data quality template.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateDataQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1397,7 +1468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量模板
+   * Creates a data quality template.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateDataQualityTemplateRequest
    * @returns CreateDataQualityTemplateResponse
@@ -3108,6 +3182,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a component.
+   * 
+   * @remarks
+   * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
+   * 
+   * @param request - DeleteComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComponentResponse
+   */
+  async deleteComponentWithOptions(request: $_model.DeleteComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComponentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentId)) {
+      body["ComponentId"] = request.componentId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComponent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComponentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComponentResponse({}));
+  }
+
+  /**
+   * Deletes a component.
+   * 
+   * @remarks
+   * >  A UDF that is deployed cannot be deleted. If you want to delete such a UDF, you must first undeploy the UDF.
+   * 
+   * @param request - DeleteComponentRequest
+   * @returns DeleteComponentResponse
+   */
+  async deleteComponent(request: $_model.DeleteComponentRequest): Promise<$_model.DeleteComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComponentWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an alert rule configured for a synchronization task.
    * 
    * @param request - DeleteDIAlarmRuleRequest
@@ -3248,7 +3374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量告警规则
+   * Deletes a data quality alert rule by ID.
+   * 
+   * @remarks
+   * Subscribe to DataWorks Basic Edition or a higher version to use this API.
    * 
    * @param request - DeleteDataQualityAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3279,7 +3408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量告警规则
+   * Deletes a data quality alert rule by ID.
+   * 
+   * @remarks
+   * Subscribe to DataWorks Basic Edition or a higher version to use this API.
    * 
    * @param request - DeleteDataQualityAlertRuleRequest
    * @returns DeleteDataQualityAlertRuleResponse
@@ -3428,7 +3560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量监控
+   * Deletes a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteDataQualityScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3463,7 +3598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量监控
+   * Deletes a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteDataQualityScanRequest
    * @returns DeleteDataQualityScanResponse
@@ -3474,7 +3612,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量模板
+   * Deletes a data quality rule template by ID.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   **Id**: the unique identifier of the user-defined rule template, in the format `USER_DEFINED:<template_id>`.
+   * *   **ProjectId**: The ID of the DataWorks project to which the rule template belongs.
+   * This API is used to remove data quality rule templates that are no longer needed from the system. Make sure the provided `Id` and `ProjectId` are correct when calling this API operation; otherwise, the deletion may fail or lead to unexpected data loss. Use this function with caution and verify the exact information of the template before performing the operation.
    * 
    * @param request - DeleteDataQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3505,7 +3649,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量模板
+   * Deletes a data quality rule template by ID.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   **Id**: the unique identifier of the user-defined rule template, in the format `USER_DEFINED:<template_id>`.
+   * *   **ProjectId**: The ID of the DataWorks project to which the rule template belongs.
+   * This API is used to remove data quality rule templates that are no longer needed from the system. Make sure the provided `Id` and `ProjectId` are correct when calling this API operation; otherwise, the deletion may fail or lead to unexpected data loss. Use this function with caution and verify the exact information of the template before performing the operation.
    * 
    * @param request - DeleteDataQualityTemplateRequest
    * @returns DeleteDataQualityTemplateResponse
@@ -4916,6 +5066,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取组件信息
+   * 
+   * @param request - GetComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetComponentResponse
+   */
+  async getComponentWithOptions(request: $_model.GetComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetComponentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.componentId)) {
+      query["ComponentId"] = request.componentId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetComponent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetComponentResponse>(await this.callApi(params, req, runtime), new $_model.GetComponentResponse({}));
+  }
+
+  /**
+   * 获取组件信息
+   * 
+   * @param request - GetComponentRequest
+   * @returns GetComponentResponse
+   */
+  async getComponent(request: $_model.GetComponentRequest): Promise<$_model.GetComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getComponentWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the result of asynchronously creating a workflow instance.
    * 
    * @remarks
@@ -5048,7 +5244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量告警规则详情
+   * Queries the details of a data quality monitoring and alerting rule by alert rule ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5079,7 +5278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量告警规则详情
+   * Queries the details of a data quality monitoring and alerting rule by alert rule ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityAlertRuleRequest
    * @returns GetDataQualityAlertRuleResponse
@@ -5254,7 +5456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量监控详情
+   * Gets data quality monitoring details.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5285,7 +5490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量监控详情
+   * Gets data quality monitoring details.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRequest
    * @returns GetDataQualityScanResponse
@@ -5296,7 +5504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Creates a data quality monitoring run instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5327,7 +5538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Creates a data quality monitoring run instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRunRequest
    * @returns GetDataQualityScanRunResponse
@@ -5338,7 +5552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Queries the log of a specific task instance that monitors data quality.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRunLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5373,7 +5590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量监控运行实例
+   * Queries the log of a specific task instance that monitors data quality.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityScanRunLogRequest
    * @returns GetDataQualityScanRunLogResponse
@@ -5384,7 +5604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量模板详情
+   * Queries the details of a data quality rule template by ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5415,7 +5638,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量模板详情
+   * Queries the details of a data quality rule template by ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetDataQualityTemplateRequest
    * @returns GetDataQualityTemplateResponse
@@ -7240,6 +7466,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取组件列表
+   * 
+   * @param request - ListComponentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComponentsResponse
+   */
+  async listComponentsWithOptions(request: $_model.ListComponentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListComponentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListComponents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListComponentsResponse>(await this.callApi(params, req, runtime), new $_model.ListComponentsResponse({}));
+  }
+
+  /**
+   * 获取组件列表
+   * 
+   * @param request - ListComponentsRequest
+   * @returns ListComponentsResponse
+   */
+  async listComponents(request: $_model.ListComponentsRequest): Promise<$_model.ListComponentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listComponentsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询元数据采集器类型列表
    * 
    * @param request - ListCrawlerTypesRequest
@@ -7590,7 +7870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量告警规则列表
+   * Queries the list of data quality alert rules in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityAlertRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7637,7 +7920,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量告警规则列表
+   * Queries the list of data quality alert rules in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityAlertRulesRequest
    * @returns ListDataQualityAlertRulesResponse
@@ -7858,7 +8144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量监控运行实例列表
+   * Queries the execution records of data quality scans in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityScanRunsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7917,7 +8206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量监控运行实例列表
+   * Queries the execution records of data quality scans in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityScanRunsRequest
    * @returns ListDataQualityScanRunsResponse
@@ -7928,7 +8220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量监控详情
+   * Queries the list of data quality scan tasks in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityScansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7979,7 +8274,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量监控详情
+   * Queries the list of data quality scan tasks in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityScansRequest
    * @returns ListDataQualityScansResponse
@@ -7990,7 +8288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量模板详情
+   * Queries the list of data quality rule templates in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8037,7 +8338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量模板详情
+   * Queries the list of data quality rule templates in a project.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityTemplatesRequest
    * @returns ListDataQualityTemplatesResponse
@@ -11820,6 +12124,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates components.
+   * 
+   * @remarks
+   * This operation is currently in beta. To join the beta testing, please submit a request. You can call this operation after we add you to the beta program.
+   * 
+   * @param request - UpdateComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateComponentResponse
+   */
+  async updateComponentWithOptions(request: $_model.UpdateComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateComponentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentId)) {
+      body["ComponentId"] = request.componentId;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      body["Spec"] = request.spec;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateComponent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateComponentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateComponentResponse({}));
+  }
+
+  /**
+   * Updates components.
+   * 
+   * @remarks
+   * This operation is currently in beta. To join the beta testing, please submit a request. You can call this operation after we add you to the beta program.
+   * 
+   * @param request - UpdateComponentRequest
+   * @returns UpdateComponentResponse
+   */
+  async updateComponent(request: $_model.UpdateComponentRequest): Promise<$_model.UpdateComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateComponentWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an alert rule configured for a synchronization task.
    * 
    * @param tmpReq - UpdateDIAlarmRuleRequest
@@ -12034,7 +12396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量告警规则
+   * Updates a specified data quality monitoring alert rule.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - UpdateDataQualityAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12091,7 +12456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量告警规则
+   * Updates a specified data quality monitoring alert rule.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateDataQualityAlertRuleRequest
    * @returns UpdateDataQualityAlertRuleResponse
@@ -12380,7 +12748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量监控
+   * Updates a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - UpdateDataQualityScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12473,7 +12844,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量监控
+   * Updates a data quality monitor.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateDataQualityScanRequest
    * @returns UpdateDataQualityScanResponse
@@ -12484,7 +12858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量模板
+   * Updates a data quality rule template in a project
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateDataQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12529,7 +12906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据质量模板
+   * Updates a data quality rule template in a project
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateDataQualityTemplateRequest
    * @returns UpdateDataQualityTemplateResponse
@@ -13402,7 +13782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified task in full update mode.
+   * Update a task. The changes are synchronized to Data Studio, which creates a new saved version.
    * 
    * @param tmpReq - UpdateTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13539,7 +13919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a specified task in full update mode.
+   * Update a task. The changes are synchronized to Data Studio, which creates a new saved version.
    * 
    * @param request - UpdateTaskRequest
    * @returns UpdateTaskResponse
