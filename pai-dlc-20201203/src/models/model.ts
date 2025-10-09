@@ -51,6 +51,7 @@ export { LocalMountSpec } from './LocalMountSpec';
 export { LogInfo } from './LogInfo';
 export { Member } from './Member';
 export { Metric } from './Metric';
+export { ModelConfig } from './ModelConfig';
 export { NodeMetric } from './NodeMetric';
 export { PodItem } from './PodItem';
 export { PodMetric } from './PodMetric';

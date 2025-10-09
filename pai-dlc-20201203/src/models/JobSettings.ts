@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { DataJuicerConfig } from "./DataJuicerConfig";
+import { ModelConfig } from "./ModelConfig";
 
 
 export class JobSettings extends $dara.Model {
@@ -73,6 +74,7 @@ export class JobSettings extends $dara.Model {
    * Always
    */
   jobReservedPolicy?: string;
+  modelConfig?: ModelConfig;
   /**
    * @example
    * AcceptQuotaOverSold
@@ -108,6 +110,7 @@ export class JobSettings extends $dara.Model {
       errorMonitoringArgs: 'ErrorMonitoringArgs',
       jobReservedMinutes: 'JobReservedMinutes',
       jobReservedPolicy: 'JobReservedPolicy',
+      modelConfig: 'ModelConfig',
       oversoldType: 'OversoldType',
       pipelineId: 'PipelineId',
       sanityCheckArgs: 'SanityCheckArgs',
@@ -134,6 +137,7 @@ export class JobSettings extends $dara.Model {
       errorMonitoringArgs: 'string',
       jobReservedMinutes: 'number',
       jobReservedPolicy: 'string',
+      modelConfig: ModelConfig,
       oversoldType: 'string',
       pipelineId: 'string',
       sanityCheckArgs: 'string',
@@ -147,6 +151,9 @@ export class JobSettings extends $dara.Model {
     }
     if(this.dataJuicerConfig && typeof (this.dataJuicerConfig as any).validate === 'function') {
       (this.dataJuicerConfig as any).validate();
+    }
+    if(this.modelConfig && typeof (this.modelConfig as any).validate === 'function') {
+      (this.modelConfig as any).validate();
     }
     if(this.tags) {
       $dara.Model.validateMap(this.tags);

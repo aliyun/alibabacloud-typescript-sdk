@@ -30,6 +30,7 @@ export class PodItem extends $dara.Model {
    * dlc-20210126170216-mtl37ge7gkvdz-worker-0
    */
   podId?: string;
+  podIp?: string;
   /**
    * @example
    * fe846462-af2c-4521-bd6f-96787a57591d
@@ -55,6 +56,7 @@ export class PodItem extends $dara.Model {
       ip: 'Ip',
       nodeName: 'NodeName',
       podId: 'PodId',
+      podIp: 'PodIp',
       podUid: 'PodUid',
       status: 'Status',
       subStatus: 'SubStatus',
@@ -71,6 +73,7 @@ export class PodItem extends $dara.Model {
       ip: 'string',
       nodeName: 'string',
       podId: 'string',
+      podIp: 'string',
       podUid: 'string',
       status: 'string',
       subStatus: 'string',
