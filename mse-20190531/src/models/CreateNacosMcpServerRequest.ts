@@ -8,6 +8,7 @@ export class CreateNacosMcpServerRequest extends $dara.Model {
    * zh
    */
   acceptLanguage?: string;
+  encryptToolSpec?: boolean;
   /**
    * @example
    * {"type":"REF","data":{"namespaceId":"public","groupName":"mcp-endpoints","serviceName":"mcp-demo"}}
@@ -57,6 +58,7 @@ export class CreateNacosMcpServerRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      encryptToolSpec: 'EncryptToolSpec',
       endpointSpecification: 'EndpointSpecification',
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
@@ -70,6 +72,7 @@ export class CreateNacosMcpServerRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      encryptToolSpec: 'boolean',
       endpointSpecification: 'string',
       instanceId: 'string',
       namespaceId: 'string',

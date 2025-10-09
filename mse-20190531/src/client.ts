@@ -2844,6 +2844,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!$dara.isNull(request.encryptToolSpec)) {
+      query["EncryptToolSpec"] = request.encryptToolSpec;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

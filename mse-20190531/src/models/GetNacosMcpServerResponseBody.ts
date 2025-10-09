@@ -200,10 +200,14 @@ export class GetNacosMcpServerResponseBodyDataToolSpecTools extends $dara.Model 
 }
 
 export class GetNacosMcpServerResponseBodyDataToolSpec extends $dara.Model {
+  securitySchemes?: any;
+  specificationType?: string;
   tools?: GetNacosMcpServerResponseBodyDataToolSpecTools[];
   toolsMeta?: { [key: string]: DataToolSpecToolsMetaValue };
   static names(): { [key: string]: string } {
     return {
+      securitySchemes: 'SecuritySchemes',
+      specificationType: 'SpecificationType',
       tools: 'Tools',
       toolsMeta: 'ToolsMeta',
     };
@@ -211,6 +215,8 @@ export class GetNacosMcpServerResponseBodyDataToolSpec extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      securitySchemes: 'any',
+      specificationType: 'string',
       tools: { 'type': 'array', 'itemType': GetNacosMcpServerResponseBodyDataToolSpecTools },
       toolsMeta: { 'type': 'map', 'keyType': 'string', 'valueType': DataToolSpecToolsMetaValue },
     };
