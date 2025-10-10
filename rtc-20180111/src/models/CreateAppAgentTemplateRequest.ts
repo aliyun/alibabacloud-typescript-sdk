@@ -46,6 +46,40 @@ export class CreateAppAgentTemplateRequestAgentSilenceConfig extends $dara.Model
   }
 }
 
+export class CreateAppAgentTemplateRequestAmbientSoundConfig extends $dara.Model {
+  /**
+   * @example
+   * white_noise
+   */
+  soundId?: string;
+  /**
+   * @example
+   * 100
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      soundId: 'SoundId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      soundId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppAgentTemplateRequestAsrConfigVadConfig extends $dara.Model {
   /**
    * @example
@@ -161,6 +195,52 @@ export class CreateAppAgentTemplateRequestAsrConfig extends $dara.Model {
     if(Array.isArray(this.wordWeights)) {
       $dara.Model.validateArray(this.wordWeights);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppAgentTemplateRequestBackChannelConfig extends $dara.Model {
+  userTurnEnd?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      userTurnEnd: 'UserTurnEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userTurnEnd: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppAgentTemplateRequestInterruptConfig extends $dara.Model {
+  semanticsInterrupt?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      semanticsInterrupt: 'SemanticsInterrupt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      semanticsInterrupt: 'boolean',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -343,6 +423,7 @@ export class CreateAppAgentTemplateRequestTtsConfig extends $dara.Model {
 
 export class CreateAppAgentTemplateRequest extends $dara.Model {
   agentSilenceConfig?: CreateAppAgentTemplateRequestAgentSilenceConfig;
+  ambientSoundConfig?: CreateAppAgentTemplateRequestAmbientSoundConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -352,12 +433,14 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
    */
   appId?: string;
   asrConfig?: CreateAppAgentTemplateRequestAsrConfig;
+  backChannelConfig?: CreateAppAgentTemplateRequestBackChannelConfig;
   /**
    * @example
    * 2
    */
   chatMode?: number;
   greeting?: string;
+  interruptConfig?: CreateAppAgentTemplateRequestInterruptConfig;
   /**
    * @example
    * 2
@@ -381,10 +464,13 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentSilenceConfig: 'AgentSilenceConfig',
+      ambientSoundConfig: 'AmbientSoundConfig',
       appId: 'AppId',
       asrConfig: 'AsrConfig',
+      backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
       greeting: 'Greeting',
+      interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
@@ -396,10 +482,13 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentSilenceConfig: CreateAppAgentTemplateRequestAgentSilenceConfig,
+      ambientSoundConfig: CreateAppAgentTemplateRequestAmbientSoundConfig,
       appId: 'string',
       asrConfig: CreateAppAgentTemplateRequestAsrConfig,
+      backChannelConfig: CreateAppAgentTemplateRequestBackChannelConfig,
       chatMode: 'number',
       greeting: 'string',
+      interruptConfig: CreateAppAgentTemplateRequestInterruptConfig,
       interruptMode: 'number',
       llmConfig: CreateAppAgentTemplateRequestLlmConfig,
       name: 'string',
@@ -412,8 +501,17 @@ export class CreateAppAgentTemplateRequest extends $dara.Model {
     if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
       (this.agentSilenceConfig as any).validate();
     }
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
+    }
+    if(this.backChannelConfig && typeof (this.backChannelConfig as any).validate === 'function') {
+      (this.backChannelConfig as any).validate();
+    }
+    if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
+      (this.interruptConfig as any).validate();
     }
     if(this.llmConfig && typeof (this.llmConfig as any).validate === 'function') {
       (this.llmConfig as any).validate();

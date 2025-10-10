@@ -2,43 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class NotifyAgentRequestBackgroundMusic extends $dara.Model {
-  /**
-   * @example
-   * wav
-   */
-  format?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      format: 'format',
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      format: 'string',
-      url: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NotifyAgentRequest extends $dara.Model {
+export class NotifyAgentShrinkRequest extends $dara.Model {
   /**
    * @example
    * aec****
    */
   appId?: string;
-  backgroundMusic?: NotifyAgentRequestBackgroundMusic;
+  backgroundMusicShrink?: string;
   /**
    * @example
    * yourChannelId
@@ -68,7 +38,7 @@ export class NotifyAgentRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      backgroundMusic: 'BackgroundMusic',
+      backgroundMusicShrink: 'BackgroundMusic',
       channelId: 'ChannelId',
       customAttribute: 'CustomAttribute',
       interruptable: 'Interruptable',
@@ -81,7 +51,7 @@ export class NotifyAgentRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      backgroundMusic: NotifyAgentRequestBackgroundMusic,
+      backgroundMusicShrink: 'string',
       channelId: 'string',
       customAttribute: 'string',
       interruptable: 'boolean',
@@ -92,9 +62,6 @@ export class NotifyAgentRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.backgroundMusic && typeof (this.backgroundMusic as any).validate === 'function') {
-      (this.backgroundMusic as any).validate();
-    }
     super.validate();
   }
 

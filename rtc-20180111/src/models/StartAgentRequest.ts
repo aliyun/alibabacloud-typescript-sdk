@@ -159,6 +159,86 @@ export class StartAgentRequestVoiceChatConfigAgentSilenceConfig extends $dara.Mo
   }
 }
 
+export class StartAgentRequestVoiceChatConfigAmbientSoundConfig extends $dara.Model {
+  /**
+   * @example
+   * office
+   */
+  soundId?: string;
+  /**
+   * @example
+   * 100
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      soundId: 'SoundId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      soundId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAgentRequestVoiceChatConfigBackChannelConfig extends $dara.Model {
+  userTurnEnd?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      userTurnEnd: 'UserTurnEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userTurnEnd: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartAgentRequestVoiceChatConfigInterruptConfig extends $dara.Model {
+  semanticsInterrupt?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      semanticsInterrupt: 'SemanticsInterrupt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      semanticsInterrupt: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartAgentRequestVoiceChatConfigLLMConfig extends $dara.Model {
   /**
    * @example
@@ -329,12 +409,15 @@ export class StartAgentRequestVoiceChatConfigTTSConfig extends $dara.Model {
 export class StartAgentRequestVoiceChatConfig extends $dara.Model {
   ASRConfig?: StartAgentRequestVoiceChatConfigASRConfig;
   agentSilenceConfig?: StartAgentRequestVoiceChatConfigAgentSilenceConfig;
+  ambientSoundConfig?: StartAgentRequestVoiceChatConfigAmbientSoundConfig;
+  backChannelConfig?: StartAgentRequestVoiceChatConfigBackChannelConfig;
   /**
    * @example
    * 1
    */
   chatMode?: number;
   greeting?: string;
+  interruptConfig?: StartAgentRequestVoiceChatConfigInterruptConfig;
   /**
    * @example
    * 1
@@ -346,8 +429,11 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
     return {
       ASRConfig: 'ASRConfig',
       agentSilenceConfig: 'AgentSilenceConfig',
+      ambientSoundConfig: 'AmbientSoundConfig',
+      backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
       greeting: 'Greeting',
+      interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       LLMConfig: 'LLMConfig',
       TTSConfig: 'TTSConfig',
@@ -358,8 +444,11 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
     return {
       ASRConfig: StartAgentRequestVoiceChatConfigASRConfig,
       agentSilenceConfig: StartAgentRequestVoiceChatConfigAgentSilenceConfig,
+      ambientSoundConfig: StartAgentRequestVoiceChatConfigAmbientSoundConfig,
+      backChannelConfig: StartAgentRequestVoiceChatConfigBackChannelConfig,
       chatMode: 'number',
       greeting: 'string',
+      interruptConfig: StartAgentRequestVoiceChatConfigInterruptConfig,
       interruptMode: 'number',
       LLMConfig: StartAgentRequestVoiceChatConfigLLMConfig,
       TTSConfig: StartAgentRequestVoiceChatConfigTTSConfig,
@@ -372,6 +461,15 @@ export class StartAgentRequestVoiceChatConfig extends $dara.Model {
     }
     if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
       (this.agentSilenceConfig as any).validate();
+    }
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
+    if(this.backChannelConfig && typeof (this.backChannelConfig as any).validate === 'function') {
+      (this.backChannelConfig as any).validate();
+    }
+    if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
+      (this.interruptConfig as any).validate();
     }
     if(this.LLMConfig && typeof (this.LLMConfig as any).validate === 'function') {
       (this.LLMConfig as any).validate();

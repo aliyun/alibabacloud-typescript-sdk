@@ -34,6 +34,40 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig ex
   }
 }
 
+export class DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig extends $dara.Model {
+  /**
+   * @example
+   * office
+   */
+  soundId?: string;
+  /**
+   * @example
+   * 50
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      soundId: 'SoundId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      soundId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfigVadConfig extends $dara.Model {
   interruptSpeechDuration?: number;
   static names(): { [key: string]: string } {
@@ -135,6 +169,52 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig extends $da
     if(Array.isArray(this.wordWeights)) {
       $dara.Model.validateArray(this.wordWeights);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig extends $dara.Model {
+  userTurnEnd?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      userTurnEnd: 'UserTurnEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userTurnEnd: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig extends $dara.Model {
+  semanticsInterrupt?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      semanticsInterrupt: 'SemanticsInterrupt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      semanticsInterrupt: 'boolean',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -316,7 +396,9 @@ export class DescribeAppAgentTemplatesResponseBodyTemplatesTtsConfig extends $da
 
 export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model {
   agentSilenceConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig;
+  ambientSoundConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig;
   asrConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig;
+  backChannelConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig;
   /**
    * @example
    * 1
@@ -337,6 +419,7 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
    * wv7N****
    */
   id?: string;
+  interruptConfig?: DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig;
   /**
    * @example
    * 1
@@ -357,11 +440,14 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       agentSilenceConfig: 'AgentSilenceConfig',
+      ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
+      backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
       createTime: 'CreateTime',
       greeting: 'Greeting',
       id: 'Id',
+      interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
@@ -373,11 +459,14 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       agentSilenceConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAgentSilenceConfig,
+      ambientSoundConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAmbientSoundConfig,
       asrConfig: DescribeAppAgentTemplatesResponseBodyTemplatesAsrConfig,
+      backChannelConfig: DescribeAppAgentTemplatesResponseBodyTemplatesBackChannelConfig,
       chatMode: 'number',
       createTime: 'string',
       greeting: 'string',
       id: 'string',
+      interruptConfig: DescribeAppAgentTemplatesResponseBodyTemplatesInterruptConfig,
       interruptMode: 'number',
       llmConfig: DescribeAppAgentTemplatesResponseBodyTemplatesLlmConfig,
       name: 'string',
@@ -390,8 +479,17 @@ export class DescribeAppAgentTemplatesResponseBodyTemplates extends $dara.Model 
     if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
       (this.agentSilenceConfig as any).validate();
     }
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
+    }
+    if(this.backChannelConfig && typeof (this.backChannelConfig as any).validate === 'function') {
+      (this.backChannelConfig as any).validate();
+    }
+    if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
+      (this.interruptConfig as any).validate();
     }
     if(this.llmConfig && typeof (this.llmConfig as any).validate === 'function') {
       (this.llmConfig as any).validate();

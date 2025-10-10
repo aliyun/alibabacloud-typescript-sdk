@@ -154,8 +154,20 @@ export default class Client extends OpenApi {
       request.agentSilenceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig, "AgentSilenceConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.ambientSoundConfig)) {
+      request.ambientSoundConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ambientSoundConfig, "AmbientSoundConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.asrConfig)) {
       request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.backChannelConfig)) {
+      request.backChannelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.backChannelConfig, "BackChannelConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.interruptConfig)) {
+      request.interruptConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interruptConfig, "InterruptConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.llmConfig)) {
@@ -171,6 +183,10 @@ export default class Client extends OpenApi {
       query["AgentSilenceConfig"] = request.agentSilenceConfigShrink;
     }
 
+    if (!$dara.isNull(request.ambientSoundConfigShrink)) {
+      query["AmbientSoundConfig"] = request.ambientSoundConfigShrink;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
@@ -179,12 +195,20 @@ export default class Client extends OpenApi {
       query["AsrConfig"] = request.asrConfigShrink;
     }
 
+    if (!$dara.isNull(request.backChannelConfigShrink)) {
+      query["BackChannelConfig"] = request.backChannelConfigShrink;
+    }
+
     if (!$dara.isNull(request.chatMode)) {
       query["ChatMode"] = request.chatMode;
     }
 
     if (!$dara.isNull(request.greeting)) {
       query["Greeting"] = request.greeting;
+    }
+
+    if (!$dara.isNull(request.interruptConfigShrink)) {
+      query["InterruptConfig"] = request.interruptConfigShrink;
     }
 
     if (!$dara.isNull(request.interruptMode)) {
@@ -4490,8 +4514,20 @@ export default class Client extends OpenApi {
       request.agentSilenceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentSilenceConfig, "AgentSilenceConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.ambientSoundConfig)) {
+      request.ambientSoundConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ambientSoundConfig, "AmbientSoundConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.asrConfig)) {
       request.asrConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.asrConfig, "AsrConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.backChannelConfig)) {
+      request.backChannelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.backChannelConfig, "BackChannelConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.interruptConfig)) {
+      request.interruptConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interruptConfig, "InterruptConfig", "json");
     }
 
     if (!$dara.isNull(tmpReq.llmConfig)) {
@@ -4507,12 +4543,20 @@ export default class Client extends OpenApi {
       query["AgentSilenceConfig"] = request.agentSilenceConfigShrink;
     }
 
+    if (!$dara.isNull(request.ambientSoundConfigShrink)) {
+      query["AmbientSoundConfig"] = request.ambientSoundConfigShrink;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
 
     if (!$dara.isNull(request.asrConfigShrink)) {
       query["AsrConfig"] = request.asrConfigShrink;
+    }
+
+    if (!$dara.isNull(request.backChannelConfigShrink)) {
+      query["BackChannelConfig"] = request.backChannelConfigShrink;
     }
 
     if (!$dara.isNull(request.chatMode)) {
@@ -4525,6 +4569,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.interruptConfigShrink)) {
+      query["InterruptConfig"] = request.interruptConfigShrink;
     }
 
     if (!$dara.isNull(request.interruptMode)) {
@@ -5042,15 +5090,25 @@ export default class Client extends OpenApi {
   /**
    * NotifyAgent
    * 
-   * @param request - NotifyAgentRequest
+   * @param tmpReq - NotifyAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns NotifyAgentResponse
    */
-  async notifyAgentWithOptions(request: $_model.NotifyAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.NotifyAgentResponse> {
-    request.validate();
+  async notifyAgentWithOptions(tmpReq: $_model.NotifyAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.NotifyAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.NotifyAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.backgroundMusic)) {
+      request.backgroundMusicShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.backgroundMusic, "BackgroundMusic", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.backgroundMusicShrink)) {
+      query["BackgroundMusic"] = request.backgroundMusicShrink;
     }
 
     if (!$dara.isNull(request.channelId)) {

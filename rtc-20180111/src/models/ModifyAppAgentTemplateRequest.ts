@@ -46,6 +46,40 @@ export class ModifyAppAgentTemplateRequestAgentSilenceConfig extends $dara.Model
   }
 }
 
+export class ModifyAppAgentTemplateRequestAmbientSoundConfig extends $dara.Model {
+  /**
+   * @example
+   * white_noise
+   */
+  soundId?: string;
+  /**
+   * @example
+   * 100
+   */
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      soundId: 'SoundId',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      soundId: 'string',
+      volume: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAppAgentTemplateRequestAsrConfigVadConfig extends $dara.Model {
   /**
    * @example
@@ -168,6 +202,52 @@ export class ModifyAppAgentTemplateRequestAsrConfig extends $dara.Model {
     if(Array.isArray(this.wordWeights)) {
       $dara.Model.validateArray(this.wordWeights);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppAgentTemplateRequestBackChannelConfig extends $dara.Model {
+  userTurnEnd?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      userTurnEnd: 'UserTurnEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userTurnEnd: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppAgentTemplateRequestInterruptConfig extends $dara.Model {
+  semanticsInterrupt?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      semanticsInterrupt: 'SemanticsInterrupt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      semanticsInterrupt: 'boolean',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -350,6 +430,7 @@ export class ModifyAppAgentTemplateRequestTtsConfig extends $dara.Model {
 
 export class ModifyAppAgentTemplateRequest extends $dara.Model {
   agentSilenceConfig?: ModifyAppAgentTemplateRequestAgentSilenceConfig;
+  ambientSoundConfig?: ModifyAppAgentTemplateRequestAmbientSoundConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -359,6 +440,7 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
    */
   appId?: string;
   asrConfig?: ModifyAppAgentTemplateRequestAsrConfig;
+  backChannelConfig?: ModifyAppAgentTemplateRequestBackChannelConfig;
   /**
    * @example
    * 2
@@ -373,6 +455,7 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
    * 1231231312312131231
    */
   id?: string;
+  interruptConfig?: ModifyAppAgentTemplateRequestInterruptConfig;
   /**
    * @example
    * 2
@@ -396,11 +479,14 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentSilenceConfig: 'AgentSilenceConfig',
+      ambientSoundConfig: 'AmbientSoundConfig',
       appId: 'AppId',
       asrConfig: 'AsrConfig',
+      backChannelConfig: 'BackChannelConfig',
       chatMode: 'ChatMode',
       greeting: 'Greeting',
       id: 'Id',
+      interruptConfig: 'InterruptConfig',
       interruptMode: 'InterruptMode',
       llmConfig: 'LlmConfig',
       name: 'Name',
@@ -412,11 +498,14 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentSilenceConfig: ModifyAppAgentTemplateRequestAgentSilenceConfig,
+      ambientSoundConfig: ModifyAppAgentTemplateRequestAmbientSoundConfig,
       appId: 'string',
       asrConfig: ModifyAppAgentTemplateRequestAsrConfig,
+      backChannelConfig: ModifyAppAgentTemplateRequestBackChannelConfig,
       chatMode: 'number',
       greeting: 'string',
       id: 'string',
+      interruptConfig: ModifyAppAgentTemplateRequestInterruptConfig,
       interruptMode: 'number',
       llmConfig: ModifyAppAgentTemplateRequestLlmConfig,
       name: 'string',
@@ -429,8 +518,17 @@ export class ModifyAppAgentTemplateRequest extends $dara.Model {
     if(this.agentSilenceConfig && typeof (this.agentSilenceConfig as any).validate === 'function') {
       (this.agentSilenceConfig as any).validate();
     }
+    if(this.ambientSoundConfig && typeof (this.ambientSoundConfig as any).validate === 'function') {
+      (this.ambientSoundConfig as any).validate();
+    }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
+    }
+    if(this.backChannelConfig && typeof (this.backChannelConfig as any).validate === 'function') {
+      (this.backChannelConfig as any).validate();
+    }
+    if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
+      (this.interruptConfig as any).validate();
     }
     if(this.llmConfig && typeof (this.llmConfig as any).validate === 'function') {
       (this.llmConfig as any).validate();
