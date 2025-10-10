@@ -254,6 +254,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
    * true
    */
   autoScaling?: boolean;
+  capacityType?: string;
   /**
    * @remarks
    * The retention period of messages. Unit: hours.
@@ -274,6 +275,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
    * rmq.s2.2xlarge
    */
   msgProcessSpec?: string;
+  provisionedCapacity?: number;
   /**
    * @remarks
    * The ratio of the message sending TPS to the messaging TPS of the instance.
@@ -305,8 +307,10 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
+      capacityType: 'capacityType',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
+      provisionedCapacity: 'provisionedCapacity',
       sendReceiveRatio: 'sendReceiveRatio',
       storageEncryption: 'storageEncryption',
       storageSecretKey: 'storageSecretKey',
@@ -316,8 +320,10 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: 'boolean',
+      capacityType: 'string',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
+      provisionedCapacity: 'number',
       sendReceiveRatio: 'number',
       storageEncryption: 'boolean',
       storageSecretKey: 'string',

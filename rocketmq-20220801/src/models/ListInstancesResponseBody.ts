@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesResponseBodyDataListProductInfo extends $dara.Model {
+  capacityType?: string;
   /**
    * @remarks
    * Indicates whether the message trace feature is enabled. Valid values:
@@ -18,12 +19,14 @@ export class ListInstancesResponseBodyDataListProductInfo extends $dara.Model {
   traceOn?: boolean;
   static names(): { [key: string]: string } {
     return {
+      capacityType: 'capacityType',
       traceOn: 'traceOn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      capacityType: 'string',
       traceOn: 'boolean',
     };
   }

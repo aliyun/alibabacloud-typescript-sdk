@@ -625,6 +625,7 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
    * true
    */
   autoScaling?: boolean;
+  capacityType?: string;
   /**
    * @remarks
    * The retention period of messages. Unit: hours.
@@ -645,6 +646,7 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
    * rmq.s2.2xlarge
    */
   msgProcessSpec?: string;
+  provisionedCapacity?: number;
   /**
    * @remarks
    * The ratio between sent messages and received messages in the instance.
@@ -702,8 +704,10 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
+      capacityType: 'capacityType',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
+      provisionedCapacity: 'provisionedCapacity',
       sendReceiveRatio: 'sendReceiveRatio',
       storageEncryption: 'storageEncryption',
       storageSecretKey: 'storageSecretKey',
@@ -715,8 +719,10 @@ export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: 'boolean',
+      capacityType: 'string',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
+      provisionedCapacity: 'number',
       sendReceiveRatio: 'number',
       storageEncryption: 'boolean',
       storageSecretKey: 'string',
