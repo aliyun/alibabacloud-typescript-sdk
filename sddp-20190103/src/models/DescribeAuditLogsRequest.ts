@@ -65,6 +65,11 @@ export class DescribeAuditLogsRequest extends $dara.Model {
   loadWhiteList?: boolean;
   /**
    * @example
+   * SLOW_SQL
+   */
+  logSource?: string;
+  /**
+   * @example
    * **********8103
    */
   memberAccount?: string;
@@ -98,6 +103,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
    * 5
    */
   productId?: number;
+  ruleAggQuery?: boolean;
   /**
    * @example
    * 10
@@ -138,6 +144,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ipType: 'IpType',
       lang: 'Lang',
       loadWhiteList: 'LoadWhiteList',
+      logSource: 'LogSource',
       memberAccount: 'MemberAccount',
       message: 'Message',
       operateType: 'OperateType',
@@ -145,6 +152,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       pageSize: 'PageSize',
       productCode: 'ProductCode',
       productId: 'ProductId',
+      ruleAggQuery: 'RuleAggQuery',
       ruleCategory: 'RuleCategory',
       ruleID: 'RuleID',
       ruleName: 'RuleName',
@@ -168,6 +176,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       ipType: 'string',
       lang: 'string',
       loadWhiteList: 'boolean',
+      logSource: 'string',
       memberAccount: 'string',
       message: 'string',
       operateType: 'string',
@@ -175,6 +184,7 @@ export class DescribeAuditLogsRequest extends $dara.Model {
       pageSize: 'number',
       productCode: 'string',
       productId: 'number',
+      ruleAggQuery: 'boolean',
       ruleCategory: 'string',
       ruleID: 'string',
       ruleName: 'string',

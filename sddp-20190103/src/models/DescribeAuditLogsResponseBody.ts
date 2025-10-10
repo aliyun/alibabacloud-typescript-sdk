@@ -40,10 +40,6 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
    * chngc_b2b_migration_sh
    */
   databaseName?: string;
-  /**
-   * @example
-   * MySQL
-   */
   dbType?: string;
   /**
    * @example
@@ -67,6 +63,11 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
   inWhiteList?: boolean;
   /**
    * @example
+   * 2
+   */
+  instanceAuditStatus?: string;
+  /**
+   * @example
    * instance dscription
    */
   instanceDescription?: string;
@@ -80,6 +81,11 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
    * aliyun
    */
   ipType?: string;
+  /**
+   * @example
+   * SLOW_SQL
+   */
+  logSource?: string;
   /**
    * @example
    * 1751870592000
@@ -176,9 +182,11 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
       executeStatus: 'ExecuteStatus',
       executeTime: 'ExecuteTime',
       inWhiteList: 'InWhiteList',
+      instanceAuditStatus: 'InstanceAuditStatus',
       instanceDescription: 'InstanceDescription',
       instanceName: 'InstanceName',
       ipType: 'IpType',
+      logSource: 'LogSource',
       logTime: 'LogTime',
       memberAccount: 'MemberAccount',
       message: 'Message',
@@ -214,9 +222,11 @@ export class DescribeAuditLogsResponseBodyItems extends $dara.Model {
       executeStatus: 'number',
       executeTime: 'number',
       inWhiteList: 'boolean',
+      instanceAuditStatus: 'string',
       instanceDescription: 'string',
       instanceName: 'string',
       ipType: 'string',
+      logSource: 'string',
       logTime: 'number',
       memberAccount: 'string',
       message: 'string',

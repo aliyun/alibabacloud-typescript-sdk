@@ -674,6 +674,10 @@ export default class Client extends OpenApi {
       query["LoadWhiteList"] = request.loadWhiteList;
     }
 
+    if (!$dara.isNull(request.logSource)) {
+      query["LogSource"] = request.logSource;
+    }
+
     if (!$dara.isNull(request.memberAccount)) {
       query["MemberAccount"] = request.memberAccount;
     }
@@ -700,6 +704,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.ruleAggQuery)) {
+      query["RuleAggQuery"] = request.ruleAggQuery;
     }
 
     if (!$dara.isNull(request.ruleCategory)) {
