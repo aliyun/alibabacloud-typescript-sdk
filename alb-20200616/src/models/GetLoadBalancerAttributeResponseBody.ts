@@ -1,13 +1,460 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetLoadBalancerAttributeResponseBodyAccessLogConfig } from "./GetLoadBalancerAttributeResponseBodyAccessLogConfig";
-import { GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig } from "./GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig";
-import { GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig } from "./GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig";
-import { GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks } from "./GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks";
-import { GetLoadBalancerAttributeResponseBodyModificationProtectionConfig } from "./GetLoadBalancerAttributeResponseBodyModificationProtectionConfig";
-import { GetLoadBalancerAttributeResponseBodyTags } from "./GetLoadBalancerAttributeResponseBodyTags";
-import { GetLoadBalancerAttributeResponseBodyZoneMappings } from "./GetLoadBalancerAttributeResponseBodyZoneMappings";
 
+
+export class GetLoadBalancerAttributeResponseBodyAccessLogConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The Log Service project.
+   * 
+   * @example
+   * sls-setter
+   */
+  logProject?: string;
+  /**
+   * @remarks
+   * The Logstore.
+   * 
+   * @example
+   * test
+   */
+  logStore?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logProject: 'LogProject',
+      logStore: 'LogStore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logProject: 'string',
+      logStore: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyDeletionProtectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the deletion protection feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The time when the deletion protection feature was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-08-02T02:49:05Z
+   */
+  enabledTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      enabledTime: 'EnabledTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      enabledTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyLoadBalancerBillingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * Only **PostPay** is returned, which indicates the pay-as-you-go billing method.
+   * 
+   * @example
+   * PostPay
+   */
+  payType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payType: 'PayType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyLoadBalancerOperationLocks extends $dara.Model {
+  /**
+   * @remarks
+   * The reason why the ALB instance is locked. This parameter is valid only if **LoadBalancerBussinessStatus** is set to **Abnormal**.
+   * 
+   * @example
+   * nolock
+   */
+  lockReason?: string;
+  /**
+   * @remarks
+   * The lock type. Valid values:
+   * 
+   * *   **SecurityLocked**: The ALB instance is locked due to security reasons.
+   * *   **RelatedResourceLocked**: The ALB instance is locked due to other resources that are associated with the ALB instance.
+   * *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+   * *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
+   * 
+   * @example
+   * FinancialLocked
+   */
+  lockType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+      lockType: 'LockType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+      lockType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyModificationProtectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The reason why the configuration read-only mode is enabled.
+   * 
+   * The name must be 2 to 128 character characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * 
+   * This parameter takes effect only if **Status** is set to **ConsoleProtection**.
+   * 
+   * @example
+   * test
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * Specifies whether the configuration read-only mode is enabled. Valid values:
+   * 
+   * *   **NonProtection**: The configuration read-only mode is disabled. In this case, the value of the **Reason** parameter that you specify does not take effect. If you set **Reason**, the value is cleared.
+   * *   **ConsoleProtection**: The configuration read-only mode is enabled. In this case, the value of the **Reason** parameter takes effect.****
+   * 
+   * >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
+   * 
+   * @example
+   * ConsoleProtection
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reason: 'Reason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
+   * 
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses extends $dara.Model {
+  /**
+   * @remarks
+   * An IPv4 address.
+   * 
+   * This parameter takes effect when **AddressIPVersion** is set to **IPv4** or **DualStack**. The network type is determined by the value of **AddressType**.
+   * 
+   * @example
+   * 192.168.10.1
+   */
+  address?: string;
+  /**
+   * @remarks
+   * The elastic IP address (EIP).
+   * 
+   * @example
+   * eip-uf6wm****1zj9
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
+  eipType?: string;
+  /**
+   * @remarks
+   * The private IPv4 address.
+   * 
+   * @example
+   * 10.0.1.181
+   */
+  intranetAddress?: string;
+  /**
+   * @remarks
+   * The health status of the private IPv4 address of the ALB instance. 
+   * This parameter is returned only when the Status of the zone is Active.Valid values:
+   * 
+   * - **Healthy**
+   * 
+   * - **Unhealthy**
+   * 
+   * @example
+   * Healthy
+   */
+  intranetAddressHcStatus?: string;
+  /**
+   * @remarks
+   * The IPv4 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+   */
+  ipv4LocalAddresses?: string[];
+  /**
+   * @remarks
+   * An IPv6 address.
+   * 
+   * This parameter takes effect only when **AddressIPVersion** is set to **DualStack**. The network type is determined by the value of **Ipv6AddressType**.
+   * 
+   * @example
+   * 2408:XXXX:39d:eb00::/56
+   */
+  ipv6Address?: string;
+  /**
+   * @remarks
+   * The health status of the private IPv6 address of the ALB instance. 
+   * This parameter is returned only when the Status of the zone is Active.Valid values:
+   * 
+   * - **Healthy**
+   * 
+   * - **Unhealthy**
+   * 
+   * @example
+   * Healthy
+   */
+  ipv6AddressHcStatus?: string;
+  /**
+   * @remarks
+   * The IPv6 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+   */
+  ipv6LocalAddresses?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      allocationId: 'AllocationId',
+      eipType: 'EipType',
+      intranetAddress: 'IntranetAddress',
+      intranetAddressHcStatus: 'IntranetAddressHcStatus',
+      ipv4LocalAddresses: 'Ipv4LocalAddresses',
+      ipv6Address: 'Ipv6Address',
+      ipv6AddressHcStatus: 'Ipv6AddressHcStatus',
+      ipv6LocalAddresses: 'Ipv6LocalAddresses',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      allocationId: 'string',
+      eipType: 'string',
+      intranetAddress: 'string',
+      intranetAddressHcStatus: 'string',
+      ipv4LocalAddresses: { 'type': 'array', 'itemType': 'string' },
+      ipv6Address: 'string',
+      ipv6AddressHcStatus: 'string',
+      ipv6LocalAddresses: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipv4LocalAddresses)) {
+      $dara.Model.validateArray(this.ipv4LocalAddresses);
+    }
+    if(Array.isArray(this.ipv6LocalAddresses)) {
+      $dara.Model.validateArray(this.ipv6LocalAddresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLoadBalancerAttributeResponseBodyZoneMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the ALB instance.
+   */
+  loadBalancerAddresses?: GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses[];
+  /**
+   * @remarks
+   * The zone status. Valid values:
+   * 
+   * - **Active**: The ALB instance is running.
+   * 
+   * - **Stopped**: The ALB instance is disabled. 
+   * 
+   * - **Shifted**: The ALB instance is removed.
+   * 
+   * - **Starting**: The ALB instance is starting.
+   * 
+   * - **Stopping**: The ALB instance is stopping.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance.
+   * 
+   * @example
+   * vsw-bp12mw1f8k3jgy****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the ALB instance.
+   * 
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/189196.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerAddresses: 'LoadBalancerAddresses',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerAddresses: { 'type': 'array', 'itemType': GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses },
+      status: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.loadBalancerAddresses)) {
+      $dara.Model.validateArray(this.loadBalancerAddresses);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetLoadBalancerAttributeResponseBody extends $dara.Model {
   /**

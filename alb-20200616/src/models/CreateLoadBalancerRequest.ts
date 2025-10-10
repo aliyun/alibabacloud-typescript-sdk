@@ -1,10 +1,218 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateLoadBalancerRequestLoadBalancerBillingConfig } from "./CreateLoadBalancerRequestLoadBalancerBillingConfig";
-import { CreateLoadBalancerRequestModificationProtectionConfig } from "./CreateLoadBalancerRequestModificationProtectionConfig";
-import { CreateLoadBalancerRequestTag } from "./CreateLoadBalancerRequestTag";
-import { CreateLoadBalancerRequestZoneMappings } from "./CreateLoadBalancerRequestZoneMappings";
 
+
+export class CreateLoadBalancerRequestLoadBalancerBillingConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Internet Shared Bandwidth instance that is associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * cbwp-bp1vevu8h3ieh****
+   */
+  bandwidthPackageId?: string;
+  /**
+   * @remarks
+   * The billing method of the instance.
+   * 
+   * Set the value to **PostPay**, which specifies the pay-as-you-go billing method.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PostPay
+   */
+  payType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackageId: 'BandwidthPackageId',
+      payType: 'PayType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackageId: 'string',
+      payType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The reason for enabling the configuration read-only mode.
+   * 
+   * The reason must be 2 to 128 characters in length, can contain letters, digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+   * 
+   * >  This parameter takes effect only when **Status** is set to **ConsoleProtection**.
+   * 
+   * @example
+   * test
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the configuration read-only mode. Valid values:
+   * 
+   * *   **NonProtection**: Disables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify does not take effect. If you specify **Reason**, the value of the parameter is cleared.
+   * *   **ConsoleProtection**: Enables the configuration read-only mode. In this case, the value of the **Reason** parameter that you specify takes effect.****
+   * 
+   * >  If the parameter is set to **ConsoleProtection**, the configuration read-only mode is enabled. You cannot modify the configurations of the ALB instance in the ALB console. However, you can call API operations to modify the configurations of the ALB instance.
+   * 
+   * @example
+   * ConsoleProtection
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reason: 'Reason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reason: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * 
+   * @example
+   * product
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLoadBalancerRequestZoneMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the EIP to be associated with the Internet-facing ALB instance.
+   * 
+   * @example
+   * eip-bp1aedxso6u80u0qf****
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The type of EIP. Valid values:
+   * 
+   * *   **Common**: an EIP.
+   * *   **Anycast**: an Anycast EIP.
+   * 
+   * >  For more information about the regions in which ALB supports Anycast EIPs, see [Limits](https://help.aliyun.com/document_detail/460727.html).
+   * 
+   * @example
+   * Common
+   */
+  eipType?: string;
+  /**
+   * @remarks
+   * The private IPv4 address.
+   * 
+   * @example
+   * 192.168.10.1
+   */
+  intranetAddress?: string;
+  /**
+   * @remarks
+   * The vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-sersdf****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the cluster. You can specify at most 10 zones. If the region supports two or more zones, specify at least two zones. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      eipType: 'EipType',
+      intranetAddress: 'IntranetAddress',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      eipType: 'string',
+      intranetAddress: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateLoadBalancerRequest extends $dara.Model {
   /**

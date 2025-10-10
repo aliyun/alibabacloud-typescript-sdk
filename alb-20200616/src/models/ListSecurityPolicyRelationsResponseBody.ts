@@ -1,7 +1,106 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations } from "./ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations";
 
+
+export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelatedListeners extends $dara.Model {
+  /**
+   * @remarks
+   * The listener ID.
+   * 
+   * @example
+   * lsn-0bfuc****
+   */
+  listenerId?: string;
+  /**
+   * @remarks
+   * The listener port.
+   * 
+   * @example
+   * 80
+   */
+  listenerPort?: number;
+  /**
+   * @remarks
+   * The listener protocol.
+   * 
+   * @example
+   * HTTPS
+   */
+  listenerProtocol?: string;
+  /**
+   * @remarks
+   * The Server Load Balancer (SLB) instance ID.
+   * 
+   * @example
+   * lb-bp1o94dp5i6ea****
+   */
+  loadBalancerId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      listenerId: 'ListenerId',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      listenerId: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSecurityPolicyRelationsResponseBodySecrityPolicyRelations extends $dara.Model {
+  /**
+   * @remarks
+   * The listeners that are associated with the security policy.
+   */
+  relatedListeners?: ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelatedListeners[];
+  /**
+   * @remarks
+   * The security policy ID.
+   * 
+   * @example
+   * scp-bp1bpn0kn9****
+   */
+  securityPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      relatedListeners: 'RelatedListeners',
+      securityPolicyId: 'SecurityPolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      relatedListeners: { 'type': 'array', 'itemType': ListSecurityPolicyRelationsResponseBodySecrityPolicyRelationsRelatedListeners },
+      securityPolicyId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedListeners)) {
+      $dara.Model.validateArray(this.relatedListeners);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListSecurityPolicyRelationsResponseBody extends $dara.Model {
   /**

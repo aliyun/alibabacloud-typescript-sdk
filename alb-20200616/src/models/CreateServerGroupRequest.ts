@@ -1,12 +1,459 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateServerGroupRequestConnectionDrainConfig } from "./CreateServerGroupRequestConnectionDrainConfig";
-import { CreateServerGroupRequestHealthCheckConfig } from "./CreateServerGroupRequestHealthCheckConfig";
-import { CreateServerGroupRequestSlowStartConfig } from "./CreateServerGroupRequestSlowStartConfig";
-import { CreateServerGroupRequestStickySessionConfig } from "./CreateServerGroupRequestStickySessionConfig";
-import { CreateServerGroupRequestTag } from "./CreateServerGroupRequestTag";
-import { CreateServerGroupRequestUchConfig } from "./CreateServerGroupRequestUchConfig";
 
+
+export class CreateServerGroupRequestConnectionDrainConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable connection draining. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
+  connectionDrainEnabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period of connection draining.
+   * 
+   * Valid values: **0** to **900**.
+   * 
+   * Default value: **300**.
+   * 
+   * @example
+   * 300
+   */
+  connectionDrainTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionDrainEnabled: 'ConnectionDrainEnabled',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionDrainEnabled: 'boolean',
+      connectionDrainTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code that indicates healthy backend servers.
+   */
+  healthCheckCodes?: string[];
+  /**
+   * @remarks
+   * The backend port that is used for health checks.
+   * 
+   * Valid values: **0** to **65535**
+   * 
+   * The default value is **0**, which specifies that the port of a backend server is used for health checks.
+   * 
+   * @example
+   * 80
+   */
+  healthCheckConnectPort?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  healthCheckEnabled?: boolean;
+  /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
+   * *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
+   * 
+   * *   **Custom Domain Name**: Enter a domain name.
+   * 
+   *     *   The domain name must be 1 to 80 characters in length.
+   *     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+   *     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+   *     *   The domain name cannot start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * www.example.com
+   */
+  healthCheckHost?: string;
+  /**
+   * @remarks
+   * The version of the HTTP protocol. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * HTTP1.1
+   */
+  healthCheckHttpVersion?: string;
+  /**
+   * @remarks
+   * The interval at which health checks are performed. Unit: seconds
+   * 
+   * Valid values: **1** to **50**
+   * 
+   * Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
+  healthCheckInterval?: number;
+  /**
+   * @remarks
+   * The HTTP method that is used for health checks. Valid values:
+   * 
+   * *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+   * *   **POST**: By default, gRPC health checks use the POST method.
+   * *   **HEAD** (default): By default, HTTP and HTTPS use the HEAD method.
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
+   * 
+   * @example
+   * HEAD
+   */
+  healthCheckMethod?: string;
+  /**
+   * @remarks
+   * The URL that is used for health checks.
+   * 
+   * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * 
+   * @example
+   * /test/index.html
+   */
+  healthCheckPath?: string;
+  /**
+   * @remarks
+   * The protocol that is used for health checks. Valid values:
+   * 
+   * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
+   * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
+   * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
+   * 
+   * @example
+   * HTTP
+   */
+  healthCheckProtocol?: string;
+  /**
+   * @remarks
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds
+   * 
+   * Valid values: **1** to **300**
+   * 
+   * Default value: **5**
+   * 
+   * @example
+   * 5
+   */
+  healthCheckTimeout?: number;
+  /**
+   * @remarks
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
+   * 
+   * Valid values: **2** to **10**
+   * 
+   * Default value: **3**.
+   * 
+   * @example
+   * 3
+   */
+  healthyThreshold?: number;
+  /**
+   * @remarks
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
+   * 
+   * Valid values: **2** to **10**
+   * 
+   * Default value: **3**
+   * 
+   * @example
+   * 3
+   */
+  unhealthyThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      healthCheckCodes: 'HealthCheckCodes',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckHost: 'HealthCheckHost',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthyThreshold: 'HealthyThreshold',
+      unhealthyThreshold: 'UnhealthyThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      healthCheckCodes: { 'type': 'array', 'itemType': 'string' },
+      healthCheckConnectPort: 'number',
+      healthCheckEnabled: 'boolean',
+      healthCheckHost: 'string',
+      healthCheckHttpVersion: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckPath: 'string',
+      healthCheckProtocol: 'string',
+      healthCheckTimeout: 'number',
+      healthyThreshold: 'number',
+      unhealthyThreshold: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.healthCheckCodes)) {
+      $dara.Model.validateArray(this.healthCheckCodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestSlowStartConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The duration of a slow start.
+   * Valid values: 30 to 900.
+   * Default value: 30.
+   * 
+   * @example
+   * 30
+   */
+  slowStartDuration?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable slow starts. Valid values:
+   * 
+   * - true
+   * 
+   * - false(default)
+   * 
+   * @example
+   * false
+   */
+  slowStartEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      slowStartDuration: 'SlowStartDuration',
+      slowStartEnabled: 'SlowStartEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slowStartDuration: 'number',
+      slowStartEnabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The cookie that you want to configure for the server.
+   * 
+   * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+   * 
+   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **server**.
+   * 
+   * @example
+   * B490B5EBF6F3CD402E515D22BCDA****
+   */
+  cookie?: string;
+  /**
+   * @remarks
+   * The maximum amount of time to wait before the session cookie expires. Unit: seconds
+   * 
+   * Valid values: **1** to **86400**
+   * 
+   * Default value: **1000**
+   * 
+   * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
+   * 
+   * @example
+   * 1000
+   */
+  cookieTimeout?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  This parameter takes effect when the **ServerGroupType** parameter is set to **Instance** or **Ip**.
+   * 
+   * @example
+   * false
+   */
+  stickySessionEnabled?: boolean;
+  /**
+   * @remarks
+   * The method that is used to handle cookies. Valid values:
+   * 
+   * *   **Insert** (default value): inserts a cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+   * *   **Server**: rewrites a cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
+   * 
+   * >  This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
+   * 
+   * @example
+   * Insert
+   */
+  stickySessionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      stickySessionEnabled: 'StickySessionEnabled',
+      stickySessionType: 'StickySessionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cookie: 'string',
+      cookieTimeout: 'number',
+      stickySessionEnabled: 'boolean',
+      stickySessionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. The tag key can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. The tag value can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * product
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServerGroupRequestUchConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * QueryString
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The parameter value for consistent hashing.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateServerGroupRequest extends $dara.Model {
   /**
