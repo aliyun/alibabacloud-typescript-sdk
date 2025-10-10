@@ -80,6 +80,7 @@ export class ScorePageItem extends $dara.Model {
    * 1704426524000
    */
   publishTime?: number;
+  richMainBody?: string;
   /**
    * @example
    * 0.234325235
@@ -120,6 +121,7 @@ export class ScorePageItem extends $dara.Model {
       mime: 'mime',
       pageMap: 'pageMap',
       publishTime: 'publishTime',
+      richMainBody: 'richMainBody',
       score: 'score',
       siteLabel: 'siteLabel',
       snippet: 'snippet',
@@ -144,6 +146,7 @@ export class ScorePageItem extends $dara.Model {
       mime: 'string',
       pageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       publishTime: 'number',
+      richMainBody: 'string',
       score: 'number',
       siteLabel: 'string',
       snippet: 'string',
