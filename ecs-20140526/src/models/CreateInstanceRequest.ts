@@ -999,7 +999,7 @@ export class CreateInstanceRequest extends $dara.Model {
   useAdditionalService?: boolean;
   /**
    * @remarks
-   * The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 16 KB.
+   * The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
    * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh

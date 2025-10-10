@@ -433,6 +433,32 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag exte
   }
 }
 
+export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions extends $dara.Model {
+  core?: number;
+  threadsPerCore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      core: 'Core',
+      threadsPerCore: 'ThreadsPerCore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      core: 'number',
+      threadsPerCore: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions extends $dara.Model {
   /**
    * @remarks
@@ -848,6 +874,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    * 1
    */
   autoRenewPeriod?: number;
+  cpuOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions;
   /**
    * @remarks
    * The image options.
@@ -949,6 +976,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       userData: 'UserData',
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
+      cpuOptions: 'CpuOptions',
       imageOptions: 'ImageOptions',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -993,6 +1021,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       userData: 'string',
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
+      cpuOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions,
       imageOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions,
       period: 'number',
       periodUnit: 'string',
@@ -1020,6 +1049,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
+    }
+    if(this.cpuOptions && typeof (this.cpuOptions as any).validate === 'function') {
+      (this.cpuOptions as any).validate();
     }
     if(this.imageOptions && typeof (this.imageOptions as any).validate === 'function') {
       (this.imageOptions as any).validate();

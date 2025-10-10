@@ -22,6 +22,7 @@ export { CreateAutoProvisioningGroupRequestLaunchConfigurationArn } from './Crea
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationDataDisk } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationSystemDisk } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationTag } from './CreateAutoProvisioningGroupRequest';
+export { CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfiguration } from './CreateAutoProvisioningGroupRequest';
@@ -36,6 +37,7 @@ export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationArn } from '
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationDataDisk } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSystemDisk } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag } from './CreateAutoProvisioningGroupShrinkRequest';
+export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration } from './CreateAutoProvisioningGroupShrinkRequest';

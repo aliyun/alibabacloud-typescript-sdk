@@ -81,6 +81,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * my-webapp-server
    */
   instanceName?: string;
+  machineId?: string;
   /**
    * @remarks
    * The maximum number of entries per page.
@@ -164,6 +165,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       instanceIp: 'InstanceIp',
       instanceName: 'InstanceName',
+      machineId: 'MachineId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       osType: 'OsType',
@@ -185,6 +187,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
       instanceId: { 'type': 'array', 'itemType': 'string' },
       instanceIp: 'string',
       instanceName: 'string',
+      machineId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       osType: 'string',

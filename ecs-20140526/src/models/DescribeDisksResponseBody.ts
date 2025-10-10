@@ -947,6 +947,8 @@ export class DescribeDisksResponseBody extends $dara.Model {
    * @remarks
    * The total number of entries returned.
    * 
+   * > For paginated queries using MaxResults and NextToken, the TotalCount value in the response is invalid and should be ignored.
+   * 
    * @example
    * 15
    */
