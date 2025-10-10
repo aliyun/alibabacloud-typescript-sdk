@@ -715,6 +715,39 @@ export class ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
   }
 }
 
+export class ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'private_pool_ids',
+      strategy: 'strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyClusterNodePoolRequestScalingGroupSpotPriceLimit extends $dara.Model {
   /**
    * @remarks
@@ -991,6 +1024,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
    * The IDs of ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
+  resourcePoolOptions?: ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions;
   /**
    * @remarks
    * The scaling mode of the scaling group. Valid values:
@@ -1180,6 +1214,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
       platform: 'platform',
       privatePoolOptions: 'private_pool_options',
       rdsInstances: 'rds_instances',
+      resourcePoolOptions: 'resource_pool_options',
       scalingPolicy: 'scaling_policy',
       securityGroupIds: 'security_group_ids',
       spotInstancePools: 'spot_instance_pools',
@@ -1225,6 +1260,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
       platform: 'string',
       privatePoolOptions: ModifyClusterNodePoolRequestScalingGroupPrivatePoolOptions,
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
+      resourcePoolOptions: ModifyClusterNodePoolRequestScalingGroupResourcePoolOptions,
       scalingPolicy: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       spotInstancePools: 'number',
@@ -1260,6 +1296,9 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $dara.Model {
     }
     if(Array.isArray(this.rdsInstances)) {
       $dara.Model.validateArray(this.rdsInstances);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);

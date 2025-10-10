@@ -543,6 +543,39 @@ export class NodepoolScalingGroupPrivatePoolOptions extends $dara.Model {
   }
 }
 
+export class NodepoolScalingGroupResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'private_pool_ids',
+      strategy: 'strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NodepoolScalingGroupSpotPriceLimit extends $dara.Model {
   /**
    * @example
@@ -722,6 +755,7 @@ export class NodepoolScalingGroup extends $dara.Model {
    */
   ramRoleName?: string;
   rdsInstances?: string[];
+  resourcePoolOptions?: NodepoolScalingGroupResourcePoolOptions;
   /**
    * @example
    * release
@@ -819,6 +853,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       privatePoolOptions: 'private_pool_options',
       ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
+      resourcePoolOptions: 'resource_pool_options',
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
       securityGroupIds: 'security_group_ids',
@@ -867,6 +902,7 @@ export class NodepoolScalingGroup extends $dara.Model {
       privatePoolOptions: NodepoolScalingGroupPrivatePoolOptions,
       ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
+      resourcePoolOptions: NodepoolScalingGroupResourcePoolOptions,
       scalingPolicy: 'string',
       securityGroupId: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
@@ -903,6 +939,9 @@ export class NodepoolScalingGroup extends $dara.Model {
     }
     if(Array.isArray(this.rdsInstances)) {
       $dara.Model.validateArray(this.rdsInstances);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);

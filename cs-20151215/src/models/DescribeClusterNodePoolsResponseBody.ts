@@ -4,6 +4,7 @@ import { DataDisk } from "./DataDisk";
 import { InstancePatterns } from "./InstancePatterns";
 import { Tag } from "./Tag";
 import { KubeletConfig } from "./KubeletConfig";
+import { Hugepage } from "./Hugepage";
 import { Taint } from "./Taint";
 
 
@@ -656,27 +657,59 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsManagement extends $da
   }
 }
 
+export class DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig extends $dara.Model {
+  hugepage?: Hugepage;
+  static names(): { [key: string]: string } {
+    return {
+      hugepage: 'hugepage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hugepage: Hugepage,
+    };
+  }
+
+  validate() {
+    if(this.hugepage && typeof (this.hugepage as any).validate === 'function') {
+      (this.hugepage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig extends $dara.Model {
   /**
    * @remarks
    * The parameter settings of the kubelet.
    */
   kubeletConfiguration?: KubeletConfig;
+  nodeOsConfig?: DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig;
   static names(): { [key: string]: string } {
     return {
       kubeletConfiguration: 'kubelet_configuration',
+      nodeOsConfig: 'node_os_config',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       kubeletConfiguration: KubeletConfig,
+      nodeOsConfig: DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig,
     };
   }
 
   validate() {
     if(this.kubeletConfiguration && typeof (this.kubeletConfiguration as any).validate === 'function') {
       (this.kubeletConfiguration as any).validate();
+    }
+    if(this.nodeOsConfig && typeof (this.nodeOsConfig as any).validate === 'function') {
+      (this.nodeOsConfig as any).validate();
     }
     super.validate();
   }
@@ -829,6 +862,39 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupPrivatePoo
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupResourcePoolOptions extends $dara.Model {
+  privatePoolIds?: string[];
+  /**
+   * @example
+   * PrivatePoolFirst
+   */
+  strategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      privatePoolIds: 'private_pool_ids',
+      strategy: 'strategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      strategy: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.privatePoolIds)) {
+      $dara.Model.validateArray(this.privatePoolIds);
+    }
     super.validate();
   }
 
@@ -1144,6 +1210,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    * The ApsaraDB RDS instances. If you specify the list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
+  resourcePoolOptions?: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupResourcePoolOptions;
   /**
    * @remarks
    * The scaling group ID.
@@ -1366,6 +1433,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       ramPolicy: 'ram_policy',
       ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
+      resourcePoolOptions: 'resource_pool_options',
       scalingGroupId: 'scaling_group_id',
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
@@ -1419,6 +1487,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       ramPolicy: 'string',
       ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
+      resourcePoolOptions: DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroupResourcePoolOptions,
       scalingGroupId: 'string',
       scalingPolicy: 'string',
       securityGroupId: 'string',
@@ -1458,6 +1527,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
     }
     if(Array.isArray(this.rdsInstances)) {
       $dara.Model.validateArray(this.rdsInstances);
+    }
+    if(this.resourcePoolOptions && typeof (this.resourcePoolOptions as any).validate === 'function') {
+      (this.resourcePoolOptions as any).validate();
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);

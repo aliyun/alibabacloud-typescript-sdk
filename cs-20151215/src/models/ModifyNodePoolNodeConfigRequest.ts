@@ -2,9 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 import { ContainerdConfig } from "./ContainerdConfig";
 import { KubeletConfig } from "./KubeletConfig";
+import { Hugepage } from "./Hugepage";
 
 
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
+  hugepage?: Hugepage;
   /**
    * @remarks
    * The sysctl configuration.
@@ -12,17 +14,22 @@ export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
   sysctl?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
+      hugepage: 'hugepage',
       sysctl: 'sysctl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hugepage: Hugepage,
       sysctl: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
   validate() {
+    if(this.hugepage && typeof (this.hugepage as any).validate === 'function') {
+      (this.hugepage as any).validate();
+    }
     if(this.sysctl) {
       $dara.Model.validateMap(this.sysctl);
     }
