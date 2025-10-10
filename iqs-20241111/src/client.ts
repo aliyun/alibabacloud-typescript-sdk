@@ -244,6 +244,10 @@ export default class Client extends OpenApi {
       query["returnMarkdownText"] = request.returnMarkdownText;
     }
 
+    if (!$dara.isNull(request.returnRichMainBody)) {
+      query["returnRichMainBody"] = request.returnRichMainBody;
+    }
+
     if (!$dara.isNull(request.returnSummary)) {
       query["returnSummary"] = request.returnSummary;
     }
@@ -390,6 +394,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.globalSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 页面读取
+   * 
+   * @param request - ReadPageBasicRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadPageBasicResponse
+   */
+  async readPageBasicWithOptions(request: $_model.ReadPageBasicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReadPageBasicResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadPageBasic",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/basic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadPageBasicResponse>(await this.callApi(params, req, runtime), new $_model.ReadPageBasicResponse({}));
+  }
+
+  /**
+   * 页面读取
+   * 
+   * @param request - ReadPageBasicRequest
+   * @returns ReadPageBasicResponse
+   */
+  async readPageBasic(request: $_model.ReadPageBasicRequest): Promise<$_model.ReadPageBasicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.readPageBasicWithOptions(request, headers, runtime);
   }
 
   /**

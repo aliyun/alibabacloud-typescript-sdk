@@ -17,6 +17,7 @@ export class GenericSearchRequest extends $dara.Model {
   query?: string;
   returnMainText?: boolean;
   returnMarkdownText?: boolean;
+  returnRichMainBody?: boolean;
   returnSummary?: boolean;
   sessionId?: string;
   /**
@@ -32,6 +33,7 @@ export class GenericSearchRequest extends $dara.Model {
       query: 'query',
       returnMainText: 'returnMainText',
       returnMarkdownText: 'returnMarkdownText',
+      returnRichMainBody: 'returnRichMainBody',
       returnSummary: 'returnSummary',
       sessionId: 'sessionId',
       timeRange: 'timeRange',
@@ -46,6 +48,7 @@ export class GenericSearchRequest extends $dara.Model {
       query: 'string',
       returnMainText: 'boolean',
       returnMarkdownText: 'boolean',
+      returnRichMainBody: 'boolean',
       returnSummary: 'boolean',
       sessionId: 'string',
       timeRange: 'string',
