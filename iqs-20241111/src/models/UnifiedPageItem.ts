@@ -16,6 +16,7 @@ export class UnifiedPageItem extends $dara.Model {
    */
   publishedTime?: string;
   rerankScore?: number;
+  richMainBody?: string;
   snippet?: string;
   summary?: string;
   title?: string;
@@ -30,6 +31,7 @@ export class UnifiedPageItem extends $dara.Model {
       markdownText: 'markdownText',
       publishedTime: 'publishedTime',
       rerankScore: 'rerankScore',
+      richMainBody: 'richMainBody',
       snippet: 'snippet',
       summary: 'summary',
       title: 'title',
@@ -47,6 +49,7 @@ export class UnifiedPageItem extends $dara.Model {
       markdownText: 'string',
       publishedTime: 'string',
       rerankScore: 'number',
+      richMainBody: 'string',
       snippet: 'string',
       summary: 'string',
       title: 'string',
