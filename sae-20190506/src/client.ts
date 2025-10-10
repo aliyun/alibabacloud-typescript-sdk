@@ -124,6 +124,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量重启应用
+   * 
+   * @param request - BatchRestartApplicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchRestartApplicationsResponse
+   */
+  async batchRestartApplicationsWithOptions(request: $_model.BatchRestartApplicationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchRestartApplicationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchRestartApplications",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/batchRestartApplications`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchRestartApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.BatchRestartApplicationsResponse({}));
+  }
+
+  /**
+   * 批量重启应用
+   * 
+   * @param request - BatchRestartApplicationsRequest
+   * @returns BatchRestartApplicationsResponse
+   */
+  async batchRestartApplications(request: $_model.BatchRestartApplicationsRequest): Promise<$_model.BatchRestartApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchRestartApplicationsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Starts multiple applications at a time.
    * 
    * @param request - BatchStartApplicationsRequest

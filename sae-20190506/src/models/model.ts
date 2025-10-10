@@ -41,6 +41,7 @@ export { SourceCodeAccountOrganizations } from './SourceCodeAccount';
 export { SubmenuItems } from './Submenu';
 export { AbortAndRollbackChangeOrderResponseBodyData } from './AbortAndRollbackChangeOrderResponseBody';
 export { AbortChangeOrderResponseBodyData } from './AbortChangeOrderResponseBody';
+export { BatchRestartApplicationsResponseBodyData } from './BatchRestartApplicationsResponseBody';
 export { BatchStartApplicationsResponseBodyData } from './BatchStartApplicationsResponseBody';
 export { BatchStopApplicationsResponseBodyData } from './BatchStopApplicationsResponseBody';
 export { BindNlbResponseBodyData } from './BindNlbResponseBody';
@@ -445,6 +446,9 @@ export { AbortAndRollbackChangeOrderResponse } from './AbortAndRollbackChangeOrd
 export { AbortChangeOrderRequest } from './AbortChangeOrderRequest';
 export { AbortChangeOrderResponseBody } from './AbortChangeOrderResponseBody';
 export { AbortChangeOrderResponse } from './AbortChangeOrderResponse';
+export { BatchRestartApplicationsRequest } from './BatchRestartApplicationsRequest';
+export { BatchRestartApplicationsResponseBody } from './BatchRestartApplicationsResponseBody';
+export { BatchRestartApplicationsResponse } from './BatchRestartApplicationsResponse';
 export { BatchStartApplicationsRequest } from './BatchStartApplicationsRequest';
 export { BatchStartApplicationsResponseBody } from './BatchStartApplicationsResponseBody';
 export { BatchStartApplicationsResponse } from './BatchStartApplicationsResponse';
