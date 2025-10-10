@@ -30,6 +30,10 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * Prepaid
    */
   chargeType?: string;
+  /**
+   * @example
+   * selectdb-cn-7213cjv****-be
+   */
   clusterBinding?: string;
   clusterNodeCount?: number;
   clusterNodeType?: string;
@@ -113,8 +117,20 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * PL1
    */
   performanceLevel?: string;
+  /**
+   * @example
+   * 4
+   */
   scaleMax?: number;
+  /**
+   * @example
+   * 0.5
+   */
   scaleMin?: number;
+  /**
+   * @example
+   * false
+   */
   scalingRulesEnable?: boolean;
   /**
    * @remarks
@@ -139,8 +155,20 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
    * ACTIVATION
    */
   status?: string;
+  /**
+   * @example
+   * 预留参数，暂不返回。
+   */
   subDomain?: string;
+  /**
+   * @example
+   * vsw-t4n8x7jcc8rknon85tqoa
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -208,9 +236,21 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $dara.
 }
 
 export class DescribeDBInstanceAttributeResponseBodyMultiZone extends $dara.Model {
+  /**
+   * @example
+   * 4096
+   */
   availableIpCount?: number;
+  /**
+   * @example
+   * 113.88.14.211/32
+   */
   cidr?: string;
   vSwitchIds?: string[];
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -320,6 +360,10 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * selectdb-cn-7213cjv****
    */
   DBInstanceId?: string;
+  /**
+   * @example
+   * multi_az
+   */
   deployScheme?: string;
   /**
    * @remarks
@@ -446,6 +490,15 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * rg-aekzbck4asz3dsa
    */
   resourceGroupId?: string;
+  /**
+   * @example
+   * false
+   */
+  secGroupConnValid?: string;
+  /**
+   * @example
+   * false
+   */
   serverless?: boolean;
   /**
    * @remarks
@@ -483,6 +536,10 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
    */
   tags?: DescribeDBInstanceAttributeResponseBodyTags[];
+  /**
+   * @example
+   * vsw-bp18iztwqrs8qj2nc6nyu
+   */
   vSwitchId?: string;
   /**
    * @remarks
@@ -524,6 +581,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       resourceCpu: 'ResourceCpu',
       resourceGroupId: 'ResourceGroupId',
+      secGroupConnValid: 'SecGroupConnValid',
       serverless: 'Serverless',
       status: 'Status',
       storageSize: 'StorageSize',
@@ -559,6 +617,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       resourceCpu: 'number',
       resourceGroupId: 'string',
+      secGroupConnValid: 'string',
       serverless: 'boolean',
       status: 'string',
       storageSize: 'number',
