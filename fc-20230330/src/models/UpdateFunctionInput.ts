@@ -9,6 +9,7 @@ import { InstanceLifecycleConfig } from "./InstanceLifecycleConfig";
 import { LogConfig } from "./LogConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
+import { PolarFsConfig } from "./PolarFsConfig";
 import { TracingConfig } from "./TracingConfig";
 import { VPCConfig } from "./Vpcconfig";
 
@@ -28,6 +29,10 @@ export class UpdateFunctionInput extends $dara.Model {
    * my function
    */
   description?: string;
+  disableInjectCredentials?: string;
+  /**
+   * @deprecated
+   */
   disableOndemand?: boolean;
   /**
    * @example
@@ -45,6 +50,10 @@ export class UpdateFunctionInput extends $dara.Model {
    * index.handler
    */
   handler?: string;
+  /**
+   * @example
+   * 100
+   */
   idleTimeout?: number;
   /**
    * @example
@@ -67,6 +76,7 @@ export class UpdateFunctionInput extends $dara.Model {
   memorySize?: number;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  polarFsConfig?: PolarFsConfig;
   /**
    * @example
    * acs:ram::188077086902****:role/fc-test
@@ -94,6 +104,7 @@ export class UpdateFunctionInput extends $dara.Model {
       customDNS: 'customDNS',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      disableInjectCredentials: 'disableInjectCredentials',
       disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
       enableLongLiving: 'enableLongLiving',
@@ -110,6 +121,7 @@ export class UpdateFunctionInput extends $dara.Model {
       memorySize: 'memorySize',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
+      polarFsConfig: 'polarFsConfig',
       role: 'role',
       runtime: 'runtime',
       sessionAffinity: 'sessionAffinity',
@@ -128,6 +140,7 @@ export class UpdateFunctionInput extends $dara.Model {
       customDNS: CustomDNS,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      disableInjectCredentials: 'string',
       disableOndemand: 'boolean',
       diskSize: 'number',
       enableLongLiving: 'boolean',
@@ -144,6 +157,7 @@ export class UpdateFunctionInput extends $dara.Model {
       memorySize: 'number',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
+      polarFsConfig: PolarFsConfig,
       role: 'string',
       runtime: 'string',
       sessionAffinity: 'string',
@@ -187,6 +201,9 @@ export class UpdateFunctionInput extends $dara.Model {
     }
     if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
       (this.ossMountConfig as any).validate();
+    }
+    if(this.polarFsConfig && typeof (this.polarFsConfig as any).validate === 'function') {
+      (this.polarFsConfig as any).validate();
     }
     if(this.tracingConfig && typeof (this.tracingConfig as any).validate === 'function') {
       (this.tracingConfig as any).validate();

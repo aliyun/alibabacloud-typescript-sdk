@@ -90,6 +90,8 @@ export { OSSTriggerConfig } from './OsstriggerConfig';
 export { OutputCodeLocation } from './OutputCodeLocation';
 export { OutputFuncCode } from './OutputFuncCode';
 export { PathConfig } from './PathConfig';
+export { PolarFsConfig } from './PolarFsConfig';
+export { PolarFsMountConfig } from './PolarFsMountConfig';
 export { ProvisionConfig } from './ProvisionConfig';
 export { PublishVersionInput } from './PublishVersionInput';
 export { PutAsyncInvokeConfigInput } from './PutAsyncInvokeConfigInput';

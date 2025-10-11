@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { NASConfig } from "./Nasconfig";
 
 
 export class Session extends $dara.Model {
@@ -23,6 +24,7 @@ export class Session extends $dara.Model {
    * 2025-04-01T18:15:27Z
    */
   lastModifiedTime?: string;
+  nasConfig?: NASConfig;
   /**
    * @example
    * AliasName1
@@ -59,6 +61,7 @@ export class Session extends $dara.Model {
       createdTime: 'createdTime',
       functionName: 'functionName',
       lastModifiedTime: 'lastModifiedTime',
+      nasConfig: 'nasConfig',
       qualifier: 'qualifier',
       sessionAffinityType: 'sessionAffinityType',
       sessionId: 'sessionId',
@@ -74,6 +77,7 @@ export class Session extends $dara.Model {
       createdTime: 'string',
       functionName: 'string',
       lastModifiedTime: 'string',
+      nasConfig: NASConfig,
       qualifier: 'string',
       sessionAffinityType: 'string',
       sessionId: 'string',
@@ -84,6 +88,9 @@ export class Session extends $dara.Model {
   }
 
   validate() {
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
     super.validate();
   }
 

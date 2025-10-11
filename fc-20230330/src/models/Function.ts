@@ -10,6 +10,7 @@ import { FunctionLayer } from "./FunctionLayer";
 import { LogConfig } from "./LogConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
+import { PolarFsConfig } from "./PolarFsConfig";
 import { Tag } from "./Tag";
 import { TracingConfig } from "./TracingConfig";
 import { VPCConfig } from "./Vpcconfig";
@@ -44,6 +45,10 @@ export class Function extends $dara.Model {
    * my function
    */
   description?: string;
+  disableInjectCredentials?: string;
+  /**
+   * @deprecated
+   */
   disableOndemand?: boolean;
   /**
    * @example
@@ -76,6 +81,10 @@ export class Function extends $dara.Model {
    * index.handler
    */
   handler?: string;
+  /**
+   * @example
+   * 100
+   */
   idleTimeout?: number;
   /**
    * @example
@@ -119,6 +128,7 @@ export class Function extends $dara.Model {
   memorySize?: number;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
+  polarFsConfig?: PolarFsConfig;
   resourceGroupId?: string;
   /**
    * @example
@@ -169,6 +179,7 @@ export class Function extends $dara.Model {
       customDNS: 'customDNS',
       customRuntimeConfig: 'customRuntimeConfig',
       description: 'description',
+      disableInjectCredentials: 'disableInjectCredentials',
       disableOndemand: 'disableOndemand',
       diskSize: 'diskSize',
       enableLongLiving: 'enableLongLiving',
@@ -193,6 +204,7 @@ export class Function extends $dara.Model {
       memorySize: 'memorySize',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
+      polarFsConfig: 'polarFsConfig',
       resourceGroupId: 'resourceGroupId',
       role: 'role',
       runtime: 'runtime',
@@ -218,6 +230,7 @@ export class Function extends $dara.Model {
       customDNS: CustomDNS,
       customRuntimeConfig: CustomRuntimeConfig,
       description: 'string',
+      disableInjectCredentials: 'string',
       disableOndemand: 'boolean',
       diskSize: 'number',
       enableLongLiving: 'boolean',
@@ -242,6 +255,7 @@ export class Function extends $dara.Model {
       memorySize: 'number',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
+      polarFsConfig: PolarFsConfig,
       resourceGroupId: 'string',
       role: 'string',
       runtime: 'string',
@@ -290,6 +304,9 @@ export class Function extends $dara.Model {
     }
     if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
       (this.ossMountConfig as any).validate();
+    }
+    if(this.polarFsConfig && typeof (this.polarFsConfig as any).validate === 'function') {
+      (this.polarFsConfig as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
