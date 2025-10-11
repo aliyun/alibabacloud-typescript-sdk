@@ -1,8 +1,73 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetMultiAccountResourceCountsResponseBodyFilters } from "./GetMultiAccountResourceCountsResponseBodyFilters";
-import { GetMultiAccountResourceCountsResponseBodyResourceCounts } from "./GetMultiAccountResourceCountsResponseBodyResourceCounts";
 
+
+export class GetMultiAccountResourceCountsResponseBodyFilters extends $dara.Model {
+  /**
+   * @example
+   * RegionId
+   */
+  key?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountResourceCountsResponseBodyResourceCounts extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  /**
+   * @example
+   * ACS::ECS::NetworkInterface
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetMultiAccountResourceCountsResponseBody extends $dara.Model {
   filters?: GetMultiAccountResourceCountsResponseBodyFilters[];

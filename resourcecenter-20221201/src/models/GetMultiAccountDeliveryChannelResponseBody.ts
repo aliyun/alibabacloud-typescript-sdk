@@ -1,9 +1,232 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter } from "./GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter";
-import { GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery } from "./GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery";
-import { GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery } from "./GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery";
 
+
+export class GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The effective account scopes of the delivery channel.
+   */
+  accountScopes?: string[];
+  /**
+   * @remarks
+   * The effective resource types of the delivery channel.
+   */
+  resourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      accountScopes: 'AccountScopes',
+      resourceTypes: 'ResourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountScopes: { 'type': 'array', 'itemType': 'string' },
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountScopes)) {
+      $dara.Model.validateArray(this.accountScopes);
+    }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the destination to which large files are delivered.
+   * 
+   * @example
+   * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
+   */
+  oversizedDataOssTargetArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      oversizedDataOssTargetArn: 'OversizedDataOssTargetArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      oversizedDataOssTargetArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery extends $dara.Model {
+  enabled?: string;
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
+  slsProperties?: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties;
+  /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
+   * @example
+   * acs:log:cn-hangzhou: 1911422487776***:project/delivery/logstore/resourcecenter-sls
+   */
+  targetArn?: string;
+  /**
+   * @remarks
+   * The type of the destination.
+   * 
+   * @example
+   * SLS
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      slsProperties: 'SlsProperties',
+      targetArn: 'TargetArn',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'string',
+      slsProperties: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties,
+      targetArn: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.slsProperties && typeof (this.slsProperties as any).validate === 'function') {
+      (this.slsProperties as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties extends $dara.Model {
+  /**
+   * @remarks
+   * The ARN of the destination to which large files are delivered.
+   * 
+   * @example
+   * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
+   */
+  oversizedDataOssTargetArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      oversizedDataOssTargetArn: 'OversizedDataOssTargetArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      oversizedDataOssTargetArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The custom expression.
+   * 
+   * @example
+   * select * from resources limit 100;
+   */
+  customExpression?: string;
+  /**
+   * @remarks
+   * The delivery time.
+   * 
+   * @example
+   * 09:00Z
+   */
+  deliveryTime?: string;
+  enabled?: string;
+  /**
+   * @remarks
+   * The Simple Log Service configurations.
+   */
+  slsProperties?: GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties;
+  /**
+   * @remarks
+   * The ARN of the delivery destination.
+   * 
+   * @example
+   * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
+   */
+  targetArn?: string;
+  /**
+   * @remarks
+   * The type of the destination.
+   * 
+   * @example
+   * OSS
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customExpression: 'CustomExpression',
+      deliveryTime: 'DeliveryTime',
+      enabled: 'Enabled',
+      slsProperties: 'SlsProperties',
+      targetArn: 'TargetArn',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customExpression: 'string',
+      deliveryTime: 'string',
+      enabled: 'string',
+      slsProperties: GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties,
+      targetArn: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.slsProperties && typeof (this.slsProperties as any).validate === 'function') {
+      (this.slsProperties as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetMultiAccountDeliveryChannelResponseBody extends $dara.Model {
   /**

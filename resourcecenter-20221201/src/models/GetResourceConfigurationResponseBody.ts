@@ -1,8 +1,99 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetResourceConfigurationResponseBodyIpAddressAttributes } from "./GetResourceConfigurationResponseBodyIpAddressAttributes";
-import { GetResourceConfigurationResponseBodyTags } from "./GetResourceConfigurationResponseBodyTags";
 
+
+export class GetResourceConfigurationResponseBodyIpAddressAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 192.168.1.2
+   */
+  ipAddress?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **Public**: the Internet
+   * *   **Private**: internal network
+   * 
+   * @example
+   * Public
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The version.
+   * 
+   * @example
+   * Ipv4
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      networkType: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceConfigurationResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * test-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetResourceConfigurationResponseBody extends $dara.Model {
   /**

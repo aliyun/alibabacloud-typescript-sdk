@@ -1,8 +1,99 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes } from "./GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes";
-import { GetMultiAccountResourceConfigurationResponseBodyTags } from "./GetMultiAccountResourceConfigurationResponseBodyTags";
 
+
+export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 172.27.199.42
+   */
+  ipAddress?: string;
+  /**
+   * @remarks
+   * The network type. Valid values:
+   * 
+   * *   **Public**: the Internet
+   * *   **Private**: internal network
+   * 
+   * @example
+   * Public
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The version.
+   * 
+   * @example
+   * Ipv4
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+      networkType: 'NetworkType',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: 'string',
+      networkType: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N.
+   * 
+   * @example
+   * tag-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * @example
+   * tag-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Model {
   /**
