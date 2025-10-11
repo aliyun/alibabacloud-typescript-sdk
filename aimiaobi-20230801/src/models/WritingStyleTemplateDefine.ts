@@ -3,8 +3,6 @@ import * as $dara from '@darabonba/typescript';
 import { WritingStyleTemplateField } from "./WritingStyleTemplateField";
 
 
-/**
- */
 export class WritingStyleTemplateDefineExample extends $dara.Model {
   key?: string;
   value?: string;

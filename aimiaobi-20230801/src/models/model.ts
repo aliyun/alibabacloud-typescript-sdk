@@ -1,3 +1,5 @@
+export { GenerateTraceabilityNews } from './GenerateTraceability';
+export { TopicSelectionOutlines } from './TopicSelection';
 export { WritingStyleTemplateDefineExample } from './WritingStyleTemplateDefine';
 export { WritingStyleTemplateFieldEnums } from './WritingStyleTemplateField';
 export { WritingStyleTemplateFieldStyle } from './WritingStyleTemplateField';
@@ -574,6 +576,11 @@ export { UploadBookResponseBodyData } from './UploadBookResponseBody';
 export { UploadDocRequestDocs } from './UploadDocRequest';
 export { UploadDocResponseBodyData } from './UploadDocResponseBody';
 export { ValidateUploadTemplateResponseBodyData } from './ValidateUploadTemplateResponseBody';
+export { GenerateTraceability } from './GenerateTraceability';
+export { OutlineSearchResult } from './OutlineSearchResult';
+export { OutlineWritingArticle } from './OutlineWritingArticle';
+export { TopicSelection } from './TopicSelection';
+export { WritingOutline } from './WritingOutline';
 export { WritingStyleTemplateDefine } from './WritingStyleTemplateDefine';
 export { WritingStyleTemplateField } from './WritingStyleTemplateField';
 export { AddAuditTermsRequest } from './AddAuditTermsRequest';

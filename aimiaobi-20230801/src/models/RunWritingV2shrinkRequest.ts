@@ -22,6 +22,7 @@ export class RunWritingV2ShrinkRequest extends $dara.Model {
    */
   language?: string;
   miniDocsShrink?: string;
+  outlineListShrink?: string;
   outlinesShrink?: string;
   prompt?: string;
   /**
@@ -35,6 +36,7 @@ export class RunWritingV2ShrinkRequest extends $dara.Model {
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
+  sourceTraceMethod?: string;
   /**
    * @example
    * Writing
@@ -75,11 +77,13 @@ export class RunWritingV2ShrinkRequest extends $dara.Model {
       keywordsShrink: 'Keywords',
       language: 'Language',
       miniDocsShrink: 'MiniDocs',
+      outlineListShrink: 'OutlineList',
       outlinesShrink: 'Outlines',
       prompt: 'Prompt',
       promptMode: 'PromptMode',
       searchSourcesShrink: 'SearchSources',
       sessionId: 'SessionId',
+      sourceTraceMethod: 'SourceTraceMethod',
       step: 'Step',
       summarizationShrink: 'Summarization',
       taskId: 'TaskId',
@@ -100,11 +104,13 @@ export class RunWritingV2ShrinkRequest extends $dara.Model {
       keywordsShrink: 'string',
       language: 'string',
       miniDocsShrink: 'string',
+      outlineListShrink: 'string',
       outlinesShrink: 'string',
       prompt: 'string',
       promptMode: 'string',
       searchSourcesShrink: 'string',
       sessionId: 'string',
+      sourceTraceMethod: 'string',
       step: 'string',
       summarizationShrink: 'string',
       taskId: 'string',

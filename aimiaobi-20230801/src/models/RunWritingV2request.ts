@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { WritingOutline } from "./WritingOutline";
 
 
 export class RunWritingV2RequestArticles extends $dara.Model {
@@ -226,6 +227,7 @@ export class RunWritingV2Request extends $dara.Model {
    */
   language?: string;
   miniDocs?: RunWritingV2RequestMiniDocs[];
+  outlineList?: WritingOutline[];
   outlines?: RunWritingV2RequestOutlines[];
   prompt?: string;
   /**
@@ -239,6 +241,7 @@ export class RunWritingV2Request extends $dara.Model {
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
+  sourceTraceMethod?: string;
   /**
    * @example
    * Writing
@@ -279,11 +282,13 @@ export class RunWritingV2Request extends $dara.Model {
       keywords: 'Keywords',
       language: 'Language',
       miniDocs: 'MiniDocs',
+      outlineList: 'OutlineList',
       outlines: 'Outlines',
       prompt: 'Prompt',
       promptMode: 'PromptMode',
       searchSources: 'SearchSources',
       sessionId: 'SessionId',
+      sourceTraceMethod: 'SourceTraceMethod',
       step: 'Step',
       summarization: 'Summarization',
       taskId: 'TaskId',
@@ -304,11 +309,13 @@ export class RunWritingV2Request extends $dara.Model {
       keywords: { 'type': 'array', 'itemType': 'string' },
       language: 'string',
       miniDocs: { 'type': 'array', 'itemType': RunWritingV2RequestMiniDocs },
+      outlineList: { 'type': 'array', 'itemType': WritingOutline },
       outlines: { 'type': 'array', 'itemType': RunWritingV2RequestOutlines },
       prompt: 'string',
       promptMode: 'string',
       searchSources: { 'type': 'array', 'itemType': RunWritingV2RequestSearchSources },
       sessionId: 'string',
+      sourceTraceMethod: 'string',
       step: 'string',
       summarization: { 'type': 'array', 'itemType': RunWritingV2RequestSummarization },
       taskId: 'string',
@@ -329,6 +336,9 @@ export class RunWritingV2Request extends $dara.Model {
     }
     if(Array.isArray(this.miniDocs)) {
       $dara.Model.validateArray(this.miniDocs);
+    }
+    if(Array.isArray(this.outlineList)) {
+      $dara.Model.validateArray(this.outlineList);
     }
     if(Array.isArray(this.outlines)) {
       $dara.Model.validateArray(this.outlines);

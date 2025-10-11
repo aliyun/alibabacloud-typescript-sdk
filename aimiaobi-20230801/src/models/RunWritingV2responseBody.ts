@@ -1,5 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { GenerateTraceability } from "./GenerateTraceability";
+import { WritingOutline } from "./WritingOutline";
+import { OutlineSearchResult } from "./OutlineSearchResult";
 
 
 export class RunWritingV2ResponseBodyHeader extends $dara.Model {
@@ -170,36 +173,48 @@ export class RunWritingV2ResponseBodyPayloadOutputArticles extends $dara.Model {
 
 export class RunWritingV2ResponseBodyPayloadOutput extends $dara.Model {
   articles?: RunWritingV2ResponseBodyPayloadOutputArticles[];
+  generateTraceability?: GenerateTraceability;
   /**
    * @example
    * 文章精排之后的片段
    */
   miniDoc?: string[];
+  outlines?: WritingOutline[];
   /**
    * @example
    * 大模型改变世界
    */
   searchQuery?: string;
+  searchResult?: OutlineSearchResult;
   /**
    * @example
    * 文本生成结果
    */
   text?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
       articles: 'Articles',
+      generateTraceability: 'GenerateTraceability',
       miniDoc: 'MiniDoc',
+      outlines: 'Outlines',
       searchQuery: 'SearchQuery',
+      searchResult: 'SearchResult',
       text: 'Text',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       articles: { 'type': 'array', 'itemType': RunWritingV2ResponseBodyPayloadOutputArticles },
+      generateTraceability: GenerateTraceability,
       miniDoc: { 'type': 'array', 'itemType': 'string' },
+      outlines: { 'type': 'array', 'itemType': WritingOutline },
       searchQuery: 'string',
+      searchResult: OutlineSearchResult,
       text: 'string',
+      title: 'string',
     };
   }
 
@@ -207,8 +222,17 @@ export class RunWritingV2ResponseBodyPayloadOutput extends $dara.Model {
     if(Array.isArray(this.articles)) {
       $dara.Model.validateArray(this.articles);
     }
+    if(this.generateTraceability && typeof (this.generateTraceability as any).validate === 'function') {
+      (this.generateTraceability as any).validate();
+    }
     if(Array.isArray(this.miniDoc)) {
       $dara.Model.validateArray(this.miniDoc);
+    }
+    if(Array.isArray(this.outlines)) {
+      $dara.Model.validateArray(this.outlines);
+    }
+    if(this.searchResult && typeof (this.searchResult as any).validate === 'function') {
+      (this.searchResult as any).validate();
     }
     super.validate();
   }

@@ -11186,6 +11186,10 @@ export default class Client extends OpenApi {
       request.miniDocsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.miniDocs, "MiniDocs", "json");
     }
 
+    if (!$dara.isNull(tmpReq.outlineList)) {
+      request.outlineListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outlineList, "OutlineList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.outlines)) {
       request.outlinesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outlines, "Outlines", "json");
     }
@@ -11231,6 +11235,10 @@ export default class Client extends OpenApi {
       body["MiniDocs"] = request.miniDocsShrink;
     }
 
+    if (!$dara.isNull(request.outlineListShrink)) {
+      body["OutlineList"] = request.outlineListShrink;
+    }
+
     if (!$dara.isNull(request.outlinesShrink)) {
       body["Outlines"] = request.outlinesShrink;
     }
@@ -11249,6 +11257,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sourceTraceMethod)) {
+      body["SourceTraceMethod"] = request.sourceTraceMethod;
     }
 
     if (!$dara.isNull(request.step)) {
@@ -11336,6 +11348,10 @@ export default class Client extends OpenApi {
       request.miniDocsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.miniDocs, "MiniDocs", "json");
     }
 
+    if (!$dara.isNull(tmpReq.outlineList)) {
+      request.outlineListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outlineList, "OutlineList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.outlines)) {
       request.outlinesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outlines, "Outlines", "json");
     }
@@ -11381,6 +11397,10 @@ export default class Client extends OpenApi {
       body["MiniDocs"] = request.miniDocsShrink;
     }
 
+    if (!$dara.isNull(request.outlineListShrink)) {
+      body["OutlineList"] = request.outlineListShrink;
+    }
+
     if (!$dara.isNull(request.outlinesShrink)) {
       body["Outlines"] = request.outlinesShrink;
     }
@@ -11399,6 +11419,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sourceTraceMethod)) {
+      body["SourceTraceMethod"] = request.sourceTraceMethod;
     }
 
     if (!$dara.isNull(request.step)) {
