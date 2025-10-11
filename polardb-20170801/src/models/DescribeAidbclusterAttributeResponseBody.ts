@@ -362,6 +362,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * Postpaid
    */
   payType?: string;
+  publicIp?: string;
   /**
    * @example
    * cn-hangzhou
@@ -424,6 +425,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       maxQPM: 'MaxQPM',
       modelName: 'ModelName',
       payType: 'PayType',
+      publicIp: 'PublicIp',
       regionId: 'RegionId',
       requestId: 'RequestId',
       runType: 'RunType',
@@ -454,6 +456,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       maxQPM: 'string',
       modelName: 'string',
       payType: 'string',
+      publicIp: 'string',
       regionId: 'string',
       requestId: 'string',
       runType: 'string',

@@ -340,6 +340,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 挂载PolarFS到PolarDB应用
+   * 
+   * @param request - AttachApplicationPolarFSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachApplicationPolarFSResponse
+   */
+  async attachApplicationPolarFSWithOptions(request: $_model.AttachApplicationPolarFSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachApplicationPolarFSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.polarFSAccessKeyId)) {
+      query["PolarFSAccessKeyId"] = request.polarFSAccessKeyId;
+    }
+
+    if (!$dara.isNull(request.polarFSAccessKeySecret)) {
+      query["PolarFSAccessKeySecret"] = request.polarFSAccessKeySecret;
+    }
+
+    if (!$dara.isNull(request.polarFSInstanceId)) {
+      query["PolarFSInstanceId"] = request.polarFSInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachApplicationPolarFS",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachApplicationPolarFSResponse>(await this.callApi(params, req, runtime), new $_model.AttachApplicationPolarFSResponse({}));
+  }
+
+  /**
+   * 挂载PolarFS到PolarDB应用
+   * 
+   * @param request - AttachApplicationPolarFSRequest
+   * @returns AttachApplicationPolarFSResponse
+   */
+  async attachApplicationPolarFS(request: $_model.AttachApplicationPolarFSRequest): Promise<$_model.AttachApplicationPolarFSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachApplicationPolarFSWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels O\\&M events at a time.
    * 
    * @param request - CancelActiveOperationTasksRequest
@@ -1213,6 +1267,168 @@ export default class Client extends OpenApi {
   async createActivationCode(request: $_model.CreateActivationCodeRequest): Promise<$_model.CreateActivationCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createActivationCodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建PolarDB应用
+   * 
+   * @param tmpReq - CreateApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationResponse
+   */
+  async createApplicationWithOptions(tmpReq: $_model.CreateApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.components)) {
+      request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.endpoints)) {
+      request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.architecture)) {
+      query["Architecture"] = request.architecture;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.componentsShrink)) {
+      query["Components"] = request.componentsShrink;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.endpointsShrink)) {
+      query["Endpoints"] = request.endpointsShrink;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.polarFSInstanceId)) {
+      query["PolarFSInstanceId"] = request.polarFSInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplication",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationResponse({}));
+  }
+
+  /**
+   * 创建PolarDB应用
+   * 
+   * @param request - CreateApplicationRequest
+   * @returns CreateApplicationResponse
+   */
+  async createApplication(request: $_model.CreateApplicationRequest): Promise<$_model.CreateApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建PolarDB应用终端节点地址
+   * 
+   * @param request - CreateApplicationEndpointAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationEndpointAddressResponse
+   */
+  async createApplicationEndpointAddressWithOptions(request: $_model.CreateApplicationEndpointAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationEndpointAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!$dara.isNull(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationEndpointAddress",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationEndpointAddressResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationEndpointAddressResponse({}));
+  }
+
+  /**
+   * 创建PolarDB应用终端节点地址
+   * 
+   * @param request - CreateApplicationEndpointAddressRequest
+   * @returns CreateApplicationEndpointAddressResponse
+   */
+  async createApplicationEndpointAddress(request: $_model.CreateApplicationEndpointAddressRequest): Promise<$_model.CreateApplicationEndpointAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationEndpointAddressWithOptions(request, runtime);
   }
 
   /**
@@ -2942,6 +3158,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除AI集群实例
+   * 
+   * @param request - DeleteAIDBClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIDBClusterResponse
+   */
+  async deleteAIDBClusterWithOptions(request: $_model.DeleteAIDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIDBClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAIDBClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAIDBClusterResponse({}));
+  }
+
+  /**
+   * 删除AI集群实例
+   * 
+   * @param request - DeleteAIDBClusterRequest
+   * @returns DeleteAIDBClusterResponse
+   */
+  async deleteAIDBCluster(request: $_model.DeleteAIDBClusterRequest): Promise<$_model.DeleteAIDBClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIDBClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a database account for a PolarDB cluster.
    * 
    * @remarks
@@ -3049,6 +3307,56 @@ export default class Client extends OpenApi {
   async deleteApplication(request: $_model.DeleteApplicationRequest): Promise<$_model.DeleteApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PolarDB应用终端地址
+   * 
+   * @param request - DeleteApplicationEndpointAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationEndpointAddressResponse
+   */
+  async deleteApplicationEndpointAddressWithOptions(request: $_model.DeleteApplicationEndpointAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationEndpointAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!$dara.isNull(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationEndpointAddress",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationEndpointAddressResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationEndpointAddressResponse({}));
+  }
+
+  /**
+   * 删除PolarDB应用终端地址
+   * 
+   * @param request - DeleteApplicationEndpointAddressRequest
+   * @returns DeleteApplicationEndpointAddressResponse
+   */
+  async deleteApplicationEndpointAddress(request: $_model.DeleteApplicationEndpointAddressRequest): Promise<$_model.DeleteApplicationEndpointAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationEndpointAddressWithOptions(request, runtime);
   }
 
   /**
@@ -4801,6 +5109,158 @@ export default class Client extends OpenApi {
   async describeActiveOperationTasks(request: $_model.DescribeActiveOperationTasksRequest): Promise<$_model.DescribeActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取应用详情
+   * 
+   * @param request - DescribeApplicationAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationAttributeResponse
+   */
+  async describeApplicationAttributeWithOptions(request: $_model.DescribeApplicationAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationAttributeResponse({}));
+  }
+
+  /**
+   * 获取应用详情
+   * 
+   * @param request - DescribeApplicationAttributeRequest
+   * @returns DescribeApplicationAttributeResponse
+   */
+  async describeApplicationAttribute(request: $_model.DescribeApplicationAttributeRequest): Promise<$_model.DescribeApplicationAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取应用组件参数
+   * 
+   * @param tmpReq - DescribeApplicationParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationParametersResponse
+   */
+  async describeApplicationParametersWithOptions(tmpReq: $_model.DescribeApplicationParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationParametersResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeApplicationParametersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.componentIdList)) {
+      request.componentIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.componentIdList, "ComponentIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.componentIdListShrink)) {
+      query["ComponentIdList"] = request.componentIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationParameters",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationParametersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationParametersResponse({}));
+  }
+
+  /**
+   * 获取应用组件参数
+   * 
+   * @param request - DescribeApplicationParametersRequest
+   * @returns DescribeApplicationParametersResponse
+   */
+  async describeApplicationParameters(request: $_model.DescribeApplicationParametersRequest): Promise<$_model.DescribeApplicationParametersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationParametersWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取当前地域所有PolarDB实例的应用列表
+   * 
+   * @param request - DescribeApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationsResponse
+   */
+  async describeApplicationsWithOptions(request: $_model.DescribeApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationIds)) {
+      query["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplications",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationsResponse({}));
+  }
+
+  /**
+   * 获取当前地域所有PolarDB实例的应用列表
+   * 
+   * @param request - DescribeApplicationsRequest
+   * @returns DescribeApplicationsResponse
+   */
+  async describeApplications(request: $_model.DescribeApplicationsRequest): Promise<$_model.DescribeApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationsWithOptions(request, runtime);
   }
 
   /**
@@ -12233,6 +12693,174 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTasks(request: $_model.ModifyActiveOperationTasksRequest): Promise<$_model.ModifyActiveOperationTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用描述
+   * 
+   * @param request - ModifyApplicationDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationDescriptionResponse
+   */
+  async modifyApplicationDescriptionWithOptions(request: $_model.ModifyApplicationDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationDescription",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationDescriptionResponse({}));
+  }
+
+  /**
+   * 修改应用描述
+   * 
+   * @param request - ModifyApplicationDescriptionRequest
+   * @returns ModifyApplicationDescriptionResponse
+   */
+  async modifyApplicationDescription(request: $_model.ModifyApplicationDescriptionRequest): Promise<$_model.ModifyApplicationDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改PolarDB应用参数
+   * 
+   * @param tmpReq - ModifyApplicationParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationParameterResponse
+   */
+  async modifyApplicationParameterWithOptions(tmpReq: $_model.ModifyApplicationParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationParameterResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyApplicationParameterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.parameterName)) {
+      query["ParameterName"] = request.parameterName;
+    }
+
+    if (!$dara.isNull(request.parameterValue)) {
+      query["ParameterValue"] = request.parameterValue;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationParameter",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationParameterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationParameterResponse({}));
+  }
+
+  /**
+   * 修改PolarDB应用参数
+   * 
+   * @param request - ModifyApplicationParameterRequest
+   * @returns ModifyApplicationParameterResponse
+   */
+  async modifyApplicationParameter(request: $_model.ModifyApplicationParameterRequest): Promise<$_model.ModifyApplicationParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用白名单
+   * 
+   * @param request - ModifyApplicationWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationWhitelistResponse
+   */
+  async modifyApplicationWhitelistWithOptions(request: $_model.ModifyApplicationWhitelistRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationWhitelistResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.componentId)) {
+      query["ComponentId"] = request.componentId;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.securityGroups)) {
+      query["SecurityGroups"] = request.securityGroups;
+    }
+
+    if (!$dara.isNull(request.securityIPArrayName)) {
+      query["SecurityIPArrayName"] = request.securityIPArrayName;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationWhitelist",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationWhitelistResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationWhitelistResponse({}));
+  }
+
+  /**
+   * 修改应用白名单
+   * 
+   * @param request - ModifyApplicationWhitelistRequest
+   * @returns ModifyApplicationWhitelistResponse
+   */
+  async modifyApplicationWhitelist(request: $_model.ModifyApplicationWhitelistRequest): Promise<$_model.ModifyApplicationWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationWhitelistWithOptions(request, runtime);
   }
 
   /**
