@@ -275,6 +275,9 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
    * WEEKLY
    */
   advancedRetentionType?: string;
+  archiveErrorMessage?: string;
+  archiveStatus?: string;
+  archiveTriggerTime?: number;
   /**
    * @remarks
    * The backup type. Valid value: **COMPLETE**, which indicates full backup.
@@ -497,6 +500,9 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
     return {
       actualBytes: 'ActualBytes',
       advancedRetentionType: 'AdvancedRetentionType',
+      archiveErrorMessage: 'ArchiveErrorMessage',
+      archiveStatus: 'ArchiveStatus',
+      archiveTriggerTime: 'ArchiveTriggerTime',
       backupType: 'BackupType',
       bytesTotal: 'BytesTotal',
       canBeDeleted: 'CanBeDeleted',
@@ -527,6 +533,9 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
     return {
       actualBytes: 'string',
       advancedRetentionType: 'string',
+      archiveErrorMessage: 'string',
+      archiveStatus: 'string',
+      archiveTriggerTime: 'number',
       backupType: 'string',
       bytesTotal: 'number',
       canBeDeleted: 'boolean',
