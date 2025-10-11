@@ -947,6 +947,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * deepfake文件流api
+   * 
+   * @param request - DeepfakeDetectIntlStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeepfakeDetectIntlStreamResponse
+   */
+  async deepfakeDetectIntlStreamWithOptions(request: $_model.DeepfakeDetectIntlStreamRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeepfakeDetectIntlStreamResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faceBase64)) {
+      body["FaceBase64"] = request.faceBase64;
+    }
+
+    if (!$dara.isNull(request.faceFile)) {
+      body["FaceFile"] = request.faceFile;
+    }
+
+    if (!$dara.isNull(request.faceInputType)) {
+      body["FaceInputType"] = request.faceInputType;
+    }
+
+    if (!$dara.isNull(request.faceUrl)) {
+      body["FaceUrl"] = request.faceUrl;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      body["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneCode)) {
+      body["SceneCode"] = request.sceneCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeepfakeDetectIntlStream",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeepfakeDetectIntlStreamResponse>(await this.callApi(params, req, runtime), new $_model.DeepfakeDetectIntlStreamResponse({}));
+  }
+
+  /**
+   * deepfake文件流api
+   * 
+   * @param request - DeepfakeDetectIntlStreamRequest
+   * @returns DeepfakeDetectIntlStreamResponse
+   */
+  async deepfakeDetectIntlStream(request: $_model.DeepfakeDetectIntlStreamRequest): Promise<$_model.DeepfakeDetectIntlStreamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deepfakeDetectIntlStreamWithOptions(request, runtime);
+  }
+
+  async deepfakeDetectIntlStreamAdvance(request: $_model.DeepfakeDetectIntlStreamAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeepfakeDetectIntlStreamResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let deepfakeDetectIntlStreamReq = new $_model.DeepfakeDetectIntlStreamRequest({ });
+    OpenApiUtil.convert(request, deepfakeDetectIntlStreamReq);
+    if (!$dara.isNull(request.faceFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.faceFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      deepfakeDetectIntlStreamReq.faceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let deepfakeDetectIntlStreamResp = await this.deepfakeDetectIntlStreamWithOptions(deepfakeDetectIntlStreamReq, runtime);
+    return deepfakeDetectIntlStreamResp;
+  }
+
+  /**
    * Delete Face Group
    * 
    * @param request - DeleteFaceGroupRequest
