@@ -58,6 +58,11 @@ export class ListQuotasRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @example
+   * 1.0
+   */
+  versions?: string;
+  /**
+   * @example
    * 21345,38727
    */
   workspaceIds?: string;
@@ -77,6 +82,7 @@ export class ListQuotasRequest extends $dara.Model {
       sortBy: 'SortBy',
       statuses: 'Statuses',
       verbose: 'Verbose',
+      versions: 'Versions',
       workspaceIds: 'WorkspaceIds',
       workspaceName: 'WorkspaceName',
     };
@@ -97,6 +103,7 @@ export class ListQuotasRequest extends $dara.Model {
       sortBy: 'string',
       statuses: 'string',
       verbose: 'boolean',
+      versions: 'string',
       workspaceIds: 'string',
       workspaceName: 'string',
     };

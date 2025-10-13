@@ -95,6 +95,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
   supportRDMA?: boolean;
   tags?: GetResourceGroupResponseBodyTags[];
   userVpc?: UserVpc;
+  version?: string;
   /**
    * @example
    * 35201
@@ -115,6 +116,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
       supportRDMA: 'SupportRDMA',
       tags: 'Tags',
       userVpc: 'UserVpc',
+      version: 'Version',
       workspaceID: 'WorkspaceID',
     };
   }
@@ -134,6 +136,7 @@ export class GetResourceGroupResponseBody extends $dara.Model {
       supportRDMA: 'boolean',
       tags: { 'type': 'array', 'itemType': GetResourceGroupResponseBodyTags },
       userVpc: UserVpc,
+      version: 'string',
       workspaceID: 'string',
     };
   }

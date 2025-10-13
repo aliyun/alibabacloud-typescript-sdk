@@ -9,6 +9,7 @@ export class ListNodesRequest extends $dara.Model {
    */
   acceleratorType?: string;
   availabilityZone?: string;
+  cliqueID?: string;
   /**
    * @example
    * quotamtl37ge7gkvdz
@@ -24,6 +25,7 @@ export class ListNodesRequest extends $dara.Model {
    * T4
    */
   GPUType?: string;
+  hyperNode?: string;
   hyperZone?: string;
   machineGroupIds?: string;
   /**
@@ -46,6 +48,11 @@ export class ListNodesRequest extends $dara.Model {
    * desc
    */
   order?: string;
+  /**
+   * @example
+   * 260590501560397
+   */
+  orderInstanceIds?: string;
   /**
    * @example
    * Ready
@@ -87,15 +94,18 @@ export class ListNodesRequest extends $dara.Model {
     return {
       acceleratorType: 'AcceleratorType',
       availabilityZone: 'AvailabilityZone',
+      cliqueID: 'CliqueID',
       filterByQuotaId: 'FilterByQuotaId',
       filterByResourceGroupIds: 'FilterByResourceGroupIds',
       GPUType: 'GPUType',
+      hyperNode: 'HyperNode',
       hyperZone: 'HyperZone',
       machineGroupIds: 'MachineGroupIds',
       nodeNames: 'NodeNames',
       nodeStatuses: 'NodeStatuses',
       nodeTypes: 'NodeTypes',
       order: 'Order',
+      orderInstanceIds: 'OrderInstanceIds',
       orderStatuses: 'OrderStatuses',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -112,15 +122,18 @@ export class ListNodesRequest extends $dara.Model {
     return {
       acceleratorType: 'string',
       availabilityZone: 'string',
+      cliqueID: 'string',
       filterByQuotaId: 'string',
       filterByResourceGroupIds: 'string',
       GPUType: 'string',
+      hyperNode: 'string',
       hyperZone: 'string',
       machineGroupIds: 'string',
       nodeNames: 'string',
       nodeStatuses: 'string',
       nodeTypes: 'string',
       order: 'string',
+      orderInstanceIds: 'string',
       orderStatuses: 'string',
       pageNumber: 'number',
       pageSize: 'number',

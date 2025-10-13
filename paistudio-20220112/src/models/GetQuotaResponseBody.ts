@@ -34,6 +34,7 @@ export class GetQuotaResponseBody extends $dara.Model {
    * 2023-06-22T00:00:00Z
    */
   gmtModifiedTime?: string;
+  hyperZones?: string[];
   labels?: Label[];
   /**
    * @example
@@ -93,6 +94,11 @@ export class GetQuotaResponseBody extends $dara.Model {
    */
   status?: string;
   subQuotas?: QuotaIdName[];
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
   workspaces?: WorkspaceIdName[];
   static names(): { [key: string]: string } {
     return {
@@ -101,6 +107,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       description: 'Description',
       gmtCreatedTime: 'GmtCreatedTime',
       gmtModifiedTime: 'GmtModifiedTime',
+      hyperZones: 'HyperZones',
       labels: 'Labels',
       latestOperationId: 'LatestOperationId',
       min: 'Min',
@@ -117,6 +124,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       subQuotas: 'SubQuotas',
+      version: 'Version',
       workspaces: 'Workspaces',
     };
   }
@@ -128,6 +136,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       description: 'string',
       gmtCreatedTime: 'string',
       gmtModifiedTime: 'string',
+      hyperZones: { 'type': 'array', 'itemType': 'string' },
       labels: { 'type': 'array', 'itemType': Label },
       latestOperationId: 'string',
       min: ResourceSpec,
@@ -144,11 +153,15 @@ export class GetQuotaResponseBody extends $dara.Model {
       resourceType: 'string',
       status: 'string',
       subQuotas: { 'type': 'array', 'itemType': QuotaIdName },
+      version: 'string',
       workspaces: { 'type': 'array', 'itemType': WorkspaceIdName },
     };
   }
 
   validate() {
+    if(Array.isArray(this.hyperZones)) {
+      $dara.Model.validateArray(this.hyperZones);
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

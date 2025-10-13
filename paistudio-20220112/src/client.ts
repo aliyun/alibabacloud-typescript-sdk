@@ -351,6 +351,10 @@ export default class Client extends OpenApi {
       body["UserVpc"] = request.userVpc;
     }
 
+    if (!$dara.isNull(request.version)) {
+      body["Version"] = request.version;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1672,6 +1676,10 @@ export default class Client extends OpenApi {
       query["AvailabilityZone"] = request.availabilityZone;
     }
 
+    if (!$dara.isNull(request.cliqueID)) {
+      query["CliqueID"] = request.cliqueID;
+    }
+
     if (!$dara.isNull(request.filterByQuotaId)) {
       query["FilterByQuotaId"] = request.filterByQuotaId;
     }
@@ -1682,6 +1690,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.GPUType)) {
       query["GPUType"] = request.GPUType;
+    }
+
+    if (!$dara.isNull(request.hyperNode)) {
+      query["HyperNode"] = request.hyperNode;
     }
 
     if (!$dara.isNull(request.hyperZone)) {
@@ -1706,6 +1718,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderInstanceIds)) {
+      query["OrderInstanceIds"] = request.orderInstanceIds;
     }
 
     if (!$dara.isNull(request.orderStatuses)) {
@@ -1954,6 +1970,10 @@ export default class Client extends OpenApi {
       query["Verbose"] = request.verbose;
     }
 
+    if (!$dara.isNull(request.versions)) {
+      query["Versions"] = request.versions;
+    }
+
     if (!$dara.isNull(request.workspaceIds)) {
       query["WorkspaceIds"] = request.workspaceIds;
     }
@@ -2138,6 +2158,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.versions)) {
+      query["Versions"] = request.versions;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

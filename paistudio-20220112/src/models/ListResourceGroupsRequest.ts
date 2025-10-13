@@ -50,6 +50,11 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * Creating
    */
   status?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  versions?: string;
   static names(): { [key: string]: string } {
     return {
       computingResourceProvider: 'ComputingResourceProvider',
@@ -63,6 +68,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
       showAll: 'ShowAll',
       sortBy: 'SortBy',
       status: 'Status',
+      versions: 'Versions',
     };
   }
 
@@ -79,6 +85,7 @@ export class ListResourceGroupsRequest extends $dara.Model {
       showAll: 'boolean',
       sortBy: 'string',
       status: 'string',
+      versions: 'string',
     };
   }
 

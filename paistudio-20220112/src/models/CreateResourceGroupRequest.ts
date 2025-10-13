@@ -60,6 +60,11 @@ export class CreateResourceGroupRequest extends $dara.Model {
   resourceType?: string;
   tag?: CreateResourceGroupRequestTag[];
   userVpc?: UserVpc;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       computingResourceProvider: 'ComputingResourceProvider',
@@ -68,6 +73,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       resourceType: 'ResourceType',
       tag: 'Tag',
       userVpc: 'UserVpc',
+      version: 'Version',
     };
   }
 
@@ -79,6 +85,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': CreateResourceGroupRequestTag },
       userVpc: UserVpc,
+      version: 'string',
     };
   }
 

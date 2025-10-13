@@ -14,6 +14,7 @@ export class Quota extends $dara.Model {
   description?: string;
   gmtCreatedTime?: string;
   gmtModifiedTime?: string;
+  hyperZones?: string[];
   labels?: Label[];
   latestOperationId?: string;
   min?: ResourceSpec;
@@ -37,6 +38,7 @@ export class Quota extends $dara.Model {
   resourceType?: string;
   status?: string;
   subQuotas?: QuotaIdName[];
+  version?: string;
   workspaces?: WorkspaceIdName[];
   static names(): { [key: string]: string } {
     return {
@@ -45,6 +47,7 @@ export class Quota extends $dara.Model {
       description: 'Description',
       gmtCreatedTime: 'GmtCreatedTime',
       gmtModifiedTime: 'GmtModifiedTime',
+      hyperZones: 'HyperZones',
       labels: 'Labels',
       latestOperationId: 'LatestOperationId',
       min: 'Min',
@@ -60,6 +63,7 @@ export class Quota extends $dara.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       subQuotas: 'SubQuotas',
+      version: 'Version',
       workspaces: 'Workspaces',
     };
   }
@@ -71,6 +75,7 @@ export class Quota extends $dara.Model {
       description: 'string',
       gmtCreatedTime: 'string',
       gmtModifiedTime: 'string',
+      hyperZones: { 'type': 'array', 'itemType': 'string' },
       labels: { 'type': 'array', 'itemType': Label },
       latestOperationId: 'string',
       min: ResourceSpec,
@@ -86,11 +91,15 @@ export class Quota extends $dara.Model {
       resourceType: 'string',
       status: 'string',
       subQuotas: { 'type': 'array', 'itemType': QuotaIdName },
+      version: 'string',
       workspaces: { 'type': 'array', 'itemType': WorkspaceIdName },
     };
   }
 
   validate() {
+    if(Array.isArray(this.hyperZones)) {
+      $dara.Model.validateArray(this.hyperZones);
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

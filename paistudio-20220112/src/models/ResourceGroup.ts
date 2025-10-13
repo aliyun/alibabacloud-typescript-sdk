@@ -19,6 +19,7 @@ export class ResourceGroup extends $dara.Model {
    */
   resourceGroupID?: string;
   userVpc?: UserVpc;
+  version?: string;
   /**
    * @example
    * 23000
@@ -33,6 +34,7 @@ export class ResourceGroup extends $dara.Model {
       nodeCount: 'NodeCount',
       resourceGroupID: 'ResourceGroupID',
       userVpc: 'UserVpc',
+      version: 'Version',
       workspaceID: 'WorkspaceID',
     };
   }
@@ -46,6 +48,7 @@ export class ResourceGroup extends $dara.Model {
       nodeCount: 'number',
       resourceGroupID: 'string',
       userVpc: UserVpc,
+      version: 'string',
       workspaceID: 'string',
     };
   }
