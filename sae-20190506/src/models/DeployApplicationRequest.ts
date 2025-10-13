@@ -21,6 +21,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * cri-xxxxxx
    */
   acrInstanceId?: string;
+  albIngressReadinessGate?: string;
   /**
    * @remarks
    * The ID of the application.
@@ -885,6 +886,7 @@ export class DeployApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
       acrInstanceId: 'AcrInstanceId',
+      albIngressReadinessGate: 'AlbIngressReadinessGate',
       appId: 'AppId',
       associateEip: 'AssociateEip',
       autoEnableApplicationScalingRule: 'AutoEnableApplicationScalingRule',
@@ -967,6 +969,7 @@ export class DeployApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'string',
       acrInstanceId: 'string',
+      albIngressReadinessGate: 'string',
       appId: 'string',
       associateEip: 'boolean',
       autoEnableApplicationScalingRule: 'boolean',

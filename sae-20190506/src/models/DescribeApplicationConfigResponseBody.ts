@@ -755,6 +755,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * cri-xxxxxx
    */
   acrInstanceId?: string;
+  albIngressReadinessGate?: string;
   /**
    * @remarks
    * The description of the application.
@@ -1615,6 +1616,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
       acrInstanceId: 'AcrInstanceId',
+      albIngressReadinessGate: 'AlbIngressReadinessGate',
       appDescription: 'AppDescription',
       appId: 'AppId',
       appName: 'AppName',
@@ -1713,6 +1715,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
     return {
       acrAssumeRoleArn: 'string',
       acrInstanceId: 'string',
+      albIngressReadinessGate: 'string',
       appDescription: 'string',
       appId: 'string',
       appName: 'string',

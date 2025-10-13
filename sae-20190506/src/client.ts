@@ -2536,6 +2536,10 @@ export default class Client extends OpenApi {
       query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn;
     }
 
+    if (!$dara.isNull(request.albIngressReadinessGate)) {
+      query["AlbIngressReadinessGate"] = request.albIngressReadinessGate;
+    }
+
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
     }
