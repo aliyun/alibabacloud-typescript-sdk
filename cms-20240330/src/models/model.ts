@@ -1,4 +1,5 @@
 export { AddonMetaDashboards } from './AddonMeta';
+export { AddonMetaEnvironmentsCommonSchemaRefs } from './AddonMeta';
 export { AddonMetaEnvironmentsDependencies } from './AddonMeta';
 export { AddonMetaEnvironmentsPoliciesBindEntity } from './AddonMeta';
 export { AddonMetaEnvironmentsPoliciesMetricCheckRule } from './AddonMeta';

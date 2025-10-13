@@ -13,6 +13,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
    * na61prod3-na61cloudhdfsssd
    */
   clusterId?: string;
+  disablePolicyShare?: boolean;
   /**
    * @example
    * eg-b79f65d11fb94e779867cf937c3a3002
@@ -27,6 +28,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
     return {
       clusterEntityType: 'clusterEntityType',
       clusterId: 'clusterId',
+      disablePolicyShare: 'disablePolicyShare',
       entityGroupId: 'entityGroupId',
       vpcId: 'vpcId',
     };
@@ -36,6 +38,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
     return {
       clusterEntityType: 'string',
       clusterId: 'string',
+      disablePolicyShare: 'boolean',
       entityGroupId: 'string',
       vpcId: 'string',
     };

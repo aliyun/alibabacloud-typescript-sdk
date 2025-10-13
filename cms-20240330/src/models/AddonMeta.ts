@@ -33,6 +33,32 @@ export class AddonMetaDashboards extends $dara.Model {
   }
 }
 
+export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
+  group?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      group: 'group',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddonMetaEnvironmentsDependencies extends $dara.Model {
   clusterTypes?: string[];
   features?: { [key: string]: boolean };
@@ -218,6 +244,7 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
 }
 
 export class AddonMetaEnvironments extends $dara.Model {
+  commonSchemaRefs?: AddonMetaEnvironmentsCommonSchemaRefs[];
   dependencies?: AddonMetaEnvironmentsDependencies;
   description?: string;
   enable?: boolean;
@@ -227,6 +254,7 @@ export class AddonMetaEnvironments extends $dara.Model {
   policyType?: string;
   static names(): { [key: string]: string } {
     return {
+      commonSchemaRefs: 'commonSchemaRefs',
       dependencies: 'dependencies',
       description: 'description',
       enable: 'enable',
@@ -239,6 +267,7 @@ export class AddonMetaEnvironments extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      commonSchemaRefs: { 'type': 'array', 'itemType': AddonMetaEnvironmentsCommonSchemaRefs },
       dependencies: AddonMetaEnvironmentsDependencies,
       description: 'string',
       enable: 'boolean',
@@ -250,6 +279,9 @@ export class AddonMetaEnvironments extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.commonSchemaRefs)) {
+      $dara.Model.validateArray(this.commonSchemaRefs);
+    }
     if(this.dependencies && typeof (this.dependencies as any).validate === 'function') {
       (this.dependencies as any).validate();
     }
