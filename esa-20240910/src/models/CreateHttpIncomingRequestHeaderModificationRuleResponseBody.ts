@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateHttpIncomingRequestHeaderModificationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C414690-9D7B-5D66-9CD9-AD0B3F25ED49
    */

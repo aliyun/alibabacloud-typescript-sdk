@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRoutineRoutesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Maximum value: 500. Default value: 500.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The function name.
+   * 
    * This parameter is required.
    * 
    * @example

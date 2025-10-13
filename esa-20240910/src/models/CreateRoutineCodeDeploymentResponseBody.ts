@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.Model {
   /**
+   * @remarks
+   * The version of the code.
+   * 
    * @example
    * 1723599747213377175
    */
   codeVersion?: string;
   /**
+   * @remarks
+   * The phased release ratio.
+   * 
    * @example
    * 100
    */
@@ -37,18 +43,31 @@ export class CreateRoutineCodeDeploymentResponseBodyCodeVersions extends $dara.M
 }
 
 export class CreateRoutineCodeDeploymentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration list of the phased release version number.
+   */
   codeVersions?: CreateRoutineCodeDeploymentResponseBodyCodeVersions[];
   /**
+   * @remarks
+   * The deployment record ID.
+   * 
    * @example
    * 234
    */
   deploymentId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   /**
+   * @remarks
+   * The phased release policy. The constant string is "percentage".
+   * 
    * @example
    * percentage
    */

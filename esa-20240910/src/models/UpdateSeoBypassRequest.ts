@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSeoBypassRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the feature. Valid values:
+   * 
+   * *   **on:**
+   * *   **off**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class UpdateSeoBypassRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

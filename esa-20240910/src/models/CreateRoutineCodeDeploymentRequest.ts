@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model {
   /**
    * @remarks
+   * The version of the code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model 
   codeVersion?: string;
   /**
    * @remarks
+   * The phased release ratio of the code version. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +49,15 @@ export class CreateRoutineCodeDeploymentRequestCodeVersions extends $dara.Model 
 export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
+   * 
    * This parameter is required.
    */
   codeVersions?: CreateRoutineCodeDeploymentRequestCodeVersions[];
   /**
    * @remarks
+   * The name of the environment. Only supports test environment `staging` or production environment `production`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +66,8 @@ export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The function name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +76,8 @@ export class CreateRoutineCodeDeploymentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The deployment policy. Valid value: percentage.
+   * 
    * This parameter is required.
    * 
    * @example

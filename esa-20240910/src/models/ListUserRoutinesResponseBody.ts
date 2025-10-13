@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the function was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:02.883361712Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The default record name to access.
+   * 
+   * @example
+   * serverless-test-2.154edaf6.er.aliyun-esa.net
+   */
   defaultRelatedRecord?: string;
+  /**
+   * @remarks
+   * The function description.
+   * 
+   * @example
+   * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg==
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the Assets file tag.
+   * 
+   * @example
+   * false
+   */
   hasAssets?: boolean;
+  /**
+   * @remarks
+   * The function name.
+   * 
+   * @example
+   * hello
+   */
   routineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,16 +73,58 @@ export class ListUserRoutinesResponseBodyRoutines extends $dara.Model {
 }
 
 export class ListUserRoutinesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The maximum number of functions supported by the billing plan.
+   * 
+   * @example
+   * 20
+   */
   quotaRoutineNumber?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 1234567890ABCDEF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The functions.
+   */
   routines?: ListUserRoutinesResponseBodyRoutines[];
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 3
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of functions that were already created.
+   * 
+   * @example
+   * 5
+   */
   usedRoutineNumber?: number;
   static names(): { [key: string]: string } {
     return {

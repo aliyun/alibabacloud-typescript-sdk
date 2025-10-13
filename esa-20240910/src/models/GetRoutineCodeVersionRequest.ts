@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineCodeVersionRequest extends $dara.Model {
   /**
    * @remarks
+   * The code version.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1710120201067203242
    */
   codeVersion?: string;
   /**
    * @remarks
+   * The routine name.
+   * 
    * This parameter is required.
    * 
    * @example

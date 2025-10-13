@@ -26,6 +26,8 @@ export class ListWafRulesShrinkRequest extends $dara.Model {
    * - http_anti_scan: Scan protection
    * - http_bot: Bots
    * 
+   * This parameter is required.
+   * 
    * @example
    * http_custom
    */

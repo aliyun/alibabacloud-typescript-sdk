@@ -40,6 +40,9 @@ export class DescribeEdgeContainerAppStatsRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * t-xxxx
    */

@@ -4,46 +4,84 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateRoutineRouteRequest extends $dara.Model {
   /**
+   * @remarks
+   * Bypass mode. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   bypass?: string;
   /**
    * @remarks
+   * The ID of the configuration.
+   * 
    * This parameter is required.
    * 
    * @example
    * 35281609698****
    */
   configId?: number;
+  /**
+   * @remarks
+   * The exception origin switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent to the origin. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   fallback?: string;
   /**
+   * @remarks
+   * The routing switch. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   routeEnable?: string;
   /**
+   * @remarks
+   * The name of the route.
+   * 
    * @example
    * test_route
    */
   routeName?: string;
   /**
+   * @remarks
+   * The name of the function.
+   * 
    * @example
    * test-routine1
    */
   routineName?: string;
   /**
+   * @remarks
+   * The content of the rule.
+   * 
    * @example
    * (http.host eq \\"video.example.com\\")
    */
   rule?: string;
   /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
    * @example
    * 1
    */
   sequence?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

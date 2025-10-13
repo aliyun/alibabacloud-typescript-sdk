@@ -50,7 +50,10 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. Valid values:
+   * 
+   * *   China site (aliyun.com): cn-hangzhou
+   * *   International site (alibabacloud.com): ap-southeast-1
    * 
    * This parameter is required.
    * 
@@ -60,14 +63,17 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of resource. Valid values of N: **1** to **50**.
+   * The resource ID. Enter a website ID or DNS record ID.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type, which can only be **site**.
+   * The type of the resource. Valid values:
+   * 
+   * *   Site: **site**
+   * *   DNS records: **record**
    * 
    * This parameter is required.
    * 

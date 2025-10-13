@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVideoProcessingRequest extends $dara.Model {
   /**
    * @remarks
+   * The configuration ID. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteVideoProcessingRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

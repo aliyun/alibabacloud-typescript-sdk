@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the function.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,25 @@ export class ListRoutineRelatedRecordsRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The page number of the returned page. Default value: 1
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: an integer from 1 to 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The keyword used for fuzzy search.
+   * 
    * @example
    * hello
    */

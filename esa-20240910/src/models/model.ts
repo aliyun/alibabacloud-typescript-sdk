@@ -1,5 +1,8 @@
 export { WafBatchRuleSharedActionsResponse } from './WafBatchRuleShared';
 export { WafBatchRuleSharedActions } from './WafBatchRuleShared';
+export { WafRatelimitCharacteristicsCriteriaCriteriaCriteria } from './WafRatelimitCharacteristics';
+export { WafRatelimitCharacteristicsCriteriaCriteria } from './WafRatelimitCharacteristics';
+export { WafRatelimitCharacteristicsCriteria } from './WafRatelimitCharacteristics';
 export { WafRuleConfigActionsBypass } from './WafRuleConfig';
 export { WafRuleConfigActionsResponse } from './WafRuleConfig';
 export { WafRuleConfigActions } from './WafRuleConfig';
@@ -286,6 +289,7 @@ export { UpdateWaitingRoomRequestHostNameAndPath } from './UpdateWaitingRoomRequ
 export { WafBatchRuleShared } from './WafBatchRuleShared';
 export { WafQuotaInteger } from './WafQuotaInteger';
 export { WafQuotaString } from './WafQuotaString';
+export { WafRatelimitCharacteristics } from './WafRatelimitCharacteristics';
 export { WafRuleConfig } from './WafRuleConfig';
 export { WafRuleMatch } from './WafRuleMatch';
 export { WafRuleMatch2 } from './WafRuleMatch2';

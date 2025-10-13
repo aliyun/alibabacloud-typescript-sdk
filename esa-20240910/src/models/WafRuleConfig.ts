@@ -1,7 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { WafTimer } from "./WafTimer";
-import { WafRuleMatch2 } from "./WafRuleMatch2";
+import { WafRatelimitCharacteristics } from "./WafRatelimitCharacteristics";
 
 
 export class WafRuleConfigActionsBypass extends $dara.Model {
@@ -360,7 +360,7 @@ export class WafRuleConfigRateLimitThreshold extends $dara.Model {
 }
 
 export class WafRuleConfigRateLimit extends $dara.Model {
-  characteristics?: WafRuleMatch2;
+  characteristics?: WafRatelimitCharacteristics;
   interval?: number;
   onHit?: boolean;
   TTL?: number;
@@ -377,7 +377,7 @@ export class WafRuleConfigRateLimit extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      characteristics: WafRuleMatch2,
+      characteristics: WafRatelimitCharacteristics,
       interval: 'number',
       onHit: 'boolean',
       TTL: 'number',

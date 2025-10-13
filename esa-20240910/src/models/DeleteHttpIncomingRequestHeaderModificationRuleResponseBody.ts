@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteHttpIncomingRequestHeaderModificationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D248E
    */

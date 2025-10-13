@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListESAIPInfoResponseBodyContent extends $dara.Model {
   /**
+   * @remarks
+   * Whether the IP address in the parameter belongs to ESA POPs.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   cdnIp?: string;
   /**
+   * @remarks
+   * The IP addresses.
+   * 
    * @example
    * 27.129.167.239
    */
@@ -37,8 +46,17 @@ export class ListESAIPInfoResponseBodyContent extends $dara.Model {
 }
 
 export class ListESAIPInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The objects that are returned.
+   */
   content?: ListESAIPInfoResponseBodyContent[];
   /**
+   * @remarks
+   * The request ID.
+   * 
+   * Example D03F9502-6653-127C-8A5F-0647197\\*\\*\\*\\*\\*
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

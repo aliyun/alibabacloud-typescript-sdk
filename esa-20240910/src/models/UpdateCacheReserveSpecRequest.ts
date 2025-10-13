@@ -5,23 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCacheReserveSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto payment.
+   * Automatic payment.
    * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * Billing type. Valid values:
+   * - PREPAY
+   * - POSTPAY
+   * 
    * @example
    * PREPAY
    */
   chargeType?: string;
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * esa-cr-9tuv*********
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Cache requested size, in GB.
+   * 
    * @example
    * 1000
    */

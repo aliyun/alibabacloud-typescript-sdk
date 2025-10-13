@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUrlObservationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */

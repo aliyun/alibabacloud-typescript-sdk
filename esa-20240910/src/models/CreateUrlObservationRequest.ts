@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUrlObservationRequest extends $dara.Model {
   /**
    * @remarks
+   * SDK integration. Supported
+   * 
+   * *   **automatic**
+   * *   **manual**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +18,8 @@ export class CreateUrlObservationRequest extends $dara.Model {
   sdkType?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +28,8 @@ export class CreateUrlObservationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
+   * The URL of the web page to monitor.
+   * 
    * This parameter is required.
    * 
    * @example

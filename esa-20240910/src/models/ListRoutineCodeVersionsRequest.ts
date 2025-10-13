@@ -5,14 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineCodeVersionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The function name.
+   * 
    * This parameter is required.
    * 
    * @example
    * ListRoutineCodeVersions
    */
   name?: string;
+  /**
+   * @remarks
+   * The page number of the returned page. Default value: 1. Valid values: 1 and 2.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The keyword used for fuzzy search.
+   * 
+   * @example
+   * hello
+   */
   searchKeyWord?: string;
   static names(): { [key: string]: string } {
     return {
