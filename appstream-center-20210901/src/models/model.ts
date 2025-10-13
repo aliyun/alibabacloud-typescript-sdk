@@ -16,6 +16,7 @@ export { CreateAppInstanceGroupResponseBodyAppInstanceGroupModel } from './Creat
 export { CreateWuyingServerRequestDataDisk } from './CreateWuyingServerRequest';
 export { CreateWuyingServerResponseBodyData } from './CreateWuyingServerResponseBody';
 export { DeleteAppInstancesResponseBodyDeleteAppInstanceModels } from './DeleteAppInstancesResponseBody';
+export { DescribeWuyingServerEipInfoResponseBodyEipInfoModel } from './DescribeWuyingServerEipInfoResponseBody';
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules } from './GetAppInstanceGroupResponseBody';
@@ -104,6 +105,9 @@ export { DeleteAppInstancesResponse } from './DeleteAppInstancesResponse';
 export { DeleteWuyingServerRequest } from './DeleteWuyingServerRequest';
 export { DeleteWuyingServerResponseBody } from './DeleteWuyingServerResponseBody';
 export { DeleteWuyingServerResponse } from './DeleteWuyingServerResponse';
+export { DescribeWuyingServerEipInfoRequest } from './DescribeWuyingServerEipInfoRequest';
+export { DescribeWuyingServerEipInfoResponseBody } from './DescribeWuyingServerEipInfoResponseBody';
+export { DescribeWuyingServerEipInfoResponse } from './DescribeWuyingServerEipInfoResponse';
 export { GetAppInstanceGroupRequest } from './GetAppInstanceGroupRequest';
 export { GetAppInstanceGroupResponseBody } from './GetAppInstanceGroupResponseBody';
 export { GetAppInstanceGroupResponse } from './GetAppInstanceGroupResponse';

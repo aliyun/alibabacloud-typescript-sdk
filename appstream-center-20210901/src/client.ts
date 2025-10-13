@@ -426,6 +426,10 @@ export default class Client extends OpenApi {
       body["AutoRenew"] = request.autoRenew;
     }
 
+    if (!$dara.isNull(request.bandwidth)) {
+      body["Bandwidth"] = request.bandwidth;
+    }
+
     if (!$dara.isNull(request.bizRegionId)) {
       body["BizRegionId"] = request.bizRegionId;
     }
@@ -445,6 +449,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.networkStrategyType)) {
+      body["NetworkStrategyType"] = request.networkStrategyType;
     }
 
     if (!$dara.isNull(request.officeSiteId)) {
@@ -675,6 +683,52 @@ export default class Client extends OpenApi {
   async deleteWuyingServer(request: $_model.DeleteWuyingServerRequest): Promise<$_model.DeleteWuyingServerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询无影工作站EIP信息
+   * 
+   * @param request - DescribeWuyingServerEipInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWuyingServerEipInfoResponse
+   */
+  async describeWuyingServerEipInfoWithOptions(request: $_model.DescribeWuyingServerEipInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWuyingServerEipInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isp)) {
+      body["Isp"] = request.isp;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWuyingServerEipInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWuyingServerEipInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWuyingServerEipInfoResponse({}));
+  }
+
+  /**
+   * 查询无影工作站EIP信息
+   * 
+   * @param request - DescribeWuyingServerEipInfoRequest
+   * @returns DescribeWuyingServerEipInfoResponse
+   */
+  async describeWuyingServerEipInfo(request: $_model.DescribeWuyingServerEipInfoRequest): Promise<$_model.DescribeWuyingServerEipInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeWuyingServerEipInfoWithOptions(request, runtime);
   }
 
   /**

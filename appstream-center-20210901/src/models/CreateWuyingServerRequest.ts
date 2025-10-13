@@ -59,6 +59,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * false
    */
   autoRenew?: boolean;
+  bandwidth?: number;
   /**
    * @example
    * cn-hangzhou
@@ -80,6 +81,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * img-bp13mu****
    */
   imageId?: string;
+  networkStrategyType?: string;
   /**
    * @example
    * cn-hangzhou+dir-643067****
@@ -137,11 +139,13 @@ export class CreateWuyingServerRequest extends $dara.Model {
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      bandwidth: 'Bandwidth',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       dataDisk: 'DataDisk',
       idempotenceToken: 'IdempotenceToken',
       imageId: 'ImageId',
+      networkStrategyType: 'NetworkStrategyType',
       officeSiteId: 'OfficeSiteId',
       password: 'Password',
       period: 'Period',
@@ -162,11 +166,13 @@ export class CreateWuyingServerRequest extends $dara.Model {
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
+      bandwidth: 'number',
       bizRegionId: 'string',
       chargeType: 'string',
       dataDisk: { 'type': 'array', 'itemType': CreateWuyingServerRequestDataDisk },
       idempotenceToken: 'string',
       imageId: 'string',
+      networkStrategyType: 'string',
       officeSiteId: 'string',
       password: 'string',
       period: 'number',
