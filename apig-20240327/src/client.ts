@@ -618,6 +618,10 @@ export default class Client extends OpenApi {
       body["chargeType"] = request.chargeType;
     }
 
+    if (!$dara.isNull(request.gatewayEdition)) {
+      body["gatewayEdition"] = request.gatewayEdition;
+    }
+
     if (!$dara.isNull(request.gatewayType)) {
       body["gatewayType"] = request.gatewayType;
     }
@@ -721,6 +725,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableAuth)) {
       body["enableAuth"] = request.enableAuth;
+    }
+
+    if (!$dara.isNull(request.firstByteTimeout)) {
+      body["firstByteTimeout"] = request.firstByteTimeout;
     }
 
     if (!$dara.isNull(request.ingressConfig)) {
@@ -901,6 +909,91 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createHttpApiRouteWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * 创建MCP server
+   * 
+   * @param request - CreateMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcpServerResponse
+   */
+  async createMcpServerWithOptions(request: $_model.CreateMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcpServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assembledSources)) {
+      body["assembledSources"] = request.assembledSources;
+    }
+
+    if (!$dara.isNull(request.backendConfig)) {
+      body["backendConfig"] = request.backendConfig;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.domainIds)) {
+      body["domainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.exposedUriPath)) {
+      body["exposedUriPath"] = request.exposedUriPath;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.match)) {
+      body["match"] = request.match;
+    }
+
+    if (!$dara.isNull(request.mcpStatisticsEnable)) {
+      body["mcpStatisticsEnable"] = request.mcpStatisticsEnable;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcpServerResponse({}));
+  }
+
+  /**
+   * 创建MCP server
+   * 
+   * @param request - CreateMcpServerRequest
+   * @returns CreateMcpServerResponse
+   */
+  async createMcpServer(request: $_model.CreateMcpServerRequest): Promise<$_model.CreateMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMcpServerWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1484,6 +1577,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除MCP server
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcpServerResponse
+   */
+  async deleteMcpServerWithOptions(mcpServerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcpServerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcpServerResponse({}));
+  }
+
+  /**
+   * 删除MCP server
+   * @returns DeleteMcpServerResponse
+   */
+  async deleteMcpServer(mcpServerId: string): Promise<$_model.DeleteMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMcpServerWithOptions(mcpServerId, headers, runtime);
+  }
+
+  /**
    * 删除挂载规则API
    * 
    * @param headers - map
@@ -1674,6 +1802,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deployHttpApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * 发布MCP server
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployMcpServerResponse
+   */
+  async deployMcpServerWithOptions(mcpServerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeployMcpServerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}/deploy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeployMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.DeployMcpServerResponse({}));
+  }
+
+  /**
+   * 发布MCP server
+   * @returns DeployMcpServerResponse
+   */
+  async deployMcpServer(mcpServerId: string): Promise<$_model.DeployMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deployMcpServerWithOptions(mcpServerId, headers, runtime);
   }
 
   /**
@@ -2104,6 +2267,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取MCP server
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcpServerResponse
+   */
+  async getMcpServerWithOptions(mcpServerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcpServerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.GetMcpServerResponse({}));
+  }
+
+  /**
+   * 获取MCP server
+   * @returns GetMcpServerResponse
+   */
+  async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMcpServerWithOptions(mcpServerId, headers, runtime);
+  }
+
+  /**
    * GetPluginAttachment。
    * 
    * @param headers - map
@@ -2356,6 +2554,10 @@ export default class Client extends OpenApi {
       body["dryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
     if (!$dara.isNull(request.mcpRouteId)) {
       body["mcpRouteId"] = request.mcpRouteId;
     }
@@ -2420,6 +2622,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.importHttpApiWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * InstallPlugin
+   * 
+   * @param request - InstallPluginRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallPluginResponse
+   */
+  async installPluginWithOptions(request: $_model.InstallPluginRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InstallPluginResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayIds)) {
+      body["gatewayIds"] = request.gatewayIds;
+    }
+
+    if (!$dara.isNull(request.pluginClassId)) {
+      body["pluginClassId"] = request.pluginClassId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstallPlugin",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugins/`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstallPluginResponse>(await this.callApi(params, req, runtime), new $_model.InstallPluginResponse({}));
+  }
+
+  /**
+   * InstallPlugin
+   * 
+   * @param request - InstallPluginRequest
+   * @returns InstallPluginResponse
+   */
+  async installPlugin(request: $_model.InstallPluginRequest): Promise<$_model.InstallPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.installPluginWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2716,6 +2967,10 @@ export default class Client extends OpenApi {
       query["consumerAuthorizationRuleId"] = request.consumerAuthorizationRuleId;
     }
 
+    if (!$dara.isNull(request.enableAuth)) {
+      query["enableAuth"] = request.enableAuth;
+    }
+
     if (!$dara.isNull(request.forDeploy)) {
       query["forDeploy"] = request.forDeploy;
     }
@@ -2994,6 +3249,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHttpApisWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取MCP server列表
+   * 
+   * @param request - ListMcpServersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpServersResponse
+   */
+  async listMcpServersWithOptions(request: $_model.ListMcpServersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpServersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createFromTypes)) {
+      query["createFromTypes"] = request.createFromTypes;
+    }
+
+    if (!$dara.isNull(request.deployStatuses)) {
+      query["deployStatuses"] = request.deployStatuses;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpServers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcpServersResponse>(await this.callApi(params, req, runtime), new $_model.ListMcpServersResponse({}));
+  }
+
+  /**
+   * 获取MCP server列表
+   * 
+   * @param request - ListMcpServersRequest
+   * @returns ListMcpServersResponse
+   */
+  async listMcpServers(request: $_model.ListMcpServersRequest): Promise<$_model.ListMcpServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMcpServersWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3605,6 +3929,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消发布MCP server
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnDeployMcpServerResponse
+   */
+  async unDeployMcpServerWithOptions(mcpServerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnDeployMcpServerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnDeployMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}/undeploy`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnDeployMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.UnDeployMcpServerResponse({}));
+  }
+
+  /**
+   * 取消发布MCP server
+   * @returns UnDeployMcpServerResponse
+   */
+  async unDeployMcpServer(mcpServerId: string): Promise<$_model.UnDeployMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unDeployMcpServerWithOptions(mcpServerId, headers, runtime);
+  }
+
+  /**
    * Unpublishes an HTTP API.
    * 
    * @param request - UndeployHttpApiRequest
@@ -3659,6 +4018,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.undeployHttpApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * UninstallPlugin
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallPluginResponse
+   */
+  async uninstallPluginWithOptions(pluginId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallPluginResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallPlugin",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/plugins/${$dara.URL.percentEncode(pluginId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallPluginResponse>(await this.callApi(params, req, runtime), new $_model.UninstallPluginResponse({}));
+  }
+
+  /**
+   * UninstallPlugin
+   * @returns UninstallPluginResponse
+   */
+  async uninstallPlugin(pluginId: string): Promise<$_model.UninstallPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.uninstallPluginWithOptions(pluginId, headers, runtime);
   }
 
   /**
@@ -4108,6 +4502,10 @@ export default class Client extends OpenApi {
       body["enableAuth"] = request.enableAuth;
     }
 
+    if (!$dara.isNull(request.firstByteTimeout)) {
+      body["firstByteTimeout"] = request.firstByteTimeout;
+    }
+
     if (!$dara.isNull(request.ingressConfig)) {
       body["ingressConfig"] = request.ingressConfig;
     }
@@ -4274,6 +4672,83 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateHttpApiRouteWithOptions(httpApiId, routeId, request, headers, runtime);
+  }
+
+  /**
+   * 更新MCP server
+   * 
+   * @param request - UpdateMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcpServerResponse
+   */
+  async updateMcpServerWithOptions(mcpServerId: string, request: $_model.UpdateMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcpServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assembledSources)) {
+      body["assembledSources"] = request.assembledSources;
+    }
+
+    if (!$dara.isNull(request.backendConfig)) {
+      body["backendConfig"] = request.backendConfig;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.domainIds)) {
+      body["domainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.exposedUriPath)) {
+      body["exposedUriPath"] = request.exposedUriPath;
+    }
+
+    if (!$dara.isNull(request.match)) {
+      body["match"] = request.match;
+    }
+
+    if (!$dara.isNull(request.mcpStatisticsEnable)) {
+      body["mcpStatisticsEnable"] = request.mcpStatisticsEnable;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMcpServer",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/mcp-servers/${$dara.URL.percentEncode(mcpServerId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcpServerResponse({}));
+  }
+
+  /**
+   * 更新MCP server
+   * 
+   * @param request - UpdateMcpServerRequest
+   * @returns UpdateMcpServerResponse
+   */
+  async updateMcpServer(mcpServerId: string, request: $_model.UpdateMcpServerRequest): Promise<$_model.UpdateMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMcpServerWithOptions(mcpServerId, request, headers, runtime);
   }
 
   /**

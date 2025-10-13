@@ -219,6 +219,40 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   }
 }
 
+export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
+  /**
+   * @example
+   * 06:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 02:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   /**
    * @remarks
@@ -513,6 +547,11 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    */
   expireTimestamp?: number;
   /**
+   * @example
+   * Serverless
+   */
+  gatewayEdition?: string;
+  /**
    * @remarks
    * The instance ID.
    * 
@@ -536,6 +575,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * The ingress addresses of the instance.
    */
   loadBalancers?: GetGatewayResponseBodyDataLoadBalancers[];
+  maintenancePeriod?: GetGatewayResponseBodyDataMaintenancePeriod;
   /**
    * @remarks
    * The instance name.
@@ -644,10 +684,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       createTimestamp: 'createTimestamp',
       environments: 'environments',
       expireTimestamp: 'expireTimestamp',
+      gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
       gatewayType: 'gatewayType',
       isp: 'isp',
       loadBalancers: 'loadBalancers',
+      maintenancePeriod: 'maintenancePeriod',
       name: 'name',
       replicas: 'replicas',
       resourceGroupId: 'resourceGroupId',
@@ -671,10 +713,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       createTimestamp: 'number',
       environments: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataEnvironments },
       expireTimestamp: 'number',
+      gatewayEdition: 'string',
       gatewayId: 'string',
       gatewayType: 'string',
       isp: 'string',
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
+      maintenancePeriod: GetGatewayResponseBodyDataMaintenancePeriod,
       name: 'string',
       replicas: 'string',
       resourceGroupId: 'string',
@@ -697,6 +741,9 @@ export class GetGatewayResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.loadBalancers)) {
       $dara.Model.validateArray(this.loadBalancers);
+    }
+    if(this.maintenancePeriod && typeof (this.maintenancePeriod as any).validate === 'function') {
+      (this.maintenancePeriod as any).validate();
     }
     if(this.securityGroup && typeof (this.securityGroup as any).validate === 'function') {
       (this.securityGroup as any).validate();

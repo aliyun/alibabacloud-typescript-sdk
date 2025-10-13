@@ -57,9 +57,10 @@ export class Service extends $dara.Model {
   groupName?: string;
   healthCheck?: ServiceHealthCheck;
   healthStatus?: string;
-  labelDetails?: LabelDetail;
+  labelDetails?: LabelDetail[];
   name?: string;
   namespace?: string;
+  outlierEndpoints?: string[];
   ports?: ServicePorts[];
   /**
    * @example
@@ -94,6 +95,7 @@ export class Service extends $dara.Model {
       labelDetails: 'labelDetails',
       name: 'name',
       namespace: 'namespace',
+      outlierEndpoints: 'outlierEndpoints',
       ports: 'ports',
       protocol: 'protocol',
       qualifier: 'qualifier',
@@ -116,9 +118,10 @@ export class Service extends $dara.Model {
       groupName: 'string',
       healthCheck: ServiceHealthCheck,
       healthStatus: 'string',
-      labelDetails: LabelDetail,
+      labelDetails: { 'type': 'array', 'itemType': LabelDetail },
       name: 'string',
       namespace: 'string',
+      outlierEndpoints: { 'type': 'array', 'itemType': 'string' },
       ports: { 'type': 'array', 'itemType': ServicePorts },
       protocol: 'string',
       qualifier: 'string',
@@ -143,8 +146,11 @@ export class Service extends $dara.Model {
     if(this.healthCheck && typeof (this.healthCheck as any).validate === 'function') {
       (this.healthCheck as any).validate();
     }
-    if(this.labelDetails && typeof (this.labelDetails as any).validate === 'function') {
-      (this.labelDetails as any).validate();
+    if(Array.isArray(this.labelDetails)) {
+      $dara.Model.validateArray(this.labelDetails);
+    }
+    if(Array.isArray(this.outlierEndpoints)) {
+      $dara.Model.validateArray(this.outlierEndpoints);
     }
     if(Array.isArray(this.ports)) {
       $dara.Model.validateArray(this.ports);

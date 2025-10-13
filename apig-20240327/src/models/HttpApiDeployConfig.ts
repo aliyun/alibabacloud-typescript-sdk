@@ -34,23 +34,49 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
   }
 }
 
-export class HttpApiDeployConfigPolicyConfigsAiFallbackConfig extends $dara.Model {
-  serviceIds?: string[];
+export class HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs extends $dara.Model {
+  serviceId?: string;
+  targetModelName?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceIds: 'serviceIds',
+      serviceId: 'serviceId',
+      targetModelName: 'targetModelName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceIds: { 'type': 'array', 'itemType': 'string' },
+      serviceId: 'string',
+      targetModelName: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.serviceIds)) {
-      $dara.Model.validateArray(this.serviceIds);
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiDeployConfigPolicyConfigsAiFallbackConfig extends $dara.Model {
+  serviceConfigs?: HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      serviceConfigs: 'serviceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigPolicyConfigsAiFallbackConfigServiceConfigs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceConfigs)) {
+      $dara.Model.validateArray(this.serviceConfigs);
     }
     super.validate();
   }

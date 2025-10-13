@@ -198,6 +198,11 @@ export class CreateGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @example
+   * Professional
+   */
+  gatewayEdition?: string;
+  /**
+   * @example
    * API
    */
   gatewayType?: string;
@@ -228,6 +233,7 @@ export class CreateGatewayRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       chargeType: 'chargeType',
+      gatewayEdition: 'gatewayEdition',
       gatewayType: 'gatewayType',
       logConfig: 'logConfig',
       name: 'name',
@@ -243,6 +249,7 @@ export class CreateGatewayRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       chargeType: 'string',
+      gatewayEdition: 'string',
       gatewayType: 'string',
       logConfig: CreateGatewayRequestLogConfig,
       name: 'string',

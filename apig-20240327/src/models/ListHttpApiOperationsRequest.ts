@@ -11,6 +11,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
    * cas-xxx
    */
   consumerAuthorizationRuleId?: string;
+  enableAuth?: boolean;
   forDeploy?: boolean;
   gatewayId?: string;
   /**
@@ -88,6 +89,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
+      enableAuth: 'enableAuth',
       forDeploy: 'forDeploy',
       gatewayId: 'gatewayId',
       method: 'method',
@@ -105,6 +107,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       consumerAuthorizationRuleId: 'string',
+      enableAuth: 'boolean',
       forDeploy: 'boolean',
       gatewayId: 'string',
       method: 'string',

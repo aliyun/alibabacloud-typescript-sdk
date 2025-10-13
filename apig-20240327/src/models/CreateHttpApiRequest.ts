@@ -120,6 +120,7 @@ export class CreateHttpApiRequest extends $dara.Model {
    * Specifies whether to enable authentication.
    */
   enableAuth?: boolean;
+  firstByteTimeout?: number;
   /**
    * @remarks
    * The HTTP Ingress configurations.
@@ -177,6 +178,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       deployConfigs: 'deployConfigs',
       description: 'description',
       enableAuth: 'enableAuth',
+      firstByteTimeout: 'firstByteTimeout',
       ingressConfig: 'ingressConfig',
       modelCategory: 'modelCategory',
       name: 'name',
@@ -197,6 +199,7 @@ export class CreateHttpApiRequest extends $dara.Model {
       deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
       enableAuth: 'boolean',
+      firstByteTimeout: 'number',
       ingressConfig: CreateHttpApiRequestIngressConfig,
       modelCategory: 'string',
       name: 'string',

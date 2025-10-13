@@ -409,6 +409,11 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
    */
   expireTimestamp?: number;
   /**
+   * @example
+   * Serverless
+   */
+  gatewayEdition?: string;
+  /**
    * @remarks
    * The instance ID.
    * 
@@ -535,6 +540,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
       createFrom: 'createFrom',
       createTimestamp: 'createTimestamp',
       expireTimestamp: 'expireTimestamp',
+      gatewayEdition: 'gatewayEdition',
       gatewayId: 'gatewayId',
       gatewayType: 'gatewayType',
       legacy: 'legacy',
@@ -562,6 +568,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
       createFrom: 'string',
       createTimestamp: 'number',
       expireTimestamp: 'number',
+      gatewayEdition: 'string',
       gatewayId: 'string',
       gatewayType: 'string',
       legacy: 'boolean',

@@ -59,7 +59,7 @@ export class ImportHttpApiRequest extends $dara.Model {
    * @remarks
    * The deployment configuration.
    */
-  deployConfigs?: HttpApiDeployConfig;
+  deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
    * The API description, which cannot exceed 255 bytes in length. If you do not specify a description, a description is extracted from the definition file.
@@ -76,6 +76,7 @@ export class ImportHttpApiRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  gatewayId?: string;
   /**
    * @remarks
    * The MCP route ID.
@@ -148,6 +149,7 @@ export class ImportHttpApiRequest extends $dara.Model {
       deployConfigs: 'deployConfigs',
       description: 'description',
       dryRun: 'dryRun',
+      gatewayId: 'gatewayId',
       mcpRouteId: 'mcpRouteId',
       name: 'name',
       resourceGroupId: 'resourceGroupId',
@@ -162,9 +164,10 @@ export class ImportHttpApiRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      deployConfigs: HttpApiDeployConfig,
+      deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
       dryRun: 'boolean',
+      gatewayId: 'string',
       mcpRouteId: 'string',
       name: 'string',
       resourceGroupId: 'string',
@@ -178,8 +181,8 @@ export class ImportHttpApiRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.deployConfigs && typeof (this.deployConfigs as any).validate === 'function') {
-      (this.deployConfigs as any).validate();
+    if(Array.isArray(this.deployConfigs)) {
+      $dara.Model.validateArray(this.deployConfigs);
     }
     if(this.specOssConfig && typeof (this.specOssConfig as any).validate === 'function') {
       (this.specOssConfig as any).validate();
