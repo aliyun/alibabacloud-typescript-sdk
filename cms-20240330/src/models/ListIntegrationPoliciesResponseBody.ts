@@ -393,6 +393,11 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
 export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dara.Model {
   /**
    * @example
+   * eni-12345678
+   */
+  eniId?: string;
+  /**
+   * @example
    * sg-xxxxx
    */
   securityGroupId?: string;
@@ -403,6 +408,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dar
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      eniId: 'eniId',
       securityGroupId: 'securityGroupId',
       vswitchId: 'vswitchId',
     };
@@ -410,6 +416,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      eniId: 'string',
       securityGroupId: 'string',
       vswitchId: 'string',
     };
