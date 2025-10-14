@@ -593,6 +593,14 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.planNameEn)) {
+      query["PlanNameEn"] = request.planNameEn;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -600,6 +608,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.expressionsShrink)) {
       body["Expressions"] = request.expressionsShrink;
+    }
+
+    if (!$dara.isNull(request.kind)) {
+      body["Kind"] = request.kind;
     }
 
     if (!$dara.isNull(request.phase)) {
@@ -13354,6 +13366,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListWafManagedRulesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.managedRuleset)) {
+      request.managedRulesetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managedRuleset, "ManagedRuleset", "json");
+    }
+
     if (!$dara.isNull(tmpReq.queryArgs)) {
       request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
     }
@@ -13367,8 +13383,16 @@ export default class Client extends OpenApi {
       query["Id"] = request.id;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.managedRulesetShrink)) {
+      query["ManagedRuleset"] = request.managedRulesetShrink;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -13621,6 +13645,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.phase)) {
       query["Phase"] = request.phase;
     }
@@ -13671,6 +13699,10 @@ export default class Client extends OpenApi {
   async listWafUsageOfRulesWithOptions(request: $_model.ListWafUsageOfRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWafUsageOfRulesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.phase)) {
       query["Phase"] = request.phase;
     }

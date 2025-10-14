@@ -53,6 +53,8 @@ export class ListWafUsageOfRulesResponseBodySites extends $dara.Model {
 }
 
 export class ListWafUsageOfRulesResponseBody extends $dara.Model {
+  batchConfigUsage?: number;
+  instanceUsage?: number;
   /**
    * @remarks
    * Request ID.
@@ -68,6 +70,8 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
   sites?: ListWafUsageOfRulesResponseBodySites[];
   static names(): { [key: string]: string } {
     return {
+      batchConfigUsage: 'BatchConfigUsage',
+      instanceUsage: 'InstanceUsage',
       requestId: 'RequestId',
       sites: 'Sites',
     };
@@ -75,6 +79,8 @@ export class ListWafUsageOfRulesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      batchConfigUsage: 'number',
+      instanceUsage: 'number',
       requestId: 'string',
       sites: { 'type': 'array', 'itemType': ListWafUsageOfRulesResponseBodySites },
     };

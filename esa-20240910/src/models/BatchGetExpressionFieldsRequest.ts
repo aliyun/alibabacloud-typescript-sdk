@@ -51,6 +51,8 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
    * http_bot
    */
   expressions?: BatchGetExpressionFieldsRequestExpressions[];
+  instanceId?: string;
+  kind?: string;
   /**
    * @remarks
    * WAF Phase
@@ -59,6 +61,7 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
+  planNameEn?: string;
   /**
    * @remarks
    * Site ID
@@ -70,7 +73,10 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       expressions: 'Expressions',
+      instanceId: 'InstanceId',
+      kind: 'Kind',
       phase: 'Phase',
+      planNameEn: 'PlanNameEn',
       siteId: 'SiteId',
     };
   }
@@ -78,7 +84,10 @@ export class BatchGetExpressionFieldsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       expressions: { 'type': 'array', 'itemType': BatchGetExpressionFieldsRequestExpressions },
+      instanceId: 'string',
+      kind: 'string',
       phase: 'string',
+      planNameEn: 'string',
       siteId: 'number',
     };
   }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafUsageOfRulesRequest extends $dara.Model {
+  instanceId?: string;
   /**
    * @remarks
    * Name of the WAF operation phase.
@@ -21,6 +22,7 @@ export class ListWafUsageOfRulesRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       phase: 'Phase',
       siteId: 'SiteId',
     };
@@ -28,6 +30,7 @@ export class ListWafUsageOfRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       phase: 'string',
       siteId: 'number',
     };

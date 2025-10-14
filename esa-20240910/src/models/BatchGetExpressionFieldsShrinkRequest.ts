@@ -11,6 +11,8 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
    * http_bot
    */
   expressionsShrink?: string;
+  instanceId?: string;
+  kind?: string;
   /**
    * @remarks
    * WAF Phase
@@ -19,6 +21,7 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
+  planNameEn?: string;
   /**
    * @remarks
    * Site ID
@@ -30,7 +33,10 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       expressionsShrink: 'Expressions',
+      instanceId: 'InstanceId',
+      kind: 'Kind',
       phase: 'Phase',
+      planNameEn: 'PlanNameEn',
       siteId: 'SiteId',
     };
   }
@@ -38,7 +44,10 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       expressionsShrink: 'string',
+      instanceId: 'string',
+      kind: 'string',
       phase: 'string',
+      planNameEn: 'string',
       siteId: 'number',
     };
   }

@@ -251,6 +251,8 @@ export { ListUserRatePlanInstancesResponseBodyInstanceInfoSites } from './ListUs
 export { ListUserRatePlanInstancesResponseBodyInstanceInfo } from './ListUserRatePlanInstancesResponseBody';
 export { ListUserRoutinesResponseBodyRoutines } from './ListUserRoutinesResponseBody';
 export { ListVideoProcessingsResponseBodyConfigs } from './ListVideoProcessingsResponseBody';
+export { ListWafManagedRulesRequestManagedRulesetManagedRules } from './ListWafManagedRulesRequest';
+export { ListWafManagedRulesRequestManagedRuleset } from './ListWafManagedRulesRequest';
 export { ListWafManagedRulesRequestQueryArgs } from './ListWafManagedRulesRequest';
 export { ListWafManagedRulesResponseBodyRules } from './ListWafManagedRulesResponseBody';
 export { ListWafPhasesResponseBodyPhasesRulesets } from './ListWafPhasesResponseBody';

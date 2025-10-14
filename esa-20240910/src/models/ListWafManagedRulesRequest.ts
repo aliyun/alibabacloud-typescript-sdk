@@ -2,6 +2,70 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListWafManagedRulesRequestManagedRulesetManagedRules extends $dara.Model {
+  action?: string;
+  id?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWafManagedRulesRequestManagedRuleset extends $dara.Model {
+  action?: string;
+  attackType?: number;
+  managedRules?: ListWafManagedRulesRequestManagedRulesetManagedRules[];
+  protectionLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      attackType: 'AttackType',
+      managedRules: 'ManagedRules',
+      protectionLevel: 'ProtectionLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      attackType: 'number',
+      managedRules: { 'type': 'array', 'itemType': ListWafManagedRulesRequestManagedRulesetManagedRules },
+      protectionLevel: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.managedRules)) {
+      $dara.Model.validateArray(this.managedRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
@@ -87,12 +151,11 @@ export class ListWafManagedRulesRequest extends $dara.Model {
    * @remarks
    * ID of the WAF rule.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10000001
    */
   id?: number;
+  instanceId?: string;
   /**
    * @remarks
    * Language type, which will be used to return the response. Value range:
@@ -104,6 +167,7 @@ export class ListWafManagedRulesRequest extends $dara.Model {
    * zh
    */
   language?: string;
+  managedRuleset?: ListWafManagedRulesRequestManagedRuleset;
   /**
    * @remarks
    * Query page number.
@@ -130,8 +194,6 @@ export class ListWafManagedRulesRequest extends $dara.Model {
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -140,7 +202,9 @@ export class ListWafManagedRulesRequest extends $dara.Model {
     return {
       attackType: 'AttackType',
       id: 'Id',
+      instanceId: 'InstanceId',
       language: 'Language',
+      managedRuleset: 'ManagedRuleset',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       protectionLevel: 'ProtectionLevel',
@@ -153,7 +217,9 @@ export class ListWafManagedRulesRequest extends $dara.Model {
     return {
       attackType: 'number',
       id: 'number',
+      instanceId: 'string',
       language: 'string',
+      managedRuleset: ListWafManagedRulesRequestManagedRuleset,
       pageNumber: 'number',
       pageSize: 'number',
       protectionLevel: 'number',
@@ -163,6 +229,9 @@ export class ListWafManagedRulesRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.managedRuleset && typeof (this.managedRuleset as any).validate === 'function') {
+      (this.managedRuleset as any).validate();
+    }
     if(this.queryArgs && typeof (this.queryArgs as any).validate === 'function') {
       (this.queryArgs as any).validate();
     }

@@ -39,6 +39,7 @@ export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
 }
 
 export class ListWafTemplateRulesRequest extends $dara.Model {
+  instanceId?: string;
   /**
    * @remarks
    * WAF operation phase, used to filter template rules for a specific phase.
@@ -65,6 +66,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       phase: 'Phase',
       queryArgs: 'QueryArgs',
       siteId: 'SiteId',
@@ -73,6 +75,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       phase: 'string',
       queryArgs: ListWafTemplateRulesRequestQueryArgs,
       siteId: 'number',

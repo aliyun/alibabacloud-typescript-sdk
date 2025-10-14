@@ -27,12 +27,11 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
    * @remarks
    * ID of the WAF rule.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10000001
    */
   id?: number;
+  instanceId?: string;
   /**
    * @remarks
    * Language type, which will be used to return the response. Value range:
@@ -44,6 +43,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
    * zh
    */
   language?: string;
+  managedRulesetShrink?: string;
   /**
    * @remarks
    * Query page number.
@@ -70,8 +70,6 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
    * @remarks
    * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -80,7 +78,9 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
     return {
       attackType: 'AttackType',
       id: 'Id',
+      instanceId: 'InstanceId',
       language: 'Language',
+      managedRulesetShrink: 'ManagedRuleset',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       protectionLevel: 'ProtectionLevel',
@@ -93,7 +93,9 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
     return {
       attackType: 'number',
       id: 'number',
+      instanceId: 'string',
       language: 'string',
+      managedRulesetShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       protectionLevel: 'number',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
+  instanceId?: string;
   /**
    * @remarks
    * WAF operation phase, used to filter template rules for a specific phase.
@@ -29,6 +30,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       phase: 'Phase',
       queryArgsShrink: 'QueryArgs',
       siteId: 'SiteId',
@@ -37,6 +39,7 @@ export class ListWafTemplateRulesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       phase: 'string',
       queryArgsShrink: 'string',
       siteId: 'number',
