@@ -393,6 +393,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 快速发布剧本
+   * 
+   * @param request - BuildAICoachScriptRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BuildAICoachScriptRecordResponse
+   */
+  async buildAICoachScriptRecordWithOptions(request: $_model.BuildAICoachScriptRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BuildAICoachScriptRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scriptJsonUrl)) {
+      body["scriptJsonUrl"] = request.scriptJsonUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BuildAICoachScriptRecord",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/buildScriptRecord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BuildAICoachScriptRecordResponse>(await this.callApi(params, req, runtime), new $_model.BuildAICoachScriptRecordResponse({}));
+  }
+
+  /**
+   * 快速发布剧本
+   * 
+   * @param request - BuildAICoachScriptRecordRequest
+   * @returns BuildAICoachScriptRecordResponse
+   */
+  async buildAICoachScriptRecord(request: $_model.BuildAICoachScriptRecordRequest): Promise<$_model.BuildAICoachScriptRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.buildAICoachScriptRecordWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 检查会话状态
    * 
    * @param request - CheckSessionRequest
@@ -651,6 +696,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAICoachTaskSessionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * CreateAgent
+   * 
+   * @param request - CreateAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
+  async createAgentWithOptions(request: $_model.CreateAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentIconUrl)) {
+      body["agentIconUrl"] = request.agentIconUrl;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      body["agentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.agentScene)) {
+      body["agentScene"] = request.agentScene;
+    }
+
+    if (!$dara.isNull(request.characterAgeStage)) {
+      body["characterAgeStage"] = request.characterAgeStage;
+    }
+
+    if (!$dara.isNull(request.characterGender)) {
+      body["characterGender"] = request.characterGender;
+    }
+
+    if (!$dara.isNull(request.characterName)) {
+      body["characterName"] = request.characterName;
+    }
+
+    if (!$dara.isNull(request.extraDescription)) {
+      body["extraDescription"] = request.extraDescription;
+    }
+
+    if (!$dara.isNull(request.industry)) {
+      body["industry"] = request.industry;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgent",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/agent/createAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResponse({}));
+  }
+
+  /**
+   * CreateAgent
+   * 
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
+  async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAgentWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1210,6 +1328,96 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVideoClipTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * DeleteAICoachScript
+   * 
+   * @param request - DeleteAICoachScriptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAICoachScriptResponse
+   */
+  async deleteAICoachScriptWithOptions(request: $_model.DeleteAICoachScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAICoachScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scriptId)) {
+      body["scriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAICoachScript",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/deleteAICoachScript`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAICoachScriptResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAICoachScriptResponse({}));
+  }
+
+  /**
+   * DeleteAICoachScript
+   * 
+   * @param request - DeleteAICoachScriptRequest
+   * @returns DeleteAICoachScriptResponse
+   */
+  async deleteAICoachScript(request: $_model.DeleteAICoachScriptRequest): Promise<$_model.DeleteAICoachScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAICoachScriptWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * DeleteAgent
+   * 
+   * @param request - DeleteAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgentWithOptions(request: $_model.DeleteAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgent",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/agent/deleteAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentResponse({}));
+  }
+
+  /**
+   * DeleteAgent
+   * 
+   * @param request - DeleteAgentRequest
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgent(request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1967,6 +2175,60 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InteractTextResponse
    */
+  async *interactTextWithSSE(request: $_model.InteractTextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InteractTextResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InteractText",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/stream/interactText`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.InteractTextResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.InteractTextResponse({}));
+    }
+  }
+
+  /**
+   * 营销文案互动问答
+   * 
+   * @param request - InteractTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InteractTextResponse
+   */
   async interactTextWithOptions(request: $_model.InteractTextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InteractTextResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
@@ -2572,6 +2834,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线剧本
+   * 
+   * @param request - OfflineAICoachScriptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineAICoachScriptResponse
+   */
+  async offlineAICoachScriptWithOptions(request: $_model.OfflineAICoachScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OfflineAICoachScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scriptId)) {
+      body["scriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflineAICoachScript",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/offlineAICoachScript`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflineAICoachScriptResponse>(await this.callApi(params, req, runtime), new $_model.OfflineAICoachScriptResponse({}));
+  }
+
+  /**
+   * 下线剧本
+   * 
+   * @param request - OfflineAICoachScriptRequest
+   * @returns OfflineAICoachScriptResponse
+   */
+  async offlineAICoachScript(request: $_model.OfflineAICoachScriptRequest): Promise<$_model.OfflineAICoachScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.offlineAICoachScriptWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 操作实时数字人项目
    * 
    * @param request - OperateAvatarProjectRequest
@@ -2878,6 +3185,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTextStreamResponse
    */
+  async *queryTextStreamWithSSE(textId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.QueryTextStreamResponse, any, unknown> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTextStream",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/stream/queryTextStream/${$dara.URL.percentEncode(textId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.QueryTextStreamResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.QueryTextStreamResponse({}));
+    }
+  }
+
+  /**
+   * 流式输出文案
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTextStreamResponse
+   */
   async queryTextStreamWithOptions(textId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTextStreamResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
@@ -2904,6 +3249,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryTextStreamWithOptions(textId, headers, runtime);
+  }
+
+  /**
+   * ReleaseAgent
+   * 
+   * @param request - ReleaseAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseAgentResponse
+   */
+  async releaseAgentWithOptions(request: $_model.ReleaseAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseAgent",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/agent/releaseAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseAgentResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseAgentResponse({}));
+  }
+
+  /**
+   * ReleaseAgent
+   * 
+   * @param request - ReleaseAgentRequest
+   * @returns ReleaseAgentResponse
+   */
+  async releaseAgent(request: $_model.ReleaseAgentRequest): Promise<$_model.ReleaseAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.releaseAgentWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3134,6 +3524,68 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendSdkMessageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 发送sdk流式消息
+   * 
+   * @param request - SendSdkStreamMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendSdkStreamMessageResponse
+   */
+  async *sendSdkStreamMessageWithSSE(request: $_model.SendSdkStreamMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.SendSdkStreamMessageResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.data)) {
+      body["data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.header)) {
+      body["header"] = request.header;
+    }
+
+    if (!$dara.isNull(request.moduleName)) {
+      body["moduleName"] = request.moduleName;
+    }
+
+    if (!$dara.isNull(request.operationName)) {
+      body["operationName"] = request.operationName;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendSdkStreamMessage",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/sdk/stream/sendMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.SendSdkStreamMessageResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.SendSdkStreamMessageResponse({}));
+    }
   }
 
   /**
@@ -3582,6 +4034,79 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.transferPortraitStyleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * UpdateAgent
+   * 
+   * @param request - UpdateAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
+  async updateAgentWithOptions(request: $_model.UpdateAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentIconUrl)) {
+      body["agentIconUrl"] = request.agentIconUrl;
+    }
+
+    if (!$dara.isNull(request.agentId)) {
+      body["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      body["agentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.characterAgeStage)) {
+      body["characterAgeStage"] = request.characterAgeStage;
+    }
+
+    if (!$dara.isNull(request.characterGender)) {
+      body["characterGender"] = request.characterGender;
+    }
+
+    if (!$dara.isNull(request.characterName)) {
+      body["characterName"] = request.characterName;
+    }
+
+    if (!$dara.isNull(request.extraDescription)) {
+      body["extraDescription"] = request.extraDescription;
+    }
+
+    if (!$dara.isNull(request.industry)) {
+      body["industry"] = request.industry;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgent",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/agent/updateAgent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentResponse({}));
+  }
+
+  /**
+   * UpdateAgent
+   * 
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
+  async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentWithOptions(request, headers, runtime);
   }
 
 }

@@ -1,8 +1,187 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetAICoachCheatDetectionResponseBodyImageCheat } from "./GetAicoachCheatDetectionResponseBodyImageCheat";
-import { GetAICoachCheatDetectionResponseBodyVoiceCheat } from "./GetAicoachCheatDetectionResponseBodyVoiceCheat";
 
+
+export class GetAICoachCheatDetectionResponseBodyImageCheatList extends $dara.Model {
+  /**
+   * @example
+   * 2025-03-22 10:05:07
+   */
+  time?: string;
+  /**
+   * @example
+   * https://demo.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'time',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachCheatDetectionResponseBodyImageCheat extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  desc?: string;
+  list?: GetAICoachCheatDetectionResponseBodyImageCheatList[];
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      list: 'list',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      list: { 'type': 'array', 'itemType': GetAICoachCheatDetectionResponseBodyImageCheatList },
+      status: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList extends $dara.Model {
+  /**
+   * @example
+   * 2024-12-11 10:07:23
+   */
+  time?: string;
+  /**
+   * @example
+   * https://demo.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      time: 'time',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      time: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList extends $dara.Model {
+  /**
+   * @example
+   * https://demo.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachCheatDetectionResponseBodyVoiceCheat extends $dara.Model {
+  comparisonList?: GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList[];
+  /**
+   * @example
+   * demo
+   */
+  desc?: string;
+  originalList?: GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList[];
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comparisonList: 'comparisonList',
+      desc: 'desc',
+      originalList: 'originalList',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comparisonList: { 'type': 'array', 'itemType': GetAICoachCheatDetectionResponseBodyVoiceCheatComparisonList },
+      desc: 'string',
+      originalList: { 'type': 'array', 'itemType': GetAICoachCheatDetectionResponseBodyVoiceCheatOriginalList },
+      status: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.comparisonList)) {
+      $dara.Model.validateArray(this.comparisonList);
+    }
+    if(Array.isArray(this.originalList)) {
+      $dara.Model.validateArray(this.originalList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetAICoachCheatDetectionResponseBody extends $dara.Model {
   /**

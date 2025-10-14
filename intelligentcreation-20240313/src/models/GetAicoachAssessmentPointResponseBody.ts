@@ -1,7 +1,220 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetAICoachAssessmentPointResponseBodyAnswerList } from "./GetAicoachAssessmentPointResponseBodyAnswerList";
 
+
+export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  name?: string;
+  /**
+   * @example
+   * 50
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  answerName?: string;
+  /**
+   * @example
+   * 50
+   */
+  answerWeight?: number;
+  keywordValues?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues[];
+  /**
+   * @example
+   * 50
+   */
+  keywordWeight?: number;
+  scoringRules?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules[];
+  static names(): { [key: string]: string } {
+    return {
+      answerName: 'answerName',
+      answerWeight: 'answerWeight',
+      keywordValues: 'keywordValues',
+      keywordWeight: 'keywordWeight',
+      scoringRules: 'scoringRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerName: 'string',
+      answerWeight: 'number',
+      keywordValues: { 'type': 'array', 'itemType': GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues },
+      keywordWeight: 'number',
+      scoringRules: { 'type': 'array', 'itemType': GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keywordValues)) {
+      $dara.Model.validateArray(this.keywordValues);
+    }
+    if(Array.isArray(this.scoringRules)) {
+      $dara.Model.validateArray(this.scoringRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachAssessmentPointResponseBodyAnswerListParameters extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  name?: string;
+  /**
+   * @example
+   * 441323200602114284
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachAssessmentPointResponseBodyAnswerList extends $dara.Model {
+  answerValues?: GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues[];
+  /**
+   * @example
+   * true
+   */
+  enabledKeyword?: boolean;
+  nameList?: string[];
+  /**
+   * @example
+   * and
+   */
+  operators?: string;
+  parameters?: GetAICoachAssessmentPointResponseBodyAnswerListParameters[];
+  /**
+   * @example
+   * custom
+   */
+  type?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerValues: 'answerValues',
+      enabledKeyword: 'enabledKeyword',
+      nameList: 'nameList',
+      operators: 'operators',
+      parameters: 'parameters',
+      type: 'type',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerValues: { 'type': 'array', 'itemType': GetAICoachAssessmentPointResponseBodyAnswerListAnswerValues },
+      enabledKeyword: 'boolean',
+      nameList: { 'type': 'array', 'itemType': 'string' },
+      operators: 'string',
+      parameters: { 'type': 'array', 'itemType': GetAICoachAssessmentPointResponseBodyAnswerListParameters },
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.answerValues)) {
+      $dara.Model.validateArray(this.answerValues);
+    }
+    if(Array.isArray(this.nameList)) {
+      $dara.Model.validateArray(this.nameList);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetAICoachAssessmentPointResponseBody extends $dara.Model {
   answerList?: GetAICoachAssessmentPointResponseBodyAnswerList[];

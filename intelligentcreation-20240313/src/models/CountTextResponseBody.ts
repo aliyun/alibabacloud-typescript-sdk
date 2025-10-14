@@ -1,7 +1,40 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CountTextResponseBodyCountTextCmdList } from "./CountTextResponseBodyCountTextCmdList";
 
+
+export class CountTextResponseBodyCountTextCmdList extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
+  count?: number;
+  /**
+   * @example
+   * RED_BOOK
+   */
+  theme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'count',
+      theme: 'theme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      theme: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CountTextResponseBody extends $dara.Model {
   /**
