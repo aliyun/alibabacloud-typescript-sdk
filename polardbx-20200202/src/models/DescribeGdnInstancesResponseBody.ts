@@ -23,6 +23,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * drds_polarxpre_public_cn
    */
   commodityCode?: string;
+  dataSyncStatus?: string;
   /**
    * @example
    * mysql.n4.medium.25
@@ -58,6 +59,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * cn-zhangjiakou-a
    */
   primaryZone?: string;
+  readWriteStatus?: string;
   /**
    * @example
    * cn-hangzhou
@@ -101,6 +103,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       cnNodeClassCode: 'CnNodeClassCode',
       cnNodeCount: 'CnNodeCount',
       commodityCode: 'CommodityCode',
+      dataSyncStatus: 'DataSyncStatus',
       dnNodeClassCode: 'DnNodeClassCode',
       dnNodeCount: 'DnNodeCount',
       expireTime: 'ExpireTime',
@@ -108,6 +111,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       memberName: 'MemberName',
       payType: 'PayType',
       primaryZone: 'PrimaryZone',
+      readWriteStatus: 'ReadWriteStatus',
       regionId: 'RegionId',
       role: 'Role',
       secondaryZone: 'SecondaryZone',
@@ -125,6 +129,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       cnNodeClassCode: 'string',
       cnNodeCount: 'string',
       commodityCode: 'string',
+      dataSyncStatus: 'string',
       dnNodeClassCode: 'string',
       dnNodeCount: 'string',
       expireTime: 'string',
@@ -132,6 +137,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       memberName: 'string',
       payType: 'string',
       primaryZone: 'string',
+      readWriteStatus: 'string',
       regionId: 'string',
       role: 'string',
       secondaryZone: 'string',
@@ -163,6 +169,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
    * gdn-***
    */
   gdnInstanceName?: string;
+  gdnMode?: string;
   /**
    * @example
    * 2025-01-02T13:11:10.000+0000
@@ -174,6 +181,9 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
    * 5.7
    */
   mysqlVersion?: string;
+  rplConflictStrategy?: string;
+  rplDmlStrategy?: string;
+  rplSyncDdl?: boolean;
   /**
    * @example
    * Creating
@@ -188,9 +198,13 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
     return {
       description: 'Description',
       gdnInstanceName: 'GdnInstanceName',
+      gdnMode: 'GdnMode',
       gmtCreated: 'GmtCreated',
       memberList: 'MemberList',
       mysqlVersion: 'MysqlVersion',
+      rplConflictStrategy: 'RplConflictStrategy',
+      rplDmlStrategy: 'RplDmlStrategy',
+      rplSyncDdl: 'RplSyncDdl',
       status: 'Status',
       switchHistory: 'SwitchHistory',
     };
@@ -200,9 +214,13 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.M
     return {
       description: 'string',
       gdnInstanceName: 'string',
+      gdnMode: 'string',
       gmtCreated: 'string',
       memberList: { 'type': 'array', 'itemType': DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList },
       mysqlVersion: 'string',
+      rplConflictStrategy: 'string',
+      rplDmlStrategy: 'string',
+      rplSyncDdl: 'boolean',
       status: 'string',
       switchHistory: 'string',
     };
