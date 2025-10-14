@@ -1488,6 +1488,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 0
    */
   retryDelay?: number;
+  safeLink?: number;
   /**
    * @remarks
    * Indicates whether page screenshot is enabled.
@@ -1604,6 +1605,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'response_content',
       responseFormat: 'response_format',
       retryDelay: 'retry_delay',
+      safeLink: 'safe_link',
       screenShot: 'screen_shot',
       scrollEnd: 'scroll_end',
       steps: 'steps',
@@ -1666,6 +1668,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseContent: 'string',
       responseFormat: 'string',
       retryDelay: 'number',
+      safeLink: 'number',
       screenShot: 'boolean',
       scrollEnd: 'boolean',
       steps: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps,
