@@ -21,6 +21,7 @@ export { GetImageTranslateTaskResponseBodyDataTranslation } from './GetImageTran
 export { GetImageTranslateTaskResponseBodyData } from './GetImageTranslateTaskResponseBody';
 export { GetLongTextTranslateTaskResponseBodyDataUsage } from './GetLongTextTranslateTaskResponseBody';
 export { GetLongTextTranslateTaskResponseBodyData } from './GetLongTextTranslateTaskResponseBody';
+export { SubmitDocTranslateTaskRequestExtConfig } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskRequestExtTerminologies } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskRequestExt } from './SubmitDocTranslateTaskRequest';
 export { SubmitDocTranslateTaskResponseBodyData } from './SubmitDocTranslateTaskResponseBody';

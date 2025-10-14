@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitDocTranslateTaskRequestExtConfig extends $dara.Model {
+  skipImgTrans?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      skipImgTrans: 'skipImgTrans',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skipImgTrans: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitDocTranslateTaskRequestExtTerminologies extends $dara.Model {
   src?: string;
   /**
@@ -33,6 +56,7 @@ export class SubmitDocTranslateTaskRequestExtTerminologies extends $dara.Model {
 }
 
 export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
+  config?: SubmitDocTranslateTaskRequestExtConfig;
   /**
    * @example
    * This text comes from a rigorous academic paper. Please provide a translation that complies with academic standards.
@@ -41,6 +65,7 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
   terminologies?: SubmitDocTranslateTaskRequestExtTerminologies[];
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       domainHint: 'domainHint',
       terminologies: 'terminologies',
     };
@@ -48,12 +73,16 @@ export class SubmitDocTranslateTaskRequestExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: SubmitDocTranslateTaskRequestExtConfig,
       domainHint: 'string',
       terminologies: { 'type': 'array', 'itemType': SubmitDocTranslateTaskRequestExtTerminologies },
     };
   }
 
   validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
     if(Array.isArray(this.terminologies)) {
       $dara.Model.validateArray(this.terminologies);
     }
