@@ -705,6 +705,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    */
   requestedResource?: UpdateInstanceRequestRequestedResource;
   spotSpec?: UpdateInstanceRequestSpotSpec;
+  startInstance?: boolean;
   userCommand?: UpdateInstanceRequestUserCommand;
   /**
    * @remarks
@@ -768,6 +769,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       spotSpec: 'SpotSpec',
+      startInstance: 'StartInstance',
       userCommand: 'UserCommand',
       userId: 'UserId',
       userVpc: 'UserVpc',
@@ -804,6 +806,7 @@ export class UpdateInstanceRequest extends $dara.Model {
       priority: 'number',
       requestedResource: UpdateInstanceRequestRequestedResource,
       spotSpec: UpdateInstanceRequestSpotSpec,
+      startInstance: 'boolean',
       userCommand: UpdateInstanceRequestUserCommand,
       userId: 'string',
       userVpc: UpdateInstanceRequestUserVpc,

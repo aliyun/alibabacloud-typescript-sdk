@@ -527,6 +527,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量删除实例
+   * 
+   * @param request - DeleteInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstancesResponse
+   */
+  async deleteInstancesWithOptions(request: $_model.DeleteInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstancesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstances",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/batch/instances/delete`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstancesResponse({}));
+  }
+
+  /**
+   * 批量删除实例
+   * 
+   * @param request - DeleteInstancesRequest
+   * @returns DeleteInstancesResponse
+   */
+  async deleteInstances(request: $_model.DeleteInstancesRequest): Promise<$_model.DeleteInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the information about an auto stop policy for a specific idle instance.
    * 
    * @param headers - map
@@ -1620,6 +1665,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量停止实例
+   * 
+   * @param request - StopInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopInstancesResponse
+   */
+  async stopInstancesWithOptions(request: $_model.StopInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstancesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopInstances",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/batch/instances/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopInstancesResponse>(await this.callApi(params, req, runtime), new $_model.StopInstancesResponse({}));
+  }
+
+  /**
+   * 批量停止实例
+   * 
+   * @param request - StopInstancesRequest
+   * @returns StopInstancesResponse
+   */
+  async stopInstances(request: $_model.StopInstancesRequest): Promise<$_model.StopInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Updates the properties of a DSW instance.
    * 
    * @param request - UpdateInstanceRequest
@@ -1736,6 +1826,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.spotSpec)) {
       body["SpotSpec"] = request.spotSpec;
+    }
+
+    if (!$dara.isNull(request.startInstance)) {
+      body["StartInstance"] = request.startInstance;
     }
 
     if (!$dara.isNull(request.userCommand)) {
