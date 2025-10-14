@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $dara.Model {
   /**
+   * @example
+   * postpay / prepay
+   */
+  chargeType?: string;
+  /**
    * @remarks
    * The commodity code. Valid values:
    * 
@@ -138,6 +143,7 @@ export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $dara.Mo
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
       createTimestamp: 'CreateTimestamp',
@@ -159,6 +165,7 @@ export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       commodityCode: 'string',
       createTime: 'string',
       createTimestamp: 'number',

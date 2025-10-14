@@ -15,6 +15,11 @@ export class CreateCloudGtmInstanceConfigRequest extends $dara.Model {
    */
   acceptLanguage?: string;
   /**
+   * @example
+   * postpay/prepay
+   */
+  chargeType?: string;
+  /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can specify a custom value for this parameter, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
@@ -99,6 +104,7 @@ export class CreateCloudGtmInstanceConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       enableStatus: 'EnableStatus',
       instanceId: 'InstanceId',
@@ -114,6 +120,7 @@ export class CreateCloudGtmInstanceConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      chargeType: 'string',
       clientToken: 'string',
       enableStatus: 'string',
       instanceId: 'string',

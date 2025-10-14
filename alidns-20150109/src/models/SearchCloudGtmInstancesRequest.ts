@@ -14,6 +14,11 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
    */
   acceptLanguage?: string;
   /**
+   * @example
+   * prepay / postpay
+   */
+  chargeType?: string;
+  /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
    * 
@@ -56,6 +61,7 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
@@ -67,6 +73,7 @@ export class SearchCloudGtmInstancesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      chargeType: 'string',
       clientToken: 'string',
       instanceId: 'string',
       instanceName: 'string',

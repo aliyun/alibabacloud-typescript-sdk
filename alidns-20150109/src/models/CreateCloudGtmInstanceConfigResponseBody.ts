@@ -12,6 +12,11 @@ export class CreateCloudGtmInstanceConfigResponseBody extends $dara.Model {
    */
   configId?: boolean;
   /**
+   * @example
+   * gtm-cn-xxxxx
+   */
+  instanceId?: string;
+  /**
    * @remarks
    * The request ID.
    * 
@@ -33,6 +38,7 @@ export class CreateCloudGtmInstanceConfigResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
+      instanceId: 'InstanceId',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -41,6 +47,7 @@ export class CreateCloudGtmInstanceConfigResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       configId: 'boolean',
+      instanceId: 'string',
       requestId: 'string',
       success: 'boolean',
     };

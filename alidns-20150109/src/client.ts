@@ -1462,6 +1462,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建gtm实例配置
+   * 
    * @param request - CreateCloudGtmInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCloudGtmInstanceConfigResponse
@@ -1471,6 +1473,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
     }
 
     if (!$dara.isNull(request.clientToken)) {
@@ -1527,6 +1533,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建gtm实例配置
+   * 
    * @param request - CreateCloudGtmInstanceConfigRequest
    * @returns CreateCloudGtmInstanceConfigResponse
    */
@@ -8156,6 +8164,10 @@ export default class Client extends OpenApi {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -9462,6 +9474,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
     }
 
     if (!$dara.isNull(request.clientToken)) {
