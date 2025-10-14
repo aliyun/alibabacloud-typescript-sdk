@@ -6407,6 +6407,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除块元素
+   * 
+   * @param tmpReq - DocBlocksDeleteRequest
+   * @param tmpHeader - DocBlocksDeleteHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocBlocksDeleteResponse
+   */
+  async docBlocksDeleteWithOptions(tmpReq: $_model.DocBlocksDeleteRequest, tmpHeader: $_model.DocBlocksDeleteHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DocBlocksDeleteResponse> {
+    tmpReq.validate();
+    let request = new $_model.DocBlocksDeleteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.DocBlocksDeleteShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.blockId)) {
+      body["BlockId"] = request.blockId;
+    }
+
+    if (!$dara.isNull(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocBlocksDelete",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/docBlocksDelete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DocBlocksDeleteResponse>(await this.callApi(params, req, runtime), new $_model.DocBlocksDeleteResponse({}));
+  }
+
+  /**
+   * 删除块元素
+   * 
+   * @param request - DocBlocksDeleteRequest
+   * @returns DocBlocksDeleteResponse
+   */
+  async docBlocksDelete(request: $_model.DocBlocksDeleteRequest): Promise<$_model.DocBlocksDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DocBlocksDeleteHeaders({ });
+    return await this.docBlocksDeleteWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新块元素
+   * 
+   * @param tmpReq - DocBlocksModifyRequest
+   * @param tmpHeader - DocBlocksModifyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocBlocksModifyResponse
+   */
+  async docBlocksModifyWithOptions(tmpReq: $_model.DocBlocksModifyRequest, tmpHeader: $_model.DocBlocksModifyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DocBlocksModifyResponse> {
+    tmpReq.validate();
+    let request = new $_model.DocBlocksModifyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.DocBlocksModifyShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.element)) {
+      request.elementShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.element, "Element", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.blockId)) {
+      body["BlockId"] = request.blockId;
+    }
+
+    if (!$dara.isNull(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!$dara.isNull(request.elementShrink)) {
+      body["Element"] = request.elementShrink;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocBlocksModify",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/docBlocksModify`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DocBlocksModifyResponse>(await this.callApi(params, req, runtime), new $_model.DocBlocksModifyResponse({}));
+  }
+
+  /**
+   * 更新块元素
+   * 
+   * @param request - DocBlocksModifyRequest
+   * @returns DocBlocksModifyResponse
+   */
+  async docBlocksModify(request: $_model.DocBlocksModifyRequest): Promise<$_model.DocBlocksModifyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.DocBlocksModifyHeaders({ });
+    return await this.docBlocksModifyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询块元素
    * 
    * @param tmpReq - DocBlocksQueryRequest
