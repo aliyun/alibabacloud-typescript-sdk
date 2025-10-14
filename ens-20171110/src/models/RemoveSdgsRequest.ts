@@ -5,9 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSDGsRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the instances.
+   * 
    * This parameter is required.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The IDs of SDG.
+   */
   sdgIds?: string[];
   static names(): { [key: string]: string } {
     return {

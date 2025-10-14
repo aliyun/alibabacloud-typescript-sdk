@@ -5,9 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveSDGsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the instances.
+   * 
    * This parameter is required.
    */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The IDs of SDG.
+   */
   sdgIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {

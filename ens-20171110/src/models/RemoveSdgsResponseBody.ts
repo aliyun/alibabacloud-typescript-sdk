@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveSDGsResponseBodyDataResultFailedItems extends $dara.Model {
   /**
+   * @remarks
+   * The error message returned if the call failed.
+   * 
    * @example
    * sdg not found
    */
   errMessage?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * aic-xxxxx-0
    */
@@ -38,12 +44,22 @@ export class RemoveSDGsResponseBodyDataResultFailedItems extends $dara.Model {
 
 export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The number of failed tasks.
+   * 
    * @example
    * 0
    */
   failedCount?: number;
+  /**
+   * @remarks
+   * Details about failed tasks.
+   */
   failedItems?: RemoveSDGsResponseBodyDataResultFailedItems[];
   /**
+   * @remarks
+   * The number of successful tasks.
+   * 
    * @example
    * 1
    */
@@ -78,12 +94,25 @@ export class RemoveSDGsResponseBodyDataResult extends $dara.Model {
 
 export class RemoveSDGsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The response message. Success is returned for a successful request.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The execution result of the synchronization request.
+   */
   result?: RemoveSDGsResponseBodyDataResult;
   /**
+   * @remarks
+   * Indicates whether all tasks are successful. Valid values:
+   * 
+   * *   **true**: All tasks are successful.
+   * *   **false**: Failed tasks exist.
+   * 
    * @example
    * true
    */
@@ -117,6 +146,10 @@ export class RemoveSDGsResponseBodyData extends $dara.Model {
 }
 
 export class RemoveSDGsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: RemoveSDGsResponseBodyData;
   /**
    * @remarks

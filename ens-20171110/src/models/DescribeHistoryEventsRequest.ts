@@ -3,19 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHistoryEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The levels of the event-triggered alerts.
+   */
   eventLevels?: string[];
+  /**
+   * @remarks
+   * Event status list.
+   */
   eventStatus?: string[];
   /**
    * @remarks
+   * The list of event types.
+   * 
    * This parameter is required.
    */
   eventTypes?: string[];
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */

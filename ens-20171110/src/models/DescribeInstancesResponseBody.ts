@@ -1300,7 +1300,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned instance information. It is an array that consists of InstanceAttributesType data.
+   * The information about the instance is returned in an array of InstanceAttributesType.
    */
   instances?: DescribeInstancesResponseBodyInstances;
   /**

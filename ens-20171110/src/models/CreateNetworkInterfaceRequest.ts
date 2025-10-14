@@ -4,21 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNetworkInterfaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Description of the ENI.
+   * 
    * @example
    * example
    */
   description?: string;
   /**
+   * @remarks
+   * ENI name.
+   * 
    * @example
    * name
    */
   name?: string;
   /**
    * @remarks
+   * Security group ID.
+   * 
    * This parameter is required.
    */
   securityGroupIds?: string[];
   /**
+   * @remarks
+   * vSwitch ID.
+   * 
    * @example
    * vsw-5****
    */

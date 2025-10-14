@@ -59,6 +59,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
    * The IDs of edge nodes. You can specify 1 to 100 IDs.
    */
   ensRegionIds?: string[];
+  icmpReplyEnabled?: boolean;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -95,6 +96,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       eipName: 'EipName',
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
+      icmpReplyEnabled: 'IcmpReplyEnabled',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       standby: 'Standby',
@@ -110,6 +112,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       eipName: 'string',
       ensRegionId: 'string',
       ensRegionIds: { 'type': 'array', 'itemType': 'string' },
+      icmpReplyEnabled: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       standby: 'string',

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAICImagesResponseBodyImages extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   androidVersion?: string;
   /**
    * @remarks

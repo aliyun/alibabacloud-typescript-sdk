@@ -73,6 +73,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
   chargeType?: string;
   description?: string;
   ensRegionId?: string;
+  icmpReplyEnabled?: boolean;
   instanceId?: string;
   instanceType?: string;
   internetChargeType?: string;
@@ -91,6 +92,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       chargeType: 'ChargeType',
       description: 'Description',
       ensRegionId: 'EnsRegionId',
+      icmpReplyEnabled: 'IcmpReplyEnabled',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
@@ -112,6 +114,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       chargeType: 'string',
       description: 'string',
       ensRegionId: 'string',
+      icmpReplyEnabled: 'boolean',
       instanceId: 'string',
       instanceType: 'string',
       internetChargeType: 'string',

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEipRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

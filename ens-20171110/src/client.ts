@@ -3126,7 +3126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建弹性网卡
+   * Create an Elastic Network Interface (ENI).
    * 
    * @param tmpReq - CreateNetworkInterfaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3175,7 +3175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建弹性网卡
+   * Create an Elastic Network Interface (ENI).
    * 
    * @param request - CreateNetworkInterfaceRequest
    * @returns CreateNetworkInterfaceResponse
@@ -3808,7 +3808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DeleteEip删除后付费的弹性公网EIP实例。
+   * Deletes a pay-as-you-go elastic IP address (EIP).
    * 
    * @param request - DeleteEipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3839,7 +3839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DeleteEip删除后付费的弹性公网EIP实例。
+   * Deletes a pay-as-you-go elastic IP address (EIP).
    * 
    * @param request - DeleteEipRequest
    * @returns DeleteEipResponse
@@ -6215,6 +6215,10 @@ export default class Client extends OpenApi {
       query["EnsRegionIds"] = request.ensRegionIds;
     }
 
+    if (!$dara.isNull(request.icmpReplyEnabled)) {
+      query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -7416,7 +7420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件列表
+   * Queries instance system events.
    * 
    * @param tmpReq - DescribeHistoryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7485,7 +7489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询事件列表
+   * Queries instance system events.
    * 
    * @param request - DescribeHistoryEventsRequest
    * @returns DescribeHistoryEventsResponse
@@ -8756,7 +8760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 输出指定用户ID下可用资源对应的nas信息
+   * Queries the specifications of resources that you can purchase when you create a NAS.
    * 
    * @param request - DescribeNASAvailableResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8779,7 +8783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 输出指定用户ID下可用资源对应的nas信息
+   * Queries the specifications of resources that you can purchase when you create a NAS.
    * @returns DescribeNASAvailableResourceInfoResponse
    */
   async describeNASAvailableResourceInfo(): Promise<$_model.DescribeNASAvailableResourceInfoResponse> {
@@ -14104,7 +14108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可移除所有版本的sdg，恢复为本地盘挂载
+   * Removes all versions of SDG and restores the mount to the local disk.
    * 
    * @param tmpReq - RemoveSDGsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14149,7 +14153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 可移除所有版本的sdg，恢复为本地盘挂载
+   * Removes all versions of SDG and restores the mount to the local disk.
    * 
    * @param request - RemoveSDGsRequest
    * @returns RemoveSDGsResponse
