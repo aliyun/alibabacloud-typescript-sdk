@@ -88,11 +88,7 @@ export class InvokeAssistantResponseBodyMessagesContentDingCard extends $dara.Mo
 }
 
 export class InvokeAssistantResponseBodyMessagesContentDingNormalCardCardData extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
-  cardParamMap?: { [key: string]: any };
+  cardParamMap?: any;
   static names(): { [key: string]: string } {
     return {
       cardParamMap: 'cardParamMap',
@@ -101,14 +97,11 @@ export class InvokeAssistantResponseBodyMessagesContentDingNormalCardCardData ex
 
   static types(): { [key: string]: any } {
     return {
-      cardParamMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      cardParamMap: 'any',
     };
   }
 
   validate() {
-    if(this.cardParamMap) {
-      $dara.Model.validateMap(this.cardParamMap);
-    }
     super.validate();
   }
 
