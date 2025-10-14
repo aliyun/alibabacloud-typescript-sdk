@@ -1,7 +1,53 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { TicketingResponseBodyData } from "./TicketingResponseBodyData";
 
+
+export class TicketingResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * order number
+   * 
+   * @example
+   * 496***2617111
+   */
+  orderNum?: number;
+  /**
+   * @example
+   * 1757404878000
+   */
+  payTime?: number;
+  /**
+   * @remarks
+   * transaction serial number
+   * 
+   * @example
+   * hkduendkd-2023-dj0
+   */
+  transactionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderNum: 'order_num',
+      payTime: 'pay_time',
+      transactionNo: 'transaction_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderNum: 'number',
+      payTime: 'number',
+      transactionNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class TicketingResponseBody extends $dara.Model {
   /**

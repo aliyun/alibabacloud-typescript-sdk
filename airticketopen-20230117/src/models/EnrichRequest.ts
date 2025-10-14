@@ -1,7 +1,182 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { EnrichRequestJourneyParamList } from "./EnrichRequestJourneyParamList";
 
+
+export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
+  /**
+   * @remarks
+   * arrival airport code (capitalized)
+   * 
+   * @example
+   * MFM
+   */
+  arrivalAirport?: string;
+  /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
+  arrivalCity?: string;
+  /**
+   * @remarks
+   * RBD
+   * 
+   * @example
+   * V
+   */
+  cabin?: string;
+  /**
+   * @remarks
+   * child RBD
+   * 
+   * @example
+   * E
+   */
+  childCabin?: string;
+  /**
+   * @remarks
+   * departure airport code (capitalized)
+   * 
+   * @example
+   * PVG
+   */
+  departureAirport?: string;
+  /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
+  departureCity?: string;
+  /**
+   * @remarks
+   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-03-10 07:55:00
+   */
+  departureTime?: string;
+  /**
+   * @remarks
+   * marketing flight no. (eg: KA5809)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HO1295
+   */
+  marketingFlightNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrivalAirport: 'arrival_airport',
+      arrivalCity: 'arrival_city',
+      cabin: 'cabin',
+      childCabin: 'child_cabin',
+      departureAirport: 'departure_airport',
+      departureCity: 'departure_city',
+      departureTime: 'departure_time',
+      marketingFlightNo: 'marketing_flight_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrivalAirport: 'string',
+      arrivalCity: 'string',
+      cabin: 'string',
+      childCabin: 'string',
+      departureAirport: 'string',
+      departureCity: 'string',
+      departureTime: 'string',
+      marketingFlightNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrichRequestJourneyParamList extends $dara.Model {
+  /**
+   * @remarks
+   * arrival city code (capitalized)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MFM
+   */
+  arrivalCity?: string;
+  /**
+   * @remarks
+   * departure city code (capitalized)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SHA
+   */
+  departureCity?: string;
+  /**
+   * @remarks
+   * departure date (eg: yyyyMMdd)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20230310
+   */
+  departureDate?: string;
+  /**
+   * @remarks
+   * segement param list
+   * 
+   * This parameter is required.
+   */
+  segmentParamList?: EnrichRequestJourneyParamListSegmentParamList[];
+  static names(): { [key: string]: string } {
+    return {
+      arrivalCity: 'arrival_city',
+      departureCity: 'departure_city',
+      departureDate: 'departure_date',
+      segmentParamList: 'segment_param_list',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrivalCity: 'string',
+      departureCity: 'string',
+      departureDate: 'string',
+      segmentParamList: { 'type': 'array', 'itemType': EnrichRequestJourneyParamListSegmentParamList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.segmentParamList)) {
+      $dara.Model.validateArray(this.segmentParamList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class EnrichRequest extends $dara.Model {
   /**

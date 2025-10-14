@@ -10,7 +10,7 @@ export class OrderListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2023-02-02 11:20:00
+   * 1677229005000
    */
   bookTimeEnd?: number;
   /**
@@ -20,15 +20,15 @@ export class OrderListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2023-02-01 11:20:00
+   * 1677227005000
    */
   bookTimeStart?: number;
   /**
    * @remarks
-   * pagination query parameters, from which page to start querying
+   * pagination query parameters, from which page to start querying,querying starts with 0
    * 
    * @example
-   * 1
+   * 0
    */
   pageIndex?: number;
   /**

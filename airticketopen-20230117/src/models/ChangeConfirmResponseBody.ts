@@ -1,7 +1,47 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ChangeConfirmResponseBodyData } from "./ChangeConfirmResponseBodyData";
 
+
+export class ChangeConfirmResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
+  payAmount?: number;
+  /**
+   * @example
+   * 1756797933000
+   */
+  payTime?: number;
+  /**
+   * @example
+   * hkduendkd-2023-dj0
+   */
+  transactionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payAmount: 'pay_amount',
+      payTime: 'pay_time',
+      transactionNo: 'transaction_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payAmount: 'number',
+      payTime: 'number',
+      transactionNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ChangeConfirmResponseBody extends $dara.Model {
   /**

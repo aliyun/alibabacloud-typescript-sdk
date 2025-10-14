@@ -1,7 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CancelResponseBodyData } from "./CancelResponseBodyData";
 
+
+export class CancelResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * order number
+   * 
+   * @example
+   * 496***2617111
+   */
+  orderNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderNum: 'order_num',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CancelResponseBody extends $dara.Model {
   /**
