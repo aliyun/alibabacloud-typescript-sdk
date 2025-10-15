@@ -2,28 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class DisableIdentityProviderAuthnRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * IDaaS的身份提供方主键id
    * 
    * This parameter is required.
    * 
    * @example
-   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   * idp_11111
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM的实例id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eiam-111ccc1111
    */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
+      identityProviderId: 'IdentityProviderId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
+      identityProviderId: 'string',
       instanceId: 'string',
     };
   }

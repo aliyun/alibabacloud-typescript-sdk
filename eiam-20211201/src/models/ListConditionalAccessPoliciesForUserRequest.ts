@@ -2,11 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class ListConditionalAccessPoliciesForUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * IDaaS EIAM实例的ID。
    * 
    * This parameter is required.
    * 
@@ -14,17 +13,27 @@ export class ListDomainsRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * 条件访问策略关联的用户ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user_xxxx
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
       instanceId: 'InstanceId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
       instanceId: 'string',
+      userId: 'string',
     };
   }
 

@@ -31,6 +31,7 @@ export class GetDomainResponseBodyDomainFiling extends $dara.Model {
 }
 
 export class GetDomainResponseBodyDomain extends $dara.Model {
+  brandId?: string;
   /**
    * @remarks
    * The start time when the change order was created.
@@ -108,6 +109,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      brandId: 'BrandId',
       createTime: 'CreateTime',
       defaultDomain: 'DefaultDomain',
       domain: 'Domain',
@@ -122,6 +124,7 @@ export class GetDomainResponseBodyDomain extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      brandId: 'string',
       createTime: 'number',
       defaultDomain: 'boolean',
       domain: 'string',

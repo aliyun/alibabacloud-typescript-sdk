@@ -2,11 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class DeleteFederatedCredentialProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * 联邦凭证提供方ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fcp_mkv7rgt4d7i4u7zqtzev2mxxxx
+   */
+  federatedCredentialProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
    * 
    * This parameter is required.
    * 
@@ -16,14 +25,14 @@ export class ListDomainsRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
+      federatedCredentialProviderId: 'FederatedCredentialProviderId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
+      federatedCredentialProviderId: 'string',
       instanceId: 'string',
     };
   }

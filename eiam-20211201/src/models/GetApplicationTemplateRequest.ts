@@ -2,29 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class GetApplicationTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * 应用模板id
    * 
    * This parameter is required.
    * 
    * @example
-   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   * apt_ramuser_xxxx
    */
-  instanceId?: string;
+  applicationTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
-      instanceId: 'InstanceId',
+      applicationTemplateId: 'ApplicationTemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
-      instanceId: 'string',
+      applicationTemplateId: 'string',
     };
   }
 

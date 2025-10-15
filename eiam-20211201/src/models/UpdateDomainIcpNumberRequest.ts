@@ -2,11 +2,30 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class UpdateDomainIcpNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * 域名ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dm_examplexxxxx
+   */
+  domainId?: string;
+  /**
+   * @remarks
+   * 域名关联的备案号，长度最大限制64。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 浙xx-xxxxxx
+   */
+  icpNumber?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
    * 
    * This parameter is required.
    * 
@@ -16,14 +35,16 @@ export class ListDomainsRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
+      domainId: 'DomainId',
+      icpNumber: 'IcpNumber',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
+      domainId: 'string',
+      icpNumber: 'string',
       instanceId: 'string',
     };
   }

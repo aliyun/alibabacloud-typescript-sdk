@@ -2,29 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class CreateNetworkZoneResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   * network_m6a57vre4g3h7m725yrq6pxxxx
    */
-  instanceId?: string;
+  networkZoneId?: string;
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
-      instanceId: 'InstanceId',
+      networkZoneId: 'NetworkZoneId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
-      instanceId: 'string',
+      networkZoneId: 'string',
+      requestId: 'string',
     };
   }
 

@@ -2,11 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class ListConditionalAccessPoliciesForApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * 条件访问策略关联的应用ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * app_11111
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
    * 
    * This parameter is required.
    * 
@@ -16,14 +25,14 @@ export class ListDomainsRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
+      applicationId: 'ApplicationId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
+      applicationId: 'string',
       instanceId: 'string',
     };
   }

@@ -2,29 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class UpdateApplicationFederatedCredentialResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The instance ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
    */
-  instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
-      instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
-      instanceId: 'string',
+      requestId: 'string',
     };
   }
 

@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 在当前应用下给指定员工添加一个应用账号
+   * 
+   * @param request - AddApplicationAccountToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddApplicationAccountToUserResponse
+   */
+  async addApplicationAccountToUserWithOptions(request: $_model.AddApplicationAccountToUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddApplicationAccountToUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationUsername)) {
+      query["ApplicationUsername"] = request.applicationUsername;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddApplicationAccountToUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddApplicationAccountToUserResponse>(await this.callApi(params, req, runtime), new $_model.AddApplicationAccountToUserResponse({}));
+  }
+
+  /**
+   * 在当前应用下给指定员工添加一个应用账号
+   * 
+   * @param request - AddApplicationAccountToUserRequest
+   * @returns AddApplicationAccountToUserResponse
+   */
+  async addApplicationAccountToUser(request: $_model.AddApplicationAccountToUserRequest): Promise<$_model.AddApplicationAccountToUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addApplicationAccountToUserWithOptions(request, runtime);
+  }
+
+  /**
    * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
@@ -402,6 +456,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用联邦凭证
+   * 
+   * @param request - CreateApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationFederatedCredentialResponse
+   */
+  async createApplicationFederatedCredentialWithOptions(request: $_model.CreateApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialName)) {
+      query["ApplicationFederatedCredentialName"] = request.applicationFederatedCredentialName;
+    }
+
+    if (!$dara.isNull(request.applicationFederatedCredentialType)) {
+      query["ApplicationFederatedCredentialType"] = request.applicationFederatedCredentialType;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.attributeMappings)) {
+      query["AttributeMappings"] = request.attributeMappings;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.verificationCondition)) {
+      query["VerificationCondition"] = request.verificationCondition;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 创建应用联邦凭证
+   * 
+   * @param request - CreateApplicationFederatedCredentialRequest
+   * @returns CreateApplicationFederatedCredentialResponse
+   */
+  async createApplicationFederatedCredential(request: $_model.CreateApplicationFederatedCredentialRequest): Promise<$_model.CreateApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationFederatedCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用Token
+   * 
+   * @param request - CreateApplicationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationTokenResponse
+   */
+  async createApplicationTokenWithOptions(request: $_model.CreateApplicationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenType)) {
+      query["ApplicationTokenType"] = request.applicationTokenType;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationTokenResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationTokenResponse({}));
+  }
+
+  /**
+   * 创建应用Token
+   * 
+   * @param request - CreateApplicationTokenRequest
+   * @returns CreateApplicationTokenResponse
+   */
+  async createApplicationToken(request: $_model.CreateApplicationTokenRequest): Promise<$_model.CreateApplicationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Create Conditional Access Policy
    * 
    * @remarks
@@ -579,6 +757,76 @@ export default class Client extends OpenApi {
   async createDomainProxyToken(request: $_model.CreateDomainProxyTokenRequest): Promise<$_model.CreateDomainProxyTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建联邦凭证提供方
+   * 
+   * @param request - CreateFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFederatedCredentialProviderResponse
+   */
+  async createFederatedCredentialProviderWithOptions(request: $_model.CreateFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderName)) {
+      query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderType)) {
+      query["FederatedCredentialProviderType"] = request.federatedCredentialProviderType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!$dara.isNull(request.oidcProviderConfig)) {
+      query["OidcProviderConfig"] = request.oidcProviderConfig;
+    }
+
+    if (!$dara.isNull(request.pkcs7ProviderConfig)) {
+      query["Pkcs7ProviderConfig"] = request.pkcs7ProviderConfig;
+    }
+
+    if (!$dara.isNull(request.privateCaProviderConfig)) {
+      query["PrivateCaProviderConfig"] = request.privateCaProviderConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.CreateFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 创建联邦凭证提供方
+   * 
+   * @param request - CreateFederatedCredentialProviderRequest
+   * @returns CreateFederatedCredentialProviderResponse
+   */
+  async createFederatedCredentialProvider(request: $_model.CreateFederatedCredentialProviderRequest): Promise<$_model.CreateFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFederatedCredentialProviderWithOptions(request, runtime);
   }
 
   /**
@@ -846,6 +1094,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网络区域对象
+   * 
+   * @param request - CreateNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkZoneResponse
+   */
+  async createNetworkZoneWithOptions(request: $_model.CreateNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ipv4Cidrs)) {
+      query["Ipv4Cidrs"] = request.ipv4Cidrs;
+    }
+
+    if (!$dara.isNull(request.ipv6Cidrs)) {
+      query["Ipv6Cidrs"] = request.ipv6Cidrs;
+    }
+
+    if (!$dara.isNull(request.networkZoneName)) {
+      query["NetworkZoneName"] = request.networkZoneName;
+    }
+
+    if (!$dara.isNull(request.networkZoneType)) {
+      query["NetworkZoneType"] = request.networkZoneType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNetworkZoneResponse>(await this.callApi(params, req, runtime), new $_model.CreateNetworkZoneResponse({}));
+  }
+
+  /**
+   * 创建网络区域对象
+   * 
+   * @param request - CreateNetworkZoneRequest
+   * @returns CreateNetworkZoneResponse
+   */
+  async createNetworkZone(request: $_model.CreateNetworkZoneRequest): Promise<$_model.CreateNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNetworkZoneWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
    * 
    * @param request - CreateOrganizationalUnitRequest
@@ -1108,6 +1426,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除应用联邦凭证
+   * 
+   * @param request - DeleteApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationFederatedCredentialResponse
+   */
+  async deleteApplicationFederatedCredentialWithOptions(request: $_model.DeleteApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 删除应用联邦凭证
+   * 
+   * @param request - DeleteApplicationFederatedCredentialRequest
+   * @returns DeleteApplicationFederatedCredentialResponse
+   */
+  async deleteApplicationFederatedCredential(request: $_model.DeleteApplicationFederatedCredentialRequest): Promise<$_model.DeleteApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationFederatedCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除ApplicationToken
+   * 
+   * @param request - DeleteApplicationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationTokenResponse
+   */
+  async deleteApplicationTokenWithOptions(request: $_model.DeleteApplicationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenId)) {
+      query["ApplicationTokenId"] = request.applicationTokenId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationTokenResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationTokenResponse({}));
+  }
+
+  /**
+   * 删除ApplicationToken
+   * 
+   * @param request - DeleteApplicationTokenRequest
+   * @returns DeleteApplicationTokenResponse
+   */
+  async deleteApplicationToken(request: $_model.DeleteApplicationTokenRequest): Promise<$_model.DeleteApplicationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Conditional Access Policy
    * 
    * @remarks
@@ -1253,6 +1671,52 @@ export default class Client extends OpenApi {
   async deleteDomainProxyToken(request: $_model.DeleteDomainProxyTokenRequest): Promise<$_model.DeleteDomainProxyTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除联邦凭证提供方
+   * 
+   * @param request - DeleteFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFederatedCredentialProviderResponse
+   */
+  async deleteFederatedCredentialProviderWithOptions(request: $_model.DeleteFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 删除联邦凭证提供方
+   * 
+   * @param request - DeleteFederatedCredentialProviderRequest
+   * @returns DeleteFederatedCredentialProviderResponse
+   */
+  async deleteFederatedCredentialProvider(request: $_model.DeleteFederatedCredentialProviderRequest): Promise<$_model.DeleteFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFederatedCredentialProviderWithOptions(request, runtime);
   }
 
   /**
@@ -1439,6 +1903,52 @@ export default class Client extends OpenApi {
   async deleteNetworkAccessEndpoint(request: $_model.DeleteNetworkAccessEndpointRequest): Promise<$_model.DeleteNetworkAccessEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNetworkAccessEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网络区域对象
+   * 
+   * @param request - DeleteNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkZoneResponse
+   */
+  async deleteNetworkZoneWithOptions(request: $_model.DeleteNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNetworkZoneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNetworkZoneResponse({}));
+  }
+
+  /**
+   * 删除网络区域对象
+   * 
+   * @param request - DeleteNetworkZoneRequest
+   * @returns DeleteNetworkZoneResponse
+   */
+  async deleteNetworkZone(request: $_model.DeleteNetworkZoneRequest): Promise<$_model.DeleteNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNetworkZoneWithOptions(request, runtime);
   }
 
   /**
@@ -1728,6 +2238,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用应用联邦凭证
+   * 
+   * @param request - DisableApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApplicationFederatedCredentialResponse
+   */
+  async disableApplicationFederatedCredentialWithOptions(request: $_model.DisableApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DisableApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 禁用应用联邦凭证
+   * 
+   * @param request - DisableApplicationFederatedCredentialRequest
+   * @returns DisableApplicationFederatedCredentialResponse
+   */
+  async disableApplicationFederatedCredential(request: $_model.DisableApplicationFederatedCredentialRequest): Promise<$_model.DisableApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableApplicationFederatedCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - DisableApplicationProvisioningRequest
@@ -1817,6 +2377,56 @@ export default class Client extends OpenApi {
   async disableApplicationSso(request: $_model.DisableApplicationSsoRequest): Promise<$_model.DisableApplicationSsoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableApplicationSsoWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用应用Token
+   * 
+   * @param request - DisableApplicationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApplicationTokenResponse
+   */
+  async disableApplicationTokenWithOptions(request: $_model.DisableApplicationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApplicationTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenId)) {
+      query["ApplicationTokenId"] = request.applicationTokenId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApplicationToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableApplicationTokenResponse>(await this.callApi(params, req, runtime), new $_model.DisableApplicationTokenResponse({}));
+  }
+
+  /**
+   * 禁用应用Token
+   * 
+   * @param request - DisableApplicationTokenRequest
+   * @returns DisableApplicationTokenResponse
+   */
+  async disableApplicationToken(request: $_model.DisableApplicationTokenRequest): Promise<$_model.DisableApplicationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableApplicationTokenWithOptions(request, runtime);
   }
 
   /**
@@ -1919,6 +2529,98 @@ export default class Client extends OpenApi {
   async disableDomainProxyToken(request: $_model.DisableDomainProxyTokenRequest): Promise<$_model.DisableDomainProxyTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用联邦凭证提供方
+   * 
+   * @param request - DisableFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableFederatedCredentialProviderResponse
+   */
+  async disableFederatedCredentialProviderWithOptions(request: $_model.DisableFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.DisableFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 禁用联邦凭证提供方
+   * 
+   * @param request - DisableFederatedCredentialProviderRequest
+   * @returns DisableFederatedCredentialProviderResponse
+   */
+  async disableFederatedCredentialProvider(request: $_model.DisableFederatedCredentialProviderRequest): Promise<$_model.DisableFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableFederatedCredentialProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 禁用认证
+   * 
+   * @param request - DisableIdentityProviderAuthnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableIdentityProviderAuthnResponse
+   */
+  async disableIdentityProviderAuthnWithOptions(request: $_model.DisableIdentityProviderAuthnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableIdentityProviderAuthnResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableIdentityProviderAuthn",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableIdentityProviderAuthnResponse>(await this.callApi(params, req, runtime), new $_model.DisableIdentityProviderAuthnResponse({}));
+  }
+
+  /**
+   * 禁用认证
+   * 
+   * @param request - DisableIdentityProviderAuthnRequest
+   * @returns DisableIdentityProviderAuthnResponse
+   */
+  async disableIdentityProviderAuthn(request: $_model.DisableIdentityProviderAuthnRequest): Promise<$_model.DisableIdentityProviderAuthnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableIdentityProviderAuthnWithOptions(request, runtime);
   }
 
   /**
@@ -2198,6 +2900,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用应用联邦凭证
+   * 
+   * @param request - EnableApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApplicationFederatedCredentialResponse
+   */
+  async enableApplicationFederatedCredentialWithOptions(request: $_model.EnableApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.EnableApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 启用应用联邦凭证
+   * 
+   * @param request - EnableApplicationFederatedCredentialRequest
+   * @returns EnableApplicationFederatedCredentialResponse
+   */
+  async enableApplicationFederatedCredential(request: $_model.EnableApplicationFederatedCredentialRequest): Promise<$_model.EnableApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableApplicationFederatedCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
    * 
    * @param request - EnableApplicationProvisioningRequest
@@ -2287,6 +3039,56 @@ export default class Client extends OpenApi {
   async enableApplicationSso(request: $_model.EnableApplicationSsoRequest): Promise<$_model.EnableApplicationSsoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableApplicationSsoWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用应用Token
+   * 
+   * @param request - EnableApplicationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApplicationTokenResponse
+   */
+  async enableApplicationTokenWithOptions(request: $_model.EnableApplicationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApplicationTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenId)) {
+      query["ApplicationTokenId"] = request.applicationTokenId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApplicationToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableApplicationTokenResponse>(await this.callApi(params, req, runtime), new $_model.EnableApplicationTokenResponse({}));
+  }
+
+  /**
+   * 启用应用Token
+   * 
+   * @param request - EnableApplicationTokenRequest
+   * @returns EnableApplicationTokenResponse
+   */
+  async enableApplicationToken(request: $_model.EnableApplicationTokenRequest): Promise<$_model.EnableApplicationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableApplicationTokenWithOptions(request, runtime);
   }
 
   /**
@@ -2389,6 +3191,98 @@ export default class Client extends OpenApi {
   async enableDomainProxyToken(request: $_model.EnableDomainProxyTokenRequest): Promise<$_model.EnableDomainProxyTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用联邦凭证提供方
+   * 
+   * @param request - EnableFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableFederatedCredentialProviderResponse
+   */
+  async enableFederatedCredentialProviderWithOptions(request: $_model.EnableFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.EnableFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 启用联邦凭证提供方
+   * 
+   * @param request - EnableFederatedCredentialProviderRequest
+   * @returns EnableFederatedCredentialProviderResponse
+   */
+  async enableFederatedCredentialProvider(request: $_model.EnableFederatedCredentialProviderRequest): Promise<$_model.EnableFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableFederatedCredentialProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用认证
+   * 
+   * @param request - EnableIdentityProviderAuthnRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableIdentityProviderAuthnResponse
+   */
+  async enableIdentityProviderAuthnWithOptions(request: $_model.EnableIdentityProviderAuthnRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableIdentityProviderAuthnResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableIdentityProviderAuthn",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableIdentityProviderAuthnResponse>(await this.callApi(params, req, runtime), new $_model.EnableIdentityProviderAuthnResponse({}));
+  }
+
+  /**
+   * 启用认证
+   * 
+   * @param request - EnableIdentityProviderAuthnRequest
+   * @returns EnableIdentityProviderAuthnResponse
+   */
+  async enableIdentityProviderAuthn(request: $_model.EnableIdentityProviderAuthnRequest): Promise<$_model.EnableIdentityProviderAuthnResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableIdentityProviderAuthnWithOptions(request, runtime);
   }
 
   /**
@@ -2569,6 +3463,56 @@ export default class Client extends OpenApi {
   async getApplication(request: $_model.GetApplicationRequest): Promise<$_model.GetApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取应用联邦凭证
+   * 
+   * @param request - GetApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationFederatedCredentialResponse
+   */
+  async getApplicationFederatedCredentialWithOptions(request: $_model.GetApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 获取应用联邦凭证
+   * 
+   * @param request - GetApplicationFederatedCredentialRequest
+   * @returns GetApplicationFederatedCredentialResponse
+   */
+  async getApplicationFederatedCredential(request: $_model.GetApplicationFederatedCredentialRequest): Promise<$_model.GetApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationFederatedCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -2756,6 +3700,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用模板信息
+   * 
+   * @param request - GetApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationTemplateResponse
+   */
+  async getApplicationTemplateWithOptions(request: $_model.GetApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationTemplateResponse({}));
+  }
+
+  /**
+   * 获取应用模板信息
+   * 
+   * @param request - GetApplicationTemplateRequest
+   * @returns GetApplicationTemplateResponse
+   */
+  async getApplicationTemplate(request: $_model.GetApplicationTemplateRequest): Promise<$_model.GetApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Get Conditional Access Policy
    * 
    * @remarks
@@ -2897,6 +3883,52 @@ export default class Client extends OpenApi {
   async getDomainDnsChallenge(request: $_model.GetDomainDnsChallengeRequest): Promise<$_model.GetDomainDnsChallengeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDomainDnsChallengeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取联邦凭证提供方
+   * 
+   * @param request - GetFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFederatedCredentialProviderResponse
+   */
+  async getFederatedCredentialProviderWithOptions(request: $_model.GetFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.GetFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 获取联邦凭证提供方
+   * 
+   * @param request - GetFederatedCredentialProviderRequest
+   * @returns GetFederatedCredentialProviderResponse
+   */
+  async getFederatedCredentialProvider(request: $_model.GetFederatedCredentialProviderRequest): Promise<$_model.GetFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFederatedCredentialProviderWithOptions(request, runtime);
   }
 
   /**
@@ -3213,6 +4245,52 @@ export default class Client extends OpenApi {
   async getNetworkAccessEndpoint(request: $_model.GetNetworkAccessEndpointRequest): Promise<$_model.GetNetworkAccessEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNetworkAccessEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取网络区域对象
+   * 
+   * @param request - GetNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkZoneResponse
+   */
+  async getNetworkZoneWithOptions(request: $_model.GetNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNetworkZoneResponse>(await this.callApi(params, req, runtime), new $_model.GetNetworkZoneResponse({}));
+  }
+
+  /**
+   * 获取网络区域对象
+   * 
+   * @param request - GetNetworkZoneRequest
+   * @returns GetNetworkZoneResponse
+   */
+  async getNetworkZone(request: $_model.GetNetworkZoneRequest): Promise<$_model.GetNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNetworkZoneWithOptions(request, runtime);
   }
 
   /**
@@ -3564,6 +4642,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询应用下的应用账户列表
+   * 
+   * @param request - ListApplicationAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationAccountsResponse
+   */
+  async listApplicationAccountsWithOptions(request: $_model.ListApplicationAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationAccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationAccounts",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationAccountsResponse({}));
+  }
+
+  /**
+   * 分页查询应用下的应用账户列表
+   * 
+   * @param request - ListApplicationAccountsRequest
+   * @returns ListApplicationAccountsResponse
+   */
+  async listApplicationAccounts(request: $_model.ListApplicationAccountsRequest): Promise<$_model.ListApplicationAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询当前应用下指定用户的所有账号
+   * 
+   * @param request - ListApplicationAccountsForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationAccountsForUserResponse
+   */
+  async listApplicationAccountsForUserWithOptions(request: $_model.ListApplicationAccountsForUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationAccountsForUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationAccountsForUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationAccountsForUserResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationAccountsForUserResponse({}));
+  }
+
+  /**
+   * 查询当前应用下指定用户的所有账号
+   * 
+   * @param request - ListApplicationAccountsForUserRequest
+   * @returns ListApplicationAccountsForUserResponse
+   */
+  async listApplicationAccountsForUser(request: $_model.ListApplicationAccountsForUserRequest): Promise<$_model.ListApplicationAccountsForUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationAccountsForUserWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
    * 
    * @param request - ListApplicationClientSecretsRequest
@@ -3607,6 +4789,222 @@ export default class Client extends OpenApi {
   async listApplicationClientSecrets(request: $_model.ListApplicationClientSecretsRequest): Promise<$_model.ListApplicationClientSecretsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationClientSecretsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询应用联邦凭证列表
+   * 
+   * @param request - ListApplicationFederatedCredentialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationFederatedCredentialsResponse
+   */
+  async listApplicationFederatedCredentialsWithOptions(request: $_model.ListApplicationFederatedCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationFederatedCredentialsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialType)) {
+      query["ApplicationFederatedCredentialType"] = request.applicationFederatedCredentialType;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationFederatedCredentials",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationFederatedCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationFederatedCredentialsResponse({}));
+  }
+
+  /**
+   * 查询应用联邦凭证列表
+   * 
+   * @param request - ListApplicationFederatedCredentialsRequest
+   * @returns ListApplicationFederatedCredentialsResponse
+   */
+  async listApplicationFederatedCredentials(request: $_model.ListApplicationFederatedCredentialsRequest): Promise<$_model.ListApplicationFederatedCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationFederatedCredentialsWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据联邦凭证提供方查询应用联邦凭证列表
+   * 
+   * @param request - ListApplicationFederatedCredentialsForProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationFederatedCredentialsForProviderResponse
+   */
+  async listApplicationFederatedCredentialsForProviderWithOptions(request: $_model.ListApplicationFederatedCredentialsForProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationFederatedCredentialsForProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationFederatedCredentialsForProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationFederatedCredentialsForProviderResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationFederatedCredentialsForProviderResponse({}));
+  }
+
+  /**
+   * 根据联邦凭证提供方查询应用联邦凭证列表
+   * 
+   * @param request - ListApplicationFederatedCredentialsForProviderRequest
+   * @returns ListApplicationFederatedCredentialsForProviderResponse
+   */
+  async listApplicationFederatedCredentialsForProvider(request: $_model.ListApplicationFederatedCredentialsForProviderRequest): Promise<$_model.ListApplicationFederatedCredentialsForProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationFederatedCredentialsForProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用支持账户同步类型列表
+   * 
+   * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationSupportedProvisionProtocolTypesResponse
+   */
+  async listApplicationSupportedProvisionProtocolTypesWithOptions(request: $_model.ListApplicationSupportedProvisionProtocolTypesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationSupportedProvisionProtocolTypesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationSupportedProvisionProtocolTypes",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationSupportedProvisionProtocolTypesResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationSupportedProvisionProtocolTypesResponse({}));
+  }
+
+  /**
+   * 应用支持账户同步类型列表
+   * 
+   * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
+   * @returns ListApplicationSupportedProvisionProtocolTypesResponse
+   */
+  async listApplicationSupportedProvisionProtocolTypes(request: $_model.ListApplicationSupportedProvisionProtocolTypesRequest): Promise<$_model.ListApplicationSupportedProvisionProtocolTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationSupportedProvisionProtocolTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用Token
+   * 
+   * @param request - ListApplicationTokensRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationTokensResponse
+   */
+  async listApplicationTokensWithOptions(request: $_model.ListApplicationTokensRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationTokensResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenType)) {
+      query["ApplicationTokenType"] = request.applicationTokenType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationTokens",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationTokensResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationTokensResponse({}));
+  }
+
+  /**
+   * 创建应用Token
+   * 
+   * @param request - ListApplicationTokensRequest
+   * @returns ListApplicationTokensResponse
+   */
+  async listApplicationTokens(request: $_model.ListApplicationTokensRequest): Promise<$_model.ListApplicationTokensResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationTokensWithOptions(request, runtime);
   }
 
   /**
@@ -3685,6 +5083,176 @@ export default class Client extends OpenApi {
   async listApplications(request: $_model.ListApplicationsRequest): Promise<$_model.ListApplicationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一个EIAM组可访问的应用列表
+   * 
+   * @param request - ListApplicationsForGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForGroupResponse
+   */
+  async listApplicationsForGroupWithOptions(request: $_model.ListApplicationsForGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsForGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationIds)) {
+      query["ApplicationIds"] = request.applicationIds;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationsForGroup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsForGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsForGroupResponse({}));
+  }
+
+  /**
+   * 查询一个EIAM组可访问的应用列表
+   * 
+   * @param request - ListApplicationsForGroupRequest
+   * @returns ListApplicationsForGroupResponse
+   */
+  async listApplicationsForGroup(request: $_model.ListApplicationsForGroupRequest): Promise<$_model.ListApplicationsForGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationsForGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取网络访问端点下的App信息。
+   * 
+   * @param request - ListApplicationsForNetworkAccessEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForNetworkAccessEndpointResponse
+   */
+  async listApplicationsForNetworkAccessEndpointWithOptions(request: $_model.ListApplicationsForNetworkAccessEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsForNetworkAccessEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationsForNetworkAccessEndpoint",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsForNetworkAccessEndpointResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsForNetworkAccessEndpointResponse({}));
+  }
+
+  /**
+   * 获取网络访问端点下的App信息。
+   * 
+   * @param request - ListApplicationsForNetworkAccessEndpointRequest
+   * @returns ListApplicationsForNetworkAccessEndpointResponse
+   */
+  async listApplicationsForNetworkAccessEndpoint(request: $_model.ListApplicationsForNetworkAccessEndpointRequest): Promise<$_model.ListApplicationsForNetworkAccessEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationsForNetworkAccessEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取NetworkZone关联的应用列表
+   * 
+   * @param request - ListApplicationsForNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsForNetworkZoneResponse
+   */
+  async listApplicationsForNetworkZoneWithOptions(request: $_model.ListApplicationsForNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsForNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationsForNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsForNetworkZoneResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsForNetworkZoneResponse({}));
+  }
+
+  /**
+   * 获取NetworkZone关联的应用列表
+   * 
+   * @param request - ListApplicationsForNetworkZoneRequest
+   * @returns ListApplicationsForNetworkZoneResponse
+   */
+  async listApplicationsForNetworkZone(request: $_model.ListApplicationsForNetworkZoneRequest): Promise<$_model.ListApplicationsForNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationsForNetworkZoneWithOptions(request, runtime);
   }
 
   /**
@@ -3874,6 +5442,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用关联的条件访问策略列表
+   * 
+   * @param request - ListConditionalAccessPoliciesForApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConditionalAccessPoliciesForApplicationResponse
+   */
+  async listConditionalAccessPoliciesForApplicationWithOptions(request: $_model.ListConditionalAccessPoliciesForApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListConditionalAccessPoliciesForApplicationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConditionalAccessPoliciesForApplication",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConditionalAccessPoliciesForApplicationResponse>(await this.callApi(params, req, runtime), new $_model.ListConditionalAccessPoliciesForApplicationResponse({}));
+  }
+
+  /**
+   * 获取应用关联的条件访问策略列表
+   * 
+   * @param request - ListConditionalAccessPoliciesForApplicationRequest
+   * @returns ListConditionalAccessPoliciesForApplicationResponse
+   */
+  async listConditionalAccessPoliciesForApplication(request: $_model.ListConditionalAccessPoliciesForApplicationRequest): Promise<$_model.ListConditionalAccessPoliciesForApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConditionalAccessPoliciesForApplicationWithOptions(request, runtime);
+  }
+
+  /**
    * List Conditional Access Policies Associated with Network Areas
    * 
    * @remarks
@@ -3923,6 +5537,52 @@ export default class Client extends OpenApi {
   async listConditionalAccessPoliciesForNetworkZone(request: $_model.ListConditionalAccessPoliciesForNetworkZoneRequest): Promise<$_model.ListConditionalAccessPoliciesForNetworkZoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listConditionalAccessPoliciesForNetworkZoneWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户关联的条件访问策略列表
+   * 
+   * @param request - ListConditionalAccessPoliciesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConditionalAccessPoliciesForUserResponse
+   */
+  async listConditionalAccessPoliciesForUserWithOptions(request: $_model.ListConditionalAccessPoliciesForUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListConditionalAccessPoliciesForUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConditionalAccessPoliciesForUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConditionalAccessPoliciesForUserResponse>(await this.callApi(params, req, runtime), new $_model.ListConditionalAccessPoliciesForUserResponse({}));
+  }
+
+  /**
+   * 获取用户关联的条件访问策略列表
+   * 
+   * @param request - ListConditionalAccessPoliciesForUserRequest
+   * @returns ListConditionalAccessPoliciesForUserResponse
+   */
+  async listConditionalAccessPoliciesForUser(request: $_model.ListConditionalAccessPoliciesForUserRequest): Promise<$_model.ListConditionalAccessPoliciesForUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConditionalAccessPoliciesForUserWithOptions(request, runtime);
   }
 
   /**
@@ -3981,6 +5641,10 @@ export default class Client extends OpenApi {
   async listDomainsWithOptions(request: $_model.ListDomainsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDomainsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -4089,6 +5753,68 @@ export default class Client extends OpenApi {
   async listEiamRegions(): Promise<$_model.ListEiamRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listEiamRegionsWithOptions(runtime);
+  }
+
+  /**
+   * 查询联邦凭证提供方列表
+   * 
+   * @param request - ListFederatedCredentialProvidersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFederatedCredentialProvidersResponse
+   */
+  async listFederatedCredentialProvidersWithOptions(request: $_model.ListFederatedCredentialProvidersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFederatedCredentialProvidersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderName)) {
+      query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderType)) {
+      query["FederatedCredentialProviderType"] = request.federatedCredentialProviderType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFederatedCredentialProviders",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFederatedCredentialProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ListFederatedCredentialProvidersResponse({}));
+  }
+
+  /**
+   * 查询联邦凭证提供方列表
+   * 
+   * @param request - ListFederatedCredentialProvidersRequest
+   * @returns ListFederatedCredentialProvidersResponse
+   */
+  async listFederatedCredentialProviders(request: $_model.ListFederatedCredentialProvidersRequest): Promise<$_model.ListFederatedCredentialProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFederatedCredentialProvidersWithOptions(request, runtime);
   }
 
   /**
@@ -4317,6 +6043,60 @@ export default class Client extends OpenApi {
   async listIdentityProviders(request: $_model.ListIdentityProvidersRequest): Promise<$_model.ListIdentityProvidersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listIdentityProvidersWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取网络端点下的IdP信息。
+   * 
+   * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
+   */
+  async listIdentityProvidersForNetworkAccessEndpointWithOptions(request: $_model.ListIdentityProvidersForNetworkAccessEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIdentityProvidersForNetworkAccessEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIdentityProvidersForNetworkAccessEndpoint",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIdentityProvidersForNetworkAccessEndpointResponse>(await this.callApi(params, req, runtime), new $_model.ListIdentityProvidersForNetworkAccessEndpointResponse({}));
+  }
+
+  /**
+   * 获取网络端点下的IdP信息。
+   * 
+   * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
+   * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
+   */
+  async listIdentityProvidersForNetworkAccessEndpoint(request: $_model.ListIdentityProvidersForNetworkAccessEndpointRequest): Promise<$_model.ListIdentityProvidersForNetworkAccessEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIdentityProvidersForNetworkAccessEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -4557,6 +6337,64 @@ export default class Client extends OpenApi {
   async listNetworkAccessPaths(request: $_model.ListNetworkAccessPathsRequest): Promise<$_model.ListNetworkAccessPathsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNetworkAccessPathsWithOptions(request, runtime);
+  }
+
+  /**
+   * 网络区域对象列表
+   * 
+   * @param request - ListNetworkZonesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworkZonesResponse
+   */
+  async listNetworkZonesWithOptions(request: $_model.ListNetworkZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNetworkZonesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.networkZoneIds)) {
+      query["NetworkZoneIds"] = request.networkZoneIds;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNetworkZones",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNetworkZonesResponse>(await this.callApi(params, req, runtime), new $_model.ListNetworkZonesResponse({}));
+  }
+
+  /**
+   * 网络区域对象列表
+   * 
+   * @param request - ListNetworkZonesRequest
+   * @returns ListNetworkZonesResponse
+   */
+  async listNetworkZones(request: $_model.ListNetworkZonesRequest): Promise<$_model.ListNetworkZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNetworkZonesWithOptions(request, runtime);
   }
 
   /**
@@ -5108,6 +6946,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定应用Token
+   * 
+   * @param request - ObtainApplicationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainApplicationTokenResponse
+   */
+  async obtainApplicationTokenWithOptions(request: $_model.ObtainApplicationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainApplicationTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenId)) {
+      query["ApplicationTokenId"] = request.applicationTokenId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainApplicationToken",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainApplicationTokenResponse>(await this.callApi(params, req, runtime), new $_model.ObtainApplicationTokenResponse({}));
+  }
+
+  /**
+   * 查询指定应用Token
+   * 
+   * @param request - ObtainApplicationTokenRequest
+   * @returns ObtainApplicationTokenResponse
+   */
+  async obtainApplicationToken(request: $_model.ObtainApplicationTokenRequest): Promise<$_model.ObtainApplicationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.obtainApplicationTokenWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a proxy token of a domain name of an Employee Identity and Access Management (EIAM) instance.
    * 
    * @param request - ObtainDomainProxyTokenRequest
@@ -5155,6 +7043,60 @@ export default class Client extends OpenApi {
   async obtainDomainProxyToken(request: $_model.ObtainDomainProxyTokenRequest): Promise<$_model.ObtainDomainProxyTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.obtainDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除一个当前应用下的指定员工的应用账号
+   * 
+   * @param request - RemoveApplicationAccountFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveApplicationAccountFromUserResponse
+   */
+  async removeApplicationAccountFromUserWithOptions(request: $_model.RemoveApplicationAccountFromUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveApplicationAccountFromUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationAccountId)) {
+      query["ApplicationAccountId"] = request.applicationAccountId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveApplicationAccountFromUser",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveApplicationAccountFromUserResponse>(await this.callApi(params, req, runtime), new $_model.RemoveApplicationAccountFromUserResponse({}));
+  }
+
+  /**
+   * 删除一个当前应用下的指定员工的应用账号
+   * 
+   * @param request - RemoveApplicationAccountFromUserRequest
+   * @returns RemoveApplicationAccountFromUserResponse
+   */
+  async removeApplicationAccountFromUser(request: $_model.RemoveApplicationAccountFromUserRequest): Promise<$_model.RemoveApplicationAccountFromUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeApplicationAccountFromUserWithOptions(request, runtime);
   }
 
   /**
@@ -6368,6 +8310,234 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新应用联邦凭证
+   * 
+   * @param request - UpdateApplicationFederatedCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationFederatedCredentialResponse
+   */
+  async updateApplicationFederatedCredentialWithOptions(request: $_model.UpdateApplicationFederatedCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationFederatedCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.attributeMappings)) {
+      query["AttributeMappings"] = request.attributeMappings;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.verificationCondition)) {
+      query["VerificationCondition"] = request.verificationCondition;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationFederatedCredential",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationFederatedCredentialResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationFederatedCredentialResponse({}));
+  }
+
+  /**
+   * 更新应用联邦凭证
+   * 
+   * @param request - UpdateApplicationFederatedCredentialRequest
+   * @returns UpdateApplicationFederatedCredentialResponse
+   */
+  async updateApplicationFederatedCredential(request: $_model.UpdateApplicationFederatedCredentialRequest): Promise<$_model.UpdateApplicationFederatedCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationFederatedCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用联邦凭证描述
+   * 
+   * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationFederatedCredentialDescriptionResponse
+   */
+  async updateApplicationFederatedCredentialDescriptionWithOptions(request: $_model.UpdateApplicationFederatedCredentialDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationFederatedCredentialDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationFederatedCredentialId)) {
+      query["ApplicationFederatedCredentialId"] = request.applicationFederatedCredentialId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationFederatedCredentialDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationFederatedCredentialDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationFederatedCredentialDescriptionResponse({}));
+  }
+
+  /**
+   * 更新应用联邦凭证描述
+   * 
+   * @param request - UpdateApplicationFederatedCredentialDescriptionRequest
+   * @returns UpdateApplicationFederatedCredentialDescriptionResponse
+   */
+  async updateApplicationFederatedCredentialDescription(request: $_model.UpdateApplicationFederatedCredentialDescriptionRequest): Promise<$_model.UpdateApplicationFederatedCredentialDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationFederatedCredentialDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用基本信息
+   * 
+   * @param request - UpdateApplicationInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationInfoResponse
+   */
+  async updateApplicationInfoWithOptions(request: $_model.UpdateApplicationInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.applicationVisibility)) {
+      query["ApplicationVisibility"] = request.applicationVisibility;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logoUrl)) {
+      query["LogoUrl"] = request.logoUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationInfo",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationInfoResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationInfoResponse({}));
+  }
+
+  /**
+   * 更新应用基本信息
+   * 
+   * @param request - UpdateApplicationInfoRequest
+   * @returns UpdateApplicationInfoResponse
+   */
+  async updateApplicationInfo(request: $_model.UpdateApplicationInfoRequest): Promise<$_model.UpdateApplicationInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新ApplicationToken过期时间
+   * 
+   * @param request - UpdateApplicationTokenExpirationTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationTokenExpirationTimeResponse
+   */
+  async updateApplicationTokenExpirationTimeWithOptions(request: $_model.UpdateApplicationTokenExpirationTimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationTokenExpirationTimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTokenId)) {
+      query["ApplicationTokenId"] = request.applicationTokenId;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["ExpirationTime"] = request.expirationTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationTokenExpirationTime",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationTokenExpirationTimeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationTokenExpirationTimeResponse({}));
+  }
+
+  /**
+   * 更新ApplicationToken过期时间
+   * 
+   * @param request - UpdateApplicationTokenExpirationTimeRequest
+   * @returns UpdateApplicationTokenExpirationTimeResponse
+   */
+  async updateApplicationTokenExpirationTime(request: $_model.UpdateApplicationTokenExpirationTimeRequest): Promise<$_model.UpdateApplicationTokenExpirationTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationTokenExpirationTimeWithOptions(request, runtime);
+  }
+
+  /**
    * Update Conditional Access Policy
    * 
    * @remarks
@@ -6501,6 +8671,172 @@ export default class Client extends OpenApi {
   async updateConditionalAccessPolicyDescription(request: $_model.UpdateConditionalAccessPolicyDescriptionRequest): Promise<$_model.UpdateConditionalAccessPolicyDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新域名备案号。
+   * 
+   * @param request - UpdateDomainIcpNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainIcpNumberResponse
+   */
+  async updateDomainIcpNumberWithOptions(request: $_model.UpdateDomainIcpNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDomainIcpNumberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.icpNumber)) {
+      query["IcpNumber"] = request.icpNumber;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDomainIcpNumber",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDomainIcpNumberResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDomainIcpNumberResponse({}));
+  }
+
+  /**
+   * 更新域名备案号。
+   * 
+   * @param request - UpdateDomainIcpNumberRequest
+   * @returns UpdateDomainIcpNumberResponse
+   */
+  async updateDomainIcpNumber(request: $_model.UpdateDomainIcpNumberRequest): Promise<$_model.UpdateDomainIcpNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDomainIcpNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新联邦凭证提供方
+   * 
+   * @param request - UpdateFederatedCredentialProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFederatedCredentialProviderResponse
+   */
+  async updateFederatedCredentialProviderWithOptions(request: $_model.UpdateFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFederatedCredentialProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderName)) {
+      query["FederatedCredentialProviderName"] = request.federatedCredentialProviderName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!$dara.isNull(request.oidcProviderConfig)) {
+      query["OidcProviderConfig"] = request.oidcProviderConfig;
+    }
+
+    if (!$dara.isNull(request.pkcs7ProviderConfig)) {
+      query["Pkcs7ProviderConfig"] = request.pkcs7ProviderConfig;
+    }
+
+    if (!$dara.isNull(request.privateCaProviderConfig)) {
+      query["PrivateCaProviderConfig"] = request.privateCaProviderConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFederatedCredentialProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFederatedCredentialProviderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFederatedCredentialProviderResponse({}));
+  }
+
+  /**
+   * 更新联邦凭证提供方
+   * 
+   * @param request - UpdateFederatedCredentialProviderRequest
+   * @returns UpdateFederatedCredentialProviderResponse
+   */
+  async updateFederatedCredentialProvider(request: $_model.UpdateFederatedCredentialProviderRequest): Promise<$_model.UpdateFederatedCredentialProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFederatedCredentialProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新联邦凭证提供方描述
+   * 
+   * @param request - UpdateFederatedCredentialProviderDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFederatedCredentialProviderDescriptionResponse
+   */
+  async updateFederatedCredentialProviderDescriptionWithOptions(request: $_model.UpdateFederatedCredentialProviderDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFederatedCredentialProviderDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.federatedCredentialProviderId)) {
+      query["FederatedCredentialProviderId"] = request.federatedCredentialProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFederatedCredentialProviderDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFederatedCredentialProviderDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFederatedCredentialProviderDescriptionResponse({}));
+  }
+
+  /**
+   * 更新联邦凭证提供方描述
+   * 
+   * @param request - UpdateFederatedCredentialProviderDescriptionRequest
+   * @returns UpdateFederatedCredentialProviderDescriptionResponse
+   */
+  async updateFederatedCredentialProviderDescription(request: $_model.UpdateFederatedCredentialProviderDescriptionRequest): Promise<$_model.UpdateFederatedCredentialProviderDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFederatedCredentialProviderDescriptionWithOptions(request, runtime);
   }
 
   /**
@@ -6783,6 +9119,126 @@ export default class Client extends OpenApi {
   async updateNetworkAccessEndpointName(request: $_model.UpdateNetworkAccessEndpointNameRequest): Promise<$_model.UpdateNetworkAccessEndpointNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateNetworkAccessEndpointNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网络区域对象
+   * 
+   * @param request - UpdateNetworkZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNetworkZoneResponse
+   */
+  async updateNetworkZoneWithOptions(request: $_model.UpdateNetworkZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNetworkZoneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ipv4Cidrs)) {
+      query["Ipv4Cidrs"] = request.ipv4Cidrs;
+    }
+
+    if (!$dara.isNull(request.ipv6Cidrs)) {
+      query["Ipv6Cidrs"] = request.ipv6Cidrs;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    if (!$dara.isNull(request.networkZoneName)) {
+      query["NetworkZoneName"] = request.networkZoneName;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNetworkZone",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNetworkZoneResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNetworkZoneResponse({}));
+  }
+
+  /**
+   * 更新网络区域对象
+   * 
+   * @param request - UpdateNetworkZoneRequest
+   * @returns UpdateNetworkZoneResponse
+   */
+  async updateNetworkZone(request: $_model.UpdateNetworkZoneRequest): Promise<$_model.UpdateNetworkZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNetworkZoneWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网络区域对象描述
+   * 
+   * @param request - UpdateNetworkZoneDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNetworkZoneDescriptionResponse
+   */
+  async updateNetworkZoneDescriptionWithOptions(request: $_model.UpdateNetworkZoneDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNetworkZoneDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.networkZoneId)) {
+      query["NetworkZoneId"] = request.networkZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNetworkZoneDescription",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNetworkZoneDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNetworkZoneDescriptionResponse({}));
+  }
+
+  /**
+   * 更新网络区域对象描述
+   * 
+   * @param request - UpdateNetworkZoneDescriptionRequest
+   * @returns UpdateNetworkZoneDescriptionResponse
+   */
+  async updateNetworkZoneDescription(request: $_model.UpdateNetworkZoneDescriptionRequest): Promise<$_model.UpdateNetworkZoneDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNetworkZoneDescriptionWithOptions(request, runtime);
   }
 
   /**

@@ -2,11 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDomainsRequest extends $dara.Model {
-  brandId?: string;
+export class ListApplicationSupportedProvisionProtocolTypesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * IDaaS的应用资源ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * app_mkv7rgt4d7i4u7zqtzev2mxxxx
+   */
+  applicationId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM的实例id
    * 
    * This parameter is required.
    * 
@@ -16,14 +25,14 @@ export class ListDomainsRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      brandId: 'BrandId',
+      applicationId: 'ApplicationId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      brandId: 'string',
+      applicationId: 'string',
       instanceId: 'string',
     };
   }
