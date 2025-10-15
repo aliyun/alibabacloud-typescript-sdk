@@ -2526,6 +2526,97 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 流式获取外呼会话分析结果
+   * 
+   * @param request - RunDialogAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDialogAnalysisResponse
+   */
+  async *runDialogAnalysisWithSSE(workspaceId: string, request: $_model.RunDialogAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunDialogAnalysisResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunDialogAnalysis",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/virtualHuman/dialog/stream/analysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunDialogAnalysisResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunDialogAnalysisResponse({}));
+    }
+  }
+
+  /**
+   * 流式获取外呼会话分析结果
+   * 
+   * @param request - RunDialogAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDialogAnalysisResponse
+   */
+  async runDialogAnalysisWithOptions(workspaceId: string, request: $_model.RunDialogAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunDialogAnalysisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunDialogAnalysis",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/virtualHuman/dialog/stream/analysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunDialogAnalysisResponse>(await this.callApi(params, req, runtime), new $_model.RunDialogAnalysisResponse({}));
+  }
+
+  /**
+   * 流式获取外呼会话分析结果
+   * 
+   * @param request - RunDialogAnalysisRequest
+   * @returns RunDialogAnalysisResponse
+   */
+  async runDialogAnalysis(workspaceId: string, request: $_model.RunDialogAnalysisRequest): Promise<$_model.RunDialogAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runDialogAnalysisWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取生成式对话结果
    * 
    * @param request - RunLibraryChatGenerationRequest
