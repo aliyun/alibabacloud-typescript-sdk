@@ -7194,6 +7194,14 @@ export default class Client extends OpenApi {
       query["Memory"] = request.memory;
     }
 
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
     if (!$dara.isNull(request.autoEnableApplicationScalingRule)) {
       query["autoEnableApplicationScalingRule"] = request.autoEnableApplicationScalingRule;
     }

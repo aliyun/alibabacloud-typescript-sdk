@@ -41,6 +41,8 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
    * 2048
    */
   memory?: string;
+  resourceType?: string;
+  vSwitchId?: string;
   /**
    * @remarks
    * Enable application scale rules automatically.
@@ -71,6 +73,8 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
       cpu: 'Cpu',
       diskSize: 'DiskSize',
       memory: 'Memory',
+      resourceType: 'ResourceType',
+      vSwitchId: 'VSwitchId',
       autoEnableApplicationScalingRule: 'autoEnableApplicationScalingRule',
       minReadyInstanceRatio: 'minReadyInstanceRatio',
       minReadyInstances: 'minReadyInstances',
@@ -83,6 +87,8 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
       cpu: 'string',
       diskSize: 'string',
       memory: 'string',
+      resourceType: 'string',
+      vSwitchId: 'string',
       autoEnableApplicationScalingRule: 'boolean',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
