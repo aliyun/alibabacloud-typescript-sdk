@@ -8,6 +8,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
    * cs-default
    */
   addonName?: string;
+  bindResourceId?: string;
   /**
    * @example
    * eg-1,eg-2,eg-3
@@ -63,6 +64,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addonName: 'addonName',
+      bindResourceId: 'bindResourceId',
       entityGroupIds: 'entityGroupIds',
       filterRegionIds: 'filterRegionIds',
       maxResults: 'maxResults',
@@ -81,6 +83,7 @@ export class ListIntegrationPoliciesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addonName: 'string',
+      bindResourceId: 'string',
       entityGroupIds: 'string',
       filterRegionIds: 'string',
       maxResults: 'number',

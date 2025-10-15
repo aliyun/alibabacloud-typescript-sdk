@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara.Model {
   folderUid?: string;
+  name?: string;
   region?: string;
   tags?: string[];
   title?: string;
@@ -12,6 +13,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   static names(): { [key: string]: string } {
     return {
       folderUid: 'folderUid',
+      name: 'name',
       region: 'region',
       tags: 'tags',
       title: 'title',
@@ -23,6 +25,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   static types(): { [key: string]: any } {
     return {
       folderUid: 'string',
+      name: 'string',
       region: 'string',
       tags: { 'type': 'array', 'itemType': 'string' },
       title: 'string',

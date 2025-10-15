@@ -1802,6 +1802,10 @@ export default class Client extends OpenApi {
       query["addonName"] = request.addonName;
     }
 
+    if (!$dara.isNull(request.bindResourceId)) {
+      query["bindResourceId"] = request.bindResourceId;
+    }
+
     if (!$dara.isNull(request.entityGroupIds)) {
       query["entityGroupIds"] = request.entityGroupIds;
     }
