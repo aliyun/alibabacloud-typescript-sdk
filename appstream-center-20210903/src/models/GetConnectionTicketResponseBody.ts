@@ -86,6 +86,11 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    */
   appInstanceId?: string;
   appInstancePersistentId?: string;
+  /**
+   * @example
+   * abc
+   */
+  avatarId?: string;
   bindQueueInfo?: GetConnectionTicketResponseBodyBindQueueInfo;
   /**
    * @example
@@ -102,6 +107,14 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    * reenter app instance failed
    */
   message?: string;
+  /**
+   * @example
+   * 500
+   * 
+   * **if can be null:**
+   * true
+   */
+  nextPollIntervalMs?: number;
   /**
    * @example
    * Windows
@@ -147,10 +160,12 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
       appInstancePersistentId: 'AppInstancePersistentId',
+      avatarId: 'AvatarId',
       bindQueueInfo: 'BindQueueInfo',
       code: 'Code',
       loginToken: 'LoginToken',
       message: 'Message',
+      nextPollIntervalMs: 'NextPollIntervalMs',
       osType: 'OsType',
       policy: 'Policy',
       regionId: 'RegionId',
@@ -168,10 +183,12 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
       appInstancePersistentId: 'string',
+      avatarId: 'string',
       bindQueueInfo: GetConnectionTicketResponseBodyBindQueueInfo,
       code: 'string',
       loginToken: 'string',
       message: 'string',
+      nextPollIntervalMs: 'number',
       osType: 'string',
       policy: GetConnectionTicketResponseBodyPolicy,
       regionId: 'string',
