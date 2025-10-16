@@ -13,6 +13,7 @@ export { CreateAppInstanceGroupRequestUserDefinePolicy } from './CreateAppInstan
 export { CreateAppInstanceGroupRequestUserInfo } from './CreateAppInstanceGroupRequest';
 export { CreateAppInstanceGroupRequestVideoPolicy } from './CreateAppInstanceGroupRequest';
 export { CreateAppInstanceGroupResponseBodyAppInstanceGroupModel } from './CreateAppInstanceGroupResponseBody';
+export { CreateImageByInstanceResponseBodyData } from './CreateImageByInstanceResponseBody';
 export { CreateWuyingServerRequestDataDisk } from './CreateWuyingServerRequest';
 export { CreateWuyingServerResponseBodyData } from './CreateWuyingServerResponseBody';
 export { DeleteAppInstancesResponseBodyDeleteAppInstanceModels } from './DeleteAppInstancesResponseBody';
@@ -49,6 +50,10 @@ export { ListAppInstancesResponseBodyAppInstanceModelsBindInfo } from './ListApp
 export { ListAppInstancesResponseBodyAppInstanceModels } from './ListAppInstancesResponseBody';
 export { ListAuthorizedUserGroupsResponseBodyUserGroups } from './ListAuthorizedUserGroupsResponseBody';
 export { ListBindInfoResponseBodyBindInfoModels } from './ListBindInfoResponseBody';
+export { ListImageRequestTagList } from './ListImageRequest';
+export { ListImageResponseBodyDataAppList } from './ListImageResponseBody';
+export { ListImageResponseBodyDataImageRegionDistributeList } from './ListImageResponseBody';
+export { ListImageResponseBodyData } from './ListImageResponseBody';
 export { ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels } from './ListNodeInstanceTypeResponseBody';
 export { ListNodesResponseBodyNodeModels } from './ListNodesResponseBody';
 export { ListOtaTaskResponseBodyTaskList } from './ListOtaTaskResponseBody';
@@ -90,6 +95,9 @@ export { CreateAppInstanceGroupRequest } from './CreateAppInstanceGroupRequest';
 export { CreateAppInstanceGroupShrinkRequest } from './CreateAppInstanceGroupShrinkRequest';
 export { CreateAppInstanceGroupResponseBody } from './CreateAppInstanceGroupResponseBody';
 export { CreateAppInstanceGroupResponse } from './CreateAppInstanceGroupResponse';
+export { CreateImageByInstanceRequest } from './CreateImageByInstanceRequest';
+export { CreateImageByInstanceResponseBody } from './CreateImageByInstanceResponseBody';
+export { CreateImageByInstanceResponse } from './CreateImageByInstanceResponse';
 export { CreateImageFromAppInstanceGroupRequest } from './CreateImageFromAppInstanceGroupRequest';
 export { CreateImageFromAppInstanceGroupResponseBody } from './CreateImageFromAppInstanceGroupResponseBody';
 export { CreateImageFromAppInstanceGroupResponse } from './CreateImageFromAppInstanceGroupResponse';
@@ -138,6 +146,9 @@ export { ListAuthorizedUserGroupsResponse } from './ListAuthorizedUserGroupsResp
 export { ListBindInfoRequest } from './ListBindInfoRequest';
 export { ListBindInfoResponseBody } from './ListBindInfoResponseBody';
 export { ListBindInfoResponse } from './ListBindInfoResponse';
+export { ListImageRequest } from './ListImageRequest';
+export { ListImageResponseBody } from './ListImageResponseBody';
+export { ListImageResponse } from './ListImageResponse';
 export { ListNodeInstanceTypeRequest } from './ListNodeInstanceTypeRequest';
 export { ListNodeInstanceTypeResponseBody } from './ListNodeInstanceTypeResponseBody';
 export { ListNodeInstanceTypeResponse } from './ListNodeInstanceTypeResponse';

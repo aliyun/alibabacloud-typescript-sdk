@@ -355,6 +355,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过实例创建镜像
+   * 
+   * @param request - CreateImageByInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageByInstanceResponse
+   */
+  async createImageByInstanceWithOptions(request: $_model.CreateImageByInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageByInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoCleanUserdata)) {
+      body["AutoCleanUserdata"] = request.autoCleanUserdata;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.diskType)) {
+      body["DiskType"] = request.diskType;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      body["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.subInstanceId)) {
+      body["SubInstanceId"] = request.subInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImageByInstance",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImageByInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateImageByInstanceResponse({}));
+  }
+
+  /**
+   * 通过实例创建镜像
+   * 
+   * @param request - CreateImageByInstanceRequest
+   * @returns CreateImageByInstanceResponse
+   */
+  async createImageByInstance(request: $_model.CreateImageByInstanceRequest): Promise<$_model.CreateImageByInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createImageByInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a new image by debugging the delivery group.
    * 
    * @param request - CreateImageFromAppInstanceGroupRequest
@@ -1371,6 +1445,130 @@ export default class Client extends OpenApi {
   async listBindInfo(request: $_model.ListBindInfoRequest): Promise<$_model.ListBindInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBindInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 列表显示镜像
+   * 
+   * @param request - ListImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageResponse
+   */
+  async listImageWithOptions(request: $_model.ListImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tagList)) {
+      query["TagList"] = request.tagList;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionIdList)) {
+      body["BizRegionIdList"] = request.bizRegionIdList;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.bizTypeList)) {
+      body["BizTypeList"] = request.bizTypeList;
+    }
+
+    if (!$dara.isNull(request.featureList)) {
+      body["FeatureList"] = request.featureList;
+    }
+
+    if (!$dara.isNull(request.fotaVersion)) {
+      body["FotaVersion"] = request.fotaVersion;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.imageType)) {
+      body["ImageType"] = request.imageType;
+    }
+
+    if (!$dara.isNull(request.languageType)) {
+      body["LanguageType"] = request.languageType;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      body["OsType"] = request.osType;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platformName)) {
+      body["PlatformName"] = request.platformName;
+    }
+
+    if (!$dara.isNull(request.platformNameList)) {
+      body["PlatformNameList"] = request.platformNameList;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.productTypeList)) {
+      body["ProductTypeList"] = request.productTypeList;
+    }
+
+    if (!$dara.isNull(request.protocolType)) {
+      body["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.resourceInstanceType)) {
+      body["ResourceInstanceType"] = request.resourceInstanceType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageResponse>(await this.callApi(params, req, runtime), new $_model.ListImageResponse({}));
+  }
+
+  /**
+   * 列表显示镜像
+   * 
+   * @param request - ListImageRequest
+   * @returns ListImageResponse
+   */
+  async listImage(request: $_model.ListImageRequest): Promise<$_model.ListImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageWithOptions(request, runtime);
   }
 
   /**
