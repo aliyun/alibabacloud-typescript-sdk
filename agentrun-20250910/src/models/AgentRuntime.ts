@@ -8,8 +8,6 @@ import { NetworkConfiguration } from "./NetworkConfiguration";
 import { ProtocolConfiguration } from "./ProtocolConfiguration";
 
 
-/**
- */
 export class AgentRuntime extends $dara.Model {
   /**
    * @remarks
