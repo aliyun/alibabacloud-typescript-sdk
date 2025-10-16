@@ -24,6 +24,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   LLMParamShrink?: string;
   llmEnhancement?: boolean;
   multimediaParametersShrink?: string;
+  needHeaderFooter?: boolean;
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
@@ -40,6 +41,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
       LLMParamShrink: 'LLMParam',
       llmEnhancement: 'LlmEnhancement',
       multimediaParametersShrink: 'MultimediaParameters',
+      needHeaderFooter: 'NeedHeaderFooter',
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
@@ -59,6 +61,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
       LLMParamShrink: 'string',
       llmEnhancement: 'boolean',
       multimediaParametersShrink: 'string',
+      needHeaderFooter: 'boolean',
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',

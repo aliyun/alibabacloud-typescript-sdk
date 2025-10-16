@@ -1615,6 +1615,10 @@ export default class Client extends OpenApi {
       query["MultimediaParameters"] = request.multimediaParametersShrink;
     }
 
+    if (!$dara.isNull(request.needHeaderFooter)) {
+      query["NeedHeaderFooter"] = request.needHeaderFooter;
+    }
+
     if (!$dara.isNull(request.option)) {
       query["Option"] = request.option;
     }

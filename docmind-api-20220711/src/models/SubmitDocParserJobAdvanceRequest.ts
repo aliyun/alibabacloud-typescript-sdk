@@ -126,6 +126,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
   LLMParam?: SubmitDocParserJobAdvanceRequestLLMParam;
   llmEnhancement?: boolean;
   multimediaParameters?: SubmitDocParserJobAdvanceRequestMultimediaParameters;
+  needHeaderFooter?: boolean;
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
@@ -142,6 +143,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
       LLMParam: 'LLMParam',
       llmEnhancement: 'LlmEnhancement',
       multimediaParameters: 'MultimediaParameters',
+      needHeaderFooter: 'NeedHeaderFooter',
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
@@ -161,6 +163,7 @@ export class SubmitDocParserJobAdvanceRequest extends $dara.Model {
       LLMParam: SubmitDocParserJobAdvanceRequestLLMParam,
       llmEnhancement: 'boolean',
       multimediaParameters: SubmitDocParserJobAdvanceRequestMultimediaParameters,
+      needHeaderFooter: 'boolean',
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
