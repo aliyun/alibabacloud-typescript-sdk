@@ -705,6 +705,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * sp-28mp6my0l6zow****
    */
   snapshotPolicyId?: string;
+  subnetId?: string;
   /**
    * @remarks
    * The tags that you want to add to the cloud desktop.
@@ -817,6 +818,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       savingPlanId: 'SavingPlanId',
       snapshotPolicyId: 'SnapshotPolicyId',
+      subnetId: 'SubnetId',
       tag: 'Tag',
       timerGroupId: 'TimerGroupId',
       userAssignMode: 'UserAssignMode',
@@ -860,6 +862,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       resourceGroupId: 'string',
       savingPlanId: 'string',
       snapshotPolicyId: 'string',
+      subnetId: 'string',
       tag: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestTag },
       timerGroupId: 'string',
       userAssignMode: 'string',

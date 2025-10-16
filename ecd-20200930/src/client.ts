@@ -3668,6 +3668,10 @@ export default class Client extends OpenApi {
       query["SnapshotPolicyId"] = request.snapshotPolicyId;
     }
 
+    if (!$dara.isNull(request.subnetId)) {
+      query["SubnetId"] = request.subnetId;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -16154,6 +16158,68 @@ export default class Client extends OpenApi {
   async modifyResourceCenterPolicy(request: $_model.ModifyResourceCenterPolicyRequest): Promise<$_model.ModifyResourceCenterPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyResourceCenterPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改办公网络维度安全组策略
+   * 
+   * @param request - ModifySecurityGroupAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityGroupAttributeResponse
+   */
+  async modifySecurityGroupAttributeWithOptions(request: $_model.ModifySecurityGroupAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityGroupAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorizeEgress)) {
+      query["AuthorizeEgress"] = request.authorizeEgress;
+    }
+
+    if (!$dara.isNull(request.authorizeIngress)) {
+      query["AuthorizeIngress"] = request.authorizeIngress;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.revokeEgress)) {
+      query["RevokeEgress"] = request.revokeEgress;
+    }
+
+    if (!$dara.isNull(request.revokeIngress)) {
+      query["RevokeIngress"] = request.revokeIngress;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySecurityGroupAttribute",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySecurityGroupAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecurityGroupAttributeResponse({}));
+  }
+
+  /**
+   * 修改办公网络维度安全组策略
+   * 
+   * @param request - ModifySecurityGroupAttributeRequest
+   * @returns ModifySecurityGroupAttributeResponse
+   */
+  async modifySecurityGroupAttribute(request: $_model.ModifySecurityGroupAttributeRequest): Promise<$_model.ModifySecurityGroupAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySecurityGroupAttributeWithOptions(request, runtime);
   }
 
   /**
