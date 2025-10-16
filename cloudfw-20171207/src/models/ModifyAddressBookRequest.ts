@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyAddressBookRequestAckLabels extends $dara.Model {
+  /**
+   * @example
+   * app
+   */
+  key?: string;
+  /**
+   * @example
+   * storage-operator
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAddressBookRequestTagList extends $dara.Model {
   /**
    * @remarks
@@ -43,6 +77,8 @@ export class ModifyAddressBookRequestTagList extends $dara.Model {
 }
 
 export class ModifyAddressBookRequest extends $dara.Model {
+  ackLabels?: ModifyAddressBookRequestAckLabels[];
+  ackNamespaces?: string[];
   /**
    * @remarks
    * The addresses in the address book. Separate multiple addresses with commas (,). If you set GroupType to **ip**, **port**, or **domain**, you must specify this parameter.
@@ -152,6 +188,8 @@ export class ModifyAddressBookRequest extends $dara.Model {
   tagRelation?: string;
   static names(): { [key: string]: string } {
     return {
+      ackLabels: 'AckLabels',
+      ackNamespaces: 'AckNamespaces',
       addressList: 'AddressList',
       autoAddTagEcs: 'AutoAddTagEcs',
       description: 'Description',
@@ -167,6 +205,8 @@ export class ModifyAddressBookRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ackLabels: { 'type': 'array', 'itemType': ModifyAddressBookRequestAckLabels },
+      ackNamespaces: { 'type': 'array', 'itemType': 'string' },
       addressList: 'string',
       autoAddTagEcs: 'string',
       description: 'string',
@@ -181,6 +221,12 @@ export class ModifyAddressBookRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ackLabels)) {
+      $dara.Model.validateArray(this.ackLabels);
+    }
+    if(Array.isArray(this.ackNamespaces)) {
+      $dara.Model.validateArray(this.ackNamespaces);
+    }
     if(Array.isArray(this.tagList)) {
       $dara.Model.validateArray(this.tagList);
     }

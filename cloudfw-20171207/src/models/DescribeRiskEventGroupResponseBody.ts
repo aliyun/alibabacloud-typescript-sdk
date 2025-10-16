@@ -435,6 +435,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
    * @deprecated
    */
   srcIPTag?: string;
+  srcIPTags?: string[];
   /**
    * @remarks
    * An array that consists of the source private IP addresses in the intrusion event.
@@ -492,6 +493,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
       ruleSource: 'RuleSource',
       srcIP: 'SrcIP',
       srcIPTag: 'SrcIPTag',
+      srcIPTags: 'SrcIPTags',
       srcPrivateIPList: 'SrcPrivateIPList',
       tag: 'Tag',
       vpcDstInfo: 'VpcDstInfo',
@@ -520,6 +522,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
       ruleSource: 'number',
       srcIP: 'string',
       srcIPTag: 'string',
+      srcIPTags: { 'type': 'array', 'itemType': 'string' },
       srcPrivateIPList: { 'type': 'array', 'itemType': 'string' },
       tag: 'string',
       vpcDstInfo: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo,
@@ -534,6 +537,9 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
     }
     if(Array.isArray(this.resourcePrivateIPList)) {
       $dara.Model.validateArray(this.resourcePrivateIPList);
+    }
+    if(Array.isArray(this.srcIPTags)) {
+      $dara.Model.validateArray(this.srcIPTags);
     }
     if(Array.isArray(this.srcPrivateIPList)) {
       $dara.Model.validateArray(this.srcPrivateIPList);

@@ -2,6 +2,107 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic extends $dara.Model {
+  memberList?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+      regionNo: 'RegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': 'string' },
+      regionNo: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic extends $dara.Model {
+  cfwGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic[];
+  /**
+   * @example
+   * 1
+   */
+  totalCfwGeneralInstanceCnt?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalCfwGeneralInstanceUsedCnt?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalGeneralInstanceUsedCnt?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalNatGeneralInstanceCnt?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalNatGeneralInstanceUsedCnt?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalVfwGeneralInstanceUsedCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cfwGeneralInstanceRegionStatistic: 'CfwGeneralInstanceRegionStatistic',
+      totalCfwGeneralInstanceCnt: 'TotalCfwGeneralInstanceCnt',
+      totalCfwGeneralInstanceUsedCnt: 'TotalCfwGeneralInstanceUsedCnt',
+      totalGeneralInstanceUsedCnt: 'TotalGeneralInstanceUsedCnt',
+      totalNatGeneralInstanceCnt: 'TotalNatGeneralInstanceCnt',
+      totalNatGeneralInstanceUsedCnt: 'TotalNatGeneralInstanceUsedCnt',
+      totalVfwGeneralInstanceUsedCnt: 'TotalVfwGeneralInstanceUsedCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cfwGeneralInstanceRegionStatistic: { 'type': 'array', 'itemType': DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic },
+      totalCfwGeneralInstanceCnt: 'number',
+      totalCfwGeneralInstanceUsedCnt: 'number',
+      totalGeneralInstanceUsedCnt: 'number',
+      totalNatGeneralInstanceCnt: 'number',
+      totalNatGeneralInstanceUsedCnt: 'number',
+      totalVfwGeneralInstanceUsedCnt: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cfwGeneralInstanceRegionStatistic)) {
+      $dara.Model.validateArray(this.cfwGeneralInstanceRegionStatistic);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $dara.Model {
   /**
    * @remarks
@@ -63,6 +164,7 @@ export class DescribeAssetStatisticResponseBodyResourceSpecStatistic extends $da
 }
 
 export class DescribeAssetStatisticResponseBody extends $dara.Model {
+  generalInstanceSpecStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic;
   /**
    * @remarks
    * The request ID.
@@ -78,6 +180,7 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
   resourceSpecStatistic?: DescribeAssetStatisticResponseBodyResourceSpecStatistic;
   static names(): { [key: string]: string } {
     return {
+      generalInstanceSpecStatistic: 'GeneralInstanceSpecStatistic',
       requestId: 'RequestId',
       resourceSpecStatistic: 'ResourceSpecStatistic',
     };
@@ -85,12 +188,16 @@ export class DescribeAssetStatisticResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      generalInstanceSpecStatistic: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic,
       requestId: 'string',
       resourceSpecStatistic: DescribeAssetStatisticResponseBodyResourceSpecStatistic,
     };
   }
 
   validate() {
+    if(this.generalInstanceSpecStatistic && typeof (this.generalInstanceSpecStatistic as any).validate === 'function') {
+      (this.generalInstanceSpecStatistic as any).validate();
+    }
     if(this.resourceSpecStatistic && typeof (this.resourceSpecStatistic as any).validate === 'function') {
       (this.resourceSpecStatistic as any).validate();
     }

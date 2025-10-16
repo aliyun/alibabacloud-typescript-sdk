@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   /**
+   * @example
+   * 5
+   */
+  ackClusterConnectorQuota?: number;
+  /**
    * @remarks
    * The ID of the Alibaba Cloud account that is used to purchase Cloud Firewall.
    * 
@@ -11,6 +16,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * 119898001566xxxx
    */
   aliUid?: number;
+  /**
+   * @example
+   * 1000
+   */
+  defaultBandwidth?: number;
   /**
    * @remarks
    * The time when Cloud Firewall expires.
@@ -23,6 +33,16 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * 1726934400000
    */
   expire?: number;
+  /**
+   * @example
+   * 1000
+   */
+  extensionBandwidth?: number;
+  /**
+   * @example
+   * 10
+   */
+  generalInstance?: number;
   /**
    * @remarks
    * The instance ID of Cloud Firewall.
@@ -87,6 +107,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    */
   logStorage?: number;
   /**
+   * @example
+   * 1
+   */
+  majorVersion?: number;
+  /**
    * @remarks
    * The status of the burstable protected traffic feature. Valid values:
    * 
@@ -108,6 +133,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    */
   natBandwidth?: number;
   /**
+   * @example
+   * 5
+   */
+  privateDnsConnectorQuota?: number;
+  /**
    * @remarks
    * The request ID.
    * 
@@ -115,6 +145,11 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * F71B03EE-xxxxx-91D79CC6AA1A
    */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sdl?: number;
   /**
    * @remarks
    * The time when Cloud Firewall was activated.
@@ -125,6 +160,16 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
    * 1692504764000
    */
   startTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  temporaryBandwidth?: number;
+  /**
+   * @example
+   * 1
+   */
+  threatIntelligence?: number;
   /**
    * @remarks
    * Indicates whether Cloud Firewall is valid. Valid values:
@@ -169,18 +214,27 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
   vpcNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      ackClusterConnectorQuota: 'AckClusterConnectorQuota',
       aliUid: 'AliUid',
+      defaultBandwidth: 'DefaultBandwidth',
       expire: 'Expire',
+      extensionBandwidth: 'ExtensionBandwidth',
+      generalInstance: 'GeneralInstance',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       internetBandwidth: 'InternetBandwidth',
       ipNumber: 'IpNumber',
       logStatus: 'LogStatus',
       logStorage: 'LogStorage',
+      majorVersion: 'MajorVersion',
       maxOverflow: 'MaxOverflow',
       natBandwidth: 'NatBandwidth',
+      privateDnsConnectorQuota: 'PrivateDnsConnectorQuota',
       requestId: 'RequestId',
+      sdl: 'Sdl',
       startTime: 'StartTime',
+      temporaryBandwidth: 'TemporaryBandwidth',
+      threatIntelligence: 'ThreatIntelligence',
       userStatus: 'UserStatus',
       version: 'Version',
       vpcBandwidth: 'VpcBandwidth',
@@ -190,18 +244,27 @@ export class DescribeUserBuyVersionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ackClusterConnectorQuota: 'number',
       aliUid: 'number',
+      defaultBandwidth: 'number',
       expire: 'number',
+      extensionBandwidth: 'number',
+      generalInstance: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
       internetBandwidth: 'number',
       ipNumber: 'number',
       logStatus: 'boolean',
       logStorage: 'number',
+      majorVersion: 'number',
       maxOverflow: 'number',
       natBandwidth: 'number',
+      privateDnsConnectorQuota: 'number',
       requestId: 'string',
+      sdl: 'number',
       startTime: 'number',
+      temporaryBandwidth: 'number',
+      threatIntelligence: 'number',
       userStatus: 'boolean',
       version: 'number',
       vpcBandwidth: 'number',

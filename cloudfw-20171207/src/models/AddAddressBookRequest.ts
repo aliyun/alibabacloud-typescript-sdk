@@ -4,6 +4,40 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class AddAddressBookRequestAckLabels extends $dara.Model {
+  /**
+   * @example
+   * app
+   */
+  key?: string;
+  /**
+   * @example
+   * storage-operator
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAddressBookRequestTagList extends $dara.Model {
   /**
    * @remarks
@@ -45,6 +79,13 @@ export class AddAddressBookRequestTagList extends $dara.Model {
 }
 
 export class AddAddressBookRequest extends $dara.Model {
+  /**
+   * @example
+   * ac-7c1bad6c3cc84c33baab1
+   */
+  ackClusterConnectorId?: string;
+  ackLabels?: AddAddressBookRequestAckLabels[];
+  ackNamespaces?: string[];
   /**
    * @remarks
    * The addresses that you want to add to the address book. Separate multiple addresses with commas (,).
@@ -144,6 +185,9 @@ export class AddAddressBookRequest extends $dara.Model {
   tagRelation?: string;
   static names(): { [key: string]: string } {
     return {
+      ackClusterConnectorId: 'AckClusterConnectorId',
+      ackLabels: 'AckLabels',
+      ackNamespaces: 'AckNamespaces',
       addressList: 'AddressList',
       autoAddTagEcs: 'AutoAddTagEcs',
       description: 'Description',
@@ -158,6 +202,9 @@ export class AddAddressBookRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ackClusterConnectorId: 'string',
+      ackLabels: { 'type': 'array', 'itemType': AddAddressBookRequestAckLabels },
+      ackNamespaces: { 'type': 'array', 'itemType': 'string' },
       addressList: 'string',
       autoAddTagEcs: 'string',
       description: 'string',
@@ -171,6 +218,12 @@ export class AddAddressBookRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ackLabels)) {
+      $dara.Model.validateArray(this.ackLabels);
+    }
+    if(Array.isArray(this.ackNamespaces)) {
+      $dara.Model.validateArray(this.ackNamespaces);
+    }
     if(Array.isArray(this.tagList)) {
       $dara.Model.validateArray(this.tagList);
     }

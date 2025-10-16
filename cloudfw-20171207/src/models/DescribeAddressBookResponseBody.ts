@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAddressBookResponseBodyAclsAckLabels extends $dara.Model {
+  /**
+   * @example
+   * app
+   */
+  key?: string;
+  /**
+   * @example
+   * storage-operator
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAddressBookResponseBodyAclsAddresses extends $dara.Model {
   /**
    * @remarks
@@ -84,6 +118,18 @@ export class DescribeAddressBookResponseBodyAclsTagList extends $dara.Model {
 
 export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   /**
+   * @example
+   * ac-7c1bad6c3cc84c33baab1
+   */
+  ackClusterConnectorId?: string;
+  /**
+   * @example
+   * ACK集群连接器
+   */
+  ackClusterConnectorName?: string;
+  ackLabels?: DescribeAddressBookResponseBodyAclsAckLabels[];
+  ackNamespaces?: string[];
+  /**
    * @remarks
    * The addresses in the address book.
    */
@@ -160,6 +206,11 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
    */
   referenceCount?: number;
   /**
+   * @example
+   * cn-beijing
+   */
+  regionNo?: string;
+  /**
    * @remarks
    * The details about the ECS tags that can be automatically added to the address book.
    */
@@ -177,6 +228,10 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
   tagRelation?: string;
   static names(): { [key: string]: string } {
     return {
+      ackClusterConnectorId: 'AckClusterConnectorId',
+      ackClusterConnectorName: 'AckClusterConnectorName',
+      ackLabels: 'AckLabels',
+      ackNamespaces: 'AckNamespaces',
       addressList: 'AddressList',
       addressListCount: 'AddressListCount',
       addresses: 'Addresses',
@@ -186,6 +241,7 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
       groupType: 'GroupType',
       groupUuid: 'GroupUuid',
       referenceCount: 'ReferenceCount',
+      regionNo: 'RegionNo',
       tagList: 'TagList',
       tagRelation: 'TagRelation',
     };
@@ -193,6 +249,10 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ackClusterConnectorId: 'string',
+      ackClusterConnectorName: 'string',
+      ackLabels: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsAckLabels },
+      ackNamespaces: { 'type': 'array', 'itemType': 'string' },
       addressList: { 'type': 'array', 'itemType': 'string' },
       addressListCount: 'number',
       addresses: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsAddresses },
@@ -202,12 +262,19 @@ export class DescribeAddressBookResponseBodyAcls extends $dara.Model {
       groupType: 'string',
       groupUuid: 'string',
       referenceCount: 'number',
+      regionNo: 'string',
       tagList: { 'type': 'array', 'itemType': DescribeAddressBookResponseBodyAclsTagList },
       tagRelation: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.ackLabels)) {
+      $dara.Model.validateArray(this.ackLabels);
+    }
+    if(Array.isArray(this.ackNamespaces)) {
+      $dara.Model.validateArray(this.ackNamespaces);
+    }
     if(Array.isArray(this.addressList)) {
       $dara.Model.validateArray(this.addressList);
     }
