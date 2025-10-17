@@ -8,15 +8,15 @@ export class BeginSessionRequest extends $dara.Model {
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
-  /**
-   * @example
-   * chatbot-cn-mp90s2lrk00050
-   */
   instanceId?: string;
+  sandBox?: boolean;
+  vendorParam?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       instanceId: 'InstanceId',
+      sandBox: 'SandBox',
+      vendorParam: 'VendorParam',
     };
   }
 
@@ -24,6 +24,8 @@ export class BeginSessionRequest extends $dara.Model {
     return {
       agentKey: 'string',
       instanceId: 'string',
+      sandBox: 'boolean',
+      vendorParam: 'string',
     };
   }
 

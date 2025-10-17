@@ -153,12 +153,22 @@ export default class Client extends OpenApi {
       query["AgentKey"] = request.agentKey;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sandBox)) {
+      body["SandBox"] = request.sandBox;
+    }
+
+    if (!$dara.isNull(request.vendorParam)) {
+      body["VendorParam"] = request.vendorParam;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "BeginSession",
