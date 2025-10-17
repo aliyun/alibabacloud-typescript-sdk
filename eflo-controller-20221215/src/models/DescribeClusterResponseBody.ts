@@ -192,6 +192,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
    * rg-aek2k3rqlvv6ytq
    */
   resourceGroupId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The job ID.
@@ -208,6 +209,7 @@ export class DescribeClusterResponseBody extends $dara.Model {
    * 2022-08-23T06:36:17.000Z
    */
   updateTime?: string;
+  vSwitchId?: string;
   /**
    * @remarks
    * The ID of the virtual private cloud (VPC).
@@ -233,8 +235,10 @@ export class DescribeClusterResponseBody extends $dara.Model {
       operatingState: 'OperatingState',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
       taskId: 'TaskId',
       updateTime: 'UpdateTime',
+      vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
   }
@@ -256,8 +260,10 @@ export class DescribeClusterResponseBody extends $dara.Model {
       operatingState: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
       taskId: 'string',
       updateTime: 'string',
+      vSwitchId: 'string',
       vpcId: 'string',
     };
   }
