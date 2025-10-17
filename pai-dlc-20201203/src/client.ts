@@ -1187,6 +1187,10 @@ export default class Client extends OpenApi {
       query["DisplayName"] = request.displayName;
     }
 
+    if (!$dara.isNull(request.displayNameSearchMode)) {
+      query["DisplayNameSearchMode"] = request.displayNameSearchMode;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }

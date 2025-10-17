@@ -38,6 +38,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
    * tf-mnist-test
    */
   displayName?: string;
+  displayNameSearchMode?: string;
   /**
    * @remarks
    * The end time of the query. Use the job creation time to filter data. The default value is the current time.
@@ -240,6 +241,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
       displayName: 'DisplayName',
+      displayNameSearchMode: 'DisplayNameSearchMode',
       endTime: 'EndTime',
       fromAllWorkspaces: 'FromAllWorkspaces',
       jobId: 'JobId',
@@ -270,6 +272,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       businessUserId: 'string',
       caller: 'string',
       displayName: 'string',
+      displayNameSearchMode: 'string',
       endTime: 'string',
       fromAllWorkspaces: 'boolean',
       jobId: 'string',
