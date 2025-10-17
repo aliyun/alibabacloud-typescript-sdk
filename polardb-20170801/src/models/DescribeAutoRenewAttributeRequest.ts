@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAutoRenewAttributeRequest extends $dara.Model {
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * The ID of the cluster. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
    * 
@@ -53,6 +58,7 @@ export class DescribeAutoRenewAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      cloudProvider: 'CloudProvider',
       DBClusterIds: 'DBClusterIds',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -67,6 +73,7 @@ export class DescribeAutoRenewAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudProvider: 'string',
       DBClusterIds: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

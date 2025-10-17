@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeAIDBClusterAttributeResponseBodyDBNodesVolumes extends $dara.Model {
+export class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes extends $dara.Model {
   /**
    * @example
    * /tmp/CrowdStrike
@@ -58,6 +58,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodesVolumes extends $dar
 }
 
 export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
+  childVolumes?: DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes[];
   /**
    * @example
    * 2
@@ -113,7 +114,6 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
    * vsw-*********************
    */
   vSwitchId?: string;
-  volumes?: DescribeAIDBClusterAttributeResponseBodyDBNodesVolumes[];
   /**
    * @example
    * cn-hangzhou-d
@@ -121,6 +121,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      childVolumes: 'ChildVolumes',
       cpuCores: 'CpuCores',
       DBNodeClass: 'DBNodeClass',
       DBNodeDescription: 'DBNodeDescription',
@@ -132,13 +133,13 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       VNodeId: 'VNodeId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
-      volumes: 'Volumes',
       zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      childVolumes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes },
       cpuCores: 'string',
       DBNodeClass: 'string',
       DBNodeDescription: 'string',
@@ -150,14 +151,13 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       VNodeId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
-      volumes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodesVolumes },
       zoneId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.volumes)) {
-      $dara.Model.validateArray(this.volumes);
+    if(Array.isArray(this.childVolumes)) {
+      $dara.Model.validateArray(this.childVolumes);
     }
     super.validate();
   }

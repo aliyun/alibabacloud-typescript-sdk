@@ -104,6 +104,11 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @example
+   * pfs-test****
+   */
+  polarFsInstanceId?: string;
+  /**
    * @remarks
    * Global consistency timeout strategy. The value range is as follows:
    * - **0**: Send the request to the primary node
@@ -158,6 +163,7 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
       nodes: 'Nodes',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      polarFsInstanceId: 'PolarFsInstanceId',
       polarSccTimeoutAction: 'PolarSccTimeoutAction',
       polarSccWaitTimeout: 'PolarSccWaitTimeout',
       readWriteMode: 'ReadWriteMode',
@@ -178,6 +184,7 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
       nodes: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      polarFsInstanceId: 'string',
       polarSccTimeoutAction: 'string',
       polarSccWaitTimeout: 'string',
       readWriteMode: 'string',

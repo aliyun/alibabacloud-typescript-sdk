@@ -25,6 +25,11 @@ export class DeleteDBClusterEndpointRequest extends $dara.Model {
   DBEndpointId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * pfs-test*****
+   */
+  polarFsInstanceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -33,6 +38,7 @@ export class DeleteDBClusterEndpointRequest extends $dara.Model {
       DBEndpointId: 'DBEndpointId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      polarFsInstanceId: 'PolarFsInstanceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -44,6 +50,7 @@ export class DeleteDBClusterEndpointRequest extends $dara.Model {
       DBEndpointId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      polarFsInstanceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

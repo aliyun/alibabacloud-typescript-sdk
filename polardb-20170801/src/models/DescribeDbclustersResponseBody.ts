@@ -434,6 +434,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
    * rg-************
    */
   resourceGroupId?: string;
+  searchStorageUsed?: number;
   /**
    * @remarks
    * Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates the cluster is a serverless cluster. No value is returned for a common cluster.
@@ -554,6 +555,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
       regionId: 'RegionId',
       remoteMemorySize: 'RemoteMemorySize',
       resourceGroupId: 'ResourceGroupId',
+      searchStorageUsed: 'SearchStorageUsed',
       serverlessType: 'ServerlessType',
       storagePayType: 'StoragePayType',
       storageSpace: 'StorageSpace',
@@ -594,6 +596,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $dara.Model {
       regionId: 'string',
       remoteMemorySize: 'string',
       resourceGroupId: 'string',
+      searchStorageUsed: 'number',
       serverlessType: 'string',
       storagePayType: 'string',
       storageSpace: 'number',

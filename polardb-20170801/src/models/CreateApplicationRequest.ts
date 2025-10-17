@@ -25,6 +25,8 @@ export class CreateApplicationRequestComponents extends $dara.Model {
    * gateway
    */
   componentType?: string;
+  scaleMax?: string;
+  scaleMin?: string;
   /**
    * @example
    * sg-********************
@@ -51,6 +53,8 @@ export class CreateApplicationRequestComponents extends $dara.Model {
       componentMaxReplica: 'ComponentMaxReplica',
       componentReplica: 'ComponentReplica',
       componentType: 'ComponentType',
+      scaleMax: 'ScaleMax',
+      scaleMin: 'ScaleMin',
       securityGroups: 'SecurityGroups',
       securityIPArrayName: 'SecurityIPArrayName',
       securityIPList: 'SecurityIPList',
@@ -64,6 +68,8 @@ export class CreateApplicationRequestComponents extends $dara.Model {
       componentMaxReplica: 'number',
       componentReplica: 'number',
       componentType: 'string',
+      scaleMax: 'string',
+      scaleMin: 'string',
       securityGroups: 'string',
       securityIPArrayName: 'string',
       securityIPList: 'string',
@@ -188,6 +194,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * vsw-*********************
    */
   vSwitchId?: string;
+  vpcId?: string;
   /**
    * @example
    * cn-beijing-k
@@ -210,6 +217,7 @@ export class CreateApplicationRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
   }
@@ -231,6 +239,7 @@ export class CreateApplicationRequest extends $dara.Model {
       resourceGroupId: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
+      vpcId: 'string',
       zoneId: 'string',
     };
   }

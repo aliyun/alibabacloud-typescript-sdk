@@ -76,6 +76,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * vsw-*********************
    */
   vSwitchId?: string;
+  vpcId?: string;
   /**
    * @example
    * cn-beijing-k
@@ -98,6 +99,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       usedTime: 'UsedTime',
       vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
   }
@@ -119,6 +121,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       resourceGroupId: 'string',
       usedTime: 'string',
       vSwitchId: 'string',
+      vpcId: 'string',
       zoneId: 'string',
     };
   }

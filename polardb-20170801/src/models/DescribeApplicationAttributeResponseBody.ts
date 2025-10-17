@@ -476,6 +476,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   requestId?: string;
   securityGroups?: DescribeApplicationAttributeResponseBodySecurityGroups[];
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
+  serverlessType?: string;
   /**
    * @example
    * Activated
@@ -533,6 +534,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       securityGroups: 'SecurityGroups',
       securityIPArrays: 'SecurityIPArrays',
+      serverlessType: 'ServerlessType',
       status: 'Status',
       upgradeAvailable: 'UpgradeAvailable',
       VPCId: 'VPCId',
@@ -563,6 +565,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       securityGroups: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityGroups },
       securityIPArrays: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityIPArrays },
+      serverlessType: 'string',
       status: 'string',
       upgradeAvailable: 'string',
       VPCId: 'string',

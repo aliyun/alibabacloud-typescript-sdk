@@ -30,6 +30,11 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
   describeType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * pfs-test*****
+   */
+  polarFsInstanceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -39,6 +44,7 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
       describeType: 'DescribeType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      polarFsInstanceId: 'PolarFsInstanceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -51,6 +57,7 @@ export class DescribeDBClusterEndpointsRequest extends $dara.Model {
       describeType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      polarFsInstanceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

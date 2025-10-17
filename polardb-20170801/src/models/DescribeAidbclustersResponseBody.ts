@@ -122,6 +122,11 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
   regionId?: string;
   /**
    * @example
+   * pc-**************
+   */
+  relativeDBClusterId?: string;
+  /**
+   * @example
    * container
    */
   runType?: string;
@@ -162,6 +167,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       lockMode: 'LockMode',
       payType: 'PayType',
       regionId: 'RegionId',
+      relativeDBClusterId: 'RelativeDBClusterId',
       runType: 'RunType',
       storageSpace: 'StorageSpace',
       storageType: 'StorageType',
@@ -187,6 +193,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       lockMode: 'string',
       payType: 'string',
       regionId: 'string',
+      relativeDBClusterId: 'string',
       runType: 'string',
       storageSpace: 'number',
       storageType: 'string',

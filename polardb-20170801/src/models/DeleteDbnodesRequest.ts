@@ -12,6 +12,11 @@ export class DeleteDBNodesRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * The ID of the cluster.
    * 
@@ -58,6 +63,7 @@ export class DeleteDBNodesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
       DBNodeId: 'DBNodeId',
       DBNodeType: 'DBNodeType',
@@ -71,6 +77,7 @@ export class DeleteDBNodesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      cloudProvider: 'string',
       DBClusterId: 'string',
       DBNodeId: { 'type': 'array', 'itemType': 'string' },
       DBNodeType: 'string',

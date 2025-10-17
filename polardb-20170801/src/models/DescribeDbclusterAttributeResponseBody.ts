@@ -806,6 +806,8 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * 0
    */
   SQLSize?: number;
+  searchCompressStorageUsed?: number;
+  searchStorageUsed?: number;
   /**
    * @remarks
    * Serverless type. Valid values are as follows:
@@ -997,6 +999,8 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       restoreType: 'RestoreType',
       rowCompression: 'RowCompression',
       SQLSize: 'SQLSize',
+      searchCompressStorageUsed: 'SearchCompressStorageUsed',
+      searchStorageUsed: 'SearchStorageUsed',
       serverlessType: 'ServerlessType',
       sourceDBCluster: 'SourceDBCluster',
       sourceRegionId: 'SourceRegionId',
@@ -1068,6 +1072,8 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       restoreType: 'string',
       rowCompression: 'string',
       SQLSize: 'number',
+      searchCompressStorageUsed: 'number',
+      searchStorageUsed: 'number',
       serverlessType: 'string',
       sourceDBCluster: 'string',
       sourceRegionId: 'string',

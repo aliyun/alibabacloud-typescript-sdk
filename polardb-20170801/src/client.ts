@@ -654,6 +654,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查PolarDB账号名称
+   * 
+   * @param request - CheckAccountNameZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAccountNameZonalResponse
+   */
+  async checkAccountNameZonalWithOptions(request: $_model.CheckAccountNameZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAccountNameZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAccountNameZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckAccountNameZonalResponse>(await this.callApi(params, req, runtime), new $_model.CheckAccountNameZonalResponse({}));
+  }
+
+  /**
+   * 检查PolarDB账号名称
+   * 
+   * @param request - CheckAccountNameZonalRequest
+   * @returns CheckAccountNameZonalResponse
+   */
+  async checkAccountNameZonal(request: $_model.CheckAccountNameZonalRequest): Promise<$_model.CheckAccountNameZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkAccountNameZonalWithOptions(request, runtime);
+  }
+
+  /**
    * 检查连接串
    * 
    * @param request - CheckConnectionStringRequest
@@ -775,6 +837,68 @@ export default class Client extends OpenApi {
   async checkDBName(request: $_model.CheckDBNameRequest): Promise<$_model.CheckDBNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDBNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 检查PolarDB边缘云数据库名
+   * 
+   * @param request - CheckDBNameZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDBNameZonalResponse
+   */
+  async checkDBNameZonalWithOptions(request: $_model.CheckDBNameZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDBNameZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckDBNameZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckDBNameZonalResponse>(await this.callApi(params, req, runtime), new $_model.CheckDBNameZonalResponse({}));
+  }
+
+  /**
+   * 检查PolarDB边缘云数据库名
+   * 
+   * @param request - CheckDBNameZonalRequest
+   * @returns CheckDBNameZonalResponse
+   */
+  async checkDBNameZonal(request: $_model.CheckDBNameZonalRequest): Promise<$_model.CheckDBNameZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkDBNameZonalWithOptions(request, runtime);
   }
 
   /**
@@ -1196,6 +1320,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建边缘云账号
+   * 
+   * @param request - CreateAccountZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccountZonalResponse
+   */
+  async createAccountZonalWithOptions(request: $_model.CreateAccountZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccountZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!$dara.isNull(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.privForAllDB)) {
+      query["PrivForAllDB"] = request.privForAllDB;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAccountZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAccountZonalResponse>(await this.callApi(params, req, runtime), new $_model.CreateAccountZonalResponse({}));
+  }
+
+  /**
+   * 创建边缘云账号
+   * 
+   * @param request - CreateAccountZonalRequest
+   * @returns CreateAccountZonalResponse
+   */
+  async createAccountZonal(request: $_model.CreateAccountZonalRequest): Promise<$_model.CreateAccountZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAccountZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Generates a lightweight license activation code.
    * 
    * @param request - CreateActivationCodeRequest
@@ -1347,6 +1565,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
     }
 
     if (!$dara.isNull(request.zoneId)) {
@@ -1731,6 +1953,10 @@ export default class Client extends OpenApi {
       query["CloneDataPoint"] = request.cloneDataPoint;
     }
 
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.clusterNetworkType)) {
       query["ClusterNetworkType"] = request.clusterNetworkType;
     }
@@ -1769,6 +1995,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.defaultTimeZone)) {
       query["DefaultTimeZone"] = request.defaultTimeZone;
+    }
+
+    if (!$dara.isNull(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
     }
 
     if (!$dara.isNull(request.GDNId)) {
@@ -2013,6 +2243,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
     if (!$dara.isNull(request.polarSccTimeoutAction)) {
       query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction;
     }
@@ -2063,6 +2297,104 @@ export default class Client extends OpenApi {
   async createDBClusterEndpoint(request: $_model.CreateDBClusterEndpointRequest): Promise<$_model.CreateDBClusterEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBClusterEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 边缘云创建链接地址接口
+   * 
+   * @param request - CreateDBClusterEndpointZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDBClusterEndpointZonalResponse
+   */
+  async createDBClusterEndpointZonalWithOptions(request: $_model.CreateDBClusterEndpointZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBClusterEndpointZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoAddNewNodes)) {
+      query["AutoAddNewNodes"] = request.autoAddNewNodes;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBEndpointDescription)) {
+      query["DBEndpointDescription"] = request.DBEndpointDescription;
+    }
+
+    if (!$dara.isNull(request.endpointConfig)) {
+      query["EndpointConfig"] = request.endpointConfig;
+    }
+
+    if (!$dara.isNull(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!$dara.isNull(request.nodes)) {
+      query["Nodes"] = request.nodes;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.polarSccTimeoutAction)) {
+      query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction;
+    }
+
+    if (!$dara.isNull(request.polarSccWaitTimeout)) {
+      query["PolarSccWaitTimeout"] = request.polarSccWaitTimeout;
+    }
+
+    if (!$dara.isNull(request.readWriteMode)) {
+      query["ReadWriteMode"] = request.readWriteMode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sccMode)) {
+      query["SccMode"] = request.sccMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDBClusterEndpointZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDBClusterEndpointZonalResponse>(await this.callApi(params, req, runtime), new $_model.CreateDBClusterEndpointZonalResponse({}));
+  }
+
+  /**
+   * 边缘云创建链接地址接口
+   * 
+   * @param request - CreateDBClusterEndpointZonalRequest
+   * @returns CreateDBClusterEndpointZonalResponse
+   */
+  async createDBClusterEndpointZonal(request: $_model.CreateDBClusterEndpointZonalRequest): Promise<$_model.CreateDBClusterEndpointZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDBClusterEndpointZonalWithOptions(request, runtime);
   }
 
   /**
@@ -2285,6 +2617,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -2455,6 +2791,96 @@ export default class Client extends OpenApi {
   async createDatabase(request: $_model.CreateDatabaseRequest): Promise<$_model.CreateDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建PolarDB边缘云数据库
+   * 
+   * @param request - CreateDatabaseZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseZonalResponse
+   */
+  async createDatabaseZonalWithOptions(request: $_model.CreateDatabaseZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatabaseZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!$dara.isNull(request.characterSetName)) {
+      query["CharacterSetName"] = request.characterSetName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.collate)) {
+      query["Collate"] = request.collate;
+    }
+
+    if (!$dara.isNull(request.ctype)) {
+      query["Ctype"] = request.ctype;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBDescription)) {
+      query["DBDescription"] = request.DBDescription;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatabaseZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatabaseZonalResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatabaseZonalResponse({}));
+  }
+
+  /**
+   * 创建PolarDB边缘云数据库
+   * 
+   * @param request - CreateDatabaseZonalRequest
+   * @returns CreateDatabaseZonalResponse
+   */
+  async createDatabaseZonal(request: $_model.CreateDatabaseZonalRequest): Promise<$_model.CreateDatabaseZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatabaseZonalWithOptions(request, runtime);
   }
 
   /**
@@ -3268,6 +3694,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除PolarDB边缘云集群账号
+   * 
+   * @param request - DeleteAccountZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccountZonalResponse
+   */
+  async deleteAccountZonalWithOptions(request: $_model.DeleteAccountZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAccountZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAccountZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAccountZonalResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAccountZonalResponse({}));
+  }
+
+  /**
+   * 删除PolarDB边缘云集群账号
+   * 
+   * @param request - DeleteAccountZonalRequest
+   * @returns DeleteAccountZonalResponse
+   */
+  async deleteAccountZonal(request: $_model.DeleteAccountZonalRequest): Promise<$_model.DeleteAccountZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAccountZonalWithOptions(request, runtime);
+  }
+
+  /**
    * 删除PolarDB应用
    * 
    * @param request - DeleteApplicationRequest
@@ -3523,6 +4011,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -3557,6 +4049,68 @@ export default class Client extends OpenApi {
   async deleteDBClusterEndpoint(request: $_model.DeleteDBClusterEndpointRequest): Promise<$_model.DeleteDBClusterEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBClusterEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PolarDB 边缘云集群的链接地址
+   * 
+   * @param request - DeleteDBClusterEndpointZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDBClusterEndpointZonalResponse
+   */
+  async deleteDBClusterEndpointZonalWithOptions(request: $_model.DeleteDBClusterEndpointZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBClusterEndpointZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBEndpointId)) {
+      query["DBEndpointId"] = request.DBEndpointId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDBClusterEndpointZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDBClusterEndpointZonalResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDBClusterEndpointZonalResponse({}));
+  }
+
+  /**
+   * 删除PolarDB 边缘云集群的链接地址
+   * 
+   * @param request - DeleteDBClusterEndpointZonalRequest
+   * @returns DeleteDBClusterEndpointZonalResponse
+   */
+  async deleteDBClusterEndpointZonal(request: $_model.DeleteDBClusterEndpointZonalRequest): Promise<$_model.DeleteDBClusterEndpointZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDBClusterEndpointZonalWithOptions(request, runtime);
   }
 
   /**
@@ -3709,6 +4263,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -3833,6 +4391,68 @@ export default class Client extends OpenApi {
   async deleteDatabase(request: $_model.DeleteDatabaseRequest): Promise<$_model.DeleteDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PolarDB边缘云集群数据库
+   * 
+   * @param request - DeleteDatabaseZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatabaseZonalResponse
+   */
+  async deleteDatabaseZonalWithOptions(request: $_model.DeleteDatabaseZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatabaseZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDatabaseZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatabaseZonalResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatabaseZonalResponse({}));
+  }
+
+  /**
+   * 删除PolarDB边缘云集群数据库
+   * 
+   * @param request - DeleteDatabaseZonalRequest
+   * @returns DeleteDatabaseZonalResponse
+   */
+  async deleteDatabaseZonal(request: $_model.DeleteDatabaseZonalRequest): Promise<$_model.DeleteDatabaseZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatabaseZonalWithOptions(request, runtime);
   }
 
   /**
@@ -4812,6 +5432,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询PolarDB边缘云集群列表
+   * 
+   * @param request - DescribeAccountsZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAccountsZonalResponse
+   */
+  async describeAccountsZonalWithOptions(request: $_model.DescribeAccountsZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAccountsZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAccountsZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAccountsZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAccountsZonalResponse({}));
+  }
+
+  /**
+   * 查询PolarDB边缘云集群列表
+   * 
+   * @param request - DescribeAccountsZonalRequest
+   * @returns DescribeAccountsZonalResponse
+   */
+  async describeAccountsZonal(request: $_model.DescribeAccountsZonalRequest): Promise<$_model.DescribeAccountsZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAccountsZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an activation code.
    * 
    * @param request - DescribeActivationCodeDetailsRequest
@@ -5206,6 +5908,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用serverless配置
+   * 
+   * @param request - DescribeApplicationServerlessConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationServerlessConfResponse
+   */
+  async describeApplicationServerlessConfWithOptions(request: $_model.DescribeApplicationServerlessConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationServerlessConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationServerlessConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationServerlessConfResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationServerlessConfResponse({}));
+  }
+
+  /**
+   * 获取应用serverless配置
+   * 
+   * @param request - DescribeApplicationServerlessConfRequest
+   * @returns DescribeApplicationServerlessConfResponse
+   */
+  async describeApplicationServerlessConf(request: $_model.DescribeApplicationServerlessConfRequest): Promise<$_model.DescribeApplicationServerlessConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationServerlessConfWithOptions(request, runtime);
+  }
+
+  /**
    * 获取当前地域所有PolarDB实例的应用列表
    * 
    * @param request - DescribeApplicationsRequest
@@ -5273,6 +6017,10 @@ export default class Client extends OpenApi {
   async describeAutoRenewAttributeWithOptions(request: $_model.DescribeAutoRenewAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutoRenewAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.DBClusterIds)) {
       query["DBClusterIds"] = request.DBClusterIds;
     }
@@ -6609,6 +7357,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -6643,6 +7395,72 @@ export default class Client extends OpenApi {
   async describeDBClusterEndpoints(request: $_model.DescribeDBClusterEndpointsRequest): Promise<$_model.DescribeDBClusterEndpointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBClusterEndpointsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询PolarDB边缘集群的链接地址
+   * 
+   * @param request - DescribeDBClusterEndpointsZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterEndpointsZonalResponse
+   */
+  async describeDBClusterEndpointsZonalWithOptions(request: $_model.DescribeDBClusterEndpointsZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterEndpointsZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBEndpointId)) {
+      query["DBEndpointId"] = request.DBEndpointId;
+    }
+
+    if (!$dara.isNull(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterEndpointsZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterEndpointsZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterEndpointsZonalResponse({}));
+  }
+
+  /**
+   * 查询PolarDB边缘集群的链接地址
+   * 
+   * @param request - DescribeDBClusterEndpointsZonalRequest
+   * @returns DescribeDBClusterEndpointsZonalResponse
+   */
+  async describeDBClusterEndpointsZonal(request: $_model.DescribeDBClusterEndpointsZonalRequest): Promise<$_model.DescribeDBClusterEndpointsZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterEndpointsZonalWithOptions(request, runtime);
   }
 
   /**
@@ -7284,6 +8102,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * PolarDB边缘集群查询版本
+   * 
+   * @param request - DescribeDBClusterVersionZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterVersionZonalResponse
+   */
+  async describeDBClusterVersionZonalWithOptions(request: $_model.DescribeDBClusterVersionZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterVersionZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterVersionZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterVersionZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterVersionZonalResponse({}));
+  }
+
+  /**
+   * PolarDB边缘集群查询版本
+   * 
+   * @param request - DescribeDBClusterVersionZonalRequest
+   * @returns DescribeDBClusterVersionZonalResponse
+   */
+  async describeDBClusterVersionZonal(request: $_model.DescribeDBClusterVersionZonalRequest): Promise<$_model.DescribeDBClusterVersionZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterVersionZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
    * 
    * @param request - DescribeDBClustersRequest
@@ -7493,6 +8373,140 @@ export default class Client extends OpenApi {
   async describeDBClustersWithBackups(request: $_model.DescribeDBClustersWithBackupsRequest): Promise<$_model.DescribeDBClustersWithBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBClustersWithBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * MyBase中的PolarDB列表
+   * 
+   * @param request - DescribeDBClustersZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClustersZonalResponse
+   */
+  async describeDBClustersZonalWithOptions(request: $_model.DescribeDBClustersZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClustersZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
+    if (!$dara.isNull(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterIds)) {
+      query["DBClusterIds"] = request.DBClusterIds;
+    }
+
+    if (!$dara.isNull(request.DBClusterStatus)) {
+      query["DBClusterStatus"] = request.DBClusterStatus;
+    }
+
+    if (!$dara.isNull(request.DBNodeIds)) {
+      query["DBNodeIds"] = request.DBNodeIds;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.DBVersion)) {
+      query["DBVersion"] = request.DBVersion;
+    }
+
+    if (!$dara.isNull(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!$dara.isNull(request.expired)) {
+      query["Expired"] = request.expired;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.recentCreationInterval)) {
+      query["RecentCreationInterval"] = request.recentCreationInterval;
+    }
+
+    if (!$dara.isNull(request.recentExpirationInterval)) {
+      query["RecentExpirationInterval"] = request.recentExpirationInterval;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClustersZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClustersZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClustersZonalResponse({}));
+  }
+
+  /**
+   * MyBase中的PolarDB列表
+   * 
+   * @param request - DescribeDBClustersZonalRequest
+   * @returns DescribeDBClustersZonalResponse
+   */
+  async describeDBClustersZonal(request: $_model.DescribeDBClustersZonalRequest): Promise<$_model.DescribeDBClustersZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClustersZonalWithOptions(request, runtime);
   }
 
   /**
@@ -8209,6 +9223,146 @@ export default class Client extends OpenApi {
   async describeDatabases(request: $_model.DescribeDatabasesRequest): Promise<$_model.DescribeDatabasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDatabasesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询PolarDB边缘云数据库
+   * 
+   * @param request - DescribeDatabasesZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDatabasesZonalResponse
+   */
+  async describeDatabasesZonalWithOptions(request: $_model.DescribeDatabasesZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDatabasesZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDatabasesZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDatabasesZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDatabasesZonalResponse({}));
+  }
+
+  /**
+   * 查询PolarDB边缘云数据库
+   * 
+   * @param request - DescribeDatabasesZonalRequest
+   * @returns DescribeDatabasesZonalResponse
+   */
+  async describeDatabasesZonal(request: $_model.DescribeDatabasesZonalRequest): Promise<$_model.DescribeDatabasesZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDatabasesZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * PolarDB的MyBase集群
+   * 
+   * @param request - DescribeDbClusterAttributeZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDbClusterAttributeZonalResponse
+   */
+  async describeDbClusterAttributeZonalWithOptions(request: $_model.DescribeDbClusterAttributeZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDbClusterAttributeZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDbClusterAttributeZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDbClusterAttributeZonalResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDbClusterAttributeZonalResponse({}));
+  }
+
+  /**
+   * PolarDB的MyBase集群
+   * 
+   * @param request - DescribeDbClusterAttributeZonalRequest
+   * @returns DescribeDbClusterAttributeZonalResponse
+   */
+  async describeDbClusterAttributeZonal(request: $_model.DescribeDbClusterAttributeZonalRequest): Promise<$_model.DescribeDbClusterAttributeZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDbClusterAttributeZonalWithOptions(request, runtime);
   }
 
   /**
@@ -11822,6 +12976,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 角色切换
+   * 
+   * @param request - FailoverDBClusterZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FailoverDBClusterZonalResponse
+   */
+  async failoverDBClusterZonalWithOptions(request: $_model.FailoverDBClusterZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FailoverDBClusterZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.rollBackForDisaster)) {
+      query["RollBackForDisaster"] = request.rollBackForDisaster;
+    }
+
+    if (!$dara.isNull(request.targetDBNodeId)) {
+      query["TargetDBNodeId"] = request.targetDBNodeId;
+    }
+
+    if (!$dara.isNull(request.targetZoneType)) {
+      query["TargetZoneType"] = request.targetZoneType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FailoverDBClusterZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FailoverDBClusterZonalResponse>(await this.callApi(params, req, runtime), new $_model.FailoverDBClusterZonalResponse({}));
+  }
+
+  /**
+   * 角色切换
+   * 
+   * @param request - FailoverDBClusterZonalRequest
+   * @returns FailoverDBClusterZonalResponse
+   */
+  async failoverDBClusterZonal(request: $_model.FailoverDBClusterZonalRequest): Promise<$_model.FailoverDBClusterZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.failoverDBClusterZonalWithOptions(request, runtime);
+  }
+
+  /**
    * 生成校验报告
    * 
    * @param request - GenerateUpgradeReportForSyncCloneRequest
@@ -11989,6 +13217,80 @@ export default class Client extends OpenApi {
   async grantAccountPrivilege(request: $_model.GrantAccountPrivilegeRequest): Promise<$_model.GrantAccountPrivilegeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.grantAccountPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改PolarDB边缘集群的账号权限
+   * 
+   * @param request - GrantAccountPrivilegeZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantAccountPrivilegeZonalResponse
+   */
+  async grantAccountPrivilegeZonalWithOptions(request: $_model.GrantAccountPrivilegeZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GrantAccountPrivilegeZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GrantAccountPrivilegeZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GrantAccountPrivilegeZonalResponse>(await this.callApi(params, req, runtime), new $_model.GrantAccountPrivilegeZonalResponse({}));
+  }
+
+  /**
+   * 修改PolarDB边缘集群的账号权限
+   * 
+   * @param request - GrantAccountPrivilegeZonalRequest
+   * @returns GrantAccountPrivilegeZonalResponse
+   */
+  async grantAccountPrivilegeZonal(request: $_model.GrantAccountPrivilegeZonalRequest): Promise<$_model.GrantAccountPrivilegeZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.grantAccountPrivilegeZonalWithOptions(request, runtime);
   }
 
   /**
@@ -12396,6 +13698,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改PolarDB边缘云账号的描述
+   * 
+   * @param request - ModifyAccountDescriptionZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountDescriptionZonalResponse
+   */
+  async modifyAccountDescriptionZonalWithOptions(request: $_model.ModifyAccountDescriptionZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountDescriptionZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAccountDescriptionZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAccountDescriptionZonalResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountDescriptionZonalResponse({}));
+  }
+
+  /**
+   * 修改PolarDB边缘云账号的描述
+   * 
+   * @param request - ModifyAccountDescriptionZonalRequest
+   * @returns ModifyAccountDescriptionZonalResponse
+   */
+  async modifyAccountDescriptionZonal(request: $_model.ModifyAccountDescriptionZonalRequest): Promise<$_model.ModifyAccountDescriptionZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAccountDescriptionZonalWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ModifyAccountLockStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAccountLockStateResponse
@@ -12529,6 +13901,80 @@ export default class Client extends OpenApi {
   async modifyAccountPassword(request: $_model.ModifyAccountPasswordRequest): Promise<$_model.ModifyAccountPasswordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改PolarDB边缘的账号密码
+   * 
+   * @param request - ModifyAccountPasswordZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountPasswordZonalResponse
+   */
+  async modifyAccountPasswordZonalWithOptions(request: $_model.ModifyAccountPasswordZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccountPasswordZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.newAccountPassword)) {
+      query["NewAccountPassword"] = request.newAccountPassword;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.passwordType)) {
+      query["PasswordType"] = request.passwordType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAccountPasswordZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAccountPasswordZonalResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccountPasswordZonalResponse({}));
+  }
+
+  /**
+   * 修改PolarDB边缘的账号密码
+   * 
+   * @param request - ModifyAccountPasswordZonalRequest
+   * @returns ModifyAccountPasswordZonalResponse
+   */
+  async modifyAccountPasswordZonal(request: $_model.ModifyAccountPasswordZonalRequest): Promise<$_model.ModifyAccountPasswordZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAccountPasswordZonalWithOptions(request, runtime);
   }
 
   /**
@@ -12802,6 +14248,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改应用serverless配置
+   * 
+   * @param request - ModifyApplicationServerlessConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApplicationServerlessConfResponse
+   */
+  async modifyApplicationServerlessConfWithOptions(request: $_model.ModifyApplicationServerlessConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationServerlessConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.serverlessConfList)) {
+      query["ServerlessConfList"] = request.serverlessConfList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyApplicationServerlessConf",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyApplicationServerlessConfResponse>(await this.callApi(params, req, runtime), new $_model.ModifyApplicationServerlessConfResponse({}));
+  }
+
+  /**
+   * 修改应用serverless配置
+   * 
+   * @param request - ModifyApplicationServerlessConfRequest
+   * @returns ModifyApplicationServerlessConfResponse
+   */
+  async modifyApplicationServerlessConf(request: $_model.ModifyApplicationServerlessConfRequest): Promise<$_model.ModifyApplicationServerlessConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyApplicationServerlessConfWithOptions(request, runtime);
+  }
+
+  /**
    * 修改应用白名单
    * 
    * @param request - ModifyApplicationWhitelistRequest
@@ -12873,6 +14365,10 @@ export default class Client extends OpenApi {
   async modifyAutoRenewAttributeWithOptions(request: $_model.ModifyAutoRenewAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoRenewAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.DBClusterIds)) {
       query["DBClusterIds"] = request.DBClusterIds;
     }
@@ -13700,6 +15196,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改集群描述
+   * 
+   * @param request - ModifyDBClusterDescriptionZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterDescriptionZonalResponse
+   */
+  async modifyDBClusterDescriptionZonalWithOptions(request: $_model.ModifyDBClusterDescriptionZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterDescriptionZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterDescriptionZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBClusterDescriptionZonalResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterDescriptionZonalResponse({}));
+  }
+
+  /**
+   * 修改集群描述
+   * 
+   * @param request - ModifyDBClusterDescriptionZonalRequest
+   * @returns ModifyDBClusterDescriptionZonalResponse
+   */
+  async modifyDBClusterDescriptionZonal(request: $_model.ModifyDBClusterDescriptionZonalRequest): Promise<$_model.ModifyDBClusterDescriptionZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterDescriptionZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
    * 
    * @param request - ModifyDBClusterEndpointRequest
@@ -13791,6 +15353,104 @@ export default class Client extends OpenApi {
   async modifyDBClusterEndpoint(request: $_model.ModifyDBClusterEndpointRequest): Promise<$_model.ModifyDBClusterEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBClusterEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * PolarDB边缘集群修改链接地址
+   * 
+   * @param request - ModifyDBClusterEndpointZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterEndpointZonalResponse
+   */
+  async modifyDBClusterEndpointZonalWithOptions(request: $_model.ModifyDBClusterEndpointZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterEndpointZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoAddNewNodes)) {
+      query["AutoAddNewNodes"] = request.autoAddNewNodes;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBEndpointDescription)) {
+      query["DBEndpointDescription"] = request.DBEndpointDescription;
+    }
+
+    if (!$dara.isNull(request.DBEndpointId)) {
+      query["DBEndpointId"] = request.DBEndpointId;
+    }
+
+    if (!$dara.isNull(request.endpointConfig)) {
+      query["EndpointConfig"] = request.endpointConfig;
+    }
+
+    if (!$dara.isNull(request.nodes)) {
+      query["Nodes"] = request.nodes;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.polarSccTimeoutAction)) {
+      query["PolarSccTimeoutAction"] = request.polarSccTimeoutAction;
+    }
+
+    if (!$dara.isNull(request.polarSccWaitTimeout)) {
+      query["PolarSccWaitTimeout"] = request.polarSccWaitTimeout;
+    }
+
+    if (!$dara.isNull(request.readWriteMode)) {
+      query["ReadWriteMode"] = request.readWriteMode;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sccMode)) {
+      query["SccMode"] = request.sccMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterEndpointZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBClusterEndpointZonalResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterEndpointZonalResponse({}));
+  }
+
+  /**
+   * PolarDB边缘集群修改链接地址
+   * 
+   * @param request - ModifyDBClusterEndpointZonalRequest
+   * @returns ModifyDBClusterEndpointZonalResponse
+   */
+  async modifyDBClusterEndpointZonal(request: $_model.ModifyDBClusterEndpointZonalRequest): Promise<$_model.ModifyDBClusterEndpointZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterEndpointZonalWithOptions(request, runtime);
   }
 
   /**
@@ -14619,6 +16279,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -14906,6 +16570,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改PolarDB边缘云集群数据库描述
+   * 
+   * @param request - ModifyDBDescriptionZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBDescriptionZonalResponse
+   */
+  async modifyDBDescriptionZonalWithOptions(request: $_model.ModifyDBDescriptionZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBDescriptionZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBDescription)) {
+      query["DBDescription"] = request.DBDescription;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBDescriptionZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBDescriptionZonalResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBDescriptionZonalResponse({}));
+  }
+
+  /**
+   * 修改PolarDB边缘云集群数据库描述
+   * 
+   * @param request - ModifyDBDescriptionZonalRequest
+   * @returns ModifyDBDescriptionZonalResponse
+   */
+  async modifyDBDescriptionZonal(request: $_model.ModifyDBDescriptionZonalRequest): Promise<$_model.ModifyDBDescriptionZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBDescriptionZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
    * 
    * @param request - ModifyDBEndpointAddressRequest
@@ -14999,6 +16733,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
@@ -15357,6 +17095,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
@@ -16810,6 +18552,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置PolarDB边缘集群账号
+   * 
+   * @param request - ResetAccountZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAccountZonalResponse
+   */
+  async resetAccountZonalWithOptions(request: $_model.ResetAccountZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetAccountZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetAccountZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetAccountZonalResponse>(await this.callApi(params, req, runtime), new $_model.ResetAccountZonalResponse({}));
+  }
+
+  /**
+   * 重置PolarDB边缘集群账号
+   * 
+   * @param request - ResetAccountZonalRequest
+   * @returns ResetAccountZonalResponse
+   */
+  async resetAccountZonal(request: $_model.ResetAccountZonalRequest): Promise<$_model.ResetAccountZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetAccountZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Rebuilds a secondary cluster in a Global Database Network (GDN).
    * 
    * @param request - ResetGlobalDatabaseNetworkRequest
@@ -17016,6 +18828,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重启poalrdb边缘云集群节点
+   * 
+   * @param request - RestartDBNodeZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartDBNodeZonalResponse
+   */
+  async restartDBNodeZonalWithOptions(request: $_model.RestartDBNodeZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartDBNodeZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartDBNodeZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartDBNodeZonalResponse>(await this.callApi(params, req, runtime), new $_model.RestartDBNodeZonalResponse({}));
+  }
+
+  /**
+   * 重启poalrdb边缘云集群节点
+   * 
+   * @param request - RestartDBNodeZonalRequest
+   * @returns RestartDBNodeZonalResponse
+   */
+  async restartDBNodeZonal(request: $_model.RestartDBNodeZonalRequest): Promise<$_model.RestartDBNodeZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartDBNodeZonalWithOptions(request, runtime);
+  }
+
+  /**
    * Restores PolarDB databases and tables.
    * 
    * @param request - RestoreTableRequest
@@ -17153,6 +19031,76 @@ export default class Client extends OpenApi {
   async revokeAccountPrivilege(request: $_model.RevokeAccountPrivilegeRequest): Promise<$_model.RevokeAccountPrivilegeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeAccountPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * 撤销账号权限
+   * 
+   * @param request - RevokeAccountPrivilegeZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeAccountPrivilegeZonalResponse
+   */
+  async revokeAccountPrivilegeZonalWithOptions(request: $_model.RevokeAccountPrivilegeZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeAccountPrivilegeZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeAccountPrivilegeZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeAccountPrivilegeZonalResponse>(await this.callApi(params, req, runtime), new $_model.RevokeAccountPrivilegeZonalResponse({}));
+  }
+
+  /**
+   * 撤销账号权限
+   * 
+   * @param request - RevokeAccountPrivilegeZonalRequest
+   * @returns RevokeAccountPrivilegeZonalResponse
+   */
+  async revokeAccountPrivilegeZonal(request: $_model.RevokeAccountPrivilegeZonalRequest): Promise<$_model.RevokeAccountPrivilegeZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeAccountPrivilegeZonalWithOptions(request, runtime);
   }
 
   /**
@@ -17727,6 +19675,100 @@ export default class Client extends OpenApi {
   async upgradeDBClusterVersion(request: $_model.UpgradeDBClusterVersionRequest): Promise<$_model.UpgradeDBClusterVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeDBClusterVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * PolarDB边缘云集群小版本升级
+   * 
+   * @param request - UpgradeDBClusterVersionZonalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeDBClusterVersionZonalResponse
+   */
+  async upgradeDBClusterVersionZonalWithOptions(request: $_model.UpgradeDBClusterVersionZonalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeDBClusterVersionZonalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fromTimeService)) {
+      query["FromTimeService"] = request.fromTimeService;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.plannedEndTime)) {
+      query["PlannedEndTime"] = request.plannedEndTime;
+    }
+
+    if (!$dara.isNull(request.plannedStartTime)) {
+      query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.targetDBRevisionVersionCode)) {
+      query["TargetDBRevisionVersionCode"] = request.targetDBRevisionVersionCode;
+    }
+
+    if (!$dara.isNull(request.targetProxyRevisionVersionCode)) {
+      query["TargetProxyRevisionVersionCode"] = request.targetProxyRevisionVersionCode;
+    }
+
+    if (!$dara.isNull(request.upgradeLabel)) {
+      query["UpgradeLabel"] = request.upgradeLabel;
+    }
+
+    if (!$dara.isNull(request.upgradePolicy)) {
+      query["UpgradePolicy"] = request.upgradePolicy;
+    }
+
+    if (!$dara.isNull(request.upgradeType)) {
+      query["UpgradeType"] = request.upgradeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeDBClusterVersionZonal",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeDBClusterVersionZonalResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeDBClusterVersionZonalResponse({}));
+  }
+
+  /**
+   * PolarDB边缘云集群小版本升级
+   * 
+   * @param request - UpgradeDBClusterVersionZonalRequest
+   * @returns UpgradeDBClusterVersionZonalResponse
+   */
+  async upgradeDBClusterVersionZonal(request: $_model.UpgradeDBClusterVersionZonalRequest): Promise<$_model.UpgradeDBClusterVersionZonalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeDBClusterVersionZonalWithOptions(request, runtime);
   }
 
 }

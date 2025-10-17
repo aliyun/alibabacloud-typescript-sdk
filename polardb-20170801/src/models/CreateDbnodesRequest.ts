@@ -64,6 +64,11 @@ export class CreateDBNodesRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * The ID of the cluster.
    * 
@@ -159,6 +164,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
       DBNode: 'DBNode',
       DBNodeType: 'DBNodeType',
@@ -177,6 +183,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      cloudProvider: 'string',
       DBClusterId: 'string',
       DBNode: { 'type': 'array', 'itemType': CreateDBNodesRequestDBNode },
       DBNodeType: 'string',

@@ -12,6 +12,11 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * The ID of the cluster.
    * 
@@ -98,6 +103,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
       DBNodeTargetClass: 'DBNodeTargetClass',
       DBNodeType: 'DBNodeType',
@@ -116,6 +122,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      cloudProvider: 'string',
       DBClusterId: 'string',
       DBNodeTargetClass: 'string',
       DBNodeType: 'string',

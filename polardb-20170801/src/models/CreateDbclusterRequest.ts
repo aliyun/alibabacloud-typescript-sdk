@@ -131,6 +131,11 @@ export class CreateDBClusterRequest extends $dara.Model {
    */
   cloneDataPoint?: string;
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * Cluster network type, currently only VPC is supported, with a fixed value of **VPC**.
    * 
@@ -296,6 +301,11 @@ export class CreateDBClusterRequest extends $dara.Model {
    * SYSTEM
    */
   defaultTimeZone?: string;
+  /**
+   * @example
+   * vn-hanoi-3
+   */
+  ensRegionId?: string;
   /**
    * @remarks
    * Global Database Network (GDN) ID.
@@ -712,6 +722,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       burstingEnabled: 'BurstingEnabled',
       clientToken: 'ClientToken',
       cloneDataPoint: 'CloneDataPoint',
+      cloudProvider: 'CloudProvider',
       clusterNetworkType: 'ClusterNetworkType',
       creationCategory: 'CreationCategory',
       creationOption: 'CreationOption',
@@ -722,6 +733,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       defaultTimeZone: 'DefaultTimeZone',
+      ensRegionId: 'EnsRegionId',
       GDNId: 'GDNId',
       hotStandbyCluster: 'HotStandbyCluster',
       loosePolarLogBin: 'LoosePolarLogBin',
@@ -776,6 +788,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       burstingEnabled: 'string',
       clientToken: 'string',
       cloneDataPoint: 'string',
+      cloudProvider: 'string',
       clusterNetworkType: 'string',
       creationCategory: 'string',
       creationOption: 'string',
@@ -786,6 +799,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       DBType: 'string',
       DBVersion: 'string',
       defaultTimeZone: 'string',
+      ensRegionId: 'string',
       GDNId: 'string',
       hotStandbyCluster: 'string',
       loosePolarLogBin: 'string',

@@ -12,6 +12,11 @@ export class ModifyDBClusterStorageSpaceRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * ENS
+   */
+  cloudProvider?: string;
+  /**
    * @remarks
    * The cluster ID.
    * 
@@ -72,6 +77,7 @@ export class ModifyDBClusterStorageSpaceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -87,6 +93,7 @@ export class ModifyDBClusterStorageSpaceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      cloudProvider: 'string',
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
