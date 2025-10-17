@@ -6111,6 +6111,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询JobStep列表。
+   * 
+   * @param request - ListJobStepRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobStepResponse
+   */
+  async listJobStepWithOptions(request: $_model.ListJobStepRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobStepResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.zeroEtlJob)) {
+      query["ZeroEtlJob"] = request.zeroEtlJob;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListJobStep",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListJobStepResponse>(await this.callApi(params, req, runtime), new $_model.ListJobStepResponse({}));
+  }
+
+  /**
+   * 查询JobStep列表。
+   * 
+   * @param request - ListJobStepRequest
+   * @returns ListJobStepResponse
+   */
+  async listJobStep(request: $_model.ListJobStepRequest): Promise<$_model.ListJobStepResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listJobStepWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
    * 
    * @remarks
@@ -7228,6 +7282,64 @@ export default class Client extends OpenApi {
   async modifyGadInstanceName(request: $_model.ModifyGadInstanceNameRequest): Promise<$_model.ModifyGadInstanceNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyGadInstanceNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改增量写入的位点。
+   * 
+   * @param request - ModifyJobStepCheckpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyJobStepCheckpointResponse
+   */
+  async modifyJobStepCheckpointWithOptions(request: $_model.ModifyJobStepCheckpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyJobStepCheckpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dtsJobId)) {
+      query["DtsJobId"] = request.dtsJobId;
+    }
+
+    if (!$dara.isNull(request.jobStepId)) {
+      query["JobStepId"] = request.jobStepId;
+    }
+
+    if (!$dara.isNull(request.newCheckPoint)) {
+      query["NewCheckPoint"] = request.newCheckPoint;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyJobStepCheckpoint",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyJobStepCheckpointResponse>(await this.callApi(params, req, runtime), new $_model.ModifyJobStepCheckpointResponse({}));
+  }
+
+  /**
+   * 修改增量写入的位点。
+   * 
+   * @param request - ModifyJobStepCheckpointRequest
+   * @returns ModifyJobStepCheckpointResponse
+   */
+  async modifyJobStepCheckpoint(request: $_model.ModifyJobStepCheckpointRequest): Promise<$_model.ModifyJobStepCheckpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyJobStepCheckpointWithOptions(request, runtime);
   }
 
   /**
