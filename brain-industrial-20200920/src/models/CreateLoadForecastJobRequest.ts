@@ -40,6 +40,11 @@ export class CreateLoadForecastJobRequest extends $dara.Model {
   businessKey?: string;
   /**
    * @example
+   * FULL
+   */
+  dataMode?: string;
+  /**
+   * @example
    * electricityMeter
    */
   deviceType?: string;
@@ -48,6 +53,11 @@ export class CreateLoadForecastJobRequest extends $dara.Model {
    * 1
    */
   duration?: number;
+  /**
+   * @example
+   * DAY_AHEAD
+   */
+  forecastHorizon?: string;
   /**
    * @example
    * FIFTEEN_MIN
@@ -77,8 +87,10 @@ export class CreateLoadForecastJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessKey: 'BusinessKey',
+      dataMode: 'DataMode',
       deviceType: 'DeviceType',
       duration: 'Duration',
+      forecastHorizon: 'ForecastHorizon',
       freq: 'Freq',
       historyData: 'HistoryData',
       modelVersion: 'ModelVersion',
@@ -91,8 +103,10 @@ export class CreateLoadForecastJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessKey: 'string',
+      dataMode: 'string',
       deviceType: 'string',
       duration: 'number',
+      forecastHorizon: 'string',
       freq: 'string',
       historyData: { 'type': 'array', 'itemType': CreateLoadForecastJobRequestHistoryData },
       modelVersion: 'string',

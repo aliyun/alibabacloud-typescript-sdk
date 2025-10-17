@@ -263,12 +263,20 @@ export default class Client extends OpenApi {
       body["BusinessKey"] = request.businessKey;
     }
 
+    if (!$dara.isNull(request.dataMode)) {
+      body["DataMode"] = request.dataMode;
+    }
+
     if (!$dara.isNull(request.deviceType)) {
       body["DeviceType"] = request.deviceType;
     }
 
     if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.forecastHorizon)) {
+      body["ForecastHorizon"] = request.forecastHorizon;
     }
 
     if (!$dara.isNull(request.freq)) {
@@ -351,12 +359,20 @@ export default class Client extends OpenApi {
       body["BusinessKey"] = request.businessKey;
     }
 
+    if (!$dara.isNull(request.dataMode)) {
+      body["DataMode"] = request.dataMode;
+    }
+
     if (!$dara.isNull(request.deviceType)) {
       body["DeviceType"] = request.deviceType;
     }
 
     if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.forecastHorizon)) {
+      body["ForecastHorizon"] = request.forecastHorizon;
     }
 
     if (!$dara.isNull(request.freq)) {
@@ -431,12 +447,20 @@ export default class Client extends OpenApi {
       body["BusinessKey"] = request.businessKey;
     }
 
+    if (!$dara.isNull(request.dataMode)) {
+      body["DataMode"] = request.dataMode;
+    }
+
     if (!$dara.isNull(request.deviceType)) {
       body["DeviceType"] = request.deviceType;
     }
 
     if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.forecastHorizon)) {
+      body["ForecastHorizon"] = request.forecastHorizon;
     }
 
     if (!$dara.isNull(request.freq)) {
@@ -527,12 +551,20 @@ export default class Client extends OpenApi {
       body["BusinessKey"] = request.businessKey;
     }
 
+    if (!$dara.isNull(request.dataMode)) {
+      body["DataMode"] = request.dataMode;
+    }
+
     if (!$dara.isNull(request.deviceType)) {
       body["DeviceType"] = request.deviceType;
     }
 
     if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.forecastHorizon)) {
+      body["ForecastHorizon"] = request.forecastHorizon;
     }
 
     if (!$dara.isNull(request.freq)) {

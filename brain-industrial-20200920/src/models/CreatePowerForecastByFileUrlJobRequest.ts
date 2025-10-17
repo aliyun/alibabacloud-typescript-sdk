@@ -51,6 +51,11 @@ export class CreatePowerForecastByFileUrlJobRequest extends $dara.Model {
   businessKey?: string;
   /**
    * @example
+   * FULL
+   */
+  dataMode?: string;
+  /**
+   * @example
    * solarInverter
    */
   deviceType?: string;
@@ -59,6 +64,11 @@ export class CreatePowerForecastByFileUrlJobRequest extends $dara.Model {
    * 1
    */
   duration?: number;
+  /**
+   * @example
+   * DAY_AHEAD
+   */
+  forecastHorizon?: string;
   /**
    * @example
    * FIFTEEN_MIN
@@ -103,8 +113,10 @@ export class CreatePowerForecastByFileUrlJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessKey: 'BusinessKey',
+      dataMode: 'DataMode',
       deviceType: 'DeviceType',
       duration: 'Duration',
+      forecastHorizon: 'ForecastHorizon',
       freq: 'Freq',
       historyUrl: 'HistoryUrl',
       location: 'Location',
@@ -120,8 +132,10 @@ export class CreatePowerForecastByFileUrlJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessKey: 'string',
+      dataMode: 'string',
       deviceType: 'string',
       duration: 'number',
+      forecastHorizon: 'string',
       freq: 'string',
       historyUrl: 'string',
       location: CreatePowerForecastByFileUrlJobRequestLocation,
