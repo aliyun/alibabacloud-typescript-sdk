@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
+  p2PToken?: string;
   /**
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -27,6 +28,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   ticket?: string;
   static names(): { [key: string]: string } {
     return {
+      p2PToken: 'P2PToken',
       requestId: 'RequestId',
       taskCode: 'TaskCode',
       taskId: 'TaskId',
@@ -38,6 +40,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      p2PToken: 'string',
       requestId: 'string',
       taskCode: 'string',
       taskId: 'string',

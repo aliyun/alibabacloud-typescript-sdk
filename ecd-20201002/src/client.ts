@@ -887,6 +887,10 @@ export default class Client extends OpenApi {
   async getConnectionTicketWithOptions(request: $_model.GetConnectionTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectionTicketResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
     if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }

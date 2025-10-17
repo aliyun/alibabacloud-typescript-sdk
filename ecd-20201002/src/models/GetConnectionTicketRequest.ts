@@ -29,6 +29,7 @@ export class GetConnectionTicketRequestTag extends $dara.Model {
 }
 
 export class GetConnectionTicketRequest extends $dara.Model {
+  accessType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -91,6 +92,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       clientId: 'ClientId',
       clientOS: 'ClientOS',
       clientType: 'ClientType',
@@ -111,6 +113,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessType: 'string',
       clientId: 'string',
       clientOS: 'string',
       clientType: 'string',
