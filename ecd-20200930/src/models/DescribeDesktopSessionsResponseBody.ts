@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopSessionsResponseBodySessionsResourceGroups extends $dara.Model {
+  /**
+   * @example
+   * rg-8whrmo2gtsb8bxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * RgTest
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,6 +86,11 @@ export class DescribeDesktopSessionsResponseBodySessionsTerminalInfo extends $da
 
 export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   /**
+   * @example
+   * SIMPLE
+   */
+  accountType?: string;
+  /**
    * @remarks
    * The IP address of the client.
    * 
@@ -117,6 +130,11 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * testDesktop
    */
   desktopName?: string;
+  /**
+   * @example
+   * SIMPLE
+   */
+  directoryType?: string;
   /**
    * @remarks
    * The duration of the remote assistance. Unit: seconds.
@@ -255,11 +273,13 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   totalConnectionTime?: number;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       clientIp: 'ClientIp',
       clientOS: 'ClientOS',
       clientVersion: 'ClientVersion',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
+      directoryType: 'DirectoryType',
       endUserApplyCoordinateTime: 'EndUserApplyCoordinateTime',
       endUserId: 'EndUserId',
       latestConnectionTime: 'LatestConnectionTime',
@@ -281,11 +301,13 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       clientIp: 'string',
       clientOS: 'string',
       clientVersion: 'string',
       desktopId: 'string',
       desktopName: 'string',
+      directoryType: 'string',
       endUserApplyCoordinateTime: 'number',
       endUserId: 'string',
       latestConnectionTime: 'number',

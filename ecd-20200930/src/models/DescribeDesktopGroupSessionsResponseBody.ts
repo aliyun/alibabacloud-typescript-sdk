@@ -52,6 +52,11 @@ export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extend
 
 export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Model {
   /**
+   * @example
+   * SIMPLE
+   */
+  accountType?: string;
+  /**
    * @remarks
    * The IP address of the client.
    * 
@@ -99,6 +104,11 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * ecd-g6t1ukbaea****
    */
   desktopId?: string;
+  /**
+   * @example
+   * SIMPLE
+   */
+  directoryType?: string;
   /**
    * @remarks
    * The point in time when the end user applies for administrator assistance.
@@ -232,12 +242,14 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   totalConnectionDuration?: number;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       clientIp: 'ClientIp',
       clientOS: 'ClientOS',
       clientVersion: 'ClientVersion',
       desktopGroupId: 'DesktopGroupId',
       desktopGroupName: 'DesktopGroupName',
       desktopId: 'DesktopId',
+      directoryType: 'DirectoryType',
       endUserApplyCoordinateTime: 'EndUserApplyCoordinateTime',
       endUserId: 'EndUserId',
       lastSessionEndTime: 'LastSessionEndTime',
@@ -257,12 +269,14 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       clientIp: 'string',
       clientOS: 'string',
       clientVersion: 'string',
       desktopGroupId: 'string',
       desktopGroupName: 'string',
       desktopId: 'string',
+      directoryType: 'string',
       endUserApplyCoordinateTime: 'number',
       endUserId: 'string',
       lastSessionEndTime: 'string',
