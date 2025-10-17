@@ -1474,6 +1474,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateApsWebhook
+   * 
+   * @param tmpReq - CreateApsWebhookRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApsWebhookResponse
+   */
+  async createApsWebhookWithOptions(tmpReq: $_model.CreateApsWebhookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApsWebhookResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateApsWebhookShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.webhook)) {
+      request.webhookShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webhook, "Webhook", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      body["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.webhookShrink)) {
+      body["Webhook"] = request.webhookShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApsWebhook",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApsWebhookResponse>(await this.callApi(params, req, runtime), new $_model.CreateApsWebhookResponse({}));
+  }
+
+  /**
+   * CreateApsWebhook
+   * 
+   * @param request - CreateApsWebhookRequest
+   * @returns CreateApsWebhookResponse
+   */
+  async createApsWebhook(request: $_model.CreateApsWebhookRequest): Promise<$_model.CreateApsWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApsWebhookWithOptions(request, runtime);
+  }
+
+  /**
    * 手动创建备份集
    * 
    * @param request - CreateBackupRequest
@@ -1984,6 +2044,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建物化视图自动推荐任务
+   * 
+   * @param request - CreateMaterializedViewRecommendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMaterializedViewRecommendResponse
+   */
+  async createMaterializedViewRecommendWithOptions(request: $_model.CreateMaterializedViewRecommendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMaterializedViewRecommendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.minRewriteQueryCount)) {
+      query["MinRewriteQueryCount"] = request.minRewriteQueryCount;
+    }
+
+    if (!$dara.isNull(request.minRewriteQueryPattern)) {
+      query["MinRewriteQueryPattern"] = request.minRewriteQueryPattern;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scanQueriesRange)) {
+      query["ScanQueriesRange"] = request.scanQueriesRange;
+    }
+
+    if (!$dara.isNull(request.schedulingDay)) {
+      query["SchedulingDay"] = request.schedulingDay;
+    }
+
+    if (!$dara.isNull(request.schedulingPolicy)) {
+      query["SchedulingPolicy"] = request.schedulingPolicy;
+    }
+
+    if (!$dara.isNull(request.slowQueryThreshold)) {
+      query["SlowQueryThreshold"] = request.slowQueryThreshold;
+    }
+
+    if (!$dara.isNull(request.specifiedTime)) {
+      query["SpecifiedTime"] = request.specifiedTime;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMaterializedViewRecommend",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMaterializedViewRecommendResponse>(await this.callApi(params, req, runtime), new $_model.CreateMaterializedViewRecommendResponse({}));
+  }
+
+  /**
+   * 创建物化视图自动推荐任务
+   * 
+   * @param request - CreateMaterializedViewRecommendRequest
+   * @returns CreateMaterializedViewRecommendResponse
+   */
+  async createMaterializedViewRecommend(request: $_model.CreateMaterializedViewRecommendRequest): Promise<$_model.CreateMaterializedViewRecommendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMaterializedViewRecommendWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an Object Storage Service (OSS) subdirectory.
    * 
    * @remarks
@@ -2357,6 +2515,56 @@ export default class Client extends OpenApi {
   async deleteApsJob(request: $_model.DeleteApsJobRequest): Promise<$_model.DeleteApsJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApsJobWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteApsWebhook
+   * 
+   * @param request - DeleteApsWebhookRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApsWebhookResponse
+   */
+  async deleteApsWebhookWithOptions(request: $_model.DeleteApsWebhookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApsWebhookResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.webhookId)) {
+      body["WebhookId"] = request.webhookId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApsWebhook",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApsWebhookResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApsWebhookResponse({}));
+  }
+
+  /**
+   * DeleteApsWebhook
+   * 
+   * @param request - DeleteApsWebhookRequest
+   * @returns DeleteApsWebhookResponse
+   */
+  async deleteApsWebhook(request: $_model.DeleteApsWebhookRequest): Promise<$_model.DeleteApsWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApsWebhookWithOptions(request, runtime);
   }
 
   /**
@@ -11483,6 +11691,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListApsWebhook
+   * 
+   * @param request - ListApsWebhookRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApsWebhookResponse
+   */
+  async listApsWebhookWithOptions(request: $_model.ListApsWebhookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApsWebhookResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.jobType)) {
+      body["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApsWebhook",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApsWebhookResponse>(await this.callApi(params, req, runtime), new $_model.ListApsWebhookResponse({}));
+  }
+
+  /**
+   * ListApsWebhook
+   * 
+   * @param request - ListApsWebhookRequest
+   * @returns ListApsWebhookResponse
+   */
+  async listApsWebhook(request: $_model.ListApsWebhookRequest): Promise<$_model.ListApsWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApsWebhookWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of lake storages.
    * 
    * @param request - ListLakeStoragesRequest
@@ -13523,6 +13781,194 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改物化视图
+   * 
+   * @param request - ModifyMaterializedViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaterializedViewResponse
+   */
+  async modifyMaterializedViewWithOptions(request: $_model.ModifyMaterializedViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaterializedViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.enableDelayAlert)) {
+      query["EnableDelayAlert"] = request.enableDelayAlert;
+    }
+
+    if (!$dara.isNull(request.enableFailureAlert)) {
+      query["EnableFailureAlert"] = request.enableFailureAlert;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.latencyTolerance)) {
+      query["LatencyTolerance"] = request.latencyTolerance;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.queryWrite)) {
+      query["QueryWrite"] = request.queryWrite;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.viewName)) {
+      query["ViewName"] = request.viewName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaterializedView",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaterializedViewResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaterializedViewResponse({}));
+  }
+
+  /**
+   * 修改物化视图
+   * 
+   * @param request - ModifyMaterializedViewRequest
+   * @returns ModifyMaterializedViewResponse
+   */
+  async modifyMaterializedView(request: $_model.ModifyMaterializedViewRequest): Promise<$_model.ModifyMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMaterializedViewWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改物化视图自动推荐任务
+   * 
+   * @param request - ModifyMaterializedViewRecommendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMaterializedViewRecommendResponse
+   */
+  async modifyMaterializedViewRecommendWithOptions(request: $_model.ModifyMaterializedViewRecommendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMaterializedViewRecommendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.minRewriteQueryCount)) {
+      query["MinRewriteQueryCount"] = request.minRewriteQueryCount;
+    }
+
+    if (!$dara.isNull(request.minRewriteQueryPattern)) {
+      query["MinRewriteQueryPattern"] = request.minRewriteQueryPattern;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scanQueriesRange)) {
+      query["ScanQueriesRange"] = request.scanQueriesRange;
+    }
+
+    if (!$dara.isNull(request.schedulingDay)) {
+      query["SchedulingDay"] = request.schedulingDay;
+    }
+
+    if (!$dara.isNull(request.schedulingPolicy)) {
+      query["SchedulingPolicy"] = request.schedulingPolicy;
+    }
+
+    if (!$dara.isNull(request.slowQueryThreshold)) {
+      query["SlowQueryThreshold"] = request.slowQueryThreshold;
+    }
+
+    if (!$dara.isNull(request.specifiedTime)) {
+      query["SpecifiedTime"] = request.specifiedTime;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMaterializedViewRecommend",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMaterializedViewRecommendResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMaterializedViewRecommendResponse({}));
+  }
+
+  /**
+   * 修改物化视图自动推荐任务
+   * 
+   * @param request - ModifyMaterializedViewRecommendRequest
+   * @returns ModifyMaterializedViewRecommendResponse
+   */
+  async modifyMaterializedViewRecommend(request: $_model.ModifyMaterializedViewRecommendRequest): Promise<$_model.ModifyMaterializedViewRecommendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMaterializedViewRecommendWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the information about a custom monitoring view.
    * 
    * @param tmpReq - ModifyPerformanceViewRequest
@@ -14539,6 +14985,62 @@ export default class Client extends OpenApi {
   async unbindDBResourceGroupWithUser(request: $_model.UnbindDBResourceGroupWithUserRequest): Promise<$_model.UnbindDBResourceGroupWithUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindDBResourceGroupWithUserWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateApsWebhook
+   * 
+   * @param tmpReq - UpdateApsWebhookRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApsWebhookResponse
+   */
+  async updateApsWebhookWithOptions(tmpReq: $_model.UpdateApsWebhookRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApsWebhookResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateApsWebhookShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.webhook)) {
+      request.webhookShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webhook, "Webhook", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.webhookShrink)) {
+      body["Webhook"] = request.webhookShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApsWebhook",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApsWebhookResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApsWebhookResponse({}));
+  }
+
+  /**
+   * UpdateApsWebhook
+   * 
+   * @param request - UpdateApsWebhookRequest
+   * @returns UpdateApsWebhookResponse
+   */
+  async updateApsWebhook(request: $_model.UpdateApsWebhookRequest): Promise<$_model.UpdateApsWebhookResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApsWebhookWithOptions(request, runtime);
   }
 
   /**

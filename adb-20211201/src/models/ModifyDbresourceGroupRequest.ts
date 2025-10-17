@@ -2,6 +2,121 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector extends $dara.Model {
+  /**
+   * @example
+   * lab2.10.0-ray2.43.0
+   */
+  image?: string;
+  /**
+   * @example
+   * vLLM
+   */
+  inferenceEngine?: string;
+  /**
+   * @example
+   * Deepseek-R1
+   */
+  llmModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      inferenceEngine: 'InferenceEngine',
+      llmModel: 'LlmModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      inferenceEngine: 'string',
+      llmModel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRayConfigAppConfig extends $dara.Model {
+  /**
+   * @example
+   * app01
+   */
+  appName?: string;
+  /**
+   * @example
+   * IsaacLab
+   */
+  appType?: string;
+  imageSelector?: ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      appType: 'AppType',
+      imageSelector: 'ImageSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      appType: 'string',
+      imageSelector: ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector,
+    };
+  }
+
+  validate() {
+    if(this.imageSelector && typeof (this.imageSelector as any).validate === 'function') {
+      (this.imageSelector as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestRayConfigStorageMounts extends $dara.Model {
+  /**
+   * @example
+   * /mnt/data01
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * 1
+   */
+  storageId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      storageId: 'StorageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      storageId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Model {
   allocateUnit?: string;
   groupName?: string;
@@ -44,38 +159,50 @@ export class ModifyDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Mod
 }
 
 export class ModifyDBResourceGroupRequestRayConfig extends $dara.Model {
+  appConfig?: ModifyDBResourceGroupRequestRayConfigAppConfig;
   category?: string;
   enableUserEni?: boolean;
   headAllocateUnit?: string;
   headDiskCapacity?: string;
   headSpec?: string;
   headSpecType?: string;
+  storageMounts?: ModifyDBResourceGroupRequestRayConfigStorageMounts[];
   workerGroups?: ModifyDBResourceGroupRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
+      appConfig: 'AppConfig',
       category: 'Category',
       enableUserEni: 'EnableUserEni',
       headAllocateUnit: 'HeadAllocateUnit',
       headDiskCapacity: 'HeadDiskCapacity',
       headSpec: 'HeadSpec',
       headSpecType: 'HeadSpecType',
+      storageMounts: 'StorageMounts',
       workerGroups: 'WorkerGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appConfig: ModifyDBResourceGroupRequestRayConfigAppConfig,
       category: 'string',
       enableUserEni: 'boolean',
       headAllocateUnit: 'string',
       headDiskCapacity: 'string',
       headSpec: 'string',
       headSpecType: 'string',
+      storageMounts: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRayConfigStorageMounts },
       workerGroups: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestRayConfigWorkerGroups },
     };
   }
 
   validate() {
+    if(this.appConfig && typeof (this.appConfig as any).validate === 'function') {
+      (this.appConfig as any).validate();
+    }
+    if(Array.isArray(this.storageMounts)) {
+      $dara.Model.validateArray(this.storageMounts);
+    }
     if(Array.isArray(this.workerGroups)) {
       $dara.Model.validateArray(this.workerGroups);
     }

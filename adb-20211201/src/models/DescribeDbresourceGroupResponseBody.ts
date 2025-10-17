@@ -2,13 +2,160 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector extends $dara.Model {
+  /**
+   * @example
+   * lab2.10.0-ray2.43.0
+   */
+  image?: string;
+  /**
+   * @example
+   * vLLM
+   */
+  inferenceEngine?: string;
+  /**
+   * @example
+   * Deepseek-R1
+   */
+  llmModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      inferenceEngine: 'InferenceEngine',
+      llmModel: 'LlmModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      inferenceEngine: 'string',
+      llmModel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig extends $dara.Model {
+  /**
+   * @example
+   * app01
+   */
+  appName?: string;
+  /**
+   * @example
+   * IsaacLab
+   */
+  appType?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  imageSelector?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      appType: 'AppType',
+      imageSelector: 'ImageSelector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      appType: 'string',
+      imageSelector: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector,
+    };
+  }
+
+  validate() {
+    if(this.imageSelector && typeof (this.imageSelector as any).validate === 'function') {
+      (this.imageSelector as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts extends $dara.Model {
+  /**
+   * @example
+   * /mnt/data01
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * 1
+   */
+  storageId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      storageId: 'StorageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      storageId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   allocateUnit?: string;
+  /**
+   * @example
+   * g01
+   */
   groupName?: string;
+  /**
+   * @example
+   * 1
+   */
   maxWorkerQuantity?: number;
+  /**
+   * @example
+   * 1
+   */
   minWorkerQuantity?: number;
+  /**
+   * @example
+   * 100G
+   */
   workerDiskCapacity?: string;
+  /**
+   * @example
+   * large
+   */
   workerSpecName?: string;
+  /**
+   * @example
+   * CPU
+   */
   workerSpecType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,6 +191,11 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups 
 }
 
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  appConfig?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig;
   category?: string;
   /**
    * **if can be null:**
@@ -54,12 +206,26 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
   headDiskCapacity?: string;
   headSpec?: string;
   headSpecType?: string;
+  /**
+   * @example
+   * http://ray-cluster-address.example.com
+   */
   rayClusterAddress?: string;
+  /**
+   * @example
+   * http://ray-dashboard-address.example.com
+   */
   rayDashboardAddress?: string;
+  /**
+   * @example
+   * http://ray-grafana-address.example.com
+   */
   rayGrafanaAddress?: string;
+  storageMounts?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts[];
   workerGroups?: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
+      appConfig: 'AppConfig',
       category: 'Category',
       enableUserEni: 'EnableUserEni',
       headAllocateUnit: 'HeadAllocateUnit',
@@ -69,12 +235,14 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
       rayClusterAddress: 'RayClusterAddress',
       rayDashboardAddress: 'RayDashboardAddress',
       rayGrafanaAddress: 'RayGrafanaAddress',
+      storageMounts: 'StorageMounts',
       workerGroups: 'WorkerGroups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appConfig: DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfig,
       category: 'string',
       enableUserEni: 'boolean',
       headAllocateUnit: 'string',
@@ -84,11 +252,18 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig extends $dar
       rayClusterAddress: 'string',
       rayDashboardAddress: 'string',
       rayGrafanaAddress: 'string',
+      storageMounts: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts },
       workerGroups: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigWorkerGroups },
     };
   }
 
   validate() {
+    if(this.appConfig && typeof (this.appConfig as any).validate === 'function') {
+      (this.appConfig as any).validate();
+    }
+    if(Array.isArray(this.storageMounts)) {
+      $dara.Model.validateArray(this.storageMounts);
+    }
     if(Array.isArray(this.workerGroups)) {
       $dara.Model.validateArray(this.workerGroups);
     }
