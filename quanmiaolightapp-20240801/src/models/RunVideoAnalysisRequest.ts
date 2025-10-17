@@ -243,6 +243,11 @@ export class RunVideoAnalysisRequest extends $dara.Model {
   splitInterval?: number;
   /**
    * @example
+   * fixDuration
+   */
+  splitType?: string;
+  /**
+   * @example
    * a3d1c2ac-f086-4a21-9069-f5631542f5a2
    */
   taskId?: string;
@@ -276,6 +281,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       originalSessionId: 'originalSessionId',
       snapshotInterval: 'snapshotInterval',
       splitInterval: 'splitInterval',
+      splitType: 'splitType',
       taskId: 'taskId',
       textProcessTasks: 'textProcessTasks',
       videoCaptionInfo: 'videoCaptionInfo',
@@ -302,6 +308,7 @@ export class RunVideoAnalysisRequest extends $dara.Model {
       originalSessionId: 'string',
       snapshotInterval: 'number',
       splitInterval: 'number',
+      splitType: 'string',
       taskId: 'string',
       textProcessTasks: { 'type': 'array', 'itemType': RunVideoAnalysisRequestTextProcessTasks },
       videoCaptionInfo: RunVideoAnalysisRequestVideoCaptionInfo,

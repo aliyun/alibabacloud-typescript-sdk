@@ -2699,6 +2699,10 @@ export default class Client extends OpenApi {
       body["splitInterval"] = request.splitInterval;
     }
 
+    if (!$dara.isNull(request.splitType)) {
+      body["splitType"] = request.splitType;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["taskId"] = request.taskId;
     }
@@ -2849,6 +2853,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.splitInterval)) {
       body["splitInterval"] = request.splitInterval;
+    }
+
+    if (!$dara.isNull(request.splitType)) {
+      body["splitType"] = request.splitType;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -3261,6 +3269,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.splitInterval)) {
       body["splitInterval"] = request.splitInterval;
+    }
+
+    if (!$dara.isNull(request.splitType)) {
+      body["splitType"] = request.splitType;
     }
 
     if (!$dara.isNull(request.textProcessTasksShrink)) {
