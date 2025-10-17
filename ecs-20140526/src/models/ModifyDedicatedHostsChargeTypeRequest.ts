@@ -12,7 +12,7 @@ export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
    * 
    * Default value: true.
    * 
-   * >  If you do not have sufficient balance in your account, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can pay for the order.
+   * > If you do not have sufficient balance in your account, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can pay for the order.
    * 
    * @example
    * false
@@ -61,9 +61,9 @@ export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
   detailFee?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform only a dry run. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. Otherwise, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * Default value: false.

@@ -90,7 +90,7 @@ export class ModifyDedicatedHostsChargeTypeResponseBody extends $dara.Model {
   feeOfInstances?: ModifyDedicatedHostsChargeTypeResponseBodyFeeOfInstances;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order. This is returned only when the payment method is changed to subscription.
    * 
    * @example
    * 20413515388****

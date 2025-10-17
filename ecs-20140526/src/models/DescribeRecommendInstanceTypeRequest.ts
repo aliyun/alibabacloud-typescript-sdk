@@ -15,12 +15,12 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   cores?: number;
   /**
    * @remarks
-   * The billing method of ECS instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+   * The billing method of the ECS instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
    * 
-   * *   PrePaid: subscription
+   * *   PrePaid: subscription.
    * *   PostPaid: pay-as-you-go
    * 
-   * Default value: PostPaid.
+   * Default value: PostPaid
    * 
    * @example
    * PostPaid
@@ -110,11 +110,11 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The policy that is used to recommend instance types. Valid values:
+   * The policy for recommending instance types. Valid values:
    * 
    * *   InventoryFirst: recommends instance types in descending order of resource availability.
    * *   PriceFirst: recommends the most cost-effective instance types. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
-   * *   NewProductFirst: recommends the latest instance types.
+   * *   NewProductFirst: recommends the latest instance types first.
    * 
    * Default value: InventoryFirst.
    * 
@@ -136,7 +136,7 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The scenario in which instance types are recommended. Valid values:
+   * Specifies the scenarios in which instance types are recommended. Valid values:
    * 
    * *   UPGRADE: instance type upgrade or downgrade
    * *   CREATE: instance creation
@@ -149,11 +149,11 @@ export class DescribeRecommendInstanceTypeRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The bidding policy of spot instances. Valid values:
+   * The bidding policy of the spot instance. Valid values:
    * 
-   * *   NoSpot: The instances are regular pay-as-you-go instances.
-   * *   SpotWithPriceLimit: The instances are created as spot instances for which you can specify the maximum hourly price.
-   * *   SpotAsPriceGo: The instances are spot instances for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+   * *   NoSpot: The instance is created as a pay-as-you-go instance.
+   * *   SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
+   * *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
    * 
    * >  If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
    * 

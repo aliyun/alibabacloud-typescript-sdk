@@ -481,7 +481,9 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   snapshots?: DescribeSnapshotsResponseBodySnapshots;
   /**
    * @remarks
-   * The total number of snapshots returned.
+   * The total number of snapshots.
+   * 
+   * > When using the `MaxResults` and `NextToken` parameters for a paginated query, the returned `TotalCount` parameter value is invalid.
    * 
    * @example
    * 1

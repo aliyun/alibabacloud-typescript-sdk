@@ -72,6 +72,7 @@ export { CreateImagePipelineRequestImageOptionsImageTags } from './CreateImagePi
 export { CreateImagePipelineRequestImageOptions } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptionsFeatures } from './CreateImagePipelineRequest';
+export { CreateImagePipelineRequestImportImageOptionsImportImageTags } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestImportImageOptions } from './CreateImagePipelineRequest';
 export { CreateImagePipelineRequestTag } from './CreateImagePipelineRequest';
 export { CreateInstanceRequestHibernationOptions } from './CreateInstanceRequest';
@@ -353,6 +354,8 @@ export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImageOpt
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappingsDiskDeviceMapping } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappings } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures } from './DescribeImagePipelinesResponseBody';
+export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTagsImportImageTag } from './DescribeImagePipelinesResponseBody';
+export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptions } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetTagsTag } from './DescribeImagePipelinesResponseBody';
 export { DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetTags } from './DescribeImagePipelinesResponseBody';

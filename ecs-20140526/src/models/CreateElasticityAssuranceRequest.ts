@@ -50,7 +50,7 @@ export class CreateElasticityAssuranceRequestPrivatePoolOptions extends $dara.Mo
 export class CreateElasticityAssuranceRequestRecurrenceRules extends $dara.Model {
   /**
    * @remarks
-   * The end time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * The end time of the assurance period for the capacity reservation. Specify an on-the-hour point in time.
    * 
    * @example
    * 10
@@ -64,7 +64,7 @@ export class CreateElasticityAssuranceRequestRecurrenceRules extends $dara.Model
    * *   Weekly
    * *   Monthly
    * 
-   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * >  You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
    * @example
    * Daily
@@ -72,13 +72,13 @@ export class CreateElasticityAssuranceRequestRecurrenceRules extends $dara.Model
   recurrenceType?: string;
   /**
    * @remarks
-   * The days of the week or month on which the capacity reservation of the time-segmented elasticity assurance takes effect or the interval, in number of days, at which the capacity reservation takes effect.
+   * The days of the week or month on which the capacity reservation takes effect or the interval, in number of days, at which the capacity reservation takes effect.
    * 
    * *   If you set `RecurrenceType` to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
    * *   If you set `RecurrenceType` to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
-   * *   If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A. Example: `1-5`, which specifies that the capacity reservation takes effect every day from the first day up to the fifth day of each month.
+   * *   If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates that the execution is repeated from the 1st to 5th of each month.
    * 
-   * >  If you specify this parameter, you must specify `RecurrenceType` and `RecurrenceValue`.
+   * > You must specify both `RecurrenceType` and `RecurrenceValue`.
    * 
    * @example
    * 1
@@ -86,9 +86,9 @@ export class CreateElasticityAssuranceRequestRecurrenceRules extends $dara.Model
   recurrenceValue?: string;
   /**
    * @remarks
-   * The start time of the assurance period for the capacity reservation of the time-segmented elasticity assurance. Specify an on-the-hour point in time.
+   * The start time of the assurance period for the capacity reservation. Specify an on-the-hour point in time.
    * 
-   * >  You must specify both `StartHour` and `EndHour`. The EndHour value must be at least 4 hours later than the StartHour value.
+   * >  You must specify both `StartHour` and `EndHour`. EndHour must be at least four hours later than StartHour.
    * 
    * @example
    * 4
@@ -251,13 +251,13 @@ export class CreateElasticityAssuranceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The validity period of the elasticity assurance. The unit of the validity period is determined by the value of `PeriodUnit`. Valid values:
+   * The validity period of the elasticity assurance. The unit of the validity period is determined by the value of `PeriodUnit`. Specifies whether to check the image used by the instance supports hot migration. Valid values:
    * 
    * *   When the value of `PeriodUnit` is `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
    * *   When the value of `PeriodUnit` is `Year`, the valid values are 1, 2, 3, 4, and 5.
    * *   When the value of `PeriodUnit` is `Day`, the valid values are 1 to 365.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -285,7 +285,7 @@ export class CreateElasticityAssuranceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The assurance schedules of the time-segmented elasticity assurance.
+   * The assurance schedules based on which the capacity reservation takes effect.
    * 
    * >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
    */

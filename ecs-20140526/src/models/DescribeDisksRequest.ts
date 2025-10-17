@@ -317,13 +317,11 @@ export class DescribeDisksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether the multi-attach feature is enabled for the disk. Valid values:
+   * Specifies whether to enable the multi-attach feature for the disk. Valid values:
    * 
-   * *   Disabled: The multi-attach feature is not enabled for the disk.
-   * *   Enabled: The multi-attach feature is enabled for the disk.
+   * *   Disabled
+   * *   Enabled
    * *   LegacyShared: Shared Block Storage devices are queried.
-   * 
-   * The multi-attach feature is available to select users. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/list).
    * 
    * @example
    * Disabled

@@ -43,10 +43,6 @@ export class DescribeDiagnosticMetricsRequest extends $dara.Model {
    * @remarks
    * The resource type supported by the diagnostic metric.
    * 
-   * Valid values:
-   * 
-   * *   instance
-   * 
    * @example
    * instance
    */

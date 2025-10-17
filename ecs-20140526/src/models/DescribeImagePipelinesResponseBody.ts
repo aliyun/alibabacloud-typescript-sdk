@@ -343,6 +343,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
 }
 
 export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures extends $dara.Model {
+  imdsSupport?: string;
   /**
    * @remarks
    * Indicates whether the image supports the NVMe protocol. Valid values:
@@ -356,17 +357,71 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
   nvmeSupport?: string;
   static names(): { [key: string]: string } {
     return {
+      imdsSupport: 'ImdsSupport',
       nvmeSupport: 'NvmeSupport',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imdsSupport: 'string',
       nvmeSupport: 'string',
     };
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTagsImportImageTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags extends $dara.Model {
+  importImageTag?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTagsImportImageTag[];
+  static names(): { [key: string]: string } {
+    return {
+      importImageTag: 'ImportImageTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      importImageTag: { 'type': 'array', 'itemType': DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTagsImportImageTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.importImageTag)) {
+      $dara.Model.validateArray(this.importImageTag);
+    }
     super.validate();
   }
 
@@ -398,6 +453,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
    * BIOS
    */
   bootMode?: string;
+  description?: string;
   /**
    * @remarks
    * The information of disks from which the custom images are created.
@@ -411,6 +467,8 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
    * The feature attributes of the image.
    */
   features?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures;
+  imageName?: string;
+  importImageTags?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags;
   /**
    * @remarks
    * The type of the license to use to activate the operating system after the image is imported. Valid values:
@@ -478,16 +536,23 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
    * false
    */
   retainImportedImage?: boolean;
+  retentionStrategy?: string;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
       bootMode: 'BootMode',
+      description: 'Description',
       diskDeviceMappings: 'DiskDeviceMappings',
       features: 'Features',
+      imageName: 'ImageName',
+      importImageTags: 'ImportImageTags',
       licenseType: 'LicenseType',
       OSType: 'OSType',
       platform: 'Platform',
       retainImportedImage: 'RetainImportedImage',
+      retentionStrategy: 'RetentionStrategy',
+      roleName: 'RoleName',
     };
   }
 
@@ -495,12 +560,17 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
     return {
       architecture: 'string',
       bootMode: 'string',
+      description: 'string',
       diskDeviceMappings: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappings,
       features: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures,
+      imageName: 'string',
+      importImageTags: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags,
       licenseType: 'string',
       OSType: 'string',
       platform: 'string',
       retainImportedImage: 'boolean',
+      retentionStrategy: 'string',
+      roleName: 'string',
     };
   }
 
@@ -510,6 +580,9 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
     }
     if(this.features && typeof (this.features as any).validate === 'function') {
       (this.features as any).validate();
+    }
+    if(this.importImageTags && typeof (this.importImageTags as any).validate === 'function') {
+      (this.importImageTags as any).validate();
     }
     super.validate();
   }

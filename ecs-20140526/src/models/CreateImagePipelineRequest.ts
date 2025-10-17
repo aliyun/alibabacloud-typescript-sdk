@@ -271,6 +271,7 @@ export class CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings exte
 }
 
 export class CreateImagePipelineRequestImportImageOptionsFeatures extends $dara.Model {
+  imdsSupport?: string;
   /**
    * @remarks
    * Specifies whether the imported source image supports the Non-Volatile Memory Express (NVMe) protocol. Valid values:
@@ -286,13 +287,41 @@ export class CreateImagePipelineRequestImportImageOptionsFeatures extends $dara.
   nvmeSupport?: string;
   static names(): { [key: string]: string } {
     return {
+      imdsSupport: 'ImdsSupport',
       nvmeSupport: 'NvmeSupport',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      imdsSupport: 'string',
       nvmeSupport: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImagePipelineRequestImportImageOptionsImportImageTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -334,6 +363,7 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * BIOS
    */
   bootMode?: string;
+  description?: string;
   /**
    * @remarks
    * The information of disks from which the custom images are created.
@@ -347,6 +377,8 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * The attributes of the image.
    */
   features?: CreateImagePipelineRequestImportImageOptionsFeatures;
+  imageName?: string;
+  importImageTags?: CreateImagePipelineRequestImportImageOptionsImportImageTags[];
   /**
    * @remarks
    * The type of the license to use to activate the operating system after the image is imported. Valid values:
@@ -420,16 +452,23 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
    * false
    */
   retainImportedImage?: boolean;
+  retentionStrategy?: string;
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
       bootMode: 'BootMode',
+      description: 'Description',
       diskDeviceMappings: 'DiskDeviceMappings',
       features: 'Features',
+      imageName: 'ImageName',
+      importImageTags: 'ImportImageTags',
       licenseType: 'LicenseType',
       OSType: 'OSType',
       platform: 'Platform',
       retainImportedImage: 'RetainImportedImage',
+      retentionStrategy: 'RetentionStrategy',
+      roleName: 'RoleName',
     };
   }
 
@@ -437,12 +476,17 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
     return {
       architecture: 'string',
       bootMode: 'string',
+      description: 'string',
       diskDeviceMappings: { 'type': 'array', 'itemType': CreateImagePipelineRequestImportImageOptionsDiskDeviceMappings },
       features: CreateImagePipelineRequestImportImageOptionsFeatures,
+      imageName: 'string',
+      importImageTags: { 'type': 'array', 'itemType': CreateImagePipelineRequestImportImageOptionsImportImageTags },
       licenseType: 'string',
       OSType: 'string',
       platform: 'string',
       retainImportedImage: 'boolean',
+      retentionStrategy: 'string',
+      roleName: 'string',
     };
   }
 
@@ -452,6 +496,9 @@ export class CreateImagePipelineRequestImportImageOptions extends $dara.Model {
     }
     if(this.features && typeof (this.features as any).validate === 'function') {
       (this.features as any).validate();
+    }
+    if(Array.isArray(this.importImageTags)) {
+      $dara.Model.validateArray(this.importImageTags);
     }
     super.validate();
   }

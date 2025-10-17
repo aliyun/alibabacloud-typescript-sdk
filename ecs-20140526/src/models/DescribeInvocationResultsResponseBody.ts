@@ -271,8 +271,33 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
    */
   launcher?: string;
+  /**
+   * @remarks
+   * Command to execute the Output OSS delivery configuration.
+   * 
+   * @example
+   * oss://testBucket/testPrefix
+   */
   ossOutputDelivery?: string;
+  /**
+   * @remarks
+   * The output delivery status of the command execution. Valid values:
+   * 
+   * *   InProgress: The delivery is in progress.
+   * *   Finished: The delivery is complete.
+   * *   Failed: The delivery failed.
+   * 
+   * @example
+   * Finished
+   */
   ossOutputStatus?: string;
+  /**
+   * @remarks
+   * The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
+   * 
+   * @example
+   * oss://testBucket/testPrefix/output.txt
+   */
   ossOutputUri?: string;
   /**
    * @remarks
