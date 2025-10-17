@@ -1445,6 +1445,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看数据目录列表
+   * 
+   * @param request - ListCatalogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogsWithOptions(workspaceId: string, request: $_model.ListCatalogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCatalogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environment)) {
+      query["environment"] = request.environment;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCatalogs",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/catalogs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCatalogsResponse>(await this.callApi(params, req, runtime), new $_model.ListCatalogsResponse({}));
+  }
+
+  /**
+   * 查看数据目录列表
+   * 
+   * @param request - ListCatalogsRequest
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogs(workspaceId: string, request: $_model.ListCatalogsRequest): Promise<$_model.ListCatalogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCatalogsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 列出作业的executors
+   * 
+   * @param request - ListJobExecutorsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobExecutorsResponse
+   */
+  async listJobExecutorsWithOptions(workspaceId: string, jobRunId: string, request: $_model.ListJobExecutorsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobExecutorsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.executorType)) {
+      query["executorType"] = request.executorType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListJobExecutors",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/jobRuns/${$dara.URL.percentEncode(jobRunId)}/executors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListJobExecutorsResponse>(await this.callApi(params, req, runtime), new $_model.ListJobExecutorsResponse({}));
+  }
+
+  /**
+   * 列出作业的executors
+   * 
+   * @param request - ListJobExecutorsRequest
+   * @returns ListJobExecutorsResponse
+   */
+  async listJobExecutors(workspaceId: string, jobRunId: string, request: $_model.ListJobExecutorsRequest): Promise<$_model.ListJobExecutorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listJobExecutorsWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of Spark jobs.
    * 
    * @param tmpReq - ListJobRunsRequest
@@ -2119,6 +2229,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listSqlStatementContentsWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取任务模板列表
+   * 
+   * @param request - ListTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplateResponse
+   */
+  async listTemplateWithOptions(workspaceBizId: string, request: $_model.ListTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTemplate",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${$dara.URL.percentEncode(workspaceBizId)}/template/listing`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ListTemplateResponse({}));
+  }
+
+  /**
+   * 获取任务模板列表
+   * 
+   * @param request - ListTemplateRequest
+   * @returns ListTemplateResponse
+   */
+  async listTemplate(workspaceBizId: string, request: $_model.ListTemplateRequest): Promise<$_model.ListTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTemplateWithOptions(workspaceBizId, request, headers, runtime);
   }
 
   /**
