@@ -61,9 +61,19 @@ export class GetLogRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @example
+   * 2023-10-01 12:00:00
+   */
+  scheduleTime?: number;
+  /**
+   * @example
    * 1721636220
    */
   startTime?: number;
+  /**
+   * @example
+   * 192.168.1.100
+   */
+  workerAddr?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -76,7 +86,9 @@ export class GetLogRequest extends $dara.Model {
       logId: 'LogId',
       offset: 'Offset',
       reverse: 'Reverse',
+      scheduleTime: 'ScheduleTime',
       startTime: 'StartTime',
+      workerAddr: 'WorkerAddr',
     };
   }
 
@@ -92,7 +104,9 @@ export class GetLogRequest extends $dara.Model {
       logId: 'number',
       offset: 'number',
       reverse: 'boolean',
+      scheduleTime: 'number',
       startTime: 'number',
+      workerAddr: 'string',
     };
   }
 
