@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Identified key information, in JSON format.
+   * 
    * @example
    * {
    *   "address": "",
@@ -12,11 +15,20 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
    */
   extIdInfo?: string;
   /**
+   * @remarks
+   * Task status:
+   * - PROCESSING: In progress (please continue polling)
+   * - SUCCESS: Execution succeeded
+   * - FAILED: Execution failed
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * Authentication result description. For more information, see ResultObject.SubCode error codes.
+   * 
    * @example
    * 200
    */
@@ -48,23 +60,33 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
 
 export class CredentialGetResultIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   result?: CredentialGetResultIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

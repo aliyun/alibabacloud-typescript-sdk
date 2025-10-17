@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TempOssUrlIntlRequest extends $dara.Model {
   /**
    * @remarks
+   * Object name.
+   * 
    * This parameter is required.
    * 
    * @example

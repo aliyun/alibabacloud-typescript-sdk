@@ -4,12 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeepfakeDetectIntlStreamResponseBodyResultObject extends $dara.Model {
   /**
+   * @remarks
+   * Risk result:
+   * 
+   * - **0**: Low risk
+   * - **1**: High risk
+   * - **2**: Suspicious
+   * 
    * @example
    * 1
    */
   result?: string;
+  /**
+   * @remarks
+   * Risk score map.
+   */
   riskScore?: { [key: string]: string };
   /**
+   * @remarks
+   * Risk tags. Multiple tags are separated by commas (,), including:
+   * 
+   * - SuspectDeepForgery: Suspected deep forgery
+   * - SuspectPSFace: Suspected synthetic attack
+   * - SuspectTemple: Suspected template attack
+   * - SuspectRemake: Suspected presentation attack
+   * 
    * @example
    * SuspectDeepForgery
    */
@@ -44,20 +63,33 @@ export class DeepfakeDetectIntlStreamResponseBodyResultObject extends $dara.Mode
 
 export class DeepfakeDetectIntlStreamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 4EB35****87EBA1
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned result information.
+   */
   resultObject?: DeepfakeDetectIntlStreamResponseBodyResultObject;
   static names(): { [key: string]: string } {
     return {

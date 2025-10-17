@@ -541,7 +541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别查询
+   * Credential Recognition Query
+   * 
+   * @remarks
+   * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -572,7 +575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别查询
+   * Credential Recognition Query
+   * 
+   * @remarks
+   * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @returns CredentialGetResultIntlResponse
@@ -653,7 +659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别提交
+   * Credential Recognition Submission
+   * 
+   * @remarks
+   * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -714,7 +723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 凭证识别提交
+   * Credential Recognition Submission
+   * 
+   * @remarks
+   * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @returns CredentialSubmitIntlResponse
@@ -947,7 +959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deepfake文件流api
+   * deepfake file stream API
+   * 
+   * @remarks
+   * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1002,7 +1017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * deepfake文件流api
+   * deepfake file stream API
+   * 
+   * @remarks
+   * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @returns DeepfakeDetectIntlStreamResponse
@@ -1325,6 +1343,11 @@ export default class Client extends OpenApi {
    */
   async docOcrMaxWithOptions(request: $_model.DocOcrMaxRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrMaxResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.docPage)) {
       body["DocPage"] = request.docPage;
@@ -1379,6 +1402,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -1563,7 +1587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸交叉比对
+   * Face Cross Comparison
    * 
    * @param request - FaceCrossCompareIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1634,7 +1658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 人脸交叉比对
+   * Face Cross Comparison
    * 
    * @param request - FaceCrossCompareIntlRequest
    * @returns FaceCrossCompareIntlResponse
@@ -2605,7 +2629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人脸记录
+   * Query Face Records
    * 
    * @param request - QueryFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2664,7 +2688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人脸记录
+   * Query Face Records
    * 
    * @param request - QueryFaceRecordRequest
    * @returns QueryFaceRecordResponse
@@ -2675,7 +2699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取临时token
+   * Get Temporary Token
    * 
    * @param request - TempAccessTokenIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2706,7 +2730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取临时token
+   * Get Temporary Token
    * 
    * @param request - TempAccessTokenIntlRequest
    * @returns TempAccessTokenIntlResponse
@@ -2717,7 +2741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件临时地址
+   * Get Temporary File URL
    * 
    * @param request - TempOssUrlIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2748,7 +2772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件临时地址
+   * Get Temporary File URL
    * 
    * @param request - TempOssUrlIntlRequest
    * @returns TempOssUrlIntlResponse

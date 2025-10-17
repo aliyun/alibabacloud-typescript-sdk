@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CredentialSubmitIntlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Unique identifier of the authentication request.
+   * 
    * @example
    * 4ab0b***cbde97
    */
@@ -31,23 +34,33 @@ export class CredentialSubmitIntlResponseBodyResult extends $dara.Model {
 
 export class CredentialSubmitIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 5E63B760-0ECB-5C07-8503-A65C27876968
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   result?: CredentialSubmitIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

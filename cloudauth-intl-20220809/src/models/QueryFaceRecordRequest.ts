@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFaceRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * Current Page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryFaceRecordRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
+   * Face Group Code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,27 +24,41 @@ export class QueryFaceRecordRequest extends $dara.Model {
    */
   faceGroupCode?: string;
   /**
+   * @remarks
+   * Face ID.
+   * 
    * @example
    * 5006538
    */
   faceId?: string;
   /**
+   * @remarks
+   * Number of rows per page for paginated queries.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Merchant User ID.
+   * 
    * @example
    * CuN6hiD08qr
    */
   merchantUserId?: string;
   /**
+   * @remarks
+   * Used to request the next page of search results.
+   * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh0OP1yH8z+7FV4KKGUw4X32
    */
   nextToken?: string;
   /**
    * @remarks
+   * Number of items per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +66,9 @@ export class QueryFaceRecordRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Registration Type.
+   * 
    * @example
    * MANUAL
    */

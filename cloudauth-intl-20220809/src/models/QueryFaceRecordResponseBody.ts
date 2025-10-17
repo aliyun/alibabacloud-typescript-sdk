@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryFaceRecordResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Face ID.
+   * 
    * @example
    * 230642938
    */
   faceId?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2025-01-15T02:20:28Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Primary key ID.
+   * 
    * @example
    * 16112
    */
   id?: number;
   /**
+   * @remarks
+   * Face image URL.
+   * 
    * @example
    * http://www.xxxx.com/1.jpg
    */
   imgOssUrl?: string;
   /**
+   * @remarks
+   * Merchant User ID.
+   * 
    * @example
    * CuN6hiD08qr
    */
   merchantUserId?: string;
   /**
+   * @remarks
+   * Registration type.
+   * 
    * @example
    * MANUAL
    */
@@ -66,50 +84,78 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
 
 export class QueryFaceRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Current query page number.
+   * 
    * @example
    * 2
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * List of returned information.
+   */
   items?: QueryFaceRecordResponseBodyItems[];
   /**
+   * @remarks
+   * Maximum number of data entries per page.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Token for the next query start.
+   * 
    * @example
    * AAAAARfZmVDe9NvRXloR5+8CK9nwqHyx44CQz3pa71+mmu0e
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 7F971622-38C0-5F56-B2EC-315367979B4F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 6
    */
   totalCount?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */

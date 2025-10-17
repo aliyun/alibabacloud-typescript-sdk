@@ -4,26 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * A to B comparison score, range 0～100.
+   * 
    * @example
    * 99
    */
   faceComparisonScoreA2B?: number;
   /**
+   * @remarks
+   * B to C comparison score, range 0～100.
+   * 
    * @example
    * 99
    */
   faceComparisonScoreB2C?: number;
   /**
+   * @remarks
+   * C to A comparison score, range 0～100.
+   * 
    * @example
    * 99
    */
   faceComparisonScoreC2A?: number;
   /**
+   * @remarks
+   * Final verification result, values:
+   * - Y: Pass
+   * - N: Fail
+   * 
    * @example
    * Y
    */
   facePassed?: string;
   /**
+   * @remarks
+   * Unique identifier for the authentication request.
+   * 
    * @example
    * 4ab0b***cbde97
    */
@@ -59,23 +76,33 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
 
 export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 130A2C10-B9EE-4D84-88E3-5384FF039795
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   result?: FaceCrossCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {
     return {

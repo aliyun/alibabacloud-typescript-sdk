@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TempOssUrlIntlResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * File URL
+   * 
    * @example
    * http://bzxh.cdn.weijin365.com/assets/index-55338127.png
    */
@@ -31,19 +34,29 @@ export class TempOssUrlIntlResponseBodyData extends $dara.Model {
 
 export class TempOssUrlIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Result.
+   */
   data?: TempOssUrlIntlResponseBodyData;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * EFA11401-C961-5E89-A2D3-BF9883E5CC3D

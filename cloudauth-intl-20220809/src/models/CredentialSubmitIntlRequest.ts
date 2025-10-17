@@ -4,25 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class CredentialSubmitIntlRequest extends $dara.Model {
   /**
+   * @remarks
+   * Base64 encoding of the image. If you choose to upload the photo this way, please check the photo size and avoid uploading overly large photos.
+   * 
    * @example
    * base64
    */
   credentialOcrPictureBase64?: string;
   /**
+   * @remarks
+   * Image URL, accessible via HTTP or HTTPS on the public network.
+   * 
    * @example
    * https://***
    */
   credentialOcrPictureUrl?: string;
   /**
    * @remarks
+   * Credential type:
+   * - 02: Vehicle registration certificate
+   * 
    * This parameter is required.
    * 
    * @example
-   * 01
+   * 02
    */
   docType?: string;
   /**
    * @remarks
+   * Whether to enable tampering detection
+   * - true: Enable
+   * - false: Disable
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +44,8 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   fraudCheck?: string;
   /**
    * @remarks
+   * A unique business identifier defined on the merchant side, used for troubleshooting issues later. Supports a combination of letters and digits, with a maximum length of 32 characters. Ensure uniqueness.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,14 +54,20 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
+   * Extraction type:
+   * 
+   * - 0201: Thai vehicle registration certificate
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0101
+   * 0201
    */
   ocrArea?: string;
   /**
    * @remarks
+   * The product solution to be integrated. Value: CREDENTIAL_RECOGNITION.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +76,8 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
+   * Your custom authentication scenario ID, used for querying related records by entering this scenario ID in the console later. Supports a combination of 10 characters, digits, or underscores.
+   * 
    * This parameter is required.
    * 
    * @example

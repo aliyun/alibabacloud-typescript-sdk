@@ -93,6 +93,11 @@ export class DocOcrMaxRequest extends $dara.Model {
    */
   ocrModel?: string;
   /**
+   * @example
+   * 0
+   */
+  ocrValueStandard?: string;
+  /**
    * @remarks
    * The product solution to be integrated.
    * 
@@ -140,6 +145,7 @@ export class DocOcrMaxRequest extends $dara.Model {
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       ocrModel: 'OcrModel',
+      ocrValueStandard: 'OcrValueStandard',
       productCode: 'ProductCode',
       prompt: 'Prompt',
       sceneCode: 'SceneCode',
@@ -158,6 +164,7 @@ export class DocOcrMaxRequest extends $dara.Model {
       merchantBizId: 'string',
       merchantUserId: 'string',
       ocrModel: 'string',
+      ocrValueStandard: 'string',
       productCode: 'string',
       prompt: 'string',
       sceneCode: 'string',

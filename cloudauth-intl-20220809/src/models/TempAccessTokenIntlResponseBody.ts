@@ -4,34 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * AccessKeyId for temporary file upload credentials.
+   * 
    * @example
    * ***
    */
   accessKeyId?: string;
   /**
+   * @remarks
+   * Temporary authorization secret.
+   * 
    * @example
    * 3hxuRpEJ3Jv2Rtzyg4HooFCYqps762XcNtzhn19wQymk
    */
   accessKeySecret?: string;
   /**
+   * @remarks
+   * Bucket name.
+   * 
    * @example
    * liyi
    */
   bucketName?: string;
   /**
+   * @remarks
+   * File prefix.
+   * 
    * @example
    * test001
    */
   fileNamePrefix?: string;
   /**
    * @remarks
-   * OssEndPoint。
+   * OSS endpoint.
    * 
    * @example
    * ossEndPoint
    */
   ossEndPoint?: string;
   /**
+   * @remarks
+   * Security token for temporary file upload credentials.
+   * 
    * @example
    * ***
    */
@@ -69,19 +84,29 @@ export class TempAccessTokenIntlResponseBodyData extends $dara.Model {
 
 export class TempAccessTokenIntlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Return result.
+   */
   data?: TempAccessTokenIntlResponseBodyData;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 86C40EC3-5940-5F47-995C-BFE90B70E540

@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialGetResultIntlRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier for the authentication request
+   * 
    * This parameter is required.
    * 
    * @example
-   * 4ab0b***cbde97
+   * 4ab0b***abde97
    */
   transactionId?: string;
   static names(): { [key: string]: string } {
