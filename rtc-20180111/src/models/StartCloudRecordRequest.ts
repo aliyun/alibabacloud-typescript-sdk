@@ -1073,6 +1073,10 @@ export class StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAu
 
 export class StartCloudRecordRequestSingleStreamingRecordTranscodingParameters extends $dara.Model {
   audio?: StartCloudRecordRequestSingleStreamingRecordTranscodingParametersAudio;
+  /**
+   * @example
+   * aac
+   */
   container?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1101,6 +1105,7 @@ export class StartCloudRecordRequestSingleStreamingRecordTranscodingParameters e
 }
 
 export class StartCloudRecordRequestSingleStreamingRecord extends $dara.Model {
+  avMerge?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -1109,6 +1114,7 @@ export class StartCloudRecordRequestSingleStreamingRecord extends $dara.Model {
   transcodingParameters?: StartCloudRecordRequestSingleStreamingRecordTranscodingParameters;
   static names(): { [key: string]: string } {
     return {
+      avMerge: 'AvMerge',
       specifiedStreams: 'SpecifiedStreams',
       transcodingParameters: 'TranscodingParameters',
     };
@@ -1116,6 +1122,7 @@ export class StartCloudRecordRequestSingleStreamingRecord extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      avMerge: 'boolean',
       specifiedStreams: { 'type': 'array', 'itemType': StartCloudRecordRequestSingleStreamingRecordSpecifiedStreams },
       transcodingParameters: StartCloudRecordRequestSingleStreamingRecordTranscodingParameters,
     };

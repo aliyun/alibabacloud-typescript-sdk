@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/rtc20180111",
-  "version": "4.2.4",
+  "version": "4.2.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
