@@ -112,6 +112,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
    * eds.proworkstation_flagship_elite_ne.96c384g.192g4x
    */
   serverInstanceType?: string;
+  serverPortRange?: string;
   /**
    * @example
    * cloud_auto
@@ -152,6 +153,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       serverInstanceType: 'ServerInstanceType',
+      serverPortRange: 'ServerPortRange',
       systemDiskCategory: 'SystemDiskCategory',
       systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
       systemDiskSize: 'SystemDiskSize',
@@ -179,6 +181,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
       periodUnit: 'string',
       promotionId: 'string',
       serverInstanceType: 'string',
+      serverPortRange: 'string',
       systemDiskCategory: 'string',
       systemDiskPerformanceLevel: 'string',
       systemDiskSize: 'number',

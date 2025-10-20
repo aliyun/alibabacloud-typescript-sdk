@@ -553,6 +553,10 @@ export default class Client extends OpenApi {
       body["ServerInstanceType"] = request.serverInstanceType;
     }
 
+    if (!$dara.isNull(request.serverPortRange)) {
+      body["ServerPortRange"] = request.serverPortRange;
+    }
+
     if (!$dara.isNull(request.systemDiskCategory)) {
       body["SystemDiskCategory"] = request.systemDiskCategory;
     }
@@ -715,6 +719,44 @@ export default class Client extends OpenApi {
   async deleteAppInstances(request: $_model.DeleteAppInstancesRequest): Promise<$_model.DeleteAppInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteImageResponse
+   */
+  async deleteImageWithOptions(request: $_model.DeleteImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteImageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteImageResponse({}));
+  }
+
+  /**
+   * @param request - DeleteImageRequest
+   * @returns DeleteImageResponse
+   */
+  async deleteImage(request: $_model.DeleteImageRequest): Promise<$_model.DeleteImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteImageWithOptions(request, runtime);
   }
 
   /**
@@ -2743,6 +2785,64 @@ export default class Client extends OpenApi {
   async restartWuyingServer(request: $_model.RestartWuyingServerRequest): Promise<$_model.RestartWuyingServerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - StartTaskForDistributeImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTaskForDistributeImageResponse
+   */
+  async startTaskForDistributeImageWithOptions(request: $_model.StartTaskForDistributeImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartTaskForDistributeImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destinationRegionList)) {
+      body["DestinationRegionList"] = request.destinationRegionList;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.retryType)) {
+      body["RetryType"] = request.retryType;
+    }
+
+    if (!$dara.isNull(request.sourceRegion)) {
+      body["SourceRegion"] = request.sourceRegion;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartTaskForDistributeImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartTaskForDistributeImageResponse>(await this.callApi(params, req, runtime), new $_model.StartTaskForDistributeImageResponse({}));
+  }
+
+  /**
+   * @param request - StartTaskForDistributeImageRequest
+   * @returns StartTaskForDistributeImageResponse
+   */
+  async startTaskForDistributeImage(request: $_model.StartTaskForDistributeImageRequest): Promise<$_model.StartTaskForDistributeImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startTaskForDistributeImageWithOptions(request, runtime);
   }
 
   /**
