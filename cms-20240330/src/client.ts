@@ -1952,6 +1952,10 @@ export default class Client extends OpenApi {
       query["addonName"] = request.addonName;
     }
 
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
     if (!$dara.isNull(request.scene)) {
       query["scene"] = request.scene;
     }

@@ -62,6 +62,8 @@ export class AlertRuleConditionCompareListValueLevelList extends $dara.Model {
 
 export class AlertRuleConditionCompareList extends $dara.Model {
   aggregate?: string;
+  baseUnit?: string;
+  displayUnit?: string;
   oper?: string;
   value?: number;
   valueLevelList?: AlertRuleConditionCompareListValueLevelList[];
@@ -70,6 +72,8 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aggregate: 'aggregate',
+      baseUnit: 'baseUnit',
+      displayUnit: 'displayUnit',
       oper: 'oper',
       value: 'value',
       valueLevelList: 'valueLevelList',
@@ -81,6 +85,8 @@ export class AlertRuleConditionCompareList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aggregate: 'string',
+      baseUnit: 'string',
+      displayUnit: 'string',
       oper: 'string',
       value: 'number',
       valueLevelList: { 'type': 'array', 'itemType': AlertRuleConditionCompareListValueLevelList },

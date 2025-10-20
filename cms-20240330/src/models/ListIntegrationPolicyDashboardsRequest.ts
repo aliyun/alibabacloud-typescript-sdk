@@ -8,6 +8,7 @@ export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
    * cs-default
    */
   addonName?: string;
+  language?: string;
   /**
    * @example
    * databse
@@ -16,6 +17,7 @@ export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addonName: 'addonName',
+      language: 'language',
       scene: 'scene',
     };
   }
@@ -23,6 +25,7 @@ export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addonName: 'string',
+      language: 'string',
       scene: 'string',
     };
   }

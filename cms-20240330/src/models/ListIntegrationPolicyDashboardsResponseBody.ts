@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara.Model {
+  engine?: string;
   folderUid?: string;
   name?: string;
   region?: string;
@@ -12,6 +13,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      engine: 'engine',
       folderUid: 'folderUid',
       name: 'name',
       region: 'region',
@@ -24,6 +26,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
 
   static types(): { [key: string]: any } {
     return {
+      engine: 'string',
       folderUid: 'string',
       name: 'string',
       region: 'string',
