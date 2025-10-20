@@ -580,6 +580,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建品牌
+   * 
+   * @param request - CreateBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBrandResponse
+   */
+  async createBrandWithOptions(request: $_model.CreateBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandName)) {
+      query["BrandName"] = request.brandName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBrandResponse>(await this.callApi(params, req, runtime), new $_model.CreateBrandResponse({}));
+  }
+
+  /**
+   * 创建品牌
+   * 
+   * @param request - CreateBrandRequest
+   * @returns CreateBrandResponse
+   */
+  async createBrand(request: $_model.CreateBrandRequest): Promise<$_model.CreateBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Create Conditional Access Policy
    * 
    * @remarks
@@ -1526,6 +1572,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除品牌
+   * 
+   * @param request - DeleteBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBrandResponse
+   */
+  async deleteBrandWithOptions(request: $_model.DeleteBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBrandResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBrandResponse({}));
+  }
+
+  /**
+   * 删除品牌
+   * 
+   * @param request - DeleteBrandRequest
+   * @returns DeleteBrandResponse
+   */
+  async deleteBrand(request: $_model.DeleteBrandRequest): Promise<$_model.DeleteBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Conditional Access Policy
    * 
    * @remarks
@@ -2430,6 +2522,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用品牌
+   * 
+   * @param request - DisableBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableBrandResponse
+   */
+  async disableBrandWithOptions(request: $_model.DisableBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableBrandResponse>(await this.callApi(params, req, runtime), new $_model.DisableBrandResponse({}));
+  }
+
+  /**
+   * 禁用品牌
+   * 
+   * @param request - DisableBrandRequest
+   * @returns DisableBrandResponse
+   */
+  async disableBrand(request: $_model.DisableBrandRequest): Promise<$_model.DisableBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Disable Conditional Access Policy
    * 
    * @remarks
@@ -3092,6 +3230,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用品牌
+   * 
+   * @param request - EnableBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableBrandResponse
+   */
+  async enableBrandWithOptions(request: $_model.EnableBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableBrandResponse>(await this.callApi(params, req, runtime), new $_model.EnableBrandResponse({}));
+  }
+
+  /**
+   * 启用品牌
+   * 
+   * @param request - EnableBrandRequest
+   * @returns EnableBrandResponse
+   */
+  async enableBrand(request: $_model.EnableBrandRequest): Promise<$_model.EnableBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Enable Conditional Access Policy
    * 
    * @remarks
@@ -3742,6 +3926,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取品牌详情
+   * 
+   * @param request - GetBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBrandResponse
+   */
+  async getBrandWithOptions(request: $_model.GetBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBrandResponse>(await this.callApi(params, req, runtime), new $_model.GetBrandResponse({}));
+  }
+
+  /**
+   * 获取品牌详情
+   * 
+   * @param request - GetBrandRequest
+   * @returns GetBrandResponse
+   */
+  async getBrand(request: $_model.GetBrandRequest): Promise<$_model.GetBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Get Conditional Access Policy
    * 
    * @remarks
@@ -4199,6 +4429,52 @@ export default class Client extends OpenApi {
   async getInstanceLicense(request: $_model.GetInstanceLicenseRequest): Promise<$_model.GetInstanceLicenseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceLicenseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取品牌登录后跳转应用
+   * 
+   * @param request - GetLoginRedirectApplicationForBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoginRedirectApplicationForBrandResponse
+   */
+  async getLoginRedirectApplicationForBrandWithOptions(request: $_model.GetLoginRedirectApplicationForBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLoginRedirectApplicationForBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLoginRedirectApplicationForBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLoginRedirectApplicationForBrandResponse>(await this.callApi(params, req, runtime), new $_model.GetLoginRedirectApplicationForBrandResponse({}));
+  }
+
+  /**
+   * 获取品牌登录后跳转应用
+   * 
+   * @param request - GetLoginRedirectApplicationForBrandRequest
+   * @returns GetLoginRedirectApplicationForBrandResponse
+   */
+  async getLoginRedirectApplicationForBrand(request: $_model.GetLoginRedirectApplicationForBrandRequest): Promise<$_model.GetLoginRedirectApplicationForBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLoginRedirectApplicationForBrandWithOptions(request, runtime);
   }
 
   /**
@@ -5379,6 +5655,60 @@ export default class Client extends OpenApi {
   async listApplicationsForUser(request: $_model.ListApplicationsForUserRequest): Promise<$_model.ListApplicationsForUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsForUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取品牌列表
+   * 
+   * @param request - ListBrandsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBrandsResponse
+   */
+  async listBrandsWithOptions(request: $_model.ListBrandsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBrandsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBrands",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBrandsResponse>(await this.callApi(params, req, runtime), new $_model.ListBrandsResponse({}));
+  }
+
+  /**
+   * 获取品牌列表
+   * 
+   * @param request - ListBrandsRequest
+   * @returns ListBrandsResponse
+   */
+  async listBrands(request: $_model.ListBrandsRequest): Promise<$_model.ListBrandsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBrandsWithOptions(request, runtime);
   }
 
   /**
@@ -7828,6 +8158,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为品牌设置登录后跳转应用
+   * 
+   * @param request - SetLoginRedirectApplicationForBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetLoginRedirectApplicationForBrandResponse
+   */
+  async setLoginRedirectApplicationForBrandWithOptions(request: $_model.SetLoginRedirectApplicationForBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetLoginRedirectApplicationForBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetLoginRedirectApplicationForBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetLoginRedirectApplicationForBrandResponse>(await this.callApi(params, req, runtime), new $_model.SetLoginRedirectApplicationForBrandResponse({}));
+  }
+
+  /**
+   * 为品牌设置登录后跳转应用
+   * 
+   * @param request - SetLoginRedirectApplicationForBrandRequest
+   * @returns SetLoginRedirectApplicationForBrandResponse
+   */
+  async setLoginRedirectApplicationForBrand(request: $_model.SetLoginRedirectApplicationForBrandRequest): Promise<$_model.SetLoginRedirectApplicationForBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setLoginRedirectApplicationForBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
    * 
    * @param request - SetPasswordComplexityConfigurationRequest
@@ -8538,6 +8918,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改品牌
+   * 
+   * @param request - UpdateBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBrandResponse
+   */
+  async updateBrandWithOptions(request: $_model.UpdateBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.brandName)) {
+      query["BrandName"] = request.brandName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBrandResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBrandResponse({}));
+  }
+
+  /**
+   * 修改品牌
+   * 
+   * @param request - UpdateBrandRequest
+   * @returns UpdateBrandResponse
+   */
+  async updateBrand(request: $_model.UpdateBrandRequest): Promise<$_model.UpdateBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Update Conditional Access Policy
    * 
    * @remarks
@@ -8671,6 +9101,56 @@ export default class Client extends OpenApi {
   async updateConditionalAccessPolicyDescription(request: $_model.UpdateConditionalAccessPolicyDescriptionRequest): Promise<$_model.UpdateConditionalAccessPolicyDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改域名关联的品牌。
+   * 
+   * @param request - UpdateDomainBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainBrandResponse
+   */
+  async updateDomainBrandWithOptions(request: $_model.UpdateDomainBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDomainBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.domainId)) {
+      query["DomainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDomainBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDomainBrandResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDomainBrandResponse({}));
+  }
+
+  /**
+   * 修改域名关联的品牌。
+   * 
+   * @param request - UpdateDomainBrandRequest
+   * @returns UpdateDomainBrandResponse
+   */
+  async updateDomainBrand(request: $_model.UpdateDomainBrandRequest): Promise<$_model.UpdateDomainBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDomainBrandWithOptions(request, runtime);
   }
 
   /**
