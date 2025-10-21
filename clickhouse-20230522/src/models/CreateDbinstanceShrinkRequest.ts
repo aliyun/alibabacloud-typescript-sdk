@@ -58,17 +58,17 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   multiZoneShrink?: string;
   /**
    * @example
-   * 6
+   * 2
    */
   nodeCount?: number;
   /**
    * @example
-   * 32
+   * 4
    */
   nodeScaleMax?: number;
   /**
    * @example
-   * 4
+   * 32
    */
   nodeScaleMin?: number;
   /**
@@ -114,10 +114,10 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * @example
    * 100
    */
-  storageQuota?: string;
+  storageQuota?: number;
   /**
    * @example
-   * oss
+   * OSS
    */
   storageType?: string;
   /**
@@ -186,7 +186,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       scaleMax: 'string',
       scaleMin: 'string',
       sourceDBInstanceId: 'string',
-      storageQuota: 'string',
+      storageQuota: 'number',
       storageType: 'string',
       vpcId: 'string',
       vswitchId: 'string',

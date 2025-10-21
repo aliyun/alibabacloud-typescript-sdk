@@ -56,7 +56,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
    * @example
    * 100
    */
-  storageQuota?: string;
+  storageQuota?: number;
   /**
    * @example
    * OSS
@@ -85,7 +85,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
       regionId: 'string',
       scaleMax: 'number',
       scaleMin: 'number',
-      storageQuota: 'string',
+      storageQuota: 'number',
       storageType: 'string',
     };
   }

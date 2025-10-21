@@ -153,6 +153,11 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @example
+   * activation
+   */
+  clickObserveServiceStatus?: string;
+  /**
    * @remarks
    * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
@@ -408,6 +413,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       bid: 'Bid',
       category: 'Category',
       chargeType: 'ChargeType',
+      clickObserveServiceStatus: 'ClickObserveServiceStatus',
       createTime: 'CreateTime',
       DBInstanceId: 'DBInstanceId',
       deletionProtection: 'DeletionProtection',
@@ -450,6 +456,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       bid: 'string',
       category: 'string',
       chargeType: 'string',
+      clickObserveServiceStatus: 'string',
       createTime: 'string',
       DBInstanceId: 'string',
       deletionProtection: 'boolean',
