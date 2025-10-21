@@ -506,6 +506,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 智能拆条-获取配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoDetectShotConfigResponse
+   */
+  async getVideoDetectShotConfigWithOptions(workspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoDetectShotConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoDetectShotConfig",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/getVideoDetectShotConfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoDetectShotConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoDetectShotConfigResponse({}));
+  }
+
+  /**
+   * 智能拆条-获取配置
+   * @returns GetVideoDetectShotConfigResponse
+   */
+  async getVideoDetectShotConfig(workspaceId: string): Promise<$_model.GetVideoDetectShotConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoDetectShotConfigWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
+   * 轻应用-获取视频拆条异步任务结果
+   * 
+   * @param request - GetVideoDetectShotTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoDetectShotTaskResponse
+   */
+  async getVideoDetectShotTaskWithOptions(workspaceId: string, request: $_model.GetVideoDetectShotTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoDetectShotTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoDetectShotTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getVideoDetectShotTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoDetectShotTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoDetectShotTaskResponse({}));
+  }
+
+  /**
+   * 轻应用-获取视频拆条异步任务结果
+   * 
+   * @param request - GetVideoDetectShotTaskRequest
+   * @returns GetVideoDetectShotTaskResponse
+   */
+  async getVideoDetectShotTask(workspaceId: string, request: $_model.GetVideoDetectShotTaskRequest): Promise<$_model.GetVideoDetectShotTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 热点新闻推荐
    * 
    * @param request - HotNewsRecommendRequest
@@ -2926,6 +3006,221 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轻应用-视频拆条
+   * 
+   * @param tmpReq - RunVideoDetectShotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunVideoDetectShotResponse
+   */
+  async *runVideoDetectShotWithSSE(workspaceId: string, tmpReq: $_model.RunVideoDetectShotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunVideoDetectShotResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunVideoDetectShotShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recognitionOptions)) {
+      request.recognitionOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions, "recognitionOptions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.intelliSimpPrompt)) {
+      body["intelliSimpPrompt"] = request.intelliSimpPrompt;
+    }
+
+    if (!$dara.isNull(request.intelliSimpPromptTemplateId)) {
+      body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
+      body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelVlCustomPromptTemplateId)) {
+      body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!$dara.isNull(request.preModelId)) {
+      body["preModelId"] = request.preModelId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.recognitionOptionsShrink)) {
+      body["recognitionOptions"] = request.recognitionOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
+      body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.vlPrompt)) {
+      body["vlPrompt"] = request.vlPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunVideoDetectShot",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runVideoDetectShot`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunVideoDetectShotResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunVideoDetectShotResponse({}));
+    }
+  }
+
+  /**
+   * 轻应用-视频拆条
+   * 
+   * @param tmpReq - RunVideoDetectShotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunVideoDetectShotResponse
+   */
+  async runVideoDetectShotWithOptions(workspaceId: string, tmpReq: $_model.RunVideoDetectShotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunVideoDetectShotResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunVideoDetectShotShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recognitionOptions)) {
+      request.recognitionOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions, "recognitionOptions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.intelliSimpPrompt)) {
+      body["intelliSimpPrompt"] = request.intelliSimpPrompt;
+    }
+
+    if (!$dara.isNull(request.intelliSimpPromptTemplateId)) {
+      body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
+      body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelVlCustomPromptTemplateId)) {
+      body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!$dara.isNull(request.preModelId)) {
+      body["preModelId"] = request.preModelId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.recognitionOptionsShrink)) {
+      body["recognitionOptions"] = request.recognitionOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
+      body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.vlPrompt)) {
+      body["vlPrompt"] = request.vlPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunVideoDetectShot",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/runVideoDetectShot`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunVideoDetectShotResponse>(await this.callApi(params, req, runtime), new $_model.RunVideoDetectShotResponse({}));
+  }
+
+  /**
+   * 轻应用-视频拆条
+   * 
+   * @param request - RunVideoDetectShotRequest
+   * @returns RunVideoDetectShotResponse
+   */
+  async runVideoDetectShot(workspaceId: string, request: $_model.RunVideoDetectShotRequest): Promise<$_model.RunVideoDetectShotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runVideoDetectShotWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 提交企业VOC异步任务
    * 
    * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
@@ -3338,6 +3633,117 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轻应用-提交视频拆条任务
+   * 
+   * @param tmpReq - SubmitVideoDetectShotTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoDetectShotTaskResponse
+   */
+  async submitVideoDetectShotTaskWithOptions(workspaceId: string, tmpReq: $_model.SubmitVideoDetectShotTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoDetectShotTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitVideoDetectShotTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "options", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.recognitionOptions)) {
+      request.recognitionOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recognitionOptions, "recognitionOptions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deduplicationId)) {
+      body["deduplicationId"] = request.deduplicationId;
+    }
+
+    if (!$dara.isNull(request.intelliSimpPrompt)) {
+      body["intelliSimpPrompt"] = request.intelliSimpPrompt;
+    }
+
+    if (!$dara.isNull(request.intelliSimpPromptTemplateId)) {
+      body["intelliSimpPromptTemplateId"] = request.intelliSimpPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.modelCustomPromptTemplateId)) {
+      body["modelCustomPromptTemplateId"] = request.modelCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelVlCustomPromptTemplateId)) {
+      body["modelVlCustomPromptTemplateId"] = request.modelVlCustomPromptTemplateId;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      body["options"] = request.optionsShrink;
+    }
+
+    if (!$dara.isNull(request.originalSessionId)) {
+      body["originalSessionId"] = request.originalSessionId;
+    }
+
+    if (!$dara.isNull(request.preModelId)) {
+      body["preModelId"] = request.preModelId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.recognitionOptionsShrink)) {
+      body["recognitionOptions"] = request.recognitionOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.videoUrl)) {
+      body["videoUrl"] = request.videoUrl;
+    }
+
+    if (!$dara.isNull(request.vlPrompt)) {
+      body["vlPrompt"] = request.vlPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoDetectShotTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/submitVideoDetectShotTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoDetectShotTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoDetectShotTaskResponse({}));
+  }
+
+  /**
+   * 轻应用-提交视频拆条任务
+   * 
+   * @param request - SubmitVideoDetectShotTaskRequest
+   * @returns SubmitVideoDetectShotTaskResponse
+   */
+  async submitVideoDetectShotTask(workspaceId: string, request: $_model.SubmitVideoDetectShotTaskRequest): Promise<$_model.SubmitVideoDetectShotTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 视频理解-更新配置
    * 
    * @param request - UpdateVideoAnalysisConfigRequest
@@ -3484,6 +3890,100 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateVideoAnalysisTasksWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 智能拆条-更新配置
+   * 
+   * @param request - UpdateVideoDetectShotConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoDetectShotConfigResponse
+   */
+  async updateVideoDetectShotConfigWithOptions(workspaceId: string, request: $_model.UpdateVideoDetectShotConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVideoDetectShotConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.asyncConcurrency)) {
+      body["asyncConcurrency"] = request.asyncConcurrency;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoDetectShotConfig",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/videoAnalysis/updateVideoDetectShotConfig`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVideoDetectShotConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVideoDetectShotConfigResponse({}));
+  }
+
+  /**
+   * 智能拆条-更新配置
+   * 
+   * @param request - UpdateVideoDetectShotConfigRequest
+   * @returns UpdateVideoDetectShotConfigResponse
+   */
+  async updateVideoDetectShotConfig(workspaceId: string, request: $_model.UpdateVideoDetectShotConfigRequest): Promise<$_model.UpdateVideoDetectShotConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVideoDetectShotConfigWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 视频拆条-修改任务状态
+   * 
+   * @param request - UpdateVideoDetectShotTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVideoDetectShotTaskResponse
+   */
+  async updateVideoDetectShotTaskWithOptions(workspaceId: string, request: $_model.UpdateVideoDetectShotTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVideoDetectShotTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["taskStatus"] = request.taskStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVideoDetectShotTask",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/updateVideoDetectShotTask`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVideoDetectShotTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVideoDetectShotTaskResponse({}));
+  }
+
+  /**
+   * 视频拆条-修改任务状态
+   * 
+   * @param request - UpdateVideoDetectShotTaskRequest
+   * @returns UpdateVideoDetectShotTaskResponse
+   */
+  async updateVideoDetectShotTask(workspaceId: string, request: $_model.UpdateVideoDetectShotTaskRequest): Promise<$_model.UpdateVideoDetectShotTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVideoDetectShotTaskWithOptions(workspaceId, request, headers, runtime);
   }
 
 }
