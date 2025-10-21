@@ -1,17983 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class DeployDeploymentDraftAsyncResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * b3dcdb25-bf36-457d-92ba-a36077e8****
-   */
-  ticketId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ticketId: 'ticketId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      ticketId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateResourcePlanWithFlinkConfAsyncResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the ticket for you to query the asynchronous generation result.
-   * 
-   * @example
-   * b3dcdb25-bf36-457d-92ba-a36077e8****
-   */
-  ticketId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ticketId: 'ticketId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ticketId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEditableNamespaceResponseBodyData extends $dara.Model {
-  editableNamespaces?: EditableNamespace[];
-  pageIndex?: string;
-  pageSize?: string;
-  total?: string;
-  static names(): { [key: string]: string } {
-    return {
-      editableNamespaces: 'editableNamespaces',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      total: 'total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      editableNamespaces: { 'type': 'array', 'itemType': EditableNamespace },
-      pageIndex: 'string',
-      pageSize: 'string',
-      total: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.editableNamespaces)) {
-      $dara.Model.validateArray(this.editableNamespaces);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Artifact extends $dara.Model {
-  jarArtifact?: JarArtifact;
-  /**
-   * @example
-   * SQLSCRIPT
-   */
-  kind?: string;
-  pythonArtifact?: PythonArtifact;
-  sqlArtifact?: SqlArtifact;
-  static names(): { [key: string]: string } {
-    return {
-      jarArtifact: 'jarArtifact',
-      kind: 'kind',
-      pythonArtifact: 'pythonArtifact',
-      sqlArtifact: 'sqlArtifact',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jarArtifact: JarArtifact,
-      kind: 'string',
-      pythonArtifact: PythonArtifact,
-      sqlArtifact: SqlArtifact,
-    };
-  }
-
-  validate() {
-    if(this.jarArtifact && typeof (this.jarArtifact as any).validate === 'function') {
-      (this.jarArtifact as any).validate();
-    }
-    if(this.pythonArtifact && typeof (this.pythonArtifact as any).validate === 'function') {
-      (this.pythonArtifact as any).validate();
-    }
-    if(this.sqlArtifact && typeof (this.sqlArtifact as any).validate === 'function') {
-      (this.sqlArtifact as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AsyncDraftDeployResult extends $dara.Model {
-  artifactValidationDetail?: ValidateStatementResult;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * "Validation error: SQL validate failed"
-   */
-  message?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * FINISHED
-   */
-  ticketStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      artifactValidationDetail: 'artifactValidationDetail',
-      deploymentId: 'deploymentId',
-      message: 'message',
-      success: 'success',
-      ticketStatus: 'ticketStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifactValidationDetail: ValidateStatementResult,
-      deploymentId: 'string',
-      message: 'string',
-      success: 'boolean',
-      ticketStatus: 'string',
-    };
-  }
-
-  validate() {
-    if(this.artifactValidationDetail && typeof (this.artifactValidationDetail as any).validate === 'function') {
-      (this.artifactValidationDetail as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AsyncResourcePlanOperationResult extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * {\"ssgProfiles\":[{\"name\":\"default\",\"cpu\":1.13,\"heap\":\"1 gb\",\"offHeap\":\"32 mb\",\"managed\":{},\"extended\":{}}],\"nodes\":[{\"id\":1,\"type\":\"StreamExecTableSourceScan\",\"desc\":\"Source: datagen_source[78]\",\"profile\":{\"group\":\"default\",\"parallelism\":1,\"maxParallelism\":32768,\"minParallelism\":1}},{\"id\":2,\"type\":\"StreamExecSink\",\"desc\":\"Sink: blackhole_sink[79]\",\"profile\":{\"group\":\"default\",\"parallelism\":1,\"maxParallelism\":32768,\"minParallelism\":1}}],\"edges\":[{\"source\":1,\"target\":2,\"mode\":\"PIPELINED\",\"strategy\":\"FORWARD\"}],\"vertices\":{\"717c7b8afebbfb7137f6f0f99beb2a94\":[1,2]}}
-   */
-  plan?: string;
-  /**
-   * @example
-   * FINISHED
-   */
-  ticketStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'message',
-      plan: 'plan',
-      ticketStatus: 'ticketStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      plan: 'string',
-      ticketStatus: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BasicResourceSetting extends $dara.Model {
-  jobmanagerResourceSettingSpec?: BasicResourceSettingSpec;
-  /**
-   * @example
-   * 4
-   */
-  parallelism?: number;
-  taskmanagerResourceSettingSpec?: BasicResourceSettingSpec;
-  static names(): { [key: string]: string } {
-    return {
-      jobmanagerResourceSettingSpec: 'jobmanagerResourceSettingSpec',
-      parallelism: 'parallelism',
-      taskmanagerResourceSettingSpec: 'taskmanagerResourceSettingSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobmanagerResourceSettingSpec: BasicResourceSettingSpec,
-      parallelism: 'number',
-      taskmanagerResourceSettingSpec: BasicResourceSettingSpec,
-    };
-  }
-
-  validate() {
-    if(this.jobmanagerResourceSettingSpec && typeof (this.jobmanagerResourceSettingSpec as any).validate === 'function') {
-      (this.jobmanagerResourceSettingSpec as any).validate();
-    }
-    if(this.taskmanagerResourceSettingSpec && typeof (this.taskmanagerResourceSettingSpec as any).validate === 'function') {
-      (this.taskmanagerResourceSettingSpec as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BasicResourceSettingSpec extends $dara.Model {
-  /**
-   * @example
-   * 2.0
-   */
-  cpu?: number;
-  /**
-   * @example
-   * 4Gi
-   */
-  memory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'cpu',
-      memory: 'memory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memory: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchResourceSetting extends $dara.Model {
-  basicResourceSetting?: BasicResourceSetting;
-  /**
-   * @example
-   * 10
-   */
-  maxSlot?: number;
-  static names(): { [key: string]: string } {
-    return {
-      basicResourceSetting: 'basicResourceSetting',
-      maxSlot: 'maxSlot',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicResourceSetting: BasicResourceSetting,
-      maxSlot: 'number',
-    };
-  }
-
-  validate() {
-    if(this.basicResourceSetting && typeof (this.basicResourceSetting as any).validate === 'function') {
-      (this.basicResourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BriefDeploymentTarget extends $dara.Model {
-  mode?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mode: 'mode',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mode: 'string',
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BriefResourceSetting extends $dara.Model {
-  batchResourceSetting?: BatchResourceSetting;
-  flinkConf?: { [key: string]: any };
-  streamingResourceSetting?: StreamingResourceSetting;
-  static names(): { [key: string]: string } {
-    return {
-      batchResourceSetting: 'batchResourceSetting',
-      flinkConf: 'flinkConf',
-      streamingResourceSetting: 'streamingResourceSetting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      batchResourceSetting: BatchResourceSetting,
-      flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      streamingResourceSetting: StreamingResourceSetting,
-    };
-  }
-
-  validate() {
-    if(this.batchResourceSetting && typeof (this.batchResourceSetting as any).validate === 'function') {
-      (this.batchResourceSetting as any).validate();
-    }
-    if(this.flinkConf) {
-      $dara.Model.validateMap(this.flinkConf);
-    }
-    if(this.streamingResourceSetting && typeof (this.streamingResourceSetting as any).validate === 'function') {
-      (this.streamingResourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Catalog extends $dara.Model {
-  name?: string;
-  properties?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      properties: 'properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.properties) {
-      $dara.Model.validateMap(this.properties);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Connector extends $dara.Model {
-  creator?: string;
-  creatorName?: string;
-  dependencies?: string[];
-  lookup?: boolean;
-  modifier?: string;
-  modifierName?: string;
-  name?: string;
-  properties?: Property[];
-  sink?: boolean;
-  source?: boolean;
-  supportedFormats?: string[];
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      creator: 'creator',
-      creatorName: 'creatorName',
-      dependencies: 'dependencies',
-      lookup: 'lookup',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      properties: 'properties',
-      sink: 'sink',
-      source: 'source',
-      supportedFormats: 'supportedFormats',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creator: 'string',
-      creatorName: 'string',
-      dependencies: { 'type': 'array', 'itemType': 'string' },
-      lookup: 'boolean',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      properties: { 'type': 'array', 'itemType': Property },
-      sink: 'boolean',
-      source: 'boolean',
-      supportedFormats: { 'type': 'array', 'itemType': 'string' },
-      type: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.dependencies)) {
-      $dara.Model.validateArray(this.dependencies);
-    }
-    if(Array.isArray(this.properties)) {
-      $dara.Model.validateArray(this.properties);
-    }
-    if(Array.isArray(this.supportedFormats)) {
-      $dara.Model.validateArray(this.supportedFormats);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUdfArtifactResult extends $dara.Model {
-  collidingClasses?: UdfClass[];
-  createSuccess?: boolean;
-  message?: string;
-  udfArtifact?: UdfArtifact;
-  static names(): { [key: string]: string } {
-    return {
-      collidingClasses: 'collidingClasses',
-      createSuccess: 'createSuccess',
-      message: 'message',
-      udfArtifact: 'udfArtifact',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      collidingClasses: { 'type': 'array', 'itemType': UdfClass },
-      createSuccess: 'boolean',
-      message: 'string',
-      udfArtifact: UdfArtifact,
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.collidingClasses)) {
-      $dara.Model.validateArray(this.collidingClasses);
-    }
-    if(this.udfArtifact && typeof (this.udfArtifact as any).validate === 'function') {
-      (this.udfArtifact as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Database extends $dara.Model {
-  comment?: string;
-  name?: string;
-  properties?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'comment',
-      name: 'name',
-      properties: 'properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      name: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.properties) {
-      $dara.Model.validateMap(this.properties);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfArtifactResult extends $dara.Model {
-  deleteSuccess?: boolean;
-  message?: string;
-  referencedClasses?: UdfClass[];
-  static names(): { [key: string]: string } {
-    return {
-      deleteSuccess: 'deleteSuccess',
-      message: 'message',
-      referencedClasses: 'referencedClasses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deleteSuccess: 'boolean',
-      message: 'string',
-      referencedClasses: { 'type': 'array', 'itemType': UdfClass },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.referencedClasses)) {
-      $dara.Model.validateArray(this.referencedClasses);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Deployment extends $dara.Model {
-  artifact?: Artifact;
-  batchResourceSetting?: BatchResourceSetting;
-  createdAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * true
-   */
-  deploymentHasChanged?: boolean;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000001
-   */
-  deploymentId?: string;
-  deploymentTarget?: BriefDeploymentTarget;
-  /**
-   * @example
-   * this is a deployment description
-   */
-  description?: string;
-  /**
-   * @example
-   * vvr-6.0.0-flink-1.15
-   */
-  engineVersion?: string;
-  /**
-   * @example
-   * STREAMING | BATCH
-   */
-  executionMode?: string;
-  /**
-   * @example
-   * {"taskmanager.numberOfTaskSlots":"1"}
-   */
-  flinkConf?: { [key: string]: any };
-  jobSummary?: JobSummary;
-  labels?: { [key: string]: any };
-  localVariables?: LocalVariable[];
-  logging?: Logging;
-  modifiedAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * deploymentName
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000003
-   */
-  referencedDeploymentDraftId?: string;
-  streamingResourceSetting?: StreamingResourceSetting;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      artifact: 'artifact',
-      batchResourceSetting: 'batchResourceSetting',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentHasChanged: 'deploymentHasChanged',
-      deploymentId: 'deploymentId',
-      deploymentTarget: 'deploymentTarget',
-      description: 'description',
-      engineVersion: 'engineVersion',
-      executionMode: 'executionMode',
-      flinkConf: 'flinkConf',
-      jobSummary: 'jobSummary',
-      labels: 'labels',
-      localVariables: 'localVariables',
-      logging: 'logging',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      namespace: 'namespace',
-      referencedDeploymentDraftId: 'referencedDeploymentDraftId',
-      streamingResourceSetting: 'streamingResourceSetting',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifact: Artifact,
-      batchResourceSetting: BatchResourceSetting,
-      createdAt: 'string',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentHasChanged: 'boolean',
-      deploymentId: 'string',
-      deploymentTarget: BriefDeploymentTarget,
-      description: 'string',
-      engineVersion: 'string',
-      executionMode: 'string',
-      flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      jobSummary: JobSummary,
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      localVariables: { 'type': 'array', 'itemType': LocalVariable },
-      logging: Logging,
-      modifiedAt: 'string',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      namespace: 'string',
-      referencedDeploymentDraftId: 'string',
-      streamingResourceSetting: StreamingResourceSetting,
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.artifact && typeof (this.artifact as any).validate === 'function') {
-      (this.artifact as any).validate();
-    }
-    if(this.batchResourceSetting && typeof (this.batchResourceSetting as any).validate === 'function') {
-      (this.batchResourceSetting as any).validate();
-    }
-    if(this.deploymentTarget && typeof (this.deploymentTarget as any).validate === 'function') {
-      (this.deploymentTarget as any).validate();
-    }
-    if(this.flinkConf) {
-      $dara.Model.validateMap(this.flinkConf);
-    }
-    if(this.jobSummary && typeof (this.jobSummary as any).validate === 'function') {
-      (this.jobSummary as any).validate();
-    }
-    if(this.labels) {
-      $dara.Model.validateMap(this.labels);
-    }
-    if(Array.isArray(this.localVariables)) {
-      $dara.Model.validateArray(this.localVariables);
-    }
-    if(this.logging && typeof (this.logging as any).validate === 'function') {
-      (this.logging as any).validate();
-    }
-    if(this.streamingResourceSetting && typeof (this.streamingResourceSetting as any).validate === 'function') {
-      (this.streamingResourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeploymentDraft extends $dara.Model {
-  artifact?: Artifact;
-  createdAt?: number;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-00000012****
-   */
-  deploymentDraftId?: string;
-  /**
-   * @example
-   * vvr-6.0.7-flink-1.15
-   */
-  engineVersion?: string;
-  /**
-   * @example
-   * STREAMING
-   */
-  executionMode?: string;
-  labels?: { [key: string]: any };
-  localVariables?: LocalVariable[];
-  lock?: Lock;
-  modifiedAt?: number;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * test-draft
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-00000013****
-   */
-  parentId?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-0000012312****
-   */
-  referencedDeploymentId?: string;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      artifact: 'artifact',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentDraftId: 'deploymentDraftId',
-      engineVersion: 'engineVersion',
-      executionMode: 'executionMode',
-      labels: 'labels',
-      localVariables: 'localVariables',
-      lock: 'lock',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      namespace: 'namespace',
-      parentId: 'parentId',
-      referencedDeploymentId: 'referencedDeploymentId',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifact: Artifact,
-      createdAt: 'number',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentDraftId: 'string',
-      engineVersion: 'string',
-      executionMode: 'string',
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      localVariables: { 'type': 'array', 'itemType': LocalVariable },
-      lock: Lock,
-      modifiedAt: 'number',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      namespace: 'string',
-      parentId: 'string',
-      referencedDeploymentId: 'string',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.artifact && typeof (this.artifact as any).validate === 'function') {
-      (this.artifact as any).validate();
-    }
-    if(this.labels) {
-      $dara.Model.validateMap(this.labels);
-    }
-    if(Array.isArray(this.localVariables)) {
-      $dara.Model.validateArray(this.localVariables);
-    }
-    if(this.lock && typeof (this.lock as any).validate === 'function') {
-      (this.lock as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeploymentRestoreStrategy extends $dara.Model {
-  /**
-   * @example
-   * TRUE
-   */
-  allowNonRestoredState?: boolean;
-  /**
-   * @example
-   * 1660293803155
-   */
-  jobStartTimeInMs?: number;
-  /**
-   * @example
-   * LATEST_STATE
-   */
-  kind?: string;
-  /**
-   * @example
-   * 354dde66-a3ae-463e-967a-0b4107fd****
-   */
-  savepointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowNonRestoredState: 'allowNonRestoredState',
-      jobStartTimeInMs: 'jobStartTimeInMs',
-      kind: 'kind',
-      savepointId: 'savepointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowNonRestoredState: 'boolean',
-      jobStartTimeInMs: 'number',
-      kind: 'string',
-      savepointId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeploymentTarget extends $dara.Model {
-  /**
-   * @example
-   * deployment target
-   */
-  name?: string;
-  /**
-   * @example
-   * namespace
-   */
-  namespace?: string;
-  quota?: ResourceQuota;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      namespace: 'namespace',
-      quota: 'quota',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      namespace: 'string',
-      quota: ResourceQuota,
-    };
-  }
-
-  validate() {
-    if(this.quota && typeof (this.quota as any).validate === 'function') {
-      (this.quota as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DraftDeployParams extends $dara.Model {
-  deploymentDraftId?: string;
-  deploymentTarget?: BriefDeploymentTarget;
-  /**
-   * @example
-   * false
-   */
-  skipValidate?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentDraftId: 'deploymentDraftId',
-      deploymentTarget: 'deploymentTarget',
-      skipValidate: 'skipValidate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentDraftId: 'string',
-      deploymentTarget: BriefDeploymentTarget,
-      skipValidate: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.deploymentTarget && typeof (this.deploymentTarget as any).validate === 'function') {
-      (this.deploymentTarget as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DraftDeployResult extends $dara.Model {
-  artifactValidationDetail?: ValidateStatementResult;
-  /**
-   * @example
-   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      artifactValidationDetail: 'artifactValidationDetail',
-      deploymentId: 'deploymentId',
-      message: 'message',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifactValidationDetail: ValidateStatementResult,
-      deploymentId: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.artifactValidationDetail && typeof (this.artifactValidationDetail as any).validate === 'function') {
-      (this.artifactValidationDetail as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Edge extends $dara.Model {
-  columnLineage?: Relation[];
-  tableLineage?: Relation[];
-  static names(): { [key: string]: string } {
-    return {
-      columnLineage: 'columnLineage',
-      tableLineage: 'tableLineage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnLineage: { 'type': 'array', 'itemType': Relation },
-      tableLineage: { 'type': 'array', 'itemType': Relation },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.columnLineage)) {
-      $dara.Model.validateArray(this.columnLineage);
-    }
-    if(Array.isArray(this.tableLineage)) {
-      $dara.Model.validateArray(this.tableLineage);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditableNamespace extends $dara.Model {
-  namespace?: string;
-  role?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      namespace: 'Namespace',
-      role: 'Role',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespace: 'string',
-      role: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EngineVersionMetadata extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vvr-6.0.0-flink-1.15
-   */
-  engineVersion?: string;
-  features?: EngineVersionSupportedFeatures;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * STABLE
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      engineVersion: 'engineVersion',
-      features: 'features',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engineVersion: 'string',
-      features: EngineVersionSupportedFeatures,
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(this.features && typeof (this.features as any).validate === 'function') {
-      (this.features as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EngineVersionMetadataIndex extends $dara.Model {
-  /**
-   * @example
-   * vvr-6.0.1-flink-1.15
-   */
-  defaultEngineVersion?: string;
-  engineVersionMetadata?: EngineVersionMetadata[];
-  static names(): { [key: string]: string } {
-    return {
-      defaultEngineVersion: 'defaultEngineVersion',
-      engineVersionMetadata: 'engineVersionMetadata',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultEngineVersion: 'string',
-      engineVersionMetadata: { 'type': 'array', 'itemType': EngineVersionMetadata },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.engineVersionMetadata)) {
-      $dara.Model.validateArray(this.engineVersionMetadata);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EngineVersionSupportedFeatures extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
-  supportNativeSavepoint?: boolean;
-  /**
-   * @example
-   * true
-   */
-  useForSqlDeployments?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      supportNativeSavepoint: 'supportNativeSavepoint',
-      useForSqlDeployments: 'useForSqlDeployments',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportNativeSavepoint: 'boolean',
-      useForSqlDeployments: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ErrorDetails extends $dara.Model {
-  columnNumber?: string;
-  endColumnNumber?: string;
-  endLineNumber?: string;
-  invalidflinkConf?: string[];
-  lineNumber?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      columnNumber: 'columnNumber',
-      endColumnNumber: 'endColumnNumber',
-      endLineNumber: 'endLineNumber',
-      invalidflinkConf: 'invalidflinkConf',
-      lineNumber: 'lineNumber',
-      message: 'message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnNumber: 'string',
-      endColumnNumber: 'string',
-      endLineNumber: 'string',
-      invalidflinkConf: { 'type': 'array', 'itemType': 'string' },
-      lineNumber: 'string',
-      message: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.invalidflinkConf)) {
-      $dara.Model.validateArray(this.invalidflinkConf);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Event extends $dara.Model {
-  createdAt?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000680003
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000001
-   */
-  eventId?: string;
-  /**
-   * @example
-   * STATE_TRANSITION_IS_COMPLETED
-   */
-  eventName?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000005043
-   */
-  jobId?: string;
-  message?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'createdAt',
-      deploymentId: 'deploymentId',
-      eventId: 'eventId',
-      eventName: 'eventName',
-      jobId: 'jobId',
-      message: 'message',
-      namespace: 'namespace',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'string',
-      deploymentId: 'string',
-      eventId: 'string',
-      eventName: 'string',
-      jobId: 'string',
-      message: 'string',
-      namespace: 'string',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExpertResourceSetting extends $dara.Model {
-  jobmanagerResourceSettingSpec?: BasicResourceSettingSpec;
-  resourcePlan?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobmanagerResourceSettingSpec: 'jobmanagerResourceSettingSpec',
-      resourcePlan: 'resourcePlan',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobmanagerResourceSettingSpec: BasicResourceSettingSpec,
-      resourcePlan: 'string',
-    };
-  }
-
-  validate() {
-    if(this.jobmanagerResourceSettingSpec && typeof (this.jobmanagerResourceSettingSpec as any).validate === 'function') {
-      (this.jobmanagerResourceSettingSpec as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Folder extends $dara.Model {
-  createdAt?: number;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-0000012312****
-   */
-  folderId?: string;
-  modifiedAt?: number;
-  /**
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-0000012390****
-   */
-  parentId?: string;
-  subFolder?: SubFolder[];
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'createdAt',
-      folderId: 'folderId',
-      modifiedAt: 'modifiedAt',
-      name: 'name',
-      namespace: 'namespace',
-      parentId: 'parentId',
-      subFolder: 'subFolder',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'number',
-      folderId: 'string',
-      modifiedAt: 'number',
-      name: 'string',
-      namespace: 'string',
-      parentId: 'string',
-      subFolder: { 'type': 'array', 'itemType': SubFolder },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.subFolder)) {
-      $dara.Model.validateArray(this.subFolder);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLineageInfoParams extends $dara.Model {
-  depth?: number;
-  direction?: string;
-  id?: string;
-  idType?: string;
-  isColumnLevel?: boolean;
-  isTemporary?: boolean;
-  namespace?: string;
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      depth: 'depth',
-      direction: 'direction',
-      id: 'id',
-      idType: 'idType',
-      isColumnLevel: 'isColumnLevel',
-      isTemporary: 'isTemporary',
-      namespace: 'namespace',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      depth: 'number',
-      direction: 'string',
-      id: 'string',
-      idType: 'string',
-      isColumnLevel: 'boolean',
-      isTemporary: 'boolean',
-      namespace: 'string',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobFailureInfo extends $dara.Model {
-  failureSeverity?: string;
-  message?: string;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failureSeverity: 'failureSeverity',
-      message: 'message',
-      reason: 'reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failureSeverity: 'string',
-      message: 'string',
-      reason: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobParams extends $dara.Model {
-  rescaleJobParam?: RescaleJobParam;
-  updateJobConfigParam?: UpdateJobConfigParam;
-  static names(): { [key: string]: string } {
-    return {
-      rescaleJobParam: 'rescaleJobParam',
-      updateJobConfigParam: 'updateJobConfigParam',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rescaleJobParam: RescaleJobParam,
-      updateJobConfigParam: UpdateJobConfigParam,
-    };
-  }
-
-  validate() {
-    if(this.rescaleJobParam && typeof (this.rescaleJobParam as any).validate === 'function') {
-      (this.rescaleJobParam as any).validate();
-    }
-    if(this.updateJobConfigParam && typeof (this.updateJobConfigParam as any).validate === 'function') {
-      (this.updateJobConfigParam as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobResult extends $dara.Model {
-  hotUpdateParams?: HotUpdateJobParams;
-  jobHotUpdateId?: string;
-  jobId?: string;
-  status?: HotUpdateJobStatus;
-  targetResourceSetting?: BriefResourceSetting;
-  static names(): { [key: string]: string } {
-    return {
-      hotUpdateParams: 'hotUpdateParams',
-      jobHotUpdateId: 'jobHotUpdateId',
-      jobId: 'jobId',
-      status: 'status',
-      targetResourceSetting: 'targetResourceSetting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hotUpdateParams: HotUpdateJobParams,
-      jobHotUpdateId: 'string',
-      jobId: 'string',
-      status: HotUpdateJobStatus,
-      targetResourceSetting: BriefResourceSetting,
-    };
-  }
-
-  validate() {
-    if(this.hotUpdateParams && typeof (this.hotUpdateParams as any).validate === 'function') {
-      (this.hotUpdateParams as any).validate();
-    }
-    if(this.status && typeof (this.status as any).validate === 'function') {
-      (this.status as any).validate();
-    }
-    if(this.targetResourceSetting && typeof (this.targetResourceSetting as any).validate === 'function') {
-      (this.targetResourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobStatus extends $dara.Model {
-  failure?: HotUpdateJobFailureInfo;
-  requestId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failure: 'failure',
-      requestId: 'requestId',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failure: HotUpdateJobFailureInfo,
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    if(this.failure && typeof (this.failure as any).validate === 'function') {
-      (this.failure as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JarArtifact extends $dara.Model {
-  additionalDependencies?: string[];
-  /**
-   * @example
-   * org.apapche.flink.test
-   */
-  entryClass?: string;
-  /**
-   * @example
-   * https://oss//bucket//test.jar
-   */
-  jarUri?: string;
-  mainArgs?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalDependencies: 'additionalDependencies',
-      entryClass: 'entryClass',
-      jarUri: 'jarUri',
-      mainArgs: 'mainArgs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalDependencies: { 'type': 'array', 'itemType': 'string' },
-      entryClass: 'string',
-      jarUri: 'string',
-      mainArgs: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.additionalDependencies)) {
-      $dara.Model.validateArray(this.additionalDependencies);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Job extends $dara.Model {
-  artifact?: Artifact;
-  batchResourceSetting?: BatchResourceSetting;
-  createdAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * 354dde66-a3ae-463e-967a-0b4107fd****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * flinktest
-   */
-  deploymentName?: string;
-  /**
-   * @example
-   * 1660277235
-   */
-  endTime?: number;
-  /**
-   * @example
-   * vvr-4.0.14-flink-1.13
-   */
-  engineVersion?: string;
-  /**
-   * @example
-   * BATCH
-   */
-  executionMode?: string;
-  flinkConf?: { [key: string]: any };
-  /**
-   * @example
-   * 354dde66-a3ae-463e-967a-0b4107fd****
-   */
-  jobId?: string;
-  localVariables?: LocalVariable[];
-  logging?: Logging;
-  metric?: JobMetric;
-  modifiedAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * namespacetest
-   */
-  namespace?: string;
-  restoreStrategy?: DeploymentRestoreStrategy;
-  /**
-   * @example
-   * preview
-   */
-  sessionClusterName?: string;
-  /**
-   * @example
-   * 1660190835
-   */
-  startTime?: number;
-  status?: JobStatus;
-  streamingResourceSetting?: StreamingResourceSetting;
-  userFlinkConf?: { [key: string]: any };
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      artifact: 'artifact',
-      batchResourceSetting: 'batchResourceSetting',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentId: 'deploymentId',
-      deploymentName: 'deploymentName',
-      endTime: 'endTime',
-      engineVersion: 'engineVersion',
-      executionMode: 'executionMode',
-      flinkConf: 'flinkConf',
-      jobId: 'jobId',
-      localVariables: 'localVariables',
-      logging: 'logging',
-      metric: 'metric',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      namespace: 'namespace',
-      restoreStrategy: 'restoreStrategy',
-      sessionClusterName: 'sessionClusterName',
-      startTime: 'startTime',
-      status: 'status',
-      streamingResourceSetting: 'streamingResourceSetting',
-      userFlinkConf: 'userFlinkConf',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifact: Artifact,
-      batchResourceSetting: BatchResourceSetting,
-      createdAt: 'string',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentId: 'string',
-      deploymentName: 'string',
-      endTime: 'number',
-      engineVersion: 'string',
-      executionMode: 'string',
-      flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      jobId: 'string',
-      localVariables: { 'type': 'array', 'itemType': LocalVariable },
-      logging: Logging,
-      metric: JobMetric,
-      modifiedAt: 'string',
-      modifier: 'string',
-      modifierName: 'string',
-      namespace: 'string',
-      restoreStrategy: DeploymentRestoreStrategy,
-      sessionClusterName: 'string',
-      startTime: 'number',
-      status: JobStatus,
-      streamingResourceSetting: StreamingResourceSetting,
-      userFlinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.artifact && typeof (this.artifact as any).validate === 'function') {
-      (this.artifact as any).validate();
-    }
-    if(this.batchResourceSetting && typeof (this.batchResourceSetting as any).validate === 'function') {
-      (this.batchResourceSetting as any).validate();
-    }
-    if(this.flinkConf) {
-      $dara.Model.validateMap(this.flinkConf);
-    }
-    if(Array.isArray(this.localVariables)) {
-      $dara.Model.validateArray(this.localVariables);
-    }
-    if(this.logging && typeof (this.logging as any).validate === 'function') {
-      (this.logging as any).validate();
-    }
-    if(this.metric && typeof (this.metric as any).validate === 'function') {
-      (this.metric as any).validate();
-    }
-    if(this.restoreStrategy && typeof (this.restoreStrategy as any).validate === 'function') {
-      (this.restoreStrategy as any).validate();
-    }
-    if(this.status && typeof (this.status as any).validate === 'function') {
-      (this.status as any).validate();
-    }
-    if(this.streamingResourceSetting && typeof (this.streamingResourceSetting as any).validate === 'function') {
-      (this.streamingResourceSetting as any).validate();
-    }
-    if(this.userFlinkConf) {
-      $dara.Model.validateMap(this.userFlinkConf);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDiagnosis extends $dara.Model {
-  diagnoseId?: string;
-  diagnoseTime?: number;
-  namespace?: string;
-  riskLevel?: string;
-  symptoms?: JobDiagnosisSymptoms;
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diagnoseId: 'diagnoseId',
-      diagnoseTime: 'diagnoseTime',
-      namespace: 'namespace',
-      riskLevel: 'riskLevel',
-      symptoms: 'symptoms',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diagnoseId: 'string',
-      diagnoseTime: 'number',
-      namespace: 'string',
-      riskLevel: 'string',
-      symptoms: JobDiagnosisSymptoms,
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.symptoms && typeof (this.symptoms as any).validate === 'function') {
-      (this.symptoms as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDiagnosisSymptom extends $dara.Model {
-  description?: string;
-  name?: string;
-  recommendation?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'description',
-      name: 'name',
-      recommendation: 'recommendation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      name: 'string',
-      recommendation: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobDiagnosisSymptoms extends $dara.Model {
-  autopilot?: JobDiagnosisSymptom;
-  others?: JobDiagnosisSymptom[];
-  runtime?: JobDiagnosisSymptom[];
-  startup?: JobDiagnosisSymptom[];
-  state?: JobDiagnosisSymptom[];
-  troubleshooting?: JobDiagnosisSymptom[];
-  static names(): { [key: string]: string } {
-    return {
-      autopilot: 'autopilot',
-      others: 'others',
-      runtime: 'runtime',
-      startup: 'startup',
-      state: 'state',
-      troubleshooting: 'troubleshooting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autopilot: JobDiagnosisSymptom,
-      others: { 'type': 'array', 'itemType': JobDiagnosisSymptom },
-      runtime: { 'type': 'array', 'itemType': JobDiagnosisSymptom },
-      startup: { 'type': 'array', 'itemType': JobDiagnosisSymptom },
-      state: { 'type': 'array', 'itemType': JobDiagnosisSymptom },
-      troubleshooting: { 'type': 'array', 'itemType': JobDiagnosisSymptom },
-    };
-  }
-
-  validate() {
-    if(this.autopilot && typeof (this.autopilot as any).validate === 'function') {
-      (this.autopilot as any).validate();
-    }
-    if(Array.isArray(this.others)) {
-      $dara.Model.validateArray(this.others);
-    }
-    if(Array.isArray(this.runtime)) {
-      $dara.Model.validateArray(this.runtime);
-    }
-    if(Array.isArray(this.startup)) {
-      $dara.Model.validateArray(this.startup);
-    }
-    if(Array.isArray(this.state)) {
-      $dara.Model.validateArray(this.state);
-    }
-    if(Array.isArray(this.troubleshooting)) {
-      $dara.Model.validateArray(this.troubleshooting);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobFailure extends $dara.Model {
-  /**
-   * @example
-   * 1660120062
-   */
-  failedAt?: number;
-  message?: string;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedAt: 'failedAt',
-      message: 'message',
-      reason: 'reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedAt: 'number',
-      message: 'string',
-      reason: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobInfo extends $dara.Model {
-  id?: string;
-  properties?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      id: 'id',
-      properties: 'properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.properties) {
-      $dara.Model.validateMap(this.properties);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobMetric extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
-  totalCpu?: number;
-  /**
-   * @example
-   * 4096
-   */
-  totalMemoryByte?: number;
-  static names(): { [key: string]: string } {
-    return {
-      totalCpu: 'totalCpu',
-      totalMemoryByte: 'totalMemoryByte',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCpu: 'number',
-      totalMemoryByte: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobStartParameters extends $dara.Model {
-  deploymentId?: string;
-  jobId?: string;
-  localVariables?: LocalVariable[];
-  /**
-   * @example
-   * default-queue
-   */
-  resourceQueueName?: string;
-  restoreStrategy?: DeploymentRestoreStrategy;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      jobId: 'jobId',
-      localVariables: 'localVariables',
-      resourceQueueName: 'resourceQueueName',
-      restoreStrategy: 'restoreStrategy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      jobId: 'string',
-      localVariables: { 'type': 'array', 'itemType': LocalVariable },
-      resourceQueueName: 'string',
-      restoreStrategy: DeploymentRestoreStrategy,
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.localVariables)) {
-      $dara.Model.validateArray(this.localVariables);
-    }
-    if(this.restoreStrategy && typeof (this.restoreStrategy as any).validate === 'function') {
-      (this.restoreStrategy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobStatus extends $dara.Model {
-  /**
-   * @example
-   * RUNNING
-   */
-  currentJobStatus?: string;
-  failure?: JobFailure;
-  healthScore?: number;
-  riskLevel?: string;
-  running?: JobStatusRunning;
-  static names(): { [key: string]: string } {
-    return {
-      currentJobStatus: 'currentJobStatus',
-      failure: 'failure',
-      healthScore: 'healthScore',
-      riskLevel: 'riskLevel',
-      running: 'running',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentJobStatus: 'string',
-      failure: JobFailure,
-      healthScore: 'number',
-      riskLevel: 'string',
-      running: JobStatusRunning,
-    };
-  }
-
-  validate() {
-    if(this.failure && typeof (this.failure as any).validate === 'function') {
-      (this.failure as any).validate();
-    }
-    if(this.running && typeof (this.running as any).validate === 'function') {
-      (this.running as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobStatusRunning extends $dara.Model {
-  /**
-   * @example
-   * 4
-   */
-  observedFlinkJobRestarts?: number;
-  /**
-   * @example
-   * RUNNING
-   */
-  observedFlinkJobStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      observedFlinkJobRestarts: 'observedFlinkJobRestarts',
-      observedFlinkJobStatus: 'observedFlinkJobStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      observedFlinkJobRestarts: 'number',
-      observedFlinkJobStatus: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobSummary extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  cancelled?: number;
-  /**
-   * @example
-   * 1
-   */
-  cancelling?: number;
-  /**
-   * @example
-   * 1
-   */
-  failed?: number;
-  /**
-   * @example
-   * 1
-   */
-  finished?: number;
-  /**
-   * @example
-   * 1
-   */
-  running?: number;
-  /**
-   * @example
-   * 1
-   */
-  starting?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cancelled: 'cancelled',
-      cancelling: 'cancelling',
-      failed: 'failed',
-      finished: 'finished',
-      running: 'running',
-      starting: 'starting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cancelled: 'number',
-      cancelling: 'number',
-      failed: 'number',
-      finished: 'number',
-      running: 'number',
-      starting: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LineageColumn extends $dara.Model {
-  columnName?: string;
-  columnNativeType?: string;
-  columnType?: string;
-  createdAt?: number;
-  creator?: string;
-  description?: string;
-  id?: string;
-  modifiedAt?: number;
-  modifier?: string;
-  nullable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      columnName: 'columnName',
-      columnNativeType: 'columnNativeType',
-      columnType: 'columnType',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      description: 'description',
-      id: 'id',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      nullable: 'nullable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnName: 'string',
-      columnNativeType: 'string',
-      columnType: 'string',
-      createdAt: 'number',
-      creator: 'string',
-      description: 'string',
-      id: 'string',
-      modifiedAt: 'number',
-      modifier: 'string',
-      nullable: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LineageInfo extends $dara.Model {
-  edges?: Edge;
-  jobInfos?: JobInfo[];
-  nodes?: Node[];
-  static names(): { [key: string]: string } {
-    return {
-      edges: 'edges',
-      jobInfos: 'jobInfos',
-      nodes: 'nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      edges: Edge,
-      jobInfos: { 'type': 'array', 'itemType': JobInfo },
-      nodes: { 'type': 'array', 'itemType': Node },
-    };
-  }
-
-  validate() {
-    if(this.edges && typeof (this.edges as any).validate === 'function') {
-      (this.edges as any).validate();
-    }
-    if(Array.isArray(this.jobInfos)) {
-      $dara.Model.validateArray(this.jobInfos);
-    }
-    if(Array.isArray(this.nodes)) {
-      $dara.Model.validateArray(this.nodes);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LineageTable extends $dara.Model {
-  columns?: LineageColumn[];
-  id?: string;
-  properties?: { [key: string]: any };
-  tableName?: string;
-  with?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'columns',
-      id: 'id',
-      properties: 'properties',
-      tableName: 'tableName',
-      with: 'with',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': LineageColumn },
-      id: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      tableName: 'string',
-      with: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
-    if(this.properties) {
-      $dara.Model.validateMap(this.properties);
-    }
-    if(this.with) {
-      $dara.Model.validateMap(this.with);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LocalVariable extends $dara.Model {
-  /**
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @example
-   * datagen
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Lock extends $dara.Model {
-  holderId?: string;
-  holderName?: string;
-  id?: string;
-  namespace?: string;
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      holderId: 'holderId',
-      holderName: 'holderName',
-      id: 'id',
-      namespace: 'namespace',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      holderId: 'string',
-      holderName: 'string',
-      id: 'string',
-      namespace: 'string',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Log4jLogger extends $dara.Model {
-  /**
-   * @example
-   * ERROR
-   */
-  loggerLevel?: string;
-  /**
-   * @example
-   * StdOutErrConsoleAppender
-   */
-  loggerName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      loggerLevel: 'loggerLevel',
-      loggerName: 'loggerName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      loggerLevel: 'string',
-      loggerName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LogReservePolicy extends $dara.Model {
-  /**
-   * @example
-   * 7
-   */
-  expirationDays?: number;
-  /**
-   * @example
-   * true
-   */
-  openHistory?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      expirationDays: 'expirationDays',
-      openHistory: 'openHistory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expirationDays: 'number',
-      openHistory: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Logging extends $dara.Model {
-  /**
-   * @example
-   * xml格式文本
-   */
-  log4j2ConfigurationTemplate?: string;
-  log4jLoggers?: Log4jLogger[];
-  logReservePolicy?: LogReservePolicy;
-  /**
-   * @example
-   * oss
-   */
-  loggingProfile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      log4j2ConfigurationTemplate: 'log4j2ConfigurationTemplate',
-      log4jLoggers: 'log4jLoggers',
-      logReservePolicy: 'logReservePolicy',
-      loggingProfile: 'loggingProfile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      log4j2ConfigurationTemplate: 'string',
-      log4jLoggers: { 'type': 'array', 'itemType': Log4jLogger },
-      logReservePolicy: LogReservePolicy,
-      loggingProfile: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.log4jLoggers)) {
-      $dara.Model.validateArray(this.log4jLoggers);
-    }
-    if(this.logReservePolicy && typeof (this.logReservePolicy as any).validate === 'function') {
-      (this.logReservePolicy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Member extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user: 181319557522****
-   */
-  member?: string;
-  /**
-   * @example
-   * VIEWER
-   */
-  role?: string;
-  static names(): { [key: string]: string } {
-    return {
-      member: 'member',
-      role: 'role',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      member: 'string',
-      role: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MetadataInfo extends $dara.Model {
-  key?: string;
-  virtual?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      virtual: 'virtual',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      virtual: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Node extends $dara.Model {
-  catalogName?: string;
-  connector?: string;
-  databaseName?: string;
-  id?: string;
-  isTemporary?: boolean;
-  tables?: LineageTable[];
-  static names(): { [key: string]: string } {
-    return {
-      catalogName: 'catalogName',
-      connector: 'connector',
-      databaseName: 'databaseName',
-      id: 'id',
-      isTemporary: 'isTemporary',
-      tables: 'tables',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      catalogName: 'string',
-      connector: 'string',
-      databaseName: 'string',
-      id: 'string',
-      isTemporary: 'boolean',
-      tables: { 'type': 'array', 'itemType': LineageTable },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tables)) {
-      $dara.Model.validateArray(this.tables);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PeriodicSchedulingPolicy extends $dara.Model {
-  isFinished?: boolean;
-  /**
-   * @example
-   * 1723195800000
-   */
-  onlyOnceTriggerTime?: number;
-  /**
-   * @example
-   * true
-   */
-  onlyOnceTriggerTimeIsExpired?: boolean;
-  /**
-   * @example
-   * DAY
-   */
-  periodicSchedulingLevel?: string;
-  periodicSchedulingValues?: number[];
-  /**
-   * @example
-   * 1723199340000
-   */
-  periodicTriggerTime?: number;
-  resourceSetting?: BriefResourceSetting;
-  static names(): { [key: string]: string } {
-    return {
-      isFinished: 'isFinished',
-      onlyOnceTriggerTime: 'onlyOnceTriggerTime',
-      onlyOnceTriggerTimeIsExpired: 'onlyOnceTriggerTimeIsExpired',
-      periodicSchedulingLevel: 'periodicSchedulingLevel',
-      periodicSchedulingValues: 'periodicSchedulingValues',
-      periodicTriggerTime: 'periodicTriggerTime',
-      resourceSetting: 'resourceSetting',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isFinished: 'boolean',
-      onlyOnceTriggerTime: 'number',
-      onlyOnceTriggerTimeIsExpired: 'boolean',
-      periodicSchedulingLevel: 'string',
-      periodicSchedulingValues: { 'type': 'array', 'itemType': 'number' },
-      periodicTriggerTime: 'number',
-      resourceSetting: BriefResourceSetting,
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.periodicSchedulingValues)) {
-      $dara.Model.validateArray(this.periodicSchedulingValues);
-    }
-    if(this.resourceSetting && typeof (this.resourceSetting as any).validate === 'function') {
-      (this.resourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PrimaryKey extends $dara.Model {
-  columns?: string[];
-  constraintName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'columns',
-      constraintName: 'constraintName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': 'string' },
-      constraintName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Property extends $dara.Model {
-  defaultValue?: string;
-  definesFormat?: boolean;
-  description?: string;
-  key?: string;
-  required?: boolean;
-  sensitive?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      defaultValue: 'defaultValue',
-      definesFormat: 'definesFormat',
-      description: 'description',
-      key: 'key',
-      required: 'required',
-      sensitive: 'sensitive',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultValue: 'string',
-      definesFormat: 'boolean',
-      description: 'string',
-      key: 'string',
-      required: 'boolean',
-      sensitive: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PythonArtifact extends $dara.Model {
-  additionalDependencies?: string[];
-  additionalPythonArchives?: string[];
-  additionalPythonLibraries?: string[];
-  entryModule?: string;
-  mainArgs?: string;
-  /**
-   * @example
-   * https://oss//bucket//test.py
-   */
-  pythonArtifactUri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalDependencies: 'additionalDependencies',
-      additionalPythonArchives: 'additionalPythonArchives',
-      additionalPythonLibraries: 'additionalPythonLibraries',
-      entryModule: 'entryModule',
-      mainArgs: 'mainArgs',
-      pythonArtifactUri: 'pythonArtifactUri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalDependencies: { 'type': 'array', 'itemType': 'string' },
-      additionalPythonArchives: { 'type': 'array', 'itemType': 'string' },
-      additionalPythonLibraries: { 'type': 'array', 'itemType': 'string' },
-      entryModule: 'string',
-      mainArgs: 'string',
-      pythonArtifactUri: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.additionalDependencies)) {
-      $dara.Model.validateArray(this.additionalDependencies);
-    }
-    if(Array.isArray(this.additionalPythonArchives)) {
-      $dara.Model.validateArray(this.additionalPythonArchives);
-    }
-    if(Array.isArray(this.additionalPythonLibraries)) {
-      $dara.Model.validateArray(this.additionalPythonLibraries);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Relation extends $dara.Model {
-  destination?: string;
-  jobId?: string;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      destination: 'destination',
-      jobId: 'jobId',
-      source: 'source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      destination: 'string',
-      jobId: 'string',
-      source: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RescaleJobParam extends $dara.Model {
-  jobParallelism?: number;
-  static names(): { [key: string]: string } {
-    return {
-      jobParallelism: 'jobParallelism',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobParallelism: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResourceQuota extends $dara.Model {
-  limit?: ResourceSpec;
-  used?: ResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'limit',
-      used: 'used',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: ResourceSpec,
-      used: ResourceSpec,
-    };
-  }
-
-  validate() {
-    if(this.limit && typeof (this.limit as any).validate === 'function') {
-      (this.limit as any).validate();
-    }
-    if(this.used && typeof (this.used as any).validate === 'function') {
-      (this.used as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResourceSpec extends $dara.Model {
-  /**
-   * @example
-   * 1.0
-   */
-  cpu?: number;
-  /**
-   * @example
-   * 4Gi
-   */
-  memory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'cpu',
-      memory: 'memory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      memory: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Savepoint extends $dara.Model {
-  /**
-   * @example
-   * 1659066711
-   */
-  createdAt?: number;
-  /**
-   * @example
-   * 1d716b22-6aad-4be2-85c2-50cfc757****
-   */
-  deploymentId?: string;
-  description?: string;
-  /**
-   * @example
-   * 5af678c0-7db0-4650-94c2-d2604f0a****
-   */
-  jobId?: string;
-  /**
-   * @example
-   * 1659069473
-   */
-  modifiedAt?: number;
-  /**
-   * @example
-   * namespacetest
-   */
-  namespace?: string;
-  /**
-   * @example
-   * TRUE
-   */
-  nativeFormat?: boolean;
-  /**
-   * @example
-   * 354dde66-a3ae-463e-967a-0b4107fd****
-   */
-  savepointId?: string;
-  /**
-   * @example
-   * https://oss/bucket/flink/flink-jobs/namespaces/vvp-team/deployments/5a19a71b-1c42-4f34-94fd-86cf60782c81/checkpoints/sp-3285
-   */
-  savepointLocation?: string;
-  /**
-   * @example
-   * USER_REQUEST
-   */
-  savepointOrigin?: string;
-  status?: SavepointStatus;
-  /**
-   * @example
-   * TRUE
-   */
-  stopWithDrainEnabled?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'createdAt',
-      deploymentId: 'deploymentId',
-      description: 'description',
-      jobId: 'jobId',
-      modifiedAt: 'modifiedAt',
-      namespace: 'namespace',
-      nativeFormat: 'nativeFormat',
-      savepointId: 'savepointId',
-      savepointLocation: 'savepointLocation',
-      savepointOrigin: 'savepointOrigin',
-      status: 'status',
-      stopWithDrainEnabled: 'stopWithDrainEnabled',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'number',
-      deploymentId: 'string',
-      description: 'string',
-      jobId: 'string',
-      modifiedAt: 'number',
-      namespace: 'string',
-      nativeFormat: 'boolean',
-      savepointId: 'string',
-      savepointLocation: 'string',
-      savepointOrigin: 'string',
-      status: SavepointStatus,
-      stopWithDrainEnabled: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.status && typeof (this.status as any).validate === 'function') {
-      (this.status as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SavepointFailure extends $dara.Model {
-  /**
-   * @example
-   * 1655006835
-   */
-  failedAt?: number;
-  message?: string;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedAt: 'failedAt',
-      message: 'message',
-      reason: 'reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedAt: 'number',
-      message: 'string',
-      reason: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SavepointStatus extends $dara.Model {
-  failure?: SavepointFailure;
-  /**
-   * @example
-   * COMPLETED
-   */
-  state?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failure: 'failure',
-      state: 'state',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failure: SavepointFailure,
-      state: 'string',
-    };
-  }
-
-  validate() {
-    if(this.failure && typeof (this.failure as any).validate === 'function') {
-      (this.failure as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScheduledPlan extends $dara.Model {
-  /**
-   * @example
-   * 1723197248
-   */
-  createdAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000001
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * 1723197248
-   */
-  modifiedAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * test-scheduled-plan
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * USER_DEFINED
-   */
-  origin?: string;
-  periodicSchedulingPolicies?: PeriodicSchedulingPolicy[];
-  /**
-   * @example
-   * f3b4ec1e-85dc-4b1d-9726-1d7f4c37****
-   */
-  scheduledPlanId?: string;
-  /**
-   * @example
-   * FINISHED
-   */
-  status?: string;
-  /**
-   * @example
-   * true
-   */
-  updatedByUser?: boolean;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentId: 'deploymentId',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      namespace: 'namespace',
-      origin: 'origin',
-      periodicSchedulingPolicies: 'periodicSchedulingPolicies',
-      scheduledPlanId: 'scheduledPlanId',
-      status: 'status',
-      updatedByUser: 'updatedByUser',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'string',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentId: 'string',
-      modifiedAt: 'string',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      namespace: 'string',
-      origin: 'string',
-      periodicSchedulingPolicies: { 'type': 'array', 'itemType': PeriodicSchedulingPolicy },
-      scheduledPlanId: 'string',
-      status: 'string',
-      updatedByUser: 'boolean',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.periodicSchedulingPolicies)) {
-      $dara.Model.validateArray(this.periodicSchedulingPolicies);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScheduledPlanAppliedInfo extends $dara.Model {
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000001
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * RUNNING
-   */
-  expectedState?: string;
-  /**
-   * @example
-   * 1723197248
-   */
-  modifiedAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * f3b4ec1e-85dc-4b1d-9726-1d7f4c37****
-   */
-  scheduledPlanId?: string;
-  /**
-   * @example
-   * test-scheduled-plan
-   */
-  scheduledPlanName?: string;
-  /**
-   * @example
-   * WAITING
-   */
-  statusState?: string;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      expectedState: 'expectedState',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      namespace: 'namespace',
-      scheduledPlanId: 'scheduledPlanId',
-      scheduledPlanName: 'scheduledPlanName',
-      statusState: 'statusState',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      expectedState: 'string',
-      modifiedAt: 'string',
-      modifier: 'string',
-      modifierName: 'string',
-      namespace: 'string',
-      scheduledPlanId: 'string',
-      scheduledPlanName: 'string',
-      statusState: 'string',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScheduledPlanExecutedInfo extends $dara.Model {
-  /**
-   * @example
-   * 1723197248
-   */
-  createdAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * 00000000-0000-0000-0000-000000000001
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * 0e6d3bab-2277-4ed1-b573-9de6413d****
-   */
-  jobResourceUpgradingId?: string;
-  /**
-   * @example
-   * 1723197248
-   */
-  modifiedAt?: string;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * test-scheduled-plan
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * SCHEDULED_PLAN
-   */
-  origin?: string;
-  /**
-   * @example
-   * f8a2d5d9-9fc5-4273-bfcc-2a3cd354****
-   */
-  originJobId?: string;
-  status?: ScheduledPlanExecutedStatus;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentId: 'deploymentId',
-      jobResourceUpgradingId: 'jobResourceUpgradingId',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      namespace: 'namespace',
-      origin: 'origin',
-      originJobId: 'originJobId',
-      status: 'status',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'string',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentId: 'string',
-      jobResourceUpgradingId: 'string',
-      modifiedAt: 'string',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      namespace: 'string',
-      origin: 'string',
-      originJobId: 'string',
-      status: ScheduledPlanExecutedStatus,
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.status && typeof (this.status as any).validate === 'function') {
-      (this.status as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScheduledPlanExecutedStatus extends $dara.Model {
-  /**
-   * @example
-   * HOT_UPDATE
-   */
-  restartType?: string;
-  /**
-   * @example
-   * UPGRADED
-   */
-  statusState?: string;
-  static names(): { [key: string]: string } {
-    return {
-      restartType: 'restartType',
-      statusState: 'statusState',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      restartType: 'string',
-      statusState: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Schema extends $dara.Model {
-  columns?: TableColumn[];
-  primaryKey?: PrimaryKey;
-  watermarkSpecs?: WatermarkSpec[];
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'columns',
-      primaryKey: 'primaryKey',
-      watermarkSpecs: 'watermarkSpecs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': TableColumn },
-      primaryKey: PrimaryKey,
-      watermarkSpecs: { 'type': 'array', 'itemType': WatermarkSpec },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
-    if(this.primaryKey && typeof (this.primaryKey as any).validate === 'function') {
-      (this.primaryKey as any).validate();
-    }
-    if(Array.isArray(this.watermarkSpecs)) {
-      $dara.Model.validateArray(this.watermarkSpecs);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SessionCluster extends $dara.Model {
-  basicResourceSetting?: BasicResourceSetting;
-  createdAt?: number;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  creator?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  creatorName?: string;
-  /**
-   * @example
-   * default-queue
-   */
-  deploymentTargetName?: string;
-  /**
-   * @example
-   * vvr-6.0.7-flink-1.15
-   */
-  engineVersion?: string;
-  /**
-   * @example
-   * {"taskmanager.numberOfTaskSlots":"1"}
-   */
-  flinkConf?: { [key: string]: any };
-  labels?: { [key: string]: any };
-  logging?: Logging;
-  modifiedAt?: number;
-  /**
-   * @example
-   * 27846363877456****
-   */
-  modifier?: string;
-  /**
-   * @example
-   * ****@streamcompute.onaliyun.com
-   */
-  modifierName?: string;
-  /**
-   * @example
-   * test-sessionCluster
-   */
-  name?: string;
-  /**
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 1f68a52c-1760-43c6-97fb-afe0674b****
-   */
-  sessionClusterId?: string;
-  status?: SessionClusterStatus;
-  /**
-   * @example
-   * edcef******b4f
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      basicResourceSetting: 'basicResourceSetting',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      creatorName: 'creatorName',
-      deploymentTargetName: 'deploymentTargetName',
-      engineVersion: 'engineVersion',
-      flinkConf: 'flinkConf',
-      labels: 'labels',
-      logging: 'logging',
-      modifiedAt: 'modifiedAt',
-      modifier: 'modifier',
-      modifierName: 'modifierName',
-      name: 'name',
-      namespace: 'namespace',
-      sessionClusterId: 'sessionClusterId',
-      status: 'status',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicResourceSetting: BasicResourceSetting,
-      createdAt: 'number',
-      creator: 'string',
-      creatorName: 'string',
-      deploymentTargetName: 'string',
-      engineVersion: 'string',
-      flinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      logging: Logging,
-      modifiedAt: 'number',
-      modifier: 'string',
-      modifierName: 'string',
-      name: 'string',
-      namespace: 'string',
-      sessionClusterId: 'string',
-      status: SessionClusterStatus,
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.basicResourceSetting && typeof (this.basicResourceSetting as any).validate === 'function') {
-      (this.basicResourceSetting as any).validate();
-    }
-    if(this.flinkConf) {
-      $dara.Model.validateMap(this.flinkConf);
-    }
-    if(this.labels) {
-      $dara.Model.validateMap(this.labels);
-    }
-    if(this.logging && typeof (this.logging as any).validate === 'function') {
-      (this.logging as any).validate();
-    }
-    if(this.status && typeof (this.status as any).validate === 'function') {
-      (this.status as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SessionClusterFailureInfo extends $dara.Model {
-  failedAt?: number;
-  message?: string;
-  reason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedAt: 'failedAt',
-      message: 'message',
-      reason: 'reason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedAt: 'number',
-      message: 'string',
-      reason: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SessionClusterRunningInfo extends $dara.Model {
-  lastUpdateTime?: number;
-  referenceDeploymentIds?: string[];
-  startedAt?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lastUpdateTime: 'lastUpdateTime',
-      referenceDeploymentIds: 'referenceDeploymentIds',
-      startedAt: 'startedAt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lastUpdateTime: 'number',
-      referenceDeploymentIds: { 'type': 'array', 'itemType': 'string' },
-      startedAt: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.referenceDeploymentIds)) {
-      $dara.Model.validateArray(this.referenceDeploymentIds);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SessionClusterStatus extends $dara.Model {
-  currentSessionClusterStatus?: string;
-  failure?: SessionClusterFailureInfo;
-  running?: SessionClusterRunningInfo;
-  static names(): { [key: string]: string } {
-    return {
-      currentSessionClusterStatus: 'currentSessionClusterStatus',
-      failure: 'failure',
-      running: 'running',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentSessionClusterStatus: 'string',
-      failure: SessionClusterFailureInfo,
-      running: SessionClusterRunningInfo,
-    };
-  }
-
-  validate() {
-    if(this.failure && typeof (this.failure as any).validate === 'function') {
-      (this.failure as any).validate();
-    }
-    if(this.running && typeof (this.running as any).validate === 'function') {
-      (this.running as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SqlArtifact extends $dara.Model {
-  additionalDependencies?: string[];
-  sqlScript?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalDependencies: 'additionalDependencies',
-      sqlScript: 'sqlScript',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalDependencies: { 'type': 'array', 'itemType': 'string' },
-      sqlScript: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.additionalDependencies)) {
-      $dara.Model.validateArray(this.additionalDependencies);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SqlStatementExecuteResult extends $dara.Model {
-  errorDetails?: ErrorDetails;
-  executeSuccess?: boolean;
-  statement?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorDetails: 'errorDetails',
-      executeSuccess: 'executeSuccess',
-      statement: 'statement',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorDetails: ErrorDetails,
-      executeSuccess: 'boolean',
-      statement: 'string',
-    };
-  }
-
-  validate() {
-    if(this.errorDetails && typeof (this.errorDetails as any).validate === 'function') {
-      (this.errorDetails as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SqlStatementValidationResult extends $dara.Model {
-  errorDetails?: ErrorDetails;
-  message?: string;
-  success?: boolean;
-  validationResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorDetails: 'errorDetails',
-      message: 'message',
-      success: 'success',
-      validationResult: 'validationResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorDetails: ErrorDetails,
-      message: 'string',
-      success: 'boolean',
-      validationResult: 'string',
-    };
-  }
-
-  validate() {
-    if(this.errorDetails && typeof (this.errorDetails as any).validate === 'function') {
-      (this.errorDetails as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SqlStatementWithContext extends $dara.Model {
-  additionalDependencies?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  batchMode?: boolean;
-  flinkConfiguration?: { [key: string]: any };
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  statement?: string;
-  versionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalDependencies: 'additionalDependencies',
-      batchMode: 'batchMode',
-      flinkConfiguration: 'flinkConfiguration',
-      statement: 'statement',
-      versionName: 'versionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalDependencies: { 'type': 'array', 'itemType': 'string' },
-      batchMode: 'boolean',
-      flinkConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      statement: 'string',
-      versionName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.additionalDependencies)) {
-      $dara.Model.validateArray(this.additionalDependencies);
-    }
-    if(this.flinkConfiguration) {
-      $dara.Model.validateMap(this.flinkConfiguration);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobRequestBody extends $dara.Model {
-  /**
-   * @example
-   * 5a19a71b-1c42-4f34-94fd-86cf60782c81
-   */
-  deploymentId?: string;
-  resourceSettingSpec?: BriefResourceSetting;
-  restoreStrategy?: DeploymentRestoreStrategy;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      resourceSettingSpec: 'resourceSettingSpec',
-      restoreStrategy: 'restoreStrategy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      resourceSettingSpec: BriefResourceSetting,
-      restoreStrategy: DeploymentRestoreStrategy,
-    };
-  }
-
-  validate() {
-    if(this.resourceSettingSpec && typeof (this.resourceSettingSpec as any).validate === 'function') {
-      (this.resourceSettingSpec as any).validate();
-    }
-    if(this.restoreStrategy && typeof (this.restoreStrategy as any).validate === 'function') {
-      (this.restoreStrategy as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopJobRequestBody extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * NONE
-   */
-  stopStrategy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      stopStrategy: 'stopStrategy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stopStrategy: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StreamingResourceSetting extends $dara.Model {
-  basicResourceSetting?: BasicResourceSetting;
-  expertResourceSetting?: ExpertResourceSetting;
-  /**
-   * @example
-   * EXPERT
-   */
-  resourceSettingMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      basicResourceSetting: 'basicResourceSetting',
-      expertResourceSetting: 'expertResourceSetting',
-      resourceSettingMode: 'resourceSettingMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicResourceSetting: BasicResourceSetting,
-      expertResourceSetting: ExpertResourceSetting,
-      resourceSettingMode: 'string',
-    };
-  }
-
-  validate() {
-    if(this.basicResourceSetting && typeof (this.basicResourceSetting as any).validate === 'function') {
-      (this.basicResourceSetting as any).validate();
-    }
-    if(this.expertResourceSetting && typeof (this.expertResourceSetting as any).validate === 'function') {
-      (this.expertResourceSetting as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubFolder extends $dara.Model {
-  /**
-   * @example
-   * a579aec9-1d5e-3382-9d65-9887ff6cfaff
-   */
-  folderId?: string;
-  /**
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @example
-   * 95c0787c-408f-4e1f-88ba-ef0a84a2c2ee
-   */
-  parentId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folderId: 'folderId',
-      name: 'name',
-      parentId: 'parentId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderId: 'string',
-      name: 'string',
-      parentId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Table extends $dara.Model {
-  comment?: string;
-  name?: string;
-  partitionKeys?: string[];
-  properties?: { [key: string]: any };
-  schema?: Schema;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'comment',
-      name: 'name',
-      partitionKeys: 'partitionKeys',
-      properties: 'properties',
-      schema: 'schema',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      name: 'string',
-      partitionKeys: { 'type': 'array', 'itemType': 'string' },
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      schema: Schema,
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.partitionKeys)) {
-      $dara.Model.validateArray(this.partitionKeys);
-    }
-    if(this.properties) {
-      $dara.Model.validateMap(this.properties);
-    }
-    if(this.schema && typeof (this.schema as any).validate === 'function') {
-      (this.schema as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TableColumn extends $dara.Model {
-  expression?: string;
-  metadataInfo?: MetadataInfo;
-  name?: string;
-  nullable?: boolean;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expression: 'expression',
-      metadataInfo: 'metadataInfo',
-      name: 'name',
-      nullable: 'nullable',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expression: 'string',
-      metadataInfo: MetadataInfo,
-      name: 'string',
-      nullable: 'boolean',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    if(this.metadataInfo && typeof (this.metadataInfo as any).validate === 'function') {
-      (this.metadataInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TableMeta extends $dara.Model {
-  catalogName?: string;
-  databaseName?: string;
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      catalogName: 'catalogName',
-      databaseName: 'databaseName',
-      tableName: 'tableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      catalogName: 'string',
-      databaseName: 'string',
-      tableName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UdfArtifact extends $dara.Model {
-  artifactType?: string;
-  createdAt?: number;
-  creator?: string;
-  dependencyJarUris?: string[];
-  jarUrl?: string;
-  modifiedAt?: number;
-  name?: string;
-  namespace?: string;
-  udfClasses?: UdfClass[];
-  static names(): { [key: string]: string } {
-    return {
-      artifactType: 'artifactType',
-      createdAt: 'createdAt',
-      creator: 'creator',
-      dependencyJarUris: 'dependencyJarUris',
-      jarUrl: 'jarUrl',
-      modifiedAt: 'modifiedAt',
-      name: 'name',
-      namespace: 'namespace',
-      udfClasses: 'udfClasses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      artifactType: 'string',
-      createdAt: 'number',
-      creator: 'string',
-      dependencyJarUris: { 'type': 'array', 'itemType': 'string' },
-      jarUrl: 'string',
-      modifiedAt: 'number',
-      name: 'string',
-      namespace: 'string',
-      udfClasses: { 'type': 'array', 'itemType': UdfClass },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.dependencyJarUris)) {
-      $dara.Model.validateArray(this.dependencyJarUris);
-    }
-    if(Array.isArray(this.udfClasses)) {
-      $dara.Model.validateArray(this.udfClasses);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UdfClass extends $dara.Model {
-  className?: string;
-  classType?: string;
-  functionNames?: string[];
-  udfArtifactName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      className: 'className',
-      classType: 'classType',
-      functionNames: 'functionNames',
-      udfArtifactName: 'udfArtifactName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      className: 'string',
-      classType: 'string',
-      functionNames: { 'type': 'array', 'itemType': 'string' },
-      udfArtifactName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.functionNames)) {
-      $dara.Model.validateArray(this.functionNames);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UdfFunction extends $dara.Model {
-  className?: string;
-  functionName?: string;
-  udfArtifactName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      className: 'className',
-      functionName: 'functionName',
-      udfArtifactName: 'udfArtifactName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      className: 'string',
-      functionName: 'string',
-      udfArtifactName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateJobConfigParam extends $dara.Model {
-  newFlinkConf?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      newFlinkConf: 'newFlinkConf',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newFlinkConf: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.newFlinkConf) {
-      $dara.Model.validateMap(this.newFlinkConf);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUdfArtifactResult extends $dara.Model {
-  collidingClasses?: UdfClass[];
-  message?: string;
-  missingClasses?: UdfClass[];
-  udfArtifact?: UdfArtifact;
-  updateSuccess?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      collidingClasses: 'collidingClasses',
-      message: 'message',
-      missingClasses: 'missingClasses',
-      udfArtifact: 'udfArtifact',
-      updateSuccess: 'updateSuccess',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      collidingClasses: { 'type': 'array', 'itemType': UdfClass },
-      message: 'string',
-      missingClasses: { 'type': 'array', 'itemType': UdfClass },
-      udfArtifact: UdfArtifact,
-      updateSuccess: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.collidingClasses)) {
-      $dara.Model.validateArray(this.collidingClasses);
-    }
-    if(Array.isArray(this.missingClasses)) {
-      $dara.Model.validateArray(this.missingClasses);
-    }
-    if(this.udfArtifact && typeof (this.udfArtifact as any).validate === 'function') {
-      (this.udfArtifact as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateStatementResult extends $dara.Model {
-  errorDetails?: ValidationErrorDetails;
-  /**
-   * @example
-   * "there have some errors""
-   */
-  validationResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorDetails: 'errorDetails',
-      validationResult: 'validationResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorDetails: ValidationErrorDetails,
-      validationResult: 'string',
-    };
-  }
-
-  validate() {
-    if(this.errorDetails && typeof (this.errorDetails as any).validate === 'function') {
-      (this.errorDetails as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidationErrorDetails extends $dara.Model {
-  columnNumber?: string;
-  endColumnNumber?: string;
-  endLineNumber?: string;
-  lineNumber?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      columnNumber: 'columnNumber',
-      endColumnNumber: 'endColumnNumber',
-      endLineNumber: 'endLineNumber',
-      lineNumber: 'lineNumber',
-      message: 'message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnNumber: 'string',
-      endColumnNumber: 'string',
-      endLineNumber: 'string',
-      lineNumber: 'string',
-      message: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Variable extends $dara.Model {
-  /**
-   * @example
-   * This is a variable description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Plain
-   */
-  kind?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * variableName
-   */
-  name?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * variableValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'description',
-      kind: 'kind',
-      name: 'name',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      kind: 'string',
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WatermarkSpec extends $dara.Model {
-  column?: string;
-  watermarkExpression?: string;
-  static names(): { [key: string]: string } {
-    return {
-      column: 'column',
-      watermarkExpression: 'watermarkExpression',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      column: 'string',
-      watermarkExpression: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlanAppliedInfo;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlanAppliedInfo,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ApplyScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ApplyScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the deployment.
-   * 
-   * This parameter is required.
-   */
-  body?: Deployment;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Deployment,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the deployment that you created was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Deployment;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Deployment,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDeploymentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDeploymentResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentDraftHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentDraftRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  body?: DeploymentDraft;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: DeploymentDraft,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentDraftResponseBody extends $dara.Model {
-  data?: DeploymentDraft;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentDraft,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentDraftResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDeploymentDraftResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDeploymentDraftResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTargetHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTargetRequest extends $dara.Model {
-  body?: ResourceSpec;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test-dt
-   */
-  deploymentTargetName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-      deploymentTargetName: 'deploymentTargetName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: ResourceSpec,
-      deploymentTargetName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTargetResponseBody extends $dara.Model {
-  data?: DeploymentTarget;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentTarget,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDeploymentTargetResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDeploymentTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDeploymentTargetResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderRequest extends $dara.Model {
-  body?: Folder;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Folder,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderResponseBody extends $dara.Model {
-  data?: Folder;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Folder,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFolderResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFolderResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMemberHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ca84d539167d4d
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMemberRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The mappings between the ID and permissions of the member.
-   */
-  body?: Member;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Member,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMemberResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, a null value was returned.
-   * *   If the value of success was true, the authorization information was returned.
-   */
-  data?: Member;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F989CA70-2925-5A94-92B7-20F5762B71C8
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Member,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMemberResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMemberResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSavepointHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSavepointRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The deployment ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-   */
-  deploymentId?: string;
-  /**
-   * @remarks
-   * The description of the savepoint.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Specifies whether to use the native format mode. Valid values:
-   * 
-   * *   true: The native format mode is used.
-   * *   false: The native format mode is not used.
-   * 
-   * @example
-   * true
-   */
-  nativeFormat?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      description: 'description',
-      nativeFormat: 'nativeFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      description: 'string',
-      nativeFormat: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSavepointResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the savepoint that was created was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Savepoint;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Savepoint,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSavepointResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSavepointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSavepointResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduledPlanRequest extends $dara.Model {
-  body?: ScheduledPlan;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: ScheduledPlan,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlan;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlan,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSessionClusterRequest extends $dara.Model {
-  body?: SessionCluster;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: SessionCluster,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSessionClusterResponseBody extends $dara.Model {
-  data?: SessionCluster;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SessionCluster,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUdfArtifactHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUdfArtifactRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The resource file of the UDF.
-   * 
-   * This parameter is required.
-   */
-  body?: UdfArtifact;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: UdfArtifact,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUdfArtifactResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result of creating an artifact configuration for the UDF.
-   */
-  data?: CreateUdfArtifactResult;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateUdfArtifactResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUdfArtifactResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUdfArtifactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUdfArtifactResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVariableHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVariableRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter that is used to create the variable.
-   * 
-   * This parameter is required.
-   */
-  body?: Variable;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Variable,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVariableResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the variable that you created was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Variable;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Variable,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVariableResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVariableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVariableResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCustomConnectorHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCustomConnectorResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, a list of deployments in which custom connectors were deleted was returned. If the value of success was false, a null value was returned.
-   */
-  data?: TableMeta[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': TableMeta },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCustomConnectorResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteCustomConnectorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteCustomConnectorResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDeploymentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDeploymentResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentDraftHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentDraftResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentDraftResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDeploymentDraftResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDeploymentDraftResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentTargetHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentTargetResponseBody extends $dara.Model {
-  data?: DeploymentTarget;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentTarget,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDeploymentTargetResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDeploymentTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDeploymentTargetResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * c96306e2b****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFolderResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFolderResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteJobHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteJobResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMemberHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8c34d
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMemberResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMemberResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMemberResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSavepointHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSavepointResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSavepointResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSavepointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSavepointResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlan;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlan,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSessionClusterResponseBody extends $dara.Model {
-  data?: SessionCluster;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SessionCluster,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfArtifactHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfArtifactResponseBody extends $dara.Model {
-  data?: DeleteUdfArtifactResult;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeleteUdfArtifactResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfArtifactResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUdfArtifactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUdfArtifactResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfFunctionHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfFunctionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the class that corresponds to the UDF.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Category
-   */
-  className?: string;
-  /**
-   * @remarks
-   * The name of the resource that corresponds to the UDF that you want to delete.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-udf
-   */
-  udfArtifactName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      className: 'className',
-      udfArtifactName: 'udfArtifactName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      className: 'string',
-      udfArtifactName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfFunctionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUdfFunctionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUdfFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUdfFunctionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVariableHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVariableResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVariableResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVariableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVariableResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployDeploymentDraftAsyncHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployDeploymentDraftAsyncRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  body?: DraftDeployParams;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: DraftDeployParams,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployDeploymentDraftAsyncResponseBody extends $dara.Model {
-  data?: DeployDeploymentDraftAsyncResponseBodyData;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeployDeploymentDraftAsyncResponseBodyData,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployDeploymentDraftAsyncResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeployDeploymentDraftAsyncResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeployDeploymentDraftAsyncResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteSqlStatementHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8c34d
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteSqlStatementRequest extends $dara.Model {
-  body?: SqlStatementWithContext;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: SqlStatementWithContext,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteSqlStatementResponseBody extends $dara.Model {
-  data?: SqlStatementExecuteResult;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SqlStatementExecuteResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteSqlStatementResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExecuteSqlStatementResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExecuteSqlStatementResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FlinkApiProxyHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FlinkApiProxyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The path of the Flink UI.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /jobs/4df35f8e54554b23bf7dcd38a151****
-   */
-  flinkApiPath?: string;
-  /**
-   * @remarks
-   * The name of the namespace.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * default-namespace
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5a27a3aa-c5b9-4dc1-8c86-be57d2d6****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   jobs
-   * *   sessionclusters
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * jobs
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flinkApiPath: 'flinkApiPath',
-      namespace: 'namespace',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flinkApiPath: 'string',
-      namespace: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FlinkApiProxyResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the result of the proxy request was returned.
-   * *   If the value of success was false, a null value was returned.
-   * 
-   * @example
-   * { "jobs": [ { "jid": "4df35f8e54554b23bf7dcd38a151****", "name": "69d001d5-419a-4bfc-9c2e-849cacd3****", "state": "RUNNING", "start-time": 1659154942068, "end-time": -1, "duration": 188161756, "last-modification": 1659154968305, "tasks": { "total": 2, "created": 0, "scheduled": 0, "deploying": 0, "running": 2, "finished": 0, "canceling": 0, "canceled": 0, "failed": 0, "reconciling": 0, "initializing": 0 } } ] }
-   */
-  data?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FlinkApiProxyResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FlinkApiProxyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FlinkApiProxyResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateResourcePlanWithFlinkConfAsyncHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateResourcePlanWithFlinkConfAsyncRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The Flink configuration that is used to generate a resource plan.
-   */
-  body?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  validate() {
-    if(this.body) {
-      $dara.Model.validateMap(this.body);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateResourcePlanWithFlinkConfAsyncResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the asynchronous generation result was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: GenerateResourcePlanWithFlinkConfAsyncResponseBodyData;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GenerateResourcePlanWithFlinkConfAsyncResponseBodyData,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateResourcePlanWithFlinkConfAsyncResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateResourcePlanWithFlinkConfAsyncResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateResourcePlanWithFlinkConfAsyncResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppliedScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppliedScheduledPlanRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 5737ef81-d2f1-49cf-8752-30910809****
-   */
-  deploymentId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppliedScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlanAppliedInfo;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlanAppliedInfo,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAppliedScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAppliedScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAppliedScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCatalogsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCatalogsRequest extends $dara.Model {
-  /**
-   * @example
-   * paimon
-   */
-  catalogName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      catalogName: 'catalogName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      catalogName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCatalogsResponseBody extends $dara.Model {
-  data?: Catalog[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Catalog },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCatalogsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetCatalogsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetCatalogsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatabasesHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatabasesRequest extends $dara.Model {
-  /**
-   * @example
-   * paimon-ods
-   */
-  databaseName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseName: 'databaseName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatabasesResponseBody extends $dara.Model {
-  data?: Database[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Database },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDatabasesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDatabasesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDatabasesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeployDeploymentDraftResultHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeployDeploymentDraftResultResponseBody extends $dara.Model {
-  data?: AsyncDraftDeployResult;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AsyncDraftDeployResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeployDeploymentDraftResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeployDeploymentDraftResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeployDeploymentDraftResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the details of the deployment were returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Deployment;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Deployment,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeploymentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeploymentResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftResponseBody extends $dara.Model {
-  data?: DeploymentDraft;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentDraft,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeploymentDraftResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeploymentDraftResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftLockHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftLockRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * c84d73be-40ad-4627-8bdd-fa1eba51b234
-   */
-  deploymentDraftId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentDraftId: 'deploymentDraftId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentDraftId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftLockResponseBody extends $dara.Model {
-  data?: Lock;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Lock,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDeploymentDraftLockResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetDeploymentDraftLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetDeploymentDraftLockResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventsRequest extends $dara.Model {
-  /**
-   * @example
-   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventsResponseBody extends $dara.Model {
-  data?: Event[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 4
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Event },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEventsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetEventsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderRequest extends $dara.Model {
-  /**
-   * @example
-   * 89097
-   */
-  folderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      folderId: 'folderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      folderId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data structure of the folder.
-   */
-  data?: Folder;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Folder,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFolderResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFolderResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGenerateResourcePlanResultHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGenerateResourcePlanResultResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the asynchronous generation result was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: AsyncResourcePlanOperationResult;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AsyncResourcePlanOperationResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGenerateResourcePlanResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetGenerateResourcePlanResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetGenerateResourcePlanResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotUpdateJobResultHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotUpdateJobResultResponseBody extends $dara.Model {
-  data?: HotUpdateJobResult;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: HotUpdateJobResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotUpdateJobResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetHotUpdateJobResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetHotUpdateJobResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBody extends $dara.Model {
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * *   If the value of success was true, the details of the job was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Job;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: Job,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobDiagnosisHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobDiagnosisResponseBody extends $dara.Model {
-  /**
-   * @example
-   * “”
-   */
-  accessDeniedDetail?: string;
-  data?: JobDiagnosis;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: JobDiagnosis,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobDiagnosisResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetJobDiagnosisResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetJobDiagnosisResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLatestJobStartLogHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLatestJobStartLogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was false, the latest logs of the deployment were returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * "[main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------\\n2024-05-22 11:46:39,871 [main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint"
-   */
-  data?: string;
-  /**
-   * @remarks
-   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLatestJobStartLogResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLatestJobStartLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLatestJobStartLogResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLineageInfoHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLineageInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameters about the lineage information.
-   */
-  body?: GetLineageInfoParams;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: GetLineageInfoParams,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLineageInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The lineage information.
-   */
-  data?: LineageInfo;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: LineageInfo,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLineageInfoResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLineageInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLineageInfoResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMemberHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMemberResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, a null value was returned.
-   * *   If the value of success was true, the authorization information was returned.
-   */
-  data?: Member;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Member,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMemberResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMemberResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavepointHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavepointResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the savepoint information was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Savepoint;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Savepoint,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSavepointResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSavepointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSavepointResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSessionClusterResponseBody extends $dara.Model {
-  data?: SessionCluster;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SessionCluster,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTablesHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTablesRequest extends $dara.Model {
-  /**
-   * @example
-   * item
-   */
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tableName: 'tableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tableName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTablesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, the list and details of tables that meet the condition were returned. If the value of success was false, a null value was returned.
-   */
-  data?: Table[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * ECE641B2-AB0B-4174-9C3B-885881558637
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Table },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTablesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetTablesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTablesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUdfArtifactsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8c34d
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUdfArtifactsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the JAR or Python file that corresponds to the UDF.
-   * 
-   * @example
-   * test-udf
-   */
-  udfArtifactName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      udfArtifactName: 'udfArtifactName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      udfArtifactName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUdfArtifactsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, the details of the JAR or Python file that corresponds to the UDF were returned. If the value of success was false, a null value was returned.
-   */
-  data?: UdfArtifact[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': UdfArtifact },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetUdfArtifactsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetUdfArtifactsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetUdfArtifactsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The dynamic update result.
-   */
-  data?: HotUpdateJobResult;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: HotUpdateJobResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotUpdateJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: HotUpdateJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: HotUpdateJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCustomConnectorsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCustomConnectorsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, the list of custom connectors in the namespace was returned. If the value of success was false, a null value was returned.
-   */
-  data?: Connector[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Connector },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCustomConnectorsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListCustomConnectorsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListCustomConnectorsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentDraftsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentDraftsRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentDraftsResponseBody extends $dara.Model {
-  data?: DeploymentDraft[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 69
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DeploymentDraft },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentDraftsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDeploymentDraftsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeploymentDraftsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentTargetsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentTargetsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentTargetsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, a list of clusters in which the deployment is deployed was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: DeploymentTarget[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DeploymentTarget },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentTargetsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDeploymentTargetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeploymentTargetsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the user who creates the deployment.
-   * 
-   * @example
-   * 183899668*******
-   */
-  creator?: string;
-  /**
-   * @remarks
-   * The execution mode of the deployment.
-   * 
-   * Valid values:
-   * 
-   * *   BATCH
-   * *   STREAMING
-   * 
-   * @example
-   * STREAMING
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key
-   */
-  labelKey?: string;
-  /**
-   * @remarks
-   * The tag value. Separate multiple values with semicolon (;).
-   * 
-   * @example
-   * value1,value2
-   */
-  labelValueArray?: string;
-  /**
-   * @remarks
-   * The ID of the user who modifies the deployment.
-   * 
-   * @example
-   * 183899668*******
-   */
-  modifier?: string;
-  /**
-   * @remarks
-   * The name of the deployment.
-   * 
-   * @example
-   * vvp_ds_0522
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  sortName?: string;
-  /**
-   * @remarks
-   * The latest status of the deployment.
-   * 
-   * Valid values:
-   * 
-   * *   CANCELLED
-   * *   FAILED
-   * *   RUNNING
-   * *   TRANSITIONING
-   * *   FINISHED
-   * 
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      creator: 'creator',
-      executionMode: 'executionMode',
-      labelKey: 'labelKey',
-      labelValueArray: 'labelValueArray',
-      modifier: 'modifier',
-      name: 'name',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      sortName: 'sortName',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creator: 'string',
-      executionMode: 'string',
-      labelKey: 'string',
-      labelValueArray: 'string',
-      modifier: 'string',
-      name: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      sortName: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the list of all deployments was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Deployment[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Deployment },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDeploymentsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListDeploymentsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListDeploymentsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEditableNamespaceRequest extends $dara.Model {
-  namespace?: string;
-  pageIndex?: string;
-  pageSize?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  workspaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      namespace: 'namespace',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      regionId: 'regionId',
-      workspaceId: 'workspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespace: 'string',
-      pageIndex: 'string',
-      pageSize: 'string',
-      regionId: 'string',
-      workspaceId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEditableNamespaceResponseBody extends $dara.Model {
-  data?: ListEditableNamespaceResponseBodyData;
-  httpCode?: number;
-  message?: string;
-  reason?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      httpCode: 'httpCode',
-      message: 'message',
-      reason: 'reason',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListEditableNamespaceResponseBodyData,
-      httpCode: 'number',
-      message: 'string',
-      reason: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEditableNamespaceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListEditableNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListEditableNamespaceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEngineVersionMetadataHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEngineVersionMetadataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the engine versions that are supported by Realtime Compute for Apache Flink were returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: EngineVersionMetadataIndex;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: EngineVersionMetadataIndex,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEngineVersionMetadataResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListEngineVersionMetadataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListEngineVersionMetadataResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The deployment ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-   */
-  deploymentId?: string;
-  /**
-   * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The collation.
-   * 
-   * Valid values:
-   * 
-   * *   gmt_create
-   * *   job_id
-   * *   status
-   * 
-   * @example
-   * gmt_create
-   */
-  sortName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      sortName: 'sortName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      sortName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponseBody extends $dara.Model {
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * *   If the value of success was true, all jobs that meet the condition were returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Job[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: { 'type': 'array', 'itemType': Job },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListJobsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMembersHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMembersRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMembersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was false, a null value was returned.
-   * *   If the value of success was true, the authorization information was returned.
-   */
-  data?: Member[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 50
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Member },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMembersResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMembersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMembersResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSavepointsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSavepointsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The deployment ID. This parameter is optional.
-   * 
-   * @example
-   * 88a8fc49-e090-430a-85d8-3ee8c79c****
-   */
-  deploymentId?: string;
-  /**
-   * @remarks
-   * The job ID. This parameter is optional.
-   * 
-   * @example
-   * 99a8fc49-e090-430a-85d8-3ee8c79c****
-   */
-  jobId?: string;
-  /**
-   * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      jobId: 'jobId',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      jobId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSavepointsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, a list of savepoints was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Savepoint[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Savepoint },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSavepointsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSavepointsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSavepointsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanRequest extends $dara.Model {
-  /**
-   * @example
-   * 737d0921-c5ac-47fc-9ba9-07a1e0b4****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlan[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 4
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ScheduledPlan },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanExecutedHistoryHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanExecutedHistoryRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-   */
-  deploymentId?: string;
-  /**
-   * @example
-   * SCHEDULED_PLAN
-   */
-  origin?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'deploymentId',
-      origin: 'origin',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      origin: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanExecutedHistoryResponseBody extends $dara.Model {
-  data?: ScheduledPlanExecutedInfo[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ScheduledPlanExecutedInfo },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScheduledPlanExecutedHistoryResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListScheduledPlanExecutedHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListScheduledPlanExecutedHistoryResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionClustersHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionClustersResponseBody extends $dara.Model {
-  data?: SessionCluster[];
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': SessionCluster },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSessionClustersResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSessionClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSessionClustersResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVariablesHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVariablesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The page number. Minimum value: 1. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVariablesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, a list of variables was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Variable[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      pageIndex: 'pageIndex',
-      pageSize: 'pageSize',
-      requestId: 'requestId',
-      success: 'success',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Variable },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalSize: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVariablesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListVariablesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListVariablesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterCustomConnectorHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterCustomConnectorRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The URL in which the JAR package of the custom connector is stored. The platform must be able to access this address.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * oss://flink/connector/mysql123
-   */
-  jarUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jarUrl: 'jarUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jarUrl: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterCustomConnectorResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, a list of deployments in which custom connectors were deleted was returned. If the value of success was false, a null value was returned.
-   */
-  data?: Connector[];
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': Connector },
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.data)) {
-      $dara.Model.validateArray(this.data);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterCustomConnectorResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegisterCustomConnectorResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegisterCustomConnectorResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterUdfFunctionHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterUdfFunctionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the class that corresponds to the UDF.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * orderRank
-   */
-  className?: string;
-  /**
-   * @remarks
-   * The name of the UDF. In most cases, the name of the UDF is the same as the class name. You can specify a name for the UDF.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * orderRank
-   */
-  functionName?: string;
-  /**
-   * @remarks
-   * The name of the JAR or Python file that corresponds to the UDF.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-udf
-   */
-  udfArtifactName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      className: 'className',
-      functionName: 'functionName',
-      udfArtifactName: 'udfArtifactName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      className: 'string',
-      functionName: 'string',
-      udfArtifactName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterUdfFunctionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the UDF.
-   */
-  data?: UdfFunction;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UdfFunction,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterUdfFunctionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegisterUdfFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegisterUdfFunctionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter that is used to start the job.
-   * 
-   * This parameter is required.
-   */
-  body?: StartJobRequestBody;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: StartJobRequestBody,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobResponseBody extends $dara.Model {
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * *   If the value of success was true, the job that you created was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Job;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: Job,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobWithParamsHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobWithParamsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter that is used to start the job.
-   */
-  body?: JobStartParameters;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: JobStartParameters,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobWithParamsResponseBody extends $dara.Model {
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The details of the job of the deployment returned.
-   */
-  data?: Job;
-  /**
-   * @remarks
-   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: Job,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartJobWithParamsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartJobWithParamsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartJobWithParamsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bda1c4a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSessionClusterResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopApplyScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopApplyScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlanAppliedInfo;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlanAppliedInfo,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopApplyScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopApplyScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopApplyScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopJobHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopJobRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter that is used to stop the job.
-   * 
-   * This parameter is required.
-   */
-  body?: StopJobRequestBody;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: StopJobRequestBody,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopJobResponseBody extends $dara.Model {
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * *   If the value of success was true, the job that you stopped was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Job;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: Job,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopJobResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopJobResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopSessionClusterResponseBody extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the deployment that you want to update.
-   * 
-   * This parameter is required.
-   */
-  body?: Deployment;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Deployment,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * *   If the value of success was true, the information about the deployment after the update was returned.
-   * *   If the value of success was false, a null value was returned.
-   */
-  data?: Deployment;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Deployment,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDeploymentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDeploymentResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentDraftHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentDraftRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  body?: DeploymentDraft;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: DeploymentDraft,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentDraftResponseBody extends $dara.Model {
-  data?: DeploymentDraft;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentDraft,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentDraftResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDeploymentDraftResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDeploymentDraftResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentTargetHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentTargetRequest extends $dara.Model {
-  body?: ResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: ResourceSpec,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentTargetResponseBody extends $dara.Model {
-  data?: DeploymentTarget;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeploymentTarget,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDeploymentTargetResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDeploymentTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDeploymentTargetResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f89a0c1ca8****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  body?: Folder;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Folder,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderResponseBody extends $dara.Model {
-  data?: Folder;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Folder,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFolderResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateFolderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateFolderResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMemberHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMemberRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The permission information about the member.
-   */
-  body?: Member;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Member,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMemberResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * If the value of success was true, the member that was created was returned. If the value of success was false, a null value was returned.
-   */
-  data?: Member;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: Member,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateMemberResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateMemberResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduledPlanHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduledPlanRequest extends $dara.Model {
-  body?: ScheduledPlan;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: ScheduledPlan,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduledPlanResponseBody extends $dara.Model {
-  data?: ScheduledPlan;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScheduledPlan,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduledPlanResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateScheduledPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateScheduledPlanResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSessionClusterHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 710d6a64d8c34d
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSessionClusterRequest extends $dara.Model {
-  body?: SessionCluster;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: SessionCluster,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSessionClusterResponseBody extends $dara.Model {
-  data?: SessionCluster;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1EF03B0C-F44F-47AD-BB48-D002D0F7B8C9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SessionCluster,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSessionClusterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSessionClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSessionClusterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUdfArtifactHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUdfArtifactRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the JAR file of the UDF.
-   * 
-   * This parameter is required.
-   */
-  body?: UdfArtifact;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: UdfArtifact,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUdfArtifactResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The result of updating the JAR file of the UDF.
-   */
-  data?: UpdateUdfArtifactResult;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error code was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * *   If the value of success was false, an error message was returned.
-   * *   If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateUdfArtifactResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUdfArtifactResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUdfArtifactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUdfArtifactResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVariableHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVariableRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  body?: Variable;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: Variable,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVariableResponseBody extends $dara.Model {
-  /**
-   * @example
-   * “”
-   */
-  accessDeniedDetail?: string;
-  data?: Variable;
-  /**
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @example
-   * 1EF03B0C-F44F-47AD-BB48-D002D0F7B8C9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      data: Variable,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVariableResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateVariableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateVariableResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateSqlStatementHeaders extends $dara.Model {
-  commonHeaders?: { [key: string]: string };
-  /**
-   * @remarks
-   * The workspace ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * a14bd5d90a****
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commonHeaders: 'commonHeaders',
-      workspace: 'workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    if(this.commonHeaders) {
-      $dara.Model.validateMap(this.commonHeaders);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateSqlStatementRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the code that you want to verify.
-   * 
-   * This parameter is required.
-   */
-  body?: SqlStatementWithContext;
-  static names(): { [key: string]: string } {
-    return {
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      body: SqlStatementWithContext,
-    };
-  }
-
-  validate() {
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateSqlStatementResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data, which represents the details of SQL validation results.
-   */
-  data?: SqlStatementValidationResult;
-  /**
-   * @remarks
-   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
-   * 
-   * @example
-   * ""
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The status code returned. The value was fixed to 200.
-   * 
-   * @example
-   * 200
-   */
-  httpCode?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CBC799F0-****-1D30-8A4F-882ED4DD5E02
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      httpCode: 'httpCode',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SqlStatementValidationResult,
-      errorCode: 'string',
-      errorMessage: 'string',
-      httpCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ValidateSqlStatementResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ValidateSqlStatementResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ValidateSqlStatementResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -18008,7 +36,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApplyScheduledPlanResponse
    */
-  async applyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: ApplyScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<ApplyScheduledPlanResponse> {
+  async applyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: $_model.ApplyScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyScheduledPlanResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18032,22 +60,79 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new ApplyScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<ApplyScheduledPlanResponse>(await this.execute(params, req, runtime), new ApplyScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.ApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.ApplyScheduledPlanResponse({}));
   }
 
   /**
    * 执行定时计划
    * @returns ApplyScheduledPlanResponse
    */
-  async applyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<ApplyScheduledPlanResponse> {
+  async applyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.ApplyScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ApplyScheduledPlanHeaders({ });
+    let headers = new $_model.ApplyScheduledPlanHeaders({ });
     return await this.applyScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
+  }
+
+  /**
+   * 取消调试
+   * 
+   * @param request - CancelSqlPreviewRequest
+   * @param headers - CancelSqlPreviewHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSqlPreviewResponse
+   */
+  async cancelSqlPreviewWithOptions(namespace: string, request: $_model.CancelSqlPreviewRequest, headers: $_model.CancelSqlPreviewHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CancelSqlPreviewResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.queryId)) {
+      query["queryId"] = request.queryId;
+    }
+
+    if (!$dara.isNull(request.sessionClusterName)) {
+      query["sessionClusterName"] = request.sessionClusterName;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelSqlPreview",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-preview/cancel`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelSqlPreviewResponse>(await this.callApi(params, req, runtime), new $_model.CancelSqlPreviewResponse({}));
+  }
+
+  /**
+   * 取消调试
+   * 
+   * @param request - CancelSqlPreviewRequest
+   * @returns CancelSqlPreviewResponse
+   */
+  async cancelSqlPreview(namespace: string, request: $_model.CancelSqlPreviewRequest): Promise<$_model.CancelSqlPreviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CancelSqlPreviewHeaders({ });
+    return await this.cancelSqlPreviewWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -18058,7 +143,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDeploymentResponse
    */
-  async createDeploymentWithOptions(namespace: string, request: CreateDeploymentRequest, headers: CreateDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<CreateDeploymentResponse> {
+  async createDeploymentWithOptions(namespace: string, request: $_model.CreateDeploymentRequest, headers: $_model.CreateDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeploymentResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18084,12 +169,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDeploymentResponse>(await this.callApi(params, req, runtime), new CreateDeploymentResponse({}));
-    } else {
-      return $dara.cast<CreateDeploymentResponse>(await this.execute(params, req, runtime), new CreateDeploymentResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeploymentResponse({}));
   }
 
   /**
@@ -18098,9 +178,9 @@ export default class Client extends OpenApi {
    * @param request - CreateDeploymentRequest
    * @returns CreateDeploymentResponse
    */
-  async createDeployment(namespace: string, request: CreateDeploymentRequest): Promise<CreateDeploymentResponse> {
+  async createDeployment(namespace: string, request: $_model.CreateDeploymentRequest): Promise<$_model.CreateDeploymentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateDeploymentHeaders({ });
+    let headers = new $_model.CreateDeploymentHeaders({ });
     return await this.createDeploymentWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18112,7 +192,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDeploymentDraftResponse
    */
-  async createDeploymentDraftWithOptions(namespace: string, request: CreateDeploymentDraftRequest, headers: CreateDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<CreateDeploymentDraftResponse> {
+  async createDeploymentDraftWithOptions(namespace: string, request: $_model.CreateDeploymentDraftRequest, headers: $_model.CreateDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeploymentDraftResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18138,12 +218,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new CreateDeploymentDraftResponse({}));
-    } else {
-      return $dara.cast<CreateDeploymentDraftResponse>(await this.execute(params, req, runtime), new CreateDeploymentDraftResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeploymentDraftResponse({}));
   }
 
   /**
@@ -18152,9 +227,9 @@ export default class Client extends OpenApi {
    * @param request - CreateDeploymentDraftRequest
    * @returns CreateDeploymentDraftResponse
    */
-  async createDeploymentDraft(namespace: string, request: CreateDeploymentDraftRequest): Promise<CreateDeploymentDraftResponse> {
+  async createDeploymentDraft(namespace: string, request: $_model.CreateDeploymentDraftRequest): Promise<$_model.CreateDeploymentDraftResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateDeploymentDraftHeaders({ });
+    let headers = new $_model.CreateDeploymentDraftHeaders({ });
     return await this.createDeploymentDraftWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18166,7 +241,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDeploymentTargetResponse
    */
-  async createDeploymentTargetWithOptions(namespace: string, request: CreateDeploymentTargetRequest, headers: CreateDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<CreateDeploymentTargetResponse> {
+  async createDeploymentTargetWithOptions(namespace: string, request: $_model.CreateDeploymentTargetRequest, headers: $_model.CreateDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeploymentTargetResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentTargetName)) {
@@ -18198,12 +273,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new CreateDeploymentTargetResponse({}));
-    } else {
-      return $dara.cast<CreateDeploymentTargetResponse>(await this.execute(params, req, runtime), new CreateDeploymentTargetResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeploymentTargetResponse({}));
   }
 
   /**
@@ -18212,10 +282,65 @@ export default class Client extends OpenApi {
    * @param request - CreateDeploymentTargetRequest
    * @returns CreateDeploymentTargetResponse
    */
-  async createDeploymentTarget(namespace: string, request: CreateDeploymentTargetRequest): Promise<CreateDeploymentTargetResponse> {
+  async createDeploymentTarget(namespace: string, request: $_model.CreateDeploymentTargetRequest): Promise<$_model.CreateDeploymentTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateDeploymentTargetHeaders({ });
+    let headers = new $_model.CreateDeploymentTargetHeaders({ });
     return await this.createDeploymentTargetWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 创建部署目标V2
+   * 
+   * @param request - CreateDeploymentTargetV2Request
+   * @param headers - CreateDeploymentTargetV2Headers
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeploymentTargetV2Response
+   */
+  async createDeploymentTargetV2WithOptions(namespace: string, request: $_model.CreateDeploymentTargetV2Request, headers: $_model.CreateDeploymentTargetV2Headers, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeploymentTargetV2Response> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deploymentTargetName)) {
+      query["deploymentTargetName"] = request.deploymentTargetName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDeploymentTargetV2",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployment-targets/support-elastic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDeploymentTargetV2Response>(await this.callApi(params, req, runtime), new $_model.CreateDeploymentTargetV2Response({}));
+  }
+
+  /**
+   * 创建部署目标V2
+   * 
+   * @param request - CreateDeploymentTargetV2Request
+   * @returns CreateDeploymentTargetV2Response
+   */
+  async createDeploymentTargetV2(namespace: string, request: $_model.CreateDeploymentTargetV2Request): Promise<$_model.CreateDeploymentTargetV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateDeploymentTargetV2Headers({ });
+    return await this.createDeploymentTargetV2WithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -18226,7 +351,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFolderResponse
    */
-  async createFolderWithOptions(namespace: string, request: CreateFolderRequest, headers: CreateFolderHeaders, runtime: $dara.RuntimeOptions): Promise<CreateFolderResponse> {
+  async createFolderWithOptions(namespace: string, request: $_model.CreateFolderRequest, headers: $_model.CreateFolderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFolderResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18252,12 +377,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
-    } else {
-      return $dara.cast<CreateFolderResponse>(await this.execute(params, req, runtime), new CreateFolderResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateFolderResponse>(await this.callApi(params, req, runtime), new $_model.CreateFolderResponse({}));
   }
 
   /**
@@ -18266,9 +386,9 @@ export default class Client extends OpenApi {
    * @param request - CreateFolderRequest
    * @returns CreateFolderResponse
    */
-  async createFolder(namespace: string, request: CreateFolderRequest): Promise<CreateFolderResponse> {
+  async createFolder(namespace: string, request: $_model.CreateFolderRequest): Promise<$_model.CreateFolderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateFolderHeaders({ });
+    let headers = new $_model.CreateFolderHeaders({ });
     return await this.createFolderWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18280,7 +400,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMemberResponse
    */
-  async createMemberWithOptions(namespace: string, request: CreateMemberRequest, headers: CreateMemberHeaders, runtime: $dara.RuntimeOptions): Promise<CreateMemberResponse> {
+  async createMemberWithOptions(namespace: string, request: $_model.CreateMemberRequest, headers: $_model.CreateMemberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemberResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18306,12 +426,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateMemberResponse>(await this.callApi(params, req, runtime), new CreateMemberResponse({}));
-    } else {
-      return $dara.cast<CreateMemberResponse>(await this.execute(params, req, runtime), new CreateMemberResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateMemberResponse>(await this.callApi(params, req, runtime), new $_model.CreateMemberResponse({}));
   }
 
   /**
@@ -18320,9 +435,9 @@ export default class Client extends OpenApi {
    * @param request - CreateMemberRequest
    * @returns CreateMemberResponse
    */
-  async createMember(namespace: string, request: CreateMemberRequest): Promise<CreateMemberResponse> {
+  async createMember(namespace: string, request: $_model.CreateMemberRequest): Promise<$_model.CreateMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateMemberHeaders({ });
+    let headers = new $_model.CreateMemberHeaders({ });
     return await this.createMemberWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18334,7 +449,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSavepointResponse
    */
-  async createSavepointWithOptions(namespace: string, request: CreateSavepointRequest, headers: CreateSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<CreateSavepointResponse> {
+  async createSavepointWithOptions(namespace: string, request: $_model.CreateSavepointRequest, headers: $_model.CreateSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSavepointResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -18373,12 +488,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateSavepointResponse>(await this.callApi(params, req, runtime), new CreateSavepointResponse({}));
-    } else {
-      return $dara.cast<CreateSavepointResponse>(await this.execute(params, req, runtime), new CreateSavepointResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateSavepointResponse>(await this.callApi(params, req, runtime), new $_model.CreateSavepointResponse({}));
   }
 
   /**
@@ -18387,9 +497,9 @@ export default class Client extends OpenApi {
    * @param request - CreateSavepointRequest
    * @returns CreateSavepointResponse
    */
-  async createSavepoint(namespace: string, request: CreateSavepointRequest): Promise<CreateSavepointResponse> {
+  async createSavepoint(namespace: string, request: $_model.CreateSavepointRequest): Promise<$_model.CreateSavepointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateSavepointHeaders({ });
+    let headers = new $_model.CreateSavepointHeaders({ });
     return await this.createSavepointWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18401,7 +511,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScheduledPlanResponse
    */
-  async createScheduledPlanWithOptions(namespace: string, request: CreateScheduledPlanRequest, headers: CreateScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<CreateScheduledPlanResponse> {
+  async createScheduledPlanWithOptions(namespace: string, request: $_model.CreateScheduledPlanRequest, headers: $_model.CreateScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScheduledPlanResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18427,12 +537,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateScheduledPlanResponse>(await this.callApi(params, req, runtime), new CreateScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<CreateScheduledPlanResponse>(await this.execute(params, req, runtime), new CreateScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.CreateScheduledPlanResponse({}));
   }
 
   /**
@@ -18441,9 +546,9 @@ export default class Client extends OpenApi {
    * @param request - CreateScheduledPlanRequest
    * @returns CreateScheduledPlanResponse
    */
-  async createScheduledPlan(namespace: string, request: CreateScheduledPlanRequest): Promise<CreateScheduledPlanResponse> {
+  async createScheduledPlan(namespace: string, request: $_model.CreateScheduledPlanRequest): Promise<$_model.CreateScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateScheduledPlanHeaders({ });
+    let headers = new $_model.CreateScheduledPlanHeaders({ });
     return await this.createScheduledPlanWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18455,7 +560,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSessionClusterResponse
    */
-  async createSessionClusterWithOptions(namespace: string, request: CreateSessionClusterRequest, headers: CreateSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<CreateSessionClusterResponse> {
+  async createSessionClusterWithOptions(namespace: string, request: $_model.CreateSessionClusterRequest, headers: $_model.CreateSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSessionClusterResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18481,12 +586,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateSessionClusterResponse>(await this.callApi(params, req, runtime), new CreateSessionClusterResponse({}));
-    } else {
-      return $dara.cast<CreateSessionClusterResponse>(await this.execute(params, req, runtime), new CreateSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateSessionClusterResponse({}));
   }
 
   /**
@@ -18495,9 +595,9 @@ export default class Client extends OpenApi {
    * @param request - CreateSessionClusterRequest
    * @returns CreateSessionClusterResponse
    */
-  async createSessionCluster(namespace: string, request: CreateSessionClusterRequest): Promise<CreateSessionClusterResponse> {
+  async createSessionCluster(namespace: string, request: $_model.CreateSessionClusterRequest): Promise<$_model.CreateSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateSessionClusterHeaders({ });
+    let headers = new $_model.CreateSessionClusterHeaders({ });
     return await this.createSessionClusterWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18509,7 +609,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUdfArtifactResponse
    */
-  async createUdfArtifactWithOptions(namespace: string, request: CreateUdfArtifactRequest, headers: CreateUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<CreateUdfArtifactResponse> {
+  async createUdfArtifactWithOptions(namespace: string, request: $_model.CreateUdfArtifactRequest, headers: $_model.CreateUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUdfArtifactResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18535,12 +635,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateUdfArtifactResponse>(await this.callApi(params, req, runtime), new CreateUdfArtifactResponse({}));
-    } else {
-      return $dara.cast<CreateUdfArtifactResponse>(await this.execute(params, req, runtime), new CreateUdfArtifactResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateUdfArtifactResponse>(await this.callApi(params, req, runtime), new $_model.CreateUdfArtifactResponse({}));
   }
 
   /**
@@ -18549,9 +644,9 @@ export default class Client extends OpenApi {
    * @param request - CreateUdfArtifactRequest
    * @returns CreateUdfArtifactResponse
    */
-  async createUdfArtifact(namespace: string, request: CreateUdfArtifactRequest): Promise<CreateUdfArtifactResponse> {
+  async createUdfArtifact(namespace: string, request: $_model.CreateUdfArtifactRequest): Promise<$_model.CreateUdfArtifactResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateUdfArtifactHeaders({ });
+    let headers = new $_model.CreateUdfArtifactHeaders({ });
     return await this.createUdfArtifactWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18563,7 +658,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVariableResponse
    */
-  async createVariableWithOptions(namespace: string, request: CreateVariableRequest, headers: CreateVariableHeaders, runtime: $dara.RuntimeOptions): Promise<CreateVariableResponse> {
+  async createVariableWithOptions(namespace: string, request: $_model.CreateVariableRequest, headers: $_model.CreateVariableHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVariableResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -18589,12 +684,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateVariableResponse>(await this.callApi(params, req, runtime), new CreateVariableResponse({}));
-    } else {
-      return $dara.cast<CreateVariableResponse>(await this.execute(params, req, runtime), new CreateVariableResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateVariableResponse>(await this.callApi(params, req, runtime), new $_model.CreateVariableResponse({}));
   }
 
   /**
@@ -18603,9 +693,9 @@ export default class Client extends OpenApi {
    * @param request - CreateVariableRequest
    * @returns CreateVariableResponse
    */
-  async createVariable(namespace: string, request: CreateVariableRequest): Promise<CreateVariableResponse> {
+  async createVariable(namespace: string, request: $_model.CreateVariableRequest): Promise<$_model.CreateVariableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new CreateVariableHeaders({ });
+    let headers = new $_model.CreateVariableHeaders({ });
     return await this.createVariableWithOptions(namespace, request, headers, runtime);
   }
 
@@ -18616,7 +706,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomConnectorResponse
    */
-  async deleteCustomConnectorWithOptions(namespace: string, connectorName: string, headers: DeleteCustomConnectorHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteCustomConnectorResponse> {
+  async deleteCustomConnectorWithOptions(namespace: string, connectorName: string, headers: $_model.DeleteCustomConnectorHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomConnectorResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18640,21 +730,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteCustomConnectorResponse>(await this.callApi(params, req, runtime), new DeleteCustomConnectorResponse({}));
-    } else {
-      return $dara.cast<DeleteCustomConnectorResponse>(await this.execute(params, req, runtime), new DeleteCustomConnectorResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteCustomConnectorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomConnectorResponse({}));
   }
 
   /**
    * Deletes a registered custom connector from a workspace.
    * @returns DeleteCustomConnectorResponse
    */
-  async deleteCustomConnector(namespace: string, connectorName: string): Promise<DeleteCustomConnectorResponse> {
+  async deleteCustomConnector(namespace: string, connectorName: string): Promise<$_model.DeleteCustomConnectorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteCustomConnectorHeaders({ });
+    let headers = new $_model.DeleteCustomConnectorHeaders({ });
     return await this.deleteCustomConnectorWithOptions(namespace, connectorName, headers, runtime);
   }
 
@@ -18665,7 +750,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDeploymentResponse
    */
-  async deleteDeploymentWithOptions(namespace: string, deploymentId: string, headers: DeleteDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteDeploymentResponse> {
+  async deleteDeploymentWithOptions(namespace: string, deploymentId: string, headers: $_model.DeleteDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeploymentResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18689,21 +774,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDeploymentResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentResponse({}));
-    } else {
-      return $dara.cast<DeleteDeploymentResponse>(await this.execute(params, req, runtime), new DeleteDeploymentResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeploymentResponse({}));
   }
 
   /**
    * Deletes a deployment based on the deployment ID.
    * @returns DeleteDeploymentResponse
    */
-  async deleteDeployment(namespace: string, deploymentId: string): Promise<DeleteDeploymentResponse> {
+  async deleteDeployment(namespace: string, deploymentId: string): Promise<$_model.DeleteDeploymentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteDeploymentHeaders({ });
+    let headers = new $_model.DeleteDeploymentHeaders({ });
     return await this.deleteDeploymentWithOptions(namespace, deploymentId, headers, runtime);
   }
 
@@ -18714,7 +794,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDeploymentDraftResponse
    */
-  async deleteDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: DeleteDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteDeploymentDraftResponse> {
+  async deleteDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: $_model.DeleteDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeploymentDraftResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18738,21 +818,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDeploymentDraftResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentDraftResponse({}));
-    } else {
-      return $dara.cast<DeleteDeploymentDraftResponse>(await this.execute(params, req, runtime), new DeleteDeploymentDraftResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteDeploymentDraftResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeploymentDraftResponse({}));
   }
 
   /**
    * delete a deploymentDraft
    * @returns DeleteDeploymentDraftResponse
    */
-  async deleteDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<DeleteDeploymentDraftResponse> {
+  async deleteDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<$_model.DeleteDeploymentDraftResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteDeploymentDraftHeaders({ });
+    let headers = new $_model.DeleteDeploymentDraftHeaders({ });
     return await this.deleteDeploymentDraftWithOptions(namespace, deploymentDraftId, headers, runtime);
   }
 
@@ -18763,7 +838,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDeploymentTargetResponse
    */
-  async deleteDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, headers: DeleteDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteDeploymentTargetResponse> {
+  async deleteDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, headers: $_model.DeleteDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeploymentTargetResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18787,21 +862,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteDeploymentTargetResponse>(await this.callApi(params, req, runtime), new DeleteDeploymentTargetResponse({}));
-    } else {
-      return $dara.cast<DeleteDeploymentTargetResponse>(await this.execute(params, req, runtime), new DeleteDeploymentTargetResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteDeploymentTargetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDeploymentTargetResponse({}));
   }
 
   /**
    * 删除deploymentTarget
    * @returns DeleteDeploymentTargetResponse
    */
-  async deleteDeploymentTarget(namespace: string, deploymentTargetName: string): Promise<DeleteDeploymentTargetResponse> {
+  async deleteDeploymentTarget(namespace: string, deploymentTargetName: string): Promise<$_model.DeleteDeploymentTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteDeploymentTargetHeaders({ });
+    let headers = new $_model.DeleteDeploymentTargetHeaders({ });
     return await this.deleteDeploymentTargetWithOptions(namespace, deploymentTargetName, headers, runtime);
   }
 
@@ -18812,7 +882,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFolderResponse
    */
-  async deleteFolderWithOptions(namespace: string, folderId: string, headers: DeleteFolderHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteFolderResponse> {
+  async deleteFolderWithOptions(namespace: string, folderId: string, headers: $_model.DeleteFolderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFolderResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18836,21 +906,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
-    } else {
-      return $dara.cast<DeleteFolderResponse>(await this.execute(params, req, runtime), new DeleteFolderResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteFolderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFolderResponse({}));
   }
 
   /**
    * delete a folder
    * @returns DeleteFolderResponse
    */
-  async deleteFolder(namespace: string, folderId: string): Promise<DeleteFolderResponse> {
+  async deleteFolder(namespace: string, folderId: string): Promise<$_model.DeleteFolderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteFolderHeaders({ });
+    let headers = new $_model.DeleteFolderHeaders({ });
     return await this.deleteFolderWithOptions(namespace, folderId, headers, runtime);
   }
 
@@ -18861,7 +926,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteJobResponse
    */
-  async deleteJobWithOptions(namespace: string, jobId: string, headers: DeleteJobHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteJobResponse> {
+  async deleteJobWithOptions(namespace: string, jobId: string, headers: $_model.DeleteJobHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18885,21 +950,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
-    } else {
-      return $dara.cast<DeleteJobResponse>(await this.execute(params, req, runtime), new DeleteJobResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteJobResponse>(await this.callApi(params, req, runtime), new $_model.DeleteJobResponse({}));
   }
 
   /**
    * Deletes the information about a job that is not in the running state in a deployment.
    * @returns DeleteJobResponse
    */
-  async deleteJob(namespace: string, jobId: string): Promise<DeleteJobResponse> {
+  async deleteJob(namespace: string, jobId: string): Promise<$_model.DeleteJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteJobHeaders({ });
+    let headers = new $_model.DeleteJobHeaders({ });
     return await this.deleteJobWithOptions(namespace, jobId, headers, runtime);
   }
 
@@ -18910,7 +970,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMemberResponse
    */
-  async deleteMemberWithOptions(namespace: string, member: string, headers: DeleteMemberHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteMemberResponse> {
+  async deleteMemberWithOptions(namespace: string, member: string, headers: $_model.DeleteMemberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemberResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18934,21 +994,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteMemberResponse>(await this.callApi(params, req, runtime), new DeleteMemberResponse({}));
-    } else {
-      return $dara.cast<DeleteMemberResponse>(await this.execute(params, req, runtime), new DeleteMemberResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteMemberResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemberResponse({}));
   }
 
   /**
    * Revokes the permissions from a member.
    * @returns DeleteMemberResponse
    */
-  async deleteMember(namespace: string, member: string): Promise<DeleteMemberResponse> {
+  async deleteMember(namespace: string, member: string): Promise<$_model.DeleteMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteMemberHeaders({ });
+    let headers = new $_model.DeleteMemberHeaders({ });
     return await this.deleteMemberWithOptions(namespace, member, headers, runtime);
   }
 
@@ -18959,7 +1014,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSavepointResponse
    */
-  async deleteSavepointWithOptions(namespace: string, savepointId: string, headers: DeleteSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteSavepointResponse> {
+  async deleteSavepointWithOptions(namespace: string, savepointId: string, headers: $_model.DeleteSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSavepointResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -18983,21 +1038,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteSavepointResponse>(await this.callApi(params, req, runtime), new DeleteSavepointResponse({}));
-    } else {
-      return $dara.cast<DeleteSavepointResponse>(await this.execute(params, req, runtime), new DeleteSavepointResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteSavepointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSavepointResponse({}));
   }
 
   /**
    * Deletes a savepoint.
    * @returns DeleteSavepointResponse
    */
-  async deleteSavepoint(namespace: string, savepointId: string): Promise<DeleteSavepointResponse> {
+  async deleteSavepoint(namespace: string, savepointId: string): Promise<$_model.DeleteSavepointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteSavepointHeaders({ });
+    let headers = new $_model.DeleteSavepointHeaders({ });
     return await this.deleteSavepointWithOptions(namespace, savepointId, headers, runtime);
   }
 
@@ -19008,7 +1058,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScheduledPlanResponse
    */
-  async deleteScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: DeleteScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteScheduledPlanResponse> {
+  async deleteScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: $_model.DeleteScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScheduledPlanResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19032,21 +1082,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteScheduledPlanResponse>(await this.callApi(params, req, runtime), new DeleteScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<DeleteScheduledPlanResponse>(await this.execute(params, req, runtime), new DeleteScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScheduledPlanResponse({}));
   }
 
   /**
    * 删除定时执行计划
    * @returns DeleteScheduledPlanResponse
    */
-  async deleteScheduledPlan(namespace: string, scheduledPlanId: string): Promise<DeleteScheduledPlanResponse> {
+  async deleteScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.DeleteScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteScheduledPlanHeaders({ });
+    let headers = new $_model.DeleteScheduledPlanHeaders({ });
     return await this.deleteScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
   }
 
@@ -19057,7 +1102,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSessionClusterResponse
    */
-  async deleteSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: DeleteSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteSessionClusterResponse> {
+  async deleteSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: $_model.DeleteSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSessionClusterResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19081,21 +1126,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteSessionClusterResponse>(await this.callApi(params, req, runtime), new DeleteSessionClusterResponse({}));
-    } else {
-      return $dara.cast<DeleteSessionClusterResponse>(await this.execute(params, req, runtime), new DeleteSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSessionClusterResponse({}));
   }
 
   /**
    * 删除session集群
    * @returns DeleteSessionClusterResponse
    */
-  async deleteSessionCluster(namespace: string, sessionClusterName: string): Promise<DeleteSessionClusterResponse> {
+  async deleteSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.DeleteSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteSessionClusterHeaders({ });
+    let headers = new $_model.DeleteSessionClusterHeaders({ });
     return await this.deleteSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
@@ -19106,7 +1146,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUdfArtifactResponse
    */
-  async deleteUdfArtifactWithOptions(namespace: string, udfArtifactName: string, headers: DeleteUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteUdfArtifactResponse> {
+  async deleteUdfArtifactWithOptions(namespace: string, udfArtifactName: string, headers: $_model.DeleteUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUdfArtifactResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19130,21 +1170,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteUdfArtifactResponse>(await this.callApi(params, req, runtime), new DeleteUdfArtifactResponse({}));
-    } else {
-      return $dara.cast<DeleteUdfArtifactResponse>(await this.execute(params, req, runtime), new DeleteUdfArtifactResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteUdfArtifactResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUdfArtifactResponse({}));
   }
 
   /**
    * 删除UdfArtifact
    * @returns DeleteUdfArtifactResponse
    */
-  async deleteUdfArtifact(namespace: string, udfArtifactName: string): Promise<DeleteUdfArtifactResponse> {
+  async deleteUdfArtifact(namespace: string, udfArtifactName: string): Promise<$_model.DeleteUdfArtifactResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteUdfArtifactHeaders({ });
+    let headers = new $_model.DeleteUdfArtifactHeaders({ });
     return await this.deleteUdfArtifactWithOptions(namespace, udfArtifactName, headers, runtime);
   }
 
@@ -19156,7 +1191,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUdfFunctionResponse
    */
-  async deleteUdfFunctionWithOptions(namespace: string, functionName: string, request: DeleteUdfFunctionRequest, headers: DeleteUdfFunctionHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteUdfFunctionResponse> {
+  async deleteUdfFunctionWithOptions(namespace: string, functionName: string, request: $_model.DeleteUdfFunctionRequest, headers: $_model.DeleteUdfFunctionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUdfFunctionResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.className)) {
@@ -19191,12 +1226,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteUdfFunctionResponse>(await this.callApi(params, req, runtime), new DeleteUdfFunctionResponse({}));
-    } else {
-      return $dara.cast<DeleteUdfFunctionResponse>(await this.execute(params, req, runtime), new DeleteUdfFunctionResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteUdfFunctionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUdfFunctionResponse({}));
   }
 
   /**
@@ -19205,9 +1235,9 @@ export default class Client extends OpenApi {
    * @param request - DeleteUdfFunctionRequest
    * @returns DeleteUdfFunctionResponse
    */
-  async deleteUdfFunction(namespace: string, functionName: string, request: DeleteUdfFunctionRequest): Promise<DeleteUdfFunctionResponse> {
+  async deleteUdfFunction(namespace: string, functionName: string, request: $_model.DeleteUdfFunctionRequest): Promise<$_model.DeleteUdfFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteUdfFunctionHeaders({ });
+    let headers = new $_model.DeleteUdfFunctionHeaders({ });
     return await this.deleteUdfFunctionWithOptions(namespace, functionName, request, headers, runtime);
   }
 
@@ -19218,7 +1248,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVariableResponse
    */
-  async deleteVariableWithOptions(namespace: string, name: string, headers: DeleteVariableHeaders, runtime: $dara.RuntimeOptions): Promise<DeleteVariableResponse> {
+  async deleteVariableWithOptions(namespace: string, name: string, headers: $_model.DeleteVariableHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVariableResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19242,21 +1272,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteVariableResponse>(await this.callApi(params, req, runtime), new DeleteVariableResponse({}));
-    } else {
-      return $dara.cast<DeleteVariableResponse>(await this.execute(params, req, runtime), new DeleteVariableResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteVariableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVariableResponse({}));
   }
 
   /**
    * Deletes a variable.
    * @returns DeleteVariableResponse
    */
-  async deleteVariable(namespace: string, name: string): Promise<DeleteVariableResponse> {
+  async deleteVariable(namespace: string, name: string): Promise<$_model.DeleteVariableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeleteVariableHeaders({ });
+    let headers = new $_model.DeleteVariableHeaders({ });
     return await this.deleteVariableWithOptions(namespace, name, headers, runtime);
   }
 
@@ -19268,7 +1293,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeployDeploymentDraftAsyncResponse
    */
-  async deployDeploymentDraftAsyncWithOptions(namespace: string, request: DeployDeploymentDraftAsyncRequest, headers: DeployDeploymentDraftAsyncHeaders, runtime: $dara.RuntimeOptions): Promise<DeployDeploymentDraftAsyncResponse> {
+  async deployDeploymentDraftAsyncWithOptions(namespace: string, request: $_model.DeployDeploymentDraftAsyncRequest, headers: $_model.DeployDeploymentDraftAsyncHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeployDeploymentDraftAsyncResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -19294,12 +1319,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeployDeploymentDraftAsyncResponse>(await this.callApi(params, req, runtime), new DeployDeploymentDraftAsyncResponse({}));
-    } else {
-      return $dara.cast<DeployDeploymentDraftAsyncResponse>(await this.execute(params, req, runtime), new DeployDeploymentDraftAsyncResponse({}));
-    }
-
+    return $dara.cast<$_model.DeployDeploymentDraftAsyncResponse>(await this.callApi(params, req, runtime), new $_model.DeployDeploymentDraftAsyncResponse({}));
   }
 
   /**
@@ -19308,9 +1328,9 @@ export default class Client extends OpenApi {
    * @param request - DeployDeploymentDraftAsyncRequest
    * @returns DeployDeploymentDraftAsyncResponse
    */
-  async deployDeploymentDraftAsync(namespace: string, request: DeployDeploymentDraftAsyncRequest): Promise<DeployDeploymentDraftAsyncResponse> {
+  async deployDeploymentDraftAsync(namespace: string, request: $_model.DeployDeploymentDraftAsyncRequest): Promise<$_model.DeployDeploymentDraftAsyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new DeployDeploymentDraftAsyncHeaders({ });
+    let headers = new $_model.DeployDeploymentDraftAsyncHeaders({ });
     return await this.deployDeploymentDraftAsyncWithOptions(namespace, request, headers, runtime);
   }
 
@@ -19322,7 +1342,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteSqlStatementResponse
    */
-  async executeSqlStatementWithOptions(namespace: string, request: ExecuteSqlStatementRequest, headers: ExecuteSqlStatementHeaders, runtime: $dara.RuntimeOptions): Promise<ExecuteSqlStatementResponse> {
+  async executeSqlStatementWithOptions(namespace: string, request: $_model.ExecuteSqlStatementRequest, headers: $_model.ExecuteSqlStatementHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteSqlStatementResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -19348,12 +1368,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ExecuteSqlStatementResponse>(await this.callApi(params, req, runtime), new ExecuteSqlStatementResponse({}));
-    } else {
-      return $dara.cast<ExecuteSqlStatementResponse>(await this.execute(params, req, runtime), new ExecuteSqlStatementResponse({}));
-    }
-
+    return $dara.cast<$_model.ExecuteSqlStatementResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteSqlStatementResponse({}));
   }
 
   /**
@@ -19362,10 +1377,72 @@ export default class Client extends OpenApi {
    * @param request - ExecuteSqlStatementRequest
    * @returns ExecuteSqlStatementResponse
    */
-  async executeSqlStatement(namespace: string, request: ExecuteSqlStatementRequest): Promise<ExecuteSqlStatementResponse> {
+  async executeSqlStatement(namespace: string, request: $_model.ExecuteSqlStatementRequest): Promise<$_model.ExecuteSqlStatementResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ExecuteSqlStatementHeaders({ });
+    let headers = new $_model.ExecuteSqlStatementHeaders({ });
     return await this.executeSqlStatementWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 获取调试结果
+   * 
+   * @param request - FetchSqlPreviewResultsRequest
+   * @param headers - FetchSqlPreviewResultsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchSqlPreviewResultsResponse
+   */
+  async fetchSqlPreviewResultsWithOptions(namespace: string, request: $_model.FetchSqlPreviewResultsRequest, headers: $_model.FetchSqlPreviewResultsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FetchSqlPreviewResultsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.queryId)) {
+      query["queryId"] = request.queryId;
+    }
+
+    if (!$dara.isNull(request.sessionClusterName)) {
+      query["sessionClusterName"] = request.sessionClusterName;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchSqlPreviewResults",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-preview/fetchResults`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchSqlPreviewResultsResponse>(await this.callApi(params, req, runtime), new $_model.FetchSqlPreviewResultsResponse({}));
+  }
+
+  /**
+   * 获取调试结果
+   * 
+   * @param request - FetchSqlPreviewResultsRequest
+   * @returns FetchSqlPreviewResultsResponse
+   */
+  async fetchSqlPreviewResults(namespace: string, request: $_model.FetchSqlPreviewResultsRequest): Promise<$_model.FetchSqlPreviewResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.FetchSqlPreviewResultsHeaders({ });
+    return await this.fetchSqlPreviewResultsWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -19376,7 +1453,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FlinkApiProxyResponse
    */
-  async flinkApiProxyWithOptions(request: FlinkApiProxyRequest, headers: FlinkApiProxyHeaders, runtime: $dara.RuntimeOptions): Promise<FlinkApiProxyResponse> {
+  async flinkApiProxyWithOptions(request: $_model.FlinkApiProxyRequest, headers: $_model.FlinkApiProxyHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.FlinkApiProxyResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.flinkApiPath)) {
@@ -19419,12 +1496,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<FlinkApiProxyResponse>(await this.callApi(params, req, runtime), new FlinkApiProxyResponse({}));
-    } else {
-      return $dara.cast<FlinkApiProxyResponse>(await this.execute(params, req, runtime), new FlinkApiProxyResponse({}));
-    }
-
+    return $dara.cast<$_model.FlinkApiProxyResponse>(await this.callApi(params, req, runtime), new $_model.FlinkApiProxyResponse({}));
   }
 
   /**
@@ -19433,9 +1505,9 @@ export default class Client extends OpenApi {
    * @param request - FlinkApiProxyRequest
    * @returns FlinkApiProxyResponse
    */
-  async flinkApiProxy(request: FlinkApiProxyRequest): Promise<FlinkApiProxyResponse> {
+  async flinkApiProxy(request: $_model.FlinkApiProxyRequest): Promise<$_model.FlinkApiProxyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new FlinkApiProxyHeaders({ });
+    let headers = new $_model.FlinkApiProxyHeaders({ });
     return await this.flinkApiProxyWithOptions(request, headers, runtime);
   }
 
@@ -19447,7 +1519,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
    */
-  async generateResourcePlanWithFlinkConfAsyncWithOptions(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest, headers: GenerateResourcePlanWithFlinkConfAsyncHeaders, runtime: $dara.RuntimeOptions): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
+  async generateResourcePlanWithFlinkConfAsyncWithOptions(namespace: string, deploymentId: string, request: $_model.GenerateResourcePlanWithFlinkConfAsyncRequest, headers: $_model.GenerateResourcePlanWithFlinkConfAsyncHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateResourcePlanWithFlinkConfAsyncResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -19473,12 +1545,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GenerateResourcePlanWithFlinkConfAsyncResponse>(await this.callApi(params, req, runtime), new GenerateResourcePlanWithFlinkConfAsyncResponse({}));
-    } else {
-      return $dara.cast<GenerateResourcePlanWithFlinkConfAsyncResponse>(await this.execute(params, req, runtime), new GenerateResourcePlanWithFlinkConfAsyncResponse({}));
-    }
-
+    return $dara.cast<$_model.GenerateResourcePlanWithFlinkConfAsyncResponse>(await this.callApi(params, req, runtime), new $_model.GenerateResourcePlanWithFlinkConfAsyncResponse({}));
   }
 
   /**
@@ -19487,9 +1554,9 @@ export default class Client extends OpenApi {
    * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
    * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
    */
-  async generateResourcePlanWithFlinkConfAsync(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
+  async generateResourcePlanWithFlinkConfAsync(namespace: string, deploymentId: string, request: $_model.GenerateResourcePlanWithFlinkConfAsyncRequest): Promise<$_model.GenerateResourcePlanWithFlinkConfAsyncResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GenerateResourcePlanWithFlinkConfAsyncHeaders({ });
+    let headers = new $_model.GenerateResourcePlanWithFlinkConfAsyncHeaders({ });
     return await this.generateResourcePlanWithFlinkConfAsyncWithOptions(namespace, deploymentId, request, headers, runtime);
   }
 
@@ -19501,7 +1568,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppliedScheduledPlanResponse
    */
-  async getAppliedScheduledPlanWithOptions(namespace: string, request: GetAppliedScheduledPlanRequest, headers: GetAppliedScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<GetAppliedScheduledPlanResponse> {
+  async getAppliedScheduledPlanWithOptions(namespace: string, request: $_model.GetAppliedScheduledPlanRequest, headers: $_model.GetAppliedScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppliedScheduledPlanResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -19532,12 +1599,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetAppliedScheduledPlanResponse>(await this.callApi(params, req, runtime), new GetAppliedScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<GetAppliedScheduledPlanResponse>(await this.execute(params, req, runtime), new GetAppliedScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.GetAppliedScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.GetAppliedScheduledPlanResponse({}));
   }
 
   /**
@@ -19546,9 +1608,9 @@ export default class Client extends OpenApi {
    * @param request - GetAppliedScheduledPlanRequest
    * @returns GetAppliedScheduledPlanResponse
    */
-  async getAppliedScheduledPlan(namespace: string, request: GetAppliedScheduledPlanRequest): Promise<GetAppliedScheduledPlanResponse> {
+  async getAppliedScheduledPlan(namespace: string, request: $_model.GetAppliedScheduledPlanRequest): Promise<$_model.GetAppliedScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetAppliedScheduledPlanHeaders({ });
+    let headers = new $_model.GetAppliedScheduledPlanHeaders({ });
     return await this.getAppliedScheduledPlanWithOptions(namespace, request, headers, runtime);
   }
 
@@ -19560,7 +1622,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCatalogsResponse
    */
-  async getCatalogsWithOptions(namespace: string, request: GetCatalogsRequest, headers: GetCatalogsHeaders, runtime: $dara.RuntimeOptions): Promise<GetCatalogsResponse> {
+  async getCatalogsWithOptions(namespace: string, request: $_model.GetCatalogsRequest, headers: $_model.GetCatalogsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.catalogName)) {
@@ -19591,12 +1653,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetCatalogsResponse>(await this.callApi(params, req, runtime), new GetCatalogsResponse({}));
-    } else {
-      return $dara.cast<GetCatalogsResponse>(await this.execute(params, req, runtime), new GetCatalogsResponse({}));
-    }
-
+    return $dara.cast<$_model.GetCatalogsResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogsResponse({}));
   }
 
   /**
@@ -19605,9 +1662,9 @@ export default class Client extends OpenApi {
    * @param request - GetCatalogsRequest
    * @returns GetCatalogsResponse
    */
-  async getCatalogs(namespace: string, request: GetCatalogsRequest): Promise<GetCatalogsResponse> {
+  async getCatalogs(namespace: string, request: $_model.GetCatalogsRequest): Promise<$_model.GetCatalogsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetCatalogsHeaders({ });
+    let headers = new $_model.GetCatalogsHeaders({ });
     return await this.getCatalogsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -19619,7 +1676,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatabasesResponse
    */
-  async getDatabasesWithOptions(namespace: string, catalogName: string, request: GetDatabasesRequest, headers: GetDatabasesHeaders, runtime: $dara.RuntimeOptions): Promise<GetDatabasesResponse> {
+  async getDatabasesWithOptions(namespace: string, catalogName: string, request: $_model.GetDatabasesRequest, headers: $_model.GetDatabasesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatabasesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.databaseName)) {
@@ -19650,12 +1707,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDatabasesResponse>(await this.callApi(params, req, runtime), new GetDatabasesResponse({}));
-    } else {
-      return $dara.cast<GetDatabasesResponse>(await this.execute(params, req, runtime), new GetDatabasesResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDatabasesResponse>(await this.callApi(params, req, runtime), new $_model.GetDatabasesResponse({}));
   }
 
   /**
@@ -19664,9 +1716,9 @@ export default class Client extends OpenApi {
    * @param request - GetDatabasesRequest
    * @returns GetDatabasesResponse
    */
-  async getDatabases(namespace: string, catalogName: string, request: GetDatabasesRequest): Promise<GetDatabasesResponse> {
+  async getDatabases(namespace: string, catalogName: string, request: $_model.GetDatabasesRequest): Promise<$_model.GetDatabasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetDatabasesHeaders({ });
+    let headers = new $_model.GetDatabasesHeaders({ });
     return await this.getDatabasesWithOptions(namespace, catalogName, request, headers, runtime);
   }
 
@@ -19677,7 +1729,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeployDeploymentDraftResultResponse
    */
-  async getDeployDeploymentDraftResultWithOptions(namespace: string, ticketId: string, headers: GetDeployDeploymentDraftResultHeaders, runtime: $dara.RuntimeOptions): Promise<GetDeployDeploymentDraftResultResponse> {
+  async getDeployDeploymentDraftResultWithOptions(namespace: string, ticketId: string, headers: $_model.GetDeployDeploymentDraftResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeployDeploymentDraftResultResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19701,21 +1753,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeployDeploymentDraftResultResponse>(await this.callApi(params, req, runtime), new GetDeployDeploymentDraftResultResponse({}));
-    } else {
-      return $dara.cast<GetDeployDeploymentDraftResultResponse>(await this.execute(params, req, runtime), new GetDeployDeploymentDraftResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDeployDeploymentDraftResultResponse>(await this.callApi(params, req, runtime), new $_model.GetDeployDeploymentDraftResultResponse({}));
   }
 
   /**
    * get deploy deploymentDraft result
    * @returns GetDeployDeploymentDraftResultResponse
    */
-  async getDeployDeploymentDraftResult(namespace: string, ticketId: string): Promise<GetDeployDeploymentDraftResultResponse> {
+  async getDeployDeploymentDraftResult(namespace: string, ticketId: string): Promise<$_model.GetDeployDeploymentDraftResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetDeployDeploymentDraftResultHeaders({ });
+    let headers = new $_model.GetDeployDeploymentDraftResultHeaders({ });
     return await this.getDeployDeploymentDraftResultWithOptions(namespace, ticketId, headers, runtime);
   }
 
@@ -19726,7 +1773,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeploymentResponse
    */
-  async getDeploymentWithOptions(namespace: string, deploymentId: string, headers: GetDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<GetDeploymentResponse> {
+  async getDeploymentWithOptions(namespace: string, deploymentId: string, headers: $_model.GetDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19750,21 +1797,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeploymentResponse>(await this.callApi(params, req, runtime), new GetDeploymentResponse({}));
-    } else {
-      return $dara.cast<GetDeploymentResponse>(await this.execute(params, req, runtime), new GetDeploymentResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentResponse({}));
   }
 
   /**
    * Obtains the details of a deployment.
    * @returns GetDeploymentResponse
    */
-  async getDeployment(namespace: string, deploymentId: string): Promise<GetDeploymentResponse> {
+  async getDeployment(namespace: string, deploymentId: string): Promise<$_model.GetDeploymentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetDeploymentHeaders({ });
+    let headers = new $_model.GetDeploymentHeaders({ });
     return await this.getDeploymentWithOptions(namespace, deploymentId, headers, runtime);
   }
 
@@ -19775,7 +1817,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeploymentDraftResponse
    */
-  async getDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: GetDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<GetDeploymentDraftResponse> {
+  async getDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, headers: $_model.GetDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentDraftResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -19799,21 +1841,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeploymentDraftResponse>(await this.callApi(params, req, runtime), new GetDeploymentDraftResponse({}));
-    } else {
-      return $dara.cast<GetDeploymentDraftResponse>(await this.execute(params, req, runtime), new GetDeploymentDraftResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDeploymentDraftResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentDraftResponse({}));
   }
 
   /**
    * get a deploymentDraft
    * @returns GetDeploymentDraftResponse
    */
-  async getDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<GetDeploymentDraftResponse> {
+  async getDeploymentDraft(namespace: string, deploymentDraftId: string): Promise<$_model.GetDeploymentDraftResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetDeploymentDraftHeaders({ });
+    let headers = new $_model.GetDeploymentDraftHeaders({ });
     return await this.getDeploymentDraftWithOptions(namespace, deploymentDraftId, headers, runtime);
   }
 
@@ -19825,7 +1862,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeploymentDraftLockResponse
    */
-  async getDeploymentDraftLockWithOptions(namespace: string, request: GetDeploymentDraftLockRequest, headers: GetDeploymentDraftLockHeaders, runtime: $dara.RuntimeOptions): Promise<GetDeploymentDraftLockResponse> {
+  async getDeploymentDraftLockWithOptions(namespace: string, request: $_model.GetDeploymentDraftLockRequest, headers: $_model.GetDeploymentDraftLockHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentDraftLockResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentDraftId)) {
@@ -19856,12 +1893,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetDeploymentDraftLockResponse>(await this.callApi(params, req, runtime), new GetDeploymentDraftLockResponse({}));
-    } else {
-      return $dara.cast<GetDeploymentDraftLockResponse>(await this.execute(params, req, runtime), new GetDeploymentDraftLockResponse({}));
-    }
-
+    return $dara.cast<$_model.GetDeploymentDraftLockResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentDraftLockResponse({}));
   }
 
   /**
@@ -19870,9 +1902,9 @@ export default class Client extends OpenApi {
    * @param request - GetDeploymentDraftLockRequest
    * @returns GetDeploymentDraftLockResponse
    */
-  async getDeploymentDraftLock(namespace: string, request: GetDeploymentDraftLockRequest): Promise<GetDeploymentDraftLockResponse> {
+  async getDeploymentDraftLock(namespace: string, request: $_model.GetDeploymentDraftLockRequest): Promise<$_model.GetDeploymentDraftLockResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetDeploymentDraftLockHeaders({ });
+    let headers = new $_model.GetDeploymentDraftLockHeaders({ });
     return await this.getDeploymentDraftLockWithOptions(namespace, request, headers, runtime);
   }
 
@@ -19884,7 +1916,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEventsResponse
    */
-  async getEventsWithOptions(namespace: string, request: GetEventsRequest, headers: GetEventsHeaders, runtime: $dara.RuntimeOptions): Promise<GetEventsResponse> {
+  async getEventsWithOptions(namespace: string, request: $_model.GetEventsRequest, headers: $_model.GetEventsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetEventsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -19923,12 +1955,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetEventsResponse>(await this.callApi(params, req, runtime), new GetEventsResponse({}));
-    } else {
-      return $dara.cast<GetEventsResponse>(await this.execute(params, req, runtime), new GetEventsResponse({}));
-    }
-
+    return $dara.cast<$_model.GetEventsResponse>(await this.callApi(params, req, runtime), new $_model.GetEventsResponse({}));
   }
 
   /**
@@ -19937,9 +1964,9 @@ export default class Client extends OpenApi {
    * @param request - GetEventsRequest
    * @returns GetEventsResponse
    */
-  async getEvents(namespace: string, request: GetEventsRequest): Promise<GetEventsResponse> {
+  async getEvents(namespace: string, request: $_model.GetEventsRequest): Promise<$_model.GetEventsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetEventsHeaders({ });
+    let headers = new $_model.GetEventsHeaders({ });
     return await this.getEventsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -19951,7 +1978,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFolderResponse
    */
-  async getFolderWithOptions(namespace: string, request: GetFolderRequest, headers: GetFolderHeaders, runtime: $dara.RuntimeOptions): Promise<GetFolderResponse> {
+  async getFolderWithOptions(namespace: string, request: $_model.GetFolderRequest, headers: $_model.GetFolderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetFolderResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.folderId)) {
@@ -19982,12 +2009,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
-    } else {
-      return $dara.cast<GetFolderResponse>(await this.execute(params, req, runtime), new GetFolderResponse({}));
-    }
-
+    return $dara.cast<$_model.GetFolderResponse>(await this.callApi(params, req, runtime), new $_model.GetFolderResponse({}));
   }
 
   /**
@@ -19996,9 +2018,9 @@ export default class Client extends OpenApi {
    * @param request - GetFolderRequest
    * @returns GetFolderResponse
    */
-  async getFolder(namespace: string, request: GetFolderRequest): Promise<GetFolderResponse> {
+  async getFolder(namespace: string, request: $_model.GetFolderRequest): Promise<$_model.GetFolderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetFolderHeaders({ });
+    let headers = new $_model.GetFolderHeaders({ });
     return await this.getFolderWithOptions(namespace, request, headers, runtime);
   }
 
@@ -20009,7 +2031,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGenerateResourcePlanResultResponse
    */
-  async getGenerateResourcePlanResultWithOptions(namespace: string, ticketId: string, headers: GetGenerateResourcePlanResultHeaders, runtime: $dara.RuntimeOptions): Promise<GetGenerateResourcePlanResultResponse> {
+  async getGenerateResourcePlanResultWithOptions(namespace: string, ticketId: string, headers: $_model.GetGenerateResourcePlanResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetGenerateResourcePlanResultResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20033,21 +2055,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetGenerateResourcePlanResultResponse>(await this.callApi(params, req, runtime), new GetGenerateResourcePlanResultResponse({}));
-    } else {
-      return $dara.cast<GetGenerateResourcePlanResultResponse>(await this.execute(params, req, runtime), new GetGenerateResourcePlanResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetGenerateResourcePlanResultResponse>(await this.callApi(params, req, runtime), new $_model.GetGenerateResourcePlanResultResponse({}));
   }
 
   /**
    * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
    * @returns GetGenerateResourcePlanResultResponse
    */
-  async getGenerateResourcePlanResult(namespace: string, ticketId: string): Promise<GetGenerateResourcePlanResultResponse> {
+  async getGenerateResourcePlanResult(namespace: string, ticketId: string): Promise<$_model.GetGenerateResourcePlanResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetGenerateResourcePlanResultHeaders({ });
+    let headers = new $_model.GetGenerateResourcePlanResultHeaders({ });
     return await this.getGenerateResourcePlanResultWithOptions(namespace, ticketId, headers, runtime);
   }
 
@@ -20058,7 +2075,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotUpdateJobResultResponse
    */
-  async getHotUpdateJobResultWithOptions(namespace: string, jobHotUpdateId: string, headers: GetHotUpdateJobResultHeaders, runtime: $dara.RuntimeOptions): Promise<GetHotUpdateJobResultResponse> {
+  async getHotUpdateJobResultWithOptions(namespace: string, jobHotUpdateId: string, headers: $_model.GetHotUpdateJobResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetHotUpdateJobResultResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20082,21 +2099,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetHotUpdateJobResultResponse>(await this.callApi(params, req, runtime), new GetHotUpdateJobResultResponse({}));
-    } else {
-      return $dara.cast<GetHotUpdateJobResultResponse>(await this.execute(params, req, runtime), new GetHotUpdateJobResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetHotUpdateJobResultResponse>(await this.callApi(params, req, runtime), new $_model.GetHotUpdateJobResultResponse({}));
   }
 
   /**
    * 查询动态更新结果
    * @returns GetHotUpdateJobResultResponse
    */
-  async getHotUpdateJobResult(namespace: string, jobHotUpdateId: string): Promise<GetHotUpdateJobResultResponse> {
+  async getHotUpdateJobResult(namespace: string, jobHotUpdateId: string): Promise<$_model.GetHotUpdateJobResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetHotUpdateJobResultHeaders({ });
+    let headers = new $_model.GetHotUpdateJobResultHeaders({ });
     return await this.getHotUpdateJobResultWithOptions(namespace, jobHotUpdateId, headers, runtime);
   }
 
@@ -20107,7 +2119,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobResponse
    */
-  async getJobWithOptions(namespace: string, jobId: string, headers: GetJobHeaders, runtime: $dara.RuntimeOptions): Promise<GetJobResponse> {
+  async getJobWithOptions(namespace: string, jobId: string, headers: $_model.GetJobHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20131,21 +2143,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
-    } else {
-      return $dara.cast<GetJobResponse>(await this.execute(params, req, runtime), new GetJobResponse({}));
-    }
-
+    return $dara.cast<$_model.GetJobResponse>(await this.callApi(params, req, runtime), new $_model.GetJobResponse({}));
   }
 
   /**
    * Obtains the details of a job.
    * @returns GetJobResponse
    */
-  async getJob(namespace: string, jobId: string): Promise<GetJobResponse> {
+  async getJob(namespace: string, jobId: string): Promise<$_model.GetJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetJobHeaders({ });
+    let headers = new $_model.GetJobHeaders({ });
     return await this.getJobWithOptions(namespace, jobId, headers, runtime);
   }
 
@@ -20156,7 +2163,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobDiagnosisResponse
    */
-  async getJobDiagnosisWithOptions(namespace: string, deploymentId: string, jobId: string, headers: GetJobDiagnosisHeaders, runtime: $dara.RuntimeOptions): Promise<GetJobDiagnosisResponse> {
+  async getJobDiagnosisWithOptions(namespace: string, deploymentId: string, jobId: string, headers: $_model.GetJobDiagnosisHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobDiagnosisResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20180,21 +2187,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetJobDiagnosisResponse>(await this.callApi(params, req, runtime), new GetJobDiagnosisResponse({}));
-    } else {
-      return $dara.cast<GetJobDiagnosisResponse>(await this.execute(params, req, runtime), new GetJobDiagnosisResponse({}));
-    }
-
+    return $dara.cast<$_model.GetJobDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.GetJobDiagnosisResponse({}));
   }
 
   /**
    * 获取作业诊断信息
    * @returns GetJobDiagnosisResponse
    */
-  async getJobDiagnosis(namespace: string, deploymentId: string, jobId: string): Promise<GetJobDiagnosisResponse> {
+  async getJobDiagnosis(namespace: string, deploymentId: string, jobId: string): Promise<$_model.GetJobDiagnosisResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetJobDiagnosisHeaders({ });
+    let headers = new $_model.GetJobDiagnosisHeaders({ });
     return await this.getJobDiagnosisWithOptions(namespace, deploymentId, jobId, headers, runtime);
   }
 
@@ -20205,7 +2207,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLatestJobStartLogResponse
    */
-  async getLatestJobStartLogWithOptions(namespace: string, deploymentId: string, headers: GetLatestJobStartLogHeaders, runtime: $dara.RuntimeOptions): Promise<GetLatestJobStartLogResponse> {
+  async getLatestJobStartLogWithOptions(namespace: string, deploymentId: string, headers: $_model.GetLatestJobStartLogHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetLatestJobStartLogResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20229,21 +2231,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetLatestJobStartLogResponse>(await this.callApi(params, req, runtime), new GetLatestJobStartLogResponse({}));
-    } else {
-      return $dara.cast<GetLatestJobStartLogResponse>(await this.execute(params, req, runtime), new GetLatestJobStartLogResponse({}));
-    }
-
+    return $dara.cast<$_model.GetLatestJobStartLogResponse>(await this.callApi(params, req, runtime), new $_model.GetLatestJobStartLogResponse({}));
   }
 
   /**
    * Obtains the latest startup logs of a job.
    * @returns GetLatestJobStartLogResponse
    */
-  async getLatestJobStartLog(namespace: string, deploymentId: string): Promise<GetLatestJobStartLogResponse> {
+  async getLatestJobStartLog(namespace: string, deploymentId: string): Promise<$_model.GetLatestJobStartLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetLatestJobStartLogHeaders({ });
+    let headers = new $_model.GetLatestJobStartLogHeaders({ });
     return await this.getLatestJobStartLogWithOptions(namespace, deploymentId, headers, runtime);
   }
 
@@ -20255,7 +2252,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLineageInfoResponse
    */
-  async getLineageInfoWithOptions(request: GetLineageInfoRequest, headers: GetLineageInfoHeaders, runtime: $dara.RuntimeOptions): Promise<GetLineageInfoResponse> {
+  async getLineageInfoWithOptions(request: $_model.GetLineageInfoRequest, headers: $_model.GetLineageInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetLineageInfoResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -20281,12 +2278,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetLineageInfoResponse>(await this.callApi(params, req, runtime), new GetLineageInfoResponse({}));
-    } else {
-      return $dara.cast<GetLineageInfoResponse>(await this.execute(params, req, runtime), new GetLineageInfoResponse({}));
-    }
-
+    return $dara.cast<$_model.GetLineageInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetLineageInfoResponse({}));
   }
 
   /**
@@ -20295,9 +2287,9 @@ export default class Client extends OpenApi {
    * @param request - GetLineageInfoRequest
    * @returns GetLineageInfoResponse
    */
-  async getLineageInfo(request: GetLineageInfoRequest): Promise<GetLineageInfoResponse> {
+  async getLineageInfo(request: $_model.GetLineageInfoRequest): Promise<$_model.GetLineageInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetLineageInfoHeaders({ });
+    let headers = new $_model.GetLineageInfoHeaders({ });
     return await this.getLineageInfoWithOptions(request, headers, runtime);
   }
 
@@ -20308,7 +2300,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemberResponse
    */
-  async getMemberWithOptions(namespace: string, member: string, headers: GetMemberHeaders, runtime: $dara.RuntimeOptions): Promise<GetMemberResponse> {
+  async getMemberWithOptions(namespace: string, member: string, headers: $_model.GetMemberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemberResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20332,21 +2324,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetMemberResponse>(await this.callApi(params, req, runtime), new GetMemberResponse({}));
-    } else {
-      return $dara.cast<GetMemberResponse>(await this.execute(params, req, runtime), new GetMemberResponse({}));
-    }
-
+    return $dara.cast<$_model.GetMemberResponse>(await this.callApi(params, req, runtime), new $_model.GetMemberResponse({}));
   }
 
   /**
    * Queries the permissions of a member.
    * @returns GetMemberResponse
    */
-  async getMember(namespace: string, member: string): Promise<GetMemberResponse> {
+  async getMember(namespace: string, member: string): Promise<$_model.GetMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetMemberHeaders({ });
+    let headers = new $_model.GetMemberHeaders({ });
     return await this.getMemberWithOptions(namespace, member, headers, runtime);
   }
 
@@ -20357,7 +2344,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSavepointResponse
    */
-  async getSavepointWithOptions(namespace: string, savepointId: string, headers: GetSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<GetSavepointResponse> {
+  async getSavepointWithOptions(namespace: string, savepointId: string, headers: $_model.GetSavepointHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetSavepointResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20381,21 +2368,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSavepointResponse>(await this.callApi(params, req, runtime), new GetSavepointResponse({}));
-    } else {
-      return $dara.cast<GetSavepointResponse>(await this.execute(params, req, runtime), new GetSavepointResponse({}));
-    }
-
+    return $dara.cast<$_model.GetSavepointResponse>(await this.callApi(params, req, runtime), new $_model.GetSavepointResponse({}));
   }
 
   /**
    * Queries details of a savepoint and checkpoint.
    * @returns GetSavepointResponse
    */
-  async getSavepoint(namespace: string, savepointId: string): Promise<GetSavepointResponse> {
+  async getSavepoint(namespace: string, savepointId: string): Promise<$_model.GetSavepointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetSavepointHeaders({ });
+    let headers = new $_model.GetSavepointHeaders({ });
     return await this.getSavepointWithOptions(namespace, savepointId, headers, runtime);
   }
 
@@ -20406,7 +2388,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSessionClusterResponse
    */
-  async getSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: GetSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<GetSessionClusterResponse> {
+  async getSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: $_model.GetSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetSessionClusterResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20430,21 +2412,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetSessionClusterResponse>(await this.callApi(params, req, runtime), new GetSessionClusterResponse({}));
-    } else {
-      return $dara.cast<GetSessionClusterResponse>(await this.execute(params, req, runtime), new GetSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.GetSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.GetSessionClusterResponse({}));
   }
 
   /**
    * 获取session集群
    * @returns GetSessionClusterResponse
    */
-  async getSessionCluster(namespace: string, sessionClusterName: string): Promise<GetSessionClusterResponse> {
+  async getSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.GetSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetSessionClusterHeaders({ });
+    let headers = new $_model.GetSessionClusterHeaders({ });
     return await this.getSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
@@ -20456,7 +2433,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTablesResponse
    */
-  async getTablesWithOptions(namespace: string, catalogName: string, databaseName: string, request: GetTablesRequest, headers: GetTablesHeaders, runtime: $dara.RuntimeOptions): Promise<GetTablesResponse> {
+  async getTablesWithOptions(namespace: string, catalogName: string, databaseName: string, request: $_model.GetTablesRequest, headers: $_model.GetTablesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetTablesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.tableName)) {
@@ -20487,12 +2464,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetTablesResponse>(await this.callApi(params, req, runtime), new GetTablesResponse({}));
-    } else {
-      return $dara.cast<GetTablesResponse>(await this.execute(params, req, runtime), new GetTablesResponse({}));
-    }
-
+    return $dara.cast<$_model.GetTablesResponse>(await this.callApi(params, req, runtime), new $_model.GetTablesResponse({}));
   }
 
   /**
@@ -20501,9 +2473,9 @@ export default class Client extends OpenApi {
    * @param request - GetTablesRequest
    * @returns GetTablesResponse
    */
-  async getTables(namespace: string, catalogName: string, databaseName: string, request: GetTablesRequest): Promise<GetTablesResponse> {
+  async getTables(namespace: string, catalogName: string, databaseName: string, request: $_model.GetTablesRequest): Promise<$_model.GetTablesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetTablesHeaders({ });
+    let headers = new $_model.GetTablesHeaders({ });
     return await this.getTablesWithOptions(namespace, catalogName, databaseName, request, headers, runtime);
   }
 
@@ -20515,7 +2487,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUdfArtifactsResponse
    */
-  async getUdfArtifactsWithOptions(namespace: string, request: GetUdfArtifactsRequest, headers: GetUdfArtifactsHeaders, runtime: $dara.RuntimeOptions): Promise<GetUdfArtifactsResponse> {
+  async getUdfArtifactsWithOptions(namespace: string, request: $_model.GetUdfArtifactsRequest, headers: $_model.GetUdfArtifactsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUdfArtifactsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.udfArtifactName)) {
@@ -20546,12 +2518,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetUdfArtifactsResponse>(await this.callApi(params, req, runtime), new GetUdfArtifactsResponse({}));
-    } else {
-      return $dara.cast<GetUdfArtifactsResponse>(await this.execute(params, req, runtime), new GetUdfArtifactsResponse({}));
-    }
-
+    return $dara.cast<$_model.GetUdfArtifactsResponse>(await this.callApi(params, req, runtime), new $_model.GetUdfArtifactsResponse({}));
   }
 
   /**
@@ -20560,9 +2527,9 @@ export default class Client extends OpenApi {
    * @param request - GetUdfArtifactsRequest
    * @returns GetUdfArtifactsResponse
    */
-  async getUdfArtifacts(namespace: string, request: GetUdfArtifactsRequest): Promise<GetUdfArtifactsResponse> {
+  async getUdfArtifacts(namespace: string, request: $_model.GetUdfArtifactsRequest): Promise<$_model.GetUdfArtifactsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new GetUdfArtifactsHeaders({ });
+    let headers = new $_model.GetUdfArtifactsHeaders({ });
     return await this.getUdfArtifactsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -20573,7 +2540,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HotUpdateJobResponse
    */
-  async hotUpdateJobWithOptions(namespace: string, jobId: string, headers: HotUpdateJobHeaders, runtime: $dara.RuntimeOptions): Promise<HotUpdateJobResponse> {
+  async hotUpdateJobWithOptions(namespace: string, jobId: string, headers: $_model.HotUpdateJobHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.HotUpdateJobResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20597,21 +2564,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<HotUpdateJobResponse>(await this.callApi(params, req, runtime), new HotUpdateJobResponse({}));
-    } else {
-      return $dara.cast<HotUpdateJobResponse>(await this.execute(params, req, runtime), new HotUpdateJobResponse({}));
-    }
-
+    return $dara.cast<$_model.HotUpdateJobResponse>(await this.callApi(params, req, runtime), new $_model.HotUpdateJobResponse({}));
   }
 
   /**
    * Dynamically updates parameters or resources of a deployment that is running.
    * @returns HotUpdateJobResponse
    */
-  async hotUpdateJob(namespace: string, jobId: string): Promise<HotUpdateJobResponse> {
+  async hotUpdateJob(namespace: string, jobId: string): Promise<$_model.HotUpdateJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new HotUpdateJobHeaders({ });
+    let headers = new $_model.HotUpdateJobHeaders({ });
     return await this.hotUpdateJobWithOptions(namespace, jobId, headers, runtime);
   }
 
@@ -20622,7 +2584,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomConnectorsResponse
    */
-  async listCustomConnectorsWithOptions(namespace: string, headers: ListCustomConnectorsHeaders, runtime: $dara.RuntimeOptions): Promise<ListCustomConnectorsResponse> {
+  async listCustomConnectorsWithOptions(namespace: string, headers: $_model.ListCustomConnectorsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomConnectorsResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20646,21 +2608,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListCustomConnectorsResponse>(await this.callApi(params, req, runtime), new ListCustomConnectorsResponse({}));
-    } else {
-      return $dara.cast<ListCustomConnectorsResponse>(await this.execute(params, req, runtime), new ListCustomConnectorsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListCustomConnectorsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomConnectorsResponse({}));
   }
 
   /**
    * Obtains a list of existing custom connectors.
    * @returns ListCustomConnectorsResponse
    */
-  async listCustomConnectors(namespace: string): Promise<ListCustomConnectorsResponse> {
+  async listCustomConnectors(namespace: string): Promise<$_model.ListCustomConnectorsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListCustomConnectorsHeaders({ });
+    let headers = new $_model.ListCustomConnectorsHeaders({ });
     return await this.listCustomConnectorsWithOptions(namespace, headers, runtime);
   }
 
@@ -20672,7 +2629,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeploymentDraftsResponse
    */
-  async listDeploymentDraftsWithOptions(namespace: string, request: ListDeploymentDraftsRequest, headers: ListDeploymentDraftsHeaders, runtime: $dara.RuntimeOptions): Promise<ListDeploymentDraftsResponse> {
+  async listDeploymentDraftsWithOptions(namespace: string, request: $_model.ListDeploymentDraftsRequest, headers: $_model.ListDeploymentDraftsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentDraftsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageIndex)) {
@@ -20707,12 +2664,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListDeploymentDraftsResponse>(await this.callApi(params, req, runtime), new ListDeploymentDraftsResponse({}));
-    } else {
-      return $dara.cast<ListDeploymentDraftsResponse>(await this.execute(params, req, runtime), new ListDeploymentDraftsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListDeploymentDraftsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeploymentDraftsResponse({}));
   }
 
   /**
@@ -20721,9 +2673,9 @@ export default class Client extends OpenApi {
    * @param request - ListDeploymentDraftsRequest
    * @returns ListDeploymentDraftsResponse
    */
-  async listDeploymentDrafts(namespace: string, request: ListDeploymentDraftsRequest): Promise<ListDeploymentDraftsResponse> {
+  async listDeploymentDrafts(namespace: string, request: $_model.ListDeploymentDraftsRequest): Promise<$_model.ListDeploymentDraftsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListDeploymentDraftsHeaders({ });
+    let headers = new $_model.ListDeploymentDraftsHeaders({ });
     return await this.listDeploymentDraftsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -20735,7 +2687,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeploymentTargetsResponse
    */
-  async listDeploymentTargetsWithOptions(namespace: string, request: ListDeploymentTargetsRequest, headers: ListDeploymentTargetsHeaders, runtime: $dara.RuntimeOptions): Promise<ListDeploymentTargetsResponse> {
+  async listDeploymentTargetsWithOptions(namespace: string, request: $_model.ListDeploymentTargetsRequest, headers: $_model.ListDeploymentTargetsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentTargetsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageIndex)) {
@@ -20770,12 +2722,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListDeploymentTargetsResponse>(await this.callApi(params, req, runtime), new ListDeploymentTargetsResponse({}));
-    } else {
-      return $dara.cast<ListDeploymentTargetsResponse>(await this.execute(params, req, runtime), new ListDeploymentTargetsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListDeploymentTargetsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeploymentTargetsResponse({}));
   }
 
   /**
@@ -20784,9 +2731,9 @@ export default class Client extends OpenApi {
    * @param request - ListDeploymentTargetsRequest
    * @returns ListDeploymentTargetsResponse
    */
-  async listDeploymentTargets(namespace: string, request: ListDeploymentTargetsRequest): Promise<ListDeploymentTargetsResponse> {
+  async listDeploymentTargets(namespace: string, request: $_model.ListDeploymentTargetsRequest): Promise<$_model.ListDeploymentTargetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListDeploymentTargetsHeaders({ });
+    let headers = new $_model.ListDeploymentTargetsHeaders({ });
     return await this.listDeploymentTargetsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -20798,7 +2745,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDeploymentsResponse
    */
-  async listDeploymentsWithOptions(namespace: string, request: ListDeploymentsRequest, headers: ListDeploymentsHeaders, runtime: $dara.RuntimeOptions): Promise<ListDeploymentsResponse> {
+  async listDeploymentsWithOptions(namespace: string, request: $_model.ListDeploymentsRequest, headers: $_model.ListDeploymentsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListDeploymentsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.creator)) {
@@ -20865,12 +2812,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListDeploymentsResponse>(await this.callApi(params, req, runtime), new ListDeploymentsResponse({}));
-    } else {
-      return $dara.cast<ListDeploymentsResponse>(await this.execute(params, req, runtime), new ListDeploymentsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListDeploymentsResponse>(await this.callApi(params, req, runtime), new $_model.ListDeploymentsResponse({}));
   }
 
   /**
@@ -20879,9 +2821,9 @@ export default class Client extends OpenApi {
    * @param request - ListDeploymentsRequest
    * @returns ListDeploymentsResponse
    */
-  async listDeployments(namespace: string, request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
+  async listDeployments(namespace: string, request: $_model.ListDeploymentsRequest): Promise<$_model.ListDeploymentsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListDeploymentsHeaders({ });
+    let headers = new $_model.ListDeploymentsHeaders({ });
     return await this.listDeploymentsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -20893,7 +2835,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEditableNamespaceResponse
    */
-  async listEditableNamespaceWithOptions(request: ListEditableNamespaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListEditableNamespaceResponse> {
+  async listEditableNamespaceWithOptions(request: $_model.ListEditableNamespaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListEditableNamespaceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.namespace)) {
@@ -20931,12 +2873,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEditableNamespaceResponse>(await this.callApi(params, req, runtime), new ListEditableNamespaceResponse({}));
-    } else {
-      return $dara.cast<ListEditableNamespaceResponse>(await this.execute(params, req, runtime), new ListEditableNamespaceResponse({}));
-    }
-
+    return $dara.cast<$_model.ListEditableNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.ListEditableNamespaceResponse({}));
   }
 
   /**
@@ -20945,7 +2882,7 @@ export default class Client extends OpenApi {
    * @param request - ListEditableNamespaceRequest
    * @returns ListEditableNamespaceResponse
    */
-  async listEditableNamespace(request: ListEditableNamespaceRequest): Promise<ListEditableNamespaceResponse> {
+  async listEditableNamespace(request: $_model.ListEditableNamespaceRequest): Promise<$_model.ListEditableNamespaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEditableNamespaceWithOptions(request, headers, runtime);
@@ -20958,7 +2895,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEngineVersionMetadataResponse
    */
-  async listEngineVersionMetadataWithOptions(headers: ListEngineVersionMetadataHeaders, runtime: $dara.RuntimeOptions): Promise<ListEngineVersionMetadataResponse> {
+  async listEngineVersionMetadataWithOptions(headers: $_model.ListEngineVersionMetadataHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListEngineVersionMetadataResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -20982,21 +2919,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListEngineVersionMetadataResponse>(await this.callApi(params, req, runtime), new ListEngineVersionMetadataResponse({}));
-    } else {
-      return $dara.cast<ListEngineVersionMetadataResponse>(await this.execute(params, req, runtime), new ListEngineVersionMetadataResponse({}));
-    }
-
+    return $dara.cast<$_model.ListEngineVersionMetadataResponse>(await this.callApi(params, req, runtime), new $_model.ListEngineVersionMetadataResponse({}));
   }
 
   /**
    * Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
    * @returns ListEngineVersionMetadataResponse
    */
-  async listEngineVersionMetadata(): Promise<ListEngineVersionMetadataResponse> {
+  async listEngineVersionMetadata(): Promise<$_model.ListEngineVersionMetadataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListEngineVersionMetadataHeaders({ });
+    let headers = new $_model.ListEngineVersionMetadataHeaders({ });
     return await this.listEngineVersionMetadataWithOptions(headers, runtime);
   }
 
@@ -21008,7 +2940,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobsResponse
    */
-  async listJobsWithOptions(namespace: string, request: ListJobsRequest, headers: ListJobsHeaders, runtime: $dara.RuntimeOptions): Promise<ListJobsResponse> {
+  async listJobsWithOptions(namespace: string, request: $_model.ListJobsRequest, headers: $_model.ListJobsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -21051,12 +2983,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
-    } else {
-      return $dara.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListJobsResponse({}));
   }
 
   /**
@@ -21065,9 +2992,9 @@ export default class Client extends OpenApi {
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
    */
-  async listJobs(namespace: string, request: ListJobsRequest): Promise<ListJobsResponse> {
+  async listJobs(namespace: string, request: $_model.ListJobsRequest): Promise<$_model.ListJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListJobsHeaders({ });
+    let headers = new $_model.ListJobsHeaders({ });
     return await this.listJobsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21079,7 +3006,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMembersResponse
    */
-  async listMembersWithOptions(namespace: string, request: ListMembersRequest, headers: ListMembersHeaders, runtime: $dara.RuntimeOptions): Promise<ListMembersResponse> {
+  async listMembersWithOptions(namespace: string, request: $_model.ListMembersRequest, headers: $_model.ListMembersHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListMembersResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageIndex)) {
@@ -21114,12 +3041,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListMembersResponse>(await this.callApi(params, req, runtime), new ListMembersResponse({}));
-    } else {
-      return $dara.cast<ListMembersResponse>(await this.execute(params, req, runtime), new ListMembersResponse({}));
-    }
-
+    return $dara.cast<$_model.ListMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListMembersResponse({}));
   }
 
   /**
@@ -21128,9 +3050,9 @@ export default class Client extends OpenApi {
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
    */
-  async listMembers(namespace: string, request: ListMembersRequest): Promise<ListMembersResponse> {
+  async listMembers(namespace: string, request: $_model.ListMembersRequest): Promise<$_model.ListMembersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListMembersHeaders({ });
+    let headers = new $_model.ListMembersHeaders({ });
     return await this.listMembersWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21142,7 +3064,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSavepointsResponse
    */
-  async listSavepointsWithOptions(namespace: string, request: ListSavepointsRequest, headers: ListSavepointsHeaders, runtime: $dara.RuntimeOptions): Promise<ListSavepointsResponse> {
+  async listSavepointsWithOptions(namespace: string, request: $_model.ListSavepointsRequest, headers: $_model.ListSavepointsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListSavepointsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -21185,12 +3107,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSavepointsResponse>(await this.callApi(params, req, runtime), new ListSavepointsResponse({}));
-    } else {
-      return $dara.cast<ListSavepointsResponse>(await this.execute(params, req, runtime), new ListSavepointsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListSavepointsResponse>(await this.callApi(params, req, runtime), new $_model.ListSavepointsResponse({}));
   }
 
   /**
@@ -21199,9 +3116,9 @@ export default class Client extends OpenApi {
    * @param request - ListSavepointsRequest
    * @returns ListSavepointsResponse
    */
-  async listSavepoints(namespace: string, request: ListSavepointsRequest): Promise<ListSavepointsResponse> {
+  async listSavepoints(namespace: string, request: $_model.ListSavepointsRequest): Promise<$_model.ListSavepointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListSavepointsHeaders({ });
+    let headers = new $_model.ListSavepointsHeaders({ });
     return await this.listSavepointsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21213,7 +3130,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScheduledPlanResponse
    */
-  async listScheduledPlanWithOptions(namespace: string, request: ListScheduledPlanRequest, headers: ListScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<ListScheduledPlanResponse> {
+  async listScheduledPlanWithOptions(namespace: string, request: $_model.ListScheduledPlanRequest, headers: $_model.ListScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListScheduledPlanResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -21252,12 +3169,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScheduledPlanResponse>(await this.callApi(params, req, runtime), new ListScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<ListScheduledPlanResponse>(await this.execute(params, req, runtime), new ListScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.ListScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.ListScheduledPlanResponse({}));
   }
 
   /**
@@ -21266,9 +3178,9 @@ export default class Client extends OpenApi {
    * @param request - ListScheduledPlanRequest
    * @returns ListScheduledPlanResponse
    */
-  async listScheduledPlan(namespace: string, request: ListScheduledPlanRequest): Promise<ListScheduledPlanResponse> {
+  async listScheduledPlan(namespace: string, request: $_model.ListScheduledPlanRequest): Promise<$_model.ListScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListScheduledPlanHeaders({ });
+    let headers = new $_model.ListScheduledPlanHeaders({ });
     return await this.listScheduledPlanWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21280,7 +3192,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScheduledPlanExecutedHistoryResponse
    */
-  async listScheduledPlanExecutedHistoryWithOptions(namespace: string, request: ListScheduledPlanExecutedHistoryRequest, headers: ListScheduledPlanExecutedHistoryHeaders, runtime: $dara.RuntimeOptions): Promise<ListScheduledPlanExecutedHistoryResponse> {
+  async listScheduledPlanExecutedHistoryWithOptions(namespace: string, request: $_model.ListScheduledPlanExecutedHistoryRequest, headers: $_model.ListScheduledPlanExecutedHistoryHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListScheduledPlanExecutedHistoryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.deploymentId)) {
@@ -21315,12 +3227,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListScheduledPlanExecutedHistoryResponse>(await this.callApi(params, req, runtime), new ListScheduledPlanExecutedHistoryResponse({}));
-    } else {
-      return $dara.cast<ListScheduledPlanExecutedHistoryResponse>(await this.execute(params, req, runtime), new ListScheduledPlanExecutedHistoryResponse({}));
-    }
-
+    return $dara.cast<$_model.ListScheduledPlanExecutedHistoryResponse>(await this.callApi(params, req, runtime), new $_model.ListScheduledPlanExecutedHistoryResponse({}));
   }
 
   /**
@@ -21329,9 +3236,9 @@ export default class Client extends OpenApi {
    * @param request - ListScheduledPlanExecutedHistoryRequest
    * @returns ListScheduledPlanExecutedHistoryResponse
    */
-  async listScheduledPlanExecutedHistory(namespace: string, request: ListScheduledPlanExecutedHistoryRequest): Promise<ListScheduledPlanExecutedHistoryResponse> {
+  async listScheduledPlanExecutedHistory(namespace: string, request: $_model.ListScheduledPlanExecutedHistoryRequest): Promise<$_model.ListScheduledPlanExecutedHistoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListScheduledPlanExecutedHistoryHeaders({ });
+    let headers = new $_model.ListScheduledPlanExecutedHistoryHeaders({ });
     return await this.listScheduledPlanExecutedHistoryWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21342,7 +3249,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSessionClustersResponse
    */
-  async listSessionClustersWithOptions(namespace: string, headers: ListSessionClustersHeaders, runtime: $dara.RuntimeOptions): Promise<ListSessionClustersResponse> {
+  async listSessionClustersWithOptions(namespace: string, headers: $_model.ListSessionClustersHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListSessionClustersResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -21366,21 +3273,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSessionClustersResponse>(await this.callApi(params, req, runtime), new ListSessionClustersResponse({}));
-    } else {
-      return $dara.cast<ListSessionClustersResponse>(await this.execute(params, req, runtime), new ListSessionClustersResponse({}));
-    }
-
+    return $dara.cast<$_model.ListSessionClustersResponse>(await this.callApi(params, req, runtime), new $_model.ListSessionClustersResponse({}));
   }
 
   /**
    * 列举session集群
    * @returns ListSessionClustersResponse
    */
-  async listSessionClusters(namespace: string): Promise<ListSessionClustersResponse> {
+  async listSessionClusters(namespace: string): Promise<$_model.ListSessionClustersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListSessionClustersHeaders({ });
+    let headers = new $_model.ListSessionClustersHeaders({ });
     return await this.listSessionClustersWithOptions(namespace, headers, runtime);
   }
 
@@ -21392,7 +3294,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVariablesResponse
    */
-  async listVariablesWithOptions(namespace: string, request: ListVariablesRequest, headers: ListVariablesHeaders, runtime: $dara.RuntimeOptions): Promise<ListVariablesResponse> {
+  async listVariablesWithOptions(namespace: string, request: $_model.ListVariablesRequest, headers: $_model.ListVariablesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListVariablesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.pageIndex)) {
@@ -21427,12 +3329,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListVariablesResponse>(await this.callApi(params, req, runtime), new ListVariablesResponse({}));
-    } else {
-      return $dara.cast<ListVariablesResponse>(await this.execute(params, req, runtime), new ListVariablesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListVariablesResponse>(await this.callApi(params, req, runtime), new $_model.ListVariablesResponse({}));
   }
 
   /**
@@ -21441,9 +3338,9 @@ export default class Client extends OpenApi {
    * @param request - ListVariablesRequest
    * @returns ListVariablesResponse
    */
-  async listVariables(namespace: string, request: ListVariablesRequest): Promise<ListVariablesResponse> {
+  async listVariables(namespace: string, request: $_model.ListVariablesRequest): Promise<$_model.ListVariablesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ListVariablesHeaders({ });
+    let headers = new $_model.ListVariablesHeaders({ });
     return await this.listVariablesWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21455,7 +3352,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterCustomConnectorResponse
    */
-  async registerCustomConnectorWithOptions(namespace: string, request: RegisterCustomConnectorRequest, headers: RegisterCustomConnectorHeaders, runtime: $dara.RuntimeOptions): Promise<RegisterCustomConnectorResponse> {
+  async registerCustomConnectorWithOptions(namespace: string, request: $_model.RegisterCustomConnectorRequest, headers: $_model.RegisterCustomConnectorHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterCustomConnectorResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.jarUrl)) {
@@ -21486,12 +3383,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RegisterCustomConnectorResponse>(await this.callApi(params, req, runtime), new RegisterCustomConnectorResponse({}));
-    } else {
-      return $dara.cast<RegisterCustomConnectorResponse>(await this.execute(params, req, runtime), new RegisterCustomConnectorResponse({}));
-    }
-
+    return $dara.cast<$_model.RegisterCustomConnectorResponse>(await this.callApi(params, req, runtime), new $_model.RegisterCustomConnectorResponse({}));
   }
 
   /**
@@ -21500,9 +3392,9 @@ export default class Client extends OpenApi {
    * @param request - RegisterCustomConnectorRequest
    * @returns RegisterCustomConnectorResponse
    */
-  async registerCustomConnector(namespace: string, request: RegisterCustomConnectorRequest): Promise<RegisterCustomConnectorResponse> {
+  async registerCustomConnector(namespace: string, request: $_model.RegisterCustomConnectorRequest): Promise<$_model.RegisterCustomConnectorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new RegisterCustomConnectorHeaders({ });
+    let headers = new $_model.RegisterCustomConnectorHeaders({ });
     return await this.registerCustomConnectorWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21514,7 +3406,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterUdfFunctionResponse
    */
-  async registerUdfFunctionWithOptions(namespace: string, request: RegisterUdfFunctionRequest, headers: RegisterUdfFunctionHeaders, runtime: $dara.RuntimeOptions): Promise<RegisterUdfFunctionResponse> {
+  async registerUdfFunctionWithOptions(namespace: string, request: $_model.RegisterUdfFunctionRequest, headers: $_model.RegisterUdfFunctionHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterUdfFunctionResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.className)) {
@@ -21553,12 +3445,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RegisterUdfFunctionResponse>(await this.callApi(params, req, runtime), new RegisterUdfFunctionResponse({}));
-    } else {
-      return $dara.cast<RegisterUdfFunctionResponse>(await this.execute(params, req, runtime), new RegisterUdfFunctionResponse({}));
-    }
-
+    return $dara.cast<$_model.RegisterUdfFunctionResponse>(await this.callApi(params, req, runtime), new $_model.RegisterUdfFunctionResponse({}));
   }
 
   /**
@@ -21567,9 +3454,9 @@ export default class Client extends OpenApi {
    * @param request - RegisterUdfFunctionRequest
    * @returns RegisterUdfFunctionResponse
    */
-  async registerUdfFunction(namespace: string, request: RegisterUdfFunctionRequest): Promise<RegisterUdfFunctionResponse> {
+  async registerUdfFunction(namespace: string, request: $_model.RegisterUdfFunctionRequest): Promise<$_model.RegisterUdfFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new RegisterUdfFunctionHeaders({ });
+    let headers = new $_model.RegisterUdfFunctionHeaders({ });
     return await this.registerUdfFunctionWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21583,8 +3470,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartJobResponse
    */
-  // Deprecated
-  async startJobWithOptions(namespace: string, request: StartJobRequest, headers: StartJobHeaders, runtime: $dara.RuntimeOptions): Promise<StartJobResponse> {
+  async startJobWithOptions(namespace: string, request: $_model.StartJobRequest, headers: $_model.StartJobHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StartJobResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -21610,12 +3496,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartJobResponse>(await this.callApi(params, req, runtime), new StartJobResponse({}));
-    } else {
-      return $dara.cast<StartJobResponse>(await this.execute(params, req, runtime), new StartJobResponse({}));
-    }
-
+    return $dara.cast<$_model.StartJobResponse>(await this.callApi(params, req, runtime), new $_model.StartJobResponse({}));
   }
 
   /**
@@ -21627,9 +3508,9 @@ export default class Client extends OpenApi {
    * @returns StartJobResponse
    */
   // Deprecated
-  async startJob(namespace: string, request: StartJobRequest): Promise<StartJobResponse> {
+  async startJob(namespace: string, request: $_model.StartJobRequest): Promise<$_model.StartJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StartJobHeaders({ });
+    let headers = new $_model.StartJobHeaders({ });
     return await this.startJobWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21641,7 +3522,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartJobWithParamsResponse
    */
-  async startJobWithParamsWithOptions(namespace: string, request: StartJobWithParamsRequest, headers: StartJobWithParamsHeaders, runtime: $dara.RuntimeOptions): Promise<StartJobWithParamsResponse> {
+  async startJobWithParamsWithOptions(namespace: string, request: $_model.StartJobWithParamsRequest, headers: $_model.StartJobWithParamsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StartJobWithParamsResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -21667,12 +3548,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartJobWithParamsResponse>(await this.callApi(params, req, runtime), new StartJobWithParamsResponse({}));
-    } else {
-      return $dara.cast<StartJobWithParamsResponse>(await this.execute(params, req, runtime), new StartJobWithParamsResponse({}));
-    }
-
+    return $dara.cast<$_model.StartJobWithParamsResponse>(await this.callApi(params, req, runtime), new $_model.StartJobWithParamsResponse({}));
   }
 
   /**
@@ -21681,9 +3557,9 @@ export default class Client extends OpenApi {
    * @param request - StartJobWithParamsRequest
    * @returns StartJobWithParamsResponse
    */
-  async startJobWithParams(namespace: string, request: StartJobWithParamsRequest): Promise<StartJobWithParamsResponse> {
+  async startJobWithParams(namespace: string, request: $_model.StartJobWithParamsRequest): Promise<$_model.StartJobWithParamsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StartJobWithParamsHeaders({ });
+    let headers = new $_model.StartJobWithParamsHeaders({ });
     return await this.startJobWithParamsWithOptions(namespace, request, headers, runtime);
   }
 
@@ -21694,7 +3570,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartSessionClusterResponse
    */
-  async startSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: StartSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<StartSessionClusterResponse> {
+  async startSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: $_model.StartSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StartSessionClusterResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -21718,21 +3594,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartSessionClusterResponse>(await this.callApi(params, req, runtime), new StartSessionClusterResponse({}));
-    } else {
-      return $dara.cast<StartSessionClusterResponse>(await this.execute(params, req, runtime), new StartSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.StartSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.StartSessionClusterResponse({}));
   }
 
   /**
    * 启动session集群
    * @returns StartSessionClusterResponse
    */
-  async startSessionCluster(namespace: string, sessionClusterName: string): Promise<StartSessionClusterResponse> {
+  async startSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.StartSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StartSessionClusterHeaders({ });
+    let headers = new $_model.StartSessionClusterHeaders({ });
     return await this.startSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
   }
 
@@ -21743,7 +3614,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopApplyScheduledPlanResponse
    */
-  async stopApplyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: StopApplyScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<StopApplyScheduledPlanResponse> {
+  async stopApplyScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, headers: $_model.StopApplyScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StopApplyScheduledPlanResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -21767,21 +3638,16 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new StopApplyScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<StopApplyScheduledPlanResponse>(await this.execute(params, req, runtime), new StopApplyScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.StopApplyScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.StopApplyScheduledPlanResponse({}));
   }
 
   /**
    * 停止应用执行定时计划
    * @returns StopApplyScheduledPlanResponse
    */
-  async stopApplyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<StopApplyScheduledPlanResponse> {
+  async stopApplyScheduledPlan(namespace: string, scheduledPlanId: string): Promise<$_model.StopApplyScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StopApplyScheduledPlanHeaders({ });
+    let headers = new $_model.StopApplyScheduledPlanHeaders({ });
     return await this.stopApplyScheduledPlanWithOptions(namespace, scheduledPlanId, headers, runtime);
   }
 
@@ -21793,7 +3659,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopJobResponse
    */
-  async stopJobWithOptions(namespace: string, jobId: string, request: StopJobRequest, headers: StopJobHeaders, runtime: $dara.RuntimeOptions): Promise<StopJobResponse> {
+  async stopJobWithOptions(namespace: string, jobId: string, request: $_model.StopJobRequest, headers: $_model.StopJobHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StopJobResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -21819,12 +3685,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
-    } else {
-      return $dara.cast<StopJobResponse>(await this.execute(params, req, runtime), new StopJobResponse({}));
-    }
-
+    return $dara.cast<$_model.StopJobResponse>(await this.callApi(params, req, runtime), new $_model.StopJobResponse({}));
   }
 
   /**
@@ -21833,9 +3694,9 @@ export default class Client extends OpenApi {
    * @param request - StopJobRequest
    * @returns StopJobResponse
    */
-  async stopJob(namespace: string, jobId: string, request: StopJobRequest): Promise<StopJobResponse> {
+  async stopJob(namespace: string, jobId: string, request: $_model.StopJobRequest): Promise<$_model.StopJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StopJobHeaders({ });
+    let headers = new $_model.StopJobHeaders({ });
     return await this.stopJobWithOptions(namespace, jobId, request, headers, runtime);
   }
 
@@ -21846,7 +3707,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopSessionClusterResponse
    */
-  async stopSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: StopSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<StopSessionClusterResponse> {
+  async stopSessionClusterWithOptions(namespace: string, sessionClusterName: string, headers: $_model.StopSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StopSessionClusterResponse> {
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -21870,22 +3731,72 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopSessionClusterResponse>(await this.callApi(params, req, runtime), new StopSessionClusterResponse({}));
-    } else {
-      return $dara.cast<StopSessionClusterResponse>(await this.execute(params, req, runtime), new StopSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.StopSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.StopSessionClusterResponse({}));
   }
 
   /**
    * 停止session集群
    * @returns StopSessionClusterResponse
    */
-  async stopSessionCluster(namespace: string, sessionClusterName: string): Promise<StopSessionClusterResponse> {
+  async stopSessionCluster(namespace: string, sessionClusterName: string): Promise<$_model.StopSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new StopSessionClusterHeaders({ });
+    let headers = new $_model.StopSessionClusterHeaders({ });
     return await this.stopSessionClusterWithOptions(namespace, sessionClusterName, headers, runtime);
+  }
+
+  /**
+   * 提交sql调试
+   * 
+   * @param request - SubmitSqlPreviewRequest
+   * @param headers - SubmitSqlPreviewHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSqlPreviewResponse
+   */
+  async submitSqlPreviewWithOptions(namespace: string, request: $_model.SubmitSqlPreviewRequest, headers: $_model.SubmitSqlPreviewHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSqlPreviewResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionClusterName)) {
+      query["sessionClusterName"] = request.sessionClusterName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSqlPreview",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/sql-preview/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSqlPreviewResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSqlPreviewResponse({}));
+  }
+
+  /**
+   * 提交sql调试
+   * 
+   * @param request - SubmitSqlPreviewRequest
+   * @returns SubmitSqlPreviewResponse
+   */
+  async submitSqlPreview(namespace: string, request: $_model.SubmitSqlPreviewRequest): Promise<$_model.SubmitSqlPreviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.SubmitSqlPreviewHeaders({ });
+    return await this.submitSqlPreviewWithOptions(namespace, request, headers, runtime);
   }
 
   /**
@@ -21896,7 +3807,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDeploymentResponse
    */
-  async updateDeploymentWithOptions(namespace: string, deploymentId: string, request: UpdateDeploymentRequest, headers: UpdateDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateDeploymentResponse> {
+  async updateDeploymentWithOptions(namespace: string, deploymentId: string, request: $_model.UpdateDeploymentRequest, headers: $_model.UpdateDeploymentHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeploymentResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -21922,12 +3833,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateDeploymentResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentResponse({}));
-    } else {
-      return $dara.cast<UpdateDeploymentResponse>(await this.execute(params, req, runtime), new UpdateDeploymentResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeploymentResponse({}));
   }
 
   /**
@@ -21936,9 +3842,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateDeploymentRequest
    * @returns UpdateDeploymentResponse
    */
-  async updateDeployment(namespace: string, deploymentId: string, request: UpdateDeploymentRequest): Promise<UpdateDeploymentResponse> {
+  async updateDeployment(namespace: string, deploymentId: string, request: $_model.UpdateDeploymentRequest): Promise<$_model.UpdateDeploymentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateDeploymentHeaders({ });
+    let headers = new $_model.UpdateDeploymentHeaders({ });
     return await this.updateDeploymentWithOptions(namespace, deploymentId, request, headers, runtime);
   }
 
@@ -21950,7 +3856,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDeploymentDraftResponse
    */
-  async updateDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, request: UpdateDeploymentDraftRequest, headers: UpdateDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateDeploymentDraftResponse> {
+  async updateDeploymentDraftWithOptions(namespace: string, deploymentDraftId: string, request: $_model.UpdateDeploymentDraftRequest, headers: $_model.UpdateDeploymentDraftHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeploymentDraftResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -21976,12 +3882,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentDraftResponse({}));
-    } else {
-      return $dara.cast<UpdateDeploymentDraftResponse>(await this.execute(params, req, runtime), new UpdateDeploymentDraftResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateDeploymentDraftResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeploymentDraftResponse({}));
   }
 
   /**
@@ -21990,9 +3891,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateDeploymentDraftRequest
    * @returns UpdateDeploymentDraftResponse
    */
-  async updateDeploymentDraft(namespace: string, deploymentDraftId: string, request: UpdateDeploymentDraftRequest): Promise<UpdateDeploymentDraftResponse> {
+  async updateDeploymentDraft(namespace: string, deploymentDraftId: string, request: $_model.UpdateDeploymentDraftRequest): Promise<$_model.UpdateDeploymentDraftResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateDeploymentDraftHeaders({ });
+    let headers = new $_model.UpdateDeploymentDraftHeaders({ });
     return await this.updateDeploymentDraftWithOptions(namespace, deploymentDraftId, request, headers, runtime);
   }
 
@@ -22004,7 +3905,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDeploymentTargetResponse
    */
-  async updateDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, request: UpdateDeploymentTargetRequest, headers: UpdateDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateDeploymentTargetResponse> {
+  async updateDeploymentTargetWithOptions(namespace: string, deploymentTargetName: string, request: $_model.UpdateDeploymentTargetRequest, headers: $_model.UpdateDeploymentTargetHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeploymentTargetResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22030,12 +3931,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new UpdateDeploymentTargetResponse({}));
-    } else {
-      return $dara.cast<UpdateDeploymentTargetResponse>(await this.execute(params, req, runtime), new UpdateDeploymentTargetResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateDeploymentTargetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeploymentTargetResponse({}));
   }
 
   /**
@@ -22044,10 +3940,59 @@ export default class Client extends OpenApi {
    * @param request - UpdateDeploymentTargetRequest
    * @returns UpdateDeploymentTargetResponse
    */
-  async updateDeploymentTarget(namespace: string, deploymentTargetName: string, request: UpdateDeploymentTargetRequest): Promise<UpdateDeploymentTargetResponse> {
+  async updateDeploymentTarget(namespace: string, deploymentTargetName: string, request: $_model.UpdateDeploymentTargetRequest): Promise<$_model.UpdateDeploymentTargetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateDeploymentTargetHeaders({ });
+    let headers = new $_model.UpdateDeploymentTargetHeaders({ });
     return await this.updateDeploymentTargetWithOptions(namespace, deploymentTargetName, request, headers, runtime);
+  }
+
+  /**
+   * 更新部署目标
+   * 
+   * @param request - UpdateDeploymentTargetV2Request
+   * @param headers - UpdateDeploymentTargetV2Headers
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeploymentTargetV2Response
+   */
+  async updateDeploymentTargetV2WithOptions(namespace: string, deploymentTargetName: string, request: $_model.UpdateDeploymentTargetV2Request, headers: $_model.UpdateDeploymentTargetV2Headers, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeploymentTargetV2Response> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDeploymentTargetV2",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployment-targets/support-elastic/${$dara.URL.percentEncode(deploymentTargetName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDeploymentTargetV2Response>(await this.callApi(params, req, runtime), new $_model.UpdateDeploymentTargetV2Response({}));
+  }
+
+  /**
+   * 更新部署目标
+   * 
+   * @param request - UpdateDeploymentTargetV2Request
+   * @returns UpdateDeploymentTargetV2Response
+   */
+  async updateDeploymentTargetV2(namespace: string, deploymentTargetName: string, request: $_model.UpdateDeploymentTargetV2Request): Promise<$_model.UpdateDeploymentTargetV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.UpdateDeploymentTargetV2Headers({ });
+    return await this.updateDeploymentTargetV2WithOptions(namespace, deploymentTargetName, request, headers, runtime);
   }
 
   /**
@@ -22058,7 +4003,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFolderResponse
    */
-  async updateFolderWithOptions(namespace: string, folderId: string, request: UpdateFolderRequest, headers: UpdateFolderHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateFolderResponse> {
+  async updateFolderWithOptions(namespace: string, folderId: string, request: $_model.UpdateFolderRequest, headers: $_model.UpdateFolderHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFolderResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22084,12 +4029,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
-    } else {
-      return $dara.cast<UpdateFolderResponse>(await this.execute(params, req, runtime), new UpdateFolderResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateFolderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFolderResponse({}));
   }
 
   /**
@@ -22098,9 +4038,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateFolderRequest
    * @returns UpdateFolderResponse
    */
-  async updateFolder(namespace: string, folderId: string, request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
+  async updateFolder(namespace: string, folderId: string, request: $_model.UpdateFolderRequest): Promise<$_model.UpdateFolderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateFolderHeaders({ });
+    let headers = new $_model.UpdateFolderHeaders({ });
     return await this.updateFolderWithOptions(namespace, folderId, request, headers, runtime);
   }
 
@@ -22112,7 +4052,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMemberResponse
    */
-  async updateMemberWithOptions(namespace: string, request: UpdateMemberRequest, headers: UpdateMemberHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateMemberResponse> {
+  async updateMemberWithOptions(namespace: string, request: $_model.UpdateMemberRequest, headers: $_model.UpdateMemberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemberResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22138,12 +4078,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateMemberResponse>(await this.callApi(params, req, runtime), new UpdateMemberResponse({}));
-    } else {
-      return $dara.cast<UpdateMemberResponse>(await this.execute(params, req, runtime), new UpdateMemberResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateMemberResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemberResponse({}));
   }
 
   /**
@@ -22152,9 +4087,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateMemberRequest
    * @returns UpdateMemberResponse
    */
-  async updateMember(namespace: string, request: UpdateMemberRequest): Promise<UpdateMemberResponse> {
+  async updateMember(namespace: string, request: $_model.UpdateMemberRequest): Promise<$_model.UpdateMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateMemberHeaders({ });
+    let headers = new $_model.UpdateMemberHeaders({ });
     return await this.updateMemberWithOptions(namespace, request, headers, runtime);
   }
 
@@ -22166,7 +4101,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateScheduledPlanResponse
    */
-  async updateScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, request: UpdateScheduledPlanRequest, headers: UpdateScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateScheduledPlanResponse> {
+  async updateScheduledPlanWithOptions(namespace: string, scheduledPlanId: string, request: $_model.UpdateScheduledPlanRequest, headers: $_model.UpdateScheduledPlanHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScheduledPlanResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22192,12 +4127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateScheduledPlanResponse>(await this.callApi(params, req, runtime), new UpdateScheduledPlanResponse({}));
-    } else {
-      return $dara.cast<UpdateScheduledPlanResponse>(await this.execute(params, req, runtime), new UpdateScheduledPlanResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateScheduledPlanResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScheduledPlanResponse({}));
   }
 
   /**
@@ -22206,9 +4136,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateScheduledPlanRequest
    * @returns UpdateScheduledPlanResponse
    */
-  async updateScheduledPlan(namespace: string, scheduledPlanId: string, request: UpdateScheduledPlanRequest): Promise<UpdateScheduledPlanResponse> {
+  async updateScheduledPlan(namespace: string, scheduledPlanId: string, request: $_model.UpdateScheduledPlanRequest): Promise<$_model.UpdateScheduledPlanResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateScheduledPlanHeaders({ });
+    let headers = new $_model.UpdateScheduledPlanHeaders({ });
     return await this.updateScheduledPlanWithOptions(namespace, scheduledPlanId, request, headers, runtime);
   }
 
@@ -22220,7 +4150,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSessionClusterResponse
    */
-  async updateSessionClusterWithOptions(namespace: string, sessionClusterName: string, request: UpdateSessionClusterRequest, headers: UpdateSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateSessionClusterResponse> {
+  async updateSessionClusterWithOptions(namespace: string, sessionClusterName: string, request: $_model.UpdateSessionClusterRequest, headers: $_model.UpdateSessionClusterHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSessionClusterResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22246,12 +4176,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateSessionClusterResponse>(await this.callApi(params, req, runtime), new UpdateSessionClusterResponse({}));
-    } else {
-      return $dara.cast<UpdateSessionClusterResponse>(await this.execute(params, req, runtime), new UpdateSessionClusterResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateSessionClusterResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSessionClusterResponse({}));
   }
 
   /**
@@ -22260,9 +4185,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateSessionClusterRequest
    * @returns UpdateSessionClusterResponse
    */
-  async updateSessionCluster(namespace: string, sessionClusterName: string, request: UpdateSessionClusterRequest): Promise<UpdateSessionClusterResponse> {
+  async updateSessionCluster(namespace: string, sessionClusterName: string, request: $_model.UpdateSessionClusterRequest): Promise<$_model.UpdateSessionClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateSessionClusterHeaders({ });
+    let headers = new $_model.UpdateSessionClusterHeaders({ });
     return await this.updateSessionClusterWithOptions(namespace, sessionClusterName, request, headers, runtime);
   }
 
@@ -22274,7 +4199,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUdfArtifactResponse
    */
-  async updateUdfArtifactWithOptions(namespace: string, udfArtifactName: string, request: UpdateUdfArtifactRequest, headers: UpdateUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateUdfArtifactResponse> {
+  async updateUdfArtifactWithOptions(namespace: string, udfArtifactName: string, request: $_model.UpdateUdfArtifactRequest, headers: $_model.UpdateUdfArtifactHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUdfArtifactResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22300,12 +4225,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateUdfArtifactResponse>(await this.callApi(params, req, runtime), new UpdateUdfArtifactResponse({}));
-    } else {
-      return $dara.cast<UpdateUdfArtifactResponse>(await this.execute(params, req, runtime), new UpdateUdfArtifactResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateUdfArtifactResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUdfArtifactResponse({}));
   }
 
   /**
@@ -22314,9 +4234,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateUdfArtifactRequest
    * @returns UpdateUdfArtifactResponse
    */
-  async updateUdfArtifact(namespace: string, udfArtifactName: string, request: UpdateUdfArtifactRequest): Promise<UpdateUdfArtifactResponse> {
+  async updateUdfArtifact(namespace: string, udfArtifactName: string, request: $_model.UpdateUdfArtifactRequest): Promise<$_model.UpdateUdfArtifactResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateUdfArtifactHeaders({ });
+    let headers = new $_model.UpdateUdfArtifactHeaders({ });
     return await this.updateUdfArtifactWithOptions(namespace, udfArtifactName, request, headers, runtime);
   }
 
@@ -22328,7 +4248,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateVariableResponse
    */
-  async updateVariableWithOptions(namespace: string, name: string, request: UpdateVariableRequest, headers: UpdateVariableHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateVariableResponse> {
+  async updateVariableWithOptions(namespace: string, name: string, request: $_model.UpdateVariableRequest, headers: $_model.UpdateVariableHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVariableResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22354,12 +4274,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateVariableResponse>(await this.callApi(params, req, runtime), new UpdateVariableResponse({}));
-    } else {
-      return $dara.cast<UpdateVariableResponse>(await this.execute(params, req, runtime), new UpdateVariableResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateVariableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVariableResponse({}));
   }
 
   /**
@@ -22368,9 +4283,9 @@ export default class Client extends OpenApi {
    * @param request - UpdateVariableRequest
    * @returns UpdateVariableResponse
    */
-  async updateVariable(namespace: string, name: string, request: UpdateVariableRequest): Promise<UpdateVariableResponse> {
+  async updateVariable(namespace: string, name: string, request: $_model.UpdateVariableRequest): Promise<$_model.UpdateVariableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new UpdateVariableHeaders({ });
+    let headers = new $_model.UpdateVariableHeaders({ });
     return await this.updateVariableWithOptions(namespace, name, request, headers, runtime);
   }
 
@@ -22382,7 +4297,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ValidateSqlStatementResponse
    */
-  async validateSqlStatementWithOptions(namespace: string, request: ValidateSqlStatementRequest, headers: ValidateSqlStatementHeaders, runtime: $dara.RuntimeOptions): Promise<ValidateSqlStatementResponse> {
+  async validateSqlStatementWithOptions(namespace: string, request: $_model.ValidateSqlStatementRequest, headers: $_model.ValidateSqlStatementHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateSqlStatementResponse> {
     request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
@@ -22408,12 +4323,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ValidateSqlStatementResponse>(await this.callApi(params, req, runtime), new ValidateSqlStatementResponse({}));
-    } else {
-      return $dara.cast<ValidateSqlStatementResponse>(await this.execute(params, req, runtime), new ValidateSqlStatementResponse({}));
-    }
-
+    return $dara.cast<$_model.ValidateSqlStatementResponse>(await this.callApi(params, req, runtime), new $_model.ValidateSqlStatementResponse({}));
   }
 
   /**
@@ -22422,9 +4332,9 @@ export default class Client extends OpenApi {
    * @param request - ValidateSqlStatementRequest
    * @returns ValidateSqlStatementResponse
    */
-  async validateSqlStatement(namespace: string, request: ValidateSqlStatementRequest): Promise<ValidateSqlStatementResponse> {
+  async validateSqlStatement(namespace: string, request: $_model.ValidateSqlStatementRequest): Promise<$_model.ValidateSqlStatementResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    let headers = new ValidateSqlStatementHeaders({ });
+    let headers = new $_model.ValidateSqlStatementHeaders({ });
     return await this.validateSqlStatementWithOptions(namespace, request, headers, runtime);
   }
 
