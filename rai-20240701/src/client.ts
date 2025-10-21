@@ -1,4068 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class BatchContentAsyncDetectRequestServiceParameterList extends $dara.Model {
-  /**
-   * @example
-   * "XXXXXXXX"
-   */
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentAsyncDetectResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 19657954336
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectRequestServiceParameterList extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectResponseBodyDataDetectResultList extends $dara.Model {
-  riskInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      riskInfo: 'RiskInfo',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskInfo: 'string',
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectResponseBodyData extends $dara.Model {
-  detectResultList?: BatchContentSyncDetectResponseBodyDataDetectResultList[];
-  static names(): { [key: string]: string } {
-    return {
-      detectResultList: 'DetectResultList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectResultList: { 'type': 'array', 'itemType': BatchContentSyncDetectResponseBodyDataDetectResultList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.detectResultList)) {
-      $dara.Model.validateArray(this.detectResultList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  checkResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkResult: 'CheckResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkResult: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentAsyncDetectRequestServiceParameter extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentAsyncDetectResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentSyncDetectRequestServiceParameter extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentSyncDetectResponseBodyData extends $dara.Model {
-  riskInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      riskInfo: 'RiskInfo',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskInfo: 'string',
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetContentDetectResultResponseBodyDataDetectResultList extends $dara.Model {
-  riskInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 2
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      riskInfo: 'RiskInfo',
-      riskResult: 'RiskResult',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskInfo: 'string',
-      riskResult: 'number',
-      status: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetContentDetectResultResponseBodyData extends $dara.Model {
-  detectResultList?: GetContentDetectResultResponseBodyDataDetectResultList[];
-  /**
-   * @example
-   * 10
-   */
-  processedCount?: number;
-  taskId?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatus?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      detectResultList: 'DetectResultList',
-      processedCount: 'ProcessedCount',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectResultList: { 'type': 'array', 'itemType': GetContentDetectResultResponseBodyDataDetectResultList },
-      processedCount: 'number',
-      taskId: 'string',
-      taskStatus: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.detectResultList)) {
-      $dara.Model.validateArray(this.detectResultList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList extends $dara.Model {
-  word?: string;
-  wordLabel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-      wordLabel: 'WordLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-      wordLabel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList extends $dara.Model {
-  blockWordList?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList[];
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordList: 'BlockWordList',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordList: { 'type': 'array', 'itemType': GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList },
-      groupName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordList)) {
-      $dara.Model.validateArray(this.blockWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord extends $dara.Model {
-  blockWordGroupInfoList?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordGroupInfoList: 'BlockWordGroupInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordGroupInfoList: { 'type': 'array', 'itemType': GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordGroupInfoList)) {
-      $dara.Model.validateArray(this.blockWordGroupInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList extends $dara.Model {
-  categoryLabel?: string;
-  /**
-   * @example
-   * 0
-   */
-  categoryType?: number;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 0
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      categoryLabel: 'CategoryLabel',
-      categoryType: 'CategoryType',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryLabel: 'string',
-      categoryType: 'number',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories extends $dara.Model {
-  /**
-   * @example
-   * 0.85
-   */
-  confidenceScore?: number;
-  harmfulCategoryInfoList?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidenceScore: 'ConfidenceScore',
-      harmfulCategoryInfoList: 'HarmfulCategoryInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidenceScore: 'number',
-      harmfulCategoryInfoList: { 'type': 'array', 'itemType': GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.harmfulCategoryInfoList)) {
-      $dara.Model.validateArray(this.harmfulCategoryInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack extends $dara.Model {
-  promptAttackInfo?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 0
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      promptAttackInfo: 'PromptAttackInfo',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promptAttackInfo: 'string',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfo extends $dara.Model {
-  blockWord?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord;
-  harmfulCategories?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories;
-  promptAttack?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack;
-  static names(): { [key: string]: string } {
-    return {
-      blockWord: 'BlockWord',
-      harmfulCategories: 'HarmfulCategories',
-      promptAttack: 'PromptAttack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWord: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord,
-      harmfulCategories: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories,
-      promptAttack: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack,
-    };
-  }
-
-  validate() {
-    if(this.blockWord && typeof (this.blockWord as any).validate === 'function') {
-      (this.blockWord as any).validate();
-    }
-    if(this.harmfulCategories && typeof (this.harmfulCategories as any).validate === 'function') {
-      (this.harmfulCategories as any).validate();
-    }
-    if(this.promptAttack && typeof (this.promptAttack as any).validate === 'function') {
-      (this.promptAttack as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBodyDetectResultList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 2
-   */
-  status?: number;
-  traceInfo?: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfo;
-  static names(): { [key: string]: string } {
-    return {
-      riskResult: 'RiskResult',
-      status: 'Status',
-      traceInfo: 'TraceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskResult: 'number',
-      status: 'number',
-      traceInfo: GetModelInputContentDetectResultResponseBodyDetectResultListTraceInfo,
-    };
-  }
-
-  validate() {
-    if(this.traceInfo && typeof (this.traceInfo as any).validate === 'function') {
-      (this.traceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList extends $dara.Model {
-  word?: string;
-  wordLabel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-      wordLabel: 'WordLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-      wordLabel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList extends $dara.Model {
-  blockWordList?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList[];
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordList: 'BlockWordList',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordList: { 'type': 'array', 'itemType': GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoListBlockWordList },
-      groupName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordList)) {
-      $dara.Model.validateArray(this.blockWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord extends $dara.Model {
-  blockWordGroupInfoList?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordGroupInfoList: 'BlockWordGroupInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordGroupInfoList: { 'type': 'array', 'itemType': GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWordBlockWordGroupInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordGroupInfoList)) {
-      $dara.Model.validateArray(this.blockWordGroupInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList extends $dara.Model {
-  categoryLabel?: string;
-  /**
-   * @example
-   * 0
-   */
-  categoryType?: number;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 1
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      categoryLabel: 'CategoryLabel',
-      categoryType: 'CategoryType',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryLabel: 'string',
-      categoryType: 'number',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories extends $dara.Model {
-  /**
-   * @example
-   * 0.85
-   */
-  confidenceScore?: number;
-  harmfulCategoryInfoList?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidenceScore: 'ConfidenceScore',
-      harmfulCategoryInfoList: 'HarmfulCategoryInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidenceScore: 'number',
-      harmfulCategoryInfoList: { 'type': 'array', 'itemType': GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategoriesHarmfulCategoryInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.harmfulCategoryInfoList)) {
-      $dara.Model.validateArray(this.harmfulCategoryInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack extends $dara.Model {
-  promptAttackInfo?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 1
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      promptAttackInfo: 'PromptAttackInfo',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promptAttackInfo: 'string',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfo extends $dara.Model {
-  blockWord?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord;
-  harmfulCategories?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories;
-  promptAttack?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack;
-  static names(): { [key: string]: string } {
-    return {
-      blockWord: 'BlockWord',
-      harmfulCategories: 'HarmfulCategories',
-      promptAttack: 'PromptAttack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWord: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoBlockWord,
-      harmfulCategories: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoHarmfulCategories,
-      promptAttack: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfoPromptAttack,
-    };
-  }
-
-  validate() {
-    if(this.blockWord && typeof (this.blockWord as any).validate === 'function') {
-      (this.blockWord as any).validate();
-    }
-    if(this.harmfulCategories && typeof (this.harmfulCategories as any).validate === 'function') {
-      (this.harmfulCategories as any).validate();
-    }
-    if(this.promptAttack && typeof (this.promptAttack as any).validate === 'function') {
-      (this.promptAttack as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBodyDetectResultList extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 2
-   */
-  status?: number;
-  traceInfo?: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfo;
-  static names(): { [key: string]: string } {
-    return {
-      riskResult: 'RiskResult',
-      status: 'Status',
-      traceInfo: 'TraceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      riskResult: 'number',
-      status: 'number',
-      traceInfo: GetModelOutputContentDetectResultResponseBodyDetectResultListTraceInfo,
-    };
-  }
-
-  validate() {
-    if(this.traceInfo && typeof (this.traceInfo as any).validate === 'function') {
-      (this.traceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSensitiveWordResponseBodyDataSensitiveWordList extends $dara.Model {
-  /**
-   * @example
-   * 387907
-   */
-  id?: number;
-  label?: string;
-  word?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      label: 'Label',
-      word: 'Word',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      label: 'string',
-      word: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSensitiveWordResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 10000
-   */
-  maxCount?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  sensitiveWordList?: ListSensitiveWordResponseBodyDataSensitiveWordList[];
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      maxCount: 'MaxCount',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      sensitiveWordList: 'SensitiveWordList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxCount: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      sensitiveWordList: { 'type': 'array', 'itemType': ListSensitiveWordResponseBodyDataSensitiveWordList },
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.sensitiveWordList)) {
-      $dara.Model.validateArray(this.sensitiveWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentAsyncDetectRequestBodyData extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectRequestBodyData extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList extends $dara.Model {
-  word?: string;
-  wordLabel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-      wordLabel: 'WordLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-      wordLabel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList extends $dara.Model {
-  blockWordList?: ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList[];
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordList: 'BlockWordList',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordList: { 'type': 'array', 'itemType': ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList },
-      groupName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordList)) {
-      $dara.Model.validateArray(this.blockWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoBlockWord extends $dara.Model {
-  blockWordGroupInfoList?: ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList[];
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordGroupInfoList: 'BlockWordGroupInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordGroupInfoList: { 'type': 'array', 'itemType': ModelInputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordGroupInfoList)) {
-      $dara.Model.validateArray(this.blockWordGroupInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList extends $dara.Model {
-  categoryLabel?: string;
-  categoryType?: number;
-  riskResult?: number;
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      categoryLabel: 'CategoryLabel',
-      categoryType: 'CategoryType',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryLabel: 'string',
-      categoryType: 'number',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategories extends $dara.Model {
-  confidenceScore?: number;
-  harmfulCategoryInfoList?: ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList[];
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidenceScore: 'ConfidenceScore',
-      harmfulCategoryInfoList: 'HarmfulCategoryInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidenceScore: 'number',
-      harmfulCategoryInfoList: { 'type': 'array', 'itemType': ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.harmfulCategoryInfoList)) {
-      $dara.Model.validateArray(this.harmfulCategoryInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfoPromptAttack extends $dara.Model {
-  confidenceScore?: number;
-  promptAttackInfo?: string;
-  riskResult?: number;
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidenceScore: 'ConfidenceScore',
-      promptAttackInfo: 'PromptAttackInfo',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidenceScore: 'number',
-      promptAttackInfo: 'string',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBodyTraceInfo extends $dara.Model {
-  blockWord?: ModelInputContentSyncDetectResponseBodyTraceInfoBlockWord;
-  harmfulCategories?: ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategories;
-  promptAttack?: ModelInputContentSyncDetectResponseBodyTraceInfoPromptAttack;
-  static names(): { [key: string]: string } {
-    return {
-      blockWord: 'BlockWord',
-      harmfulCategories: 'HarmfulCategories',
-      promptAttack: 'PromptAttack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWord: ModelInputContentSyncDetectResponseBodyTraceInfoBlockWord,
-      harmfulCategories: ModelInputContentSyncDetectResponseBodyTraceInfoHarmfulCategories,
-      promptAttack: ModelInputContentSyncDetectResponseBodyTraceInfoPromptAttack,
-    };
-  }
-
-  validate() {
-    if(this.blockWord && typeof (this.blockWord as any).validate === 'function') {
-      (this.blockWord as any).validate();
-    }
-    if(this.harmfulCategories && typeof (this.harmfulCategories as any).validate === 'function') {
-      (this.harmfulCategories as any).validate();
-    }
-    if(this.promptAttack && typeof (this.promptAttack as any).validate === 'function') {
-      (this.promptAttack as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentAsyncDetectRequestBodyData extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectRequestBodyData extends $dara.Model {
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList extends $dara.Model {
-  word?: string;
-  wordLabel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-      wordLabel: 'WordLabel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-      wordLabel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList extends $dara.Model {
-  blockWordList?: ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList[];
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordList: 'BlockWordList',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordList: { 'type': 'array', 'itemType': ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoListBlockWordList },
-      groupName: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordList)) {
-      $dara.Model.validateArray(this.blockWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWord extends $dara.Model {
-  blockWordGroupInfoList?: ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      blockWordGroupInfoList: 'BlockWordGroupInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWordGroupInfoList: { 'type': 'array', 'itemType': ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWordBlockWordGroupInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.blockWordGroupInfoList)) {
-      $dara.Model.validateArray(this.blockWordGroupInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList extends $dara.Model {
-  categoryLabel?: string;
-  /**
-   * @example
-   * 0
-   */
-  categoryType?: number;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 1
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      categoryLabel: 'CategoryLabel',
-      categoryType: 'CategoryType',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryLabel: 'string',
-      categoryType: 'number',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategories extends $dara.Model {
-  /**
-   * @example
-   * 0.85
-   */
-  confidenceScore?: number;
-  harmfulCategoryInfoList?: ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList[];
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidenceScore: 'ConfidenceScore',
-      harmfulCategoryInfoList: 'HarmfulCategoryInfoList',
-      riskResult: 'RiskResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidenceScore: 'number',
-      harmfulCategoryInfoList: { 'type': 'array', 'itemType': ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategoriesHarmfulCategoryInfoList },
-      riskResult: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.harmfulCategoryInfoList)) {
-      $dara.Model.validateArray(this.harmfulCategoryInfoList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfoPromptAttack extends $dara.Model {
-  promptAttackInfo?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * 0
-   */
-  securityLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      promptAttackInfo: 'PromptAttackInfo',
-      riskResult: 'RiskResult',
-      securityLevel: 'SecurityLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promptAttackInfo: 'string',
-      riskResult: 'number',
-      securityLevel: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBodyTraceInfo extends $dara.Model {
-  blockWord?: ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWord;
-  harmfulCategories?: ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategories;
-  promptAttack?: ModelOutputContentSyncDetectResponseBodyTraceInfoPromptAttack;
-  static names(): { [key: string]: string } {
-    return {
-      blockWord: 'BlockWord',
-      harmfulCategories: 'HarmfulCategories',
-      promptAttack: 'PromptAttack',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blockWord: ModelOutputContentSyncDetectResponseBodyTraceInfoBlockWord,
-      harmfulCategories: ModelOutputContentSyncDetectResponseBodyTraceInfoHarmfulCategories,
-      promptAttack: ModelOutputContentSyncDetectResponseBodyTraceInfoPromptAttack,
-    };
-  }
-
-  validate() {
-    if(this.blockWord && typeof (this.blockWord as any).validate === 'function') {
-      (this.blockWord as any).validate();
-    }
-    if(this.harmfulCategories && typeof (this.harmfulCategories as any).validate === 'function') {
-      (this.harmfulCategories as any).validate();
-    }
-    if(this.promptAttack && typeof (this.promptAttack as any).validate === 'function') {
-      (this.promptAttack as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordRequestBodyDataSensitiveWordList extends $dara.Model {
-  /**
-   * @example
-   * 341806
-   */
-  id?: number;
-  label?: string;
-  status?: number;
-  word?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      label: 'Label',
-      status: 'Status',
-      word: 'Word',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      label: 'string',
-      status: 'number',
-      word: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordRequestBodyData extends $dara.Model {
-  sensitiveWordList?: SyncSensitiveWordRequestBodyDataSensitiveWordList[];
-  static names(): { [key: string]: string } {
-    return {
-      sensitiveWordList: 'SensitiveWordList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sensitiveWordList: { 'type': 'array', 'itemType': SyncSensitiveWordRequestBodyDataSensitiveWordList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.sensitiveWordList)) {
-      $dara.Model.validateArray(this.sensitiveWordList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordResponseBodyDataSensitiveWordErrorList extends $dara.Model {
-  /**
-   * @example
-   * ""
-   */
-  errMessage?: string;
-  /**
-   * @example
-   * 1
-   */
-  errStatus?: number;
-  /**
-   * @example
-   * 0
-   */
-  index?: number;
-  /**
-   * @example
-   * contraband
-   */
-  label?: string;
-  word?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errMessage: 'ErrMessage',
-      errStatus: 'ErrStatus',
-      index: 'Index',
-      label: 'Label',
-      word: 'Word',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errMessage: 'string',
-      errStatus: 'number',
-      index: 'number',
-      label: 'string',
-      word: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordResponseBodyData extends $dara.Model {
-  sensitiveWordErrorList?: SyncSensitiveWordResponseBodyDataSensitiveWordErrorList[];
-  static names(): { [key: string]: string } {
-    return {
-      sensitiveWordErrorList: 'SensitiveWordErrorList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sensitiveWordErrorList: { 'type': 'array', 'itemType': SyncSensitiveWordResponseBodyDataSensitiveWordErrorList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.sensitiveWordErrorList)) {
-      $dara.Model.validateArray(this.sensitiveWordErrorList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentAsyncDetectRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  serviceParameterList?: BatchContentAsyncDetectRequestServiceParameterList[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-      serviceParameterList: 'serviceParameterList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-      serviceParameterList: { 'type': 'array', 'itemType': BatchContentAsyncDetectRequestServiceParameterList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.serviceParameterList)) {
-      $dara.Model.validateArray(this.serviceParameterList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentAsyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: BatchContentAsyncDetectResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * 9736C44E-F718-566B-821F-710216aAAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****F68692
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: BatchContentAsyncDetectResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentAsyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchContentAsyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchContentAsyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   * imageDetection
-   */
-  serviceName?: string;
-  serviceParameterList?: BatchContentSyncDetectRequestServiceParameterList[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-      serviceParameterList: 'serviceParameterList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-      serviceParameterList: { 'type': 'array', 'itemType': BatchContentSyncDetectRequestServiceParameterList },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.serviceParameterList)) {
-      $dara.Model.validateArray(this.serviceParameterList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: BatchContentSyncDetectResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: BatchContentSyncDetectResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchContentSyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchContentSyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchContentSyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: CheckAccountResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CheckAccountResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentAsyncDetectRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  serviceParameter?: ContentAsyncDetectRequestServiceParameter;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-      serviceParameter: 'serviceParameter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-      serviceParameter: ContentAsyncDetectRequestServiceParameter,
-    };
-  }
-
-  validate() {
-    if(this.serviceParameter && typeof (this.serviceParameter as any).validate === 'function') {
-      (this.serviceParameter as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentAsyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: ContentAsyncDetectResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ContentAsyncDetectResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentAsyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ContentAsyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ContentAsyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentSyncDetectRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  serviceParameter?: ContentSyncDetectRequestServiceParameter;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-      serviceParameter: 'serviceParameter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-      serviceParameter: ContentSyncDetectRequestServiceParameter,
-    };
-  }
-
-  validate() {
-    if(this.serviceParameter && typeof (this.serviceParameter as any).validate === 'function') {
-      (this.serviceParameter as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentSyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: ContentSyncDetectResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ContentSyncDetectResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContentSyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ContentSyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ContentSyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetContentDetectResultRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetContentDetectResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: GetContentDetectResultResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetContentDetectResultResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetContentDetectResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetContentDetectResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetContentDetectResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  detectResultList?: GetModelInputContentDetectResultResponseBodyDetectResultList[];
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * 1
-   */
-  processedCount?: number;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      detectResultList: 'DetectResultList',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      processedCount: 'ProcessedCount',
-      requestId: 'RequestId',
-      success: 'Success',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      detectResultList: { 'type': 'array', 'itemType': GetModelInputContentDetectResultResponseBodyDetectResultList },
-      httpStatusCode: 'number',
-      message: 'string',
-      processedCount: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      taskId: 'string',
-      taskStatus: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.detectResultList)) {
-      $dara.Model.validateArray(this.detectResultList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelInputContentDetectResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetModelInputContentDetectResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetModelInputContentDetectResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  detectResultList?: GetModelOutputContentDetectResultResponseBodyDetectResultList[];
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * 1
-   */
-  processedCount?: number;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      detectResultList: 'DetectResultList',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      processedCount: 'ProcessedCount',
-      requestId: 'RequestId',
-      success: 'Success',
-      taskId: 'TaskId',
-      taskStatus: 'TaskStatus',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      detectResultList: { 'type': 'array', 'itemType': GetModelOutputContentDetectResultResponseBodyDetectResultList },
-      httpStatusCode: 'number',
-      message: 'string',
-      processedCount: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      taskId: 'string',
-      taskStatus: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.detectResultList)) {
-      $dara.Model.validateArray(this.detectResultList);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetModelOutputContentDetectResultResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetModelOutputContentDetectResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetModelOutputContentDetectResultResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSensitiveWordRequest extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSensitiveWordResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: ListSensitiveWordResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListSensitiveWordResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSensitiveWordResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSensitiveWordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSensitiveWordResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentAsyncDetectRequest extends $dara.Model {
-  bodyData?: ModelInputContentAsyncDetectRequestBodyData;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyData: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyData: ModelInputContentAsyncDetectRequestBodyData,
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.bodyData && typeof (this.bodyData as any).validate === 'function') {
-      (this.bodyData as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentAsyncDetectShrinkRequest extends $dara.Model {
-  bodyDataShrink?: string;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyDataShrink: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyDataShrink: 'string',
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentAsyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentAsyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModelInputContentAsyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModelInputContentAsyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectRequest extends $dara.Model {
-  bodyData?: ModelInputContentSyncDetectRequestBodyData;
-  policyIdentifier?: string;
-  regionId?: string;
-  sceneName?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyData: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyData: ModelInputContentSyncDetectRequestBodyData,
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.bodyData && typeof (this.bodyData as any).validate === 'function') {
-      (this.bodyData as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectShrinkRequest extends $dara.Model {
-  bodyDataShrink?: string;
-  policyIdentifier?: string;
-  regionId?: string;
-  sceneName?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyDataShrink: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyDataShrink: 'string',
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponseBody extends $dara.Model {
-  code?: string;
-  httpStatusCode?: number;
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   */
-  requestId?: string;
-  riskResult?: number;
-  success?: boolean;
-  traceInfo?: ModelInputContentSyncDetectResponseBodyTraceInfo;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      riskResult: 'RiskResult',
-      success: 'Success',
-      traceInfo: 'TraceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      riskResult: 'number',
-      success: 'boolean',
-      traceInfo: ModelInputContentSyncDetectResponseBodyTraceInfo,
-    };
-  }
-
-  validate() {
-    if(this.traceInfo && typeof (this.traceInfo as any).validate === 'function') {
-      (this.traceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelInputContentSyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModelInputContentSyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModelInputContentSyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentAsyncDetectRequest extends $dara.Model {
-  bodyData?: ModelOutputContentAsyncDetectRequestBodyData;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyData: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyData: ModelOutputContentAsyncDetectRequestBodyData,
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.bodyData && typeof (this.bodyData as any).validate === 'function') {
-      (this.bodyData as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentAsyncDetectShrinkRequest extends $dara.Model {
-  bodyDataShrink?: string;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyDataShrink: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyDataShrink: 'string',
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentAsyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 5d85cd38-03b2-49fd-86b2-be85c4b13215
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      taskId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentAsyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModelOutputContentAsyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModelOutputContentAsyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectRequest extends $dara.Model {
-  bodyData?: ModelOutputContentSyncDetectRequestBodyData;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyData: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyData: ModelOutputContentSyncDetectRequestBodyData,
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    if(this.bodyData && typeof (this.bodyData as any).validate === 'function') {
-      (this.bodyData as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectShrinkRequest extends $dara.Model {
-  bodyDataShrink?: string;
-  /**
-   * @example
-   * x1bc5xgs4uhx
-   */
-  policyIdentifier?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @example
-   * ""
-   */
-  sceneName?: string;
-  /**
-   * @example
-   * textDetection
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyDataShrink: 'BodyData',
-      policyIdentifier: 'PolicyIdentifier',
-      regionId: 'RegionId',
-      sceneName: 'SceneName',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyDataShrink: 'string',
-      policyIdentifier: 'string',
-      regionId: 'string',
-      sceneName: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * “”
-   */
-  riskInfo?: string;
-  /**
-   * @example
-   * 0
-   */
-  riskResult?: number;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  traceInfo?: ModelOutputContentSyncDetectResponseBodyTraceInfo;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      riskInfo: 'RiskInfo',
-      riskResult: 'RiskResult',
-      success: 'Success',
-      traceInfo: 'TraceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      riskInfo: 'string',
-      riskResult: 'number',
-      success: 'boolean',
-      traceInfo: ModelOutputContentSyncDetectResponseBodyTraceInfo,
-    };
-  }
-
-  validate() {
-    if(this.traceInfo && typeof (this.traceInfo as any).validate === 'function') {
-      (this.traceInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModelOutputContentSyncDetectResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModelOutputContentSyncDetectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModelOutputContentSyncDetectResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterAccountRequest extends $dara.Model {
-  /**
-   * @example
-   * "user api register"
-   */
-  memo?: string;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      memo: 'Memo',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      memo: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterAccountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterAccountResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegisterAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegisterAccountResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordRequest extends $dara.Model {
-  bodyData?: SyncSensitiveWordRequestBodyData;
-  /**
-   * @example
-   * true
-   */
-  commit?: boolean;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyData: 'BodyData',
-      commit: 'Commit',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyData: SyncSensitiveWordRequestBodyData,
-      commit: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.bodyData && typeof (this.bodyData as any).validate === 'function') {
-      (this.bodyData as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordShrinkRequest extends $dara.Model {
-  bodyDataShrink?: string;
-  /**
-   * @example
-   * true
-   */
-  commit?: boolean;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bodyDataShrink: 'BodyData',
-      commit: 'Commit',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodyDataShrink: 'string',
-      commit: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 00000
-   */
-  code?: string;
-  data?: SyncSensitiveWordResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: SyncSensitiveWordResponseBodyData,
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  validate() {
-    if(this.data && typeof (this.data as any).validate === 'function') {
-      (this.data as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncSensitiveWordResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SyncSensitiveWordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SyncSensitiveWordResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -4093,7 +36,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchContentAsyncDetectResponse
    */
-  async batchContentAsyncDetectWithOptions(request: BatchContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<BatchContentAsyncDetectResponse> {
+  async batchContentAsyncDetectWithOptions(request: $_model.BatchContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchContentAsyncDetectResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4128,12 +71,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BatchContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new BatchContentAsyncDetectResponse({}));
-    } else {
-      return $dara.cast<BatchContentAsyncDetectResponse>(await this.execute(params, req, runtime), new BatchContentAsyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.BatchContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.BatchContentAsyncDetectResponse({}));
   }
 
   /**
@@ -4142,7 +80,7 @@ export default class Client extends OpenApi {
    * @param request - BatchContentAsyncDetectRequest
    * @returns BatchContentAsyncDetectResponse
    */
-  async batchContentAsyncDetect(request: BatchContentAsyncDetectRequest): Promise<BatchContentAsyncDetectResponse> {
+  async batchContentAsyncDetect(request: $_model.BatchContentAsyncDetectRequest): Promise<$_model.BatchContentAsyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchContentAsyncDetectWithOptions(request, runtime);
   }
@@ -4154,7 +92,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchContentSyncDetectResponse
    */
-  async batchContentSyncDetectWithOptions(request: BatchContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<BatchContentSyncDetectResponse> {
+  async batchContentSyncDetectWithOptions(request: $_model.BatchContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchContentSyncDetectResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4189,12 +127,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<BatchContentSyncDetectResponse>(await this.callApi(params, req, runtime), new BatchContentSyncDetectResponse({}));
-    } else {
-      return $dara.cast<BatchContentSyncDetectResponse>(await this.execute(params, req, runtime), new BatchContentSyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.BatchContentSyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.BatchContentSyncDetectResponse({}));
   }
 
   /**
@@ -4203,7 +136,7 @@ export default class Client extends OpenApi {
    * @param request - BatchContentSyncDetectRequest
    * @returns BatchContentSyncDetectResponse
    */
-  async batchContentSyncDetect(request: BatchContentSyncDetectRequest): Promise<BatchContentSyncDetectResponse> {
+  async batchContentSyncDetect(request: $_model.BatchContentSyncDetectRequest): Promise<$_model.BatchContentSyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchContentSyncDetectWithOptions(request, runtime);
   }
@@ -4215,7 +148,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckAccountResponse
    */
-  async checkAccountWithOptions(request: CheckAccountRequest, runtime: $dara.RuntimeOptions): Promise<CheckAccountResponse> {
+  async checkAccountWithOptions(request: $_model.CheckAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckAccountResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4236,12 +169,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CheckAccountResponse>(await this.callApi(params, req, runtime), new CheckAccountResponse({}));
-    } else {
-      return $dara.cast<CheckAccountResponse>(await this.execute(params, req, runtime), new CheckAccountResponse({}));
-    }
-
+    return $dara.cast<$_model.CheckAccountResponse>(await this.callApi(params, req, runtime), new $_model.CheckAccountResponse({}));
   }
 
   /**
@@ -4250,7 +178,7 @@ export default class Client extends OpenApi {
    * @param request - CheckAccountRequest
    * @returns CheckAccountResponse
    */
-  async checkAccount(request: CheckAccountRequest): Promise<CheckAccountResponse> {
+  async checkAccount(request: $_model.CheckAccountRequest): Promise<$_model.CheckAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkAccountWithOptions(request, runtime);
   }
@@ -4262,7 +190,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContentAsyncDetectResponse
    */
-  async contentAsyncDetectWithOptions(request: ContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ContentAsyncDetectResponse> {
+  async contentAsyncDetectWithOptions(request: $_model.ContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContentAsyncDetectResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4297,12 +225,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new ContentAsyncDetectResponse({}));
-    } else {
-      return $dara.cast<ContentAsyncDetectResponse>(await this.execute(params, req, runtime), new ContentAsyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ContentAsyncDetectResponse({}));
   }
 
   /**
@@ -4311,7 +234,7 @@ export default class Client extends OpenApi {
    * @param request - ContentAsyncDetectRequest
    * @returns ContentAsyncDetectResponse
    */
-  async contentAsyncDetect(request: ContentAsyncDetectRequest): Promise<ContentAsyncDetectResponse> {
+  async contentAsyncDetect(request: $_model.ContentAsyncDetectRequest): Promise<$_model.ContentAsyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.contentAsyncDetectWithOptions(request, runtime);
   }
@@ -4323,7 +246,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContentSyncDetectResponse
    */
-  async contentSyncDetectWithOptions(request: ContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ContentSyncDetectResponse> {
+  async contentSyncDetectWithOptions(request: $_model.ContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ContentSyncDetectResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4358,12 +281,7 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ContentSyncDetectResponse>(await this.callApi(params, req, runtime), new ContentSyncDetectResponse({}));
-    } else {
-      return $dara.cast<ContentSyncDetectResponse>(await this.execute(params, req, runtime), new ContentSyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ContentSyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ContentSyncDetectResponse({}));
   }
 
   /**
@@ -4372,9 +290,583 @@ export default class Client extends OpenApi {
    * @param request - ContentSyncDetectRequest
    * @returns ContentSyncDetectResponse
    */
-  async contentSyncDetect(request: ContentSyncDetectRequest): Promise<ContentSyncDetectResponse> {
+  async contentSyncDetect(request: $_model.ContentSyncDetectRequest): Promise<$_model.ContentSyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.contentSyncDetectWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateModelInstance
+   * 
+   * @param request - CreateModelInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelInstanceResponse
+   */
+  async createModelInstanceWithOptions(request: $_model.CreateModelInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.easServiceId)) {
+      query["EasServiceId"] = request.easServiceId;
+    }
+
+    if (!$dara.isNull(request.easServiceName)) {
+      query["EasServiceName"] = request.easServiceName;
+    }
+
+    if (!$dara.isNull(request.modelCallName)) {
+      query["ModelCallName"] = request.modelCallName;
+    }
+
+    if (!$dara.isNull(request.modelCategoryId)) {
+      query["ModelCategoryId"] = request.modelCategoryId;
+    }
+
+    if (!$dara.isNull(request.modelToken)) {
+      query["ModelToken"] = request.modelToken;
+    }
+
+    if (!$dara.isNull(request.modelUrl)) {
+      query["ModelUrl"] = request.modelUrl;
+    }
+
+    if (!$dara.isNull(request.modelVpcUrl)) {
+      query["ModelVpcUrl"] = request.modelVpcUrl;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelInstance",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelInstanceResponse({}));
+  }
+
+  /**
+   * CreateModelInstance
+   * 
+   * @param request - CreateModelInstanceRequest
+   * @returns CreateModelInstanceResponse
+   */
+  async createModelInstance(request: $_model.CreateModelInstanceRequest): Promise<$_model.CreateModelInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * CreatePolicy
+   * 
+   * @param tmpReq - CreatePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolicyResponse
+   */
+  async createPolicyWithOptions(tmpReq: $_model.CreatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.harmfulCategoryConfigInfoList)) {
+      request.harmfulCategoryConfigInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmfulCategoryConfigInfoList, "HarmfulCategoryConfigInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promptAttackInfo)) {
+      request.promptAttackInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptAttackInfo, "PromptAttackInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promptAttackInfoList)) {
+      request.promptAttackInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptAttackInfoList, "PromptAttackInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.regularExpressList)) {
+      request.regularExpressListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regularExpressList, "RegularExpressList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveConfigList)) {
+      request.sensitiveConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveConfigList, "SensitiveConfigList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveTopicList)) {
+      request.sensitiveTopicListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveTopicList, "SensitiveTopicList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveWordList)) {
+      request.sensitiveWordListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveWordList, "SensitiveWordList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.topicConfigInfoList)) {
+      request.topicConfigInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicConfigInfoList, "TopicConfigInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.wordGroupInfoList)) {
+      request.wordGroupInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wordGroupInfoList, "WordGroupInfoList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.contentSafeModelInstanceId)) {
+      query["ContentSafeModelInstanceId"] = request.contentSafeModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.enableSensitiveInputCheck)) {
+      query["EnableSensitiveInputCheck"] = request.enableSensitiveInputCheck;
+    }
+
+    if (!$dara.isNull(request.enableSensitiveOutputCheck)) {
+      query["EnableSensitiveOutputCheck"] = request.enableSensitiveOutputCheck;
+    }
+
+    if (!$dara.isNull(request.harmfulCategoryConfigInfoListShrink)) {
+      query["HarmfulCategoryConfigInfoList"] = request.harmfulCategoryConfigInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.inputSafeAnswer)) {
+      query["InputSafeAnswer"] = request.inputSafeAnswer;
+    }
+
+    if (!$dara.isNull(request.inputSafeAnswerSwitch)) {
+      query["InputSafeAnswerSwitch"] = request.inputSafeAnswerSwitch;
+    }
+
+    if (!$dara.isNull(request.isSidecarPolicy)) {
+      query["IsSidecarPolicy"] = request.isSidecarPolicy;
+    }
+
+    if (!$dara.isNull(request.outputSafeAnswer)) {
+      query["OutputSafeAnswer"] = request.outputSafeAnswer;
+    }
+
+    if (!$dara.isNull(request.outputSafeAnswerSwitch)) {
+      query["OutputSafeAnswerSwitch"] = request.outputSafeAnswerSwitch;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.promptAttackInfoShrink)) {
+      query["PromptAttackInfo"] = request.promptAttackInfoShrink;
+    }
+
+    if (!$dara.isNull(request.promptAttackInfoListShrink)) {
+      query["PromptAttackInfoList"] = request.promptAttackInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.promptAttackModelInstanceId)) {
+      query["PromptAttackModelInstanceId"] = request.promptAttackModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.regularExpressListShrink)) {
+      query["RegularExpressList"] = request.regularExpressListShrink;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    if (!$dara.isNull(request.sensitiveConfigListShrink)) {
+      query["SensitiveConfigList"] = request.sensitiveConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.sensitiveTopicListShrink)) {
+      query["SensitiveTopicList"] = request.sensitiveTopicListShrink;
+    }
+
+    if (!$dara.isNull(request.sensitiveTopicModelInstanceId)) {
+      query["SensitiveTopicModelInstanceId"] = request.sensitiveTopicModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.sensitiveWordListShrink)) {
+      query["SensitiveWordList"] = request.sensitiveWordListShrink;
+    }
+
+    if (!$dara.isNull(request.topicConfigInfoListShrink)) {
+      query["TopicConfigInfoList"] = request.topicConfigInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.wordGroupInfoListShrink)) {
+      query["WordGroupInfoList"] = request.wordGroupInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePolicy",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolicyResponse({}));
+  }
+
+  /**
+   * CreatePolicy
+   * 
+   * @param request - CreatePolicyRequest
+   * @returns CreatePolicyResponse
+   */
+  async createPolicy(request: $_model.CreatePolicyRequest): Promise<$_model.CreatePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateTopic
+   * 
+   * @param tmpReq - CreateTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTopicResponse
+   */
+  async createTopicWithOptions(tmpReq: $_model.CreateTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTopicResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateTopicShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bodyData)) {
+      request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topicDefinition)) {
+      query["TopicDefinition"] = request.topicDefinition;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyDataShrink)) {
+      body["BodyData"] = request.bodyDataShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTopic",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTopicResponse>(await this.callApi(params, req, runtime), new $_model.CreateTopicResponse({}));
+  }
+
+  /**
+   * CreateTopic
+   * 
+   * @param request - CreateTopicRequest
+   * @returns CreateTopicResponse
+   */
+  async createTopic(request: $_model.CreateTopicRequest): Promise<$_model.CreateTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateWordGroup
+   * 
+   * @param tmpReq - CreateWordGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWordGroupResponse
+   */
+  async createWordGroupWithOptions(tmpReq: $_model.CreateWordGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWordGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWordGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bodyData)) {
+      request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commit)) {
+      query["Commit"] = request.commit;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyDataShrink)) {
+      body["BodyData"] = request.bodyDataShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWordGroup",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWordGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateWordGroupResponse({}));
+  }
+
+  /**
+   * CreateWordGroup
+   * 
+   * @param request - CreateWordGroupRequest
+   * @returns CreateWordGroupResponse
+   */
+  async createWordGroup(request: $_model.CreateWordGroupRequest): Promise<$_model.CreateWordGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWordGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteModelInstance
+   * 
+   * @param tmpReq - DeleteModelInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelInstanceResponse
+   */
+  async deleteModelInstanceWithOptions(tmpReq: $_model.DeleteModelInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteModelInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.modelInstanceIdList)) {
+      request.modelInstanceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelInstanceIdList, "ModelInstanceIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.modelInstanceIdListShrink)) {
+      query["ModelInstanceIdList"] = request.modelInstanceIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelInstance",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelInstanceResponse({}));
+  }
+
+  /**
+   * DeleteModelInstance
+   * 
+   * @param request - DeleteModelInstanceRequest
+   * @returns DeleteModelInstanceResponse
+   */
+  async deleteModelInstance(request: $_model.DeleteModelInstanceRequest): Promise<$_model.DeleteModelInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * DeletePolicy
+   * 
+   * @param tmpReq - DeletePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolicyResponse
+   */
+  async deletePolicyWithOptions(tmpReq: $_model.DeletePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeletePolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.policyIdList)) {
+      request.policyIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policyIdList, "PolicyIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.policyIdListShrink)) {
+      query["PolicyIdList"] = request.policyIdListShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolicy",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolicyResponse({}));
+  }
+
+  /**
+   * DeletePolicy
+   * 
+   * @param request - DeletePolicyRequest
+   * @returns DeletePolicyResponse
+   */
+  async deletePolicy(request: $_model.DeletePolicyRequest): Promise<$_model.DeletePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteTopic
+   * 
+   * @param tmpReq - DeleteTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTopicResponse
+   */
+  async deleteTopicWithOptions(tmpReq: $_model.DeleteTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTopicResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteTopicShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.topicIdList)) {
+      request.topicIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicIdList, "TopicIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topicIdListShrink)) {
+      query["TopicIdList"] = request.topicIdListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTopic",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTopicResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTopicResponse({}));
+  }
+
+  /**
+   * DeleteTopic
+   * 
+   * @param request - DeleteTopicRequest
+   * @returns DeleteTopicResponse
+   */
+  async deleteTopic(request: $_model.DeleteTopicRequest): Promise<$_model.DeleteTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteWordGroup
+   * 
+   * @param tmpReq - DeleteWordGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWordGroupResponse
+   */
+  async deleteWordGroupWithOptions(tmpReq: $_model.DeleteWordGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWordGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteWordGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.groupIdList)) {
+      request.groupIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIdList, "GroupIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.groupIdListShrink)) {
+      query["GroupIdList"] = request.groupIdListShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWordGroup",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWordGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWordGroupResponse({}));
+  }
+
+  /**
+   * DeleteWordGroup
+   * 
+   * @param request - DeleteWordGroupRequest
+   * @returns DeleteWordGroupResponse
+   */
+  async deleteWordGroup(request: $_model.DeleteWordGroupRequest): Promise<$_model.DeleteWordGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWordGroupWithOptions(request, runtime);
   }
 
   /**
@@ -4384,7 +876,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetContentDetectResultResponse
    */
-  async getContentDetectResultWithOptions(request: GetContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<GetContentDetectResultResponse> {
+  async getContentDetectResultWithOptions(request: $_model.GetContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContentDetectResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4409,12 +901,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetContentDetectResultResponse>(await this.callApi(params, req, runtime), new GetContentDetectResultResponse({}));
-    } else {
-      return $dara.cast<GetContentDetectResultResponse>(await this.execute(params, req, runtime), new GetContentDetectResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetContentDetectResultResponse>(await this.callApi(params, req, runtime), new $_model.GetContentDetectResultResponse({}));
   }
 
   /**
@@ -4423,7 +910,7 @@ export default class Client extends OpenApi {
    * @param request - GetContentDetectResultRequest
    * @returns GetContentDetectResultResponse
    */
-  async getContentDetectResult(request: GetContentDetectResultRequest): Promise<GetContentDetectResultResponse> {
+  async getContentDetectResult(request: $_model.GetContentDetectResultRequest): Promise<$_model.GetContentDetectResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getContentDetectResultWithOptions(request, runtime);
   }
@@ -4435,7 +922,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModelInputContentDetectResultResponse
    */
-  async getModelInputContentDetectResultWithOptions(request: GetModelInputContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<GetModelInputContentDetectResultResponse> {
+  async getModelInputContentDetectResultWithOptions(request: $_model.GetModelInputContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelInputContentDetectResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4460,12 +947,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetModelInputContentDetectResultResponse>(await this.callApi(params, req, runtime), new GetModelInputContentDetectResultResponse({}));
-    } else {
-      return $dara.cast<GetModelInputContentDetectResultResponse>(await this.execute(params, req, runtime), new GetModelInputContentDetectResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetModelInputContentDetectResultResponse>(await this.callApi(params, req, runtime), new $_model.GetModelInputContentDetectResultResponse({}));
   }
 
   /**
@@ -4474,9 +956,55 @@ export default class Client extends OpenApi {
    * @param request - GetModelInputContentDetectResultRequest
    * @returns GetModelInputContentDetectResultResponse
    */
-  async getModelInputContentDetectResult(request: GetModelInputContentDetectResultRequest): Promise<GetModelInputContentDetectResultResponse> {
+  async getModelInputContentDetectResult(request: $_model.GetModelInputContentDetectResultRequest): Promise<$_model.GetModelInputContentDetectResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getModelInputContentDetectResultWithOptions(request, runtime);
+  }
+
+  /**
+   * GetModelInstanceInfo
+   * 
+   * @param request - GetModelInstanceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelInstanceInfoResponse
+   */
+  async getModelInstanceInfoWithOptions(request: $_model.GetModelInstanceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelInstanceInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.modelInstanceId)) {
+      query["ModelInstanceId"] = request.modelInstanceId;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelInstanceInfo",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelInstanceInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetModelInstanceInfoResponse({}));
+  }
+
+  /**
+   * GetModelInstanceInfo
+   * 
+   * @param request - GetModelInstanceInfoRequest
+   * @returns GetModelInstanceInfoResponse
+   */
+  async getModelInstanceInfo(request: $_model.GetModelInstanceInfoRequest): Promise<$_model.GetModelInstanceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getModelInstanceInfoWithOptions(request, runtime);
   }
 
   /**
@@ -4486,7 +1014,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModelOutputContentDetectResultResponse
    */
-  async getModelOutputContentDetectResultWithOptions(request: GetModelOutputContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<GetModelOutputContentDetectResultResponse> {
+  async getModelOutputContentDetectResultWithOptions(request: $_model.GetModelOutputContentDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelOutputContentDetectResultResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -4511,12 +1039,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetModelOutputContentDetectResultResponse>(await this.callApi(params, req, runtime), new GetModelOutputContentDetectResultResponse({}));
-    } else {
-      return $dara.cast<GetModelOutputContentDetectResultResponse>(await this.execute(params, req, runtime), new GetModelOutputContentDetectResultResponse({}));
-    }
-
+    return $dara.cast<$_model.GetModelOutputContentDetectResultResponse>(await this.callApi(params, req, runtime), new $_model.GetModelOutputContentDetectResultResponse({}));
   }
 
   /**
@@ -4525,21 +1048,291 @@ export default class Client extends OpenApi {
    * @param request - GetModelOutputContentDetectResultRequest
    * @returns GetModelOutputContentDetectResultResponse
    */
-  async getModelOutputContentDetectResult(request: GetModelOutputContentDetectResultRequest): Promise<GetModelOutputContentDetectResultResponse> {
+  async getModelOutputContentDetectResult(request: $_model.GetModelOutputContentDetectResultRequest): Promise<$_model.GetModelOutputContentDetectResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getModelOutputContentDetectResultWithOptions(request, runtime);
   }
 
   /**
-   * ListSensitiveWord
+   * GetPolicyDefaultOptions
    * 
-   * @param request - ListSensitiveWordRequest
+   * @param request - GetPolicyDefaultOptionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListSensitiveWordResponse
+   * @returns GetPolicyDefaultOptionsResponse
    */
-  async listSensitiveWordWithOptions(request: ListSensitiveWordRequest, runtime: $dara.RuntimeOptions): Promise<ListSensitiveWordResponse> {
+  async getPolicyDefaultOptionsWithOptions(request: $_model.GetPolicyDefaultOptionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolicyDefaultOptionsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPolicyDefaultOptions",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPolicyDefaultOptionsResponse>(await this.callApi(params, req, runtime), new $_model.GetPolicyDefaultOptionsResponse({}));
+  }
+
+  /**
+   * GetPolicyDefaultOptions
+   * 
+   * @param request - GetPolicyDefaultOptionsRequest
+   * @returns GetPolicyDefaultOptionsResponse
+   */
+  async getPolicyDefaultOptions(request: $_model.GetPolicyDefaultOptionsRequest): Promise<$_model.GetPolicyDefaultOptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPolicyDefaultOptionsWithOptions(request, runtime);
+  }
+
+  /**
+   * GetPolicyInfo
+   * 
+   * @param request - GetPolicyInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolicyInfoResponse
+   */
+  async getPolicyInfoWithOptions(request: $_model.GetPolicyInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolicyInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPolicyInfo",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPolicyInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetPolicyInfoResponse({}));
+  }
+
+  /**
+   * GetPolicyInfo
+   * 
+   * @param request - GetPolicyInfoRequest
+   * @returns GetPolicyInfoResponse
+   */
+  async getPolicyInfo(request: $_model.GetPolicyInfoRequest): Promise<$_model.GetPolicyInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPolicyInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * GetTopic
+   * 
+   * @param request - GetTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTopicResponse
+   */
+  async getTopicWithOptions(request: $_model.GetTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTopicResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topicId)) {
+      query["TopicId"] = request.topicId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTopic",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTopicResponse>(await this.callApi(params, req, runtime), new $_model.GetTopicResponse({}));
+  }
+
+  /**
+   * GetTopic
+   * 
+   * @param request - GetTopicRequest
+   * @returns GetTopicResponse
+   */
+  async getTopic(request: $_model.GetTopicRequest): Promise<$_model.GetTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * GetWordGroup
+   * 
+   * @param request - GetWordGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWordGroupResponse
+   */
+  async getWordGroupWithOptions(request: $_model.GetWordGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWordGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWordGroup",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWordGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetWordGroupResponse({}));
+  }
+
+  /**
+   * GetWordGroup
+   * 
+   * @param request - GetWordGroupRequest
+   * @returns GetWordGroupResponse
+   */
+  async getWordGroup(request: $_model.GetWordGroupRequest): Promise<$_model.GetWordGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWordGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * ListModelCategory
+   * 
+   * @param request - ListModelCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelCategoryResponse
+   */
+  async listModelCategoryWithOptions(request: $_model.ListModelCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelCategoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contentSafeImageSupported)) {
+      query["ContentSafeImageSupported"] = request.contentSafeImageSupported;
+    }
+
+    if (!$dara.isNull(request.contentSafeTextSupported)) {
+      query["ContentSafeTextSupported"] = request.contentSafeTextSupported;
+    }
+
+    if (!$dara.isNull(request.modelCategoryName)) {
+      query["ModelCategoryName"] = request.modelCategoryName;
+    }
+
+    if (!$dara.isNull(request.modelSource)) {
+      query["ModelSource"] = request.modelSource;
+    }
+
+    if (!$dara.isNull(request.promptAttackTextSupported)) {
+      query["PromptAttackTextSupported"] = request.promptAttackTextSupported;
+    }
+
+    if (!$dara.isNull(request.sensitiveTopicTextSupported)) {
+      query["SensitiveTopicTextSupported"] = request.sensitiveTopicTextSupported;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelCategory",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelCategoryResponse>(await this.callApi(params, req, runtime), new $_model.ListModelCategoryResponse({}));
+  }
+
+  /**
+   * ListModelCategory
+   * 
+   * @param request - ListModelCategoryRequest
+   * @returns ListModelCategoryResponse
+   */
+  async listModelCategory(request: $_model.ListModelCategoryRequest): Promise<$_model.ListModelCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * ListModelInstance
+   * 
+   * @param request - ListModelInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelInstanceResponse
+   */
+  async listModelInstanceWithOptions(request: $_model.ListModelInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.easServiceName)) {
+      query["EasServiceName"] = request.easServiceName;
+    }
+
+    if (!$dara.isNull(request.isSidecarPolicy)) {
+      query["IsSidecarPolicy"] = request.isSidecarPolicy;
+    }
+
+    if (!$dara.isNull(request.isSupportContentSafe)) {
+      query["IsSupportContentSafe"] = request.isSupportContentSafe;
+    }
+
+    if (!$dara.isNull(request.isSupportPromptAttack)) {
+      query["IsSupportPromptAttack"] = request.isSupportPromptAttack;
+    }
+
+    if (!$dara.isNull(request.isSupportSensitiveTopic)) {
+      query["IsSupportSensitiveTopic"] = request.isSupportSensitiveTopic;
+    }
+
+    if (!$dara.isNull(request.modelSource)) {
+      query["ModelSource"] = request.modelSource;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -4552,11 +1345,19 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
-      action: "ListSensitiveWord",
+      action: "ListModelInstance",
       version: "2024-07-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -4566,23 +1367,228 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSensitiveWordResponse>(await this.callApi(params, req, runtime), new ListSensitiveWordResponse({}));
-    } else {
-      return $dara.cast<ListSensitiveWordResponse>(await this.execute(params, req, runtime), new ListSensitiveWordResponse({}));
-    }
-
+    return $dara.cast<$_model.ListModelInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ListModelInstanceResponse({}));
   }
 
   /**
-   * ListSensitiveWord
+   * ListModelInstance
    * 
-   * @param request - ListSensitiveWordRequest
-   * @returns ListSensitiveWordResponse
+   * @param request - ListModelInstanceRequest
+   * @returns ListModelInstanceResponse
    */
-  async listSensitiveWord(request: ListSensitiveWordRequest): Promise<ListSensitiveWordResponse> {
+  async listModelInstance(request: $_model.ListModelInstanceRequest): Promise<$_model.ListModelInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.listSensitiveWordWithOptions(request, runtime);
+    return await this.listModelInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * ListPolicy
+   * 
+   * @param request - ListPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicyResponse
+   */
+  async listPolicyWithOptions(request: $_model.ListPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.isSidecarPolicy)) {
+      query["IsSidecarPolicy"] = request.isSidecarPolicy;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyIdentifier)) {
+      query["PolicyIdentifier"] = request.policyIdentifier;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPolicy",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ListPolicyResponse({}));
+  }
+
+  /**
+   * ListPolicy
+   * 
+   * @param request - ListPolicyRequest
+   * @returns ListPolicyResponse
+   */
+  async listPolicy(request: $_model.ListPolicyRequest): Promise<$_model.ListPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * ListTopic
+   * 
+   * @param request - ListTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTopicResponse
+   */
+  async listTopicWithOptions(request: $_model.ListTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTopicResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTopic",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTopicResponse>(await this.callApi(params, req, runtime), new $_model.ListTopicResponse({}));
+  }
+
+  /**
+   * ListTopic
+   * 
+   * @param request - ListTopicRequest
+   * @returns ListTopicResponse
+   */
+  async listTopic(request: $_model.ListTopicRequest): Promise<$_model.ListTopicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * ListWordGroup
+   * 
+   * @param request - ListWordGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWordGroupResponse
+   */
+  async listWordGroupWithOptions(request: $_model.ListWordGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWordGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWordGroup",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWordGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListWordGroupResponse({}));
+  }
+
+  /**
+   * ListWordGroup
+   * 
+   * @param request - ListWordGroupRequest
+   * @returns ListWordGroupResponse
+   */
+  async listWordGroup(request: $_model.ListWordGroupRequest): Promise<$_model.ListWordGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWordGroupWithOptions(request, runtime);
   }
 
   /**
@@ -4592,9 +1598,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModelInputContentAsyncDetectResponse
    */
-  async modelInputContentAsyncDetectWithOptions(tmpReq: ModelInputContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ModelInputContentAsyncDetectResponse> {
+  async modelInputContentAsyncDetectWithOptions(tmpReq: $_model.ModelInputContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModelInputContentAsyncDetectResponse> {
     tmpReq.validate();
-    let request = new ModelInputContentAsyncDetectShrinkRequest({ });
+    let request = new $_model.ModelInputContentAsyncDetectShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.bodyData)) {
       request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
@@ -4637,12 +1643,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModelInputContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new ModelInputContentAsyncDetectResponse({}));
-    } else {
-      return $dara.cast<ModelInputContentAsyncDetectResponse>(await this.execute(params, req, runtime), new ModelInputContentAsyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ModelInputContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ModelInputContentAsyncDetectResponse({}));
   }
 
   /**
@@ -4651,7 +1652,7 @@ export default class Client extends OpenApi {
    * @param request - ModelInputContentAsyncDetectRequest
    * @returns ModelInputContentAsyncDetectResponse
    */
-  async modelInputContentAsyncDetect(request: ModelInputContentAsyncDetectRequest): Promise<ModelInputContentAsyncDetectResponse> {
+  async modelInputContentAsyncDetect(request: $_model.ModelInputContentAsyncDetectRequest): Promise<$_model.ModelInputContentAsyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modelInputContentAsyncDetectWithOptions(request, runtime);
   }
@@ -4663,9 +1664,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModelInputContentSyncDetectResponse
    */
-  async modelInputContentSyncDetectWithOptions(tmpReq: ModelInputContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ModelInputContentSyncDetectResponse> {
+  async modelInputContentSyncDetectWithOptions(tmpReq: $_model.ModelInputContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModelInputContentSyncDetectResponse> {
     tmpReq.validate();
-    let request = new ModelInputContentSyncDetectShrinkRequest({ });
+    let request = new $_model.ModelInputContentSyncDetectShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.bodyData)) {
       request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
@@ -4708,12 +1709,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModelInputContentSyncDetectResponse>(await this.callApi(params, req, runtime), new ModelInputContentSyncDetectResponse({}));
-    } else {
-      return $dara.cast<ModelInputContentSyncDetectResponse>(await this.execute(params, req, runtime), new ModelInputContentSyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ModelInputContentSyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ModelInputContentSyncDetectResponse({}));
   }
 
   /**
@@ -4722,7 +1718,7 @@ export default class Client extends OpenApi {
    * @param request - ModelInputContentSyncDetectRequest
    * @returns ModelInputContentSyncDetectResponse
    */
-  async modelInputContentSyncDetect(request: ModelInputContentSyncDetectRequest): Promise<ModelInputContentSyncDetectResponse> {
+  async modelInputContentSyncDetect(request: $_model.ModelInputContentSyncDetectRequest): Promise<$_model.ModelInputContentSyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modelInputContentSyncDetectWithOptions(request, runtime);
   }
@@ -4734,9 +1730,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModelOutputContentAsyncDetectResponse
    */
-  async modelOutputContentAsyncDetectWithOptions(tmpReq: ModelOutputContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ModelOutputContentAsyncDetectResponse> {
+  async modelOutputContentAsyncDetectWithOptions(tmpReq: $_model.ModelOutputContentAsyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModelOutputContentAsyncDetectResponse> {
     tmpReq.validate();
-    let request = new ModelOutputContentAsyncDetectShrinkRequest({ });
+    let request = new $_model.ModelOutputContentAsyncDetectShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.bodyData)) {
       request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
@@ -4779,12 +1775,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModelOutputContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new ModelOutputContentAsyncDetectResponse({}));
-    } else {
-      return $dara.cast<ModelOutputContentAsyncDetectResponse>(await this.execute(params, req, runtime), new ModelOutputContentAsyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ModelOutputContentAsyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ModelOutputContentAsyncDetectResponse({}));
   }
 
   /**
@@ -4793,7 +1784,7 @@ export default class Client extends OpenApi {
    * @param request - ModelOutputContentAsyncDetectRequest
    * @returns ModelOutputContentAsyncDetectResponse
    */
-  async modelOutputContentAsyncDetect(request: ModelOutputContentAsyncDetectRequest): Promise<ModelOutputContentAsyncDetectResponse> {
+  async modelOutputContentAsyncDetect(request: $_model.ModelOutputContentAsyncDetectRequest): Promise<$_model.ModelOutputContentAsyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modelOutputContentAsyncDetectWithOptions(request, runtime);
   }
@@ -4805,9 +1796,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModelOutputContentSyncDetectResponse
    */
-  async modelOutputContentSyncDetectWithOptions(tmpReq: ModelOutputContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<ModelOutputContentSyncDetectResponse> {
+  async modelOutputContentSyncDetectWithOptions(tmpReq: $_model.ModelOutputContentSyncDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModelOutputContentSyncDetectResponse> {
     tmpReq.validate();
-    let request = new ModelOutputContentSyncDetectShrinkRequest({ });
+    let request = new $_model.ModelOutputContentSyncDetectShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.bodyData)) {
       request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
@@ -4850,12 +1841,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ModelOutputContentSyncDetectResponse>(await this.callApi(params, req, runtime), new ModelOutputContentSyncDetectResponse({}));
-    } else {
-      return $dara.cast<ModelOutputContentSyncDetectResponse>(await this.execute(params, req, runtime), new ModelOutputContentSyncDetectResponse({}));
-    }
-
+    return $dara.cast<$_model.ModelOutputContentSyncDetectResponse>(await this.callApi(params, req, runtime), new $_model.ModelOutputContentSyncDetectResponse({}));
   }
 
   /**
@@ -4864,7 +1850,7 @@ export default class Client extends OpenApi {
    * @param request - ModelOutputContentSyncDetectRequest
    * @returns ModelOutputContentSyncDetectResponse
    */
-  async modelOutputContentSyncDetect(request: ModelOutputContentSyncDetectRequest): Promise<ModelOutputContentSyncDetectResponse> {
+  async modelOutputContentSyncDetect(request: $_model.ModelOutputContentSyncDetectRequest): Promise<$_model.ModelOutputContentSyncDetectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modelOutputContentSyncDetectWithOptions(request, runtime);
   }
@@ -4876,7 +1862,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterAccountResponse
    */
-  async registerAccountWithOptions(request: RegisterAccountRequest, runtime: $dara.RuntimeOptions): Promise<RegisterAccountResponse> {
+  async registerAccountWithOptions(request: $_model.RegisterAccountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterAccountResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.memo)) {
@@ -4901,12 +1887,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<RegisterAccountResponse>(await this.callApi(params, req, runtime), new RegisterAccountResponse({}));
-    } else {
-      return $dara.cast<RegisterAccountResponse>(await this.execute(params, req, runtime), new RegisterAccountResponse({}));
-    }
-
+    return $dara.cast<$_model.RegisterAccountResponse>(await this.callApi(params, req, runtime), new $_model.RegisterAccountResponse({}));
   }
 
   /**
@@ -4915,33 +1896,291 @@ export default class Client extends OpenApi {
    * @param request - RegisterAccountRequest
    * @returns RegisterAccountResponse
    */
-  async registerAccount(request: RegisterAccountRequest): Promise<RegisterAccountResponse> {
+  async registerAccount(request: $_model.RegisterAccountRequest): Promise<$_model.RegisterAccountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.registerAccountWithOptions(request, runtime);
   }
 
   /**
-   * SyncSensitiveWord
+   * UpdateModelInstance
    * 
-   * @param tmpReq - SyncSensitiveWordRequest
+   * @param request - UpdateModelInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SyncSensitiveWordResponse
+   * @returns UpdateModelInstanceResponse
    */
-  async syncSensitiveWordWithOptions(tmpReq: SyncSensitiveWordRequest, runtime: $dara.RuntimeOptions): Promise<SyncSensitiveWordResponse> {
+  async updateModelInstanceWithOptions(request: $_model.UpdateModelInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.easServiceId)) {
+      query["EasServiceId"] = request.easServiceId;
+    }
+
+    if (!$dara.isNull(request.easServiceName)) {
+      query["EasServiceName"] = request.easServiceName;
+    }
+
+    if (!$dara.isNull(request.modelCallName)) {
+      query["ModelCallName"] = request.modelCallName;
+    }
+
+    if (!$dara.isNull(request.modelCategoryId)) {
+      query["ModelCategoryId"] = request.modelCategoryId;
+    }
+
+    if (!$dara.isNull(request.modelInstanceId)) {
+      query["ModelInstanceId"] = request.modelInstanceId;
+    }
+
+    if (!$dara.isNull(request.modelToken)) {
+      query["ModelToken"] = request.modelToken;
+    }
+
+    if (!$dara.isNull(request.modelUrl)) {
+      query["ModelUrl"] = request.modelUrl;
+    }
+
+    if (!$dara.isNull(request.modelVpcUrl)) {
+      query["ModelVpcUrl"] = request.modelVpcUrl;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelInstance",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelInstanceResponse({}));
+  }
+
+  /**
+   * UpdateModelInstance
+   * 
+   * @param request - UpdateModelInstanceRequest
+   * @returns UpdateModelInstanceResponse
+   */
+  async updateModelInstance(request: $_model.UpdateModelInstanceRequest): Promise<$_model.UpdateModelInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateModelInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdatePolicy
+   * 
+   * @param tmpReq - UpdatePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePolicyResponse
+   */
+  async updatePolicyWithOptions(tmpReq: $_model.UpdatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePolicyResponse> {
     tmpReq.validate();
-    let request = new SyncSensitiveWordShrinkRequest({ });
+    let request = new $_model.UpdatePolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.harmfulCategoryConfigInfoList)) {
+      request.harmfulCategoryConfigInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.harmfulCategoryConfigInfoList, "HarmfulCategoryConfigInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promptAttackInfo)) {
+      request.promptAttackInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptAttackInfo, "PromptAttackInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.promptAttackInfoList)) {
+      request.promptAttackInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptAttackInfoList, "PromptAttackInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.regularExpressList)) {
+      request.regularExpressListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regularExpressList, "RegularExpressList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveConfigList)) {
+      request.sensitiveConfigListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveConfigList, "SensitiveConfigList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveTopicList)) {
+      request.sensitiveTopicListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveTopicList, "SensitiveTopicList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sensitiveWordList)) {
+      request.sensitiveWordListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sensitiveWordList, "SensitiveWordList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.topicConfigInfoList)) {
+      request.topicConfigInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topicConfigInfoList, "TopicConfigInfoList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.wordGroupInfoList)) {
+      request.wordGroupInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.wordGroupInfoList, "WordGroupInfoList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.contentSafeModelInstanceId)) {
+      query["ContentSafeModelInstanceId"] = request.contentSafeModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.enableSensitiveInputCheck)) {
+      query["EnableSensitiveInputCheck"] = request.enableSensitiveInputCheck;
+    }
+
+    if (!$dara.isNull(request.enableSensitiveOutputCheck)) {
+      query["EnableSensitiveOutputCheck"] = request.enableSensitiveOutputCheck;
+    }
+
+    if (!$dara.isNull(request.harmfulCategoryConfigInfoListShrink)) {
+      query["HarmfulCategoryConfigInfoList"] = request.harmfulCategoryConfigInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.inputSafeAnswer)) {
+      query["InputSafeAnswer"] = request.inputSafeAnswer;
+    }
+
+    if (!$dara.isNull(request.inputSafeAnswerSwitch)) {
+      query["InputSafeAnswerSwitch"] = request.inputSafeAnswerSwitch;
+    }
+
+    if (!$dara.isNull(request.isSidecarPolicy)) {
+      query["IsSidecarPolicy"] = request.isSidecarPolicy;
+    }
+
+    if (!$dara.isNull(request.outputSafeAnswer)) {
+      query["OutputSafeAnswer"] = request.outputSafeAnswer;
+    }
+
+    if (!$dara.isNull(request.outputSafeAnswerSwitch)) {
+      query["OutputSafeAnswerSwitch"] = request.outputSafeAnswerSwitch;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!$dara.isNull(request.promptAttackInfoShrink)) {
+      query["PromptAttackInfo"] = request.promptAttackInfoShrink;
+    }
+
+    if (!$dara.isNull(request.promptAttackInfoListShrink)) {
+      query["PromptAttackInfoList"] = request.promptAttackInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.promptAttackModelInstanceId)) {
+      query["PromptAttackModelInstanceId"] = request.promptAttackModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.regularExpressListShrink)) {
+      query["RegularExpressList"] = request.regularExpressListShrink;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    if (!$dara.isNull(request.sensitiveConfigListShrink)) {
+      query["SensitiveConfigList"] = request.sensitiveConfigListShrink;
+    }
+
+    if (!$dara.isNull(request.sensitiveTopicListShrink)) {
+      query["SensitiveTopicList"] = request.sensitiveTopicListShrink;
+    }
+
+    if (!$dara.isNull(request.sensitiveTopicModelInstanceId)) {
+      query["SensitiveTopicModelInstanceId"] = request.sensitiveTopicModelInstanceId;
+    }
+
+    if (!$dara.isNull(request.sensitiveWordListShrink)) {
+      query["SensitiveWordList"] = request.sensitiveWordListShrink;
+    }
+
+    if (!$dara.isNull(request.topicConfigInfoListShrink)) {
+      query["TopicConfigInfoList"] = request.topicConfigInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.wordGroupInfoListShrink)) {
+      query["WordGroupInfoList"] = request.wordGroupInfoListShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePolicy",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePolicyResponse({}));
+  }
+
+  /**
+   * UpdatePolicy
+   * 
+   * @param request - UpdatePolicyRequest
+   * @returns UpdatePolicyResponse
+   */
+  async updatePolicy(request: $_model.UpdatePolicyRequest): Promise<$_model.UpdatePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateTopic
+   * 
+   * @param tmpReq - UpdateTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTopicResponse
+   */
+  async updateTopicWithOptions(tmpReq: $_model.UpdateTopicRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTopicResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateTopicShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.bodyData)) {
       request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
     }
 
     let query = { };
-    if (!$dara.isNull(request.commit)) {
-      query["Commit"] = request.commit;
-    }
-
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.topicDefinition)) {
+      query["TopicDefinition"] = request.topicDefinition;
+    }
+
+    if (!$dara.isNull(request.topicId)) {
+      query["TopicId"] = request.topicId;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
     }
 
     let body : {[key: string ]: any} = { };
@@ -4954,7 +2193,7 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
-      action: "SyncSensitiveWord",
+      action: "UpdateTopic",
       version: "2024-07-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -4964,23 +2203,88 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<SyncSensitiveWordResponse>(await this.callApi(params, req, runtime), new SyncSensitiveWordResponse({}));
-    } else {
-      return $dara.cast<SyncSensitiveWordResponse>(await this.execute(params, req, runtime), new SyncSensitiveWordResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateTopicResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTopicResponse({}));
   }
 
   /**
-   * SyncSensitiveWord
+   * UpdateTopic
    * 
-   * @param request - SyncSensitiveWordRequest
-   * @returns SyncSensitiveWordResponse
+   * @param request - UpdateTopicRequest
+   * @returns UpdateTopicResponse
    */
-  async syncSensitiveWord(request: SyncSensitiveWordRequest): Promise<SyncSensitiveWordResponse> {
+  async updateTopic(request: $_model.UpdateTopicRequest): Promise<$_model.UpdateTopicResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.syncSensitiveWordWithOptions(request, runtime);
+    return await this.updateTopicWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateWordGroup
+   * 
+   * @param tmpReq - UpdateWordGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWordGroupResponse
+   */
+  async updateWordGroupWithOptions(tmpReq: $_model.UpdateWordGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWordGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWordGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bodyData)) {
+      request.bodyDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyData, "BodyData", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commit)) {
+      query["Commit"] = request.commit;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.wordInfoListModified)) {
+      query["WordInfoListModified"] = request.wordInfoListModified;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyDataShrink)) {
+      body["BodyData"] = request.bodyDataShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWordGroup",
+      version: "2024-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWordGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWordGroupResponse({}));
+  }
+
+  /**
+   * UpdateWordGroup
+   * 
+   * @param request - UpdateWordGroupRequest
+   * @returns UpdateWordGroupResponse
+   */
+  async updateWordGroup(request: $_model.UpdateWordGroupRequest): Promise<$_model.UpdateWordGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWordGroupWithOptions(request, runtime);
   }
 
 }
