@@ -1,3 +1,4 @@
+export { CreateMemoryResponseBodyData } from './CreateMemoryResponseBody';
 export { CreateMemoryEventRequestEvents } from './CreateMemoryEventRequest';
 export { GetMemoryResponseBodyData } from './GetMemoryResponseBody';
 export { GetMemoryEventResponseBodyData } from './GetMemoryEventResponseBody';
@@ -7,6 +8,7 @@ export { ListMemoryEventResponseBodyData } from './ListMemoryEventResponseBody';
 export { ListMemorySessionsResponseBodyData } from './ListMemorySessionsResponseBody';
 export { RetrieveMemoryRequestQuery } from './RetrieveMemoryRequest';
 export { RetrieveMemoryResponseBodyData } from './RetrieveMemoryResponseBody';
+export { UpdateMemoryResponseBodyData } from './UpdateMemoryResponseBody';
 export { AgentRuntime } from './AgentRuntime';
 export { AgentRuntimeEndpoint } from './AgentRuntimeEndpoint';
 export { AgentRuntimeEndpointResult } from './AgentRuntimeEndpointResult';

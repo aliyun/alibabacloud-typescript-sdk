@@ -20,6 +20,11 @@ export class CreateMemoryRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * false
+   */
+  permanent?: boolean;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -27,11 +32,18 @@ export class CreateMemoryRequest extends $dara.Model {
    * 30
    */
   shortTtl?: number;
+  /**
+   * @example
+   * [\"Preference\", \"Facts\"]
+   */
+  strategy?: string[];
   static names(): { [key: string]: string } {
     return {
       longTtl: 'longTtl',
       name: 'name',
+      permanent: 'permanent',
       shortTtl: 'shortTtl',
+      strategy: 'strategy',
     };
   }
 
@@ -39,11 +51,16 @@ export class CreateMemoryRequest extends $dara.Model {
     return {
       longTtl: 'number',
       name: 'string',
+      permanent: 'boolean',
       shortTtl: 'number',
+      strategy: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.strategy)) {
+      $dara.Model.validateArray(this.strategy);
+    }
     super.validate();
   }
 

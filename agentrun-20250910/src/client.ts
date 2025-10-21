@@ -232,8 +232,16 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.permanent)) {
+      body["permanent"] = request.permanent;
+    }
+
     if (!$dara.isNull(request.shortTtl)) {
       body["shortTtl"] = request.shortTtl;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1480,18 +1488,26 @@ export default class Client extends OpenApi {
    */
   async updateMemoryWithOptions(memoryName: string, request: $_model.UpdateMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryResponse> {
     request.validate();
-    let query : {[key: string ]: any} = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.longTtl)) {
-      query["longTtl"] = request.longTtl;
+      body["longTtl"] = request.longTtl;
+    }
+
+    if (!$dara.isNull(request.permanent)) {
+      body["permanent"] = request.permanent;
     }
 
     if (!$dara.isNull(request.shortTtl)) {
-      query["shortTtl"] = request.shortTtl;
+      body["shortTtl"] = request.shortTtl;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      body["strategy"] = request.strategy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateMemory",

@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMemoryResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * my-cms-workspace
+   */
+  cmsWorkspaceName?: string;
+  /**
+   * @example
+   * 1735870116
+   */
   createTime?: number;
   /**
    * @example
@@ -16,28 +25,43 @@ export class GetMemoryResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @example
+   * false
+   */
+  permanent?: boolean;
+  /**
+   * @example
    * 30
    */
   shortTtl?: number;
+  strategy?: string[];
   static names(): { [key: string]: string } {
     return {
+      cmsWorkspaceName: 'cmsWorkspaceName',
       createTime: 'createTime',
       longTtl: 'longTtl',
       name: 'name',
+      permanent: 'permanent',
       shortTtl: 'shortTtl',
+      strategy: 'strategy',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cmsWorkspaceName: 'string',
       createTime: 'number',
       longTtl: 'number',
       name: 'string',
+      permanent: 'boolean',
       shortTtl: 'number',
+      strategy: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.strategy)) {
+      $dara.Model.validateArray(this.strategy);
+    }
     super.validate();
   }
 
