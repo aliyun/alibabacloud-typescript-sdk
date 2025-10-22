@@ -110,7 +110,52 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
    * @example
    * 示例值示例值
    */
+  callId?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  callResult?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  calledPhone?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  callerPhone?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   conversationRecord?: string;
+  /**
+   * @example
+   * 16
+   */
+  duration?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  failedReason?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  hangupDirection?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  majorIntent?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  outId?: string;
   outputTags?: QueryConversationDetailInfoResponseBodyDataOutputTags[];
   /**
    * @example
@@ -122,23 +167,69 @@ export class QueryConversationDetailInfoResponseBodyData extends $dara.Model {
    * https://********
    */
   recordingFileDownloadUrl?: string;
+  /**
+   * @example
+   * 98
+   */
+  releaseTime?: number;
+  /**
+   * @example
+   * 23
+   */
+  startCallTime?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  statusCode?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  statusMsg?: string;
   variables?: QueryConversationDetailInfoResponseBodyDataVariables[];
   static names(): { [key: string]: string } {
     return {
+      callId: 'CallId',
+      callResult: 'CallResult',
+      calledPhone: 'CalledPhone',
+      callerPhone: 'CallerPhone',
       conversationRecord: 'ConversationRecord',
+      duration: 'Duration',
+      failedReason: 'FailedReason',
+      hangupDirection: 'HangupDirection',
+      majorIntent: 'MajorIntent',
+      outId: 'OutId',
       outputTags: 'OutputTags',
       pickUpTime: 'PickUpTime',
       recordingFileDownloadUrl: 'RecordingFileDownloadUrl',
+      releaseTime: 'ReleaseTime',
+      startCallTime: 'StartCallTime',
+      statusCode: 'StatusCode',
+      statusMsg: 'StatusMsg',
       variables: 'Variables',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      callId: 'string',
+      callResult: 'string',
+      calledPhone: 'string',
+      callerPhone: 'string',
       conversationRecord: 'string',
+      duration: 'number',
+      failedReason: 'string',
+      hangupDirection: 'string',
+      majorIntent: 'string',
+      outId: 'string',
       outputTags: { 'type': 'array', 'itemType': QueryConversationDetailInfoResponseBodyDataOutputTags },
       pickUpTime: 'number',
       recordingFileDownloadUrl: 'string',
+      releaseTime: 'number',
+      startCallTime: 'number',
+      statusCode: 'string',
+      statusMsg: 'string',
       variables: { 'type': 'array', 'itemType': QueryConversationDetailInfoResponseBodyDataVariables },
     };
   }

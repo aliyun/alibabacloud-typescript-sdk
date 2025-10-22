@@ -43,6 +43,11 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
    * 0
    */
   minConversationDuration?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  outId?: string;
   ownerId?: number;
   /**
    * @example
@@ -92,6 +97,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       majorIntent: 'MajorIntent',
       maxConversationDuration: 'MaxConversationDuration',
       minConversationDuration: 'MinConversationDuration',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
@@ -114,6 +120,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       majorIntent: 'string',
       maxConversationDuration: 'number',
       minConversationDuration: 'number',
+      outId: 'string',
       ownerId: 'number',
       pageNo: 'number',
       pageSize: 'number',

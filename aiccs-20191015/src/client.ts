@@ -6625,6 +6625,10 @@ export default class Client extends OpenApi {
       query["MinConversationDuration"] = request.minConversationDuration;
     }
 
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
