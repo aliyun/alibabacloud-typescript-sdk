@@ -346,6 +346,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取节点组信息
+   * 
+   * @param request - DescribeNodeGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNodeGroupsResponse
+   */
+  async describeNodeGroupsWithOptions(request: $_model.DescribeNodeGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNodeGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.componentType)) {
+      body["componentType"] = request.componentType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeGroupIds)) {
+      body["nodeGroupIds"] = request.nodeGroupIds;
+    }
+
+    if (!$dara.isNull(request.nodeGroupName)) {
+      body["nodeGroupName"] = request.nodeGroupName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNodeGroups",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/nodegroup/describeNodeGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNodeGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNodeGroupsResponse({}));
+  }
+
+  /**
+   * 获取节点组信息
+   * 
+   * @param request - DescribeNodeGroupsRequest
+   * @returns DescribeNodeGroupsResponse
+   */
+  async describeNodeGroups(request: $_model.DescribeNodeGroupsRequest): Promise<$_model.DescribeNodeGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeNodeGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Modifies the number of CUs for a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @remarks
