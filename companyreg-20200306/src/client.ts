@@ -852,6 +852,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 服务商玄坛呼叫中心操作
+   * 
+   * @param request - OperateCallCenterForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateCallCenterForPartnerResponse
+   */
+  async operateCallCenterForPartnerWithOptions(request: $_model.OperateCallCenterForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateCallCenterForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.callAction)) {
+      query["CallAction"] = request.callAction;
+    }
+
+    if (!$dara.isNull(request.employeeCode)) {
+      query["EmployeeCode"] = request.employeeCode;
+    }
+
+    if (!$dara.isNull(request.request)) {
+      query["Request"] = request.request;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateCallCenterForPartner",
+      version: "2020-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateCallCenterForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.OperateCallCenterForPartnerResponse({}));
+  }
+
+  /**
+   * 服务商玄坛呼叫中心操作
+   * 
+   * @param request - OperateCallCenterForPartnerRequest
+   * @returns OperateCallCenterForPartnerResponse
+   */
+  async operateCallCenterForPartner(request: $_model.OperateCallCenterForPartnerRequest): Promise<$_model.OperateCallCenterForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateCallCenterForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - OperateProduceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateProduceForPartnerResponse
@@ -1296,6 +1354,88 @@ export default class Client extends OpenApi {
   async queryUserNeedAuth(): Promise<$_model.QueryUserNeedAuthResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryUserNeedAuthWithOptions(runtime);
+  }
+
+  /**
+   * 服务商玄坛外呼呼叫中心事件回传
+   * 
+   * @param request - RecordCallCenterEventForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecordCallCenterEventForPartnerResponse
+   */
+  async recordCallCenterEventForPartnerWithOptions(request: $_model.RecordCallCenterEventForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecordCallCenterEventForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.callAction)) {
+      query["CallAction"] = request.callAction;
+    }
+
+    if (!$dara.isNull(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!$dara.isNull(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.connId)) {
+      query["ConnId"] = request.connId;
+    }
+
+    if (!$dara.isNull(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.relatedId)) {
+      query["RelatedId"] = request.relatedId;
+    }
+
+    if (!$dara.isNull(request.secretMobile)) {
+      query["SecretMobile"] = request.secretMobile;
+    }
+
+    if (!$dara.isNull(request.skillType)) {
+      query["SkillType"] = request.skillType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RecordCallCenterEventForPartner",
+      version: "2020-03-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RecordCallCenterEventForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.RecordCallCenterEventForPartnerResponse({}));
+  }
+
+  /**
+   * 服务商玄坛外呼呼叫中心事件回传
+   * 
+   * @param request - RecordCallCenterEventForPartnerRequest
+   * @returns RecordCallCenterEventForPartnerResponse
+   */
+  async recordCallCenterEventForPartner(request: $_model.RecordCallCenterEventForPartnerRequest): Promise<$_model.RecordCallCenterEventForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.recordCallCenterEventForPartnerWithOptions(request, runtime);
   }
 
   /**
