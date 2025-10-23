@@ -2,23 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AutoScalingSpec extends $dara.Model {
-  maxReplicas?: number;
-  minReplicas?: number;
-  scalingStrategy?: string;
+export class JobReplicaStatus extends $dara.Model {
+  active?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      maxReplicas: 'MaxReplicas',
-      minReplicas: 'MinReplicas',
-      scalingStrategy: 'ScalingStrategy',
+      active: 'Active',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxReplicas: 'number',
-      minReplicas: 'number',
-      scalingStrategy: 'string',
+      active: 'number',
+      type: 'string',
     };
   }
 

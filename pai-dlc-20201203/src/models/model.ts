@@ -44,6 +44,7 @@ export { ImageItem } from './ImageItem';
 export { JobDebuggerConfig } from './JobDebuggerConfig';
 export { JobElasticSpec } from './JobElasticSpec';
 export { JobItem } from './JobItem';
+export { JobReplicaStatus } from './JobReplicaStatus';
 export { JobSettings } from './JobSettings';
 export { JobSpec } from './JobSpec';
 export { Lifecycle } from './Lifecycle';

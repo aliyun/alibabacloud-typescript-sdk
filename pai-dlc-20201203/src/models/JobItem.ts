@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { CredentialConfig } from "./CredentialConfig";
 import { JobElasticSpec } from "./JobElasticSpec";
+import { JobReplicaStatus } from "./JobReplicaStatus";
 import { JobSpec } from "./JobSpec";
 import { PodItem } from "./PodItem";
 import { JobSettings } from "./JobSettings";
@@ -217,6 +218,7 @@ export class JobItem extends $dara.Model {
    * 1
    */
   jobMaxRunningTimeMinutes?: number;
+  jobReplicaStatuses?: JobReplicaStatus;
   jobSpecs?: JobSpec[];
   /**
    * @example
@@ -379,6 +381,7 @@ export class JobItem extends $dara.Model {
       isDeleted: 'IsDeleted',
       jobId: 'JobId',
       jobMaxRunningTimeMinutes: 'JobMaxRunningTimeMinutes',
+      jobReplicaStatuses: 'JobReplicaStatuses',
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
       nodeCount: 'NodeCount',
@@ -440,6 +443,7 @@ export class JobItem extends $dara.Model {
       isDeleted: 'boolean',
       jobId: 'string',
       jobMaxRunningTimeMinutes: 'number',
+      jobReplicaStatuses: JobReplicaStatus,
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
       nodeCount: 'string',
@@ -492,6 +496,9 @@ export class JobItem extends $dara.Model {
     }
     if(this.envs) {
       $dara.Model.validateMap(this.envs);
+    }
+    if(this.jobReplicaStatuses && typeof (this.jobReplicaStatuses as any).validate === 'function') {
+      (this.jobReplicaStatuses as any).validate();
     }
     if(Array.isArray(this.jobSpecs)) {
       $dara.Model.validateArray(this.jobSpecs);

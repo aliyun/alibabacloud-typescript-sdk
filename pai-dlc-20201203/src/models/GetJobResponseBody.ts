@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { CredentialConfig } from "./CredentialConfig";
 import { JobElasticSpec } from "./JobElasticSpec";
+import { JobReplicaStatus } from "./JobReplicaStatus";
 import { JobSpec } from "./JobSpec";
 import { JobSettings } from "./JobSettings";
 import { StatusTransitionItem } from "./StatusTransitionItem";
@@ -678,6 +679,7 @@ export class GetJobResponseBody extends $dara.Model {
    * dlc*******
    */
   jobId?: string;
+  jobReplicaStatuses?: JobReplicaStatus[];
   /**
    * @remarks
    * The node configuration of the job, which is **JobSpecs** in the CreateJob operation.
@@ -879,6 +881,7 @@ export class GetJobResponseBody extends $dara.Model {
       gmtSubmittedTime: 'GmtSubmittedTime',
       gmtSuccessedTime: 'GmtSuccessedTime',
       jobId: 'JobId',
+      jobReplicaStatuses: 'JobReplicaStatuses',
       jobSpecs: 'JobSpecs',
       jobType: 'JobType',
       pods: 'Pods',
@@ -926,6 +929,7 @@ export class GetJobResponseBody extends $dara.Model {
       gmtSubmittedTime: 'string',
       gmtSuccessedTime: 'string',
       jobId: 'string',
+      jobReplicaStatuses: { 'type': 'array', 'itemType': JobReplicaStatus },
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       jobType: 'string',
       pods: { 'type': 'array', 'itemType': GetJobResponseBodyPods },
@@ -968,6 +972,9 @@ export class GetJobResponseBody extends $dara.Model {
     }
     if(this.envs) {
       $dara.Model.validateMap(this.envs);
+    }
+    if(Array.isArray(this.jobReplicaStatuses)) {
+      $dara.Model.validateArray(this.jobReplicaStatuses);
     }
     if(Array.isArray(this.jobSpecs)) {
       $dara.Model.validateArray(this.jobSpecs);
