@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveReceiverDetailRequest extends $dara.Model {
   /**
+   * @example
+   * [     {         "Email": "example@alimail.com",         "CustomData": {"name":"Tom","age":"30"}"     } ]
+   */
+  customDetail?: string;
+  /**
    * @remarks
    * Content, supports uploading multiple recipients at once, with a limit of 500 records per upload. Each record is separated by {} and commas, example:
    * 
@@ -12,8 +17,6 @@ export class SaveReceiverDetailRequest extends $dara.Model {
    * [{"b":"birthday","e":"xxx@example.net","g":"gender","m":"mobile","n":"nickname","u":"name"}], when passing values, pass it as a string, not a list.
    * 
    * If a duplicate recipient address is inserted, it will return "ErrorCount": 1
-   * 
-   * This parameter is required.
    * 
    * @example
    * [{"b":"birthday","e":"xxx@alibaba-inc.com","g":"gender","m":"mobile","n":"nickname","u":"name"}]
@@ -34,6 +37,7 @@ export class SaveReceiverDetailRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      customDetail: 'CustomDetail',
       detail: 'Detail',
       ownerId: 'OwnerId',
       receiverId: 'ReceiverId',
@@ -44,6 +48,7 @@ export class SaveReceiverDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customDetail: 'string',
       detail: 'string',
       ownerId: 'number',
       receiverId: 'string',

@@ -29,6 +29,39 @@ export class SingleSendMailAdvanceRequestAttachments extends $dara.Model {
   }
 }
 
+export class SingleSendMailAdvanceRequestTemplate extends $dara.Model {
+  templateData?: { [key: string]: string };
+  /**
+   * @example
+   * xxx
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateData: 'TemplateData',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.templateData) {
+      $dara.Model.validateMap(this.templateData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SingleSendMailAdvanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -62,6 +95,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
    */
   subject?: string;
   tagName?: string;
+  template?: SingleSendMailAdvanceRequestTemplate;
   textBody?: string;
   /**
    * @remarks
@@ -88,6 +122,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       resourceOwnerId: 'ResourceOwnerId',
       subject: 'Subject',
       tagName: 'TagName',
+      template: 'Template',
       textBody: 'TextBody',
       toAddress: 'ToAddress',
       unSubscribeFilterLevel: 'UnSubscribeFilterLevel',
@@ -113,6 +148,7 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
       resourceOwnerId: 'number',
       subject: 'string',
       tagName: 'string',
+      template: SingleSendMailAdvanceRequestTemplate,
       textBody: 'string',
       toAddress: 'string',
       unSubscribeFilterLevel: 'string',
@@ -123,6 +159,9 @@ export class SingleSendMailAdvanceRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.attachments)) {
       $dara.Model.validateArray(this.attachments);
+    }
+    if(this.template && typeof (this.template as any).validate === 'function') {
+      (this.template as any).validate();
     }
     super.validate();
   }

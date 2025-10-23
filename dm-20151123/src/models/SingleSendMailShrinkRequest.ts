@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SingleSendMailRequestAttachments extends $dara.Model {
+export class SingleSendMailShrinkRequestAttachments extends $dara.Model {
   attachmentName?: string;
   attachmentUrl?: string;
   static names(): { [key: string]: string } {
@@ -28,40 +28,7 @@ export class SingleSendMailRequestAttachments extends $dara.Model {
   }
 }
 
-export class SingleSendMailRequestTemplate extends $dara.Model {
-  templateData?: { [key: string]: string };
-  /**
-   * @example
-   * xxx
-   */
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateData: 'TemplateData',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      templateId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.templateData) {
-      $dara.Model.validateMap(this.templateData);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SingleSendMailRequest extends $dara.Model {
+export class SingleSendMailShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -72,7 +39,7 @@ export class SingleSendMailRequest extends $dara.Model {
    * This parameter is required.
    */
   addressType?: number;
-  attachments?: SingleSendMailRequestAttachments[];
+  attachments?: SingleSendMailShrinkRequestAttachments[];
   clickTrace?: string;
   fromAlias?: string;
   headers?: string;
@@ -94,7 +61,7 @@ export class SingleSendMailRequest extends $dara.Model {
    */
   subject?: string;
   tagName?: string;
-  template?: SingleSendMailRequestTemplate;
+  templateShrink?: string;
   textBody?: string;
   /**
    * @remarks
@@ -121,7 +88,7 @@ export class SingleSendMailRequest extends $dara.Model {
       resourceOwnerId: 'ResourceOwnerId',
       subject: 'Subject',
       tagName: 'TagName',
-      template: 'Template',
+      templateShrink: 'Template',
       textBody: 'TextBody',
       toAddress: 'ToAddress',
       unSubscribeFilterLevel: 'UnSubscribeFilterLevel',
@@ -133,7 +100,7 @@ export class SingleSendMailRequest extends $dara.Model {
     return {
       accountName: 'string',
       addressType: 'number',
-      attachments: { 'type': 'array', 'itemType': SingleSendMailRequestAttachments },
+      attachments: { 'type': 'array', 'itemType': SingleSendMailShrinkRequestAttachments },
       clickTrace: 'string',
       fromAlias: 'string',
       headers: 'string',
@@ -147,7 +114,7 @@ export class SingleSendMailRequest extends $dara.Model {
       resourceOwnerId: 'number',
       subject: 'string',
       tagName: 'string',
-      template: SingleSendMailRequestTemplate,
+      templateShrink: 'string',
       textBody: 'string',
       toAddress: 'string',
       unSubscribeFilterLevel: 'string',
@@ -158,9 +125,6 @@ export class SingleSendMailRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.attachments)) {
       $dara.Model.validateArray(this.attachments);
-    }
-    if(this.template && typeof (this.template as any).validate === 'function') {
-      (this.template as any).validate();
     }
     super.validate();
   }

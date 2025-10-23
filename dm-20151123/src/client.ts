@@ -330,6 +330,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查地址是否为一次性邮箱
+   * 
+   * @param request - CheckDisposableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDisposableResponse
+   */
+  async checkDisposableWithOptions(request: $_model.CheckDisposableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDisposableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckDisposable",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckDisposableResponse>(await this.callApi(params, req, runtime), new $_model.CheckDisposableResponse({}));
+  }
+
+  /**
+   * 检查地址是否为一次性邮箱
+   * 
+   * @param request - CheckDisposableRequest
+   * @returns CheckDisposableResponse
+   */
+  async checkDisposable(request: $_model.CheckDisposableRequest): Promise<$_model.CheckDisposableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkDisposableWithOptions(request, runtime);
+  }
+
+  /**
    * Check Domain Status
    * 
    * @param request - CheckDomainRequest
@@ -443,6 +485,344 @@ export default class Client extends OpenApi {
   async checkReplyToMailAddress(request: $_model.CheckReplyToMailAddressRequest): Promise<$_model.CheckReplyToMailAddressResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkReplyToMailAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集取消关联发信地址
+   * 
+   * @param request - ConfigSetCancelRelationFromAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetCancelRelationFromAddressResponse
+   */
+  async configSetCancelRelationFromAddressWithOptions(request: $_model.ConfigSetCancelRelationFromAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetCancelRelationFromAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromAddress)) {
+      query["FromAddress"] = request.fromAddress;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetCancelRelationFromAddress",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetCancelRelationFromAddressResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetCancelRelationFromAddressResponse({}));
+  }
+
+  /**
+   * 配置集取消关联发信地址
+   * 
+   * @param request - ConfigSetCancelRelationFromAddressRequest
+   * @returns ConfigSetCancelRelationFromAddressResponse
+   */
+  async configSetCancelRelationFromAddress(request: $_model.ConfigSetCancelRelationFromAddressRequest): Promise<$_model.ConfigSetCancelRelationFromAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetCancelRelationFromAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集创建
+   * 
+   * @param request - ConfigSetCreateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetCreateResponse
+   */
+  async configSetCreateWithOptions(request: $_model.ConfigSetCreateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetCreateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.ipPoolId)) {
+      query["IpPoolId"] = request.ipPoolId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetCreate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetCreateResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetCreateResponse({}));
+  }
+
+  /**
+   * 配置集创建
+   * 
+   * @param request - ConfigSetCreateRequest
+   * @returns ConfigSetCreateResponse
+   */
+  async configSetCreate(request: $_model.ConfigSetCreateRequest): Promise<$_model.ConfigSetCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetCreateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除配置集
+   * 
+   * @param request - ConfigSetDeleteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetDeleteResponse
+   */
+  async configSetDeleteWithOptions(request: $_model.ConfigSetDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetDeleteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.isForce)) {
+      query["IsForce"] = request.isForce;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetDelete",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetDeleteResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetDeleteResponse({}));
+  }
+
+  /**
+   * 删除配置集
+   * 
+   * @param request - ConfigSetDeleteRequest
+   * @returns ConfigSetDeleteResponse
+   */
+  async configSetDelete(request: $_model.ConfigSetDeleteRequest): Promise<$_model.ConfigSetDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetDeleteWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集详情
+   * 
+   * @param request - ConfigSetDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetDetailResponse
+   */
+  async configSetDetailWithOptions(request: $_model.ConfigSetDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetDetail",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetDetailResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetDetailResponse({}));
+  }
+
+  /**
+   * 配置集详情
+   * 
+   * @param request - ConfigSetDetailRequest
+   * @returns ConfigSetDetailResponse
+   */
+  async configSetDetail(request: $_model.ConfigSetDetailRequest): Promise<$_model.ConfigSetDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集列表
+   * 
+   * @param request - ConfigSetListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetListResponse
+   */
+  async configSetListWithOptions(request: $_model.ConfigSetListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetList",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetListResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetListResponse({}));
+  }
+
+  /**
+   * 配置集列表
+   * 
+   * @param request - ConfigSetListRequest
+   * @returns ConfigSetListResponse
+   */
+  async configSetList(request: $_model.ConfigSetListRequest): Promise<$_model.ConfigSetListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetListWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集关联发信地址
+   * 
+   * @param request - ConfigSetRelationFromAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetRelationFromAddressResponse
+   */
+  async configSetRelationFromAddressWithOptions(request: $_model.ConfigSetRelationFromAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetRelationFromAddressResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromAddress)) {
+      query["FromAddress"] = request.fromAddress;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetRelationFromAddress",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetRelationFromAddressResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetRelationFromAddressResponse({}));
+  }
+
+  /**
+   * 配置集关联发信地址
+   * 
+   * @param request - ConfigSetRelationFromAddressRequest
+   * @returns ConfigSetRelationFromAddressResponse
+   */
+  async configSetRelationFromAddress(request: $_model.ConfigSetRelationFromAddressRequest): Promise<$_model.ConfigSetRelationFromAddressResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetRelationFromAddressWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置集更新
+   * 
+   * @param request - ConfigSetUpdateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigSetUpdateResponse
+   */
+  async configSetUpdateWithOptions(request: $_model.ConfigSetUpdateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigSetUpdateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.ipPoolId)) {
+      query["IpPoolId"] = request.ipPoolId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigSetUpdate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigSetUpdateResponse>(await this.callApi(params, req, runtime), new $_model.ConfigSetUpdateResponse({}));
+  }
+
+  /**
+   * 配置集更新
+   * 
+   * @param request - ConfigSetUpdateRequest
+   * @returns ConfigSetUpdateResponse
+   */
+  async configSetUpdate(request: $_model.ConfigSetUpdateRequest): Promise<$_model.ConfigSetUpdateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configSetUpdateWithOptions(request, runtime);
   }
 
   /**
@@ -1492,6 +1872,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除批量校验任务的结果文件
+   * 
+   * @param request - DeleteValidateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteValidateFileResponse
+   */
+  async deleteValidateFileWithOptions(request: $_model.DeleteValidateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteValidateFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteValidateFile",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteValidateFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteValidateFileResponse({}));
+  }
+
+  /**
+   * 删除批量校验任务的结果文件
+   * 
+   * @param request - DeleteValidateFileRequest
+   * @returns DeleteValidateFileResponse
+   */
+  async deleteValidateFile(request: $_model.DeleteValidateFileRequest): Promise<$_model.DeleteValidateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteValidateFileWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieve account information.
    * 
    * @param request - DescAccountSummaryRequest
@@ -1597,6 +2019,64 @@ export default class Client extends OpenApi {
   async descDomain(request: $_model.DescDomainRequest): Promise<$_model.DescDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.descDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看模板信息
+   * 
+   * @param request - DescTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescTemplateResponse
+   */
+  async descTemplateWithOptions(request: $_model.DescTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescTemplate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DescTemplateResponse({}));
+  }
+
+  /**
+   * 查看模板信息
+   * 
+   * @param request - DescTemplateRequest
+   * @returns DescTemplateResponse
+   */
+  async descTemplate(request: $_model.DescTemplateRequest): Promise<$_model.DescTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.descTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2087,6 +2567,122 @@ export default class Client extends OpenApi {
   async getUser(): Promise<$_model.GetUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserWithOptions(runtime);
+  }
+
+  /**
+   * 获取批量校验任务的结果文件
+   * 
+   * @param request - GetValidateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetValidateFileResponse
+   */
+  async getValidateFileWithOptions(request: $_model.GetValidateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetValidateFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetValidateFile",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetValidateFileResponse>(await this.callApi(params, req, runtime), new $_model.GetValidateFileResponse({}));
+  }
+
+  /**
+   * 获取批量校验任务的结果文件
+   * 
+   * @param request - GetValidateFileRequest
+   * @returns GetValidateFileResponse
+   */
+  async getValidateFile(request: $_model.GetValidateFileRequest): Promise<$_model.GetValidateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getValidateFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取批量校验任务的状态
+   * 
+   * @param request - GetValidateFileStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetValidateFileStatusResponse
+   */
+  async getValidateFileStatusWithOptions(request: $_model.GetValidateFileStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetValidateFileStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetValidateFileStatus",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetValidateFileStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetValidateFileStatusResponse({}));
+  }
+
+  /**
+   * 获取批量校验任务的状态
+   * 
+   * @param request - GetValidateFileStatusRequest
+   * @returns GetValidateFileStatusResponse
+   */
+  async getValidateFileStatus(request: $_model.GetValidateFileStatusRequest): Promise<$_model.GetValidateFileStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getValidateFileStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取电子邮件校验额度
+   * 
+   * @param request - GetValidationQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetValidationQuotaResponse
+   */
+  async getValidationQuotaWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetValidationQuotaResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetValidationQuota",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetValidationQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetValidationQuotaResponse({}));
+  }
+
+  /**
+   * 获取电子邮件校验额度
+   * @returns GetValidationQuotaResponse
+   */
+  async getValidationQuota(): Promise<$_model.GetValidationQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getValidationQuotaWithOptions(runtime);
   }
 
   /**
@@ -2884,6 +3480,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模板信息
+   * 
+   * @param request - QueryTemplateByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTemplateByParamResponse
+   */
+  async queryTemplateByParamWithOptions(request: $_model.QueryTemplateByParamRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTemplateByParamResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!$dara.isNull(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTemplateByParam",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryTemplateByParamResponse>(await this.callApi(params, req, runtime), new $_model.QueryTemplateByParamResponse({}));
+  }
+
+  /**
+   * 查询模板信息
+   * 
+   * @param request - QueryTemplateByParamRequest
+   * @returns QueryTemplateByParamResponse
+   */
+  async queryTemplateByParam(request: $_model.QueryTemplateByParamRequest): Promise<$_model.QueryTemplateByParamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryTemplateByParamWithOptions(request, runtime);
+  }
+
+  /**
    * 删除用户无效地址
    * 
    * @param request - RemoveUserSuppressionRequest
@@ -2947,6 +3613,10 @@ export default class Client extends OpenApi {
   async saveReceiverDetailWithOptions(request: $_model.SaveReceiverDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveReceiverDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customDetail)) {
+      query["CustomDetail"] = request.customDetail;
+    }
+
     if (!$dara.isNull(request.detail)) {
       query["Detail"] = request.detail;
     }
@@ -3045,6 +3715,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!$dara.isNull(request.templateParams)) {
+      query["TemplateParams"] = request.templateParams;
+    }
+
     if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
@@ -3075,6 +3749,150 @@ export default class Client extends OpenApi {
   async sendTestByTemplate(request: $_model.SendTestByTemplateRequest): Promise<$_model.SendTestByTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendTestByTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交批量校验任务
+   * 
+   * @param request - SendValidateFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendValidateFileResponse
+   */
+  async sendValidateFileWithOptions(request: $_model.SendValidateFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendValidateFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addressColumn)) {
+      query["AddressColumn"] = request.addressColumn;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.hasHeaderRow)) {
+      query["HasHeaderRow"] = request.hasHeaderRow;
+    }
+
+    if (!$dara.isNull(request.removeDuplicate)) {
+      query["RemoveDuplicate"] = request.removeDuplicate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendValidateFile",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendValidateFileResponse>(await this.callApi(params, req, runtime), new $_model.SendValidateFileResponse({}));
+  }
+
+  /**
+   * 提交批量校验任务
+   * 
+   * @param request - SendValidateFileRequest
+   * @returns SendValidateFileResponse
+   */
+  async sendValidateFile(request: $_model.SendValidateFileRequest): Promise<$_model.SendValidateFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendValidateFileWithOptions(request, runtime);
+  }
+
+  async sendValidateFileAdvance(request: $_model.SendValidateFileAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendValidateFileResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Dm",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let sendValidateFileReq = new $_model.SendValidateFileRequest({ });
+    OpenApiUtil.convert(request, sendValidateFileReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      sendValidateFileReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let sendValidateFileResp = await this.sendValidateFileWithOptions(sendValidateFileReq, runtime);
+    return sendValidateFileResp;
   }
 
   /**
@@ -3302,12 +4120,18 @@ export default class Client extends OpenApi {
   /**
    * API for Sending Emails
    * 
-   * @param request - SingleSendMailRequest
+   * @param tmpReq - SingleSendMailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SingleSendMailResponse
    */
-  async singleSendMailWithOptions(request: $_model.SingleSendMailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SingleSendMailResponse> {
-    request.validate();
+  async singleSendMailWithOptions(tmpReq: $_model.SingleSendMailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SingleSendMailResponse> {
+    tmpReq.validate();
+    let request = new $_model.SingleSendMailShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
@@ -3372,6 +4196,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tagName)) {
       body["TagName"] = request.tagName;
+    }
+
+    if (!$dara.isNull(request.templateShrink)) {
+      body["Template"] = request.templateShrink;
     }
 
     if (!$dara.isNull(request.textBody)) {
@@ -3664,6 +4492,52 @@ export default class Client extends OpenApi {
   async updateUser(request: $_model.UpdateUserRequest): Promise<$_model.UpdateUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验电子邮件地址
+   * 
+   * @param request - ValidateEmailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateEmailResponse
+   */
+  async validateEmailWithOptions(request: $_model.ValidateEmailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateEmailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateEmail",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateEmailResponse>(await this.callApi(params, req, runtime), new $_model.ValidateEmailResponse({}));
+  }
+
+  /**
+   * 校验电子邮件地址
+   * 
+   * @param request - ValidateEmailRequest
+   * @returns ValidateEmailResponse
+   */
+  async validateEmail(request: $_model.ValidateEmailRequest): Promise<$_model.ValidateEmailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateEmailWithOptions(request, runtime);
   }
 
 }

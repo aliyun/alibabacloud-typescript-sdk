@@ -69,6 +69,11 @@ export class SendTestByTemplateRequest extends $dara.Model {
    */
   templateId?: number;
   /**
+   * @example
+   * {"age":"20","nickName":"tom"}
+   */
+  templateParams?: string;
+  /**
    * @remarks
    * UserName, with a maximum length of 30 characters
    * 
@@ -88,6 +93,7 @@ export class SendTestByTemplateRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       templateId: 'TemplateId',
+      templateParams: 'TemplateParams',
       userName: 'UserName',
     };
   }
@@ -104,6 +110,7 @@ export class SendTestByTemplateRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       templateId: 'number',
+      templateParams: 'string',
       userName: 'string',
     };
   }

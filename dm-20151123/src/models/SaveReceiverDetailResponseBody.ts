@@ -11,15 +11,22 @@ export class SaveReceiverDetailResponseBodyDataDetail extends $dara.Model {
    * test@example.com
    */
   email?: string;
+  /**
+   * @example
+   * XXX
+   */
+  errMessage?: string;
   static names(): { [key: string]: string } {
     return {
       email: 'Email',
+      errMessage: 'ErrMessage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       email: 'string',
+      errMessage: 'string',
     };
   }
 
