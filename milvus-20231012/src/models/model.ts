@@ -3,6 +3,7 @@ export { GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList } fr
 export { GetInstanceDetailResponseBodyDataClusterInfo } from './GetInstanceDetailResponseBody';
 export { GetInstanceDetailResponseBodyDataMeasureConfig } from './GetInstanceDetailResponseBody';
 export { GetInstanceDetailResponseBodyDataTags } from './GetInstanceDetailResponseBody';
+export { GetInstanceDetailResponseBodyDataVSwitches } from './GetInstanceDetailResponseBody';
 export { GetInstanceDetailResponseBodyData } from './GetInstanceDetailResponseBody';
 export { ListInstancesRequestTag } from './ListInstancesRequest';
 export { ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList } from './ListInstancesResponseBody';

@@ -320,6 +320,32 @@ export class GetInstanceDetailResponseBodyDataTags extends $dara.Model {
   }
 }
 
+export class GetInstanceDetailResponseBodyDataVSwitches extends $dara.Model {
+  vswId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vswId: 'VswId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vswId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -403,6 +429,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    */
   instanceStatus?: string;
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
+  multiZoneMode?: string;
   /**
    * @example
    * perf
@@ -495,6 +522,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * dataCoord:\\n  segment:\\n    maxSize: 1024
    */
   userConfig?: string;
+  vSwitches?: GetInstanceDetailResponseBodyDataVSwitches[];
   /**
    * @remarks
    * The kernel version.
@@ -540,6 +568,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       measureConfig: 'MeasureConfig',
+      multiZoneMode: 'MultiZoneMode',
       nodeType: 'NodeType',
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
@@ -552,6 +581,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       tags: 'Tags',
       templateVersion: 'TemplateVersion',
       userConfig: 'UserConfig',
+      vSwitches: 'VSwitches',
       version: 'Version',
       vpcId: 'VpcId',
       vswId: 'VswId',
@@ -572,6 +602,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       instanceId: 'string',
       instanceStatus: 'string',
       measureConfig: GetInstanceDetailResponseBodyDataMeasureConfig,
+      multiZoneMode: 'string',
       nodeType: 'string',
       openPublicNet: 'boolean',
       packageType: 'string',
@@ -584,6 +615,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       tags: { 'type': 'array', 'itemType': GetInstanceDetailResponseBodyDataTags },
       templateVersion: 'string',
       userConfig: 'string',
+      vSwitches: { 'type': 'array', 'itemType': GetInstanceDetailResponseBodyDataVSwitches },
       version: 'string',
       vpcId: 'string',
       vswId: 'string',
@@ -600,6 +632,9 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
     }
     super.validate();
   }
