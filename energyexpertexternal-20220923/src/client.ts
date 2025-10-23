@@ -726,6 +726,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文档detail
+   * 
+   * @param request - DetailDocumentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetailDocumentResponse
+   */
+  async detailDocumentWithOptions(request: $_model.DetailDocumentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DetailDocumentResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetailDocument",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetailDocumentResponse>(await this.callApi(params, req, runtime), new $_model.DetailDocumentResponse({}));
+  }
+
+  /**
+   * 获取文档detail
+   * 
+   * @param request - DetailDocumentRequest
+   * @returns DetailDocumentResponse
+   */
+  async detailDocument(request: $_model.DetailDocumentRequest): Promise<$_model.DetailDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.detailDocumentWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 编辑禁用设备
    * 
    * @param request - EditProhibitedDevicesRequest
