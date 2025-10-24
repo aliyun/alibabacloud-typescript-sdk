@@ -1152,6 +1152,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加重保场景黑IP
+   * 
+   * @param request - CreateMajorProtectionBlackIpV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMajorProtectionBlackIpV2Response
+   */
+  async createMajorProtectionBlackIpV2WithOptions(request: $_model.CreateMajorProtectionBlackIpV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMajorProtectionBlackIpV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expiredTime)) {
+      query["ExpiredTime"] = request.expiredTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ipList)) {
+      query["IpList"] = request.ipList;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMajorProtectionBlackIpV2",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMajorProtectionBlackIpV2Response>(await this.callApi(params, req, runtime), new $_model.CreateMajorProtectionBlackIpV2Response({}));
+  }
+
+  /**
+   * 添加重保场景黑IP
+   * 
+   * @param request - CreateMajorProtectionBlackIpV2Request
+   * @returns CreateMajorProtectionBlackIpV2Response
+   */
+  async createMajorProtectionBlackIpV2(request: $_model.CreateMajorProtectionBlackIpV2Request): Promise<$_model.CreateMajorProtectionBlackIpV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMajorProtectionBlackIpV2WithOptions(request, runtime);
+  }
+
+  /**
    * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - CreateMemberAccountsRequest
@@ -1207,6 +1277,60 @@ export default class Client extends OpenApi {
   async createMemberAccounts(request: $_model.CreateMemberAccountsRequest): Promise<$_model.CreateMemberAccountsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createMemberAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 开启防护功能POC
+   * 
+   * @param request - CreatePocFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePocFunctionResponse
+   */
+  async createPocFunctionWithOptions(request: $_model.CreatePocFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePocFunctionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePocFunction",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePocFunctionResponse>(await this.callApi(params, req, runtime), new $_model.CreatePocFunctionResponse({}));
+  }
+
+  /**
+   * 开启防护功能POC
+   * 
+   * @param request - CreatePocFunctionRequest
+   * @returns CreatePocFunctionResponse
+   */
+  async createPocFunction(request: $_model.CreatePocFunctionRequest): Promise<$_model.CreatePocFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPocFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -3677,6 +3801,114 @@ export default class Client extends OpenApi {
   async describeCerts(request: $_model.DescribeCertsRequest): Promise<$_model.DescribeCertsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCertsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询WAF计价模块信息
+   * 
+   * @param request - DescribeChargeModuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChargeModuleResponse
+   */
+  async describeChargeModuleWithOptions(request: $_model.DescribeChargeModuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeChargeModuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeChargeModule",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeChargeModuleResponse>(await this.callApi(params, req, runtime), new $_model.DescribeChargeModuleResponse({}));
+  }
+
+  /**
+   * 查询WAF计价模块信息
+   * 
+   * @param request - DescribeChargeModuleRequest
+   * @returns DescribeChargeModuleResponse
+   */
+  async describeChargeModule(request: $_model.DescribeChargeModuleRequest): Promise<$_model.DescribeChargeModuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeChargeModuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询WAF计价模块的计价结果
+   * 
+   * @param request - DescribeChargeResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChargeResultResponse
+   */
+  async describeChargeResultWithOptions(request: $_model.DescribeChargeResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeChargeResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.chargeCycle)) {
+      query["ChargeCycle"] = request.chargeCycle;
+    }
+
+    if (!$dara.isNull(request.chargeModules)) {
+      query["ChargeModules"] = request.chargeModules;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeChargeResult",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeChargeResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeChargeResultResponse({}));
+  }
+
+  /**
+   * 查询WAF计价模块的计价结果
+   * 
+   * @param request - DescribeChargeResultRequest
+   * @returns DescribeChargeResultResponse
+   */
+  async describeChargeResult(request: $_model.DescribeChargeResultRequest): Promise<$_model.DescribeChargeResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeChargeResultWithOptions(request, runtime);
   }
 
   /**
@@ -7260,6 +7492,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询开启POC的功能信息
+   * 
+   * @param request - DescribePocFunctionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePocFunctionsResponse
+   */
+  async describePocFunctionsWithOptions(request: $_model.DescribePocFunctionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePocFunctionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePocFunctions",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePocFunctionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePocFunctionsResponse({}));
+  }
+
+  /**
+   * 查询开启POC的功能信息
+   * 
+   * @param request - DescribePocFunctionsRequest
+   * @returns DescribePocFunctionsResponse
+   */
+  async describePocFunctions(request: $_model.DescribePocFunctionsRequest): Promise<$_model.DescribePocFunctionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePocFunctionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
    * 
    * @param request - DescribeProductInstancesRequest
@@ -9847,6 +10129,56 @@ export default class Client extends OpenApi {
   async describeUserWafLogStatus(request: $_model.DescribeUserWafLogStatusRequest): Promise<$_model.DescribeUserWafLogStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserWafLogStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询归属校验内容
+   * 
+   * @param request - DescribeVerifyContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyContentResponse
+   */
+  async describeVerifyContentWithOptions(request: $_model.DescribeVerifyContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyContentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessOrigin)) {
+      query["AccessOrigin"] = request.accessOrigin;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyContent",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyContentResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyContentResponse({}));
+  }
+
+  /**
+   * 查询归属校验内容
+   * 
+   * @param request - DescribeVerifyContentRequest
+   * @returns DescribeVerifyContentResponse
+   */
+  async describeVerifyContent(request: $_model.DescribeVerifyContentRequest): Promise<$_model.DescribeVerifyContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyContentWithOptions(request, runtime);
   }
 
   /**
@@ -12705,6 +13037,60 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Verifies the ownership of a domain name.
+   * 
+   * @param request - VerifyDomainOwnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyDomainOwnerResponse
+   */
+  async verifyDomainOwnerWithOptions(request: $_model.VerifyDomainOwnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyDomainOwnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyDomainOwner",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyDomainOwnerResponse>(await this.callApi(params, req, runtime), new $_model.VerifyDomainOwnerResponse({}));
+  }
+
+  /**
+   * Verifies the ownership of a domain name.
+   * 
+   * @param request - VerifyDomainOwnerRequest
+   * @returns VerifyDomainOwnerResponse
+   */
+  async verifyDomainOwner(request: $_model.VerifyDomainOwnerRequest): Promise<$_model.VerifyDomainOwnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyDomainOwnerWithOptions(request, runtime);
   }
 
 }

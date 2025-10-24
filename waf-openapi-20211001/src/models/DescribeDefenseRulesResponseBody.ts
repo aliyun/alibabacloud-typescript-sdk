@@ -3,6 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
+  /**
+   * @example
+   * {"empty":"test"}
+   * 
+   * @deprecated
+   */
   actionExternal?: string;
   /**
    * @remarks
@@ -46,8 +52,26 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    */
   defenseScene?: string;
   defenseType?: string;
+  /**
+   * @example
+   * test
+   * 
+   * @deprecated
+   */
   description?: string;
+  /**
+   * @example
+   * 123,456
+   * 
+   * @deprecated
+   */
   detailRuleIds?: string;
+  /**
+   * @example
+   * empty
+   * 
+   * @deprecated
+   */
   externalInfo?: string;
   gmtCreate?: number;
   /**
@@ -75,6 +99,12 @@ export class DescribeDefenseRulesResponseBodyRules extends $dara.Model {
    * rules_41
    */
   ruleName?: string;
+  /**
+   * @example
+   * test
+   * 
+   * @deprecated
+   */
   ruleType?: string;
   /**
    * @remarks
