@@ -31,6 +31,7 @@ export class UpdateSolutionRequest extends $dara.Model {
    * 100001333260
    */
   solutionId?: number;
+  tagIdList?: number[];
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -38,6 +39,7 @@ export class UpdateSolutionRequest extends $dara.Model {
       contentType: 'ContentType',
       perspectiveCodes: 'PerspectiveCodes',
       solutionId: 'SolutionId',
+      tagIdList: 'TagIdList',
     };
   }
 
@@ -48,12 +50,16 @@ export class UpdateSolutionRequest extends $dara.Model {
       contentType: 'number',
       perspectiveCodes: { 'type': 'array', 'itemType': 'string' },
       solutionId: 'number',
+      tagIdList: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
     if(Array.isArray(this.perspectiveCodes)) {
       $dara.Model.validateArray(this.perspectiveCodes);
+    }
+    if(Array.isArray(this.tagIdList)) {
+      $dara.Model.validateArray(this.tagIdList);
     }
     super.validate();
   }

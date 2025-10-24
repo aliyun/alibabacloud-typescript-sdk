@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSolutionRequest extends $dara.Model {
+export class UpdateSolutionShrinkRequest extends $dara.Model {
   /**
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -21,25 +21,25 @@ export class CreateSolutionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 30001905617
    */
-  knowledgeId?: number;
+  perspectiveCodes?: string[];
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 100001333260
    */
-  perspectiveCodes?: string[];
-  tagIdList?: number[];
+  solutionId?: number;
+  tagIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
       content: 'Content',
       contentType: 'ContentType',
-      knowledgeId: 'KnowledgeId',
       perspectiveCodes: 'PerspectiveCodes',
-      tagIdList: 'TagIdList',
+      solutionId: 'SolutionId',
+      tagIdListShrink: 'TagIdList',
     };
   }
 
@@ -48,18 +48,15 @@ export class CreateSolutionRequest extends $dara.Model {
       agentKey: 'string',
       content: 'string',
       contentType: 'number',
-      knowledgeId: 'number',
       perspectiveCodes: { 'type': 'array', 'itemType': 'string' },
-      tagIdList: { 'type': 'array', 'itemType': 'number' },
+      solutionId: 'number',
+      tagIdListShrink: 'string',
     };
   }
 
   validate() {
     if(Array.isArray(this.perspectiveCodes)) {
       $dara.Model.validateArray(this.perspectiveCodes);
-    }
-    if(Array.isArray(this.tagIdList)) {
-      $dara.Model.validateArray(this.tagIdList);
     }
     super.validate();
   }

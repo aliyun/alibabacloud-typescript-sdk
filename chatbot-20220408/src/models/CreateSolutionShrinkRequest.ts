@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSolutionRequest extends $dara.Model {
+export class CreateSolutionShrinkRequest extends $dara.Model {
   /**
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -31,7 +31,7 @@ export class CreateSolutionRequest extends $dara.Model {
    * This parameter is required.
    */
   perspectiveCodes?: string[];
-  tagIdList?: number[];
+  tagIdListShrink?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
@@ -39,7 +39,7 @@ export class CreateSolutionRequest extends $dara.Model {
       contentType: 'ContentType',
       knowledgeId: 'KnowledgeId',
       perspectiveCodes: 'PerspectiveCodes',
-      tagIdList: 'TagIdList',
+      tagIdListShrink: 'TagIdList',
     };
   }
 
@@ -50,16 +50,13 @@ export class CreateSolutionRequest extends $dara.Model {
       contentType: 'number',
       knowledgeId: 'number',
       perspectiveCodes: { 'type': 'array', 'itemType': 'string' },
-      tagIdList: { 'type': 'array', 'itemType': 'number' },
+      tagIdListShrink: 'string',
     };
   }
 
   validate() {
     if(Array.isArray(this.perspectiveCodes)) {
       $dara.Model.validateArray(this.perspectiveCodes);
-    }
-    if(Array.isArray(this.tagIdList)) {
-      $dara.Model.validateArray(this.tagIdList);
     }
     super.validate();
   }

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateSolutionRequest extends $dara.Model {
+export class UpdateFaqShrinkRequest extends $dara.Model {
   /**
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -11,13 +11,16 @@ export class CreateSolutionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 30000049006
    */
-  content?: string;
+  categoryId?: number;
   /**
    * @example
-   * 1
+   * 2030-12-31T16:00:00Z
    */
-  contentType?: number;
+  endDate?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -27,40 +30,41 @@ export class CreateSolutionRequest extends $dara.Model {
    */
   knowledgeId?: number;
   /**
+   * @example
+   * 2022-05-27T05:18:20Z
+   */
+  startDate?: string;
+  tagIdListShrink?: string;
+  /**
    * @remarks
    * This parameter is required.
    */
-  perspectiveCodes?: string[];
-  tagIdList?: number[];
+  title?: string;
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
-      content: 'Content',
-      contentType: 'ContentType',
+      categoryId: 'CategoryId',
+      endDate: 'EndDate',
       knowledgeId: 'KnowledgeId',
-      perspectiveCodes: 'PerspectiveCodes',
-      tagIdList: 'TagIdList',
+      startDate: 'StartDate',
+      tagIdListShrink: 'TagIdList',
+      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
-      content: 'string',
-      contentType: 'number',
+      categoryId: 'number',
+      endDate: 'string',
       knowledgeId: 'number',
-      perspectiveCodes: { 'type': 'array', 'itemType': 'string' },
-      tagIdList: { 'type': 'array', 'itemType': 'number' },
+      startDate: 'string',
+      tagIdListShrink: 'string',
+      title: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.perspectiveCodes)) {
-      $dara.Model.validateArray(this.perspectiveCodes);
-    }
-    if(Array.isArray(this.tagIdList)) {
-      $dara.Model.validateArray(this.tagIdList);
-    }
     super.validate();
   }
 

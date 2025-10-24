@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateFaqRequest extends $dara.Model {
+export class CreateFaqShrinkRequest extends $dara.Model {
   /**
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -13,7 +13,7 @@ export class UpdateFaqRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 30000049006
+   * 1000053274
    */
   categoryId?: number;
   /**
@@ -21,20 +21,18 @@ export class UpdateFaqRequest extends $dara.Model {
    * 2030-12-31T16:00:00Z
    */
   endDate?: string;
+  solutionContent?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * 30001905617
+   * 0
    */
-  knowledgeId?: number;
+  solutionType?: number;
   /**
    * @example
-   * 2022-05-27T05:18:20Z
+   * 2022-05-25T16:28:36Z
    */
   startDate?: string;
-  tagIdList?: number[];
+  tagIdListShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -45,9 +43,10 @@ export class UpdateFaqRequest extends $dara.Model {
       agentKey: 'AgentKey',
       categoryId: 'CategoryId',
       endDate: 'EndDate',
-      knowledgeId: 'KnowledgeId',
+      solutionContent: 'SolutionContent',
+      solutionType: 'SolutionType',
       startDate: 'StartDate',
-      tagIdList: 'TagIdList',
+      tagIdListShrink: 'TagIdList',
       title: 'Title',
     };
   }
@@ -57,17 +56,15 @@ export class UpdateFaqRequest extends $dara.Model {
       agentKey: 'string',
       categoryId: 'number',
       endDate: 'string',
-      knowledgeId: 'number',
+      solutionContent: 'string',
+      solutionType: 'number',
       startDate: 'string',
-      tagIdList: { 'type': 'array', 'itemType': 'number' },
+      tagIdListShrink: 'string',
       title: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tagIdList)) {
-      $dara.Model.validateArray(this.tagIdList);
-    }
     super.validate();
   }
 

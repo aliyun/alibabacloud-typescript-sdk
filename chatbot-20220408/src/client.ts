@@ -756,12 +756,18 @@ export default class Client extends OpenApi {
   /**
    * 新建FAQ
    * 
-   * @param request - CreateFaqRequest
+   * @param tmpReq - CreateFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFaqResponse
    */
-  async createFaqWithOptions(request: $_model.CreateFaqRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFaqResponse> {
-    request.validate();
+  async createFaqWithOptions(tmpReq: $_model.CreateFaqRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFaqResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFaqShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagIdList)) {
+      request.tagIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIdList, "TagIdList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -786,6 +792,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.tagIdListShrink)) {
+      body["TagIdList"] = request.tagIdListShrink;
     }
 
     if (!$dara.isNull(request.title)) {
@@ -1198,12 +1208,18 @@ export default class Client extends OpenApi {
   /**
    * 新建FAQ答案
    * 
-   * @param request - CreateSolutionRequest
+   * @param tmpReq - CreateSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSolutionResponse
    */
-  async createSolutionWithOptions(request: $_model.CreateSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSolutionResponse> {
-    request.validate();
+  async createSolutionWithOptions(tmpReq: $_model.CreateSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSolutionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSolutionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagIdList)) {
+      request.tagIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIdList, "TagIdList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -1225,8 +1241,14 @@ export default class Client extends OpenApi {
       query["PerspectiveCodes"] = request.perspectiveCodes;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tagIdListShrink)) {
+      body["TagIdList"] = request.tagIdListShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateSolution",
@@ -1251,6 +1273,114 @@ export default class Client extends OpenApi {
   async createSolution(request: $_model.CreateSolutionRequest): Promise<$_model.CreateSolutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSolutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签创建
+   * 
+   * @param request - CreateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagResponse
+   */
+  async createTagWithOptions(request: $_model.CreateTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.tagName)) {
+      body["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTag",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTagResponse>(await this.callApi(params, req, runtime), new $_model.CreateTagResponse({}));
+  }
+
+  /**
+   * 标签创建
+   * 
+   * @param request - CreateTagRequest
+   * @returns CreateTagResponse
+   */
+  async createTag(request: $_model.CreateTagRequest): Promise<$_model.CreateTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签组创建
+   * 
+   * @param request - CreateTagGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagGroupResponse
+   */
+  async createTagGroupWithOptions(request: $_model.CreateTagGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTagGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTagGroup",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTagGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateTagGroupResponse({}));
+  }
+
+  /**
+   * 标签组创建
+   * 
+   * @param request - CreateTagGroupRequest
+   * @returns CreateTagGroupResponse
+   */
+  async createTagGroup(request: $_model.CreateTagGroupRequest): Promise<$_model.CreateTagGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTagGroupWithOptions(request, runtime);
   }
 
   /**
@@ -1896,6 +2026,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 标签删除
+   * 
+   * @param request - DeleteTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagResponse
+   */
+  async deleteTagWithOptions(request: $_model.DeleteTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTag",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTagResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTagResponse({}));
+  }
+
+  /**
+   * 标签删除
+   * 
+   * @param request - DeleteTagRequest
+   * @returns DeleteTagResponse
+   */
+  async deleteTag(request: $_model.DeleteTagRequest): Promise<$_model.DeleteTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签组删除
+   * 
+   * @param request - DeleteTagGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagGroupResponse
+   */
+  async deleteTagGroupWithOptions(request: $_model.DeleteTagGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTagGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTagGroup",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTagGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTagGroupResponse({}));
+  }
+
+  /**
+   * 标签组删除
+   * 
+   * @param request - DeleteTagGroupRequest
+   * @returns DeleteTagGroupResponse
+   */
+  async deleteTagGroup(request: $_model.DeleteTagGroupRequest): Promise<$_model.DeleteTagGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTagGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 意图-用户话术-删除
    * 
    * @param request - DeleteUserSayRequest
@@ -2287,6 +2525,114 @@ export default class Client extends OpenApi {
   async describePerspective(request: $_model.DescribePerspectiveRequest): Promise<$_model.DescribePerspectiveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePerspectiveWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签详情
+   * 
+   * @param request - DescribeTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagResponse
+   */
+  async describeTagWithOptions(request: $_model.DescribeTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTag",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTagResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTagResponse({}));
+  }
+
+  /**
+   * 标签详情
+   * 
+   * @param request - DescribeTagRequest
+   * @returns DescribeTagResponse
+   */
+  async describeTag(request: $_model.DescribeTagRequest): Promise<$_model.DescribeTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签组详情
+   * 
+   * @param request - DescribeTagGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagGroupResponse
+   */
+  async describeTagGroupWithOptions(request: $_model.DescribeTagGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTagGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTagGroup",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTagGroupResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTagGroupResponse({}));
+  }
+
+  /**
+   * 标签组详情
+   * 
+   * @param request - DescribeTagGroupRequest
+   * @returns DescribeTagGroupResponse
+   */
+  async describeTagGroup(request: $_model.DescribeTagGroupRequest): Promise<$_model.DescribeTagGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTagGroupWithOptions(request, runtime);
   }
 
   /**
@@ -3412,6 +3758,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 标签查询
+   * 
+   * @param request - ListTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResponse
+   */
+  async listTagWithOptions(request: $_model.ListTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tagName)) {
+      body["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTag",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResponse({}));
+  }
+
+  /**
+   * 标签查询
+   * 
+   * @param request - ListTagRequest
+   * @returns ListTagResponse
+   */
+  async listTag(request: $_model.ListTagRequest): Promise<$_model.ListTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签组查询
+   * 
+   * @param request - ListTagGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagGroupResponse
+   */
+  async listTagGroupWithOptions(request: $_model.ListTagGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagGroup",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListTagGroupResponse({}));
+  }
+
+  /**
+   * 标签组查询
+   * 
+   * @param request - ListTagGroupRequest
+   * @returns ListTagGroupResponse
+   */
+  async listTagGroup(request: $_model.ListTagGroupRequest): Promise<$_model.ListTagGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Tongyi对话明细查询接口
    * 
    * @param request - ListTongyiChatHistorysRequest
@@ -4342,12 +4812,18 @@ export default class Client extends OpenApi {
   /**
    * 更新FAQ
    * 
-   * @param request - UpdateFaqRequest
+   * @param tmpReq - UpdateFaqRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFaqResponse
    */
-  async updateFaqWithOptions(request: $_model.UpdateFaqRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFaqResponse> {
-    request.validate();
+  async updateFaqWithOptions(tmpReq: $_model.UpdateFaqRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFaqResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateFaqShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagIdList)) {
+      request.tagIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIdList, "TagIdList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -4368,6 +4844,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startDate)) {
       body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.tagIdListShrink)) {
+      body["TagIdList"] = request.tagIdListShrink;
     }
 
     if (!$dara.isNull(request.title)) {
@@ -4682,12 +5162,18 @@ export default class Client extends OpenApi {
   /**
    * 更新FAQ答案
    * 
-   * @param request - UpdateSolutionRequest
+   * @param tmpReq - UpdateSolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSolutionResponse
    */
-  async updateSolutionWithOptions(request: $_model.UpdateSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSolutionResponse> {
-    request.validate();
+  async updateSolutionWithOptions(tmpReq: $_model.UpdateSolutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSolutionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSolutionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tagIdList)) {
+      request.tagIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagIdList, "TagIdList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.agentKey)) {
       query["AgentKey"] = request.agentKey;
@@ -4708,6 +5194,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.solutionId)) {
       body["SolutionId"] = request.solutionId;
+    }
+
+    if (!$dara.isNull(request.tagIdListShrink)) {
+      body["TagIdList"] = request.tagIdListShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4737,6 +5227,122 @@ export default class Client extends OpenApi {
   async updateSolution(request: $_model.UpdateSolutionRequest): Promise<$_model.UpdateSolutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSolutionWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签编辑
+   * 
+   * @param request - UpdateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTagResponse
+   */
+  async updateTagWithOptions(request: $_model.UpdateTagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.tagName)) {
+      body["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTag",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTagResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTagResponse({}));
+  }
+
+  /**
+   * 标签编辑
+   * 
+   * @param request - UpdateTagRequest
+   * @returns UpdateTagResponse
+   */
+  async updateTag(request: $_model.UpdateTagRequest): Promise<$_model.UpdateTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTagWithOptions(request, runtime);
+  }
+
+  /**
+   * 标签组编辑
+   * 
+   * @param request - UpdateTagGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTagGroupResponse
+   */
+  async updateTagGroupWithOptions(request: $_model.UpdateTagGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTagGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTagGroup",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTagGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTagGroupResponse({}));
+  }
+
+  /**
+   * 标签组编辑
+   * 
+   * @param request - UpdateTagGroupRequest
+   * @returns UpdateTagGroupResponse
+   */
+  async updateTagGroup(request: $_model.UpdateTagGroupRequest): Promise<$_model.UpdateTagGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTagGroupWithOptions(request, runtime);
   }
 
   /**

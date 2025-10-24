@@ -32,6 +32,7 @@ export class CreateFaqRequest extends $dara.Model {
    * 2022-05-25T16:28:36Z
    */
   startDate?: string;
+  tagIdList?: number[];
   /**
    * @remarks
    * This parameter is required.
@@ -45,6 +46,7 @@ export class CreateFaqRequest extends $dara.Model {
       solutionContent: 'SolutionContent',
       solutionType: 'SolutionType',
       startDate: 'StartDate',
+      tagIdList: 'TagIdList',
       title: 'Title',
     };
   }
@@ -57,11 +59,15 @@ export class CreateFaqRequest extends $dara.Model {
       solutionContent: 'string',
       solutionType: 'number',
       startDate: 'string',
+      tagIdList: { 'type': 'array', 'itemType': 'number' },
       title: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tagIdList)) {
+      $dara.Model.validateArray(this.tagIdList);
+    }
     super.validate();
   }
 

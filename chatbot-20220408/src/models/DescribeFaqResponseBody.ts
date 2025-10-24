@@ -216,6 +216,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
    * 3
    */
   status?: number;
+  tagIdList?: number[];
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -233,6 +234,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
       solutions: 'Solutions',
       startDate: 'StartDate',
       status: 'Status',
+      tagIdList: 'TagIdList',
       title: 'Title',
     };
   }
@@ -253,6 +255,7 @@ export class DescribeFaqResponseBody extends $dara.Model {
       solutions: { 'type': 'array', 'itemType': DescribeFaqResponseBodySolutions },
       startDate: 'string',
       status: 'number',
+      tagIdList: { 'type': 'array', 'itemType': 'number' },
       title: 'string',
     };
   }
@@ -266,6 +269,9 @@ export class DescribeFaqResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.solutions)) {
       $dara.Model.validateArray(this.solutions);
+    }
+    if(Array.isArray(this.tagIdList)) {
+      $dara.Model.validateArray(this.tagIdList);
     }
     super.validate();
   }
