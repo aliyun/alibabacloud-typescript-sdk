@@ -806,6 +806,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * 0
    */
   SQLSize?: number;
+  searchClusterStatus?: string;
   searchCompressStorageUsed?: number;
   searchStorageUsed?: number;
   /**
@@ -999,6 +1000,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       restoreType: 'RestoreType',
       rowCompression: 'RowCompression',
       SQLSize: 'SQLSize',
+      searchClusterStatus: 'SearchClusterStatus',
       searchCompressStorageUsed: 'SearchCompressStorageUsed',
       searchStorageUsed: 'SearchStorageUsed',
       serverlessType: 'ServerlessType',
@@ -1072,6 +1074,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       restoreType: 'string',
       rowCompression: 'string',
       SQLSize: 'number',
+      searchClusterStatus: 'string',
       searchCompressStorageUsed: 'number',
       searchStorageUsed: 'number',
       serverlessType: 'string',
