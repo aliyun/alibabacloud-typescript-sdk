@@ -269,6 +269,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
    * ingress-sae-test
    */
   description?: string;
+  enableGzip?: boolean;
   enableXForwardedFor?: boolean;
   enableXForwardedForClientSrcPort?: boolean;
   enableXForwardedForProto?: boolean;
@@ -377,6 +378,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
       createdBySae: 'CreatedBySae',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      enableGzip: 'EnableGzip',
       enableXForwardedFor: 'EnableXForwardedFor',
       enableXForwardedForClientSrcPort: 'EnableXForwardedForClientSrcPort',
       enableXForwardedForProto: 'EnableXForwardedForProto',
@@ -405,6 +407,7 @@ export class DescribeIngressResponseBodyData extends $dara.Model {
       createdBySae: 'boolean',
       defaultRule: DescribeIngressResponseBodyDataDefaultRule,
       description: 'string',
+      enableGzip: 'boolean',
       enableXForwardedFor: 'boolean',
       enableXForwardedForClientSrcPort: 'boolean',
       enableXForwardedForProto: 'boolean',

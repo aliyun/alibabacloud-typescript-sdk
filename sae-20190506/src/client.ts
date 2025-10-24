@@ -1086,6 +1086,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableGzip)) {
+      query["EnableGzip"] = request.enableGzip;
+    }
+
     if (!$dara.isNull(request.enableXForwardedFor)) {
       query["EnableXForwardedFor"] = request.enableXForwardedFor;
     }
@@ -2646,6 +2650,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.liveness)) {
       query["Liveness"] = request.liveness;
+    }
+
+    if (!$dara.isNull(request.maxSurgeInstanceRatio)) {
+      query["MaxSurgeInstanceRatio"] = request.maxSurgeInstanceRatio;
+    }
+
+    if (!$dara.isNull(request.maxSurgeInstances)) {
+      query["MaxSurgeInstances"] = request.maxSurgeInstances;
     }
 
     if (!$dara.isNull(request.memory)) {
@@ -8314,6 +8326,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableGzip)) {
+      query["EnableGzip"] = request.enableGzip;
     }
 
     if (!$dara.isNull(request.enableXForwardedFor)) {

@@ -48,6 +48,7 @@ export class CreateIngressRequest extends $dara.Model {
    * ingress-for-sae-test
    */
   description?: string;
+  enableGzip?: boolean;
   enableXForwardedFor?: boolean;
   enableXForwardedForClientSrcPort?: boolean;
   enableXForwardedForProto?: boolean;
@@ -157,6 +158,7 @@ export class CreateIngressRequest extends $dara.Model {
       corsConfig: 'CorsConfig',
       defaultRule: 'DefaultRule',
       description: 'Description',
+      enableGzip: 'EnableGzip',
       enableXForwardedFor: 'EnableXForwardedFor',
       enableXForwardedForClientSrcPort: 'EnableXForwardedForClientSrcPort',
       enableXForwardedForProto: 'EnableXForwardedForProto',
@@ -184,6 +186,7 @@ export class CreateIngressRequest extends $dara.Model {
       corsConfig: 'string',
       defaultRule: 'string',
       description: 'string',
+      enableGzip: 'boolean',
       enableXForwardedFor: 'boolean',
       enableXForwardedForClientSrcPort: 'boolean',
       enableXForwardedForProto: 'boolean',

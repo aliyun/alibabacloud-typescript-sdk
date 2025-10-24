@@ -1114,6 +1114,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * {"exec":{"command":["curl http://localhost:8080"]},"initialDelaySeconds":20,"timeoutSeconds":3}
    */
   liveness?: string;
+  maxSurgeInstanceRatio?: number;
+  maxSurgeInstances?: number;
   /**
    * @remarks
    * The size of memory required by each instance. Unit: MB. You cannot set this parameter to 0. The values of this parameter correspond to the values of the Cpu parameter:
@@ -1657,6 +1659,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       jdk: 'Jdk',
       kafkaConfigs: 'KafkaConfigs',
       liveness: 'Liveness',
+      maxSurgeInstanceRatio: 'MaxSurgeInstanceRatio',
+      maxSurgeInstances: 'MaxSurgeInstances',
       memory: 'Memory',
       microRegistration: 'MicroRegistration',
       microRegistrationConfig: 'MicroRegistrationConfig',
@@ -1756,6 +1760,8 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       jdk: 'string',
       kafkaConfigs: 'string',
       liveness: 'string',
+      maxSurgeInstanceRatio: 'number',
+      maxSurgeInstances: 'number',
       memory: 'number',
       microRegistration: 'string',
       microRegistrationConfig: 'string',
