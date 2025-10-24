@@ -16,7 +16,7 @@ export class EnrichHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+   * language code, defaults to the buyer\\"s account configuration
    * 
    * @example
    * en_US

@@ -15,8 +15,6 @@ export class SearchRequestAirLegs extends $dara.Model {
    * @remarks
    * arrival city code
    * 
-   * This parameter is required.
-   * 
    * @example
    * MFM
    */
@@ -32,8 +30,6 @@ export class SearchRequestAirLegs extends $dara.Model {
   /**
    * @remarks
    * departure city code
-   * 
-   * This parameter is required.
    * 
    * @example
    * SHA
@@ -88,11 +84,17 @@ export class SearchRequestSearchControlOptions extends $dara.Model {
   /**
    * @remarks
    * excluded airlines list
+   * 
+   * @example
+   * 7C
    */
   airlineExcludedList?: string[];
   /**
    * @remarks
    * preferred airlines list
+   * 
+   * @example
+   * FD
    */
   airlinePreferList?: string[];
   /**

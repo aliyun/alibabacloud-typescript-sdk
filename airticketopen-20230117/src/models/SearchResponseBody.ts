@@ -412,7 +412,34 @@ export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
   }
 }
 
+export class SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo extends $dara.Model {
+  issueTicketType?: number;
+  issueTimeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      issueTicketType: 'issue_ticket_type',
+      issueTimeLimit: 'issue_time_limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTicketType: 'number',
+      issueTimeLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.Model {
+  issueTimeInfo?: SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo;
   /**
    * @remarks
    * supply source: 1;2;3
@@ -423,17 +450,22 @@ export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.M
   supplySourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      issueTimeInfo: 'issue_time_info',
       supplySourceType: 'supply_source_type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      issueTimeInfo: SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo,
       supplySourceType: 'string',
     };
   }
 
   validate() {
+    if(this.issueTimeInfo && typeof (this.issueTimeInfo as any).validate === 'function') {
+      (this.issueTimeInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -498,22 +530,6 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   journeyList?: SearchResponseBodyDataSolutionListJourneyList[];
   /**
    * @remarks
-   * product type description
-   * 
-   * @example
-   * ""
-   */
-  productTypeDescription?: string;
-  /**
-   * @remarks
-   * refund airline coupon description
-   * 
-   * @example
-   * ""
-   */
-  refundTicketCouponDescription?: string;
-  /**
-   * @remarks
    * through check-in baggage policy
    */
   segmentBaggageCheckInInfoList?: SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
@@ -549,8 +565,6 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
       infantPrice: 'infant_price',
       infantTax: 'infant_tax',
       journeyList: 'journey_list',
-      productTypeDescription: 'product_type_description',
-      refundTicketCouponDescription: 'refund_ticket_coupon_description',
       segmentBaggageCheckInInfoList: 'segment_baggage_check_in_info_list',
       segmentBaggageMappingList: 'segment_baggage_mapping_list',
       segmentRefundChangeRuleMappingList: 'segment_refund_change_rule_mapping_list',
@@ -568,8 +582,6 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
       infantPrice: 'number',
       infantTax: 'number',
       journeyList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListJourneyList },
-      productTypeDescription: 'string',
-      refundTicketCouponDescription: 'string',
       segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList },
       segmentBaggageMappingList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentBaggageMappingList },
       segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList },

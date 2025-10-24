@@ -171,7 +171,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
   firstName?: string;
   /**
    * @remarks
-   * first name
+   * last name
    * 
    * @example
    * ZHANG
@@ -335,7 +335,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetails extends $dara.Mo
 export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * arrival airport code
    * 
    * @example
    * MFM
@@ -343,7 +343,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * arrival city code
    * 
    * @example
    * MFM
@@ -359,7 +359,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * arrival time (yyyy-MM-dd HH:mm:ss)
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -375,7 +375,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   availability?: string;
   /**
    * @remarks
-   * RBD
+   * carbin
    * 
    * @example
    * V
@@ -399,7 +399,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * departure airport code
    * 
    * @example
    * PVG
@@ -407,7 +407,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * departure city code
    * 
    * @example
    * SHA
@@ -423,7 +423,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * departure time (yyyy-MM-dd HH:mm:ss)
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -487,7 +487,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * segment ID: flight no.+departure airport+arrival airport+departure time(MMdd)
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -575,12 +575,12 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
 export class RefundDetailResponseBodyDataRefundJourneys extends $dara.Model {
   /**
    * @remarks
-   * segment list
+   * segment list info
    */
   segmentList?: RefundDetailResponseBodyDataRefundJourneysSegmentList[];
   /**
    * @remarks
-   * number of transfer
+   * transfer count
    * 
    * @example
    * 0
@@ -795,6 +795,9 @@ export class RefundDetailResponseBodyData extends $dara.Model {
 
 export class RefundDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * RequestId
+   * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */

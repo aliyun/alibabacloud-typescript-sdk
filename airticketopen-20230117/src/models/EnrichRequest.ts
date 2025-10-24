@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * arrival airport code
    * 
    * @example
    * MFM
@@ -13,9 +13,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
-   * 
-   * This parameter is required.
+   * arrival city code
    * 
    * @example
    * MFM
@@ -39,7 +37,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   childCabin?: string;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * departure airport code
    * 
    * @example
    * PVG
@@ -47,9 +45,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
-   * 
-   * This parameter is required.
+   * departure city code
    * 
    * @example
    * SHA
@@ -113,7 +109,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
 export class EnrichRequestJourneyParamList extends $dara.Model {
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * arrival city code
    * 
    * This parameter is required.
    * 
@@ -123,7 +119,7 @@ export class EnrichRequestJourneyParamList extends $dara.Model {
   arrivalCity?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * departure city code
    * 
    * This parameter is required.
    * 

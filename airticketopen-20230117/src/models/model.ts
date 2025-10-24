@@ -78,6 +78,7 @@ export { EnrichResponseBodyDataSolutionListJourneyList } from './EnrichResponseB
 export { EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList } from './EnrichResponseBody';
 export { EnrichResponseBodyDataSolutionListSegmentBaggageMappingList } from './EnrichResponseBody';
 export { EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList } from './EnrichResponseBody';
+export { EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo } from './EnrichResponseBody';
 export { EnrichResponseBodyDataSolutionListSolutionAttribute } from './EnrichResponseBody';
 export { EnrichResponseBodyDataSolutionList } from './EnrichResponseBody';
 export { EnrichResponseBodyData } from './EnrichResponseBody';
@@ -104,6 +105,8 @@ export { OrderDetailResponseBodyDataSolutionJourneyList } from './OrderDetailRes
 export { OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList } from './OrderDetailResponseBody';
 export { OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList } from './OrderDetailResponseBody';
 export { OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList } from './OrderDetailResponseBody';
+export { OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo } from './OrderDetailResponseBody';
+export { OrderDetailResponseBodyDataSolutionSolutionAttribute } from './OrderDetailResponseBody';
 export { OrderDetailResponseBodyDataSolution } from './OrderDetailResponseBody';
 export { OrderDetailResponseBodyData } from './OrderDetailResponseBody';
 export { OrderListResponseBodyDataListPassengerListCredential } from './OrderListResponseBody';
@@ -118,6 +121,8 @@ export { PricingResponseBodyDataSolutionJourneyList } from './PricingResponseBod
 export { PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList } from './PricingResponseBody';
 export { PricingResponseBodyDataSolutionSegmentBaggageMappingList } from './PricingResponseBody';
 export { PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList } from './PricingResponseBody';
+export { PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo } from './PricingResponseBody';
+export { PricingResponseBodyDataSolutionSolutionAttribute } from './PricingResponseBody';
 export { PricingResponseBodyDataSolution } from './PricingResponseBody';
 export { PricingResponseBodyData } from './PricingResponseBody';
 export { RefundApplyRequestRefundJourneysSegmentList } from './RefundApplyRequest';
@@ -146,6 +151,7 @@ export { SearchResponseBodyDataSolutionListJourneyList } from './SearchResponseB
 export { SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList } from './SearchResponseBody';
 export { SearchResponseBodyDataSolutionListSegmentBaggageMappingList } from './SearchResponseBody';
 export { SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList } from './SearchResponseBody';
+export { SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo } from './SearchResponseBody';
 export { SearchResponseBodyDataSolutionListSolutionAttribute } from './SearchResponseBody';
 export { SearchResponseBodyDataSolutionList } from './SearchResponseBody';
 export { SearchResponseBodyData } from './SearchResponseBody';

@@ -7,7 +7,7 @@ import { DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappi
 export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code (capitalized)
+   * arrival airport code
    * 
    * @example
    * MFM
@@ -15,7 +15,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code (capitalized)
+   * arrival city code
    * 
    * @example
    * MFM
@@ -31,7 +31,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
+   * arrival time (yyyy-MM-dd HH:mm:ss)
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -71,7 +71,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code (capitalized)
+   * departure airport code
    * 
    * @example
    * PVG
@@ -79,7 +79,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code (capitalized)
+   * departure city code
    * 
    * @example
    * SHA
@@ -95,7 +95,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
+   * departure time (yyyy-MM-dd HH:mm:ss)
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -159,7 +159,7 @@ export class EnrichResponseBodyDataSolutionListJourneyListSegmentList extends $d
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
+   * segment ID: flight no+departure airport+arrival airport+departure time(MMdd)
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -410,25 +410,60 @@ export class EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
   }
 }
 
+export class EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo extends $dara.Model {
+  issueTicketType?: number;
+  issueTimeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      issueTicketType: 'issue_ticket_type',
+      issueTimeLimit: 'issue_time_limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTicketType: 'number',
+      issueTimeLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnrichResponseBodyDataSolutionListSolutionAttribute extends $dara.Model {
+  issueTimeInfo?: EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo;
   /**
+   * @remarks
+   * Supply source type 1:self-operated; 2:agent; 3:flagship store
+   * 
    * @example
    * 1
    */
   supplySourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      issueTimeInfo: 'issue_time_info',
       supplySourceType: 'supply_source_type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      issueTimeInfo: EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo,
       supplySourceType: 'string',
     };
   }
 
   validate() {
+    if(this.issueTimeInfo && typeof (this.issueTimeInfo as any).validate === 'function') {
+      (this.issueTimeInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -493,22 +528,6 @@ export class EnrichResponseBodyDataSolutionList extends $dara.Model {
   journeyList?: EnrichResponseBodyDataSolutionListJourneyList[];
   /**
    * @remarks
-   * product type description
-   * 
-   * @example
-   * ""
-   */
-  productTypeDescription?: string;
-  /**
-   * @remarks
-   * refund airline coupon description
-   * 
-   * @example
-   * ""
-   */
-  refundTicketCouponDescription?: string;
-  /**
-   * @remarks
    * through check-in baggage  policy
    */
   segmentBaggageCheckInInfoList?: EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
@@ -522,6 +541,10 @@ export class EnrichResponseBodyDataSolutionList extends $dara.Model {
    * change and refund policy
    */
   segmentRefundChangeRuleMappingList?: EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * Quotation Attributes
+   */
   solutionAttribute?: EnrichResponseBodyDataSolutionListSolutionAttribute;
   /**
    * @remarks
@@ -540,8 +563,6 @@ export class EnrichResponseBodyDataSolutionList extends $dara.Model {
       infantPrice: 'infant_price',
       infantTax: 'infant_tax',
       journeyList: 'journey_list',
-      productTypeDescription: 'product_type_description',
-      refundTicketCouponDescription: 'refund_ticket_coupon_description',
       segmentBaggageCheckInInfoList: 'segment_baggage_check_in_info_list',
       segmentBaggageMappingList: 'segment_baggage_mapping_list',
       segmentRefundChangeRuleMappingList: 'segment_refund_change_rule_mapping_list',
@@ -559,8 +580,6 @@ export class EnrichResponseBodyDataSolutionList extends $dara.Model {
       infantPrice: 'number',
       infantTax: 'number',
       journeyList: { 'type': 'array', 'itemType': EnrichResponseBodyDataSolutionListJourneyList },
-      productTypeDescription: 'string',
-      refundTicketCouponDescription: 'string',
       segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList },
       segmentBaggageMappingList: { 'type': 'array', 'itemType': EnrichResponseBodyDataSolutionListSegmentBaggageMappingList },
       segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList },

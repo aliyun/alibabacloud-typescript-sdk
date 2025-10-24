@@ -569,6 +569,61 @@ export class PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList e
   }
 }
 
+export class PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo extends $dara.Model {
+  issueTicketType?: number;
+  issueTimeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      issueTicketType: 'issue_ticket_type',
+      issueTimeLimit: 'issue_time_limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTicketType: 'number',
+      issueTimeLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PricingResponseBodyDataSolutionSolutionAttribute extends $dara.Model {
+  issueTimeInfo?: PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo;
+  supplySourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issueTimeInfo: 'issue_time_info',
+      supplySourceType: 'supply_source_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTimeInfo: PricingResponseBodyDataSolutionSolutionAttributeIssueTimeInfo,
+      supplySourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.issueTimeInfo && typeof (this.issueTimeInfo as any).validate === 'function') {
+      (this.issueTimeInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PricingResponseBodyDataSolution extends $dara.Model {
   /**
    * @remarks
@@ -654,6 +709,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
    * change and refund policy
    */
   segmentRefundChangeRuleMappingList?: PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
+  solutionAttribute?: PricingResponseBodyDataSolutionSolutionAttribute;
   /**
    * @remarks
    * solution_id, equals to solution_id in request
@@ -676,6 +732,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
       segmentBaggageCheckInInfoList: 'segment_baggage_check_in_info_list',
       segmentBaggageMappingList: 'segment_baggage_mapping_list',
       segmentRefundChangeRuleMappingList: 'segment_refund_change_rule_mapping_list',
+      solutionAttribute: 'solution_attribute',
       solutionId: 'solution_id',
     };
   }
@@ -694,6 +751,7 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
       segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': PricingResponseBodyDataSolutionSegmentBaggageCheckInInfoList },
       segmentBaggageMappingList: { 'type': 'array', 'itemType': PricingResponseBodyDataSolutionSegmentBaggageMappingList },
       segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': PricingResponseBodyDataSolutionSegmentRefundChangeRuleMappingList },
+      solutionAttribute: PricingResponseBodyDataSolutionSolutionAttribute,
       solutionId: 'string',
     };
   }
@@ -710,6 +768,9 @@ export class PricingResponseBodyDataSolution extends $dara.Model {
     }
     if(Array.isArray(this.segmentRefundChangeRuleMappingList)) {
       $dara.Model.validateArray(this.segmentRefundChangeRuleMappingList);
+    }
+    if(this.solutionAttribute && typeof (this.solutionAttribute as any).validate === 'function') {
+      (this.solutionAttribute as any).validate();
     }
     super.validate();
   }

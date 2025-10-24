@@ -1268,6 +1268,61 @@ export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingLi
   }
 }
 
+export class OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo extends $dara.Model {
+  issueTicketType?: number;
+  issueTimeLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      issueTicketType: 'issue_ticket_type',
+      issueTimeLimit: 'issue_time_limit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTicketType: 'number',
+      issueTimeLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OrderDetailResponseBodyDataSolutionSolutionAttribute extends $dara.Model {
+  issueTimeInfo?: OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo;
+  supplySourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issueTimeInfo: 'issue_time_info',
+      supplySourceType: 'supply_source_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issueTimeInfo: OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo,
+      supplySourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.issueTimeInfo && typeof (this.issueTimeInfo as any).validate === 'function') {
+      (this.issueTimeInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   /**
    * @remarks
@@ -1353,6 +1408,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
    * change and refund policy
    */
   segmentRefundChangeRuleMappingList?: OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
+  solutionAttribute?: OrderDetailResponseBodyDataSolutionSolutionAttribute;
   /**
    * @remarks
    * solution_id
@@ -1375,6 +1431,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
       segmentBaggageCheckInInfoList: 'segment_baggage_check_in_info_list',
       segmentBaggageMappingList: 'segment_baggage_mapping_list',
       segmentRefundChangeRuleMappingList: 'segment_refund_change_rule_mapping_list',
+      solutionAttribute: 'solution_attribute',
       solutionId: 'solution_id',
     };
   }
@@ -1393,6 +1450,7 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
       segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList },
       segmentBaggageMappingList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList },
       segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList },
+      solutionAttribute: OrderDetailResponseBodyDataSolutionSolutionAttribute,
       solutionId: 'string',
     };
   }
@@ -1409,6 +1467,9 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
     }
     if(Array.isArray(this.segmentRefundChangeRuleMappingList)) {
       $dara.Model.validateArray(this.segmentRefundChangeRuleMappingList);
+    }
+    if(this.solutionAttribute && typeof (this.solutionAttribute as any).validate === 'function') {
+      (this.solutionAttribute as any).validate();
     }
     super.validate();
   }
