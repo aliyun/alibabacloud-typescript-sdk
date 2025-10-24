@@ -11,6 +11,8 @@ export class ListBenchmarkTaskRequest extends $dara.Model {
    * test_bench
    */
   filter?: string;
+  modelId?: string;
+  order?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -27,6 +29,7 @@ export class ListBenchmarkTaskRequest extends $dara.Model {
    * 10
    */
   pageSize?: string;
+  requestMethod?: string;
   /**
    * @remarks
    * The name of the EAS service that corresponds to the stress testing task. For more information about how to query the service name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
@@ -35,21 +38,33 @@ export class ListBenchmarkTaskRequest extends $dara.Model {
    * test_bench_srv
    */
   serviceName?: string;
+  sort?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      modelId: 'ModelId',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestMethod: 'RequestMethod',
       serviceName: 'ServiceName',
+      sort: 'Sort',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      modelId: 'string',
+      order: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      requestMethod: 'string',
       serviceName: 'string',
+      sort: 'string',
+      status: 'string',
     };
   }
 

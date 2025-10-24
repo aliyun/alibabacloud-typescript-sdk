@@ -11,6 +11,7 @@ export class ListGroupsRequest extends $dara.Model {
    * foo
    */
   filter?: string;
+  order?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -27,6 +28,8 @@ export class ListGroupsRequest extends $dara.Model {
    * 20
    */
   pageSize?: string;
+  sort?: string;
+  trafficMode?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -38,8 +41,11 @@ export class ListGroupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      sort: 'Sort',
+      trafficMode: 'TrafficMode',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -47,8 +53,11 @@ export class ListGroupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filter: 'string',
+      order: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      sort: 'string',
+      trafficMode: 'string',
       workspaceId: 'string',
     };
   }

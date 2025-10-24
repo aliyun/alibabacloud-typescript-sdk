@@ -2809,6 +2809,14 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
+    if (!$dara.isNull(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -2817,8 +2825,20 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.requestMethod)) {
+      query["RequestMethod"] = request.requestMethod;
+    }
+
     if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3101,12 +3121,24 @@ export default class Client extends OpenApi {
       query["Filter"] = request.filter;
     }
 
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.trafficMode)) {
+      query["TrafficMode"] = request.trafficMode;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
