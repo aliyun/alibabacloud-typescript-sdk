@@ -284,6 +284,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    */
   serverType?: string;
   streamMode?: number;
+  swapSize?: number;
   /**
    * @remarks
    * The resource tags.
@@ -326,6 +327,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       serverShareDataVolume: 'ServerShareDataVolume',
       serverType: 'ServerType',
       streamMode: 'StreamMode',
+      swapSize: 'SwapSize',
       tag: 'Tag',
       upBandwidthLimit: 'UpBandwidthLimit',
       useTemplate: 'UseTemplate',
@@ -360,6 +362,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       serverShareDataVolume: 'number',
       serverType: 'string',
       streamMode: 'number',
+      swapSize: 'number',
       tag: { 'type': 'array', 'itemType': CreateCloudPhoneNodeRequestTag },
       upBandwidthLimit: 'number',
       useTemplate: 'string',

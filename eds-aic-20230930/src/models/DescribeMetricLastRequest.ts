@@ -9,6 +9,7 @@ export class DescribeMetricLastRequest extends $dara.Model {
    * 2019-01-31 11:00:00
    */
   endTime?: string;
+  instanceIds?: string[];
   /**
    * @example
    * 1000
@@ -38,6 +39,7 @@ export class DescribeMetricLastRequest extends $dara.Model {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       endTime: 'EndTime',
+      instanceIds: 'InstanceIds',
       length: 'Length',
       metricNames: 'MetricNames',
       nextToken: 'NextToken',
@@ -50,6 +52,7 @@ export class DescribeMetricLastRequest extends $dara.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       endTime: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       length: 'string',
       metricNames: { 'type': 'array', 'itemType': 'string' },
       nextToken: 'string',
@@ -61,6 +64,9 @@ export class DescribeMetricLastRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIds)) {
       $dara.Model.validateArray(this.androidInstanceIds);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     if(Array.isArray(this.metricNames)) {
       $dara.Model.validateArray(this.metricNames);

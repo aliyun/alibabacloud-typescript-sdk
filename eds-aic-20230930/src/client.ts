@@ -174,6 +174,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.excludeSourceFilePathList)) {
+      query["ExcludeSourceFilePathList"] = request.excludeSourceFilePathList;
+    }
+
     if (!$dara.isNull(request.sourceAppList)) {
       query["SourceAppList"] = request.sourceAppList;
     }
@@ -315,6 +319,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.promotionId)) {
       query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.shareDataVolume)) {
+      query["ShareDataVolume"] = request.shareDataVolume;
+    }
+
+    if (!$dara.isNull(request.swapSize)) {
+      query["SwapSize"] = request.swapSize;
     }
 
     if (!$dara.isNull(request.upBandwidthLimit)) {
@@ -785,6 +797,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.streamMode)) {
       query["StreamMode"] = request.streamMode;
+    }
+
+    if (!$dara.isNull(request.swapSize)) {
+      query["SwapSize"] = request.swapSize;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -1890,6 +1906,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询bucket信息
+   * 
+   * @param request - DescribeBucketsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBucketsResponse
+   */
+  async describeBucketsWithOptions(request: $_model.DescribeBucketsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBucketsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBuckets",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBucketsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBucketsResponse({}));
+  }
+
+  /**
+   * 查询bucket信息
+   * 
+   * @param request - DescribeBucketsRequest
+   * @returns DescribeBucketsResponse
+   */
+  async describeBuckets(request: $_model.DescribeBucketsRequest): Promise<$_model.DescribeBucketsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBucketsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a cloud phone matrix.
    * 
    * @param request - DescribeCloudPhoneNodesRequest
@@ -2190,6 +2248,11 @@ export default class Client extends OpenApi {
    */
   async describeMetricLastWithOptions(request: $_model.DescribeMetricLastRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricLastResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.androidInstanceIds)) {
       body["AndroidInstanceIds"] = request.androidInstanceIds;
@@ -2220,6 +2283,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -3211,6 +3275,56 @@ export default class Client extends OpenApi {
   async installMonitorAgent(request: $_model.InstallMonitorAgentRequest): Promise<$_model.InstallMonitorAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.installMonitorAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 实例诊断
+   * 
+   * @param request - InstanceHealerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstanceHealerResponse
+   */
+  async instanceHealerWithOptions(request: $_model.InstanceHealerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstanceHealerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InstanceHealer",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InstanceHealerResponse>(await this.callApi(params, req, runtime), new $_model.InstanceHealerResponse({}));
+  }
+
+  /**
+   * 实例诊断
+   * 
+   * @param request - InstanceHealerRequest
+   * @returns InstanceHealerResponse
+   */
+  async instanceHealer(request: $_model.InstanceHealerRequest): Promise<$_model.InstanceHealerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.instanceHealerWithOptions(request, runtime);
   }
 
   /**

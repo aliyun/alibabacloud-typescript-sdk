@@ -43,6 +43,7 @@ export class BackupFileRequest extends $dara.Model {
    * This is a backup file description.
    */
   description?: string;
+  excludeSourceFilePathList?: string[];
   /**
    * @remarks
    * The names of the application packages that you want to back up.
@@ -82,6 +83,7 @@ export class BackupFileRequest extends $dara.Model {
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
       description: 'Description',
+      excludeSourceFilePathList: 'ExcludeSourceFilePathList',
       sourceAppList: 'SourceAppList',
       sourceFilePathList: 'SourceFilePathList',
       uploadEndpoint: 'UploadEndpoint',
@@ -96,6 +98,7 @@ export class BackupFileRequest extends $dara.Model {
       backupFileName: 'string',
       backupFilePath: 'string',
       description: 'string',
+      excludeSourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       sourceAppList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       uploadEndpoint: 'string',
@@ -106,6 +109,9 @@ export class BackupFileRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIdList)) {
       $dara.Model.validateArray(this.androidInstanceIdList);
+    }
+    if(Array.isArray(this.excludeSourceFilePathList)) {
+      $dara.Model.validateArray(this.excludeSourceFilePathList);
     }
     if(Array.isArray(this.sourceAppList)) {
       $dara.Model.validateArray(this.sourceAppList);

@@ -226,6 +226,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  swapSize?: number;
   /**
    * @remarks
    * The vSwitch ID.
@@ -260,6 +261,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       serverType: 'ServerType',
       shareDataVolume: 'ShareDataVolume',
       status: 'Status',
+      swapSize: 'SwapSize',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -290,6 +292,7 @@ export class DescribeCloudPhoneNodesResponseBodyNodeModel extends $dara.Model {
       serverType: 'string',
       shareDataVolume: 'number',
       status: 'string',
+      swapSize: 'number',
       vSwitchId: 'string',
     };
   }

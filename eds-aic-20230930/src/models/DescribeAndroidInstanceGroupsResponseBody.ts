@@ -164,6 +164,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * imgc-06zyt9m93zwax****
    */
   imageId?: string;
+  imageVersion?: string;
   /**
    * @remarks
    * The list of installed applications.
@@ -330,6 +331,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       gmtExpired: 'GmtExpired',
       gmtModified: 'GmtModified',
       imageId: 'ImageId',
+      imageVersion: 'ImageVersion',
       installedAppList: 'InstalledAppList',
       instanceGroupId: 'InstanceGroupId',
       instanceGroupName: 'InstanceGroupName',
@@ -370,6 +372,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       gmtExpired: 'string',
       gmtModified: 'string',
       imageId: 'string',
+      imageVersion: 'string',
       installedAppList: 'string',
       instanceGroupId: 'string',
       instanceGroupName: 'string',
