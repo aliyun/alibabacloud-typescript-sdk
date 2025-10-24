@@ -5786,6 +5786,10 @@ export default class Client extends OpenApi {
       query["Async"] = request.async;
     }
 
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.input)) {
       query["Input"] = request.input;
     }

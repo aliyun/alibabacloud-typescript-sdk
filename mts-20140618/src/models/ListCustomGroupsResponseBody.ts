@@ -1,7 +1,65 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListCustomGroupsResponseBodyCustomGroups } from "./ListCustomGroupsResponseBodyCustomGroups";
 
+
+export class ListCustomGroupsResponseBodyCustomGroupsCustomGroup extends $dara.Model {
+  customGroupDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  customGroupId?: string;
+  customGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customGroupDescription: 'CustomGroupDescription',
+      customGroupId: 'CustomGroupId',
+      customGroupName: 'CustomGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroupDescription: 'string',
+      customGroupId: 'string',
+      customGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomGroupsResponseBodyCustomGroups extends $dara.Model {
+  customGroup?: ListCustomGroupsResponseBodyCustomGroupsCustomGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      customGroup: 'CustomGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customGroup: { 'type': 'array', 'itemType': ListCustomGroupsResponseBodyCustomGroupsCustomGroup },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.customGroup)) {
+      $dara.Model.validateArray(this.customGroup);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListCustomGroupsResponseBody extends $dara.Model {
   customGroups?: ListCustomGroupsResponseBodyCustomGroups;
