@@ -30,6 +30,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 主动交互消息传递
+   * 
+   * @param request - ActiveInteractionCreateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveInteractionCreateResponse
+   */
+  async activeInteractionCreateWithOptions(request: $_model.ActiveInteractionCreateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ActiveInteractionCreateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.image)) {
+      body["image"] = request.image;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActiveInteractionCreate",
+      version: "2024-08-16",
+      protocol: "HTTPS",
+      pathname: `/open/api/v1/active/interaction/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActiveInteractionCreateResponse>(await this.callApi(params, req, runtime), new $_model.ActiveInteractionCreateResponse({}));
+  }
+
+  /**
+   * 主动交互消息传递
+   * 
+   * @param request - ActiveInteractionCreateRequest
+   * @returns ActiveInteractionCreateResponse
+   */
+  async activeInteractionCreate(request: $_model.ActiveInteractionCreateRequest): Promise<$_model.ActiveInteractionCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activeInteractionCreateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 设备注册
    * 
    * @param request - DeviceRegisterRequest

@@ -1,5 +1,9 @@
-export { DeviceRegisterResponseBodyData } from './DeviceRegisterResponseBodyData';
-export { GetTokenResponseBodyData } from './GetTokenResponseBodyData';
+export { ActiveInteractionCreateResponseBodyData } from './ActiveInteractionCreateResponseBody';
+export { DeviceRegisterResponseBodyData } from './DeviceRegisterResponseBody';
+export { GetTokenResponseBodyData } from './GetTokenResponseBody';
+export { ActiveInteractionCreateRequest } from './ActiveInteractionCreateRequest';
+export { ActiveInteractionCreateResponseBody } from './ActiveInteractionCreateResponseBody';
+export { ActiveInteractionCreateResponse } from './ActiveInteractionCreateResponse';
 export { DeviceRegisterRequest } from './DeviceRegisterRequest';
 export { DeviceRegisterResponseBody } from './DeviceRegisterResponseBody';
 export { DeviceRegisterResponse } from './DeviceRegisterResponse';

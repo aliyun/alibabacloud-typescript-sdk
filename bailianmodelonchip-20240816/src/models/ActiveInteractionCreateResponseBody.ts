@@ -2,52 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetTokenResponseBodyData extends $dara.Model {
-  appId?: string;
+/**
+ */
+export class ActiveInteractionCreateResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 5b504f84b69b9a73d3a21a2cff05e190
+   * point
    */
-  deviceName?: string;
+  gesture?: string;
   /**
    * @example
-   * b79d692c315d6bfb28312edf15
+   * A man in dark clothing stands on a rocky hilltop, facing away from the camera, gazing at the expansive view with a contemplative posture.
    */
-  nonce?: string;
+  person?: string;
   /**
    * @example
-   * 127.0.0.1
+   * Mountainous landscape with layered ridges receding into haze, under a vast blue sky with wispy clouds and soft golden light near the horizon.
    */
-  requestIp?: string;
-  /**
-   * @example
-   * 1748413248360
-   */
-  responseTime?: string;
-  /**
-   * @example
-   * N1faAjFhhaRNFaZNC8woRpQyAzEfBaIoWQEgDfds/Fwm7nIyEDLlSK3Ttx2OFebiHZ/MpHRr/3MnI/jpVWB/xNYIQxm6sccHJENHNAz6gaW+itU5wUrh+46EpqySABV8kc2pQ0HmYlbePfjjOK6lCfQjEGpekSAgQ6tDhG1lXWfKdtggq58Ut5bImMxMhk4R/PFUWrJe4CDuFu072C+foI0JlUV9TnGtVQ58oz8VRndrGXyauS/xqg8iGSZn6FyprUf5p+0ow20E
-   */
-  signature?: string;
+  scene?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'appId',
-      deviceName: 'deviceName',
-      nonce: 'nonce',
-      requestIp: 'requestIp',
-      responseTime: 'responseTime',
-      signature: 'signature',
+      gesture: 'gesture',
+      person: 'person',
+      scene: 'scene',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      deviceName: 'string',
-      nonce: 'string',
-      requestIp: 'string',
-      responseTime: 'string',
-      signature: 'string',
+      gesture: 'string',
+      person: 'string',
+      scene: 'string',
     };
   }
 
@@ -60,33 +45,36 @@ export class GetTokenResponseBodyData extends $dara.Model {
   }
 }
 
-export class GetTokenResponseBody extends $dara.Model {
+export class ActiveInteractionCreateResponseBody extends $dara.Model {
   /**
    * @example
    * success
    */
   code?: string;
-  data?: GetTokenResponseBodyData;
+  data?: ActiveInteractionCreateResponseBodyData;
   /**
    * @example
    * 200
    */
-  httpStatusCode?: string;
+  httpStatusCode?: number;
   /**
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * B08AAA14-AD93-51F6-82AE-82AFAE9375B6
+   * AF54F772-60FF-56FD-A3EA-11620EF1229A
    */
   requestId?: string;
   /**
    * @example
-   * true
+   * True
    */
-  success?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
@@ -101,11 +89,11 @@ export class GetTokenResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: GetTokenResponseBodyData,
-      httpStatusCode: 'string',
+      data: ActiveInteractionCreateResponseBodyData,
+      httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
     };
   }
 
