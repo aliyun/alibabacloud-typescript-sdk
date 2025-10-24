@@ -167,6 +167,21 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
   dbName?: string;
   /**
    * @example
+   * test
+   */
+  dstName?: string;
+  /**
+   * @example
+   * mms_test
+   */
+  dstProjectName?: string;
+  /**
+   * @example
+   * default
+   */
+  dstSchemaName?: string;
+  /**
+   * @example
    * {"mapkey.delim":":","collection.delim":",","serialization.format":"|","field.delim":"|"}
    */
   extra?: string;
@@ -290,6 +305,9 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
     return {
       dbId: 'dbId',
       dbName: 'dbName',
+      dstName: 'dstName',
+      dstProjectName: 'dstProjectName',
+      dstSchemaName: 'dstSchemaName',
       extra: 'extra',
       hasPartitions: 'hasPartitions',
       id: 'id',
@@ -319,6 +337,9 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
     return {
       dbId: 'number',
       dbName: 'string',
+      dstName: 'string',
+      dstProjectName: 'string',
+      dstSchemaName: 'string',
       extra: 'string',
       hasPartitions: 'boolean',
       id: 'number',

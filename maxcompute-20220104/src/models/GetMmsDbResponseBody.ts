@@ -10,6 +10,16 @@ export class GetMmsDbResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @example
+   * default
+   */
+  dstName?: string;
+  /**
+   * @example
+   * mma_test
+   */
+  dstProjectName?: string;
+  /**
+   * @example
    * {}
    */
   extra?: string;
@@ -119,6 +129,8 @@ export class GetMmsDbResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      dstName: 'dstName',
+      dstProjectName: 'dstProjectName',
       extra: 'extra',
       id: 'id',
       lastDdlTime: 'lastDdlTime',
@@ -146,6 +158,8 @@ export class GetMmsDbResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      dstName: 'string',
+      dstProjectName: 'string',
       extra: 'string',
       id: 'number',
       lastDdlTime: 'string',

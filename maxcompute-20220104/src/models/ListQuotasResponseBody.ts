@@ -289,6 +289,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolic
 }
 
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
+  adhocSlot?: number;
   elasticReservedCU?: number;
   enablePriority?: boolean;
   forceReservedMin?: boolean;
@@ -304,8 +305,10 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   minCU?: number;
   schedulerType?: string;
   singleJobCULimit?: number;
+  slotNum?: number;
   static names(): { [key: string]: string } {
     return {
+      adhocSlot: 'adhocSlot',
       elasticReservedCU: 'elasticReservedCU',
       enablePriority: 'enablePriority',
       forceReservedMin: 'forceReservedMin',
@@ -313,11 +316,13 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
       minCU: 'minCU',
       schedulerType: 'schedulerType',
       singleJobCULimit: 'singleJobCULimit',
+      slotNum: 'slotNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adhocSlot: 'number',
       elasticReservedCU: 'number',
       enablePriority: 'boolean',
       forceReservedMin: 'boolean',
@@ -325,6 +330,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
       minCU: 'number',
       schedulerType: 'string',
       singleJobCULimit: 'number',
+      slotNum: 'number',
     };
   }
 
@@ -1238,6 +1244,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy ex
 }
 
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
+  adhocSlot?: number;
   elasticReservedCU?: number;
   enablePriority?: boolean;
   forceReservedMin?: boolean;
@@ -1246,34 +1253,45 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
    * This parameter is required.
    */
   maxCU?: number;
+  maxGu?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   minCU?: number;
+  minGu?: number;
   schedulerType?: string;
   singleJobCULimit?: number;
+  slotNum?: number;
   static names(): { [key: string]: string } {
     return {
+      adhocSlot: 'adhocSlot',
       elasticReservedCU: 'elasticReservedCU',
       enablePriority: 'enablePriority',
       forceReservedMin: 'forceReservedMin',
       maxCU: 'maxCU',
+      maxGu: 'maxGu',
       minCU: 'minCU',
+      minGu: 'minGu',
       schedulerType: 'schedulerType',
       singleJobCULimit: 'singleJobCULimit',
+      slotNum: 'slotNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      adhocSlot: 'number',
       elasticReservedCU: 'number',
       enablePriority: 'boolean',
       forceReservedMin: 'boolean',
       maxCU: 'number',
+      maxGu: 'number',
       minCU: 'number',
+      minGu: 'number',
       schedulerType: 'string',
       singleJobCULimit: 'number',
+      slotNum: 'number',
     };
   }
 

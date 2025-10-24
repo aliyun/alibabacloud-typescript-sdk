@@ -6,6 +6,8 @@ export class CreateMmsJobRequest extends $dara.Model {
   columnMapping?: { [key: string]: string };
   dstDbName?: string;
   dstSchemaName?: string;
+  enableDataMigration?: boolean;
+  enableSchemaMigration?: boolean;
   enableVerification?: boolean;
   eta?: string;
   increment?: boolean;
@@ -32,6 +34,8 @@ export class CreateMmsJobRequest extends $dara.Model {
       columnMapping: 'columnMapping',
       dstDbName: 'dstDbName',
       dstSchemaName: 'dstSchemaName',
+      enableDataMigration: 'enableDataMigration',
+      enableSchemaMigration: 'enableSchemaMigration',
       enableVerification: 'enableVerification',
       eta: 'eta',
       increment: 'increment',
@@ -57,6 +61,8 @@ export class CreateMmsJobRequest extends $dara.Model {
       columnMapping: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       dstDbName: 'string',
       dstSchemaName: 'string',
+      enableDataMigration: 'boolean',
+      enableSchemaMigration: 'boolean',
       enableVerification: 'boolean',
       eta: 'string',
       increment: 'boolean',

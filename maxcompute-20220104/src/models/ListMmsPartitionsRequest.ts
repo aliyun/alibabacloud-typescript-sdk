@@ -78,6 +78,11 @@ export class ListMmsPartitionsRequest extends $dara.Model {
   status?: string[];
   /**
    * @example
+   * 20323
+   */
+  tableId?: number;
+  /**
+   * @example
    * t1
    */
   tableName?: string;
@@ -101,6 +106,7 @@ export class ListMmsPartitionsRequest extends $dara.Model {
       pageNum: 'pageNum',
       pageSize: 'pageSize',
       status: 'status',
+      tableId: 'tableId',
       tableName: 'tableName',
       updated: 'updated',
       value: 'value',
@@ -117,6 +123,7 @@ export class ListMmsPartitionsRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       status: { 'type': 'array', 'itemType': 'string' },
+      tableId: 'number',
       tableName: 'string',
       updated: 'boolean',
       value: 'string',

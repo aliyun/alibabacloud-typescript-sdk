@@ -300,6 +300,14 @@ export default class Client extends OpenApi {
       body["dstSchemaName"] = request.dstSchemaName;
     }
 
+    if (!$dara.isNull(request.enableDataMigration)) {
+      body["enableDataMigration"] = request.enableDataMigration;
+    }
+
+    if (!$dara.isNull(request.enableSchemaMigration)) {
+      body["enableSchemaMigration"] = request.enableSchemaMigration;
+    }
+
     if (!$dara.isNull(request.enableVerification)) {
       body["enableVerification"] = request.enableVerification;
     }
@@ -2816,6 +2824,10 @@ export default class Client extends OpenApi {
       query["status"] = request.statusShrink;
     }
 
+    if (!$dara.isNull(request.tableId)) {
+      query["tableId"] = request.tableId;
+    }
+
     if (!$dara.isNull(request.tableName)) {
       query["tableName"] = request.tableName;
     }
@@ -2885,6 +2897,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dbName)) {
       query["dbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.dstName)) {
+      query["dstName"] = request.dstName;
+    }
+
+    if (!$dara.isNull(request.dstProjectName)) {
+      query["dstProjectName"] = request.dstProjectName;
+    }
+
+    if (!$dara.isNull(request.dstSchemaName)) {
+      query["dstSchemaName"] = request.dstSchemaName;
     }
 
     if (!$dara.isNull(request.hasPartitions)) {
@@ -3924,6 +3948,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryQuotaWithOptions(nickname, request, headers, runtime);
+  }
+
+  /**
+   * 查询quota的资源使用信息
+   * 
+   * @param request - QueryQuotaMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryQuotaMetricResponse
+   */
+  async queryQuotaMetricWithOptions(metric: string, request: $_model.QueryQuotaMetricRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryQuotaMetricResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      query["strategy"] = request.strategy;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.interval)) {
+      body["interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.nickname)) {
+      body["nickname"] = request.nickname;
+    }
+
+    if (!$dara.isNull(request.subQuotaNickname)) {
+      body["subQuotaNickname"] = request.subQuotaNickname;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryQuotaMetric",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/observations/quota/${$dara.URL.percentEncode(metric)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryQuotaMetricResponse>(await this.callApi(params, req, runtime), new $_model.QueryQuotaMetricResponse({}));
+  }
+
+  /**
+   * 查询quota的资源使用信息
+   * 
+   * @param request - QueryQuotaMetricRequest
+   * @returns QueryQuotaMetricResponse
+   */
+  async queryQuotaMetric(metric: string, request: $_model.QueryQuotaMetricRequest): Promise<$_model.QueryQuotaMetricResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryQuotaMetricWithOptions(metric, request, headers, runtime);
   }
 
   /**

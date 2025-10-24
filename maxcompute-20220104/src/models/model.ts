@@ -218,6 +218,8 @@ export { QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag } from './QueryQuotaR
 export { QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo } from './QueryQuotaResponseBody';
 export { QueryQuotaResponseBodyDataSubQuotaInfoList } from './QueryQuotaResponseBody';
 export { QueryQuotaResponseBodyData } from './QueryQuotaResponseBody';
+export { QueryQuotaMetricResponseBodyDataMetrics } from './QueryQuotaMetricResponseBody';
+export { QueryQuotaMetricResponseBodyData } from './QueryQuotaMetricResponseBody';
 export { QueryStorageMetricResponseBodyDataMetrics } from './QueryStorageMetricResponseBody';
 export { QueryStorageMetricResponseBodyData } from './QueryStorageMetricResponseBody';
 export { QueryTunnelMetricResponseBodyDataMetrics } from './QueryTunnelMetricResponseBody';
@@ -434,6 +436,9 @@ export { ListUsersByRoleResponse } from './ListUsersByRoleResponse';
 export { QueryQuotaRequest } from './QueryQuotaRequest';
 export { QueryQuotaResponseBody } from './QueryQuotaResponseBody';
 export { QueryQuotaResponse } from './QueryQuotaResponse';
+export { QueryQuotaMetricRequest } from './QueryQuotaMetricRequest';
+export { QueryQuotaMetricResponseBody } from './QueryQuotaMetricResponseBody';
+export { QueryQuotaMetricResponse } from './QueryQuotaMetricResponse';
 export { QueryStorageMetricRequest } from './QueryStorageMetricRequest';
 export { QueryStorageMetricResponseBody } from './QueryStorageMetricResponseBody';
 export { QueryStorageMetricResponse } from './QueryStorageMetricResponse';

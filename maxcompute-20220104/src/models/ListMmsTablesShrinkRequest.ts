@@ -57,6 +57,21 @@ export class ListMmsTablesShrinkRequest extends $dara.Model {
   dbName?: string;
   /**
    * @example
+   * test
+   */
+  dstName?: string;
+  /**
+   * @example
+   * mms_test
+   */
+  dstProjectName?: string;
+  /**
+   * @example
+   * default
+   */
+  dstSchemaName?: string;
+  /**
+   * @example
    * true
    */
   hasPartitions?: boolean;
@@ -101,6 +116,9 @@ export class ListMmsTablesShrinkRequest extends $dara.Model {
       sorter: 'sorter',
       dbId: 'dbId',
       dbName: 'dbName',
+      dstName: 'dstName',
+      dstProjectName: 'dstProjectName',
+      dstSchemaName: 'dstSchemaName',
       hasPartitions: 'hasPartitions',
       lastDdlTimeEnd: 'lastDdlTimeEnd',
       lastDdlTimeStart: 'lastDdlTimeStart',
@@ -118,6 +136,9 @@ export class ListMmsTablesShrinkRequest extends $dara.Model {
       sorter: ListMmsTablesShrinkRequestSorter,
       dbId: 'number',
       dbName: 'string',
+      dstName: 'string',
+      dstProjectName: 'string',
+      dstSchemaName: 'string',
       hasPartitions: 'boolean',
       lastDdlTimeEnd: 'string',
       lastDdlTimeStart: 'string',

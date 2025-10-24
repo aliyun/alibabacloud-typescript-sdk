@@ -20,6 +20,16 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
   description?: string;
   /**
    * @example
+   * default
+   */
+  dstName?: string;
+  /**
+   * @example
+   * mms_test
+   */
+  dstProjectName?: string;
+  /**
+   * @example
    * {}
    */
   extra?: string;
@@ -136,6 +146,8 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
       createTime: 'createTime',
       deleted: 'deleted',
       description: 'description',
+      dstName: 'dstName',
+      dstProjectName: 'dstProjectName',
       extra: 'extra',
       id: 'id',
       lastDdlTime: 'lastDdlTime',
@@ -166,6 +178,8 @@ export class ListMmsDbsResponseBodyDataObjectList extends $dara.Model {
       createTime: 'string',
       deleted: 'boolean',
       description: 'string',
+      dstName: 'string',
+      dstProjectName: 'string',
       extra: 'string',
       id: 'number',
       lastDdlTime: 'string',

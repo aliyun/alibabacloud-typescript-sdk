@@ -3,16 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMmsPartitionsResponseBodyDataObjectList extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   dbId?: number;
   /**
    * @example
    * d1
    */
   dbName?: string;
+  /**
+   * @example
+   * mms_test
+   */
+  dstProjectName?: string;
+  /**
+   * @example
+   * default
+   */
+  dstSchemaName?: string;
+  /**
+   * @example
+   * default
+   */
+  dstTableName?: string;
+  /**
+   * @example
+   * p1=1/p2=abc
+   */
+  dstValue?: string;
   /**
    * @example
    * 2323
@@ -73,8 +89,12 @@ export class ListMmsPartitionsResponseBodyDataObjectList extends $dara.Model {
   value?: string;
   static names(): { [key: string]: string } {
     return {
-      dbId: 'DbId',
+      dbId: 'dbId',
       dbName: 'dbName',
+      dstProjectName: 'dstProjectName',
+      dstSchemaName: 'dstSchemaName',
+      dstTableName: 'dstTableName',
+      dstValue: 'dstValue',
       id: 'id',
       lastDdlTime: 'lastDdlTime',
       numRows: 'numRows',
@@ -93,6 +113,10 @@ export class ListMmsPartitionsResponseBodyDataObjectList extends $dara.Model {
     return {
       dbId: 'number',
       dbName: 'string',
+      dstProjectName: 'string',
+      dstSchemaName: 'string',
+      dstTableName: 'string',
+      dstValue: 'string',
       id: 'number',
       lastDdlTime: 'string',
       numRows: 'number',

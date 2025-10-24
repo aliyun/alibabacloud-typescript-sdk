@@ -102,6 +102,12 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   dbNum?: number;
   /**
    * @example
+   * mms_test
+   */
+  dstProject?: string;
+  dstProjects?: string[];
+  /**
+   * @example
    * unexpected exception
    */
   errMsg?: string;
@@ -196,6 +202,8 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
       config: 'config',
       createTime: 'createTime',
       dbNum: 'dbNum',
+      dstProject: 'dstProject',
+      dstProjects: 'dstProjects',
       errMsg: 'errMsg',
       id: 'id',
       lastUpdateTime: 'lastUpdateTime',
@@ -223,6 +231,8 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
       config: { 'type': 'array', 'itemType': ListMmsDataSourcesResponseBodyDataObjectListConfig },
       createTime: 'string',
       dbNum: 'number',
+      dstProject: 'string',
+      dstProjects: { 'type': 'array', 'itemType': 'string' },
       errMsg: 'string',
       id: 'number',
       lastUpdateTime: 'string',
@@ -247,6 +257,9 @@ export class ListMmsDataSourcesResponseBodyDataObjectList extends $dara.Model {
   validate() {
     if(Array.isArray(this.config)) {
       $dara.Model.validateArray(this.config);
+    }
+    if(Array.isArray(this.dstProjects)) {
+      $dara.Model.validateArray(this.dstProjects);
     }
     super.validate();
   }
