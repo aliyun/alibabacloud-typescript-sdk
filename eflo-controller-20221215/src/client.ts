@@ -76,6 +76,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改节点的节点组
+   * 
+   * @param tmpReq - ChangeNodeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeNodeGroupResponse
+   */
+  async changeNodeGroupWithOptions(tmpReq: $_model.ChangeNodeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeNodeGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChangeNodeGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ignoreFailedNodeTasks)) {
+      query["IgnoreFailedNodeTasks"] = request.ignoreFailedNodeTasks;
+    }
+
+    if (!$dara.isNull(request.targetNodeGroupId)) {
+      query["TargetNodeGroupId"] = request.targetNodeGroupId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodesShrink)) {
+      body["Nodes"] = request.nodesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeNodeGroup",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeNodeGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeNodeGroupResponse({}));
+  }
+
+  /**
+   * 修改节点的节点组
+   * 
+   * @param request - ChangeNodeGroupRequest
+   * @returns ChangeNodeGroupResponse
+   */
+  async changeNodeGroup(request: $_model.ChangeNodeGroupRequest): Promise<$_model.ChangeNodeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeNodeGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Moves a resource from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -1354,6 +1412,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询节点列表
+   * 
+   * @param request - GetHyperNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHyperNodeResponse
+   */
+  async getHyperNodeWithOptions(request: $_model.GetHyperNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHyperNodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hyperNodeId)) {
+      body["HyperNodeId"] = request.hyperNodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHyperNode",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHyperNodeResponse>(await this.callApi(params, req, runtime), new $_model.GetHyperNodeResponse({}));
+  }
+
+  /**
+   * 查询节点列表
+   * 
+   * @param request - GetHyperNodeRequest
+   * @returns GetHyperNodeResponse
+   */
+  async getHyperNode(request: $_model.GetHyperNodeRequest): Promise<$_model.GetHyperNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getHyperNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 集群下的主机分组列表，分组下的主机列表
+   * 
+   * @param request - ListClusterHyperNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterHyperNodesResponse
+   */
+  async listClusterHyperNodesWithOptions(request: $_model.ListClusterHyperNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListClusterHyperNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeGroupId)) {
+      body["NodeGroupId"] = request.nodeGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListClusterHyperNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListClusterHyperNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListClusterHyperNodesResponse({}));
+  }
+
+  /**
+   * 集群下的主机分组列表，分组下的主机列表
+   * 
+   * @param request - ListClusterHyperNodesRequest
+   * @returns ListClusterHyperNodesResponse
+   */
+  async listClusterHyperNodes(request: $_model.ListClusterHyperNodesRequest): Promise<$_model.ListClusterHyperNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listClusterHyperNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of nodes in a cluster.
    * 
    * @param request - ListClusterNodesRequest
@@ -1532,6 +1696,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 可用rack物理机列表
+   * 
+   * @param request - ListFreeHyperNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFreeHyperNodesResponse
+   */
+  async listFreeHyperNodesWithOptions(request: $_model.ListFreeHyperNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFreeHyperNodesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hpnZone)) {
+      body["HpnZone"] = request.hpnZone;
+    }
+
+    if (!$dara.isNull(request.machineType)) {
+      body["MachineType"] = request.machineType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFreeHyperNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFreeHyperNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListFreeHyperNodesResponse({}));
+  }
+
+  /**
+   * 可用rack物理机列表
+   * 
+   * @param request - ListFreeHyperNodesRequest
+   * @returns ListFreeHyperNodesResponse
+   */
+  async listFreeHyperNodes(request: $_model.ListFreeHyperNodesRequest): Promise<$_model.ListFreeHyperNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFreeHyperNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of nodes that are not used.
    * 
    * @param request - ListFreeNodesRequest
@@ -1597,6 +1827,84 @@ export default class Client extends OpenApi {
   async listFreeNodes(request: $_model.ListFreeNodesRequest): Promise<$_model.ListFreeNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFreeNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 机器列表
+   * 
+   * @param request - ListHyperNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHyperNodesResponse
+   */
+  async listHyperNodesWithOptions(request: $_model.ListHyperNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHyperNodesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterName)) {
+      body["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.hpnZone)) {
+      body["HpnZone"] = request.hpnZone;
+    }
+
+    if (!$dara.isNull(request.hyperNodeId)) {
+      body["HyperNodeId"] = request.hyperNodeId;
+    }
+
+    if (!$dara.isNull(request.machineType)) {
+      body["MachineType"] = request.machineType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.nodeGroupName)) {
+      body["NodeGroupName"] = request.nodeGroupName;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      body["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHyperNodes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHyperNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListHyperNodesResponse({}));
+  }
+
+  /**
+   * 机器列表
+   * 
+   * @param request - ListHyperNodesRequest
+   * @returns ListHyperNodesResponse
+   */
+  async listHyperNodes(request: $_model.ListHyperNodesRequest): Promise<$_model.ListHyperNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHyperNodesWithOptions(request, runtime);
   }
 
   /**
@@ -2127,6 +2435,74 @@ export default class Client extends OpenApi {
   async reimageNodes(request: $_model.ReimageNodesRequest): Promise<$_model.ReimageNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.reimageNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 节点异常问题上报
+   * 
+   * @param tmpReq - ReportNodesStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReportNodesStatusResponse
+   */
+  async reportNodesStatusWithOptions(tmpReq: $_model.ReportNodesStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportNodesStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReportNodesStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.issueCategory)) {
+      body["IssueCategory"] = request.issueCategory;
+    }
+
+    if (!$dara.isNull(request.nodesShrink)) {
+      body["Nodes"] = request.nodesShrink;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReportNodesStatus",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReportNodesStatusResponse>(await this.callApi(params, req, runtime), new $_model.ReportNodesStatusResponse({}));
+  }
+
+  /**
+   * 节点异常问题上报
+   * 
+   * @param request - ReportNodesStatusRequest
+   * @returns ReportNodesStatusResponse
+   */
+  async reportNodesStatus(request: $_model.ReportNodesStatusRequest): Promise<$_model.ReportNodesStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reportNodesStatusWithOptions(request, runtime);
   }
 
   /**

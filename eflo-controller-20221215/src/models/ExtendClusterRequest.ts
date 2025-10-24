@@ -303,24 +303,30 @@ export class ExtendClusterRequestIpAllocationPolicy extends $dara.Model {
 }
 
 export class ExtendClusterRequestNodeGroupsHyperNodesDataDisk extends $dara.Model {
+  burstingEnabled?: boolean;
   category?: string;
   deleteWithNode?: boolean;
   performanceLevel?: string;
+  provisionedIops?: number;
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       deleteWithNode: 'DeleteWithNode',
       performanceLevel: 'PerformanceLevel',
+      provisionedIops: 'ProvisionedIops',
       size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      burstingEnabled: 'boolean',
       category: 'string',
       deleteWithNode: 'boolean',
       performanceLevel: 'string',
+      provisionedIops: 'number',
       size: 'number',
     };
   }
