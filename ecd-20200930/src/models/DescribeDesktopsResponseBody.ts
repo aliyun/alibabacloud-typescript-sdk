@@ -431,6 +431,7 @@ export class DescribeDesktopsResponseBodyDesktopsTags extends $dara.Model {
 }
 
 export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
+  accountType?: string;
   /**
    * @remarks
    * The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
@@ -618,6 +619,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * The end user IDs.
    */
   endUserIds?: string[];
+  entraDomainName?: string;
   /**
    * @remarks
    * The time when a subscription cloud computer expired.
@@ -979,6 +981,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   zoneType?: string;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       bindAmount: 'BindAmount',
       bundleId: 'BundleId',
       bundleName: 'BundleName',
@@ -1001,6 +1004,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       downgradeQuota: 'DowngradeQuota',
       downgradedTimes: 'DowngradedTimes',
       endUserIds: 'EndUserIds',
+      entraDomainName: 'EntraDomainName',
       expiredTime: 'ExpiredTime',
       fotaUpdate: 'FotaUpdate',
       gpuCategory: 'GpuCategory',
@@ -1050,6 +1054,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       bindAmount: 'number',
       bundleId: 'string',
       bundleName: 'string',
@@ -1072,6 +1077,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       downgradeQuota: 'number',
       downgradedTimes: 'number',
       endUserIds: { 'type': 'array', 'itemType': 'string' },
+      entraDomainName: 'string',
       expiredTime: 'string',
       fotaUpdate: DescribeDesktopsResponseBodyDesktopsFotaUpdate,
       gpuCategory: 'number',

@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSimpleOfficeSiteRequest extends $dara.Model {
+  accountType?: string;
+  authorityHost?: string;
   /**
    * @remarks
    * The maximum public bandwidth. Value range: 10 to 200. Unit: Mbit/s. This parameter is available if you set `EnableInternetAccess` to `true`.
@@ -44,6 +46,8 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
    * 172.16.0.0/12
    */
   cidrBlock?: string;
+  clientId?: string;
+  clientSecret?: string;
   /**
    * @remarks
    * Specifies whether to create a CloudBox-based office network.
@@ -80,6 +84,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
    * Internet
    */
   desktopAccessType?: string;
+  domainName?: string;
   /**
    * @remarks
    * Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
@@ -145,6 +150,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tenantId?: string;
   /**
    * @remarks
    * The IDs of the vSwitches that you want to specify in VPCs. This parameter is required only when you create CloudBox-based office networks.
@@ -173,17 +179,23 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
   vpcType?: string;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
+      authorityHost: 'AuthorityHost',
       bandwidth: 'Bandwidth',
       cenId: 'CenId',
       cenOwnerId: 'CenOwnerId',
       cidrBlock: 'CidrBlock',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
       cloudBoxOfficeSite: 'CloudBoxOfficeSite',
       desktopAccessType: 'DesktopAccessType',
+      domainName: 'DomainName',
       enableAdminAccess: 'EnableAdminAccess',
       enableInternetAccess: 'EnableInternetAccess',
       needVerifyZeroDevice: 'NeedVerifyZeroDevice',
       officeSiteName: 'OfficeSiteName',
       regionId: 'RegionId',
+      tenantId: 'TenantId',
       vSwitchId: 'VSwitchId',
       verifyCode: 'VerifyCode',
       vpcType: 'VpcType',
@@ -192,17 +204,23 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
+      authorityHost: 'string',
       bandwidth: 'number',
       cenId: 'string',
       cenOwnerId: 'number',
       cidrBlock: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
       cloudBoxOfficeSite: 'boolean',
       desktopAccessType: 'string',
+      domainName: 'string',
       enableAdminAccess: 'boolean',
       enableInternetAccess: 'boolean',
       needVerifyZeroDevice: 'boolean',
       officeSiteName: 'string',
       regionId: 'string',
+      tenantId: 'string',
       vSwitchId: { 'type': 'array', 'itemType': 'string' },
       verifyCode: 'string',
       vpcType: 'string',

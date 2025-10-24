@@ -4767,6 +4767,14 @@ export default class Client extends OpenApi {
   async createSimpleOfficeSiteWithOptions(request: $_model.CreateSimpleOfficeSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSimpleOfficeSiteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
+    if (!$dara.isNull(request.authorityHost)) {
+      query["AuthorityHost"] = request.authorityHost;
+    }
+
     if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
     }
@@ -4783,12 +4791,24 @@ export default class Client extends OpenApi {
       query["CidrBlock"] = request.cidrBlock;
     }
 
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
     if (!$dara.isNull(request.cloudBoxOfficeSite)) {
       query["CloudBoxOfficeSite"] = request.cloudBoxOfficeSite;
     }
 
     if (!$dara.isNull(request.desktopAccessType)) {
       query["DesktopAccessType"] = request.desktopAccessType;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
     }
 
     if (!$dara.isNull(request.enableAdminAccess)) {
@@ -4809,6 +4829,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
     }
 
     if (!$dara.isNull(request.vSwitchId)) {
@@ -8894,6 +8918,104 @@ export default class Client extends OpenApi {
   async describeFotaTasks(request: $_model.DescribeFotaTasksRequest): Promise<$_model.DescribeFotaTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFotaTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询全局桌面记录
+   * 
+   * @param request - DescribeGlobalDesktopRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGlobalDesktopRecordsResponse
+   */
+  async describeGlobalDesktopRecordsWithOptions(request: $_model.DescribeGlobalDesktopRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalDesktopRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.desktopName)) {
+      query["DesktopName"] = request.desktopName;
+    }
+
+    if (!$dara.isNull(request.desktopType)) {
+      query["DesktopType"] = request.desktopType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.subPayType)) {
+      query["SubPayType"] = request.subPayType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGlobalDesktopRecords",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGlobalDesktopRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGlobalDesktopRecordsResponse({}));
+  }
+
+  /**
+   * 查询全局桌面记录
+   * 
+   * @param request - DescribeGlobalDesktopRecordsRequest
+   * @returns DescribeGlobalDesktopRecordsResponse
+   */
+  async describeGlobalDesktopRecords(request: $_model.DescribeGlobalDesktopRecordsRequest): Promise<$_model.DescribeGlobalDesktopRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGlobalDesktopRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -15618,8 +15740,24 @@ export default class Client extends OpenApi {
   async modifyOfficeSiteAttributeWithOptions(request: $_model.ModifyOfficeSiteAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyOfficeSiteAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.authorityHost)) {
+      query["AuthorityHost"] = request.authorityHost;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientSecret)) {
+      query["ClientSecret"] = request.clientSecret;
+    }
+
     if (!$dara.isNull(request.desktopAccessType)) {
       query["DesktopAccessType"] = request.desktopAccessType;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
     }
 
     if (!$dara.isNull(request.enableAdminAccess)) {
@@ -15644,6 +15782,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

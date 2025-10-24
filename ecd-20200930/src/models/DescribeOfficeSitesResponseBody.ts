@@ -220,6 +220,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * ga-bp1astu3yrplkzoo2****
    */
   acceleratorId?: string;
+  accountType?: string;
   /**
    * @remarks
    * The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
@@ -228,6 +229,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * beijing-ad01
    */
   adHostname?: string;
+  authorityHost?: string;
   /**
    * @remarks
    * The hostname of the secondary domain controller.
@@ -277,6 +279,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * 172.16.0.0/16
    */
   cidrBlock?: string;
+  clientId?: string;
+  clientSecret?: string;
   /**
    * @remarks
    * Indicates whether the CloudBox-based office network is created.
@@ -645,6 +649,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * 0
    */
   subnetMode?: string;
+  tenantId?: string;
   /**
    * @remarks
    * The total number of cloud computers.
@@ -708,13 +713,17 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
     return {
       ADConnectors: 'ADConnectors',
       acceleratorId: 'AcceleratorId',
+      accountType: 'AccountType',
       adHostname: 'AdHostname',
+      authorityHost: 'AuthorityHost',
       backupDCHostname: 'BackupDCHostname',
       backupDns: 'BackupDns',
       bandwidth: 'Bandwidth',
       cenAttachStatus: 'CenAttachStatus',
       cenId: 'CenId',
       cidrBlock: 'CidrBlock',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
       cloudBoxOfficeSite: 'CloudBoxOfficeSite',
       creationTime: 'CreationTime',
       customAccessPoint: 'CustomAccessPoint',
@@ -757,6 +766,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       subDnsAddress: 'SubDnsAddress',
       subDomainName: 'SubDomainName',
       subnetMode: 'SubnetMode',
+      tenantId: 'TenantId',
       totalEdsCount: 'TotalEdsCount',
       totalEdsCountForGroup: 'TotalEdsCountForGroup',
       totalResourceAmount: 'TotalResourceAmount',
@@ -771,13 +781,17 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
     return {
       ADConnectors: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesADConnectors },
       acceleratorId: 'string',
+      accountType: 'string',
       adHostname: 'string',
+      authorityHost: 'string',
       backupDCHostname: 'string',
       backupDns: 'string',
       bandwidth: 'number',
       cenAttachStatus: 'string',
       cenId: 'string',
       cidrBlock: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
       cloudBoxOfficeSite: 'boolean',
       creationTime: 'string',
       customAccessPoint: 'string',
@@ -820,6 +834,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
       subDnsAddress: { 'type': 'array', 'itemType': 'string' },
       subDomainName: 'string',
       subnetMode: 'string',
+      tenantId: 'string',
       totalEdsCount: 'number',
       totalEdsCountForGroup: 'number',
       totalResourceAmount: 'number',

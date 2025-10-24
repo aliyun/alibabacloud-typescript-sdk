@@ -114,6 +114,9 @@ export { DescribeForwardTableEntriesResponseBodyForwardTableEntries } from './De
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions } from './DescribeFotaPendingDesktopsResponseBody';
 export { DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops } from './DescribeFotaPendingDesktopsResponseBody';
 export { DescribeFotaTasksResponseBodyFotaTasks } from './DescribeFotaTasksResponseBody';
+export { DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups } from './DescribeGlobalDesktopRecordsResponseBody';
+export { DescribeGlobalDesktopRecordsResponseBodySessionsSessions } from './DescribeGlobalDesktopRecordsResponseBody';
+export { DescribeGlobalDesktopRecordsResponseBodySessions } from './DescribeGlobalDesktopRecordsResponseBody';
 export { DescribeGuestApplicationsResponseBodyApplicationsProcessData } from './DescribeGuestApplicationsResponseBody';
 export { DescribeGuestApplicationsResponseBodyApplications } from './DescribeGuestApplicationsResponseBody';
 export { DescribeImageModifiedRecordsResponseBodyImageModifiedRecords } from './DescribeImageModifiedRecordsResponseBody';
@@ -623,6 +626,9 @@ export { DescribeFotaPendingDesktopsResponse } from './DescribeFotaPendingDeskto
 export { DescribeFotaTasksRequest } from './DescribeFotaTasksRequest';
 export { DescribeFotaTasksResponseBody } from './DescribeFotaTasksResponseBody';
 export { DescribeFotaTasksResponse } from './DescribeFotaTasksResponse';
+export { DescribeGlobalDesktopRecordsRequest } from './DescribeGlobalDesktopRecordsRequest';
+export { DescribeGlobalDesktopRecordsResponseBody } from './DescribeGlobalDesktopRecordsResponseBody';
+export { DescribeGlobalDesktopRecordsResponse } from './DescribeGlobalDesktopRecordsResponse';
 export { DescribeGuestApplicationsRequest } from './DescribeGuestApplicationsRequest';
 export { DescribeGuestApplicationsResponseBody } from './DescribeGuestApplicationsResponseBody';
 export { DescribeGuestApplicationsResponse } from './DescribeGuestApplicationsResponse';

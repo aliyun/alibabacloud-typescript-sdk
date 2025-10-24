@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
+  authorityHost?: string;
+  clientId?: string;
+  clientSecret?: string;
   /**
    * @remarks
    * The method to connect to cloud computers from Alibaba Cloud Workspace clients.
@@ -19,6 +22,7 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
    * INTERNET
    */
   desktopAccessType?: string;
+  domainName?: string;
   /**
    * @remarks
    * Specifies whether to grant the local administrator permissions to users that are authorized to use cloud computers in the office network.
@@ -77,27 +81,38 @@ export class ModifyOfficeSiteAttributeRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      authorityHost: 'AuthorityHost',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
       desktopAccessType: 'DesktopAccessType',
+      domainName: 'DomainName',
       enableAdminAccess: 'EnableAdminAccess',
       needVerifyLoginRisk: 'NeedVerifyLoginRisk',
       needVerifyZeroDevice: 'NeedVerifyZeroDevice',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
       regionId: 'RegionId',
+      tenantId: 'TenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      authorityHost: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
       desktopAccessType: 'string',
+      domainName: 'string',
       enableAdminAccess: 'boolean',
       needVerifyLoginRisk: 'boolean',
       needVerifyZeroDevice: 'boolean',
       officeSiteId: 'string',
       officeSiteName: 'string',
       regionId: 'string',
+      tenantId: 'string',
     };
   }
 

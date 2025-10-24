@@ -149,6 +149,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroupsTags extends $dara.Mo
 }
 
 export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model {
+  accountType?: string;
   /**
    * @remarks
    * The number of concurrent sessions allowed for each cloud computer within the multi-session many-to-many share.
@@ -272,6 +273,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * 1
    */
   endUserCount?: number;
+  entraDomainName?: string;
   /**
    * @remarks
    * The expiration date of the subscription cloud computer share.
@@ -634,6 +636,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
   volumeEncryptionKey?: string;
   static names(): { [key: string]: string } {
     return {
+      accountType: 'AccountType',
       bindAmount: 'BindAmount',
       buyDesktopsCount: 'BuyDesktopsCount',
       comments: 'Comments',
@@ -649,6 +652,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       desktopGroupName: 'DesktopGroupName',
       desktopType: 'DesktopType',
       endUserCount: 'EndUserCount',
+      entraDomainName: 'EntraDomainName',
       expiredTime: 'ExpiredTime',
       expiredTimes: 'ExpiredTimes',
       gpuCount: 'GpuCount',
@@ -694,6 +698,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      accountType: 'string',
       bindAmount: 'number',
       buyDesktopsCount: 'number',
       comments: 'string',
@@ -709,6 +714,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       desktopGroupName: 'string',
       desktopType: 'string',
       endUserCount: 'number',
+      entraDomainName: 'string',
       expiredTime: 'string',
       expiredTimes: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',
