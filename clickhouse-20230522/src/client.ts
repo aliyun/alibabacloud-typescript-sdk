@@ -76,6 +76,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a database account for an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param tmpReq - CreateAccountRequest
@@ -397,6 +451,10 @@ export default class Client extends OpenApi {
   async createEndpointWithOptions(request: $_model.CreateEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEndpointResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.connectionPrefix)) {
       query["ConnectionPrefix"] = request.connectionPrefix;
     }
@@ -647,6 +705,10 @@ export default class Client extends OpenApi {
   async deleteEndpointWithOptions(request: $_model.DeleteEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEndpointResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }
@@ -1209,6 +1271,10 @@ export default class Client extends OpenApi {
   async describeProcessListWithOptions(request: $_model.DescribeProcessListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProcessListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1329,6 +1395,10 @@ export default class Client extends OpenApi {
   async describeSlowLogRecordsWithOptions(request: $_model.DescribeSlowLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowLogRecordsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1395,6 +1465,10 @@ export default class Client extends OpenApi {
   async describeSlowLogTrendWithOptions(request: $_model.DescribeSlowLogTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowLogTrendResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1457,6 +1531,10 @@ export default class Client extends OpenApi {
   async killProcessWithOptions(request: $_model.KillProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.KillProcessResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1737,6 +1815,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceClassWithOptions(request: $_model.ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceClassResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -1861,6 +1943,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceConnectionStringWithOptions(request: $_model.ModifyDBInstanceConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceConnectionStringResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.computingGroupId)) {
+      query["ComputingGroupId"] = request.computingGroupId;
+    }
+
     if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }

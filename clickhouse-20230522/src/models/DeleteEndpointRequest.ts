@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEndpointRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The prefix of the endpoint, which indicates the prefix of the value of the ConnectionString parameter.
@@ -32,6 +33,7 @@ export class DeleteEndpointRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       connectionString: 'ConnectionString',
       DBInstanceId: 'DBInstanceId',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -41,6 +43,7 @@ export class DeleteEndpointRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       connectionString: 'string',
       DBInstanceId: 'string',
       DBInstanceNetType: 'string',

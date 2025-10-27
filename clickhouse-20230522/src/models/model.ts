@@ -47,6 +47,9 @@ export { RestartDBInstanceResponseBodyData } from './RestartDbinstanceResponseBo
 export { StartDBInstanceResponseBodyData } from './StartDbinstanceResponseBody';
 export { StopDBInstanceResponseBodyData } from './StopDbinstanceResponseBody';
 export { UpgradeMinorVersionResponseBodyData } from './UpgradeMinorVersionResponseBody';
+export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
+export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
+export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
 export { CreateAccountRequest } from './CreateAccountRequest';
 export { CreateAccountShrinkRequest } from './CreateAccountShrinkRequest';
 export { CreateAccountResponseBody } from './CreateAccountResponseBody';

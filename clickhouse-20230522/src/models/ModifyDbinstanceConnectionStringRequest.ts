@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The endpoint of the cluster.
@@ -54,6 +55,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       connectionString: 'ConnectionString',
       connectionStringPrefix: 'ConnectionStringPrefix',
       DBInstanceId: 'DBInstanceId',
@@ -65,6 +67,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       connectionString: 'string',
       connectionStringPrefix: 'string',
       DBInstanceId: 'string',

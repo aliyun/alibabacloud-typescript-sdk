@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateEndpointRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The prefix of the new endpoint. The prefix of the ConnectionString parameter.
@@ -45,6 +46,7 @@ export class CreateEndpointRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       connectionPrefix: 'ConnectionPrefix',
       DBInstanceId: 'DBInstanceId',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -54,6 +56,7 @@ export class CreateEndpointRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       connectionPrefix: 'string',
       DBInstanceId: 'string',
       DBInstanceNetType: 'string',

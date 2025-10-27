@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceClassRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -64,6 +65,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       nodeCount: 'NodeCount',
       nodeScaleMax: 'NodeScaleMax',
@@ -78,6 +80,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       DBInstanceId: 'string',
       nodeCount: 'number',
       nodeScaleMax: 'number',

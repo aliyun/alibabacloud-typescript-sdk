@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProcessListRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -83,6 +84,7 @@ export class DescribeProcessListRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       initialQueryId: 'InitialQueryId',
       initialUser: 'InitialUser',
@@ -97,6 +99,7 @@ export class DescribeProcessListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       DBInstanceId: 'string',
       initialQueryId: 'string',
       initialUser: 'string',

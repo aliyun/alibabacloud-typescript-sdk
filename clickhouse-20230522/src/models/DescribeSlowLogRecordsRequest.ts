@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlowLogRecordsRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -67,6 +68,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       endTime: 'EndTime',
       pageNumber: 'PageNumber',
@@ -79,6 +81,7 @@ export class DescribeSlowLogRecordsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       DBInstanceId: 'string',
       endTime: 'string',
       pageNumber: 'number',

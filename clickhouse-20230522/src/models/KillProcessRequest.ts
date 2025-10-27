@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class KillProcessRequest extends $dara.Model {
+  computingGroupId?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -31,6 +32,7 @@ export class KillProcessRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       initialQueryId: 'InitialQueryId',
       regionId: 'RegionId',
@@ -39,6 +41,7 @@ export class KillProcessRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       DBInstanceId: 'string',
       initialQueryId: 'string',
       regionId: 'string',
