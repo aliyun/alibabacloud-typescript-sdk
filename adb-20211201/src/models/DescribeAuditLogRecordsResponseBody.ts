@@ -27,6 +27,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
    * 2022-08-12 10:10:00
    */
   executeTime?: string;
+  executeTimestamp?: number;
   /**
    * @remarks
    * The IP address and port number of the client that is used to execute the SQL statement.
@@ -91,6 +92,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
       connId: 'ConnId',
       DBName: 'DBName',
       executeTime: 'ExecuteTime',
+      executeTimestamp: 'ExecuteTimestamp',
       hostAddress: 'HostAddress',
       processID: 'ProcessID',
       SQLText: 'SQLText',
@@ -106,6 +108,7 @@ export class DescribeAuditLogRecordsResponseBodyItems extends $dara.Model {
       connId: 'string',
       DBName: 'string',
       executeTime: 'string',
+      executeTimestamp: 'number',
       hostAddress: 'string',
       processID: 'string',
       SQLText: 'string',
