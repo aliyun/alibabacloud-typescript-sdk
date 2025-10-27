@@ -97,12 +97,14 @@ export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   category?: string;
   importance?: number;
+  liveNotificationPayload?: string;
   receiptId?: string;
   urgency?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       importance: 'Importance',
+      liveNotificationPayload: 'LiveNotificationPayload',
       receiptId: 'ReceiptId',
       urgency: 'Urgency',
     };
@@ -112,8 +114,32 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
     return {
       category: 'string',
       importance: 'number',
+      liveNotificationPayload: 'string',
       receiptId: 'string',
       urgency: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushTaskNotificationAndroidOptionsMeizu extends $dara.Model {
+  noticeMsgType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      noticeMsgType: 'NoticeMsgType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      noticeMsgType: 'number',
     };
   }
 
@@ -129,10 +155,16 @@ export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
 export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   category?: string;
   notifyLevel?: number;
+  privateContentParameters?: string;
+  privateMsgTemplateId?: string;
+  privateTitleParameters?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       notifyLevel: 'NotifyLevel',
+      privateContentParameters: 'PrivateContentParameters',
+      privateMsgTemplateId: 'PrivateMsgTemplateId',
+      privateTitleParameters: 'PrivateTitleParameters',
     };
   }
 
@@ -140,6 +172,9 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
     return {
       category: 'string',
       notifyLevel: 'number',
+      privateContentParameters: 'string',
+      privateMsgTemplateId: 'string',
+      privateTitleParameters: 'string',
     };
   }
 
@@ -208,6 +243,7 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
   accs?: PushTaskNotificationAndroidOptionsAccs;
   honor?: PushTaskNotificationAndroidOptionsHonor;
   huawei?: PushTaskNotificationAndroidOptionsHuawei;
+  meizu?: PushTaskNotificationAndroidOptionsMeizu;
   oppo?: PushTaskNotificationAndroidOptionsOppo;
   vivo?: PushTaskNotificationAndroidOptionsVivo;
   xiaomi?: PushTaskNotificationAndroidOptionsXiaomi;
@@ -216,6 +252,7 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
       accs: 'Accs',
       honor: 'Honor',
       huawei: 'Huawei',
+      meizu: 'Meizu',
       oppo: 'Oppo',
       vivo: 'Vivo',
       xiaomi: 'Xiaomi',
@@ -227,6 +264,7 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
       accs: PushTaskNotificationAndroidOptionsAccs,
       honor: PushTaskNotificationAndroidOptionsHonor,
       huawei: PushTaskNotificationAndroidOptionsHuawei,
+      meizu: PushTaskNotificationAndroidOptionsMeizu,
       oppo: PushTaskNotificationAndroidOptionsOppo,
       vivo: PushTaskNotificationAndroidOptionsVivo,
       xiaomi: PushTaskNotificationAndroidOptionsXiaomi,
@@ -242,6 +280,9 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
     }
     if(this.huawei && typeof (this.huawei as any).validate === 'function') {
       (this.huawei as any).validate();
+    }
+    if(this.meizu && typeof (this.meizu as any).validate === 'function') {
+      (this.meizu as any).validate();
     }
     if(this.oppo && typeof (this.oppo as any).validate === 'function') {
       (this.oppo as any).validate();
@@ -341,6 +382,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
   extensionPush?: boolean;
   imageUrl?: string;
   inboxContent?: string[];
+  liveViewPayload?: string;
   notifyId?: number;
   receiptId?: string;
   renderStyle?: string;
@@ -358,6 +400,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
       extensionPush: 'ExtensionPush',
       imageUrl: 'ImageUrl',
       inboxContent: 'InboxContent',
+      liveViewPayload: 'LiveViewPayload',
       notifyId: 'NotifyId',
       receiptId: 'ReceiptId',
       renderStyle: 'RenderStyle',
@@ -378,6 +421,7 @@ export class PushTaskNotificationHmos extends $dara.Model {
       extensionPush: 'boolean',
       imageUrl: 'string',
       inboxContent: { 'type': 'array', 'itemType': 'string' },
+      liveViewPayload: 'string',
       notifyId: 'number',
       receiptId: 'string',
       renderStyle: 'string',

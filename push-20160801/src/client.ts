@@ -653,6 +653,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新版高级推送接口
+   * 
+   * @param tmpReq - MassPushV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MassPushV2Response
+   */
+  async massPushV2WithOptions(tmpReq: $_model.MassPushV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.MassPushV2Response> {
+    tmpReq.validate();
+    let request = new $_model.MassPushV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.pushTasks)) {
+      request.pushTasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pushTasks, "PushTasks", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.idempotentToken)) {
+      query["IdempotentToken"] = request.idempotentToken;
+    }
+
+    if (!$dara.isNull(request.pushTasksShrink)) {
+      query["PushTasks"] = request.pushTasksShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MassPushV2",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MassPushV2Response>(await this.callApi(params, req, runtime), new $_model.MassPushV2Response({}));
+  }
+
+  /**
+   * 新版高级推送接口
+   * 
+   * @param request - MassPushV2Request
+   * @returns MassPushV2Response
+   */
+  async massPushV2(request: $_model.MassPushV2Request): Promise<$_model.MassPushV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.massPushV2WithOptions(request, runtime);
+  }
+
+  /**
    * 高级推送接口
    * 
    * @param tmpReq - PushRequest
@@ -1418,6 +1474,62 @@ export default class Client extends OpenApi {
   async pushNoticeToiOS(request: $_model.PushNoticeToiOSRequest): Promise<$_model.PushNoticeToiOSResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushNoticeToiOSWithOptions(request, runtime);
+  }
+
+  /**
+   * 新版高级推送接口
+   * 
+   * @param tmpReq - PushV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushV2Response
+   */
+  async pushV2WithOptions(tmpReq: $_model.PushV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.PushV2Response> {
+    tmpReq.validate();
+    let request = new $_model.PushV2ShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.pushTask)) {
+      request.pushTaskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pushTask, "PushTask", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.idempotentToken)) {
+      query["IdempotentToken"] = request.idempotentToken;
+    }
+
+    if (!$dara.isNull(request.pushTaskShrink)) {
+      query["PushTask"] = request.pushTaskShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushV2",
+      version: "2016-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushV2Response>(await this.callApi(params, req, runtime), new $_model.PushV2Response({}));
+  }
+
+  /**
+   * 新版高级推送接口
+   * 
+   * @param request - PushV2Request
+   * @returns PushV2Response
+   */
+  async pushV2(request: $_model.PushV2Request): Promise<$_model.PushV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pushV2WithOptions(request, runtime);
   }
 
   /**
