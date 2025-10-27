@@ -17,9 +17,7 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-   * 
-   * You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+   * The Data Warehouse Edition Cluster ID of AnalyticDB for MySQL. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to retrieve all Data Warehouse Edition cluster IDs within the specified region.
    * 
    * This parameter is required.
    * 

@@ -76,7 +76,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请公网链接
+   * Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -127,7 +127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 申请公网链接
+   * Applies for a public endpoint for an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @returns AllocateClusterPublicConnectionResponse
