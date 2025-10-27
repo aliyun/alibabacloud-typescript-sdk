@@ -1,211 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class VerifyCaptchaRequest extends $tea.Model {
-  captchaVerifyParam?: string;
-  static names(): { [key: string]: string } {
-    return {
-      captchaVerifyParam: 'CaptchaVerifyParam',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      captchaVerifyParam: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyCaptchaResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  result?: VerifyCaptchaResponseBodyResult;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: VerifyCaptchaResponseBodyResult,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyCaptchaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyCaptchaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyCaptchaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyIntelligentCaptchaRequest extends $tea.Model {
-  captchaVerifyParam?: string;
-  sceneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      captchaVerifyParam: 'CaptchaVerifyParam',
-      sceneId: 'SceneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      captchaVerifyParam: 'string',
-      sceneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyIntelligentCaptchaResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  result?: VerifyIntelligentCaptchaResponseBodyResult;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      result: 'Result',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      result: VerifyIntelligentCaptchaResponseBodyResult,
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyIntelligentCaptchaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: VerifyIntelligentCaptchaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyIntelligentCaptchaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyCaptchaResponseBodyResult extends $tea.Model {
-  verifyResult?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      verifyResult: 'VerifyResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      verifyResult: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyIntelligentCaptchaResponseBodyResult extends $tea.Model {
-  verifyCode?: string;
-  verifyResult?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      verifyCode: 'VerifyCode',
-      verifyResult: 'VerifyResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      verifyCode: 'string',
-      verifyResult: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -214,28 +18,35 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async verifyCaptchaWithOptions(request: VerifyCaptchaRequest, runtime: $Util.RuntimeOptions): Promise<VerifyCaptchaResponse> {
-    Util.validateModel(request);
+  /**
+   * 验证码验证
+   * 
+   * @param request - VerifyCaptchaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyCaptchaResponse
+   */
+  async verifyCaptchaWithOptions(request: $_model.VerifyCaptchaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyCaptchaResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.captchaVerifyParam)) {
+    if (!$dara.isNull(request.captchaVerifyParam)) {
       query["CaptchaVerifyParam"] = request.captchaVerifyParam;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifyCaptcha",
       version: "2023-03-05",
       protocol: "HTTPS",
@@ -246,29 +57,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyCaptchaResponse>(await this.callApi(params, req, runtime), new VerifyCaptchaResponse({}));
+    return $dara.cast<$_model.VerifyCaptchaResponse>(await this.callApi(params, req, runtime), new $_model.VerifyCaptchaResponse({}));
   }
 
-  async verifyCaptcha(request: VerifyCaptchaRequest): Promise<VerifyCaptchaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 验证码验证
+   * 
+   * @param request - VerifyCaptchaRequest
+   * @returns VerifyCaptchaResponse
+   */
+  async verifyCaptcha(request: $_model.VerifyCaptchaRequest): Promise<$_model.VerifyCaptchaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.verifyCaptchaWithOptions(request, runtime);
   }
 
-  async verifyIntelligentCaptchaWithOptions(request: VerifyIntelligentCaptchaRequest, runtime: $Util.RuntimeOptions): Promise<VerifyIntelligentCaptchaResponse> {
-    Util.validateModel(request);
+  /**
+   * 验证码验证
+   * 
+   * @param request - VerifyIntelligentCaptchaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyIntelligentCaptchaResponse
+   */
+  async verifyIntelligentCaptchaWithOptions(request: $_model.VerifyIntelligentCaptchaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyIntelligentCaptchaResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.captchaVerifyParam)) {
+    if (!$dara.isNull(request.captchaVerifyParam)) {
       body["CaptchaVerifyParam"] = request.captchaVerifyParam;
     }
 
-    if (!Util.isUnset(request.sceneId)) {
+    if (!$dara.isNull(request.sceneId)) {
       body["SceneId"] = request.sceneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifyIntelligentCaptcha",
       version: "2023-03-05",
       protocol: "HTTPS",
@@ -279,11 +103,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyIntelligentCaptchaResponse>(await this.callApi(params, req, runtime), new VerifyIntelligentCaptchaResponse({}));
+    return $dara.cast<$_model.VerifyIntelligentCaptchaResponse>(await this.callApi(params, req, runtime), new $_model.VerifyIntelligentCaptchaResponse({}));
   }
 
-  async verifyIntelligentCaptcha(request: VerifyIntelligentCaptchaRequest): Promise<VerifyIntelligentCaptchaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 验证码验证
+   * 
+   * @param request - VerifyIntelligentCaptchaRequest
+   * @returns VerifyIntelligentCaptchaResponse
+   */
+  async verifyIntelligentCaptcha(request: $_model.VerifyIntelligentCaptchaRequest): Promise<$_model.VerifyIntelligentCaptchaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.verifyIntelligentCaptchaWithOptions(request, runtime);
   }
 
