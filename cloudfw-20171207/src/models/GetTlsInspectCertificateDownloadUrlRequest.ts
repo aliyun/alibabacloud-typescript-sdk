@@ -2,28 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeUserIPSWhitelistRequest extends $dara.Model {
+export class GetTlsInspectCertificateDownloadUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * zh
+   * C3E91391-16CD-1BFC-A133-******D429
    */
-  lang?: string;
-  /**
-   * @example
-   * 47.100.XX.XX
-   */
-  sourceIp?: string;
+  caCertId?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
+      caCertId: 'CaCertId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      sourceIp: 'string',
+      caCertId: 'string',
     };
   }
 

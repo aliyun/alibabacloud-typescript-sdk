@@ -956,6 +956,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建私网DNS终端节点
+   * 
+   * @param request - CreatePrivateDnsEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePrivateDnsEndpointResponse
+   */
+  async createPrivateDnsEndpointWithOptions(request: $_model.CreatePrivateDnsEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePrivateDnsEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessInstanceName)) {
+      query["AccessInstanceName"] = request.accessInstanceName;
+    }
+
+    if (!$dara.isNull(request.firewallType)) {
+      query["FirewallType"] = request.firewallType;
+    }
+
+    if (!$dara.isNull(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.primaryDns)) {
+      query["PrimaryDns"] = request.primaryDns;
+    }
+
+    if (!$dara.isNull(request.primaryVSwitchId)) {
+      query["PrimaryVSwitchId"] = request.primaryVSwitchId;
+    }
+
+    if (!$dara.isNull(request.primaryVSwitchIp)) {
+      query["PrimaryVSwitchIp"] = request.primaryVSwitchIp;
+    }
+
+    if (!$dara.isNull(request.privateDnsType)) {
+      query["PrivateDnsType"] = request.privateDnsType;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!$dara.isNull(request.standbyDns)) {
+      query["StandbyDns"] = request.standbyDns;
+    }
+
+    if (!$dara.isNull(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!$dara.isNull(request.standbyVSwitchIp)) {
+      query["StandbyVSwitchIp"] = request.standbyVSwitchIp;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePrivateDnsEndpoint",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePrivateDnsEndpointResponse>(await this.callApi(params, req, runtime), new $_model.CreatePrivateDnsEndpointResponse({}));
+  }
+
+  /**
+   * 创建私网DNS终端节点
+   * 
+   * @param request - CreatePrivateDnsEndpointRequest
+   * @returns CreatePrivateDnsEndpointResponse
+   */
+  async createPrivateDnsEndpoint(request: $_model.CreatePrivateDnsEndpointRequest): Promise<$_model.CreatePrivateDnsEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPrivateDnsEndpointWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a NAT firewall.
    * 
    * @param request - CreateSecurityProxyRequest
@@ -5158,6 +5252,10 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     if (!$dara.isNull(request.memberUid)) {
       query["MemberUid"] = request.memberUid;
     }
@@ -5830,6 +5928,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.networkInstanceId)) {
+      query["NetworkInstanceId"] = request.networkInstanceId;
+    }
+
+    if (!$dara.isNull(request.peerNetworkInstanceId)) {
+      query["PeerNetworkInstanceId"] = request.peerNetworkInstanceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6943,6 +7049,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - DescribePostpayUserVpcStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePostpayUserVpcStatusResponse
+   */
+  async describePostpayUserVpcStatusWithOptions(request: $_model.DescribePostpayUserVpcStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePostpayUserVpcStatusResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePostpayUserVpcStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePostpayUserVpcStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribePostpayUserVpcStatusResponse({}));
+  }
+
+  /**
+   * Queries the status of the virtual private cloud (VPC) Firewall feature in Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - DescribePostpayUserVpcStatusRequest
+   * @returns DescribePostpayUserVpcStatusResponse
+   */
+  async describePostpayUserVpcStatus(request: $_model.DescribePostpayUserVpcStatusRequest): Promise<$_model.DescribePostpayUserVpcStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePostpayUserVpcStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries prefix lists.
    * 
    * @param request - DescribePrefixListsRequest
@@ -7603,6 +7747,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取正向代理
+   * 
+   * @param request - DescribeSecurityProxyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityProxyResponse
+   */
+  async describeSecurityProxyWithOptions(request: $_model.DescribeSecurityProxyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityProxyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.memberUid)) {
+      query["MemberUid"] = request.memberUid;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.proxyId)) {
+      query["ProxyId"] = request.proxyId;
+    }
+
+    if (!$dara.isNull(request.proxyName)) {
+      query["ProxyName"] = request.proxyName;
+    }
+
+    if (!$dara.isNull(request.regionNo)) {
+      query["RegionNo"] = request.regionNo;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityProxy",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSecurityProxyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSecurityProxyResponse({}));
+  }
+
+  /**
+   * 获取正向代理
+   * 
+   * @param request - DescribeSecurityProxyRequest
+   * @returns DescribeSecurityProxyResponse
+   */
+  async describeSecurityProxy(request: $_model.DescribeSecurityProxyRequest): Promise<$_model.DescribeSecurityProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityProxyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about signature library versions.
    * 
    * @param request - DescribeSignatureLibVersionRequest
@@ -7674,6 +7900,38 @@ export default class Client extends OpenApi {
   async describeSlsAnalyzeOpenStatus(request: $_model.DescribeSlsAnalyzeOpenStatusRequest): Promise<$_model.DescribeSlsAnalyzeOpenStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlsAnalyzeOpenStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询威胁情报配置的信息
+   * 
+   * @param request - DescribeThreatIntelligenceSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeThreatIntelligenceSwitchResponse
+   */
+  async describeThreatIntelligenceSwitchWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeThreatIntelligenceSwitchResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeThreatIntelligenceSwitch",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeThreatIntelligenceSwitchResponse>(await this.callApi(params, req, runtime), new $_model.DescribeThreatIntelligenceSwitchResponse({}));
+  }
+
+  /**
+   * 查询威胁情报配置的信息
+   * @returns DescribeThreatIntelligenceSwitchResponse
+   */
+  async describeThreatIntelligenceSwitch(): Promise<$_model.DescribeThreatIntelligenceSwitchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeThreatIntelligenceSwitchWithOptions(runtime);
   }
 
   /**
@@ -9380,6 +9638,98 @@ export default class Client extends OpenApi {
   async enableSdlProtectedAsset(request: $_model.EnableSdlProtectedAssetRequest): Promise<$_model.EnableSdlProtectedAssetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableSdlProtectedAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * 下载TLS证书
+   * 
+   * @param request - GetTlsInspectCertificateDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlsInspectCertificateDownloadUrlResponse
+   */
+  async getTlsInspectCertificateDownloadUrlWithOptions(request: $_model.GetTlsInspectCertificateDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlsInspectCertificateDownloadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caCertId)) {
+      query["CaCertId"] = request.caCertId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlsInspectCertificateDownloadUrl",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlsInspectCertificateDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetTlsInspectCertificateDownloadUrlResponse({}));
+  }
+
+  /**
+   * 下载TLS证书
+   * 
+   * @param request - GetTlsInspectCertificateDownloadUrlRequest
+   * @returns GetTlsInspectCertificateDownloadUrlResponse
+   */
+  async getTlsInspectCertificateDownloadUrl(request: $_model.GetTlsInspectCertificateDownloadUrlRequest): Promise<$_model.GetTlsInspectCertificateDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlsInspectCertificateDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询TLS检查证书
+   * 
+   * @param request - ListTlsInspectCACertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTlsInspectCACertificatesResponse
+   */
+  async listTlsInspectCACertificatesWithOptions(request: $_model.ListTlsInspectCACertificatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTlsInspectCACertificatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caCertId)) {
+      query["CaCertId"] = request.caCertId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTlsInspectCACertificates",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTlsInspectCACertificatesResponse>(await this.callApi(params, req, runtime), new $_model.ListTlsInspectCACertificatesResponse({}));
+  }
+
+  /**
+   * 查询TLS检查证书
+   * 
+   * @param request - ListTlsInspectCACertificatesRequest
+   * @returns ListTlsInspectCACertificatesResponse
+   */
+  async listTlsInspectCACertificates(request: $_model.ListTlsInspectCACertificatesRequest): Promise<$_model.ListTlsInspectCACertificatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTlsInspectCACertificatesWithOptions(request, runtime);
   }
 
   /**
@@ -12234,6 +12584,106 @@ export default class Client extends OpenApi {
   async updatePostpayUserInternetStatus(request: $_model.UpdatePostpayUserInternetStatusRequest): Promise<$_model.UpdatePostpayUserInternetStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePostpayUserInternetStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - UpdatePostpayUserNatStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePostpayUserNatStatusResponse
+   */
+  async updatePostpayUserNatStatusWithOptions(request: $_model.UpdatePostpayUserNatStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePostpayUserNatStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.operate)) {
+      query["Operate"] = request.operate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePostpayUserNatStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePostpayUserNatStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePostpayUserNatStatusResponse({}));
+  }
+
+  /**
+   * Updates the status of the NAT Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - UpdatePostpayUserNatStatusRequest
+   * @returns UpdatePostpayUserNatStatusResponse
+   */
+  async updatePostpayUserNatStatus(request: $_model.UpdatePostpayUserNatStatusRequest): Promise<$_model.UpdatePostpayUserNatStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePostpayUserNatStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - UpdatePostpayUserVpcStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePostpayUserVpcStatusResponse
+   */
+  async updatePostpayUserVpcStatusWithOptions(request: $_model.UpdatePostpayUserVpcStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePostpayUserVpcStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.operate)) {
+      query["Operate"] = request.operate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePostpayUserVpcStatus",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePostpayUserVpcStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePostpayUserVpcStatusResponse({}));
+  }
+
+  /**
+   * Updates the status of the virtual private cloud (VPC) Firewall feature for Cloud Firewall that uses the pay-as-you-go billing method.
+   * 
+   * @param request - UpdatePostpayUserVpcStatusRequest
+   * @returns UpdatePostpayUserVpcStatusResponse
+   */
+  async updatePostpayUserVpcStatus(request: $_model.UpdatePostpayUserVpcStatusRequest): Promise<$_model.UpdatePostpayUserVpcStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePostpayUserVpcStatusWithOptions(request, runtime);
   }
 
   /**

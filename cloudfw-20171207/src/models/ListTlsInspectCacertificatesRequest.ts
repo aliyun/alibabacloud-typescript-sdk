@@ -2,28 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeUserIPSWhitelistRequest extends $dara.Model {
+export class ListTlsInspectCACertificatesRequest extends $dara.Model {
   /**
    * @example
-   * zh
+   * C3E91391-16CD-1BFC-A133-******D429
    */
-  lang?: string;
+  caCertId?: string;
   /**
    * @example
-   * 47.100.XX.XX
+   * 1
    */
-  sourceIp?: string;
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
+      caCertId: 'CaCertId',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      sourceIp: 'string',
+      caCertId: 'string',
+      currentPage: 'number',
+      pageSize: 'number',
     };
   }
 

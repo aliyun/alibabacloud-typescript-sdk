@@ -18,11 +18,15 @@ export class DescribeNetworkInstanceRelationListRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  networkInstanceId?: string;
+  peerNetworkInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       connectType: 'ConnectType',
       firewallConfigureStatus: 'FirewallConfigureStatus',
       lang: 'Lang',
+      networkInstanceId: 'NetworkInstanceId',
+      peerNetworkInstanceId: 'PeerNetworkInstanceId',
     };
   }
 
@@ -31,6 +35,8 @@ export class DescribeNetworkInstanceRelationListRequest extends $dara.Model {
       connectType: 'string',
       firewallConfigureStatus: 'string',
       lang: 'string',
+      networkInstanceId: 'string',
+      peerNetworkInstanceId: 'string',
     };
   }
 

@@ -2,7 +2,78 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen extends $dara.Model {
+  attachmentId?: string;
+  attachmentName?: string;
+  cenId?: string;
+  cenName?: string;
+  transitRouterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentId: 'AttachmentId',
+      attachmentName: 'AttachmentName',
+      cenId: 'CenId',
+      cenName: 'CenName',
+      transitRouterType: 'TransitRouterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentId: 'string',
+      attachmentName: 'string',
+      cenId: 'string',
+      cenName: 'string',
+      transitRouterType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceListAssociatedCen extends $dara.Model {
+  attachmentId?: string;
+  attachmentName?: string;
+  cenId?: string;
+  cenName?: string;
+  transitRouterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentId: 'AttachmentId',
+      attachmentName: 'AttachmentName',
+      cenId: 'CenId',
+      cenName: 'CenName',
+      transitRouterType: 'TransitRouterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentId: 'string',
+      attachmentName: 'string',
+      cenId: 'string',
+      cenName: 'string',
+      transitRouterType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceList extends $dara.Model {
+  associatedCen?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceListAssociatedCen[];
   /**
    * @example
    * vpc-dsf232d****
@@ -25,6 +96,7 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
   regionNo?: string;
   static names(): { [key: string]: string } {
     return {
+      associatedCen: 'AssociatedCen',
       networkInstanceId: 'NetworkInstanceId',
       networkInstanceName: 'NetworkInstanceName',
       networkInstanceType: 'NetworkInstanceType',
@@ -34,6 +106,7 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
 
   static types(): { [key: string]: any } {
     return {
+      associatedCen: { 'type': 'array', 'itemType': DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListPeerNetworkInstanceListAssociatedCen },
       networkInstanceId: 'string',
       networkInstanceName: 'string',
       networkInstanceType: 'string',
@@ -42,6 +115,9 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
   }
 
   validate() {
+    if(Array.isArray(this.associatedCen)) {
+      $dara.Model.validateArray(this.associatedCen);
+    }
     super.validate();
   }
 
@@ -51,6 +127,7 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListP
 }
 
 export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList extends $dara.Model {
+  associatedCen?: DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen[];
   /**
    * @example
    * cen
@@ -79,6 +156,7 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList 
   regionNo?: string;
   static names(): { [key: string]: string } {
     return {
+      associatedCen: 'AssociatedCen',
       connectType: 'ConnectType',
       networkInstanceId: 'NetworkInstanceId',
       networkInstanceName: 'NetworkInstanceName',
@@ -90,6 +168,7 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList 
 
   static types(): { [key: string]: any } {
     return {
+      associatedCen: { 'type': 'array', 'itemType': DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceListAssociatedCen },
       connectType: 'string',
       networkInstanceId: 'string',
       networkInstanceName: 'string',
@@ -100,6 +179,9 @@ export class DescribeNetworkInstanceRelationListResponseBodyNetworkInstanceList 
   }
 
   validate() {
+    if(Array.isArray(this.associatedCen)) {
+      $dara.Model.validateArray(this.associatedCen);
+    }
     if(Array.isArray(this.peerNetworkInstanceList)) {
       $dara.Model.validateArray(this.peerNetworkInstanceList);
     }

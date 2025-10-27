@@ -2,28 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeUserIPSWhitelistRequest extends $dara.Model {
+export class UpdatePostpayUserNatStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * zh
+   * 850A84D6-0DE4-4797-A1E8-00090******
    */
-  lang?: string;
-  /**
-   * @example
-   * 47.100.XX.XX
-   */
-  sourceIp?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lang: 'string',
-      sourceIp: 'string',
+      requestId: 'string',
     };
   }
 

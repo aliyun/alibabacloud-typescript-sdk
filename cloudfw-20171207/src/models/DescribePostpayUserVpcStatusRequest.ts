@@ -2,28 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeUserIPSWhitelistRequest extends $dara.Model {
+export class DescribePostpayUserVpcStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of Cloud Firewall.
+   * 
+   * @example
+   * cfw_elasticity_public_cn-************
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the response. Valid values:
+   * 
+   * *   **zh** (default)
+   * *   **en**
+   * 
    * @example
    * zh
    */
   lang?: string;
-  /**
-   * @example
-   * 47.100.XX.XX
-   */
-  sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       lang: 'Lang',
-      sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       lang: 'string',
-      sourceIp: 'string',
     };
   }
 

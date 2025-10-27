@@ -3,10 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserIPSWhitelistResponseBodyIpv6Whitelists extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   direction?: number;
+  /**
+   * @example
+   * 0
+   */
   listType?: number;
+  /**
+   * @example
+   * 2408:400a:81a:7900:a77d:ea36:fcbf:de40/128
+   */
   listValue?: string;
   whiteListValue?: string[];
+  /**
+   * @example
+   * 2
+   */
   whiteType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41,10 +57,26 @@ export class DescribeUserIPSWhitelistResponseBodyIpv6Whitelists extends $dara.Mo
 }
 
 export class DescribeUserIPSWhitelistResponseBodyWhitelists extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   direction?: number;
+  /**
+   * @example
+   * 1
+   */
   listType?: number;
+  /**
+   * @example
+   * 10.10.200.4/32,10.10.200.25/32
+   */
   listValue?: string;
   whiteListValue?: string[];
+  /**
+   * @example
+   * 1
+   */
   whiteType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -80,6 +112,10 @@ export class DescribeUserIPSWhitelistResponseBodyWhitelists extends $dara.Model 
 
 export class DescribeUserIPSWhitelistResponseBody extends $dara.Model {
   ipv6Whitelists?: DescribeUserIPSWhitelistResponseBodyIpv6Whitelists[];
+  /**
+   * @example
+   * 04F788A5-6A47-5EA9-AC30-CA4DB98AD520
+   */
   requestId?: string;
   whitelists?: DescribeUserIPSWhitelistResponseBodyWhitelists[];
   static names(): { [key: string]: string } {
