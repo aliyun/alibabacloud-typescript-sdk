@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateFlowAliasShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * example description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example-flow-name
+   */
+  flowName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example-alias-name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  routingConfigurationsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      flowName: 'FlowName',
+      name: 'Name',
+      routingConfigurationsShrink: 'RoutingConfigurations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      flowName: 'string',
+      name: 'string',
+      routingConfigurationsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

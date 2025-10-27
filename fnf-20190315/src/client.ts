@@ -1,3846 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  localName?: string;
-  /**
-   * @example
-   * cn-qingdao.fnf.aliyuncs.com
-   */
-  regionEndpoint?: string;
-  /**
-   * @example
-   * cn-qingdao
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $dara.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.region)) {
-      $dara.Model.validateArray(this.region);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExecutionHistoryResponseBodyEvents extends $dara.Model {
-  /**
-   * @remarks
-   * The details about the execution step.
-   * 
-   * @example
-   * {}
-   */
-  eventDetail?: string;
-  /**
-   * @remarks
-   * The ID of the execution step.
-   * 
-   * @example
-   * 2
-   */
-  eventId?: number;
-  /**
-   * @remarks
-   * The ID of the scheduling step.
-   * 
-   * @example
-   * 1
-   */
-  scheduleEventId?: number;
-  /**
-   * @remarks
-   * The name of the execution step.
-   * 
-   * @example
-   * passStep
-   */
-  stepName?: string;
-  /**
-   * @remarks
-   * The time when the event was updated.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  time?: string;
-  /**
-   * @remarks
-   * The type of the execution step. Valid values:
-   * 
-   * *   **StepEntered**
-   * *   **StepStarted**
-   * *   **StepSucceeded**
-   * *   **StepFailed**
-   * *   **StepExited**
-   * *   **BranchEntered**
-   * *   **BranchExited**
-   * *   **IterationEntered**
-   * *   **IterationExited**
-   * *   **TaskScheduled**
-   * *   **TaskStarted**
-   * *   **TaskSubmitted**
-   * *   **TaskSubmitFailed**
-   * *   **TaskSucceeded**
-   * *   **TaskFailed**
-   * *   **TaskTimedOut**
-   * *   **ExecutionStarted**
-   * *   **ExecutionStopped**
-   * *   **ExecutionSucceeded**
-   * *   **ExecutionFailed**
-   * *   **ExecutionTimedOut**
-   * 
-   * @example
-   * TaskSucceeded
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventDetail: 'EventDetail',
-      eventId: 'EventId',
-      scheduleEventId: 'ScheduleEventId',
-      stepName: 'StepName',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventDetail: 'string',
-      eventId: 'number',
-      scheduleEventId: 'number',
-      stepName: 'string',
-      time: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExecutionsResponseBodyExecutions extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the flow.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
-   */
-  flowDefinition?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * exec
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The output of the execution, which is in the JSON format
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The status of the execution.
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowDefinition: 'FlowDefinition',
-      flowName: 'FlowName',
-      input: 'Input',
-      name: 'Name',
-      output: 'Output',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowDefinition: 'string',
-      flowName: 'string',
-      input: 'string',
-      name: 'string',
-      output: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponseBodyFlows extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the flow was created.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test flow
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
-   * 
-   * @example
-   * Standard
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The unique ID of the flow.
-   * 
-   * @example
-   * e589e092-e2c0-4dee-b306-3574ddf5****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The time when the flow was last modified.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the flow is executed.
-   * 
-   * @example
-   * acs:ram::${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      definition: 'Definition',
-      description: 'Description',
-      executionMode: 'ExecutionMode',
-      id: 'Id',
-      lastModifiedTime: 'LastModifiedTime',
-      name: 'Name',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      definition: 'string',
-      description: 'string',
-      executionMode: 'string',
-      id: 'string',
-      lastModifiedTime: 'string',
-      name: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBodySchedules extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the time-based schedule was created.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The cron expression of the scheduled task.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether the time-based schedule is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The time when the time-based schedule was last modified.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The ID of the time-based schedule.
-   * 
-   * @example
-   * testScheduleId
-   */
-  scheduleId?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      lastModifiedTime: 'LastModifiedTime',
-      payload: 'Payload',
-      scheduleId: 'ScheduleId',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      lastModifiedTime: 'string',
-      payload: 'string',
-      scheduleId: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFlowRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports two flow definition specifications.
-   * 
-   * >  In the preceding flow definition example, Name:my_flow_name is the workflow name, which must be consistent with the input parameter Name
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * version:&nbsp;v1.0<br/>type:&nbsp;flow<br/>steps:<br/>&nbsp;-&nbsp;type:&nbsp;pass<br/>&nbsp;name:&nbsp;mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test flow
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution mode. Valid values: Express and Standard. Considering compatibility, an empty string is equivalent to the Standard execution mode.
-   * 
-   * @example
-   * Standard
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The path of the external storage.
-   * 
-   * @example
-   * /path
-   */
-  externalStorageLocation?: string;
-  /**
-   * @remarks
-   * The name of the flow. The name is unique within the same region and cannot be modified after the flow is created. Set this parameter based on the following rules:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
-   * 
-   * @example
-   * acs:ram:${region}:${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow. Set this parameter to **FDL**.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      definition: 'Definition',
-      description: 'Description',
-      executionMode: 'ExecutionMode',
-      externalStorageLocation: 'ExternalStorageLocation',
-      name: 'Name',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      definition: 'string',
-      description: 'string',
-      executionMode: 'string',
-      externalStorageLocation: 'string',
-      name: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFlowResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the flow was created.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * Considering compatibility, the system supports two flow definition specifications.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test flow
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution mode. Valid values: Express and Standard. Considering compatibility, an empty string is equivalent to the Standard execution mode.
-   * 
-   * @example
-   * Standard
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The unique ID of the flow.
-   * 
-   * @example
-   * e589e092-e2c0-4dee-b306-3574ddfdddf5****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The time when the flow was last modified.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The request ID. Each time an `HTTP status code` is returned, Serverless Workflow returns a value for the parameter.
-   * 
-   * @example
-   * testRequestID
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
-   * 
-   * @example
-   * acs:ram:${region}:${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow.
-   * 
-   * Valid value:
-   * 
-   * *   FDL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      definition: 'Definition',
-      description: 'Description',
-      executionMode: 'ExecutionMode',
-      id: 'Id',
-      lastModifiedTime: 'LastModifiedTime',
-      name: 'Name',
-      requestId: 'RequestId',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      definition: 'string',
-      description: 'string',
-      executionMode: 'string',
-      id: 'string',
-      lastModifiedTime: 'string',
-      name: 'string',
-      requestId: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFlowResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFlowResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The CRON expression.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the time-based schedule. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The name of the workflow that is associated with the time-based schedule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule. Specify the value in the JSON format.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   It is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  signatureVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      flowName: 'FlowName',
-      payload: 'Payload',
-      scheduleName: 'ScheduleName',
-      signatureVersion: 'SignatureVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      flowName: 'string',
-      payload: 'string',
-      scheduleName: 'string',
-      signatureVersion: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the time-based schedule was created.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The CRON expression.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether the time-based schedule is enabled.
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The time when the time-based schedule was last modified.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the time-based schedule.
-   * 
-   * @example
-   * testScheduleId
-   */
-  scheduleId?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      lastModifiedTime: 'LastModifiedTime',
-      payload: 'Payload',
-      requestId: 'RequestId',
-      scheduleId: 'ScheduleId',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      lastModifiedTime: 'string',
-      payload: 'string',
-      requestId: 'string',
-      scheduleId: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateScheduleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFlowRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFlowResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFlowResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFlowResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowName: 'FlowName',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowName: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteScheduleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExecutionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * exec
-   */
-  executionName?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The maximum period of time for long polling waits. Valid values: 0 to 60. Unit: seconds. Configure this parameter based on the following rules:
-   * 
-   * *   If the value is 0, the system immediately returns the current execution status.
-   * *   If the value is greater than 0, the long polling request waits until the execution ends or the specified period elapses.
-   * 
-   * @example
-   * 20
-   */
-  waitTimeSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      executionName: 'ExecutionName',
-      flowName: 'FlowName',
-      waitTimeSeconds: 'WaitTimeSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executionName: 'string',
-      flowName: 'string',
-      waitTimeSeconds: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExecutionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the flow.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  flowDefinition?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * exec
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The execution result, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The execution status. Valid values:
-   * 
-   * *   **Starting**
-   * *   **Running**
-   * *   **Stopped**
-   * *   **Succeeded**
-   * *   **Failed**
-   * *   **TimedOut**
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowDefinition: 'FlowDefinition',
-      flowName: 'FlowName',
-      input: 'Input',
-      name: 'Name',
-      output: 'Output',
-      requestId: 'RequestId',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowDefinition: 'string',
-      flowName: 'string',
-      input: 'string',
-      name: 'string',
-      output: 'string',
-      requestId: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExecutionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeExecutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeExecutionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlowRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlowResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the flow was created.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The flow definition, which follows the flow definition language (FDL) syntax standard. Considering compatibility, the system supports the two flow definition specifications.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test flow
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
-   * 
-   * @example
-   * Standard
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The unique ID of the flow.
-   * 
-   * @example
-   * e589e092-e2c0-4dee-b306-3574ddfdddf5****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The time when the flow was last modified.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, CloudFlow assumes the role to call API operations of relevant services.
-   * 
-   * @example
-   * acs:ram::${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the workflow.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      definition: 'Definition',
-      description: 'Description',
-      executionMode: 'ExecutionMode',
-      id: 'Id',
-      lastModifiedTime: 'LastModifiedTime',
-      name: 'Name',
-      requestId: 'RequestId',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      definition: 'string',
-      description: 'string',
-      executionMode: 'string',
-      id: 'string',
-      lastModifiedTime: 'string',
-      name: 'string',
-      requestId: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlowResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeFlowResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $dara.Model {
-  regions?: DescribeRegionsResponseBodyRegions;
-  /**
-   * @example
-   * 0aa3f793-6e5f-8472-c7a2-70d2b84c04ac
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.regions && typeof (this.regions as any).validate === 'function') {
-      (this.regions as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScheduleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testFlowName
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowName: 'FlowName',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowName: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScheduleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the time-based schedule was created.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The CRON expression.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether the time-based schedule is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The time when the time-based schedule was last modified.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the time-based schedule.
-   * 
-   * @example
-   * testScheduleId
-   */
-  scheduleId?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      lastModifiedTime: 'LastModifiedTime',
-      payload: 'Payload',
-      requestId: 'RequestId',
-      scheduleId: 'ScheduleId',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      lastModifiedTime: 'string',
-      payload: 'string',
-      requestId: 'string',
-      scheduleId: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScheduleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeScheduleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExecutionHistoryRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * exec
-   */
-  executionName?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The number of workflows that you want to query. Valid values: 1-999. Default value: 60.
-   * 
-   * @example
-   * 1
-   */
-  limit?: number;
-  /**
-   * @remarks
-   * The name of the event to start the query. You can obtain the value from the response data.
-   * 
-   * @example
-   * flow_xxx
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executionName: 'ExecutionName',
-      flowName: 'FlowName',
-      limit: 'Limit',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executionName: 'string',
-      flowName: 'string',
-      limit: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExecutionHistoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The events.
-   */
-  events?: GetExecutionHistoryResponseBodyEvents[];
-  /**
-   * @remarks
-   * You do not need to specify this parameter for the first request. The returned value of **ScheduleEventId** is used as the token for the next query. No value is returned for the last query.
-   * 
-   * @example
-   * 3
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      events: 'Events',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      events: { 'type': 'array', 'itemType': GetExecutionHistoryResponseBodyEvents },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.events)) {
-      $dara.Model.validateArray(this.events);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExecutionHistoryResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetExecutionHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetExecutionHistoryResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExecutionsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name prefix of the execution.
-   * 
-   * @example
-   * run
-   */
-  executionNamePrefix?: string;
-  /**
-   * @remarks
-   * The name of the flow. The name must be unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The number of executions that you want to query. Valid values: 1-99. Default value: 60.
-   * 
-   * @example
-   * 1
-   */
-  limit?: number;
-  metadataOnly?: boolean;
-  /**
-   * @remarks
-   * The name of the execution to start the query. You can obtain the value from the response data. You do not need to specify this parameter for the first request.
-   * 
-   * @example
-   * flow_xxx
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query executions. Specify the value in the UTC RFC3339 format.
-   * 
-   * @example
-   * 2020-12-02T02:39:20.402Z
-   */
-  startedTimeBegin?: string;
-  /**
-   * @remarks
-   * The end of the time range to query executions. Specify the value in the UTC RFC3339 format.
-   * 
-   * @example
-   * 2020-12-02T02:23:54.817Z
-   */
-  startedTimeEnd?: string;
-  /**
-   * @remarks
-   * The status of the execution that you want to filter. Valid values:
-   * 
-   * *   **Starting**
-   * *   **Running**
-   * *   **Stopped**
-   * *   **Succeeded**
-   * *   **Failed**
-   * *   **TimedOut**
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executionNamePrefix: 'ExecutionNamePrefix',
-      flowName: 'FlowName',
-      limit: 'Limit',
-      metadataOnly: 'MetadataOnly',
-      nextToken: 'NextToken',
-      startedTimeBegin: 'StartedTimeBegin',
-      startedTimeEnd: 'StartedTimeEnd',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executionNamePrefix: 'string',
-      flowName: 'string',
-      limit: 'number',
-      metadataOnly: 'boolean',
-      nextToken: 'string',
-      startedTimeBegin: 'string',
-      startedTimeEnd: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExecutionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about executions.
-   */
-  executions?: ListExecutionsResponseBodyExecutions[];
-  /**
-   * @remarks
-   * The start key for the next query. This parameter is not returned if this is the last query.
-   * 
-   * >  This parameter may not be displayed in the response because no next page exists.
-   * 
-   * @example
-   * exec2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executions: 'Executions',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executions: { 'type': 'array', 'itemType': ListExecutionsResponseBodyExecutions },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.executions)) {
-      $dara.Model.validateArray(this.executions);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExecutionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListExecutionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListExecutionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The number of workflows that you want to query. Valid values: 1 - 999. Default value: 60.
-   * 
-   * @example
-   * 1
-   */
-  limit?: number;
-  /**
-   * @remarks
-   * The token to start the query.
-   * 
-   * @example
-   * flow_nextxxx
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'Limit',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of flows.
-   */
-  flows?: ListFlowsResponseBodyFlows[];
-  /**
-   * @remarks
-   * The start key for the next query. This parameter is not returned if all results have been returned.
-   * 
-   * @example
-   * flow_nextxxx
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flows: 'Flows',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flows: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlows },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.flows)) {
-      $dara.Model.validateArray(this.flows);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFlowsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFlowsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the flow that is associated with the time-based schedules. The name is unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testFlowName
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The number of schedules to be queried. Valid values: 1 to 1000.
-   * 
-   * @example
-   * 1
-   */
-  limit?: number;
-  /**
-   * @remarks
-   * For the first query, you do not need to specify this parameter. The system uses the value of the **FlowName** parameter as the value of the **NextToken** parameter. When the query ends, no value is returned for this parameter.
-   * 
-   * @example
-   * testNextToken
-   */
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowName: 'FlowName',
-      limit: 'Limit',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowName: 'string',
-      limit: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The token for the next query.
-   * 
-   * @example
-   * testNextToken
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The time-based schedules that are queried.
-   */
-  schedules?: ListSchedulesResponseBodySchedules[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      schedules: 'Schedules',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      schedules: { 'type': 'array', 'itemType': ListSchedulesResponseBodySchedules },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.schedules)) {
-      $dara.Model.validateArray(this.schedules);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSchedulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSchedulesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskFailedRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cause of the failure. The value must be 1 to 4,096 characters in length.
-   * 
-   * @example
-   * emptyString
-   */
-  cause?: string;
-  /**
-   * @remarks
-   * The error code for the failed task. The error code must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * nill
-   */
-  error?: string;
-  /**
-   * @remarks
-   * The token of the task whose execution you want to report. The task token is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event. For more information, see [Service integration modes](https://help.aliyun.com/document_detail/2592915.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * emptyString
-   */
-  taskToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cause: 'Cause',
-      error: 'Error',
-      taskToken: 'TaskToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cause: 'string',
-      error: 'string',
-      taskToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskFailedResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the event.
-   * 
-   * @example
-   * 1
-   */
-  eventId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventId: 'EventId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskFailedResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportTaskFailedResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportTaskFailedResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskSucceededRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The output information of the task whose execution success you want to report.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The token of the task whose execution you want to report. The task token is passed to the called service, such as Message Service (MNS) or Function Compute. For MNS, the value of this parameter can be obtained from a message. For Function Compute, the value of this parameter can be obtained from an event. For more information, see [Service integration modes](https://help.aliyun.com/document_detail/2592915.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * emptyString
-   */
-  taskToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'Output',
-      taskToken: 'TaskToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: 'string',
-      taskToken: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskSucceededResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the event.
-   * 
-   * @example
-   * 1
-   */
-  eventId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventId: 'EventId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportTaskSucceededResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReportTaskSucceededResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReportTaskSucceededResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartExecutionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies that the **TaskToken**-related tasks are called back after the execution in the flow ends.
-   * 
-   * @example
-   * 12
-   */
-  callbackFnFTaskToken?: string;
-  /**
-   * @remarks
-   * The name of the execution. The execution name is unique within a workflow. Configure this parameter based on the following rules:
-   * 
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * @example
-   * exec
-   */
-  executionName?: string;
-  /**
-   * @remarks
-   * The name of the workflow to be executed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callbackFnFTaskToken: 'CallbackFnFTaskToken',
-      executionName: 'ExecutionName',
-      flowName: 'FlowName',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callbackFnFTaskToken: 'string',
-      executionName: 'string',
-      flowName: 'string',
-      input: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartExecutionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the flow.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  flowDefinition?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * exec1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The execution result, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The execution status. Valid values:
-   * 
-   * *   **Starting**
-   * *   **Running**
-   * *   **Stopped**
-   * *   **Succeeded**
-   * *   **Failed**
-   * *   **TimedOut**
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowDefinition: 'FlowDefinition',
-      flowName: 'FlowName',
-      input: 'Input',
-      name: 'Name',
-      output: 'Output',
-      requestId: 'RequestId',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowDefinition: 'string',
-      flowName: 'string',
-      input: 'string',
-      name: 'string',
-      output: 'string',
-      requestId: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartExecutionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartExecutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartExecutionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSyncExecutionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the execution that you want to start. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * Different from the StartExecution operation, in the synchronous execution mode, the execution name is no longer required to be unique within a flow. You can choose to provide an execution name to identify the current execution. In this case, the system adds a UUID to the current execution name. The used format is {ExecutionName}:{UUID}. If you do not specify the execution name, the system automatically generates an execution name.
-   * 
-   * @example
-   * my_exec_name
-   */
-  executionName?: string;
-  /**
-   * @remarks
-   * The name of the workflow to be executed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * my_flow_name
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executionName: 'ExecutionName',
-      flowName: 'FlowName',
-      input: 'Input',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executionName: 'string',
-      flowName: 'string',
-      input: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSyncExecutionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The error code that is returned if the execution failed.
-   * 
-   * @example
-   * ActionNotSupported
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message that indicates the execution timed out.
-   * 
-   * @example
-   * Standard execution is not supported
-   */
-  errorMessage?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * my_flow_name
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * my_exec_name:{UUID}
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The output of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The status of the execution. Valid values:
-   * 
-   * *   **Starting**
-   * *   **Running**
-   * *   **Stopped**
-   * *   **Succeeded**
-   * *   **Failed**
-   * *   **TimedOut**
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      flowName: 'FlowName',
-      name: 'Name',
-      output: 'Output',
-      requestId: 'RequestId',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      flowName: 'string',
-      name: 'string',
-      output: 'string',
-      requestId: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartSyncExecutionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartSyncExecutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartSyncExecutionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopExecutionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The reason for stopping the execution. The value must be 1 to 4,096 characters in length.
-   * 
-   * @example
-   * for test
-   */
-  cause?: string;
-  /**
-   * @remarks
-   * The error code for stopping the execution. The error code must be 1 to 128 characters in length.
-   * 
-   * @example
-   * nill
-   */
-  error?: string;
-  /**
-   * @remarks
-   * The name of the execution to be stopped. You can call the **ListExecutions** operation to obtain the value of this parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * exec
-   */
-  executionName?: string;
-  /**
-   * @remarks
-   * The name of the workflow to be stopped. You can call the **ListFlows** operation to obtain the value of this parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cause: 'Cause',
-      error: 'Error',
-      executionName: 'ExecutionName',
-      flowName: 'FlowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cause: 'string',
-      error: 'string',
-      executionName: 'string',
-      flowName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopExecutionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the flow.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  flowDefinition?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * exec
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The execution result, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * 执行的角色权限配置。若流程定义中的RoleArn在执行期间发生变更，系统将记录并返回执行初始时刻的RoleArn的快照。
-   * > 如果您的流程在执行时未配置执行角色，则该字段不会出现。
-   * 
-   * @example
-   * acs:ram:${region}:${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The execution status. Valid values:
-   * 
-   * *   **Starting**
-   * *   **Running**
-   * *   **Stopped**
-   * *   **Succeeded**
-   * *   **Failed**
-   * *   **TimedOut**
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowDefinition: 'FlowDefinition',
-      flowName: 'FlowName',
-      input: 'Input',
-      name: 'Name',
-      output: 'Output',
-      requestId: 'RequestId',
-      roleArn: 'RoleArn',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowDefinition: 'string',
-      flowName: 'string',
-      input: 'string',
-      name: 'string',
-      output: 'string',
-      requestId: 'string',
-      roleArn: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopExecutionResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopExecutionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopExecutionResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFlowRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports the two workflow definition specifications.
-   * 
-   * >  In the preceding workflow definition example, Name:my_flow_name is the workflow name, which must be consistent with the input parameter Name
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test definition
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the workflow.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, the flow execution engine assumes the role to call API operations of relevant services.
-   * 
-   * @example
-   * acs:ram::${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow. Valid value: **FDL**.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      definition: 'Definition',
-      description: 'Description',
-      name: 'Name',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      definition: 'string',
-      description: 'string',
-      name: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFlowResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the flow was created.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The flow definition, which follows the FDL syntax standard. Considering compatibility, the system supports the two flow definition specifications.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test definition
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The path of the external storage.
-   * 
-   * @example
-   * /path
-   */
-  externalStorageLocation?: string;
-  /**
-   * @remarks
-   * The unique ID of the flow.
-   * 
-   * @example
-   * e589e092-e2c0-4dee-b306-3574ddfdddf5****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The time when the flow was last modified.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestID
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the authorized role on which the execution of the flow relies. During the execution of the flow, the flow execution engine assumes the role to call API operations of relevant services.
-   * 
-   * @example
-   * acs:ram::${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      definition: 'Definition',
-      description: 'Description',
-      externalStorageLocation: 'ExternalStorageLocation',
-      id: 'Id',
-      lastModifiedTime: 'LastModifiedTime',
-      name: 'Name',
-      requestId: 'RequestId',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      definition: 'string',
-      description: 'string',
-      externalStorageLocation: 'string',
-      id: 'string',
-      lastModifiedTime: 'string',
-      name: 'string',
-      requestId: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFlowResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateFlowResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduleRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The CRON expression.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the time-based schedule. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testFlowName
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule. It must be in the JSON format.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule. The name must meet the following conventions:
-   * 
-   * *   The name can contain letters, digits, underscores (_), and hyphens (-).
-   * *   The name must start with a letter or an underscore (_).
-   * *   The name is case-sensitive.
-   * *   The name must be 1 to 128 characters in length.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      flowName: 'FlowName',
-      payload: 'Payload',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      flowName: 'string',
-      payload: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the time-based schedule was created.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The CRON expression.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether the time-based schedule is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The time when the time-based schedule was last updated.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * testRequestId
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the time-based schedule.
-   * 
-   * @example
-   * testScheduleId
-   */
-  scheduleId?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      lastModifiedTime: 'LastModifiedTime',
-      payload: 'Payload',
-      requestId: 'RequestId',
-      scheduleId: 'ScheduleId',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      lastModifiedTime: 'string',
-      payload: 'string',
-      requestId: 'string',
-      scheduleId: 'string',
-      scheduleName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScheduleResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateScheduleResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -3879,12 +44,18 @@ export default class Client extends OpenApi {
    * *   The number of flows that each user can create is restricted by resources. For more information, see [Limits](https://help.aliyun.com/document_detail/122093.html). If you want to create more flows, submit a ticket.
    * *   At the user level, flows are distinguished by name. The name of a flow within one account must be unique.
    * 
-   * @param request - CreateFlowRequest
+   * @param tmpReq - CreateFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFlowResponse
    */
-  async createFlowWithOptions(request: CreateFlowRequest, runtime: $dara.RuntimeOptions): Promise<CreateFlowResponse> {
-    request.validate();
+  async createFlowWithOptions(tmpReq: $_model.CreateFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environment)) {
+      request.environmentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environment, "Environment", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
@@ -3892,6 +63,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.environmentShrink)) {
+      body["Environment"] = request.environmentShrink;
     }
 
     if (!$dara.isNull(request.executionMode)) {
@@ -3928,12 +103,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
-    } else {
-      return $dara.cast<CreateFlowResponse>(await this.execute(params, req, runtime), new CreateFlowResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateFlowResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlowResponse({}));
   }
 
   /**
@@ -3947,9 +117,69 @@ export default class Client extends OpenApi {
    * @param request - CreateFlowRequest
    * @returns CreateFlowResponse
    */
-  async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
+  async createFlow(request: $_model.CreateFlowRequest): Promise<$_model.CreateFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建流程版本别名
+   * 
+   * @param tmpReq - CreateFlowAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFlowAliasResponse
+   */
+  async createFlowAliasWithOptions(tmpReq: $_model.CreateFlowAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlowAliasResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFlowAliasShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.routingConfigurations)) {
+      request.routingConfigurationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.routingConfigurations, "RoutingConfigurations", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.routingConfigurationsShrink)) {
+      body["RoutingConfigurations"] = request.routingConfigurationsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFlowAlias",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFlowAliasResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlowAliasResponse({}));
+  }
+
+  /**
+   * 创建流程版本别名
+   * 
+   * @param request - CreateFlowAliasRequest
+   * @returns CreateFlowAliasResponse
+   */
+  async createFlowAlias(request: $_model.CreateFlowAliasRequest): Promise<$_model.CreateFlowAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFlowAliasWithOptions(request, runtime);
   }
 
   /**
@@ -3959,7 +189,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScheduleResponse
    */
-  async createScheduleWithOptions(request: CreateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<CreateScheduleResponse> {
+  async createScheduleWithOptions(request: $_model.CreateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScheduleResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.signatureVersion)) {
@@ -4006,12 +236,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
-    } else {
-      return $dara.cast<CreateScheduleResponse>(await this.execute(params, req, runtime), new CreateScheduleResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateScheduleResponse>(await this.callApi(params, req, runtime), new $_model.CreateScheduleResponse({}));
   }
 
   /**
@@ -4020,7 +245,7 @@ export default class Client extends OpenApi {
    * @param request - CreateScheduleRequest
    * @returns CreateScheduleResponse
    */
-  async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
+  async createSchedule(request: $_model.CreateScheduleRequest): Promise<$_model.CreateScheduleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createScheduleWithOptions(request, runtime);
   }
@@ -4036,7 +261,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFlowResponse
    */
-  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $dara.RuntimeOptions): Promise<DeleteFlowResponse> {
+  async deleteFlowWithOptions(request: $_model.DeleteFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.name)) {
@@ -4057,12 +282,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
-    } else {
-      return $dara.cast<DeleteFlowResponse>(await this.execute(params, req, runtime), new DeleteFlowResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteFlowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowResponse({}));
   }
 
   /**
@@ -4075,9 +295,101 @@ export default class Client extends OpenApi {
    * @param request - DeleteFlowRequest
    * @returns DeleteFlowResponse
    */
-  async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
+  async deleteFlow(request: $_model.DeleteFlowRequest): Promise<$_model.DeleteFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除流程别名
+   * 
+   * @param request - DeleteFlowAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowAliasResponse
+   */
+  async deleteFlowAliasWithOptions(request: $_model.DeleteFlowAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowAliasResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlowAlias",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowAliasResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowAliasResponse({}));
+  }
+
+  /**
+   * 删除流程别名
+   * 
+   * @param request - DeleteFlowAliasRequest
+   * @returns DeleteFlowAliasResponse
+   */
+  async deleteFlowAlias(request: $_model.DeleteFlowAliasRequest): Promise<$_model.DeleteFlowAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFlowAliasWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除流程版本
+   * 
+   * @param request - DeleteFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersionWithOptions(request: $_model.DeleteFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.flowVersion)) {
+      body["FlowVersion"] = request.flowVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlowVersion",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowVersionResponse({}));
+  }
+
+  /**
+   * 删除流程版本
+   * 
+   * @param request - DeleteFlowVersionRequest
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersion(request: $_model.DeleteFlowVersionRequest): Promise<$_model.DeleteFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFlowVersionWithOptions(request, runtime);
   }
 
   /**
@@ -4087,7 +399,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScheduleResponse
    */
-  async deleteScheduleWithOptions(request: DeleteScheduleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteScheduleResponse> {
+  async deleteScheduleWithOptions(request: $_model.DeleteScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScheduleResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.flowName)) {
@@ -4112,12 +424,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
-    } else {
-      return $dara.cast<DeleteScheduleResponse>(await this.execute(params, req, runtime), new DeleteScheduleResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteScheduleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScheduleResponse({}));
   }
 
   /**
@@ -4126,7 +433,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteScheduleRequest
    * @returns DeleteScheduleResponse
    */
-  async deleteSchedule(request: DeleteScheduleRequest): Promise<DeleteScheduleResponse> {
+  async deleteSchedule(request: $_model.DeleteScheduleRequest): Promise<$_model.DeleteScheduleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteScheduleWithOptions(request, runtime);
   }
@@ -4138,7 +445,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExecutionResponse
    */
-  async describeExecutionWithOptions(request: DescribeExecutionRequest, runtime: $dara.RuntimeOptions): Promise<DescribeExecutionResponse> {
+  async describeExecutionWithOptions(request: $_model.DescribeExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExecutionResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4155,12 +462,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeExecutionResponse>(await this.callApi(params, req, runtime), new DescribeExecutionResponse({}));
-    } else {
-      return $dara.cast<DescribeExecutionResponse>(await this.execute(params, req, runtime), new DescribeExecutionResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeExecutionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeExecutionResponse({}));
   }
 
   /**
@@ -4169,7 +471,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeExecutionRequest
    * @returns DescribeExecutionResponse
    */
-  async describeExecution(request: DescribeExecutionRequest): Promise<DescribeExecutionResponse> {
+  async describeExecution(request: $_model.DescribeExecutionRequest): Promise<$_model.DescribeExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeExecutionWithOptions(request, runtime);
   }
@@ -4181,7 +483,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFlowResponse
    */
-  async describeFlowWithOptions(request: DescribeFlowRequest, runtime: $dara.RuntimeOptions): Promise<DescribeFlowResponse> {
+  async describeFlowWithOptions(request: $_model.DescribeFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFlowResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4198,12 +500,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeFlowResponse>(await this.callApi(params, req, runtime), new DescribeFlowResponse({}));
-    } else {
-      return $dara.cast<DescribeFlowResponse>(await this.execute(params, req, runtime), new DescribeFlowResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeFlowResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFlowResponse({}));
   }
 
   /**
@@ -4212,9 +509,85 @@ export default class Client extends OpenApi {
    * @param request - DescribeFlowRequest
    * @returns DescribeFlowResponse
    */
-  async describeFlow(request: DescribeFlowRequest): Promise<DescribeFlowResponse> {
+  async describeFlow(request: $_model.DescribeFlowRequest): Promise<$_model.DescribeFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询流程版本别名详情
+   * 
+   * @param request - DescribeFlowAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFlowAliasResponse
+   */
+  async describeFlowAliasWithOptions(request: $_model.DescribeFlowAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFlowAliasResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeFlowAlias",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeFlowAliasResponse>(await this.callApi(params, req, runtime), new $_model.DescribeFlowAliasResponse({}));
+  }
+
+  /**
+   * 查询流程版本别名详情
+   * 
+   * @param request - DescribeFlowAliasRequest
+   * @returns DescribeFlowAliasResponse
+   */
+  async describeFlowAlias(request: $_model.DescribeFlowAliasRequest): Promise<$_model.DescribeFlowAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeFlowAliasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 MapRun 详情
+   * 
+   * @param request - DescribeMapRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMapRunResponse
+   */
+  async describeMapRunWithOptions(request: $_model.DescribeMapRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMapRunResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMapRun",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMapRunResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMapRunResponse({}));
+  }
+
+  /**
+   * 查询 MapRun 详情
+   * 
+   * @param request - DescribeMapRunRequest
+   * @returns DescribeMapRunResponse
+   */
+  async describeMapRun(request: $_model.DescribeMapRunRequest): Promise<$_model.DescribeMapRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMapRunWithOptions(request, runtime);
   }
 
   /**
@@ -4224,8 +597,16 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    let req = new $OpenApiUtil.OpenApiRequest({ });
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
     let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2019-03-15",
@@ -4237,21 +618,18 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
-    } else {
-      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
    * 查询地域信息列表
+   * 
+   * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(runtime);
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -4261,7 +639,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeScheduleResponse
    */
-  async describeScheduleWithOptions(request: DescribeScheduleRequest, runtime: $dara.RuntimeOptions): Promise<DescribeScheduleResponse> {
+  async describeScheduleWithOptions(request: $_model.DescribeScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeScheduleResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4278,12 +656,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeScheduleResponse>(await this.callApi(params, req, runtime), new DescribeScheduleResponse({}));
-    } else {
-      return $dara.cast<DescribeScheduleResponse>(await this.execute(params, req, runtime), new DescribeScheduleResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeScheduleResponse>(await this.callApi(params, req, runtime), new $_model.DescribeScheduleResponse({}));
   }
 
   /**
@@ -4292,7 +665,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeScheduleRequest
    * @returns DescribeScheduleResponse
    */
-  async describeSchedule(request: DescribeScheduleRequest): Promise<DescribeScheduleResponse> {
+  async describeSchedule(request: $_model.DescribeScheduleRequest): Promise<$_model.DescribeScheduleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeScheduleWithOptions(request, runtime);
   }
@@ -4304,7 +677,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExecutionHistoryResponse
    */
-  async getExecutionHistoryWithOptions(request: GetExecutionHistoryRequest, runtime: $dara.RuntimeOptions): Promise<GetExecutionHistoryResponse> {
+  async getExecutionHistoryWithOptions(request: $_model.GetExecutionHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetExecutionHistoryResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4321,12 +694,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetExecutionHistoryResponse>(await this.callApi(params, req, runtime), new GetExecutionHistoryResponse({}));
-    } else {
-      return $dara.cast<GetExecutionHistoryResponse>(await this.execute(params, req, runtime), new GetExecutionHistoryResponse({}));
-    }
-
+    return $dara.cast<$_model.GetExecutionHistoryResponse>(await this.callApi(params, req, runtime), new $_model.GetExecutionHistoryResponse({}));
   }
 
   /**
@@ -4335,7 +703,7 @@ export default class Client extends OpenApi {
    * @param request - GetExecutionHistoryRequest
    * @returns GetExecutionHistoryResponse
    */
-  async getExecutionHistory(request: GetExecutionHistoryRequest): Promise<GetExecutionHistoryResponse> {
+  async getExecutionHistory(request: $_model.GetExecutionHistoryRequest): Promise<$_model.GetExecutionHistoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getExecutionHistoryWithOptions(request, runtime);
   }
@@ -4351,7 +719,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListExecutionsResponse
    */
-  async listExecutionsWithOptions(request: ListExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<ListExecutionsResponse> {
+  async listExecutionsWithOptions(request: $_model.ListExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExecutionsResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4368,12 +736,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
-    } else {
-      return $dara.cast<ListExecutionsResponse>(await this.execute(params, req, runtime), new ListExecutionsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListExecutionsResponse>(await this.callApi(params, req, runtime), new $_model.ListExecutionsResponse({}));
   }
 
   /**
@@ -4386,9 +749,85 @@ export default class Client extends OpenApi {
    * @param request - ListExecutionsRequest
    * @returns ListExecutionsResponse
    */
-  async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
+  async listExecutions(request: $_model.ListExecutionsRequest): Promise<$_model.ListExecutionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listExecutionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询流程版本别名列表
+   * 
+   * @param request - ListFlowAliasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowAliasesResponse
+   */
+  async listFlowAliasesWithOptions(request: $_model.ListFlowAliasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowAliasesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowAliases",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowAliasesResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowAliasesResponse({}));
+  }
+
+  /**
+   * 查询流程版本别名列表
+   * 
+   * @param request - ListFlowAliasesRequest
+   * @returns ListFlowAliasesResponse
+   */
+  async listFlowAliases(request: $_model.ListFlowAliasesRequest): Promise<$_model.ListFlowAliasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowAliasesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询流程版本列表
+   * 
+   * @param request - ListFlowVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowVersionsResponse
+   */
+  async listFlowVersionsWithOptions(request: $_model.ListFlowVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowVersionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowVersions",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowVersionsResponse({}));
+  }
+
+  /**
+   * 查询流程版本列表
+   * 
+   * @param request - ListFlowVersionsRequest
+   * @returns ListFlowVersionsResponse
+   */
+  async listFlowVersions(request: $_model.ListFlowVersionsRequest): Promise<$_model.ListFlowVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFlowVersionsWithOptions(request, runtime);
   }
 
   /**
@@ -4398,7 +837,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlowsResponse
    */
-  async listFlowsWithOptions(request: ListFlowsRequest, runtime: $dara.RuntimeOptions): Promise<ListFlowsResponse> {
+  async listFlowsWithOptions(request: $_model.ListFlowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowsResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4415,12 +854,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
-    } else {
-      return $dara.cast<ListFlowsResponse>(await this.execute(params, req, runtime), new ListFlowsResponse({}));
-    }
-
+    return $dara.cast<$_model.ListFlowsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowsResponse({}));
   }
 
   /**
@@ -4429,7 +863,7 @@ export default class Client extends OpenApi {
    * @param request - ListFlowsRequest
    * @returns ListFlowsResponse
    */
-  async listFlows(request: ListFlowsRequest): Promise<ListFlowsResponse> {
+  async listFlows(request: $_model.ListFlowsRequest): Promise<$_model.ListFlowsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowsWithOptions(request, runtime);
   }
@@ -4441,7 +875,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSchedulesResponse
    */
-  async listSchedulesWithOptions(request: ListSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<ListSchedulesResponse> {
+  async listSchedulesWithOptions(request: $_model.ListSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSchedulesResponse> {
     request.validate();
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4458,12 +892,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
-    } else {
-      return $dara.cast<ListSchedulesResponse>(await this.execute(params, req, runtime), new ListSchedulesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListSchedulesResponse>(await this.callApi(params, req, runtime), new $_model.ListSchedulesResponse({}));
   }
 
   /**
@@ -4472,9 +901,55 @@ export default class Client extends OpenApi {
    * @param request - ListSchedulesRequest
    * @returns ListSchedulesResponse
    */
-  async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
+  async listSchedules(request: $_model.ListSchedulesRequest): Promise<$_model.ListSchedulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSchedulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 发布流程版本
+   * 
+   * @param request - PublishFlowVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishFlowVersionResponse
+   */
+  async publishFlowVersionWithOptions(request: $_model.PublishFlowVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PublishFlowVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishFlowVersion",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.PublishFlowVersionResponse({}));
+  }
+
+  /**
+   * 发布流程版本
+   * 
+   * @param request - PublishFlowVersionRequest
+   * @returns PublishFlowVersionResponse
+   */
+  async publishFlowVersion(request: $_model.PublishFlowVersionRequest): Promise<$_model.PublishFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.publishFlowVersionWithOptions(request, runtime);
   }
 
   /**
@@ -4489,7 +964,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportTaskFailedResponse
    */
-  async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $dara.RuntimeOptions): Promise<ReportTaskFailedResponse> {
+  async reportTaskFailedWithOptions(request: $_model.ReportTaskFailedRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportTaskFailedResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.taskToken)) {
@@ -4520,12 +995,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new ReportTaskFailedResponse({}));
-    } else {
-      return $dara.cast<ReportTaskFailedResponse>(await this.execute(params, req, runtime), new ReportTaskFailedResponse({}));
-    }
-
+    return $dara.cast<$_model.ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new $_model.ReportTaskFailedResponse({}));
   }
 
   /**
@@ -4539,7 +1009,7 @@ export default class Client extends OpenApi {
    * @param request - ReportTaskFailedRequest
    * @returns ReportTaskFailedResponse
    */
-  async reportTaskFailed(request: ReportTaskFailedRequest): Promise<ReportTaskFailedResponse> {
+  async reportTaskFailed(request: $_model.ReportTaskFailedRequest): Promise<$_model.ReportTaskFailedResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.reportTaskFailedWithOptions(request, runtime);
   }
@@ -4556,7 +1026,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportTaskSucceededResponse
    */
-  async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $dara.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
+  async reportTaskSucceededWithOptions(request: $_model.ReportTaskSucceededRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReportTaskSucceededResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.taskToken)) {
@@ -4583,12 +1053,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new ReportTaskSucceededResponse({}));
-    } else {
-      return $dara.cast<ReportTaskSucceededResponse>(await this.execute(params, req, runtime), new ReportTaskSucceededResponse({}));
-    }
-
+    return $dara.cast<$_model.ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new $_model.ReportTaskSucceededResponse({}));
   }
 
   /**
@@ -4602,7 +1067,7 @@ export default class Client extends OpenApi {
    * @param request - ReportTaskSucceededRequest
    * @returns ReportTaskSucceededResponse
    */
-  async reportTaskSucceeded(request: ReportTaskSucceededRequest): Promise<ReportTaskSucceededResponse> {
+  async reportTaskSucceeded(request: $_model.ReportTaskSucceededRequest): Promise<$_model.ReportTaskSucceededResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.reportTaskSucceededWithOptions(request, runtime);
   }
@@ -4622,7 +1087,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartExecutionResponse
    */
-  async startExecutionWithOptions(request: StartExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StartExecutionResponse> {
+  async startExecutionWithOptions(request: $_model.StartExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartExecutionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.callbackFnFTaskToken)) {
@@ -4641,6 +1106,10 @@ export default class Client extends OpenApi {
       body["Input"] = request.input;
     }
 
+    if (!$dara.isNull(request.qualifier)) {
+      body["Qualifier"] = request.qualifier;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4655,12 +1124,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
-    } else {
-      return $dara.cast<StartExecutionResponse>(await this.execute(params, req, runtime), new StartExecutionResponse({}));
-    }
-
+    return $dara.cast<$_model.StartExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StartExecutionResponse({}));
   }
 
   /**
@@ -4677,7 +1141,7 @@ export default class Client extends OpenApi {
    * @param request - StartExecutionRequest
    * @returns StartExecutionResponse
    */
-  async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
+  async startExecution(request: $_model.StartExecutionRequest): Promise<$_model.StartExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startExecutionWithOptions(request, runtime);
   }
@@ -4692,7 +1156,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartSyncExecutionResponse
    */
-  async startSyncExecutionWithOptions(request: StartSyncExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StartSyncExecutionResponse> {
+  async startSyncExecutionWithOptions(request: $_model.StartSyncExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartSyncExecutionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.executionName)) {
@@ -4705,6 +1169,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.input)) {
       body["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.qualifier)) {
+      body["Qualifier"] = request.qualifier;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4721,12 +1189,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new StartSyncExecutionResponse({}));
-    } else {
-      return $dara.cast<StartSyncExecutionResponse>(await this.execute(params, req, runtime), new StartSyncExecutionResponse({}));
-    }
-
+    return $dara.cast<$_model.StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StartSyncExecutionResponse({}));
   }
 
   /**
@@ -4738,7 +1201,7 @@ export default class Client extends OpenApi {
    * @param request - StartSyncExecutionRequest
    * @returns StartSyncExecutionResponse
    */
-  async startSyncExecution(request: StartSyncExecutionRequest): Promise<StartSyncExecutionResponse> {
+  async startSyncExecution(request: $_model.StartSyncExecutionRequest): Promise<$_model.StartSyncExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startSyncExecutionWithOptions(request, runtime);
   }
@@ -4754,7 +1217,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopExecutionResponse
    */
-  async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StopExecutionResponse> {
+  async stopExecutionWithOptions(request: $_model.StopExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopExecutionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.cause)) {
@@ -4787,12 +1250,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopExecutionResponse>(await this.callApi(params, req, runtime), new StopExecutionResponse({}));
-    } else {
-      return $dara.cast<StopExecutionResponse>(await this.execute(params, req, runtime), new StopExecutionResponse({}));
-    }
-
+    return $dara.cast<$_model.StopExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StopExecutionResponse({}));
   }
 
   /**
@@ -4805,7 +1263,7 @@ export default class Client extends OpenApi {
    * @param request - StopExecutionRequest
    * @returns StopExecutionResponse
    */
-  async stopExecution(request: StopExecutionRequest): Promise<StopExecutionResponse> {
+  async stopExecution(request: $_model.StopExecutionRequest): Promise<$_model.StopExecutionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopExecutionWithOptions(request, runtime);
   }
@@ -4813,12 +1271,18 @@ export default class Client extends OpenApi {
   /**
    * Updates a flow.
    * 
-   * @param request - UpdateFlowRequest
+   * @param tmpReq - UpdateFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFlowResponse
    */
-  async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $dara.RuntimeOptions): Promise<UpdateFlowResponse> {
-    request.validate();
+  async updateFlowWithOptions(tmpReq: $_model.UpdateFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.environment)) {
+      request.environmentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environment, "Environment", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
@@ -4826,6 +1290,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.environmentShrink)) {
+      body["Environment"] = request.environmentShrink;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -4854,12 +1322,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateFlowResponse>(await this.callApi(params, req, runtime), new UpdateFlowResponse({}));
-    } else {
-      return $dara.cast<UpdateFlowResponse>(await this.execute(params, req, runtime), new UpdateFlowResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateFlowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowResponse({}));
   }
 
   /**
@@ -4868,9 +1331,107 @@ export default class Client extends OpenApi {
    * @param request - UpdateFlowRequest
    * @returns UpdateFlowResponse
    */
-  async updateFlow(request: UpdateFlowRequest): Promise<UpdateFlowResponse> {
+  async updateFlow(request: $_model.UpdateFlowRequest): Promise<$_model.UpdateFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新流程版本别名配置
+   * 
+   * @param tmpReq - UpdateFlowAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlowAliasResponse
+   */
+  async updateFlowAliasWithOptions(tmpReq: $_model.UpdateFlowAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowAliasResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateFlowAliasShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.routingConfigurations)) {
+      request.routingConfigurationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.routingConfigurations, "RoutingConfigurations", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.routingConfigurationsShrink)) {
+      body["RoutingConfigurations"] = request.routingConfigurationsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlowAlias",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlowAliasResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowAliasResponse({}));
+  }
+
+  /**
+   * 更新流程版本别名配置
+   * 
+   * @param request - UpdateFlowAliasRequest
+   * @returns UpdateFlowAliasResponse
+   */
+  async updateFlowAlias(request: $_model.UpdateFlowAliasRequest): Promise<$_model.UpdateFlowAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFlowAliasWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新 MapRun 配置
+   * 
+   * @param request - UpdateMapRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMapRunResponse
+   */
+  async updateMapRunWithOptions(request: $_model.UpdateMapRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMapRunResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMapRun",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMapRunResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMapRunResponse({}));
+  }
+
+  /**
+   * 更新 MapRun 配置
+   * 
+   * @param request - UpdateMapRunRequest
+   * @returns UpdateMapRunResponse
+   */
+  async updateMapRun(request: $_model.UpdateMapRunRequest): Promise<$_model.UpdateMapRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMapRunWithOptions(request, runtime);
   }
 
   /**
@@ -4880,7 +1441,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateScheduleResponse
    */
-  async updateScheduleWithOptions(request: UpdateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<UpdateScheduleResponse> {
+  async updateScheduleWithOptions(request: $_model.UpdateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScheduleResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.cronExpression)) {
@@ -4921,12 +1482,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateScheduleResponse>(await this.callApi(params, req, runtime), new UpdateScheduleResponse({}));
-    } else {
-      return $dara.cast<UpdateScheduleResponse>(await this.execute(params, req, runtime), new UpdateScheduleResponse({}));
-    }
-
+    return $dara.cast<$_model.UpdateScheduleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScheduleResponse({}));
   }
 
   /**
@@ -4935,7 +1491,7 @@ export default class Client extends OpenApi {
    * @param request - UpdateScheduleRequest
    * @returns UpdateScheduleResponse
    */
-  async updateSchedule(request: UpdateScheduleRequest): Promise<UpdateScheduleResponse> {
+  async updateSchedule(request: $_model.UpdateScheduleRequest): Promise<$_model.UpdateScheduleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateScheduleWithOptions(request, runtime);
   }
