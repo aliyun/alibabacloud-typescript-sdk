@@ -75,6 +75,7 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
    * 180.212.XX.XX
    */
   sourceIp?: string;
+  supportOperateCodeList?: string[];
   /**
    * @remarks
    * The UUIDs of servers. Separate multiple UUIDs with commas (,).
@@ -95,6 +96,7 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
       name: 'Name',
       remark: 'Remark',
       sourceIp: 'SourceIp',
+      supportOperateCodeList: 'SupportOperateCodeList',
       uuids: 'Uuids',
     };
   }
@@ -109,11 +111,15 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
       name: 'string',
       remark: 'string',
       sourceIp: 'string',
+      supportOperateCodeList: { 'type': 'array', 'itemType': 'string' },
       uuids: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.supportOperateCodeList)) {
+      $dara.Model.validateArray(this.supportOperateCodeList);
+    }
     super.validate();
   }
 

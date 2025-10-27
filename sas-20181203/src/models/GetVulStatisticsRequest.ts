@@ -17,6 +17,16 @@ export class GetVulStatisticsRequest extends $dara.Model {
   groupIdList?: string;
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 1232428423234****
+   */
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * The source IP address of the request.
    * 
    * @example
@@ -43,6 +53,7 @@ export class GetVulStatisticsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       groupIdList: 'GroupIdList',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
       typeList: 'TypeList',
     };
@@ -51,6 +62,7 @@ export class GetVulStatisticsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       groupIdList: 'string',
+      resourceDirectoryAccountId: 'number',
       sourceIp: 'string',
       typeList: 'string',
     };

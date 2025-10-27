@@ -14,15 +14,27 @@ export class DescribeVulNumStatisticsRequest extends $dara.Model {
    * sas
    */
   from?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 127608589417****
+   */
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       from: 'From',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       from: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

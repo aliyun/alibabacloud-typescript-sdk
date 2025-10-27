@@ -62,7 +62,7 @@ export class DescribeTraceInfoDetailRequest extends $dara.Model {
   uuid?: string;
   /**
    * @remarks
-   * The ID of the vertex. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID.
+   * Vertex ID, which can be obtained from the AlarmUniqueInfo in the response of the [DescribeSuspEvents](~~DescribeSuspEvents~~) interface.
    * 
    * This parameter is required.
    * 

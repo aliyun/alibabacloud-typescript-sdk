@@ -108,6 +108,7 @@ export class ListCheckItemWarningSummaryResponseBodyList extends $dara.Model {
    * *   **1**: failed
    * *   **3**: passed
    * *   **6**: whitelisted
+   * *   **8**: fixed
    * 
    * @example
    * 1

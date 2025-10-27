@@ -589,6 +589,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * "["authority_maintenance"]"
    */
   stages?: string;
+  supportOperateCode?: string;
   /**
    * @remarks
    * The display name of the attack stage.
@@ -671,6 +672,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
       securityEventIds: 'SecurityEventIds',
       sourceAliUid: 'SourceAliUid',
       stages: 'Stages',
+      supportOperateCode: 'SupportOperateCode',
       tacticItems: 'TacticItems',
       uniqueInfo: 'UniqueInfo',
       uuid: 'Uuid',
@@ -731,6 +733,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
       securityEventIds: 'string',
       sourceAliUid: 'number',
       stages: 'string',
+      supportOperateCode: 'string',
       tacticItems: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsTacticItems },
       uniqueInfo: 'string',
       uuid: 'string',

@@ -8,7 +8,6 @@ export class DescribeLogMetaResponseBodyLogMetaList extends $dara.Model {
    * The category of logs. Valid values:
    * 
    * *   **host**
-   * *   **network**
    * *   **security**
    * 
    * @example

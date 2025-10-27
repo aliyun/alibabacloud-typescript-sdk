@@ -17940,6 +17940,10 @@ export default class Client extends OpenApi {
       query["SourceIp"] = request.sourceIp;
     }
 
+    if (!$dara.isNull(request.supportOperateCodeList)) {
+      query["SupportOperateCodeList"] = request.supportOperateCodeList;
+    }
+
     if (!$dara.isNull(request.uuids)) {
       query["Uuids"] = request.uuids;
     }
@@ -21948,6 +21952,10 @@ export default class Client extends OpenApi {
       query["StrictMode"] = request.strictMode;
     }
 
+    if (!$dara.isNull(request.supportOperateCodeList)) {
+      query["SupportOperateCodeList"] = request.supportOperateCodeList;
+    }
+
     if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
@@ -23748,6 +23756,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31211,6 +31223,10 @@ export default class Client extends OpenApi {
       query["GroupIdList"] = request.groupIdList;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -33636,6 +33652,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.requirementIds)) {
       query["RequirementIds"] = request.requirementIds;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.riskLevels)) {

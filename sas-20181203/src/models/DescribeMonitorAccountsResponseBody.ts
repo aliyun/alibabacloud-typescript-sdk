@@ -5,24 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorAccountsResponseBodyAccountIdInfos extends $dara.Model {
   accountId?: string;
   addTime?: number;
-  isCloudSiemAccount?: string;
-  isSasAccount?: string;
   operatorUid?: string;
   postBasicService?: number;
   sasVersion?: string;
-  aliUid?: string;
-  isMarked?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       addTime: 'AddTime',
-      isCloudSiemAccount: 'IsCloudSiemAccount',
-      isSasAccount: 'IsSasAccount',
       operatorUid: 'OperatorUid',
       postBasicService: 'PostBasicService',
       sasVersion: 'SasVersion',
-      aliUid: 'aliUid',
-      isMarked: 'isMarked',
     };
   }
 
@@ -30,13 +22,9 @@ export class DescribeMonitorAccountsResponseBodyAccountIdInfos extends $dara.Mod
     return {
       accountId: 'string',
       addTime: 'number',
-      isCloudSiemAccount: 'string',
-      isSasAccount: 'string',
       operatorUid: 'string',
       postBasicService: 'number',
       sasVersion: 'string',
-      aliUid: 'string',
-      isMarked: 'string',
     };
   }
 

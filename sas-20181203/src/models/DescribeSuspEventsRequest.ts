@@ -307,6 +307,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * Y
    */
   strictMode?: string;
+  supportOperateCodeList?: string[];
   /**
    * @remarks
    * The tactic ID of ATT\\&CK.
@@ -390,6 +391,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
       sourceIp: 'SourceIp',
       status: 'Status',
       strictMode: 'StrictMode',
+      supportOperateCodeList: 'SupportOperateCodeList',
       tacticId: 'TacticId',
       targetType: 'TargetType',
       timeEnd: 'TimeEnd',
@@ -430,6 +432,7 @@ export class DescribeSuspEventsRequest extends $dara.Model {
       sourceIp: 'string',
       status: 'string',
       strictMode: 'string',
+      supportOperateCodeList: { 'type': 'array', 'itemType': 'string' },
       tacticId: 'string',
       targetType: 'string',
       timeEnd: 'string',
@@ -448,6 +451,9 @@ export class DescribeSuspEventsRequest extends $dara.Model {
     }
     if(Array.isArray(this.sourceAliUids)) {
       $dara.Model.validateArray(this.sourceAliUids);
+    }
+    if(Array.isArray(this.supportOperateCodeList)) {
+      $dara.Model.validateArray(this.supportOperateCodeList);
     }
     super.validate();
   }

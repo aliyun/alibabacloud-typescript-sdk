@@ -118,6 +118,13 @@ export class ListCheckResultRequest extends $dara.Model {
   requirementIds?: number[];
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   */
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * The risk levels of check items. Separate multiple risk levels with commas (,). Valid values:
    * 
    * *   **HIGH**
@@ -183,6 +190,7 @@ export class ListCheckResultRequest extends $dara.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       requirementIds: 'RequirementIds',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       riskLevels: 'RiskLevels',
       sortTypes: 'SortTypes',
       standardIds: 'StandardIds',
@@ -207,6 +215,7 @@ export class ListCheckResultRequest extends $dara.Model {
       pageSize: 'number',
       regionId: 'string',
       requirementIds: { 'type': 'array', 'itemType': 'number' },
+      resourceDirectoryAccountId: 'number',
       riskLevels: { 'type': 'array', 'itemType': 'string' },
       sortTypes: { 'type': 'array', 'itemType': 'string' },
       standardIds: { 'type': 'array', 'itemType': 'number' },

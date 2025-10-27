@@ -223,11 +223,12 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
    * @remarks
    * The status of the check item. Valid values:
    * 
-   * *   1: failed
-   * *   2: verifying
-   * *   3: passed
-   * *   6: ignored
-   * *   7: fixing
+   * *   **1**: failed
+   * *   **2**: verifying
+   * *   **3**: passed
+   * *   **6**: ignored
+   * *   **7**: fixing
+   * *   **8**: fixed
    * 
    * @example
    * 1

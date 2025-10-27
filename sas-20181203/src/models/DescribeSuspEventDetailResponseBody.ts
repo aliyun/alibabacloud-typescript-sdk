@@ -58,6 +58,7 @@ export class DescribeSuspEventDetailResponseBodyDetails extends $dara.Model {
 }
 
 export class DescribeSuspEventDetailResponseBody extends $dara.Model {
+  alarmUniqueInfo?: string;
   /**
    * @remarks
    * Indicates whether the online processing of exceptions is supported, such as blocking an exception, adding an exception to the whitelist, and ignoring an exception. Valid values:
@@ -220,6 +221,7 @@ export class DescribeSuspEventDetailResponseBody extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      alarmUniqueInfo: 'AlarmUniqueInfo',
       canBeDealOnLine: 'CanBeDealOnLine',
       dataSource: 'DataSource',
       details: 'Details',
@@ -243,6 +245,7 @@ export class DescribeSuspEventDetailResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alarmUniqueInfo: 'string',
       canBeDealOnLine: 'boolean',
       dataSource: 'string',
       details: { 'type': 'array', 'itemType': DescribeSuspEventDetailResponseBodyDetails },
