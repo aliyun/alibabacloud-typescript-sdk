@@ -190,13 +190,23 @@ export default class Client extends OpenApi {
   /**
    * 文档结构化流式接口
    * 
-   * @param request - GetDocParserResultRequest
+   * @param tmpReq - GetDocParserResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDocParserResultResponse
    */
-  async getDocParserResultWithOptions(request: $_model.GetDocParserResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocParserResultResponse> {
-    request.validate();
+  async getDocParserResultWithOptions(tmpReq: $_model.GetDocParserResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDocParserResultResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetDocParserResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.excludeFields)) {
+      request.excludeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeFields, "ExcludeFields", "simple");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.excludeFieldsShrink)) {
+      query["ExcludeFields"] = request.excludeFieldsShrink;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }

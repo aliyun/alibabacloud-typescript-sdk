@@ -24,6 +24,7 @@ export { AyncTradeDocumentPackageExtractSmartAppShrinkRequest } from './AyncTrad
 export { AyncTradeDocumentPackageExtractSmartAppResponseBody } from './AyncTradeDocumentPackageExtractSmartAppResponseBody';
 export { AyncTradeDocumentPackageExtractSmartAppResponse } from './AyncTradeDocumentPackageExtractSmartAppResponse';
 export { GetDocParserResultRequest } from './GetDocParserResultRequest';
+export { GetDocParserResultShrinkRequest } from './GetDocParserResultShrinkRequest';
 export { GetDocParserResultResponseBody } from './GetDocParserResultResponseBody';
 export { GetDocParserResultResponse } from './GetDocParserResultResponse';
 export { GetDocStructureResultRequest } from './GetDocStructureResultRequest';

@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDocParserResultRequest extends $dara.Model {
-  excludeFields?: string[];
+export class GetDocParserResultShrinkRequest extends $dara.Model {
+  excludeFieldsShrink?: string;
   /**
    * @example
    * docmind-20220816-1e89d65c
@@ -13,7 +13,7 @@ export class GetDocParserResultRequest extends $dara.Model {
   layoutStepSize?: number;
   static names(): { [key: string]: string } {
     return {
-      excludeFields: 'ExcludeFields',
+      excludeFieldsShrink: 'ExcludeFields',
       id: 'Id',
       layoutNum: 'LayoutNum',
       layoutStepSize: 'LayoutStepSize',
@@ -22,7 +22,7 @@ export class GetDocParserResultRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      excludeFields: { 'type': 'array', 'itemType': 'string' },
+      excludeFieldsShrink: 'string',
       id: 'string',
       layoutNum: 'number',
       layoutStepSize: 'number',
@@ -30,9 +30,6 @@ export class GetDocParserResultRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.excludeFields)) {
-      $dara.Model.validateArray(this.excludeFields);
-    }
     super.validate();
   }
 
