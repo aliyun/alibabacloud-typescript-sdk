@@ -290,6 +290,7 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListBillingPolic
 
 export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
   adhocSlot?: number;
+  autoScaleCPULimit?: number;
   elasticReservedCU?: number;
   enablePriority?: boolean;
   forceReservedMin?: boolean;
@@ -298,22 +299,27 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
    * This parameter is required.
    */
   maxCU?: number;
+  maxGu?: number;
   /**
    * @remarks
    * This parameter is required.
    */
   minCU?: number;
+  minGu?: number;
   schedulerType?: string;
   singleJobCULimit?: number;
   slotNum?: number;
   static names(): { [key: string]: string } {
     return {
       adhocSlot: 'adhocSlot',
+      autoScaleCPULimit: 'autoScaleCPULimit',
       elasticReservedCU: 'elasticReservedCU',
       enablePriority: 'enablePriority',
       forceReservedMin: 'forceReservedMin',
       maxCU: 'maxCU',
+      maxGu: 'maxGu',
       minCU: 'minCU',
+      minGu: 'minGu',
       schedulerType: 'schedulerType',
       singleJobCULimit: 'singleJobCULimit',
       slotNum: 'slotNum',
@@ -323,11 +329,14 @@ export class ListQuotasResponseBodyDataQuotaInfoListSubQuotaInfoListParameter ex
   static types(): { [key: string]: any } {
     return {
       adhocSlot: 'number',
+      autoScaleCPULimit: 'number',
       elasticReservedCU: 'number',
       enablePriority: 'boolean',
       forceReservedMin: 'boolean',
       maxCU: 'number',
+      maxGu: 'number',
       minCU: 'number',
+      minGu: 'number',
       schedulerType: 'string',
       singleJobCULimit: 'number',
       slotNum: 'number',
@@ -1245,6 +1254,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListBillingPolicy ex
 
 export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extends $dara.Model {
   adhocSlot?: number;
+  autoScaleCPULimit?: number;
   elasticReservedCU?: number;
   enablePriority?: boolean;
   forceReservedMin?: boolean;
@@ -1266,6 +1276,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   static names(): { [key: string]: string } {
     return {
       adhocSlot: 'adhocSlot',
+      autoScaleCPULimit: 'autoScaleCPULimit',
       elasticReservedCU: 'elasticReservedCU',
       enablePriority: 'enablePriority',
       forceReservedMin: 'forceReservedMin',
@@ -1282,6 +1293,7 @@ export class ListQuotasResponseBodyQuotaInfoListSubQuotaInfoListParameter extend
   static types(): { [key: string]: any } {
     return {
       adhocSlot: 'number',
+      autoScaleCPULimit: 'number',
       elasticReservedCU: 'number',
       enablePriority: 'boolean',
       forceReservedMin: 'boolean',
