@@ -894,6 +894,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * off
    */
   endUserGroupCoordinate?: string;
+  externalDrive?: string;
   /**
    * @remarks
    * Specifies whether to enable file transfer.
@@ -1718,6 +1719,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       enableSessionRateLimiting: 'EnableSessionRateLimiting',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      externalDrive: 'ExternalDrive',
       fileMigrate: 'FileMigrate',
       fileTransferAddress: 'FileTransferAddress',
       fileTransferSpeed: 'FileTransferSpeed',
@@ -1839,6 +1841,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       enableSessionRateLimiting: 'string',
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
+      externalDrive: 'string',
       fileMigrate: 'string',
       fileTransferAddress: 'string',
       fileTransferSpeed: 'string',

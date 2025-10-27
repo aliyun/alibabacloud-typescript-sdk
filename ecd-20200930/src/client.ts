@@ -2467,6 +2467,10 @@ export default class Client extends OpenApi {
       query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate;
     }
 
+    if (!$dara.isNull(request.externalDrive)) {
+      query["ExternalDrive"] = request.externalDrive;
+    }
+
     if (!$dara.isNull(request.fileMigrate)) {
       query["FileMigrate"] = request.fileMigrate;
     }
@@ -13866,6 +13870,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserGroupCoordinate)) {
       query["EndUserGroupCoordinate"] = request.endUserGroupCoordinate;
+    }
+
+    if (!$dara.isNull(request.externalDrive)) {
+      query["ExternalDrive"] = request.externalDrive;
     }
 
     if (!$dara.isNull(request.fileMigrate)) {

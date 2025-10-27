@@ -841,6 +841,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   endUserGroupCoordinate?: string;
+  externalDrive?: string;
   fileMigrate?: string;
   /**
    * @remarks
@@ -1675,6 +1676,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       edsCount: 'EdsCount',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      externalDrive: 'ExternalDrive',
       fileMigrate: 'FileMigrate',
       fileTransfer: 'FileTransfer',
       fileTransferAddress: 'FileTransferAddress',
@@ -1798,6 +1800,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       edsCount: 'number',
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
+      externalDrive: 'string',
       fileMigrate: 'string',
       fileTransfer: 'string',
       fileTransferAddress: 'string',

@@ -1048,6 +1048,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   endUserGroupCoordinate?: string;
+  externalDrive?: string;
   /**
    * @remarks
    * Specifies whether to enable file transfer.
@@ -1905,6 +1906,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       enableSessionRateLimiting: 'EnableSessionRateLimiting',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      externalDrive: 'ExternalDrive',
       fileMigrate: 'FileMigrate',
       fileTransferAddress: 'FileTransferAddress',
       fileTransferSpeed: 'FileTransferSpeed',
@@ -2029,6 +2031,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       enableSessionRateLimiting: 'string',
       endUserApplyAdminCoordinate: 'string',
       endUserGroupCoordinate: 'string',
+      externalDrive: 'string',
       fileMigrate: 'string',
       fileTransferAddress: 'string',
       fileTransferSpeed: 'string',
