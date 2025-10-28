@@ -447,6 +447,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!$dara.isNull(request.targetSlsRegionId)) {
+      query["TargetSlsRegionId"] = request.targetSlsRegionId;
+    }
+
     if (!$dara.isNull(request.version)) {
       query["Version"] = request.version;
     }

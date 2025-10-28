@@ -171,6 +171,7 @@ export class CreateFlowLogRequest extends $dara.Model {
    */
   samplingRate?: string;
   tag?: CreateFlowLogRequestTag[];
+  targetSlsRegionId?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,6 +188,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       samplingRate: 'SamplingRate',
       tag: 'Tag',
+      targetSlsRegionId: 'TargetSlsRegionId',
       version: 'Version',
     };
   }
@@ -206,6 +208,7 @@ export class CreateFlowLogRequest extends $dara.Model {
       resourceGroupId: 'string',
       samplingRate: 'string',
       tag: { 'type': 'array', 'itemType': CreateFlowLogRequestTag },
+      targetSlsRegionId: 'string',
       version: 'string',
     };
   }
