@@ -5078,6 +5078,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     if (!$dara.isNull(request.verbose)) {
       query["Verbose"] = request.verbose;
     }

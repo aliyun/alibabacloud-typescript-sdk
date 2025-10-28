@@ -91,6 +91,7 @@ export class ListWorkspacesRequest extends $dara.Model {
    * ENABLED
    */
   status?: string;
+  userId?: string;
   /**
    * @remarks
    * Specifies whether to display workspace details. Valid values:
@@ -129,6 +130,7 @@ export class ListWorkspacesRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       sortBy: 'SortBy',
       status: 'Status',
+      userId: 'UserId',
       verbose: 'Verbose',
       workspaceIds: 'WorkspaceIds',
       workspaceName: 'WorkspaceName',
@@ -146,6 +148,7 @@ export class ListWorkspacesRequest extends $dara.Model {
       resourceGroupId: 'string',
       sortBy: 'string',
       status: 'string',
+      userId: 'string',
       verbose: 'boolean',
       workspaceIds: 'string',
       workspaceName: 'string',
