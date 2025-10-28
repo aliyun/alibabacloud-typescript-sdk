@@ -129,6 +129,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  preheat?: boolean;
   /**
    * @remarks
    * The queue label.
@@ -205,6 +206,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       maxResource: 'maxResource',
       minResource: 'minResource',
       paymentType: 'paymentType',
+      preheat: 'preheat',
       properties: 'properties',
       queueName: 'queueName',
       queueScope: 'queueScope',
@@ -225,6 +227,7 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
       maxResource: 'string',
       minResource: 'string',
       paymentType: 'string',
+      preheat: 'boolean',
       properties: 'string',
       queueName: 'string',
       queueScope: 'string',

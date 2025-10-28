@@ -187,6 +187,11 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    */
   releaseVersion?: string;
   /**
+   * @example
+   * dev_queue
+   */
+  resourceQueueId?: string;
+  /**
    * @remarks
    * The job state.
    * 
@@ -252,6 +257,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       mbSeconds: 'mbSeconds',
       name: 'name',
       releaseVersion: 'releaseVersion',
+      resourceQueueId: 'resourceQueueId',
       state: 'state',
       stateChangeReason: 'stateChangeReason',
       submitTime: 'submitTime',
@@ -278,6 +284,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       mbSeconds: 'number',
       name: 'string',
       releaseVersion: 'string',
+      resourceQueueId: 'string',
       state: 'string',
       stateChangeReason: ListJobRunsResponseBodyJobRunsStateChangeReason,
       submitTime: 'number',

@@ -161,6 +161,11 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * http://workflow-ide-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/spark-notebook-output/w-xxxxxxxxx/xxxxxxx
+   */
+  notebookAccessUrl?: string;
+  /**
    * @remarks
    * The version of the Spark engine on which the job runs.
    * 
@@ -239,6 +244,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       jobRunId: 'jobRunId',
       log: 'log',
       name: 'name',
+      notebookAccessUrl: 'notebookAccessUrl',
       releaseVersion: 'releaseVersion',
       resourceOwnerId: 'resourceOwnerId',
       resourceQueueId: 'resourceQueueId',
@@ -264,6 +270,7 @@ export class GetJobRunResponseBodyJobRun extends $dara.Model {
       jobRunId: 'string',
       log: RunLog,
       name: 'string',
+      notebookAccessUrl: 'string',
       releaseVersion: 'string',
       resourceOwnerId: 'string',
       resourceQueueId: 'string',

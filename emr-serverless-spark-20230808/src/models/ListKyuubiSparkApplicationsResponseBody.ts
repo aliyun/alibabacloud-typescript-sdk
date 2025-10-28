@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { RunLog } from "./RunLog";
 
 
 export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.Model {
@@ -35,7 +36,20 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    * 2025-02-12 20:02:02
    */
   endTime?: string;
+  /**
+   * @example
+   * Exit Code: 137, Exit Reason: OOMKilled
+   */
   exitReason?: string;
+  /**
+   * @example
+   * kb-2b93ec*******c9440c
+   */
+  kyuubiServiceId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   latestSqlStatementStatus?: string;
   /**
    * @remarks
@@ -53,6 +67,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
    * dev_queue
    */
   resourceQueueId?: string;
+  runLog?: RunLog;
   /**
    * @remarks
    * The time when the task started.
@@ -93,9 +108,11 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       cuHours: 'cuHours',
       endTime: 'endTime',
       exitReason: 'exitReason',
+      kyuubiServiceId: 'kyuubiServiceId',
       latestSqlStatementStatus: 'latestSqlStatementStatus',
       mbSeconds: 'mbSeconds',
       resourceQueueId: 'resourceQueueId',
+      runLog: 'runLog',
       startTime: 'startTime',
       state: 'state',
       vcoreSeconds: 'vcoreSeconds',
@@ -110,9 +127,11 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       cuHours: 'number',
       endTime: 'string',
       exitReason: 'string',
+      kyuubiServiceId: 'string',
       latestSqlStatementStatus: 'string',
       mbSeconds: 'number',
       resourceQueueId: 'string',
+      runLog: RunLog,
       startTime: 'string',
       state: 'string',
       vcoreSeconds: 'number',
@@ -121,6 +140,9 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   }
 
   validate() {
+    if(this.runLog && typeof (this.runLog as any).validate === 'function') {
+      (this.runLog as any).validate();
+    }
     super.validate();
   }
 

@@ -8,15 +8,22 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
    * 1000
    */
   cu?: number;
+  /**
+   * @example
+   * 0.5
+   */
+  maxCu?: number;
   static names(): { [key: string]: string } {
     return {
       cu: 'cu',
+      maxCu: 'maxCu',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cu: 'number',
+      maxCu: 'number',
     };
   }
 
