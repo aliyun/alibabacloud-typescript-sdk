@@ -19,6 +19,11 @@ export class UnbindRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @example
+   * p-xxxxx
+   */
+  appInstancePersistentId?: string;
+  /**
+   * @example
    * eac19bef-1e45-4190-a03a-4ea74b699ca7
    */
   clientId?: string;
@@ -81,6 +86,7 @@ export class UnbindRequest extends $dara.Model {
       appId: 'AppId',
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
+      appInstancePersistentId: 'AppInstancePersistentId',
       clientId: 'ClientId',
       clientIp: 'ClientIp',
       clientOS: 'ClientOS',
@@ -99,6 +105,7 @@ export class UnbindRequest extends $dara.Model {
       appId: 'string',
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
+      appInstancePersistentId: 'string',
       clientId: 'string',
       clientIp: 'string',
       clientOS: 'string',

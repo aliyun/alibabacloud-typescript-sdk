@@ -855,6 +855,10 @@ export default class Client extends OpenApi {
       body["AppInstanceId"] = request.appInstanceId;
     }
 
+    if (!$dara.isNull(request.appInstancePersistentId)) {
+      body["AppInstancePersistentId"] = request.appInstancePersistentId;
+    }
+
     if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
