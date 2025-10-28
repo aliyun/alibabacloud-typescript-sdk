@@ -6088,7 +6088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义策略
+   * Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
    * 
    * @param request - DeleteCheckPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6123,7 +6123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义策略
+   * Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
    * 
    * @param request - DeleteCheckPolicyRequest
    * @returns DeleteCheckPolicyResponse
@@ -10364,6 +10364,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.checkWarningId)) {
       query["CheckWarningId"] = request.checkWarningId;
+    }
+
+    if (!$dara.isNull(request.containerName)) {
+      query["ContainerName"] = request.containerName;
     }
 
     if (!$dara.isNull(request.lang)) {

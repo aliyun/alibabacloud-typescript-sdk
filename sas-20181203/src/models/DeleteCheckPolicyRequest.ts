@@ -5,11 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCheckPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * Array of policies to delete
+   * 
    * This parameter is required.
    */
   policyIds?: number[];
   /**
    * @remarks
+   * Policy type for custom check rule:
+   * 
+   * *   **STANDARD**: Standard-level policy
+   * *   **REQUIREMENT**: Requirement-level policy
+   * *   **SECTION**: Section-level policy
+   * 
    * This parameter is required.
    * 
    * @example

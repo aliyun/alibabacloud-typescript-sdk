@@ -23,6 +23,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
    * 98675301
    */
   checkWarningId?: number;
+  containerName?: string;
   /**
    * @remarks
    * The language of the content within the request and response. Valid values:
@@ -66,6 +67,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
     return {
       checkId: 'CheckId',
       checkWarningId: 'CheckWarningId',
+      containerName: 'ContainerName',
       lang: 'Lang',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       sourceIp: 'SourceIp',
@@ -77,6 +79,7 @@ export class DescribeCheckWarningDetailRequest extends $dara.Model {
     return {
       checkId: 'string',
       checkWarningId: 'number',
+      containerName: 'string',
       lang: 'string',
       resourceDirectoryAccountId: 'number',
       sourceIp: 'string',

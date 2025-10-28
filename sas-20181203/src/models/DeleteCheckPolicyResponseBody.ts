@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCheckPolicyResponseBodyPolicys extends $dara.Model {
   /**
+   * @remarks
+   * Deleted policy ID.
+   * 
    * @example
    * 1000000000001
    */
   policyId?: number;
   /**
+   * @remarks
+   * The name of the custom policy.
+   * 
    * @example
    * testPolicyName
    */
   policyShowName?: string;
   /**
+   * @remarks
+   * Policy type for custom check rule:
+   * 
+   * *   **STANDARD**: Standard-level policy
+   * *   **REQUIREMENT**: Requirement-level policy
+   * *   **SECTION**: Section-level policy
+   * 
    * @example
    * STANDARD
    */
@@ -44,8 +57,15 @@ export class DeleteCheckPolicyResponseBodyPolicys extends $dara.Model {
 }
 
 export class DeleteCheckPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of deleted policy details.
+   */
   policys?: DeleteCheckPolicyResponseBodyPolicys[];
   /**
+   * @remarks
+   * The unique ID of the request, which is used to locate and troubleshoot issues.
+   * 
    * @example
    * F8B6F758-BCD4-597A-8A2C-DA5A552C****
    */
