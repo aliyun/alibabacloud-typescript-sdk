@@ -11,7 +11,7 @@ export class ImageQueueModerationRequest extends $dara.Model {
   /**
    * @example
    * {
-   *         "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
+   *         "imageUrl": "https://img.alicdn.com/xxx.jpg",
    *         "dataId": "img123****"
    *     }
    */

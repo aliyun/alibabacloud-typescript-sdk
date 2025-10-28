@@ -2,6 +2,73 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ImageModerationResponseBodyDataExtAigcDataAIGC extends $dara.Model {
+  contentProducer?: string;
+  contentPropagator?: string;
+  label?: string;
+  produceID?: string;
+  propagateID?: string;
+  reservedCode1?: string;
+  reservedCode2?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentProducer: 'ContentProducer',
+      contentPropagator: 'ContentPropagator',
+      label: 'Label',
+      produceID: 'ProduceID',
+      propagateID: 'PropagateID',
+      reservedCode1: 'ReservedCode1',
+      reservedCode2: 'ReservedCode2',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentProducer: 'string',
+      contentPropagator: 'string',
+      label: 'string',
+      produceID: 'string',
+      propagateID: 'string',
+      reservedCode1: 'string',
+      reservedCode2: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBodyDataExtAigcData extends $dara.Model {
+  AIGC?: ImageModerationResponseBodyDataExtAigcDataAIGC;
+  static names(): { [key: string]: string } {
+    return {
+      AIGC: 'AIGC',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIGC: ImageModerationResponseBodyDataExtAigcDataAIGC,
+    };
+  }
+
+  validate() {
+    if(this.AIGC && typeof (this.AIGC as any).validate === 'function') {
+      (this.AIGC as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtCustomImage extends $dara.Model {
   /**
    * @remarks
@@ -1215,6 +1282,7 @@ export class ImageModerationResponseBodyDataExtVlContent extends $dara.Model {
 }
 
 export class ImageModerationResponseBodyDataExt extends $dara.Model {
+  aigcData?: ImageModerationResponseBodyDataExtAigcData;
   /**
    * @remarks
    * If a custom image library is hit, information about the hit custom image library is returned.
@@ -1257,6 +1325,7 @@ export class ImageModerationResponseBodyDataExt extends $dara.Model {
   vlContent?: ImageModerationResponseBodyDataExtVlContent;
   static names(): { [key: string]: string } {
     return {
+      aigcData: 'AigcData',
       customImage: 'CustomImage',
       faceData: 'FaceData',
       logoData: 'LogoData',
@@ -1270,6 +1339,7 @@ export class ImageModerationResponseBodyDataExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aigcData: ImageModerationResponseBodyDataExtAigcData,
       customImage: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtCustomImage },
       faceData: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtFaceData },
       logoData: { 'type': 'array', 'itemType': ImageModerationResponseBodyDataExtLogoData },
@@ -1282,6 +1352,9 @@ export class ImageModerationResponseBodyDataExt extends $dara.Model {
   }
 
   validate() {
+    if(this.aigcData && typeof (this.aigcData as any).validate === 'function') {
+      (this.aigcData as any).validate();
+    }
     if(Array.isArray(this.customImage)) {
       $dara.Model.validateArray(this.customImage);
     }

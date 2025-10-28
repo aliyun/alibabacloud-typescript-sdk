@@ -44,6 +44,8 @@ export { ImageBatchModerationResponseBodyDataResultsExt } from './ImageBatchMode
 export { ImageBatchModerationResponseBodyDataResultsResult } from './ImageBatchModerationResponseBody';
 export { ImageBatchModerationResponseBodyDataResults } from './ImageBatchModerationResponseBody';
 export { ImageBatchModerationResponseBodyData } from './ImageBatchModerationResponseBody';
+export { ImageModerationResponseBodyDataExtAigcDataAIGC } from './ImageModerationResponseBody';
+export { ImageModerationResponseBodyDataExtAigcData } from './ImageModerationResponseBody';
 export { ImageModerationResponseBodyDataExtCustomImage } from './ImageModerationResponseBody';
 export { ImageModerationResponseBodyDataExtFaceDataBang } from './ImageModerationResponseBody';
 export { ImageModerationResponseBodyDataExtFaceDataGender } from './ImageModerationResponseBody';
