@@ -30,6 +30,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 诊断问题
+   * 
+   * @param request - CreateDiagnosisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDiagnosisResponse
+   */
+  async createDiagnosisWithOptions(request: $_model.CreateDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDiagnosisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gmtFailureTime)) {
+      body["GmtFailureTime"] = request.gmtFailureTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.problemCategory)) {
+      body["ProblemCategory"] = request.problemCategory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDiagnosis",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/diagnoses`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.CreateDiagnosisResponse({}));
+  }
+
+  /**
+   * 诊断问题
+   * 
+   * @param request - CreateDiagnosisRequest
+   * @returns CreateDiagnosisResponse
+   */
+  async createDiagnosis(request: $_model.CreateDiagnosisRequest): Promise<$_model.CreateDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDiagnosisWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates an automatic stop policy for a specific Data Science Workshop (DSW) instance. When the conditions are met, the instance is automatically stopped. You can create only one automatic stop policy for an idle DSW instance. If the specific instance has an automatic stop policy, call DeleteIdleInstanceCuller to delete it first.
    * 
    * @param request - CreateIdleInstanceCullerRequest
