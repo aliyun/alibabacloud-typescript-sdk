@@ -28,6 +28,7 @@ export class Instance extends $dara.Model {
    * ecs.c7.large
    */
   instanceType?: string;
+  isLatest?: boolean;
   /**
    * @example
    * false
@@ -91,6 +92,7 @@ export class Instance extends $dara.Model {
       instanceName: 'InstanceName',
       instancePort: 'InstancePort',
       instanceType: 'InstanceType',
+      isLatest: 'IsLatest',
       isSpot: 'IsSpot',
       isolated: 'Isolated',
       lastState: 'LastState',
@@ -122,6 +124,7 @@ export class Instance extends $dara.Model {
       instanceName: 'string',
       instancePort: 'number',
       instanceType: 'string',
+      isLatest: 'boolean',
       isSpot: 'boolean',
       isolated: 'boolean',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
