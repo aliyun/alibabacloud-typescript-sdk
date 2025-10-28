@@ -105,6 +105,7 @@ export class DescribeImageListRequest extends $dara.Model {
    * AVAILABLE
    */
   status?: string;
+  systemType?: string;
   static names(): { [key: string]: string } {
     return {
       imageBizTags: 'ImageBizTags',
@@ -116,6 +117,7 @@ export class DescribeImageListRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       status: 'Status',
+      systemType: 'SystemType',
     };
   }
 
@@ -130,6 +132,7 @@ export class DescribeImageListRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       status: 'string',
+      systemType: 'string',
     };
   }
 

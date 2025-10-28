@@ -2085,6 +2085,10 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!$dara.isNull(request.systemType)) {
+      query["SystemType"] = request.systemType;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.imageId)) {
       body["ImageId"] = request.imageId;
