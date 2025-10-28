@@ -121,6 +121,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
    * sg-wz969ngg2e49q5i4****
    */
   securityGroupId?: string;
+  slsConfigs?: string;
   /**
    * @remarks
    * The ID of the tenant in the SAE namespace.
@@ -184,6 +185,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
       namespaceName: 'NamespaceName',
       notificationExpired: 'NotificationExpired',
       securityGroupId: 'SecurityGroupId',
+      slsConfigs: 'SlsConfigs',
       tenantId: 'TenantId',
       userId: 'UserId',
       vSwitchId: 'VSwitchId',
@@ -208,6 +210,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
       namespaceName: 'string',
       notificationExpired: 'boolean',
       securityGroupId: 'string',
+      slsConfigs: 'string',
       tenantId: 'string',
       userId: 'string',
       vSwitchId: 'string',
