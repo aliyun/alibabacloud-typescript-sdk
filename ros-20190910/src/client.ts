@@ -1818,6 +1818,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启可信服务访问
+   * 
+   * @param request - EnableServiceAccessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableServiceAccessResponse
+   */
+  async enableServiceAccessWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.EnableServiceAccessResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableServiceAccess",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableServiceAccessResponse>(await this.callApi(params, req, runtime), new $_model.EnableServiceAccessResponse({}));
+  }
+
+  /**
+   * 开启可信服务访问
+   * @returns EnableServiceAccessResponse
+   */
+  async enableServiceAccess(): Promise<$_model.EnableServiceAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableServiceAccessWithOptions(runtime);
+  }
+
+  /**
+   * 批量开通
+   * 
+   * @param tmpReq - EnableServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableServicesResponse
+   */
+  async enableServicesWithOptions(tmpReq: $_model.EnableServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableServicesResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableServicesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.serviceNames)) {
+      request.serviceNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceNames, "ServiceNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceNamesShrink)) {
+      query["ServiceNames"] = request.serviceNamesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableServices",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableServicesResponse>(await this.callApi(params, req, runtime), new $_model.EnableServicesResponse({}));
+  }
+
+  /**
+   * 批量开通
+   * 
+   * @param request - EnableServicesRequest
+   * @returns EnableServicesResponse
+   */
+  async enableServices(request: $_model.EnableServicesRequest): Promise<$_model.EnableServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableServicesWithOptions(request, runtime);
+  }
+
+  /**
    * Executes change sets.
    * 
    * @remarks
@@ -2297,6 +2381,38 @@ export default class Client extends OpenApi {
   async getResourceTypeTemplate(request: $_model.GetResourceTypeTemplateRequest): Promise<$_model.GetResourceTypeTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourceTypeTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询可信服务
+   * 
+   * @param request - GetServiceAccessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceAccessResponse
+   */
+  async getServiceAccessWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceAccessResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceAccess",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetServiceAccessResponse>(await this.callApi(params, req, runtime), new $_model.GetServiceAccessResponse({}));
+  }
+
+  /**
+   * 查询可信服务
+   * @returns GetServiceAccessResponse
+   */
+  async getServiceAccess(): Promise<$_model.GetServiceAccessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceAccessWithOptions(runtime);
   }
 
   /**
@@ -4445,6 +4561,48 @@ export default class Client extends OpenApi {
   async listStacks(request: $_model.ListStacksRequest): Promise<$_model.ListStacksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listStacksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询总览
+   * 
+   * @param request - ListSummariesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSummariesResponse
+   */
+  async listSummariesWithOptions(request: $_model.ListSummariesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSummariesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.option)) {
+      query["Option"] = request.option;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSummaries",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSummariesResponse>(await this.callApi(params, req, runtime), new $_model.ListSummariesResponse({}));
+  }
+
+  /**
+   * 查询总览
+   * 
+   * @param request - ListSummariesRequest
+   * @returns ListSummariesResponse
+   */
+  async listSummaries(request: $_model.ListSummariesRequest): Promise<$_model.ListSummariesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSummariesWithOptions(request, runtime);
   }
 
   /**
