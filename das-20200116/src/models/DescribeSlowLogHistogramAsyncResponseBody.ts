@@ -14,11 +14,13 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
    * userAdmin
    */
   insRole?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       insId: 'InsId',
       insRole: 'InsRole',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -27,6 +29,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
       count: { 'type': 'array', 'itemType': 'number' },
       insId: 'string',
       insRole: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -45,16 +48,20 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems exten
 export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara.Model {
   count?: number[];
   insItems?: DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems[];
+  insRole?: string;
   /**
    * @example
    * r-bp1hi0wg57s3n0i3n8-db-0
    */
   nodeId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       insItems: 'InsItems',
+      insRole: 'InsRole',
       nodeId: 'NodeId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -62,7 +69,9 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataDataItem extends $dara
     return {
       count: { 'type': 'array', 'itemType': 'number' },
       insItems: { 'type': 'array', 'itemType': DescribeSlowLogHistogramAsyncResponseBodyDataDataItemInsItems },
+      insRole: 'string',
       nodeId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -137,6 +146,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
    * 1
    */
   total?: number;
+  totalCount?: number;
   ts?: number[];
   tsEnd?: number[];
   static names(): { [key: string]: string } {
@@ -192,6 +202,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
       rt: 'Rt',
       scnt: 'Scnt',
       total: 'Total',
+      totalCount: 'TotalCount',
       ts: 'Ts',
       tsEnd: 'TsEnd',
     };
@@ -250,6 +261,7 @@ export class DescribeSlowLogHistogramAsyncResponseBodyDataData extends $dara.Mod
       rt: { 'type': 'array', 'itemType': 'number' },
       scnt: { 'type': 'array', 'itemType': 'number' },
       total: 'number',
+      totalCount: 'number',
       ts: { 'type': 'array', 'itemType': 'number' },
       tsEnd: { 'type': 'array', 'itemType': 'number' },
     };
