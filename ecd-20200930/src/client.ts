@@ -10593,6 +10593,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询办公网络维度安全组策略
+   * 
+   * @param request - DescribeSecurityGroupAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityGroupAttributeResponse
+   */
+  async describeSecurityGroupAttributeWithOptions(request: $_model.DescribeSecurityGroupAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityGroupAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityGroupAttribute",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSecurityGroupAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSecurityGroupAttributeResponse({}));
+  }
+
+  /**
+   * 查询办公网络维度安全组策略
+   * 
+   * @param request - DescribeSecurityGroupAttributeRequest
+   * @returns DescribeSecurityGroupAttributeResponse
+   */
+  async describeSecurityGroupAttribute(request: $_model.DescribeSecurityGroupAttributeRequest): Promise<$_model.DescribeSecurityGroupAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityGroupAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the session statistics of a region.
    * 
    * @remarks

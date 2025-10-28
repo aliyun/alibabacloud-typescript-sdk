@@ -701,6 +701,9 @@ export { DescribeRouteEntryListResponse } from './DescribeRouteEntryListResponse
 export { DescribeRouteTableListRequest } from './DescribeRouteTableListRequest';
 export { DescribeRouteTableListResponseBody } from './DescribeRouteTableListResponseBody';
 export { DescribeRouteTableListResponse } from './DescribeRouteTableListResponse';
+export { DescribeSecurityGroupAttributeRequest } from './DescribeSecurityGroupAttributeRequest';
+export { DescribeSecurityGroupAttributeResponseBody } from './DescribeSecurityGroupAttributeResponseBody';
+export { DescribeSecurityGroupAttributeResponse } from './DescribeSecurityGroupAttributeResponse';
 export { DescribeSessionStatisticRequest } from './DescribeSessionStatisticRequest';
 export { DescribeSessionStatisticResponseBody } from './DescribeSessionStatisticResponseBody';
 export { DescribeSessionStatisticResponse } from './DescribeSessionStatisticResponse';
