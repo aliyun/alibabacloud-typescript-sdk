@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComponentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376

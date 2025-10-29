@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The entity ID. Currently, entities can only be tables. You can call the ListTables operation to query the ID.
+   * The entity ID. Currently, only table entities are supported. You can call the ListTables operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The collection ID. You can call the ListMetaCollections operation to query the ID.
+   * The collection ID. You can refer to the return result of the ListMetaCollections operation.
    * 
    * This parameter is required.
    * 
@@ -23,6 +23,13 @@ export class AddEntityIntoMetaCollectionRequest extends $dara.Model {
    * category.123
    */
   metaCollectionId?: string;
+  /**
+   * @remarks
+   * Remarks added when adding the entity to a collection. This parameter is currently valid only for album collections.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {

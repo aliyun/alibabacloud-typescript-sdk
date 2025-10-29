@@ -4,13 +4,23 @@ import { CrawlerType } from "./CrawlerType";
 
 
 export class ListCrawlerTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of metadata crawler types.
+   */
   crawlerTypes?: CrawlerType[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

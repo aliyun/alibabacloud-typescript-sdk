@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetComponentResponseBodyComponent extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the dataset acceleration component. For information on how to obtain the component ID, see [ListComponents](https://help.aliyun.com/document_detail/2979566.html).
+   * 
    * @example
    * 43cd873b-235c-44f8-be07-e4d4cf7e73b0
    */
   componentId?: string;
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -17,12 +22,17 @@ export class GetComponentResponseBodyComponent extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * None
    */
   description?: string;
   /**
    * @remarks
+   * The modification time (millisecond-level timestamp).
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -30,26 +40,41 @@ export class GetComponentResponseBodyComponent extends $dara.Model {
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * Parameter
+   * 
    * @example
    * dim_whse_epet_warehouse_jz_storage_stock_lot_relation_id
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the task owner.
+   * 
    * @example
    * 207316543660665792
    */
   owner?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 64623
    */
   projectId?: number;
   /**
+   * @remarks
+   * The region ID, such as ap-southeast-1. The region ID is automatically parsed from your endpoint.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * 
    * @example
    * {
    *     "kind": "Component",
@@ -129,6 +154,10 @@ export class GetComponentResponseBodyComponent extends $dara.Model {
 }
 
 export class GetComponentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * JSON serialization of the component module.
+   */
   component?: GetComponentResponseBodyComponent;
   /**
    * @remarks

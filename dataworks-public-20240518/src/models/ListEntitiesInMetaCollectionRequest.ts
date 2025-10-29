@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description specified when the entity was added to the collection. Supports fuzzy matching. Valid only for the album type.
+   * 
+   * @example
+   * test
+   */
   entityDescription?: string;
   /**
+   * @remarks
+   * The entity name. Supports fuzzy matching.
+   * 
    * @example
    * test1
    */
   entityName?: string;
   /**
+   * @remarks
+   * The entity type.
+   * 
    * @example
    * dlf-table
    */
@@ -25,21 +38,39 @@ export class ListEntitiesInMetaCollectionRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * *   Asc (default): ascending order.
+   * *   Desc
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sort field. Valid values:
+   * 
+   * *   Name (default)
+   * *   CreateTime
+   * 
    * @example
    * Name
    */

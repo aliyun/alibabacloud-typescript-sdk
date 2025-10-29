@@ -6,6 +6,8 @@ import * as $dara from '@darabonba/typescript';
 export class ImportCertificateAdvanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The certificate file to upload. Upload method: Upload the file by creating an InputStream.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,17 @@ export class ImportCertificateAdvanceRequest extends $dara.Model {
    */
   certificateFileObject?: Readable;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * This is a file
    */
   description?: string;
   /**
    * @remarks
+   * The certificate file name. In a project workspace, certificate file names must be unique.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +34,8 @@ export class ImportCertificateAdvanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The ID of the workspace to which the certificate file belongs.
+   * 
    * This parameter is required.
    * 
    * @example

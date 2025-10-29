@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTableBusinessMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The data table ID. You can call the ListTables operation to query the ID.
+   * The table ID. You can refer to the format of the table ID returned by the ListTables operation.
    * 
    * This parameter is required.
    * 
@@ -17,6 +17,9 @@ export class UpdateTableBusinessMetadataRequest extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The usage notes. The rich text format is supported.
+   * 
    * @example
    * ## introduction
    */

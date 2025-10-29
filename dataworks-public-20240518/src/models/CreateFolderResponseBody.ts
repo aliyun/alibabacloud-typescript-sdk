@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFolderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the newly created folder.
+   * 
    * @example
    * bdfd68****
    */
   data?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID. Used for troubleshooting when errors occur.
+   * 
    * @example
    * 0000-ABCD-EFG
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded. Valid values:
+   * 
+   * true
+   * 
+   * false
+   * 
    * @example
    * true
    */

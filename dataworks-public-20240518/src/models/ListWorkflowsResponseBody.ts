@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTags extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,6 +213,10 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The task tag.
+   */
   tags?: ListWorkflowsResponseBodyPagingInfoWorkflowsTags[];
   /**
    * @remarks

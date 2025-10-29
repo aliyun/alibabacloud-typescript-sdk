@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEntityIntoMetaCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490

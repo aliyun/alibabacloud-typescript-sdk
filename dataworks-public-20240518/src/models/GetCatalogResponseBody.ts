@@ -4,13 +4,23 @@ import { Catalog } from "./Catalog";
 
 
 export class GetCatalogResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Catalog information.
+   */
   catalog?: Catalog;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

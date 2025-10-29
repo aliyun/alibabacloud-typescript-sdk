@@ -7,11 +7,11 @@ export class GetColumnRequest extends $dara.Model {
    * @remarks
    * The ID. You can refer to the response of the ListColumns operation and the [description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
    * 
-   * The format: `${EntityType}:${Instance ID or escaped URL}:${Catalog name}:${Database name}`. Use empty strings as placeholders for levels that do not exist.
+   * The format: `${EntityType}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Schema name}:${Table name}:${Column name}`. Use empty strings as placeholders for levels that do not exist.
    * 
-   * >  For the MaxCompute and DLF types, the instance ID level must be left empty. For the MaxCompute type, the instance ID level is represented by an empty string. The database name is the name of the MaxCompute project with schema enabled.
+   * >  For the MaxCompute and DLF types, use an empty string as the placeholder for the instance ID. For MaxCompute, the database name refers to the MaxCompute project name. If the project has schema enabled, you must specify the schema name. Otherwise, use an empty string as the placeholder for the schema name.
    * 
-   * >  The catalog identifier of the StarRocks is the catalog name, and the catalog identifier of the DLF type is the catalog ID. Other types do not support catalog levels and can use empty strings as placeholders.
+   * >  The catalog identifier of the StarRocks is the catalog name, and the catalog identifier of the DLF type is the catalog ID. Other types do not support catalog levels. Use empty strings as placeholders.
    * 
    * Examples of common ID formats
    * 
@@ -27,7 +27,7 @@ export class GetColumnRequest extends $dara.Model {
    * 
    * > \\
    * `instance_id`: the ID of the instance, which is required when the data source is registered in instance mode.\\
-   * `encoded_jdbc_url`: the URL-encoded JDBC connection string, which is required when the data source is registered via a connection string.\\
+   * `encoded_jdbc_url`: The URL-encoded JDBC connection string, which is required when the data source is registered via a connection string.\\
    * `catalog_id`: The DLF catalog ID.\\
    * `project_name`: The MaxCompute project name.\\
    * `database_name`: The database name.\\

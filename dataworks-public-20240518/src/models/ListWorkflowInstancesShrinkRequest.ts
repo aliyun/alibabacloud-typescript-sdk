@@ -80,11 +80,11 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   Normal
-   * *   Manual
-   * *   SmokeTest
-   * *   SupplementData
-   * *   ManualWorkflow
+   * *   Normal: Scheduled execution
+   * *   Manual: Manually triggered node
+   * *   SmokeTest: Smoke test
+   * *   SupplementData: Data backfill
+   * *   ManualWorkflow: Manually triggered workflow
    * 
    * @example
    * Normal

@@ -5,17 +5,30 @@ import { Table } from "./Table";
 
 export class ListTablesResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of data tables.
+   */
   tables?: Table[];
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 100
    */
@@ -51,13 +64,23 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListTablesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination result.
+   */
   pagingInfo?: ListTablesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E25887B7-579C-54A5-9C4F-83A****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

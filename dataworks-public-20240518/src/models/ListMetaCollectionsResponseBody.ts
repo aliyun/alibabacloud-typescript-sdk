@@ -3,24 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Model {
+  /**
+   * @remarks
+   * The list of administrator IDs. Supported only for album types. Administrators must be users within the same tenant. Multiple administrators can be specified.
+   */
   administrators?: string[];
   /**
    * @remarks
-   * The time when the collection was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time in milliseconds (timestamp).
    * 
    * @example
    * 1668568601000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator user ID.
+   * 
    * @example
    * 456789
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The collection description.
+   */
   description?: string;
   /**
    * @remarks
-   * The ID of the collection.
+   * The collection name.
    * 
    * @example
    * category.123
@@ -28,26 +39,36 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The time when the collection was modified. The value is a UNIX timestamp. Unit: milliseconds.
+   * The modification time in milliseconds (timestamp).
    * 
    * @example
    * 1668568601000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The collection name.
+   * 
    * @example
    * test_category
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the collection of the ancestor node. This parameter can be left empty.
+   * The ID of the parent collection. Can be empty.
    * 
    * @example
    * category.1
    */
   parentId?: string;
   /**
+   * @remarks
+   * The collection type. Valid values:
+   * 
+   * *   Category
+   * *   Album
+   * *   AlbumCategory: Album subcategory
+   * 
    * @example
    * Category
    */
@@ -95,20 +116,29 @@ export class ListMetaCollectionsResponseBodyDataMetaCollections extends $dara.Mo
 export class ListMetaCollectionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The collections.
+   * The list of collections.
    */
   metaCollections?: ListMetaCollectionsResponseBodyDataMetaCollections[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
@@ -146,12 +176,12 @@ export class ListMetaCollectionsResponseBodyData extends $dara.Model {
 export class ListMetaCollectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data.
+   * Pagination information.
    */
   data?: ListMetaCollectionsResponseBodyData;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * E25887B7-579C-54A5-9C4F-83A0DE367DDE

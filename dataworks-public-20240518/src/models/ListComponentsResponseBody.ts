@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComponentsResponseBodyPagingInfoComponentsInputs extends $dara.Model {
   /**
    * @remarks
-   * 输入参数的默认值
+   * The default value of the variable.
    * 
    * @example
    * mdb.shard.2x.2xlarge.d
@@ -13,7 +13,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsInputs extends $dara.
   defaultValue?: string;
   /**
    * @remarks
-   * 输入参数的描述信息
+   * The parameter description.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsInputs extends $dara.
   description?: string;
   /**
    * @remarks
-   * 输入参数的名称
+   * The parameter name.
    * 
    * @example
    * auto_updateAlertRule_test_bULIRo
@@ -29,7 +29,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsInputs extends $dara.
   name?: string;
   /**
    * @remarks
-   * 输入参数的数据类型
+   * The parameter type.
    * 
    * @example
    * string
@@ -65,7 +65,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsInputs extends $dara.
 export class ListComponentsResponseBodyPagingInfoComponentsOutputs extends $dara.Model {
   /**
    * @remarks
-   * 输出参数的默认值
+   * The default value.
    * 
    * @example
    * 32000
@@ -73,7 +73,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsOutputs extends $dara
   defaultValue?: string;
   /**
    * @remarks
-   * 输出参数的描述信息
+   * The parameter description.
    * 
    * @example
    * zdy
@@ -81,7 +81,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsOutputs extends $dara
   description?: string;
   /**
    * @remarks
-   * 输出参数的名称
+   * The parameter name.
    * 
    * @example
    * auto_updateAlertRule_test_bULIRo
@@ -89,7 +89,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsOutputs extends $dara
   name?: string;
   /**
    * @remarks
-   * 输出参数的数据类型
+   * The parameter type.
    * 
    * @example
    * string
@@ -125,7 +125,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsOutputs extends $dara
 export class ListComponentsResponseBodyPagingInfoComponentsScriptRuntime extends $dara.Model {
   /**
    * @remarks
-   * 脚本所属类型
+   * The command.
    * 
    * @example
    * SQL_COMPONENT
@@ -163,7 +163,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsScript extends $dara.
   id?: string;
   /**
    * @remarks
-   * 脚本路径
+   * The script path.
    * 
    * @example
    * /
@@ -171,7 +171,7 @@ export class ListComponentsResponseBodyPagingInfoComponentsScript extends $dara.
   path?: string;
   /**
    * @remarks
-   * 脚本的运行时信息
+   * The runtime.
    */
   runtime?: ListComponentsResponseBodyPagingInfoComponentsScriptRuntime;
   static names(): { [key: string]: string } {
@@ -204,12 +204,17 @@ export class ListComponentsResponseBodyPagingInfoComponentsScript extends $dara.
 
 export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model {
   /**
+   * @remarks
+   * The component ID. This parameter can be used in requests to query, modify, or delete director components.
+   * 
    * @example
    * 12312313123
    */
   componentId?: string;
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -218,7 +223,7 @@ export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * 对组件的描述
+   * The description.
    * 
    * @example
    * vpc peering management_staging
@@ -226,11 +231,13 @@ export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * 组件的输入参数列表
+   * The input parameters.
    */
   inputs?: ListComponentsResponseBodyPagingInfoComponentsInputs[];
   /**
    * @remarks
+   * The timestamp when the publishing process was modified.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -239,7 +246,7 @@ export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model 
   modifyTime?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The resource name.
    * 
    * @example
    * auto_updateAlertRule_test_lJd81f
@@ -247,25 +254,28 @@ export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * 组件的输出参数列表
+   * The output parameters.
    */
   outputs?: ListComponentsResponseBodyPagingInfoComponentsOutputs[];
   /**
    * @remarks
-   * 组件责任人
+   * The owner.
    * 
    * @example
    * 252675537980665607
    */
   owner?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. To obtain the workspace ID, log on to the DataWorks console and navigate to the workspace configuration page. You must specify either this parameter or ProjectIdentifier to identify the target DataWorks workspace for this API call.
+   * 
    * @example
    * 199925
    */
   projectId?: number;
   /**
    * @remarks
-   * 工作流的脚本信息
+   * The script information.
    */
   script?: ListComponentsResponseBodyPagingInfoComponentsScript;
   static names(): { [key: string]: string } {
@@ -317,18 +327,31 @@ export class ListComponentsResponseBodyPagingInfoComponents extends $dara.Model 
 }
 
 export class ListComponentsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the user who created the dataset acceleration component. In Alibaba Cloud, this is the RAM user ID (or the Alibaba Cloud account ID if created by the account itself).
+   */
   components?: ListComponentsResponseBodyPagingInfoComponents[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -364,8 +387,15 @@ export class ListComponentsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListComponentsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListComponentsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. Use this ID for troubleshooting.
+   * 
    * @example
    * 952795279527ab****
    */

@@ -5,12 +5,22 @@ import { Schema } from "./Schema";
 
 export class GetSchemaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A89B5D9D-74EA-XXXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The schema information.
+   */
   schema?: Schema;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

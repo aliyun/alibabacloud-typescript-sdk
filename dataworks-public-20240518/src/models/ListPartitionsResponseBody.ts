@@ -5,17 +5,30 @@ import { Partition } from "./Partition";
 
 export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of table partitions.
+   */
   partitionList?: Partition[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 1
    */
@@ -51,13 +64,23 @@ export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListPartitionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Pagination information.
+   */
   pagingInfo?: ListPartitionsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

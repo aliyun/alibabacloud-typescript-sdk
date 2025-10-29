@@ -5,15 +5,25 @@ import { Table } from "./Table";
 
 export class GetTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B3435F4-2D91-XXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * Detailed information about the table.
+   */
   table?: Table;
   static names(): { [key: string]: string } {
     return {

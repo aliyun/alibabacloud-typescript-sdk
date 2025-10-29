@@ -5,7 +5,15 @@ import { LineageTask } from "./LineageTask";
 
 
 export class CreateLineageRelationshipRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The destination entity.
+   */
   dstEntity?: LineageEntity;
+  /**
+   * @remarks
+   * The source entity.
+   */
   srcEntity?: LineageEntity;
   /**
    * @remarks

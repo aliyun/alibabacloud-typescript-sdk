@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLineageRelationshipResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 952795279527ab****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: success.
+   * *   false: failure.
+   * 
    * @example
    * true
    */

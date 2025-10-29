@@ -4,18 +4,31 @@ import { Database } from "./Database";
 
 
 export class ListDatabasesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The database list.
+   */
   databases?: Database[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 1
    */
@@ -51,13 +64,23 @@ export class ListDatabasesResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListDatabasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination result.
+   */
   pagingInfo?: ListDatabasesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9DD08926-38B9-XXXXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

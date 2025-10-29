@@ -4,18 +4,31 @@ import { Catalog } from "./Catalog";
 
 
 export class ListCatalogsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The catalog.
+   */
   catalogs?: Catalog[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 1
    */
@@ -51,13 +64,23 @@ export class ListCatalogsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListCatalogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination result.
+   */
   pagingInfo?: ListCatalogsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 317CD7D0-AB36-XXXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

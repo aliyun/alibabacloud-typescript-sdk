@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPipelineRunItemsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number, for pagination.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The number of entries per page. Default: 10. Maximum: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workflow task ID. To obtain the ID, see [ListPipelineRuns](https://help.aliyun.com/document_detail/438042.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class ListPipelineRunItemsRequest extends $dara.Model {
   pipelineRunId?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can obtain the workspace ID from the workspace configuration page in the DataWorks console.
+   * 
    * This parameter is required.
    * 
    * @example

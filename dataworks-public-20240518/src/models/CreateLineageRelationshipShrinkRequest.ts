@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateLineageRelationshipShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The destination entity.
+   */
   dstEntityShrink?: string;
+  /**
+   * @remarks
+   * The source entity.
+   */
   srcEntityShrink?: string;
   /**
    * @remarks

@@ -4,31 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
    * 1000001
    */
   data?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID. Use this ID to troubleshoot issues.
+   * 
    * @example
    * 0000-ABCD-EFG
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded. Valid values:
+   * 
+   * *   true: The call succeeded.
+   * *   false: The call failed.
+   * 
    * @example
    * true
    */

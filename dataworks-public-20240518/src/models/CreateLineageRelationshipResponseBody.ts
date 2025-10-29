@@ -12,11 +12,17 @@ export class CreateLineageRelationshipResponseBody extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID. The unique identifier of a request.
+   * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

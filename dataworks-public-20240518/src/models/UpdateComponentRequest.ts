@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComponentRequest extends $dara.Model {
   /**
    * @remarks
+   * The component ID.
+   * 
    * This parameter is required.
    * 
    * @example

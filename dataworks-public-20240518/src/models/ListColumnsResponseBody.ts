@@ -4,18 +4,31 @@ import { Column } from "./Column";
 
 
 export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The columns in the table.
+   */
   columns?: Column[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 1
    */
@@ -51,13 +64,23 @@ export class ListColumnsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListColumnsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination result.
+   */
   pagingInfo?: ListColumnsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

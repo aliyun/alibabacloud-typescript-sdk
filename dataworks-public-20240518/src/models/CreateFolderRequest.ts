@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFolderRequest extends $dara.Model {
   /**
    * @remarks
+   * The path of the folder.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class CreateFolderRequest extends $dara.Model {
    */
   folderPath?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace. You can obtain the workspace ID from the workspace configuration page in the DataWorks console. Either this parameter or **ProjectIdentifier** must be specified to determine which DataWorks workspace this API call operates on.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
+   * @remarks
+   * The name of the DataWorks workspace. You can obtain the workspace name from the workspace configuration page in the DataWorks console. Either this parameter or **ProjectId** must be specified to determine which DataWorks workspace this API call operates on.
+   * 
    * @example
    * dw_project
    */

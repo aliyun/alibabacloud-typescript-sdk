@@ -3,17 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
+  /**
+   * @remarks
+   * The list of administrator IDs. Valid only for the album type. The IDs must belong to users in the same tenant. Multiple IDs can be specified.
+   */
   administrators?: number[];
   /**
+   * @remarks
+   * The creation time in milliseconds.
+   * 
    * @example
    * 1668568601000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 456789
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The collection description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @remarks
@@ -24,24 +41,37 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The last modified time in milliseconds.
+   * 
    * @example
    * 1668568601000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The collection name.
+   * 
    * @example
    * test_category
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the collection of the ancestor node. This parameter can be left empty.
+   * The parent collection ID. This parameter can be empty.
    * 
    * @example
    * category.12
    */
   parentId?: string;
   /**
+   * @remarks
+   * The collection type. Valid values:
+   * 
+   * *   Category
+   * *   Album
+   * *   AlbumCategory: Album subcategory.
+   * 
    * @example
    * Category
    */
@@ -89,12 +119,12 @@ export class GetMetaCollectionResponseBodyMetaCollection extends $dara.Model {
 export class GetMetaCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the collection.
+   * The collection details.
    */
   metaCollection?: GetMetaCollectionResponseBodyMetaCollection;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****

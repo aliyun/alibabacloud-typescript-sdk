@@ -4,13 +4,23 @@ import { Database } from "./Database";
 
 
 export class GetDatabaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The database details.
+   */
   database?: Database;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

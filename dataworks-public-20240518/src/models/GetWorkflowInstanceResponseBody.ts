@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetWorkflowInstanceResponseBodyWorkflowInstanceTags extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -104,6 +112,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * WorkInstance1
    */
   name?: string;
+  owner?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -137,6 +146,10 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The task tag.
+   */
   tags?: GetWorkflowInstanceResponseBodyWorkflowInstanceTags[];
   /**
    * @remarks
@@ -160,7 +173,12 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * 1234
    */
   workflowId?: number;
+  /**
+   * @remarks
+   * The workflow parameters.
+   */
   workflowParameters?: string;
+  workflowTaskInstanceId?: number;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
@@ -172,6 +190,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
+      owner: 'Owner',
       projectId: 'ProjectId',
       startedTime: 'StartedTime',
       status: 'Status',
@@ -179,6 +198,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       type: 'Type',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
+      workflowTaskInstanceId: 'WorkflowTaskInstanceId',
     };
   }
 
@@ -193,6 +213,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
+      owner: 'string',
       projectId: 'number',
       startedTime: 'number',
       status: 'string',
@@ -200,6 +221,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       type: 'string',
       workflowId: 'number',
       workflowParameters: 'string',
+      workflowTaskInstanceId: 'number',
     };
   }
 

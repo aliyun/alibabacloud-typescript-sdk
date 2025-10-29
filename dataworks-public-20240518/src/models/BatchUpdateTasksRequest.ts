@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * odps_test
@@ -43,7 +43,7 @@ export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The image ID used in the task runtime configuration.
    * 
    * @example
    * i-xxxxxx
@@ -51,7 +51,7 @@ export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the scheduling resource group used in the task runtime configuration.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -127,7 +127,7 @@ export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
 export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. Takes effect when type=Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -135,7 +135,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss`.
+   * The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -155,7 +155,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss`.
+   * The time when periodic triggering takes effect. This parameter takes effect only if the Type parameter is set to Scheduler. The value of this parameter is in the `yyyy-mm-dd hh:mm:ss` format.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -165,8 +165,8 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
    * @remarks
    * The trigger type. Valid values:
    * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler: periodically triggered
+   * *   Manual
    * 
    * @example
    * Scheduler
@@ -204,7 +204,7 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
 export class BatchUpdateTasksRequestTasks extends $dara.Model {
   /**
    * @remarks
-   * The information about the associated data source.
+   * Associated data source information.
    */
   dataSource?: BatchUpdateTasksRequestTasksDataSource;
   /**
@@ -217,10 +217,10 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
+   * The project environment.
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod: Production
+   * *   Dev: Development
    * 
    * @example
    * Prod
@@ -254,7 +254,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The rerun interval. Unit: seconds.
+   * The retry interval in seconds.
    * 
    * @example
    * 60
@@ -264,9 +264,9 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
    * @remarks
    * The rerun mode. Valid values:
    * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun.
+   * *   FailureAllowed: The task can be rerun only after it fails.
+   * *   AllAllowed: The task can always be rerun.
    * 
    * @example
    * AllAllowed
@@ -274,7 +274,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * The number of retry attempts. Takes effect when the task is configured to allow reruns.
    * 
    * @example
    * 3
@@ -282,17 +282,17 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * Runtime environment configurations, such as resource group information.
    */
   runtimeResource?: BatchUpdateTasksRequestTasksRuntimeResource;
   /**
    * @remarks
-   * The tags.
+   * The list of task tags.
    */
   tags?: BatchUpdateTasksRequestTasksTags[];
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The task execution timeout in seconds. The value should be greater than 3600.
    * 
    * @example
    * 3600
@@ -300,7 +300,7 @@ export class BatchUpdateTasksRequestTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The trigger method.
+   * The task trigger configurations.
    */
   trigger?: BatchUpdateTasksRequestTasksTrigger;
   static names(): { [key: string]: string } {
@@ -371,7 +371,7 @@ export class BatchUpdateTasksRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The tasks.
+   * The list of tasks.
    */
   tasks?: BatchUpdateTasksRequestTasks[];
   static names(): { [key: string]: string } {

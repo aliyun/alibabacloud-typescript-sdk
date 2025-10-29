@@ -3,34 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends $dara.Model {
+  /**
+   * @remarks
+   * The entity comment.
+   * 
+   * @example
+   * test
+   */
   comment?: string;
   /**
+   * @remarks
+   * The creation time in milliseconds.
+   * 
    * @example
    * 1737078994080
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The description specified when the entity was added to the collection. Valid only for albums.
+   * 
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @remarks
-   * The entity ID. Entities can only be tables. This parameter is left empty if the entity is deleted.
+   * The ID of the entity. Currently, only the Table type is supported. If the entity is deleted, this field is empty.
    * 
    * @example
    * dlf-table:123456789:test_catalog:test_database::test_table
    */
   id?: string;
   /**
+   * @remarks
+   * The last modified time in milliseconds.
+   * 
    * @example
    * 1737078994080
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The entity name.
+   * 
    * @example
    * test_table
    */
   name?: string;
   /**
    * @remarks
-   * The type of the entity.
+   * The entity type.
    * 
    * @example
    * dlf-table
@@ -72,20 +95,29 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities extends 
 export class ListEntitiesInMetaCollectionResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The entities in the collection.
+   * The list of entities in the collection.
    */
   entities?: ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */
@@ -123,12 +155,12 @@ export class ListEntitiesInMetaCollectionResponseBodyPagingInfo extends $dara.Mo
 export class ListEntitiesInMetaCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination information.
+   * The pagination result.
    */
   pagingInfo?: ListEntitiesInMetaCollectionResponseBodyPagingInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F05080B0-CCE6-5D22-B284-34A51C5D4E28

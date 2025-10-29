@@ -4,13 +4,23 @@ import { Column } from "./Column";
 
 
 export class GetColumnResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The columns in the table.
+   */
   column?: Column;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

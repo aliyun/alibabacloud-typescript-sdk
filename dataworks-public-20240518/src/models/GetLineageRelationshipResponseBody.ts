@@ -4,8 +4,15 @@ import { LineageRelationship } from "./LineageRelationship";
 
 
 export class GetLineageRelationshipResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The lineage structure.
+   */
   lineageRelationship?: LineageRelationship;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 58D5334A-B013-430E
    */

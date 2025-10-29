@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   /**
+   * @remarks
+   * The folder ID.
+   * 
    * @example
    * 2735c2****
    */
   folderId?: string;
   /**
+   * @remarks
+   * The folder path.
+   * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
    */
@@ -37,18 +43,31 @@ export class ListFoldersResponseBodyDataFolders extends $dara.Model {
 }
 
 export class ListFoldersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of folders.
+   */
   folders?: ListFoldersResponseBodyDataFolders[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on the current page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of records that meet the query conditions.
+   * 
    * @example
    * 13
    */
@@ -84,28 +103,50 @@ export class ListFoldersResponseBodyData extends $dara.Model {
 }
 
 export class ListFoldersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of folders that meet the conditions.
+   */
   data?: ListFoldersResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID. Used to troubleshoot errors.
+   * 
    * @example
    * 0000-ABCD-****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: success.
+   * *   false: failure.
+   * 
    * @example
    * true
    */

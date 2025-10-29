@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The schema ID. You can call the ListSchemas operation to query the ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+   * The ID. You can refer to the ListSchemas operation and [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
    * 
-   * The common format of this parameter is `${Entity type}:${Instance ID or escaped URL}:${Catalog identifier}:${Database name}:${Schema name}`. If a level does not exist, specify an empty string as a placeholder.
+   * The format is `${EntityType}:${Instance ID or escaped URL}:${Catalog ID}:${Database name}:${Schema name}</code>`. Use empty strings as placeholders for missing levels.
    * 
-   * >  For MaxCompute tables, specify an empty string at the Instance ID level and a MaxCompute project name at the Database name level. Make sure that the three-layer model is enabled for the MaxCompute project.
+   * >  For the MaxCompute type, use an empty string as the placeholder for the instance ID level. The database name is the MaxCompute project name, and the project must have the three-level model enabled.
    * 
-   * You can configure this parameter in one of the following formats based on your data source type:
+   * Examples:
    * 
-   * `maxcompute-schema:::project_name:schema_name` (Three-layer model is enabled for the MaxCompute project.)
+   * `maxcompute-schema:::project_name:schema_name` (The three-level model is enabled for the MaxCompute project.)
    * 
    * `holo-schema:instance_id::database_name:schema_name`
    * 
    * > \\
-   * `instance_id`: the ID of a Hologres instance\\
-   * `database_name`: the name of a database\\
-   * `project_name`: the name of a MaxCompute project\\
-   * `schema_name`: the name of a schema
+   * `instance_id`: The Hologres instance ID\\
+   * . `database_name`: The database name\\
+   * . `database_name`: The MaxCompute project name\\
+   * . `schema_name`: The schema name.
    * 
    * This parameter is required.
    * 

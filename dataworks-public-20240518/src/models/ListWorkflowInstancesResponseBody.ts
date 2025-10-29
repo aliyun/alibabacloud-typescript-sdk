@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,6 +109,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * WorkflowInstance1
    */
   name?: string;
+  owner?: string;
   /**
    * @remarks
    * The workspace ID.
@@ -134,6 +143,10 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The task tag.
+   */
   tags?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags[];
   /**
    * @example
@@ -148,7 +161,12 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * 1234
    */
   workflowId?: number;
+  /**
+   * @remarks
+   * The workflow parameters.
+   */
   workflowParameters?: string;
+  workflowTaskInstanceId?: number;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
@@ -160,6 +178,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
+      owner: 'Owner',
       projectId: 'ProjectId',
       startedTime: 'StartedTime',
       status: 'Status',
@@ -167,6 +186,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       type: 'Type',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
+      workflowTaskInstanceId: 'WorkflowTaskInstanceId',
     };
   }
 
@@ -181,6 +201,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
+      owner: 'string',
       projectId: 'number',
       startedTime: 'number',
       status: 'string',
@@ -188,6 +209,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       type: 'string',
       workflowId: 'number',
       workflowParameters: 'string',
+      workflowTaskInstanceId: 'number',
     };
   }
 

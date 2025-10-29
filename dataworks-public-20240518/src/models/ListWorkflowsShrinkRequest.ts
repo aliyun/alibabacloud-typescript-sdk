@@ -77,7 +77,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The trigger type.
    * 
    * *   Scheduler
    * *   Manual

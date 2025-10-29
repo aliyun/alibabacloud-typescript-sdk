@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFolderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The connection does not exist.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful
+   * 
    * @example
    * true
    */

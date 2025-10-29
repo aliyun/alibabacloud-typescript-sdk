@@ -4,13 +4,23 @@ import { Partition } from "./Partition";
 
 
 export class GetPartitionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Partition details.
+   */
   partition?: Partition;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1E2E5BC-xxxx-xxxx-xxxx-xxxxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

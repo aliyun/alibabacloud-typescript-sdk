@@ -57,7 +57,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   inputsShrink?: string;
   /**
    * @remarks
-   * The instance generation mode. Valid values:
+   * The instance generation mode.
    * 
    * *   T+1: the next day
    * *   Immediately
@@ -89,7 +89,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The rerun interval. Unit: seconds.
+   * The rerun interval. Unit: milliseconds. Must not exceed 1800000.
    * 
    * @example
    * 60
@@ -132,7 +132,7 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * Task execution timeout in seconds. Must be greater than 3600.
    * 
    * @example
    * 3600
