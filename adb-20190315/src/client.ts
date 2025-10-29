@@ -3003,6 +3003,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }

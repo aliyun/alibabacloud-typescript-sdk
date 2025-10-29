@@ -17,6 +17,7 @@ export class DescribeConnectionCountRecordsRequest extends $dara.Model {
   DBClusterId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -24,6 +25,7 @@ export class DescribeConnectionCountRecordsRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -34,6 +36,7 @@ export class DescribeConnectionCountRecordsRequest extends $dara.Model {
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
