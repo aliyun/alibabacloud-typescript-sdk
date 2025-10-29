@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The ID of the system event.
+   * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
    */
   eventId?: string;
   /**
+   * @remarks
+   * The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The resource IDs.
+   * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
    */
@@ -53,12 +65,16 @@ export class BatchEventRebootInstanceResponseBodyResults extends $dara.Model {
 export class BatchEventRebootInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request。
+   * The ID of the request.
    * 
    * @example
    * C0003E8B-B930-4F59-ADC0-0E209A9012A8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   results?: BatchEventRebootInstanceResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

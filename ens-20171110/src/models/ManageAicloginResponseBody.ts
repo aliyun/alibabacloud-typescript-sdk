@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNetworkInterfacesResponseBody extends $dara.Model {
+export class ManageAICLoginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   * F3B261DD-3858-4D3C-877D-303ADF374600
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ImportImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * System architecture. Allowed values:</br>
+   * 
+   * - x86_64.</br>
+   * 
+   * Currently, only x86_64 is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +19,26 @@ export class ImportImageShrinkRequest extends $dara.Model {
   architecture?: string;
   /**
    * @remarks
+   * `Image Type`
+   * ens_vm: ens virtual machine image (default)
+   * 
    * This parameter is required.
    * 
    * @example
    * ens_vm
    */
   computeType?: string;
+  /**
+   * @remarks
+   * List of custom image information being created.
+   */
   diskDeviceMappingShrink?: string;
   /**
    * @remarks
+   * Image format. Allowed values:</br>
+   * qcow2.</br>
+   * Currently, only qcow2 is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,27 +47,48 @@ export class ImportImageShrinkRequest extends $dara.Model {
   imageFormat?: string;
   /**
    * @remarks
+   * Image name. The length should be [2, 128] English or Chinese characters. It must start with a letter (uppercase or lowercase) or a Chinese character, and cannot start with http:// or https://. It can contain numbers, colons (:), underscores (_), or hyphens (-).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 镜像名称
    */
   imageName?: string;
   licenseType?: string;
   /**
+   * @remarks
+   * The OSS Bucket where the image file is located.
+   * 
    * @example
    * tmp-hybrid
    */
   OSSBucket?: string;
   /**
+   * @remarks
+   * The name of the image file.
+   * 
    * @example
    * image-test
    */
   OSSObject?: string;
   /**
+   * @remarks
+   * The Region where the image is located. Currently, only cn-beijing is supported.
+   * 
    * @example
    * cn-beijing
    */
   OSSRegion?: string;
   /**
    * @remarks
+   * Operating system platform type. Allowed values:
+   * 
+   * - windows.
+   * - linux.
+   * 
+   * Currently, only linux is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,16 +96,29 @@ export class ImportImageShrinkRequest extends $dara.Model {
    */
   OSType?: string;
   /**
+   * @remarks
+   * Operating system distribution version
+   * 
    * @example
    * 6.8
    */
   OSVersion?: string;
   /**
+   * @remarks
+   * Operating system distribution. Allowed values:
+   * * centos
+   * * ubuntu
+   * 
    * @example
    * centos
    */
   platform?: string;
   /**
+   * @remarks
+   * The target OSS region where the image will be stored.</br>
+   * 
+   * > Currently, only cn-beijing and ap-southeast-1 are supported.
+   * 
    * @example
    * cn-beijing
    */

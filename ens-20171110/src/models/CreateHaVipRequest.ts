@@ -14,21 +14,33 @@ export class CreateHaVipRequest extends $dara.Model {
    */
   amount?: number;
   /**
+   * @remarks
+   * The description of the HAVIP.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * The IP address of the HAVIP.
+   * 
    * @example
    * 120.24.243.91
    */
   ipAddress?: string;
   /**
+   * @remarks
+   * The name of the HAVIP.
+   * 
    * @example
    * yourName
    */
   name?: string;
   /**
+   * @remarks
+   * The vSwitch ID of the HAVIP.
+   * 
    * @example
    * vsw-5****
    */

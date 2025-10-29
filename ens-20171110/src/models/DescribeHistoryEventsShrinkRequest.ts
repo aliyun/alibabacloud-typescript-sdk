@@ -36,6 +36,10 @@ export class DescribeHistoryEventsShrinkRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The IDs of resources.
+   */
   resourceIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {

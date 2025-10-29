@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchEventRedeployInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of events.
+   */
   eventInfosShrink?: string;
   static names(): { [key: string]: string } {
     return {

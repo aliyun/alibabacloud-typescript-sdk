@@ -790,7 +790,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因底层升级批量迁移
+   * Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
    * 
    * @param tmpReq - BatchEventMigrateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -827,7 +831,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因底层升级批量迁移
+   * Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
    * 
    * @param request - BatchEventMigrateInstanceRequest
    * @returns BatchEventMigrateInstanceResponse
@@ -838,16 +846,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量因系统维护实例重启
+   * The event that is used to immediately redeploy specified resources in batches or by appointment
    * 
    * @remarks
-   * ## 请求说明
-   * - `Action` 参数固定为 `BatchEventRebootInstance`。
-   * - `Version` 参数固定为 `2017-11-10`。
-   * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
-   * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
-   * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
-   * - 错误情况下，返回相应的错误代码和消息。
+   *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
    * 
    * @param tmpReq - BatchEventRebootInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -884,16 +886,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量因系统维护实例重启
+   * The event that is used to immediately redeploy specified resources in batches or by appointment
    * 
    * @remarks
-   * ## 请求说明
-   * - `Action` 参数固定为 `BatchEventRebootInstance`。
-   * - `Version` 参数固定为 `2017-11-10`。
-   * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
-   * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
-   * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
-   * - 错误情况下，返回相应的错误代码和消息。
+   *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
    * 
    * @param request - BatchEventRebootInstanceRequest
    * @returns BatchEventRebootInstanceResponse
@@ -904,7 +900,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量操作重新部署
+   * Batch redeployment
+   * 
+   * @remarks
+   * - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
    * 
    * @param tmpReq - BatchEventRedeployInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -941,7 +940,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量操作重新部署
+   * Batch redeployment
+   * 
+   * @remarks
+   * - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
    * 
    * @param request - BatchEventRedeployInstanceRequest
    * @returns BatchEventRedeployInstanceResponse
@@ -1890,7 +1892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建高可用VIP
+   * Creates a high-availability virtual IP address (HAVIP).
    * 
    * @param request - CreateHaVipRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1937,7 +1939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建高可用VIP
+   * Creates a high-availability virtual IP address (HAVIP).
    * 
    * @param request - CreateHaVipRequest
    * @returns CreateHaVipResponse
@@ -3618,6 +3620,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除托管公钥
+   * 
+   * @param request - DeleteAICPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAICPublicKeyResponse
+   */
+  async deleteAICPublicKeyWithOptions(request: $_model.DeleteAICPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAICPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAICPublicKey",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAICPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAICPublicKeyResponse({}));
+  }
+
+  /**
+   * 删除托管公钥
+   * 
+   * @param request - DeleteAICPublicKeyRequest
+   * @returns DeleteAICPublicKeyResponse
+   */
+  async deleteAICPublicKey(request: $_model.DeleteAICPublicKeyRequest): Promise<$_model.DeleteAICPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAICPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Releases all containers and resource instances related to a specific application in an asynchronous manner.
    * 
    * @param request - DeleteApplicationRequest
@@ -4140,7 +4184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高可用VIP实例
+   * Deletes a high-availability VIP (HAVIP).
    * 
    * @param tmpReq - DeleteHaVipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4177,7 +4221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高可用VIP实例
+   * Deletes a high-availability VIP (HAVIP).
    * 
    * @param request - DeleteHaVipsRequest
    * @returns DeleteHaVipsResponse
@@ -4570,7 +4614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除弹性网卡
+   * Deletes an elastic network interface (ENI).
    * 
    * @param tmpReq - DeleteNetworkInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4607,7 +4651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除弹性网卡
+   * Deletes an elastic network interface (ENI).
    * 
    * @param request - DeleteNetworkInterfacesRequest
    * @returns DeleteNetworkInterfacesResponse
@@ -7422,6 +7466,9 @@ export default class Client extends OpenApi {
   /**
    * Queries instance system events.
    * 
+   * @remarks
+   *   You must specify an event type to query. You can query multiple event types at the same time.
+   * 
    * @param tmpReq - DescribeHistoryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeHistoryEventsResponse
@@ -7490,6 +7537,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries instance system events.
+   * 
+   * @remarks
+   *   You must specify an event type to query. You can query multiple event types at the same time.
    * 
    * @param request - DescribeHistoryEventsRequest
    * @returns DescribeHistoryEventsResponse
@@ -7708,7 +7758,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例5分钟粒度带宽明细
+   * Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+   * 
+   * @remarks
+   *   You can call this operation up to 800 times per second per account.
+   * *   You can call this operation up to 100 times per second per user.
+   * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
    * 
    * @param request - DescribeInstanceBandwidthDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7735,7 +7790,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例5分钟粒度带宽明细
+   * Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+   * 
+   * @remarks
+   *   You can call this operation up to 800 times per second per account.
+   * *   You can call this operation up to 100 times per second per user.
+   * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
    * 
    * @param request - DescribeInstanceBandwidthDetailRequest
    * @returns DescribeInstanceBandwidthDetailResponse
@@ -9494,6 +9554,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.DescribeSDGDeploymentStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.diskIds)) {
+      request.diskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.diskIds, "DiskIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
@@ -9505,6 +9569,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.deploymentType)) {
       query["DeploymentType"] = request.deploymentType;
+    }
+
+    if (!$dara.isNull(request.diskIdsShrink)) {
+      query["DiskIds"] = request.diskIdsShrink;
     }
 
     if (!$dara.isNull(request.instanceIdsShrink)) {
@@ -9557,6 +9625,64 @@ export default class Client extends OpenApi {
   async describeSDGDeploymentStatus(request: $_model.DescribeSDGDeploymentStatusRequest): Promise<$_model.DescribeSDGDeploymentStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSDGDeploymentStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SDG下的共享盘
+   * 
+   * @param request - DescribeSDGSharedDisksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSDGSharedDisksResponse
+   */
+  async describeSDGSharedDisksWithOptions(request: $_model.DescribeSDGSharedDisksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSDGSharedDisksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sdgId)) {
+      query["SdgId"] = request.sdgId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSDGSharedDisks",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSDGSharedDisksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSDGSharedDisksResponse({}));
+  }
+
+  /**
+   * 查询SDG下的共享盘
+   * 
+   * @param request - DescribeSDGSharedDisksRequest
+   * @returns DescribeSDGSharedDisksResponse
+   */
+  async describeSDGSharedDisks(request: $_model.DescribeSDGSharedDisksRequest): Promise<$_model.DescribeSDGSharedDisksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSDGSharedDisksWithOptions(request, runtime);
   }
 
   /**
@@ -10318,7 +10444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+   * Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
    * 
    * @param request - DescribeVSwitchAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10349,7 +10475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+   * Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
    * 
    * @param request - DescribeVSwitchAttributesRequest
    * @returns DescribeVSwitchAttributesResponse
@@ -10634,7 +10760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因底层升级需要迁移
+   * Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+   * 
+   * @remarks
+   *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
    * 
    * @param request - EventMigrateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10685,7 +10814,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因底层升级需要迁移
+   * Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+   * 
+   * @remarks
+   *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
    * 
    * @param request - EventMigrateInstanceRequest
    * @returns EventMigrateInstanceResponse
@@ -10696,14 +10828,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因系统维护实例重启
+   * Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于触发一个实例的重启事件。
-   * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
-   * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
-   * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+   *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
    * 
    * @param request - EventRebootInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10746,14 +10874,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 因系统维护实例重启
+   * Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该API用于触发一个实例的重启事件。
-   * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
-   * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
-   * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+   *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
    * 
    * @param request - EventRebootInstanceRequest
    * @returns EventRebootInstanceResponse
@@ -10764,7 +10888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 节点内迁移
+   * The event that is used to immediately redeploy a specified resource or by appointment
+   * 
+   * @remarks
+   *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
    * 
    * @param request - EventRedeployInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10807,7 +10934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 节点内迁移
+   * The event that is used to immediately redeploy a specified resource or by appointment
+   * 
+   * @remarks
+   *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
    * 
    * @param request - EventRedeployInstanceRequest
    * @returns EventRedeployInstanceResponse
@@ -11180,7 +11310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ImportImage导入一份您的镜像文件到云服务器。
+   * Call ImportImage to import your image file to the cloud server.
    * 
    * @param tmpReq - ImportImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11265,7 +11395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ImportImage导入一份您的镜像文件到云服务器。
+   * Call ImportImage to import your image file to the cloud server.
    * 
    * @param request - ImportImageRequest
    * @returns ImportImageResponse
@@ -11537,6 +11667,126 @@ export default class Client extends OpenApi {
   async leaveSecurityGroup(request: $_model.LeaveSecurityGroupRequest): Promise<$_model.LeaveSecurityGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.leaveSecurityGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询公钥下发信息
+   * 
+   * @param request - ListAICPublicKeyDeliveriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAICPublicKeyDeliveriesResponse
+   */
+  async listAICPublicKeyDeliveriesWithOptions(request: $_model.ListAICPublicKeyDeliveriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAICPublicKeyDeliveriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyGroup)) {
+      query["KeyGroup"] = request.keyGroup;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAICPublicKeyDeliveries",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAICPublicKeyDeliveriesResponse>(await this.callApi(params, req, runtime), new $_model.ListAICPublicKeyDeliveriesResponse({}));
+  }
+
+  /**
+   * 查询公钥下发信息
+   * 
+   * @param request - ListAICPublicKeyDeliveriesRequest
+   * @returns ListAICPublicKeyDeliveriesResponse
+   */
+  async listAICPublicKeyDeliveries(request: $_model.ListAICPublicKeyDeliveriesRequest): Promise<$_model.ListAICPublicKeyDeliveriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAICPublicKeyDeliveriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询所有托管的公钥
+   * 
+   * @param request - ListAICPublicKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAICPublicKeysResponse
+   */
+  async listAICPublicKeysWithOptions(request: $_model.ListAICPublicKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAICPublicKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyGroup)) {
+      query["KeyGroup"] = request.keyGroup;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAICPublicKeys",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAICPublicKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListAICPublicKeysResponse({}));
+  }
+
+  /**
+   * 查询所有托管的公钥
+   * 
+   * @param request - ListAICPublicKeysRequest
+   * @returns ListAICPublicKeysResponse
+   */
+  async listAICPublicKeys(request: $_model.ListAICPublicKeysRequest): Promise<$_model.ListAICPublicKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAICPublicKeysWithOptions(request, runtime);
   }
 
   /**
@@ -11812,6 +12062,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AIC公钥登入管理
+   * 
+   * @param request - ManageAICLoginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageAICLoginResponse
+   */
+  async manageAICLoginWithOptions(request: $_model.ManageAICLoginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ManageAICLoginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionName)) {
+      query["ActionName"] = request.actionName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyGroup)) {
+      query["KeyGroup"] = request.keyGroup;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageAICLogin",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageAICLoginResponse>(await this.callApi(params, req, runtime), new $_model.ManageAICLoginResponse({}));
+  }
+
+  /**
+   * AIC公钥登入管理
+   * 
+   * @param request - ManageAICLoginRequest
+   * @returns ManageAICLoginResponse
+   */
+  async manageAICLogin(request: $_model.ManageAICLoginRequest): Promise<$_model.ManageAICLoginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manageAICLoginWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
    * 
    * @param request - ModifyEnsEipAddressAttributeRequest
@@ -11866,7 +12170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+   * Modifies the name and description of a custom route.
    * 
    * @param request - ModifyEnsRouteEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11905,7 +12209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+   * Modifies the name and description of a custom route.
    * 
    * @param request - ModifyEnsRouteEntryRequest
    * @returns ModifyEnsRouteEntryResponse
@@ -12362,7 +12666,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+   * 
+   * @remarks
+   *   If an instance is in the Starting state, you cannot reset the password of the instance.
+   * *   If the instance is in the Running state, you cannot change the password of the instance.
+   * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
    * 
    * @param request - ModifyInstanceBootConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12389,7 +12698,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改启动配置，只支持异构实例(PCFarm裸金属)。
+   * Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+   * 
+   * @remarks
+   *   If an instance is in the Starting state, you cannot reset the password of the instance.
+   * *   If the instance is in the Running state, you cannot change the password of the instance.
+   * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
    * 
    * @param request - ModifyInstanceBootConfigurationRequest
    * @returns ModifyInstanceBootConfigurationResponse
@@ -14889,6 +15203,18 @@ export default class Client extends OpenApi {
       query["KeyPairName"] = request.keyPairName;
     }
 
+    if (!$dara.isNull(request.launchTemplateId)) {
+      query["LaunchTemplateId"] = request.launchTemplateId;
+    }
+
+    if (!$dara.isNull(request.launchTemplateName)) {
+      query["LaunchTemplateName"] = request.launchTemplateName;
+    }
+
+    if (!$dara.isNull(request.launchTemplateVersion)) {
+      query["LaunchTemplateVersion"] = request.launchTemplateVersion;
+    }
+
     if (!$dara.isNull(request.netDistrictCode)) {
       query["NetDistrictCode"] = request.netDistrictCode;
     }
@@ -15653,6 +15979,58 @@ export default class Client extends OpenApi {
   async setLoadBalancerUDPListenerAttribute(request: $_model.SetLoadBalancerUDPListenerAttributeRequest): Promise<$_model.SetLoadBalancerUDPListenerAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 共享AIC镜像
+   * 
+   * @param tmpReq - ShareAICImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ShareAICImageResponse
+   */
+  async shareAICImageWithOptions(tmpReq: $_model.ShareAICImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ShareAICImageResponse> {
+    tmpReq.validate();
+    let request = new $_model.ShareAICImageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.users)) {
+      request.usersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.users, "Users", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.usersShrink)) {
+      query["Users"] = request.usersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ShareAICImage",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ShareAICImageResponse>(await this.callApi(params, req, runtime), new $_model.ShareAICImageResponse({}));
+  }
+
+  /**
+   * 共享AIC镜像
+   * 
+   * @param request - ShareAICImageRequest
+   * @returns ShareAICImageResponse
+   */
+  async shareAICImage(request: $_model.ShareAICImageRequest): Promise<$_model.ShareAICImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.shareAICImageWithOptions(request, runtime);
   }
 
   /**
@@ -16709,6 +17087,64 @@ export default class Client extends OpenApi {
   async upgradeApplication(request: $_model.UpgradeApplicationRequest): Promise<$_model.UpgradeApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传公钥
+   * 
+   * @param request - UploadAICPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadAICPublicKeyResponse
+   */
+  async uploadAICPublicKeyWithOptions(request: $_model.UploadAICPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadAICPublicKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.keyGroup)) {
+      query["KeyGroup"] = request.keyGroup;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadAICPublicKey",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadAICPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.UploadAICPublicKeyResponse({}));
+  }
+
+  /**
+   * 上传公钥
+   * 
+   * @param request - UploadAICPublicKeyRequest
+   * @returns UploadAICPublicKeyResponse
+   */
+  async uploadAICPublicKey(request: $_model.UploadAICPublicKeyRequest): Promise<$_model.UploadAICPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadAICPublicKeyWithOptions(request, runtime);
   }
 
 }

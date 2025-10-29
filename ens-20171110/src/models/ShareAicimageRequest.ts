@@ -2,29 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteHaVipsRequest extends $dara.Model {
+export class ShareAICImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of high-availability virtual IP addresses (HAVIPs).
+   * This parameter is required.
    * 
+   * @example
+   * mykey
+   */
+  imageId?: string;
+  /**
+   * @remarks
    * This parameter is required.
    */
-  haVipIds?: string[];
+  users?: string[];
   static names(): { [key: string]: string } {
     return {
-      haVipIds: 'HaVipIds',
+      imageId: 'ImageId',
+      users: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      haVipIds: { 'type': 'array', 'itemType': 'string' },
+      imageId: 'string',
+      users: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
-    if(Array.isArray(this.haVipIds)) {
-      $dara.Model.validateArray(this.haVipIds);
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
     }
     super.validate();
   }

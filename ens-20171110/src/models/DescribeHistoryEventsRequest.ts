@@ -36,6 +36,10 @@ export class DescribeHistoryEventsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The IDs of resources.
+   */
   resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {

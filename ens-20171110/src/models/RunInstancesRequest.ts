@@ -160,8 +160,6 @@ export class RunInstancesRequest extends $dara.Model {
    * @remarks
    * The number of instances that you want to create. Valid values: 1 to 100.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -273,8 +271,6 @@ export class RunInstancesRequest extends $dara.Model {
    * *   **PrePaid**: subscription.
    * *   **PostPaid:** pay-as-you-go.
    * 
-   * This parameter is required.
-   * 
    * @example
    * PostPaid
    */
@@ -292,8 +288,6 @@ export class RunInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance type.
-   * 
-   * This parameter is required.
    * 
    * @example
    * ens.sn1.small
@@ -315,8 +309,6 @@ export class RunInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is assigned to the instance.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1
@@ -346,6 +338,21 @@ export class RunInstancesRequest extends $dara.Model {
    * wx2-jumpserver
    */
   keyPairName?: string;
+  /**
+   * @example
+   * lt-test
+   */
+  launchTemplateId?: string;
+  /**
+   * @example
+   * lt-test
+   */
+  launchTemplateName?: string;
+  /**
+   * @example
+   * 2
+   */
+  launchTemplateVersion?: number;
   /**
    * @remarks
    * The code of the region.
@@ -437,8 +444,6 @@ export class RunInstancesRequest extends $dara.Model {
    * *   **Middle**: province
    * *   **Small**: city
    * *   **Region**: node
-   * 
-   * This parameter is required.
    * 
    * @example
    * Region
@@ -560,6 +565,9 @@ export class RunInstancesRequest extends $dara.Model {
       ipType: 'IpType',
       ipv6AddressCount: 'Ipv6AddressCount',
       keyPairName: 'KeyPairName',
+      launchTemplateId: 'LaunchTemplateId',
+      launchTemplateName: 'LaunchTemplateName',
+      launchTemplateVersion: 'LaunchTemplateVersion',
       netDistrictCode: 'NetDistrictCode',
       netWorkId: 'NetWorkId',
       password: 'Password',
@@ -604,6 +612,9 @@ export class RunInstancesRequest extends $dara.Model {
       ipType: 'string',
       ipv6AddressCount: 'number',
       keyPairName: 'string',
+      launchTemplateId: 'string',
+      launchTemplateName: 'string',
+      launchTemplateVersion: 'number',
       netDistrictCode: 'string',
       netWorkId: 'string',
       password: 'string',

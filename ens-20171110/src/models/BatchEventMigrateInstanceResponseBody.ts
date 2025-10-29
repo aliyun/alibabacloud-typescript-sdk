@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The ID of the event.
+   * 
    * @example
    * e-d71ff150945b9c02eb6ebc0016328468
    */
   eventId?: string;
   /**
+   * @remarks
+   * When Code!=200, it indicates the specific error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The resource IDs.
+   * 
    * @example
    * i-55qi8m11rr53c4i964md8a00l
    */
@@ -52,10 +64,17 @@ export class BatchEventMigrateInstanceResponseBodyResults extends $dara.Model {
 
 export class BatchEventMigrateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * FF53E96D-3F1A-42F0-8373-1C2B39D72D44
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The results.
+   */
   results?: BatchEventMigrateInstanceResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

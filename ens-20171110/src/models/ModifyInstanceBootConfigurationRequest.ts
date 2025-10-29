@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyInstanceBootConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The startup method.
+   * 
    * @example
    * legacy
    */
   bootSet?: string;
   /**
    * @remarks
+   * The startup type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class ModifyInstanceBootConfigurationRequest extends $dara.Model {
    */
   bootType?: string;
   /**
+   * @remarks
+   * Specifies whether the startup depends on the disk.
+   * 
    * @example
    * on
    */
   diskSet?: string;
   /**
    * @remarks
+   * The ID of the instance for which you want to modify the configuration. You can specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example

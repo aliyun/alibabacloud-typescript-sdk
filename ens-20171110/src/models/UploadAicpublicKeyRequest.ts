@@ -2,48 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyEnsRouteEntryRequest extends $dara.Model {
+export class UploadAICPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the route entry. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The ID of the custom route.
-   * 
    * This parameter is required.
    * 
    * @example
-   * rte-5****
+   * verify_dffeb6610035dcb77b413a59c3
    */
-  routeEntryId?: string;
+  content?: string;
+  /**
+   * @example
+   * 测试
+   */
+  description?: string;
+  /**
+   * @example
+   * g-test
+   */
+  keyGroup?: string;
   /**
    * @remarks
-   * The name of the route.
-   * 
-   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * This parameter is required.
    * 
    * @example
-   * test
+   * mykey
    */
-  routeEntryName?: string;
+  keyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * adb
+   */
+  keyType?: string;
   static names(): { [key: string]: string } {
     return {
+      content: 'Content',
       description: 'Description',
-      routeEntryId: 'RouteEntryId',
-      routeEntryName: 'RouteEntryName',
+      keyGroup: 'KeyGroup',
+      keyName: 'KeyName',
+      keyType: 'KeyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      content: 'string',
       description: 'string',
-      routeEntryId: 'string',
-      routeEntryName: 'string',
+      keyGroup: 'string',
+      keyName: 'string',
+      keyType: 'string',
     };
   }
 

@@ -2,24 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNetworkInterfacesResponseBody extends $dara.Model {
+export class ShareAICImageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * This parameter is required.
    * 
    * @example
-   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   * mykey
    */
-  requestId?: string;
+  imageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  usersShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      imageId: 'ImageId',
+      usersShrink: 'Users',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      imageId: 'string',
+      usersShrink: 'string',
     };
   }
 

@@ -2,10 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNetworkInterfacesResponseBody extends $dara.Model {
+export class UploadAICPublicKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06

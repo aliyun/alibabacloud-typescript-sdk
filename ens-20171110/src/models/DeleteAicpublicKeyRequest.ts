@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteNetworkInterfacesResponseBody extends $dara.Model {
+export class DeleteAICPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * This parameter is required.
    * 
    * @example
-   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   * mykey
    */
-  requestId?: string;
+  keyName?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      keyName: 'KeyName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      keyName: 'string',
     };
   }
 

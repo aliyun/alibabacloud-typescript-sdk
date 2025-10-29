@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHaVipsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of high-availability virtual IP addresses (HAVIPs).
+   * 
    * This parameter is required.
    */
   haVipIdsShrink?: string;

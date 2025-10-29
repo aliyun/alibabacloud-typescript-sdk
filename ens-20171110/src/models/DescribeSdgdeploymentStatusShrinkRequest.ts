@@ -11,6 +11,7 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
    * shared
    */
   deploymentType?: string;
+  diskIdsShrink?: string;
   /**
    * @remarks
    * IDs of Android in Container (AIC) instances.
@@ -58,6 +59,7 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       deploymentType: 'DeploymentType',
+      diskIdsShrink: 'DiskIds',
       instanceIdsShrink: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -70,6 +72,7 @@ export class DescribeSDGDeploymentStatusShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       deploymentType: 'string',
+      diskIdsShrink: 'string',
       instanceIdsShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',

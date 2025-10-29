@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchAttributesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the VSwitch.
+   * 
    * This parameter is required.
    * 
    * @example

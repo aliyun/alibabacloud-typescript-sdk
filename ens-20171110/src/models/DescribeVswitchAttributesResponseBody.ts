@@ -134,56 +134,110 @@ export class DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds extends $d
 
 export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of available IP addresses in the VSwitch.
+   * 
    * @example
    * 253
    */
   availableIpAddressCount?: number;
   /**
+   * @remarks
+   * The IPv4 CIDR block of the network.
+   * 
    * @example
    * 10.0.0.0/24
    */
   cidrBlock?: string;
   /**
+   * @remarks
+   * The creation time, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
+   * 
    * @example
    * 2019-06-01T00:00:00Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The description of the VSwitch.
+   * 
    * @example
    * This is my vswitch.
    */
   description?: string;
   /**
+   * @remarks
+   * The ENS node ID.
+   * 
    * @example
    * cn-xian-unicom
    */
   ensRegionId?: string;
+  /**
+   * @remarks
+   * A list of high-availability VIP instance IDs.
+   */
   haVipIds?: DescribeVSwitchAttributesResponseBodyHaVipIds;
+  /**
+   * @remarks
+   * A list of instance IDs.
+   */
   instanceIds?: DescribeVSwitchAttributesResponseBodyInstanceIds;
+  /**
+   * @remarks
+   * A list of load balancer instance IDs.
+   */
   loadBalancerIds?: DescribeVSwitchAttributesResponseBodyLoadBalancerIds;
+  /**
+   * @remarks
+   * A list of NAT gateway IDs.
+   */
   natGatewayIds?: DescribeVSwitchAttributesResponseBodyNatGatewayIds;
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * n-257gqcdfvx6n****
    */
   networkId?: string;
+  /**
+   * @remarks
+   * A list of elastic network interface IDs.
+   */
   networkInterfaceIds?: DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C0003****2A8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the VSwitch, as follows:
+   * 
+   * - Pending
+   * - Available
+   * - Releasing
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the VSwitch.
+   * 
    * @example
    * vsw-5****
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The name of the VSwitch.
+   * 
    * @example
    * Test-switch
    */
