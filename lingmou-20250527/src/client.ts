@@ -81,6 +81,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建背景素材
+   * 
+   * @param request - CreateBackgroundPicRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackgroundPicResponse
+   */
+  async createBackgroundPicWithOptions(request: $_model.CreateBackgroundPicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBackgroundPicResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filename)) {
+      query["filename"] = request.filename;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      query["ossKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBackgroundPic",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/chat/createBackgroundPic`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBackgroundPicResponse>(await this.callApi(params, req, runtime), new $_model.CreateBackgroundPicResponse({}));
+  }
+
+  /**
+   * 创建背景素材
+   * 
+   * @param request - CreateBackgroundPicRequest
+   * @returns CreateBackgroundPicResponse
+   */
+  async createBackgroundPic(request: $_model.CreateBackgroundPicRequest): Promise<$_model.CreateBackgroundPicResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBackgroundPicWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 背景配置
+   * 
+   * @param request - CreateChatConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatConfigResponse
+   */
+  async createChatConfigWithOptions(request: $_model.CreateChatConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.avatarId)) {
+      query["avatarId"] = request.avatarId;
+    }
+
+    if (!$dara.isNull(request.backgroundId)) {
+      query["backgroundId"] = request.backgroundId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatConfig",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/chat/createChatConfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatConfigResponse({}));
+  }
+
+  /**
+   * 背景配置
+   * 
+   * @param request - CreateChatConfigRequest
+   * @returns CreateChatConfigResponse
+   */
+  async createChatConfig(request: $_model.CreateChatConfigRequest): Promise<$_model.CreateChatConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createChatConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建数字人会话
    * 
    * @param request - CreateChatSessionRequest
@@ -131,6 +229,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createChatSessionWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 创建对话免训照片数字人
+   * 
+   * @param request - CreateNoTrainPicAvatarRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNoTrainPicAvatarResponse
+   */
+  async createNoTrainPicAvatarWithOptions(request: $_model.CreateNoTrainPicAvatarRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNoTrainPicAvatarResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expressiveness)) {
+      query["expressiveness"] = request.expressiveness;
+    }
+
+    if (!$dara.isNull(request.gender)) {
+      query["gender"] = request.gender;
+    }
+
+    if (!$dara.isNull(request.generateAssets)) {
+      query["generateAssets"] = request.generateAssets;
+    }
+
+    if (!$dara.isNull(request.imageOssPath)) {
+      query["imageOssPath"] = request.imageOssPath;
+    }
+
+    if (!$dara.isNull(request.jwtToken)) {
+      query["jwtToken"] = request.jwtToken;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.transparent)) {
+      query["transparent"] = request.transparent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNoTrainPicAvatar",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/chat/createNoTrainPicAvatar`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNoTrainPicAvatarResponse>(await this.callApi(params, req, runtime), new $_model.CreateNoTrainPicAvatarResponse({}));
+  }
+
+  /**
+   * 创建对话免训照片数字人
+   * 
+   * @param request - CreateNoTrainPicAvatarRequest
+   * @returns CreateNoTrainPicAvatarResponse
+   */
+  async createNoTrainPicAvatar(request: $_model.CreateNoTrainPicAvatarRequest): Promise<$_model.CreateNoTrainPicAvatarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createNoTrainPicAvatarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取对话免训图片素材上传凭证
+   * 
+   * @param request - GetUploadPolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadPolicyResponse
+   */
+  async getUploadPolicyWithOptions(request: $_model.GetUploadPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUploadPolicyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jwtToken)) {
+      query["jwtToken"] = request.jwtToken;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUploadPolicy",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/chat/getUploadPolicy`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUploadPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetUploadPolicyResponse({}));
+  }
+
+  /**
+   * 获取对话免训图片素材上传凭证
+   * 
+   * @param request - GetUploadPolicyRequest
+   * @returns GetUploadPolicyResponse
+   */
+  async getUploadPolicy(request: $_model.GetUploadPolicyRequest): Promise<$_model.GetUploadPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getUploadPolicyWithOptions(request, headers, runtime);
   }
 
   /**
