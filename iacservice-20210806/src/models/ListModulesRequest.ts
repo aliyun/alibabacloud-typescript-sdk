@@ -35,6 +35,7 @@ export class ListModulesRequest extends $dara.Model {
    * key
    */
   keyword?: string;
+  moduleName?: string;
   /**
    * @example
    * 1
@@ -51,6 +52,7 @@ export class ListModulesRequest extends $dara.Model {
     return {
       groupId: 'groupId',
       keyword: 'keyword',
+      moduleName: 'moduleName',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       projectId: 'projectId',
@@ -62,6 +64,7 @@ export class ListModulesRequest extends $dara.Model {
     return {
       groupId: 'string',
       keyword: 'string',
+      moduleName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'string',

@@ -3,12 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JobStatusDetailValue extends $dara.Model {
+  comment?: string;
   /**
    * @example
    * {}
    */
   jobResult?: string;
-  comment?: string;
   /**
    * @example
    * 2022-06-13 17:11:34
@@ -16,16 +16,16 @@ export class JobStatusDetailValue extends $dara.Model {
   timeStamps?: string;
   static names(): { [key: string]: string } {
     return {
-      jobResult: 'jobResult',
       comment: 'comment',
+      jobResult: 'jobResult',
       timeStamps: 'timeStamps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobResult: 'string',
       comment: 'string',
+      jobResult: 'string',
       timeStamps: 'string',
     };
   }

@@ -124,11 +124,13 @@ export class GetJobResponseBodyJob extends $dara.Model {
    * job-518855d9a058cfff0dc933e6b5767
    */
   jobId?: string;
+  logFile?: { [key: string]: any };
   /**
    * @example
    * /
    */
   output?: string;
+  outputJsonPlan?: any;
   parameters?: { [key: string]: string };
   /**
    * @example
@@ -154,7 +156,9 @@ export class GetJobResponseBodyJob extends $dara.Model {
       executeType: 'executeType',
       isPassAssertCheck: 'isPassAssertCheck',
       jobId: 'jobId',
+      logFile: 'logFile',
       output: 'output',
+      outputJsonPlan: 'outputJsonPlan',
       parameters: 'parameters',
       status: 'status',
       statusDetail: 'statusDetail',
@@ -175,7 +179,9 @@ export class GetJobResponseBodyJob extends $dara.Model {
       executeType: 'string',
       isPassAssertCheck: 'boolean',
       jobId: 'string',
+      logFile: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       output: 'string',
+      outputJsonPlan: 'any',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       status: 'string',
       statusDetail: { 'type': 'map', 'keyType': 'string', 'valueType': JobStatusDetailValue },
@@ -194,6 +200,9 @@ export class GetJobResponseBodyJob extends $dara.Model {
     }
     if(this.downloadUrl) {
       $dara.Model.validateMap(this.downloadUrl);
+    }
+    if(this.logFile) {
+      $dara.Model.validateMap(this.logFile);
     }
     if(this.parameters) {
       $dara.Model.validateMap(this.parameters);

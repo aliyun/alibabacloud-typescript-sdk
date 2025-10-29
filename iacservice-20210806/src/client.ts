@@ -2278,6 +2278,10 @@ export default class Client extends OpenApi {
       query["keyword"] = request.keyword;
     }
 
+    if (!$dara.isNull(request.moduleName)) {
+      query["moduleName"] = request.moduleName;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
