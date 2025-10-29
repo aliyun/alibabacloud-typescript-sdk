@@ -69,6 +69,7 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomai
    * {\\"UpLimit\\":2500,\\"LowerLimit\\":800,\\"Factor\\":1}
    */
   bitrateWithSource?: { [key: string]: any };
+  deInterlaced?: boolean;
   /**
    * @remarks
    * Other source-based settings.
@@ -178,6 +179,7 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomai
       audioRate: 'AudioRate',
       bframes: 'Bframes',
       bitrateWithSource: 'BitrateWithSource',
+      deInterlaced: 'DeInterlaced',
       extWithSource: 'ExtWithSource',
       FPS: 'FPS',
       fpsWithSource: 'FpsWithSource',
@@ -201,6 +203,7 @@ export class DescribeLiveStreamTranscodeInfoResponseBodyDomainTranscodeListDomai
       audioRate: 'number',
       bframes: 'string',
       bitrateWithSource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      deInterlaced: 'boolean',
       extWithSource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       FPS: 'number',
       fpsWithSource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },

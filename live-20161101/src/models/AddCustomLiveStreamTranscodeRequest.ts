@@ -79,6 +79,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
    * {"UpLimit":2500,"LowerLimit":800,"Factor":1}
    */
   bitrateWithSource?: string;
+  deInterlaced?: boolean;
   /**
    * @remarks
    * The main streaming domain.
@@ -286,6 +287,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
       audioProfile: 'AudioProfile',
       audioRate: 'AudioRate',
       bitrateWithSource: 'BitrateWithSource',
+      deInterlaced: 'DeInterlaced',
       domain: 'Domain',
       encryptParameters: 'EncryptParameters',
       extWithSource: 'ExtWithSource',
@@ -317,6 +319,7 @@ export class AddCustomLiveStreamTranscodeRequest extends $dara.Model {
       audioProfile: 'string',
       audioRate: 'number',
       bitrateWithSource: 'string',
+      deInterlaced: 'boolean',
       domain: 'string',
       encryptParameters: 'string',
       extWithSource: 'string',

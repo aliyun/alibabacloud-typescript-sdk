@@ -728,6 +728,10 @@ export default class Client extends OpenApi {
       query["BitrateWithSource"] = request.bitrateWithSource;
     }
 
+    if (!$dara.isNull(request.deInterlaced)) {
+      query["DeInterlaced"] = request.deInterlaced;
+    }
+
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
@@ -24205,6 +24209,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于修改指定直播流的录制文件存储时长。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+   * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+   * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+   * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+   * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+   * 
+   * @param tmpReq - PutRecordStorageLifeCycleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutRecordStorageLifeCycleResponse
+   */
+  async putRecordStorageLifeCycleWithOptions(tmpReq: $_model.PutRecordStorageLifeCycleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutRecordStorageLifeCycleResponse> {
+    tmpReq.validate();
+    let request = new $_model.PutRecordStorageLifeCycleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.streamIds)) {
+      request.streamIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.streamIds, "StreamIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.streamIdsShrink)) {
+      body["StreamIds"] = request.streamIdsShrink;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.unixTimestamp)) {
+      body["UnixTimestamp"] = request.unixTimestamp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutRecordStorageLifeCycle",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutRecordStorageLifeCycleResponse>(await this.callApi(params, req, runtime), new $_model.PutRecordStorageLifeCycleResponse({}));
+  }
+
+  /**
+   * 用于修改指定直播流的录制文件存储时长。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口允许用户为一个或多个指定的直播流设置新的录制文件存储期限。
+   * - `Tag` 字段必须符合格式 `[0-9]+days`，表示直播结束后录制内容将被保存的天数。
+   * - 如果对某个流的存储时间修改失败，错误信息会被记录在返回结果中。对于失败的情况，调用方应重试最多3次；如果超过重试次数仍失败，则视为最终失败。
+   * - 为了支持未来可能的需求变化（如更长的存储周期），请确保您的系统能够处理不同的时间段值。
+   * - 成功执行后，供应商会通过异步回调的方式通知调用方所有操作的结果。若回调失败，将按照1小时、2小时、4小时的时间间隔尝试重新发送，直至成功或达到最大重试次数。
+   * 
+   * @param request - PutRecordStorageLifeCycleRequest
+   * @returns PutRecordStorageLifeCycleResponse
+   */
+  async putRecordStorageLifeCycle(request: $_model.PutRecordStorageLifeCycleRequest): Promise<$_model.PutRecordStorageLifeCycleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.putRecordStorageLifeCycleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the dual-stream disaster recovery records of online streams.
    * 
    * @param request - QueryLiveDomainMultiStreamListRequest
@@ -28019,6 +28095,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑标签
+   * 
    * @param request - UnTagLiveResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnTagLiveResourcesResponse
@@ -28068,6 +28146,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑标签
+   * 
    * @param request - UnTagLiveResourcesRequest
    * @returns UnTagLiveResourcesResponse
    */
@@ -28398,6 +28478,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.bitrateWithSource)) {
       query["BitrateWithSource"] = request.bitrateWithSource;
+    }
+
+    if (!$dara.isNull(request.deInterlaced)) {
+      query["DeInterlaced"] = request.deInterlaced;
     }
 
     if (!$dara.isNull(request.domain)) {
