@@ -101,6 +101,11 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   memorySize?: string;
   /**
    * @example
+   * 101.101.101.101
+   */
+  publicIp?: string;
+  /**
+   * @example
    * vn-***************
    */
   VNodeId?: string;
@@ -130,6 +135,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       GPU: 'GPU',
       linkIP: 'LinkIP',
       memorySize: 'MemorySize',
+      publicIp: 'PublicIp',
       VNodeId: 'VNodeId',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -148,6 +154,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
       GPU: 'string',
       linkIP: 'string',
       memorySize: 'string',
+      publicIp: 'string',
       VNodeId: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
