@@ -38,6 +38,7 @@ export class RecordCallCenterEventForPartnerRequest extends $dara.Model {
    * 897265
    */
   contactId?: string;
+  employeeCode?: string;
   /**
    * @example
    * ufbo502ma94m480
@@ -61,6 +62,7 @@ export class RecordCallCenterEventForPartnerRequest extends $dara.Model {
    * 1
    */
   skillType?: number;
+  tenantId?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
@@ -70,10 +72,12 @@ export class RecordCallCenterEventForPartnerRequest extends $dara.Model {
       caller: 'Caller',
       connId: 'ConnId',
       contactId: 'ContactId',
+      employeeCode: 'EmployeeCode',
       jobId: 'JobId',
       relatedId: 'RelatedId',
       secretMobile: 'SecretMobile',
       skillType: 'SkillType',
+      tenantId: 'TenantId',
     };
   }
 
@@ -86,10 +90,12 @@ export class RecordCallCenterEventForPartnerRequest extends $dara.Model {
       caller: 'string',
       connId: 'string',
       contactId: 'string',
+      employeeCode: 'string',
       jobId: 'string',
       relatedId: 'number',
       secretMobile: 'string',
       skillType: 'number',
+      tenantId: 'string',
     };
   }
 

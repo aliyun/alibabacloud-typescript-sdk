@@ -1394,6 +1394,10 @@ export default class Client extends OpenApi {
       query["ContactId"] = request.contactId;
     }
 
+    if (!$dara.isNull(request.employeeCode)) {
+      query["EmployeeCode"] = request.employeeCode;
+    }
+
     if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
@@ -1408,6 +1412,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.skillType)) {
       query["SkillType"] = request.skillType;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
