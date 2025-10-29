@@ -7,6 +7,7 @@ export class ReadPageItem extends $dara.Model {
   html?: string;
   markdown?: string;
   rawHtml?: string;
+  screenshot?: string;
   statusCode?: number;
   text?: string;
   static names(): { [key: string]: string } {
@@ -15,6 +16,7 @@ export class ReadPageItem extends $dara.Model {
       html: 'html',
       markdown: 'markdown',
       rawHtml: 'rawHtml',
+      screenshot: 'screenshot',
       statusCode: 'statusCode',
       text: 'text',
     };
@@ -26,6 +28,7 @@ export class ReadPageItem extends $dara.Model {
       html: 'string',
       markdown: 'string',
       rawHtml: 'string',
+      screenshot: 'string',
       statusCode: 'number',
       text: 'string',
     };

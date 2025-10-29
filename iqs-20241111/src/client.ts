@@ -212,14 +212,24 @@ export default class Client extends OpenApi {
   /**
    * 通用搜索
    * 
-   * @param request - GenericSearchRequest
+   * @param tmpReq - GenericSearchRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenericSearchResponse
    */
-  async genericSearchWithOptions(request: $_model.GenericSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenericSearchResponse> {
-    request.validate();
+  async genericSearchWithOptions(tmpReq: $_model.GenericSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenericSearchResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenericSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.advancedParams)) {
+      request.advancedParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedParams, "advancedParams", "json");
+    }
+
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.advancedParamsShrink)) {
+      query["advancedParams"] = request.advancedParamsShrink;
+    }
+
     if (!$dara.isNull(request.enableRerank)) {
       query["enableRerank"] = request.enableRerank;
     }
@@ -434,6 +444,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.readPageBasicWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 动态页面解析
+   * 
+   * @param request - ReadPageScrapeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadPageScrapeResponse
+   */
+  async readPageScrapeWithOptions(request: $_model.ReadPageScrapeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReadPageScrapeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReadPageScrape",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/scrape`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReadPageScrapeResponse>(await this.callApi(params, req, runtime), new $_model.ReadPageScrapeResponse({}));
+  }
+
+  /**
+   * 动态页面解析
+   * 
+   * @param request - ReadPageScrapeRequest
+   * @returns ReadPageScrapeResponse
+   */
+  async readPageScrape(request: $_model.ReadPageScrapeRequest): Promise<$_model.ReadPageScrapeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.readPageScrapeWithOptions(request, headers, runtime);
   }
 
   /**

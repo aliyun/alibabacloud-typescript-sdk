@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GenericSearchRequest extends $dara.Model {
-  advancedParams?: { [key: string]: any };
+export class GenericSearchShrinkRequest extends $dara.Model {
+  advancedParamsShrink?: string;
   enableRerank?: boolean;
   industry?: string;
   /**
@@ -28,7 +28,7 @@ export class GenericSearchRequest extends $dara.Model {
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
-      advancedParams: 'advancedParams',
+      advancedParamsShrink: 'advancedParams',
       enableRerank: 'enableRerank',
       industry: 'industry',
       page: 'page',
@@ -44,7 +44,7 @@ export class GenericSearchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      advancedParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      advancedParamsShrink: 'string',
       enableRerank: 'boolean',
       industry: 'string',
       page: 'number',
@@ -59,9 +59,6 @@ export class GenericSearchRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.advancedParams) {
-      $dara.Model.validateMap(this.advancedParams);
-    }
     super.validate();
   }
 
