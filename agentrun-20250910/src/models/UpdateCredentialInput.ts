@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCredentialInput extends $dara.Model {
+  /**
+   * @remarks
+   * 凭证的配置参数，以键值对形式存储
+   * 
+   * @example
+   * api_endpoint=https://api.example.com,timeout=30
+   */
   config?: { [key: string]: string };
   description?: string;
   name?: string;

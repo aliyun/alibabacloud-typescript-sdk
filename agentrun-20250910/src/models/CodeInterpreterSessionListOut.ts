@@ -4,9 +4,25 @@ import { CodeInterpreterSessionOut } from "./CodeInterpreterSessionOut";
 
 
 export class CodeInterpreterSessionListOut extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
   items?: CodeInterpreterSessionOut[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BrowserViewPort extends $dara.Model {
+  /**
+   * @example
+   * 1080
+   */
   height?: number;
+  /**
+   * @example
+   * 1920
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {

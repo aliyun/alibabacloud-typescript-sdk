@@ -9,44 +9,117 @@ import { ProtocolConfiguration } from "./ProtocolConfiguration";
 
 
 export class UpdateAgentRuntimeInput extends $dara.Model {
+  /**
+   * @example
+   * my-agent-runtime
+   */
   agentRuntimeName?: string;
+  /**
+   * @example
+   * Code
+   */
   artifactType?: string;
+  /**
+   * @remarks
+   * 当artifactType为Code时的代码配置信息，包括代码源、入口文件等
+   * 
+   * @example
+   * {}
+   */
   codeConfiguration?: CodeConfiguration;
+  /**
+   * @remarks
+   * 当artifactType为Container时的容器配置信息，包括镜像地址、启动命令等
+   * 
+   * @example
+   * {}
+   */
   containerConfiguration?: ContainerConfiguration;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1.0
    */
   cpu?: number;
+  /**
+   * @example
+   * 更新后的智能体运行时描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * 智能体运行时的环境变量配置，用于在运行时传递配置参数
+   * 
+   * @example
+   * ENV_VAR1=value1,ENV_VAR2=value2
+   */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
    * 为智能体运行时提供访问云服务权限的执行角色ARN
+   * 
+   * @example
+   * acs:ram::1760720386195983:role/AgentRunExecutionRole
    */
   executionRoleArn?: string;
   /**
    * @remarks
    * 智能体运行时的健康检查配置，用于监控运行时实例的健康状态
+   * 
+   * @example
+   * {}
    */
   healthCheckConfiguration?: HealthCheckConfiguration;
   /**
    * @remarks
    * SLS（简单日志服务）配置
+   * 
+   * @example
+   * {}
    */
   logConfiguration?: LogConfiguration;
+  /**
+   * @example
+   * 1024
+   */
   memory?: number;
+  /**
+   * @remarks
+   * 智能体运行时的网络配置，包括VPC、安全组等网络访问设置
+   * 
+   * @example
+   * {}
+   */
   networkConfiguration?: NetworkConfiguration;
+  /**
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * 智能体运行时的通信协议配置，定义运行时如何与外部系统交互
+   * 
+   * @example
+   * {}
+   */
   protocolConfiguration?: ProtocolConfiguration;
   /**
    * @remarks
    * 每个运行时实例允许的最大并发会话数
+   * 
+   * @example
+   * 100
    */
   sessionConcurrencyLimitPerInstance?: number;
   /**
    * @remarks
    * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * 
+   * @example
+   * 3600
    */
   sessionIdleTimeoutSeconds?: number;
   static names(): { [key: string]: string } {

@@ -5,27 +5,73 @@ import { BrowserRecordingConfiguration } from "./BrowserRecordingConfiguration";
 
 
 export class Browser extends $dara.Model {
+  /**
+   * @example
+   * browser-1234567890abcdef
+   */
   browserId?: string;
+  /**
+   * @example
+   * my-browser
+   */
   browserName?: string;
+  /**
+   * @example
+   * 2.0
+   */
   cpu?: number;
+  /**
+   * @example
+   * 2025-01-10T10:30:00Z
+   */
   createdAt?: string;
+  /**
+   * @example
+   * cred-1234567890abcdef
+   */
   credentialId?: string;
+  /**
+   * @example
+   * Web automation browser for testing
+   */
   description?: string;
+  /**
+   * @example
+   * acs:ram::1760720386195983:role/BrowserExecutionRole
+   */
   executionRoleArn?: string;
+  /**
+   * @example
+   * 2025-01-10T11:45:00Z
+   */
   lastUpdatedAt?: string;
   /**
    * @remarks
    * 内存资源配置（单位：MB）
+   * 
+   * @example
+   * 2048
    */
   memory?: number;
   networkConfiguration?: NetworkConfiguration;
   recording?: BrowserRecordingConfiguration;
+  /**
+   * @example
+   * READY
+   */
   status?: string;
   /**
    * @remarks
    * 当前状态的原因说明（如适用）
+   * 
+   * @example
+   * Browser is ready for use
    */
   statusReason?: string;
+  /**
+   * @example
+   * tenant-1234567890abcdef
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {

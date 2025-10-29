@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartBrowserSessionInput extends $dara.Model {
   /**
+   * @example
+   * my-browser-session
+   * 
    * **if can be null:**
    * true
    */

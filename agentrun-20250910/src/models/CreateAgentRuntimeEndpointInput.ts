@@ -4,16 +4,30 @@ import { RoutingConfiguration } from "./RoutingConfiguration";
 
 
 export class CreateAgentRuntimeEndpointInput extends $dara.Model {
+  /**
+   * @example
+   * production-endpoint
+   */
   agentRuntimeEndpointName?: string;
+  /**
+   * @example
+   * Production endpoint for customer service agent
+   */
   description?: string;
   /**
    * @remarks
    * 智能体运行时端点的路由配置，支持多版本权重分配
+   * 
+   * @example
+   * {}
    */
   routingConfiguration?: RoutingConfiguration;
   /**
    * @remarks
    * 智能体运行时的目标版本
+   * 
+   * @example
+   * LATEST
    */
   targetVersion?: string;
   static names(): { [key: string]: string } {

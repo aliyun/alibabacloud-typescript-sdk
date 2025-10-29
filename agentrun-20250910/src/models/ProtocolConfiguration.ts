@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ProtocolConfiguration extends $dara.Model {
+  /**
+   * @example
+   * HTTP
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

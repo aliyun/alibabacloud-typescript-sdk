@@ -5,7 +5,15 @@ import { BrowserLiveViewStream } from "./BrowserLiveViewStream";
 
 
 export class BrowserStreams extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   automationStream?: BrowserAutomationStream;
+  /**
+   * @example
+   * {}
+   */
   liveViewStream?: BrowserLiveViewStream;
   static names(): { [key: string]: string } {
     return {

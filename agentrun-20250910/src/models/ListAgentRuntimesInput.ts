@@ -6,21 +6,33 @@ export class ListAgentRuntimesInput extends $dara.Model {
   /**
    * @remarks
    * 按名称过滤
+   * 
+   * @example
+   * my-agent-runtime
    */
   agentRuntimeName?: string;
   /**
    * @remarks
    * 页码
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * 每页记录数
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
    * 按状态过滤
+   * 
+   * @example
+   * READY,CREATING
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

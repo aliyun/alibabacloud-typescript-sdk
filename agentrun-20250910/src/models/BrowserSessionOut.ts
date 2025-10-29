@@ -3,20 +3,46 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BrowserSessionOut extends $dara.Model {
+  /**
+   * @example
+   * browser-1234567890abcdef
+   */
   browserId?: string;
+  /**
+   * @example
+   * my-browser-session
+   */
   browserName?: string;
+  /**
+   * @example
+   * 2025-01-10T10:30:00Z
+   */
   createdAt?: string;
+  /**
+   * @example
+   * 2025-01-10T11:45:00Z
+   */
   lastUpdatedAt?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * bs-1234567890abcdef
    */
   sessionId?: string;
   /**
    * @remarks
    * 会话空闲超时时间，单位为秒
+   * 
+   * @example
+   * 3600
    */
   sessionIdleTimeoutSeconds?: number;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

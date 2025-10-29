@@ -7,16 +7,25 @@ export class ListAgentRuntimeEndpointsResult extends $dara.Model {
   /**
    * @remarks
    * SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
+   * 
+   * @example
+   * SUCCESS
    */
   code?: string;
   /**
    * @remarks
    * 智能体运行时端点列表的详细信息
+   * 
+   * @example
+   * {}
    */
   data?: ListAgentRuntimeEndpointsOutput;
   /**
    * @remarks
    * 唯一的请求标识符，用于问题追踪
+   * 
+   * @example
+   * F8A0F5F3-0C3E-4C82-9D4F-5E4B6A7C8D9E
    */
   requestId?: string;
   static names(): { [key: string]: string } {

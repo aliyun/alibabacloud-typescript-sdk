@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NetworkConfiguration extends $dara.Model {
+  /**
+   * @example
+   * PRIVATE
+   */
   networkMode?: string;
+  /**
+   * @example
+   * sg-1234567890abcdef0
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vpc-1234567890abcdef0
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-1234567890abcdef0,vsw-abcdef1234567890
+   */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {

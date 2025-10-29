@@ -4,9 +4,25 @@ import { BrowserSessionOut } from "./BrowserSessionOut";
 
 
 export class BrowserSessionListOut extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
   items?: BrowserSessionOut[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

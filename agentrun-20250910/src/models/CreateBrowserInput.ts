@@ -7,6 +7,9 @@ export class CreateBrowserInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * my-browser
    */
   browserName?: string;
   /**
@@ -14,16 +17,34 @@ export class CreateBrowserInput extends $dara.Model {
    * CPU资源配置（单位：核）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 2.0
    */
   cpu?: number;
+  /**
+   * @example
+   * cred-1234567890abcdef
+   */
   credentialId?: string;
+  /**
+   * @example
+   * Web automation browser for testing
+   */
   description?: string;
+  /**
+   * @example
+   * acs:ram::1760720386195983:role/BrowserExecutionRole
+   */
   executionRoleArn?: string;
   /**
    * @remarks
    * 内存资源配置（单位：MB）
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 2048
    */
   memory?: number;
   /**
@@ -34,6 +55,9 @@ export class CreateBrowserInput extends $dara.Model {
   /**
    * @remarks
    * 会话的空闲超时时间，单位为秒。实例没有会话请求后处于空闲状态，空闲态为闲置计费模式，超过此超时时间后会话自动过期，不可继续使用
+   * 
+   * @example
+   * 3600
    */
   sessionIdleTimeoutSeconds?: number;
   static names(): { [key: string]: string } {

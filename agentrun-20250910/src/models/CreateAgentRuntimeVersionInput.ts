@@ -6,6 +6,9 @@ export class CreateAgentRuntimeVersionInput extends $dara.Model {
   /**
    * @remarks
    * 版本描述
+   * 
+   * @example
+   * Version 1.0.0 release with new features
    */
   description?: string;
   static names(): { [key: string]: string } {

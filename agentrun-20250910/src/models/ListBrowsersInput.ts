@@ -6,9 +6,20 @@ export class ListBrowsersInput extends $dara.Model {
   /**
    * @remarks
    * 按浏览器名称过滤
+   * 
+   * @example
+   * my-browser
    */
   browserName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
