@@ -98,6 +98,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
    * YES
    */
   isNoticed?: string;
+  needNotice?: boolean;
   needSwitch?: boolean;
   /**
    * @remarks
@@ -110,6 +111,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
       gmtNoticed: 'GmtNoticed',
       isAgree: 'IsAgree',
       isNoticed: 'IsNoticed',
+      needNotice: 'NeedNotice',
       needSwitch: 'NeedSwitch',
       regionStatus: 'RegionStatus',
     };
@@ -121,6 +123,7 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
       gmtNoticed: 'number',
       isAgree: 'string',
       isNoticed: 'string',
+      needNotice: 'boolean',
       needSwitch: 'boolean',
       regionStatus: { 'type': 'array', 'itemType': GetSwitchRegionDetailResponseBodyDataRegionStatus },
     };

@@ -31323,6 +31323,10 @@ export default class Client extends OpenApi {
       query["IsAgree"] = request.isAgree;
     }
 
+    if (!$dara.isNull(request.isConfirmed)) {
+      query["IsConfirmed"] = request.isConfirmed;
+    }
+
     if (!$dara.isNull(request.isImmediate)) {
       query["IsImmediate"] = request.isImmediate;
     }

@@ -11,6 +11,7 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
    * true
    */
   isAgree?: boolean;
+  isConfirmed?: boolean;
   isImmediate?: boolean;
   /**
    * @remarks
@@ -36,6 +37,7 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       isAgree: 'IsAgree',
+      isConfirmed: 'IsConfirmed',
       isImmediate: 'IsImmediate',
       lang: 'Lang',
       type: 'Type',
@@ -45,6 +47,7 @@ export class GrantSwitchAgreementRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       isAgree: 'boolean',
+      isConfirmed: 'boolean',
       isImmediate: 'boolean',
       lang: 'string',
       type: 'string',
