@@ -86,6 +86,7 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
 }
 
 export class ListMcpServersResponseBodyDataItems extends $dara.Model {
+  apiId?: string;
   assembledSources?: ListMcpServersResponseBodyDataItemsAssembledSources[];
   backend?: Backend;
   /**
@@ -155,6 +156,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      apiId: 'apiId',
       assembledSources: 'assembledSources',
       backend: 'backend',
       createFromType: 'createFromType',
@@ -180,6 +182,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiId: 'string',
       assembledSources: { 'type': 'array', 'itemType': ListMcpServersResponseBodyDataItemsAssembledSources },
       backend: Backend,
       createFromType: 'string',

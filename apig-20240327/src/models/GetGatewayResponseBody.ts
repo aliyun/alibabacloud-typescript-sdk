@@ -134,6 +134,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
    * true
    */
   gatewayDefault?: boolean;
+  ipv4Addresses?: string[];
+  ipv6Addresses?: string[];
   /**
    * @remarks
    * The load balancer ID.
@@ -185,6 +187,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
       addressIpVersion: 'addressIpVersion',
       addressType: 'addressType',
       gatewayDefault: 'gatewayDefault',
+      ipv4Addresses: 'ipv4Addresses',
+      ipv6Addresses: 'ipv6Addresses',
       loadBalancerId: 'loadBalancerId',
       mode: 'mode',
       ports: 'ports',
@@ -199,6 +203,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
       addressIpVersion: 'string',
       addressType: 'string',
       gatewayDefault: 'boolean',
+      ipv4Addresses: { 'type': 'array', 'itemType': 'string' },
+      ipv6Addresses: { 'type': 'array', 'itemType': 'string' },
       loadBalancerId: 'string',
       mode: 'string',
       ports: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancersPorts },
@@ -208,6 +214,12 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ipv4Addresses)) {
+      $dara.Model.validateArray(this.ipv4Addresses);
+    }
+    if(Array.isArray(this.ipv6Addresses)) {
+      $dara.Model.validateArray(this.ipv6Addresses);
+    }
     if(Array.isArray(this.ports)) {
       $dara.Model.validateArray(this.ports);
     }
