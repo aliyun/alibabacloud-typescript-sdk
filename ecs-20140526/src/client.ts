@@ -30944,6 +30944,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.terminateSubscription)) {
+      query["TerminateSubscription"] = request.terminateSubscription;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

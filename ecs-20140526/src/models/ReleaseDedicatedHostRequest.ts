@@ -27,6 +27,7 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  terminateSubscription?: boolean;
   static names(): { [key: string]: string } {
     return {
       dedicatedHostId: 'DedicatedHostId',
@@ -35,6 +36,7 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      terminateSubscription: 'TerminateSubscription',
     };
   }
 
@@ -46,6 +48,7 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      terminateSubscription: 'boolean',
     };
   }
 
