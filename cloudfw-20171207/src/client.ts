@@ -9530,6 +9530,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.ruleTag)) {
+      query["RuleTag"] = request.ruleTag;
+    }
+
     if (!$dara.isNull(request.sortKey)) {
       query["SortKey"] = request.sortKey;
     }
