@@ -274,6 +274,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增PolarFs Quota规则
+   * 
+   * @param request - AddPolarFsQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPolarFsQuotaResponse
+   */
+  async addPolarFsQuotaWithOptions(request: $_model.AddPolarFsQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPolarFsQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.quotas)) {
+      query["Quotas"] = request.quotas;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddPolarFsQuota",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddPolarFsQuotaResponse>(await this.callApi(params, req, runtime), new $_model.AddPolarFsQuotaResponse({}));
+  }
+
+  /**
+   * 新增PolarFs Quota规则
+   * 
+   * @param request - AddPolarFsQuotaRequest
+   * @returns AddPolarFsQuotaResponse
+   */
+  async addPolarFsQuota(request: $_model.AddPolarFsQuotaRequest): Promise<$_model.AddPolarFsQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addPolarFsQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * 添加SQL限流规则
    * 
    * @param request - AddSQLRateLimitingRulesRequest
@@ -523,6 +573,56 @@ export default class Client extends OpenApi {
   async cancelCronJobPolicyServerless(request: $_model.CancelCronJobPolicyServerlessRequest): Promise<$_model.CancelCronJobPolicyServerlessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelCronJobPolicyServerlessWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消目录的配额
+   * 
+   * @param request - CancelPolarFsFileQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelPolarFsFileQuotaResponse
+   */
+  async cancelPolarFsFileQuotaWithOptions(request: $_model.CancelPolarFsFileQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelPolarFsFileQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.filePathIds)) {
+      query["FilePathIds"] = request.filePathIds;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelPolarFsFileQuota",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelPolarFsFileQuotaResponse>(await this.callApi(params, req, runtime), new $_model.CancelPolarFsFileQuotaResponse({}));
+  }
+
+  /**
+   * 取消目录的配额
+   * 
+   * @param request - CancelPolarFsFileQuotaRequest
+   * @returns CancelPolarFsFileQuotaResponse
+   */
+  async cancelPolarFsFileQuota(request: $_model.CancelPolarFsFileQuotaRequest): Promise<$_model.CancelPolarFsFileQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelPolarFsFileQuotaWithOptions(request, runtime);
   }
 
   /**
@@ -5049,6 +5149,56 @@ export default class Client extends OpenApi {
   async deleteParameterGroup(request: $_model.DeleteParameterGroupRequest): Promise<$_model.DeleteParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除PolarFs Quota规则
+   * 
+   * @param request - DeletePolarFsQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarFsQuotaResponse
+   */
+  async deletePolarFsQuotaWithOptions(request: $_model.DeletePolarFsQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarFsQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.quotas)) {
+      query["Quotas"] = request.quotas;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarFsQuota",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarFsQuotaResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarFsQuotaResponse({}));
+  }
+
+  /**
+   * 删除PolarFs Quota规则
+   * 
+   * @param request - DeletePolarFsQuotaRequest
+   * @returns DeletePolarFsQuotaResponse
+   */
+  async deletePolarFsQuota(request: $_model.DeletePolarFsQuotaRequest): Promise<$_model.DeletePolarFsQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarFsQuotaWithOptions(request, runtime);
   }
 
   /**
@@ -11207,6 +11357,106 @@ export default class Client extends OpenApi {
   async describePendingMaintenanceActions(request: $_model.DescribePendingMaintenanceActionsRequest): Promise<$_model.DescribePendingMaintenanceActionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePendingMaintenanceActionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取PolarFS实例详情
+   * 
+   * @param request - DescribePolarFsAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsAttributeResponse
+   */
+  async describePolarFsAttributeWithOptions(request: $_model.DescribePolarFsAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.queryFuseMountInfo)) {
+      query["QueryFuseMountInfo"] = request.queryFuseMountInfo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFsAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsAttributeResponse({}));
+  }
+
+  /**
+   * 获取PolarFS实例详情
+   * 
+   * @param request - DescribePolarFsAttributeRequest
+   * @returns DescribePolarFsAttributeResponse
+   */
+  async describePolarFsAttribute(request: $_model.DescribePolarFsAttributeRequest): Promise<$_model.DescribePolarFsAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询配额规则
+   * 
+   * @param request - DescribePolarFsQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsQuotaResponse
+   */
+  async describePolarFsQuotaWithOptions(request: $_model.DescribePolarFsQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFsQuota",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsQuotaResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsQuotaResponse({}));
+  }
+
+  /**
+   * 查询配额规则
+   * 
+   * @param request - DescribePolarFsQuotaRequest
+   * @returns DescribePolarFsQuotaResponse
+   */
+  async describePolarFsQuota(request: $_model.DescribePolarFsQuotaRequest): Promise<$_model.DescribePolarFsQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsQuotaWithOptions(request, runtime);
   }
 
   /**
@@ -19101,6 +19351,56 @@ export default class Client extends OpenApi {
   async revokeAccountPrivilegeZonal(request: $_model.RevokeAccountPrivilegeZonalRequest): Promise<$_model.RevokeAccountPrivilegeZonalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeAccountPrivilegeZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * 为目录应用配额规则
+   * 
+   * @param request - SetPolarFsFileQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetPolarFsFileQuotaResponse
+   */
+  async setPolarFsFileQuotaWithOptions(request: $_model.SetPolarFsFileQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetPolarFsFileQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.filePathQuotas)) {
+      query["FilePathQuotas"] = request.filePathQuotas;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetPolarFsFileQuota",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetPolarFsFileQuotaResponse>(await this.callApi(params, req, runtime), new $_model.SetPolarFsFileQuotaResponse({}));
+  }
+
+  /**
+   * 为目录应用配额规则
+   * 
+   * @param request - SetPolarFsFileQuotaRequest
+   * @returns SetPolarFsFileQuotaResponse
+   */
+  async setPolarFsFileQuota(request: $_model.SetPolarFsFileQuotaRequest): Promise<$_model.SetPolarFsFileQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setPolarFsFileQuotaWithOptions(request, runtime);
   }
 
   /**
