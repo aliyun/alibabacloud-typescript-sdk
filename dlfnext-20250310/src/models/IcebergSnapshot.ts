@@ -5,8 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class IcebergSnapshot extends $dara.Model {
   addedRows?: number;
   id?: number;
+  idString?: string;
   operation?: string;
   parentId?: number;
+  parentIdString?: string;
   schemaId?: number;
   sequenceNumber?: number;
   summary?: { [key: string]: string };
@@ -15,8 +17,10 @@ export class IcebergSnapshot extends $dara.Model {
     return {
       addedRows: 'addedRows',
       id: 'id',
+      idString: 'idString',
       operation: 'operation',
       parentId: 'parentId',
+      parentIdString: 'parentIdString',
       schemaId: 'schemaId',
       sequenceNumber: 'sequenceNumber',
       summary: 'summary',
@@ -28,8 +32,10 @@ export class IcebergSnapshot extends $dara.Model {
     return {
       addedRows: 'number',
       id: 'number',
+      idString: 'string',
       operation: 'string',
       parentId: 'number',
+      parentIdString: 'string',
       schemaId: 'number',
       sequenceNumber: 'number',
       summary: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },

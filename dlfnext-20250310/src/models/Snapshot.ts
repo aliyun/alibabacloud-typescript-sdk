@@ -16,10 +16,14 @@ export class Snapshot extends $dara.Model {
   deltaManifestList?: string;
   deltaRecordCount?: number;
   id?: number;
+  idString?: string;
   indexManifest?: string;
   logOffsets?: { [key: string]: number };
+  parentIdString?: string;
   schemaId?: number;
+  sequenceNumber?: number;
   statistics?: string;
+  summary?: { [key: string]: string };
   timeMillis?: number;
   totalRecordCount?: number;
   /**
@@ -39,10 +43,14 @@ export class Snapshot extends $dara.Model {
       deltaManifestList: 'deltaManifestList',
       deltaRecordCount: 'deltaRecordCount',
       id: 'id',
+      idString: 'idString',
       indexManifest: 'indexManifest',
       logOffsets: 'logOffsets',
+      parentIdString: 'parentIdString',
       schemaId: 'schemaId',
+      sequenceNumber: 'sequenceNumber',
       statistics: 'statistics',
+      summary: 'summary',
       timeMillis: 'timeMillis',
       totalRecordCount: 'totalRecordCount',
       version: 'version',
@@ -61,10 +69,14 @@ export class Snapshot extends $dara.Model {
       deltaManifestList: 'string',
       deltaRecordCount: 'number',
       id: 'number',
+      idString: 'string',
       indexManifest: 'string',
       logOffsets: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      parentIdString: 'string',
       schemaId: 'number',
+      sequenceNumber: 'number',
       statistics: 'string',
+      summary: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       timeMillis: 'number',
       totalRecordCount: 'number',
       version: 'number',
@@ -75,6 +87,9 @@ export class Snapshot extends $dara.Model {
   validate() {
     if(this.logOffsets) {
       $dara.Model.validateMap(this.logOffsets);
+    }
+    if(this.summary) {
+      $dara.Model.validateMap(this.summary);
     }
     super.validate();
   }

@@ -1570,6 +1570,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看表Compaction详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableCompactionResponse
+   */
+  async getTableCompactionWithOptions(catalogId: string, database: string, table: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableCompactionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableCompaction",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/compaction`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableCompactionResponse>(await this.callApi(params, req, runtime), new $_model.GetTableCompactionResponse({}));
+  }
+
+  /**
+   * 查看表Compaction详情
+   * @returns GetTableCompactionResponse
+   */
+  async getTableCompaction(catalogId: string, database: string, table: string): Promise<$_model.GetTableCompactionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTableCompactionWithOptions(catalogId, database, table, headers, runtime);
+  }
+
+  /**
    * 查看表快照
    * 
    * @param headers - map
@@ -2153,6 +2188,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPartitionSummariesWithOptions(catalogId, database, table, request, headers, runtime);
+  }
+
+  /**
+   * listPartitions
+   * 
+   * @param request - ListPartitionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPartitionsResponse
+   */
+  async listPartitionsWithOptions(catalogId: string, database: string, table: string, request: $_model.ListPartitionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPartitionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.pageToken)) {
+      query["pageToken"] = request.pageToken;
+    }
+
+    if (!$dara.isNull(request.partitionNamePattern)) {
+      query["partitionNamePattern"] = request.partitionNamePattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPartitions",
+      version: "2025-03-10",
+      protocol: "HTTPS",
+      pathname: `/dlf/v1/${$dara.URL.percentEncode(catalogId)}/databases/${$dara.URL.percentEncode(database)}/tables/${$dara.URL.percentEncode(table)}/partitions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPartitionsResponse>(await this.callApi(params, req, runtime), new $_model.ListPartitionsResponse({}));
+  }
+
+  /**
+   * listPartitions
+   * 
+   * @param request - ListPartitionsRequest
+   * @returns ListPartitionsResponse
+   */
+  async listPartitions(catalogId: string, database: string, table: string, request: $_model.ListPartitionsRequest): Promise<$_model.ListPartitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPartitionsWithOptions(catalogId, database, table, request, headers, runtime);
   }
 
   /**
