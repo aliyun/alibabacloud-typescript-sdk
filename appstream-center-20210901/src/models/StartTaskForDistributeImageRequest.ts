@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartTaskForDistributeImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The regions to which you want to replicate the image.
+   */
   destinationRegionList?: string[];
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,21 +19,39 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
    */
   imageId?: string;
   /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudDesktop: Elastic Desktop Service
+   * *   CloudApp: App Streaming
+   * *   WuyingServer: Workstation
+   * 
    * @example
    * CloudApp
    */
   productType?: string;
   /**
+   * @remarks
+   * This parameter is not publicly available.
+   * 
    * @example
    * RETRY
    */
   retryType?: string;
   /**
+   * @remarks
+   * The region where the source image is located. If you leave this parameter empty, a random region is selected.
+   * 
    * @example
    * cn-shanghai
    */
   sourceRegion?: string;
   /**
+   * @remarks
+   * The ID of the image version. If you do not specify this parameter, the latest image version is used by default.
+   * 
    * @example
    * iv-07jyldnd9i****
    */

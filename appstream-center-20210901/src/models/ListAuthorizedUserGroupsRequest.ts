@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUserGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,13 +14,22 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the user group (exact match).
+   * 
    * @example
    * ug-00001
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the user group (fuzzy match).
+   */
   groupName?: string;
   /**
    * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +38,8 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The maximum number of entries returned per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +48,12 @@ export class ListAuthorizedUserGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example

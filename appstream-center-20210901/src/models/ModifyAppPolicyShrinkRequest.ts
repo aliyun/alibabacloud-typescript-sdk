@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,22 @@ export class ModifyAppPolicyShrinkRequest extends $dara.Model {
   appPolicyId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Enumerated values:
+   * 
+   * *   CloudApp: RDS Cloud App
+   * 
    * This parameter is required.
    * 
    * @example
    * CloudApp
    */
   productType?: string;
+  /**
+   * @remarks
+   * Displays the policy.
+   */
   videoPolicyShrink?: string;
   static names(): { [key: string]: string } {
     return {

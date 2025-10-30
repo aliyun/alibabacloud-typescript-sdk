@@ -60,6 +60,17 @@ export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * Valid values:
+   * 
+   * *   CenterImageId: center image ID.
+   * *   AppId: app ID.
+   * *   WyId: Alibaba Cloud Workspace user ID.
+   * *   AppInstanceGroupId: delivery group ID.
+   * *   AliUid: tenant ID.
+   * 
    * @example
    * AppInstanceGroupId
    */
@@ -98,6 +109,10 @@ export class TagCloudResourcesResponseBodyFailedResources extends $dara.Model {
 }
 
 export class TagCloudResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The cloud resources on which the operation failed and the corresponding tags.
+   */
   failedResources?: TagCloudResourcesResponseBodyFailedResources[];
   /**
    * @example

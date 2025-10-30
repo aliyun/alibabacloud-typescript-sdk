@@ -355,7 +355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例创建镜像
+   * Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
    * 
    * @param request - CreateImageByInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -418,7 +418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过实例创建镜像
+   * Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
    * 
    * @param request - CreateImageByInstanceRequest
    * @returns CreateImageByInstanceResponse
@@ -479,7 +479,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一台或多台研发主机
+   * Create one or more workstations.
+   * 
+   * @remarks
+   * 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+   * 2.  If there are multiple versions behind the input parameter ContentId:
+   *     **
+   *     **Note** The default version is used.
+   *     Bind simultaneously
+   * 3.  You can call the current interface only if the default version of Content is available.
    * 
    * @param request - CreateWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -487,6 +495,11 @@ export default class Client extends OpenApi {
    */
   async createWuyingServerWithOptions(request: $_model.CreateWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWuyingServerResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.savingPlanId)) {
+      query["SavingPlanId"] = request.savingPlanId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.amount)) {
       body["Amount"] = request.amount;
@@ -586,6 +599,7 @@ export default class Client extends OpenApi {
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -603,7 +617,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一台或多台研发主机
+   * Create one or more workstations.
+   * 
+   * @remarks
+   * 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+   * 2.  If there are multiple versions behind the input parameter ContentId:
+   *     **
+   *     **Note** The default version is used.
+   *     Bind simultaneously
+   * 3.  You can call the current interface only if the default version of Content is available.
    * 
    * @param request - CreateWuyingServerRequest
    * @returns CreateWuyingServerResponse
@@ -722,6 +744,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a custom RDS image
+   * 
+   * @remarks
+   *   You can only delete custom images to which a user belongs.
+   * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+   * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+   * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+   * 
    * @param request - DeleteImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteImageResponse
@@ -751,6 +781,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a custom RDS image
+   * 
+   * @remarks
+   *   You can only delete custom images to which a user belongs.
+   * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+   * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+   * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+   * 
    * @param request - DeleteImageRequest
    * @returns DeleteImageResponse
    */
@@ -761,6 +799,9 @@ export default class Client extends OpenApi {
 
   /**
    * 删除工作站
+   * 
+   * @remarks
+   * Deletes a workstation.
    * 
    * @param request - DeleteWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -793,6 +834,9 @@ export default class Client extends OpenApi {
   /**
    * 删除工作站
    * 
+   * @remarks
+   * Deletes a workstation.
+   * 
    * @param request - DeleteWuyingServerRequest
    * @returns DeleteWuyingServerResponse
    */
@@ -802,7 +846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询无影工作站EIP信息
+   * Queries the Elastic IP Addresses (EIPs) of workstations.
    * 
    * @param request - DescribeWuyingServerEipInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -837,7 +881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询无影工作站EIP信息
+   * Queries the Elastic IP Addresses (EIPs) of workstations.
    * 
    * @param request - DescribeWuyingServerEipInfoRequest
    * @returns DescribeWuyingServerEipInfoResponse
@@ -1362,7 +1406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过交付组查询展示授权的用户组列表
+   * Queries the user groups authorized by a delivery group.
    * 
    * @param request - ListAuthorizedUserGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1413,7 +1457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过交付组查询展示授权的用户组列表
+   * Queries the user groups authorized by a delivery group.
    * 
    * @param request - ListAuthorizedUserGroupsRequest
    * @returns ListAuthorizedUserGroupsResponse
@@ -2016,7 +2060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询研发主机列表
+   * Queries the list of workstations.
    * 
    * @param request - ListWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2096,7 +2140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询研发主机列表
+   * Queries the list of workstations.
    * 
    * @param request - ListWuyingServerRequest
    * @returns ListWuyingServerResponse
@@ -2261,7 +2305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改策略信息
+   * Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
    * 
    * @param tmpReq - ModifyAppPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,7 +2350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改策略信息
+   * Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
    * 
    * @param request - ModifyAppPolicyRequest
    * @returns ModifyAppPolicyResponse
@@ -2314,6 +2358,88 @@ export default class Client extends OpenApi {
   async modifyAppPolicy(request: $_model.ModifyAppPolicyRequest): Promise<$_model.ModifyAppPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改浏览器交付组
+   * 
+   * @param tmpReq - ModifyBrowserInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBrowserInstanceGroupResponse
+   */
+  async modifyBrowserInstanceGroupWithOptions(tmpReq: $_model.ModifyBrowserInstanceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBrowserInstanceGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyBrowserInstanceGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.browserConfig)) {
+      request.browserConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.browserConfig, "BrowserConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.network)) {
+      request.networkShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.network, "Network", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.policy)) {
+      request.policyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policy, "Policy", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.timers)) {
+      request.timersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timers, "Timers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.browserConfigShrink)) {
+      query["BrowserConfig"] = request.browserConfigShrink;
+    }
+
+    if (!$dara.isNull(request.browserInstanceGroupId)) {
+      query["BrowserInstanceGroupId"] = request.browserInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.policyShrink)) {
+      query["Policy"] = request.policyShrink;
+    }
+
+    if (!$dara.isNull(request.timersShrink)) {
+      query["Timers"] = request.timersShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloudBrowserName)) {
+      body["CloudBrowserName"] = request.cloudBrowserName;
+    }
+
+    if (!$dara.isNull(request.networkShrink)) {
+      body["Network"] = request.networkShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBrowserInstanceGroup",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBrowserInstanceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBrowserInstanceGroupResponse({}));
+  }
+
+  /**
+   * 修改浏览器交付组
+   * 
+   * @param request - ModifyBrowserInstanceGroupRequest
+   * @returns ModifyBrowserInstanceGroupResponse
+   */
+  async modifyBrowserInstanceGroup(request: $_model.ModifyBrowserInstanceGroupRequest): Promise<$_model.ModifyBrowserInstanceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBrowserInstanceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -2493,7 +2619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改研发主机属性
+   * Modify workstation properties.
    * 
    * @param request - ModifyWuyingServerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2532,7 +2658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改研发主机属性
+   * Modify workstation properties.
    * 
    * @param request - ModifyWuyingServerAttributeRequest
    * @returns ModifyWuyingServerAttributeResponse
@@ -2683,7 +2809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续费研发主机
+   * Renew one workstation.
    * 
    * @param request - RenewWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2730,7 +2856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续费研发主机
+   * Renew one workstation.
    * 
    * @param request - RenewWuyingServerRequest
    * @returns RenewWuyingServerResponse
@@ -2741,7 +2867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启研发主机
+   * Restarts the workstation.
    * 
    * @param request - RestartWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2777,7 +2903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启研发主机
+   * Restarts the workstation.
    * 
    * @param request - RestartWuyingServerRequest
    * @returns RestartWuyingServerResponse
@@ -2788,6 +2914,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates a task to replicate an image to another region.
+   * 
    * @param request - StartTaskForDistributeImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartTaskForDistributeImageResponse
@@ -2837,6 +2965,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates a task to replicate an image to another region.
+   * 
    * @param request - StartTaskForDistributeImageRequest
    * @returns StartTaskForDistributeImageResponse
    */
@@ -2846,7 +2976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动研发主机
+   * Start the workstation.
    * 
    * @param request - StartWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2882,7 +3012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动研发主机
+   * Start the workstation.
    * 
    * @param request - StartWuyingServerRequest
    * @returns StartWuyingServerResponse
@@ -2893,7 +3023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止研发主机
+   * Stops the workstation.
    * 
    * @param request - StopWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2933,7 +3063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止研发主机
+   * Stops the workstation.
    * 
    * @param request - StopWuyingServerRequest
    * @returns StopWuyingServerResponse

@@ -4,10 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopWuyingServerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Force restart.
+   * 
+   * Valid values:
+   * 
+   * *   True.
+   * *   False
+   * 
    * @example
    * True
    */
   force?: boolean;
+  /**
+   * @remarks
+   * The list of workstation IDs.
+   */
   wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {

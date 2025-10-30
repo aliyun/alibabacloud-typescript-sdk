@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWuyingServerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23429322113****
    */
   orderId?: string;
+  /**
+   * @remarks
+   * The list of workstation IDs.
+   */
   wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,8 +43,15 @@ export class CreateWuyingServerResponseBodyData extends $dara.Model {
 }
 
 export class CreateWuyingServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateWuyingServerResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

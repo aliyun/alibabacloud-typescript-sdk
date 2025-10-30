@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.Model {
   /**
+   * @remarks
+   * The public IP address.
+   * 
    * @example
    * 171.xxx.xxx.221
    */
   ipAddress?: string;
   /**
+   * @remarks
+   * The ID of the elastic network interface (ENI).
+   * 
    * @example
    * eni-bp174p2xxxxxbyh02ix
    */
   networkInterfaceId?: string;
   /**
+   * @remarks
+   * The port range.
+   * 
    * @example
    * 6606/6607
    */
@@ -44,6 +53,10 @@ export class DescribeWuyingServerEipInfoResponseBodyEipInfoModel extends $dara.M
 }
 
 export class DescribeWuyingServerEipInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the associated EIP.
+   */
   eipInfoModel?: DescribeWuyingServerEipInfoResponseBodyEipInfoModel;
   /**
    * @remarks

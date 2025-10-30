@@ -4,26 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class RenewWuyingServerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Automatic payment.
+   * 
    * @example
    * false
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * The renewal duration.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the renewal time.
+   * 
+   * Valid values:
+   * 
+   * *   Month: month.
+   * *   Year: year.
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The discount ID.
+   * 
    * @example
    * 17440009****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The ID of the workstation.
+   * 
    * @example
    * ws-0bw2f11****dial
    */

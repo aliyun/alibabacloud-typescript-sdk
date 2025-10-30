@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopWuyingServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AD2D0761-1FE5-549D-B169******
    */

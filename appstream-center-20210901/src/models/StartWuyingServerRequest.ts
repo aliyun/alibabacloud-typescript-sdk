@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartWuyingServerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of workstation IDs.
+   */
   wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {

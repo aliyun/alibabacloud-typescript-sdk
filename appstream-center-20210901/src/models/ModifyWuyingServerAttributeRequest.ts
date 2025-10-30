@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyWuyingServerAttributeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Workstation login password.
+   * 
    * @example
    * yourPassword
    */
   password?: string;
   /**
+   * @remarks
+   * The ID of the workstation.
+   * 
    * @example
    * ws-0bw2f11****dial
    */
   wuyingServerId?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * exampleServerName
    */

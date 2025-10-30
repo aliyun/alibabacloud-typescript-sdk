@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RenewWuyingServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 23977848****97
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */

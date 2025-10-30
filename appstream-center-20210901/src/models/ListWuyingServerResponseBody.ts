@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.Model {
   /**
+   * @remarks
+   * The category of data disk.
+   * 
    * @example
    * cloud_auto
    */
   dataDiskCategory?: string;
   /**
+   * @remarks
+   * The PL of the data disk.
+   * 
    * @example
    * PL0
    */
   dataDiskPerformanceLevel?: string;
   /**
+   * @remarks
+   * The size of the data disk. Unit: GB.
+   * 
    * @example
    * 200
    */
@@ -45,11 +54,17 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
 
 export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * p-0ceitx****c5
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the ENI.
+   * 
    * @example
    * eni-uf65b****dfnt3wb
    */
@@ -79,26 +94,41 @@ export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extend
 
 export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 96
    */
   cpu?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 4
    */
   gpu?: string;
   /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
    * @example
    * 196,608
    */
   gpuMemory?: number;
   /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
    * @example
    * 393,216
    */
   memory?: number;
   /**
+   * @remarks
+   * Workstation specifications.
+   * 
    * @example
    * eds.proworkstation_flagship_elite_ne.96c384g.192g4x
    */
@@ -135,87 +165,151 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   addVirtualNodePoolStatus?: string;
   /**
+   * @remarks
+   * Region.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The billing method.
+   * 
    * @example
    * PrePaid
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The time when the storage resource was created.
+   * 
    * @example
    * 2025-08-02T16:52:11.000+00:00
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The data disks.
+   */
   dataDisk?: ListWuyingServerResponseBodyWuyingServerListDataDisk[];
   /**
+   * @remarks
+   * The time when the subscription instance expires.
+   * 
    * @example
    * 2025-09-03T16:00:00.000+00:00
    */
   expiredTime?: string;
   /**
+   * @remarks
+   * The ID of the custom image.
+   * 
    * @example
    * imgc-06****oagaev
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * The list of information about the workstation instance.
+   */
   instanceInfoList?: ListWuyingServerResponseBodyWuyingServerListInstanceInfoList[];
   /**
+   * @remarks
+   * The private IP address.
+   * 
    * @example
    * 10.80.21.149
    */
   networkInterfaceIp?: string;
   /**
+   * @remarks
+   * The ID of the office network.
+   * 
    * @example
    * cn-hangzhou+dir-1b****ayv2
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The office network name.
+   * 
    * @example
    * exampleOfficeSite
    */
   officeSiteName?: string;
   /**
+   * @remarks
+   * The type of the office network.
+   * 
    * @example
    * SIMPLE
    */
   officeSiteType?: string;
   /**
+   * @remarks
+   * The OS type.
+   * 
    * @example
    * Linux
    */
   osType?: string;
   securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The specifications.
+   */
   serverInstanceTypeInfo?: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo;
   /**
+   * @remarks
+   * The status of the workstation.
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the system disk.
+   * 
    * @example
    * cloud_auto
    */
   systemDiskCategory?: string;
   /**
+   * @remarks
+   * The performance level (PL) of the system disk.
+   * 
    * @example
    * PL0
    */
   systemDiskPerformanceLevel?: string;
   /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
    * @example
    * 100
    */
   systemDiskSize?: number;
   virtualNodePoolId?: string;
   /**
+   * @remarks
+   * The ID of the workstation.
+   * 
    * @example
    * ws-0byd****8wn2lwi
    */
   wuyingServerId?: string;
   /**
+   * @remarks
+   * The name of the workstation.
+   * 
    * @example
    * exampleServerName
    */
@@ -299,25 +393,41 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
 
 export class ListWuyingServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The list of workstation information.
+   */
   wuyingServerList?: ListWuyingServerResponseBodyWuyingServerList[];
   static names(): { [key: string]: string } {
     return {

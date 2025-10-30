@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteImageRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the RDS image.
+   * 
    * @example
    * img-bp13mu****
    */
