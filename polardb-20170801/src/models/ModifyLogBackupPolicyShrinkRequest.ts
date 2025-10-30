@@ -2,55 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyLogBackupPolicyRequestAdvancedLogPolicies extends $dara.Model {
-  actionType?: string;
-  destRegion?: string;
-  destType?: string;
-  enableLogBackup?: number;
-  logRetentionType?: string;
-  logRetentionValue?: string;
-  policyId?: string;
-  srcRegion?: string;
-  srcType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      destRegion: 'DestRegion',
-      destType: 'DestType',
-      enableLogBackup: 'EnableLogBackup',
-      logRetentionType: 'LogRetentionType',
-      logRetentionValue: 'LogRetentionValue',
-      policyId: 'PolicyId',
-      srcRegion: 'SrcRegion',
-      srcType: 'SrcType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'string',
-      destRegion: 'string',
-      destType: 'string',
-      enableLogBackup: 'number',
-      logRetentionType: 'string',
-      logRetentionValue: 'string',
-      policyId: 'string',
-      srcRegion: 'string',
-      srcType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyLogBackupPolicyRequest extends $dara.Model {
-  advancedLogPolicies?: ModifyLogBackupPolicyRequestAdvancedLogPolicies[];
+export class ModifyLogBackupPolicyShrinkRequest extends $dara.Model {
+  advancedLogPoliciesShrink?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -102,7 +55,7 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      advancedLogPolicies: 'AdvancedLogPolicies',
+      advancedLogPoliciesShrink: 'AdvancedLogPolicies',
       DBClusterId: 'DBClusterId',
       logBackupAnotherRegionRegion: 'LogBackupAnotherRegionRegion',
       logBackupAnotherRegionRetentionPeriod: 'LogBackupAnotherRegionRetentionPeriod',
@@ -116,7 +69,7 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      advancedLogPolicies: { 'type': 'array', 'itemType': ModifyLogBackupPolicyRequestAdvancedLogPolicies },
+      advancedLogPoliciesShrink: 'string',
       DBClusterId: 'string',
       logBackupAnotherRegionRegion: 'string',
       logBackupAnotherRegionRetentionPeriod: 'string',
@@ -129,9 +82,6 @@ export class ModifyLogBackupPolicyRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.advancedLogPolicies)) {
-      $dara.Model.validateArray(this.advancedLogPolicies);
-    }
     super.validate();
   }
 

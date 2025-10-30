@@ -11,6 +11,7 @@ export class DescribeMetaListResponseBodyItems extends $dara.Model {
    * test_db
    */
   database?: string;
+  size?: number[];
   /**
    * @remarks
    * The name of the table that can be restored.
@@ -19,6 +20,7 @@ export class DescribeMetaListResponseBodyItems extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       database: 'Database',
+      size: 'Size',
       tables: 'Tables',
     };
   }
@@ -26,11 +28,15 @@ export class DescribeMetaListResponseBodyItems extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       database: 'string',
+      size: { 'type': 'array', 'itemType': 'number' },
       tables: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.size)) {
+      $dara.Model.validateArray(this.size);
+    }
     if(Array.isArray(this.tables)) {
       $dara.Model.validateArray(this.tables);
     }

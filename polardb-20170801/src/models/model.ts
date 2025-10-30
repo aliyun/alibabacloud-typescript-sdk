@@ -231,6 +231,7 @@ export { ModifyDBNodesClassRequestDBNode } from './ModifyDbnodesClassRequest';
 export { ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupResponseBody';
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
 export { ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel } from './ModifyGlobalSecurityIpgroupRelationResponseBody';
+export { ModifyLogBackupPolicyRequestAdvancedLogPolicies } from './ModifyLogBackupPolicyRequest';
 export { SetPolarFsFileQuotaRequestFilePathQuotas } from './SetPolarFsFileQuotaRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { TempModifyDBNodeRequestDBNode } from './TempModifyDbnodeRequest';
@@ -982,6 +983,7 @@ export { ModifyGlobalSecurityIPGroupRelationRequest } from './ModifyGlobalSecuri
 export { ModifyGlobalSecurityIPGroupRelationResponseBody } from './ModifyGlobalSecurityIpgroupRelationResponseBody';
 export { ModifyGlobalSecurityIPGroupRelationResponse } from './ModifyGlobalSecurityIpgroupRelationResponse';
 export { ModifyLogBackupPolicyRequest } from './ModifyLogBackupPolicyRequest';
+export { ModifyLogBackupPolicyShrinkRequest } from './ModifyLogBackupPolicyShrinkRequest';
 export { ModifyLogBackupPolicyResponseBody } from './ModifyLogBackupPolicyResponseBody';
 export { ModifyLogBackupPolicyResponse } from './ModifyLogBackupPolicyResponse';
 export { ModifyMaskingRulesRequest } from './ModifyMaskingRulesRequest';

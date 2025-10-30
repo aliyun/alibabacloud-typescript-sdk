@@ -18010,13 +18010,23 @@ export default class Client extends OpenApi {
   /**
    * Modifies the retention policy of the log backups in a PolarDB cluster.
    * 
-   * @param request - ModifyLogBackupPolicyRequest
+   * @param tmpReq - ModifyLogBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyLogBackupPolicyResponse
    */
-  async modifyLogBackupPolicyWithOptions(request: $_model.ModifyLogBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLogBackupPolicyResponse> {
-    request.validate();
+  async modifyLogBackupPolicyWithOptions(tmpReq: $_model.ModifyLogBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLogBackupPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyLogBackupPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.advancedLogPolicies)) {
+      request.advancedLogPoliciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.advancedLogPolicies, "AdvancedLogPolicies", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.advancedLogPoliciesShrink)) {
+      query["AdvancedLogPolicies"] = request.advancedLogPoliciesShrink;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
