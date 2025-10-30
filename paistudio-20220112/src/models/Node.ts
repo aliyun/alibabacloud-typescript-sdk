@@ -8,10 +8,12 @@ export class Node extends $dara.Model {
   acceleratorType?: string;
   allocatableCPU?: string;
   allocatableMemory?: string;
+  ancestorQuotaWorkloadNum?: number;
   availabilityZone?: string;
   boundQuotas?: QuotaIdName[];
   CPU?: string;
   creatorId?: string;
+  descendantQuotaWorkloadNum?: number;
   GPU?: string;
   GPUMemory?: string;
   GPUType?: string;
@@ -37,6 +39,7 @@ export class Node extends $dara.Model {
   requestMemory?: string;
   resourceGroupId?: string;
   resourceGroupName?: string;
+  selfQuotaWorkloadNum?: number;
   systemReservedCPU?: string;
   systemReservedMemory?: string;
   users?: UserInfo[];
@@ -46,10 +49,12 @@ export class Node extends $dara.Model {
       acceleratorType: 'AcceleratorType',
       allocatableCPU: 'AllocatableCPU',
       allocatableMemory: 'AllocatableMemory',
+      ancestorQuotaWorkloadNum: 'AncestorQuotaWorkloadNum',
       availabilityZone: 'AvailabilityZone',
       boundQuotas: 'BoundQuotas',
       CPU: 'CPU',
       creatorId: 'CreatorId',
+      descendantQuotaWorkloadNum: 'DescendantQuotaWorkloadNum',
       GPU: 'GPU',
       GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
@@ -75,6 +80,7 @@ export class Node extends $dara.Model {
       requestMemory: 'RequestMemory',
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
+      selfQuotaWorkloadNum: 'SelfQuotaWorkloadNum',
       systemReservedCPU: 'SystemReservedCPU',
       systemReservedMemory: 'SystemReservedMemory',
       users: 'Users',
@@ -87,10 +93,12 @@ export class Node extends $dara.Model {
       acceleratorType: 'string',
       allocatableCPU: 'string',
       allocatableMemory: 'string',
+      ancestorQuotaWorkloadNum: 'number',
       availabilityZone: 'string',
       boundQuotas: { 'type': 'array', 'itemType': QuotaIdName },
       CPU: 'string',
       creatorId: 'string',
+      descendantQuotaWorkloadNum: 'number',
       GPU: 'string',
       GPUMemory: 'string',
       GPUType: 'string',
@@ -116,6 +124,7 @@ export class Node extends $dara.Model {
       requestMemory: 'string',
       resourceGroupId: 'string',
       resourceGroupName: 'string',
+      selfQuotaWorkloadNum: 'number',
       systemReservedCPU: 'string',
       systemReservedMemory: 'string',
       users: { 'type': 'array', 'itemType': UserInfo },
