@@ -146,6 +146,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增注册血缘。
+   * 
+   * @param tmpReq - AddRegisterLineageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRegisterLineageResponse
+   */
+  async addRegisterLineageWithOptions(tmpReq: $_model.AddRegisterLineageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddRegisterLineageResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddRegisterLineageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addRegisterLineageCommand)) {
+      request.addRegisterLineageCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addRegisterLineageCommand, "AddRegisterLineageCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addRegisterLineageCommandShrink)) {
+      body["AddRegisterLineageCommand"] = request.addRegisterLineageCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddRegisterLineage",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddRegisterLineageResponse>(await this.callApi(params, req, runtime), new $_model.AddRegisterLineageResponse({}));
+  }
+
+  /**
+   * 新增注册血缘。
+   * 
+   * @param request - AddRegisterLineageRequest
+   * @returns AddRegisterLineageResponse
+   */
+  async addRegisterLineage(request: $_model.AddRegisterLineageRequest): Promise<$_model.AddRegisterLineageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addRegisterLineageWithOptions(request, runtime);
+  }
+
+  /**
    * 新增租户成员
    * 
    * @param tmpReq - AddTenantMembersRequest
@@ -1268,6 +1322,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建集成管道任务。
+   * 
+   * @param tmpReq - CreatePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineResponse
+   */
+  async createPipelineWithOptions(tmpReq: $_model.CreatePipelineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePipelineResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePipelineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePipeline",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePipelineResponse>(await this.callApi(params, req, runtime), new $_model.CreatePipelineResponse({}));
+  }
+
+  /**
+   * 创建集成管道任务。
+   * 
+   * @param request - CreatePipelineRequest
+   * @returns CreatePipelineResponse
+   */
+  async createPipeline(request: $_model.CreatePipelineRequest): Promise<$_model.CreatePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPipelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 异步创建集成管道任务。
+   * 
+   * @param tmpReq - CreatePipelineByAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineByAsyncResponse
+   */
+  async createPipelineByAsyncWithOptions(tmpReq: $_model.CreatePipelineByAsyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePipelineByAsyncResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePipelineByAsyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePipelineByAsync",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePipelineByAsyncResponse>(await this.callApi(params, req, runtime), new $_model.CreatePipelineByAsyncResponse({}));
+  }
+
+  /**
+   * 异步创建集成管道任务。
+   * 
+   * @param request - CreatePipelineByAsyncRequest
+   * @returns CreatePipelineByAsyncResponse
+   */
+  async createPipelineByAsync(request: $_model.CreatePipelineByAsyncRequest): Promise<$_model.CreatePipelineByAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPipelineByAsyncWithOptions(request, runtime);
+  }
+
+  /**
    * 创建数据集成任务。
    * 
    * @param tmpReq - CreatePipelineNodeRequest
@@ -1993,6 +2171,60 @@ export default class Client extends OpenApi {
   async deleteDirectory(request: $_model.DeleteDirectoryRequest): Promise<$_model.DeleteDirectoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDirectoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除注册血缘。
+   * 
+   * @param tmpReq - DeleteRegisterLineageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRegisterLineageResponse
+   */
+  async deleteRegisterLineageWithOptions(tmpReq: $_model.DeleteRegisterLineageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegisterLineageResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteRegisterLineageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.deleteRegisterLineageCommand)) {
+      request.deleteRegisterLineageCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteRegisterLineageCommand, "DeleteRegisterLineageCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteRegisterLineageCommandShrink)) {
+      body["DeleteRegisterLineageCommand"] = request.deleteRegisterLineageCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRegisterLineage",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRegisterLineageResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRegisterLineageResponse({}));
+  }
+
+  /**
+   * 删除注册血缘。
+   * 
+   * @param request - DeleteRegisterLineageRequest
+   * @returns DeleteRegisterLineageResponse
+   */
+  async deleteRegisterLineage(request: $_model.DeleteRegisterLineageRequest): Promise<$_model.DeleteRegisterLineageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRegisterLineageWithOptions(request, runtime);
   }
 
   /**
@@ -4647,6 +4879,126 @@ export default class Client extends OpenApi {
   async getPhysicalNodeOperationLog(request: $_model.GetPhysicalNodeOperationLogRequest): Promise<$_model.GetPhysicalNodeOperationLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getPhysicalNodeOperationLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询异步操作管道任务的执行结果。
+   * 
+   * @param tmpReq - GetPipelineAsyncResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPipelineAsyncResultResponse
+   */
+  async getPipelineAsyncResultWithOptions(tmpReq: $_model.GetPipelineAsyncResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPipelineAsyncResultResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetPipelineAsyncResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.asyncId)) {
+      query["AsyncId"] = request.asyncId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPipelineAsyncResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPipelineAsyncResultResponse>(await this.callApi(params, req, runtime), new $_model.GetPipelineAsyncResultResponse({}));
+  }
+
+  /**
+   * 查询异步操作管道任务的执行结果。
+   * 
+   * @param request - GetPipelineAsyncResultRequest
+   * @returns GetPipelineAsyncResultResponse
+   */
+  async getPipelineAsyncResult(request: $_model.GetPipelineAsyncResultRequest): Promise<$_model.GetPipelineAsyncResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPipelineAsyncResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据管道任务id查询管道任务。
+   * 
+   * @param tmpReq - GetPipelineByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPipelineByIdResponse
+   */
+  async getPipelineByIdWithOptions(tmpReq: $_model.GetPipelineByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPipelineByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetPipelineByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.queryId)) {
+      request.queryIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryId, "QueryId", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.queryIdShrink)) {
+      body["QueryId"] = request.queryIdShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPipelineById",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPipelineByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetPipelineByIdResponse({}));
+  }
+
+  /**
+   * 根据管道任务id查询管道任务。
+   * 
+   * @param request - GetPipelineByIdRequest
+   * @returns GetPipelineByIdResponse
+   */
+  async getPipelineById(request: $_model.GetPipelineByIdRequest): Promise<$_model.GetPipelineByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPipelineByIdWithOptions(request, runtime);
   }
 
   /**
@@ -7630,6 +7982,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线集成管道任务。
+   * 
+   * @param tmpReq - OfflinePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflinePipelineResponse
+   */
+  async offlinePipelineWithOptions(tmpReq: $_model.OfflinePipelineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OfflinePipelineResponse> {
+    tmpReq.validate();
+    let request = new $_model.OfflinePipelineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.offlineCommand)) {
+      request.offlineCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand, "OfflineCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.offlineCommandShrink)) {
+      body["OfflineCommand"] = request.offlineCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflinePipeline",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflinePipelineResponse>(await this.callApi(params, req, runtime), new $_model.OfflinePipelineResponse({}));
+  }
+
+  /**
+   * 下线集成管道任务。
+   * 
+   * @param request - OfflinePipelineRequest
+   * @returns OfflinePipelineResponse
+   */
+  async offlinePipeline(request: $_model.OfflinePipelineRequest): Promise<$_model.OfflinePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.offlinePipelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 异步下线集成管道任务。
+   * 
+   * @param tmpReq - OfflinePipelineByAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflinePipelineByAsyncResponse
+   */
+  async offlinePipelineByAsyncWithOptions(tmpReq: $_model.OfflinePipelineByAsyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OfflinePipelineByAsyncResponse> {
+    tmpReq.validate();
+    let request = new $_model.OfflinePipelineByAsyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.offlineCommand)) {
+      request.offlineCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand, "OfflineCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.offlineCommandShrink)) {
+      body["OfflineCommand"] = request.offlineCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OfflinePipelineByAsync",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OfflinePipelineByAsyncResponse>(await this.callApi(params, req, runtime), new $_model.OfflinePipelineByAsyncResponse({}));
+  }
+
+  /**
+   * 异步下线集成管道任务。
+   * 
+   * @param request - OfflinePipelineByAsyncRequest
+   * @returns OfflinePipelineByAsyncResponse
+   */
+  async offlinePipelineByAsync(request: $_model.OfflinePipelineByAsyncRequest): Promise<$_model.OfflinePipelineByAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.offlinePipelineByAsyncWithOptions(request, runtime);
+  }
+
+  /**
    * 上线业务实体。
    * 
    * @param tmpReq - OnlineBizEntityRequest
@@ -9159,6 +9635,130 @@ export default class Client extends OpenApi {
   async updateFileName(request: $_model.UpdateFileNameRequest): Promise<$_model.UpdateFileNameResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFileNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新集成管道任务。
+   * 
+   * @param tmpReq - UpdatePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePipelineResponse
+   */
+  async updatePipelineWithOptions(tmpReq: $_model.UpdatePipelineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePipelineResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePipelineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePipeline",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePipelineResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePipelineResponse({}));
+  }
+
+  /**
+   * 更新集成管道任务。
+   * 
+   * @param request - UpdatePipelineRequest
+   * @returns UpdatePipelineResponse
+   */
+  async updatePipeline(request: $_model.UpdatePipelineRequest): Promise<$_model.UpdatePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePipelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 异步更新集成管道任务。
+   * 
+   * @param tmpReq - UpdatePipelineByAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePipelineByAsyncResponse
+   */
+  async updatePipelineByAsyncWithOptions(tmpReq: $_model.UpdatePipelineByAsyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePipelineByAsyncResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePipelineByAsyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePipelineByAsync",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePipelineByAsyncResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePipelineByAsyncResponse({}));
+  }
+
+  /**
+   * 异步更新集成管道任务。
+   * 
+   * @param request - UpdatePipelineByAsyncRequest
+   * @returns UpdatePipelineByAsyncResponse
+   */
+  async updatePipelineByAsync(request: $_model.UpdatePipelineByAsyncRequest): Promise<$_model.UpdatePipelineByAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePipelineByAsyncWithOptions(request, runtime);
   }
 
   /**

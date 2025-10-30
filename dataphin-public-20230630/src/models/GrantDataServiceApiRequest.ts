@@ -75,6 +75,8 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
    * 1201
    */
   appId?: number;
+  applyDev?: boolean;
+  applyProd?: boolean;
   devFieldList?: GrantDataServiceApiRequestGrantCommandDevFieldList[];
   /**
    * @remarks
@@ -97,6 +99,8 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
     return {
       apiId: 'ApiId',
       appId: 'AppId',
+      applyDev: 'ApplyDev',
+      applyProd: 'ApplyProd',
       devFieldList: 'DevFieldList',
       expireDate: 'ExpireDate',
       prodFieldList: 'ProdFieldList',
@@ -108,6 +112,8 @@ export class GrantDataServiceApiRequestGrantCommand extends $dara.Model {
     return {
       apiId: 'number',
       appId: 'number',
+      applyDev: 'boolean',
+      applyProd: 'boolean',
       devFieldList: { 'type': 'array', 'itemType': GrantDataServiceApiRequestGrantCommandDevFieldList },
       expireDate: 'string',
       prodFieldList: { 'type': 'array', 'itemType': GrantDataServiceApiRequestGrantCommandProdFieldList },
