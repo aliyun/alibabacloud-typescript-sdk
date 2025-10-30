@@ -185,6 +185,16 @@ export class QueryContentAdvanceRequest extends $dara.Model {
    * testpassword
    */
   namespacePassword?: string;
+  /**
+   * @example
+   * 0
+   */
+  offset?: number;
+  /**
+   * @example
+   * created_at
+   */
+  orderBy?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -248,6 +258,8 @@ export class QueryContentAdvanceRequest extends $dara.Model {
       metrics: 'Metrics',
       namespace: 'Namespace',
       namespacePassword: 'NamespacePassword',
+      offset: 'Offset',
+      orderBy: 'OrderBy',
       ownerId: 'OwnerId',
       recallWindow: 'RecallWindow',
       regionId: 'RegionId',
@@ -276,6 +288,8 @@ export class QueryContentAdvanceRequest extends $dara.Model {
       metrics: 'string',
       namespace: 'string',
       namespacePassword: 'string',
+      offset: 'number',
+      orderBy: 'string',
       ownerId: 'number',
       recallWindow: { 'type': 'array', 'itemType': 'number' },
       regionId: 'string',

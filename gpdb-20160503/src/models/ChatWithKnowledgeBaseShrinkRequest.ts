@@ -24,6 +24,11 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   modelParamsShrink?: string;
   ownerId?: number;
   promptParams?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -32,6 +37,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
       modelParamsShrink: 'ModelParams',
       ownerId: 'OwnerId',
       promptParams: 'PromptParams',
+      regionId: 'RegionId',
     };
   }
 
@@ -43,6 +49,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
       modelParamsShrink: 'string',
       ownerId: 'number',
       promptParams: 'string',
+      regionId: 'string',
     };
   }
 

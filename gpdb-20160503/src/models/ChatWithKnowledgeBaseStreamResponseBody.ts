@@ -83,6 +83,11 @@ export class ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoicesMessage
   content?: string;
   /**
    * @example
+   * 逻辑推导过程
+   */
+  reasoningContent?: string;
+  /**
+   * @example
    * user
    */
   role?: string;
@@ -90,6 +95,7 @@ export class ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoicesMessage
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      reasoningContent: 'ReasoningContent',
       role: 'Role',
       toolCalls: 'ToolCalls',
     };
@@ -98,6 +104,7 @@ export class ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoicesMessage
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      reasoningContent: 'string',
       role: 'string',
       toolCalls: { 'type': 'array', 'itemType': ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoicesMessageToolCalls },
     };

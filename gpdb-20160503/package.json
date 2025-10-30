@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/gpdb20160503",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -539,6 +539,10 @@ export default class Client extends OpenApi {
       query["PromptParams"] = request.promptParams;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -617,6 +621,10 @@ export default class Client extends OpenApi {
       query["PromptParams"] = request.promptParams;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -692,6 +700,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.promptParams)) {
       query["PromptParams"] = request.promptParams;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -12911,6 +12923,14 @@ export default class Client extends OpenApi {
       query["NamespacePassword"] = request.namespacePassword;
     }
 
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -13057,6 +13077,90 @@ export default class Client extends OpenApi {
 
     let queryContentResp = await this.queryContentWithOptions(queryContentReq, runtime);
     return queryContentResp;
+  }
+
+  /**
+   * 多知识库查询
+   * 
+   * @param tmpReq - QueryKnowledgeBasesContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryKnowledgeBasesContentResponse
+   */
+  async queryKnowledgeBasesContentWithOptions(tmpReq: $_model.QueryKnowledgeBasesContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryKnowledgeBasesContentResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryKnowledgeBasesContentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.mergeMethodArgs)) {
+      request.mergeMethodArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mergeMethodArgs, "MergeMethodArgs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sourceCollection)) {
+      request.sourceCollectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCollection, "SourceCollection", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.mergeMethod)) {
+      query["MergeMethod"] = request.mergeMethod;
+    }
+
+    if (!$dara.isNull(request.mergeMethodArgsShrink)) {
+      query["MergeMethodArgs"] = request.mergeMethodArgsShrink;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.rerankFactor)) {
+      query["RerankFactor"] = request.rerankFactor;
+    }
+
+    if (!$dara.isNull(request.sourceCollectionShrink)) {
+      query["SourceCollection"] = request.sourceCollectionShrink;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryKnowledgeBasesContent",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryKnowledgeBasesContentResponse>(await this.callApi(params, req, runtime), new $_model.QueryKnowledgeBasesContentResponse({}));
+  }
+
+  /**
+   * 多知识库查询
+   * 
+   * @param request - QueryKnowledgeBasesContentRequest
+   * @returns QueryKnowledgeBasesContentResponse
+   */
+  async queryKnowledgeBasesContent(request: $_model.QueryKnowledgeBasesContentRequest): Promise<$_model.QueryKnowledgeBasesContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryKnowledgeBasesContentWithOptions(request, runtime);
   }
 
   /**

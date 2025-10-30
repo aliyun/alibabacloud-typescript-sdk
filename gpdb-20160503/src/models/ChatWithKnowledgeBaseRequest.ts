@@ -520,6 +520,11 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
   modelParams?: ChatWithKnowledgeBaseRequestModelParams;
   ownerId?: number;
   promptParams?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
@@ -528,6 +533,7 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
       modelParams: 'ModelParams',
       ownerId: 'OwnerId',
       promptParams: 'PromptParams',
+      regionId: 'RegionId',
     };
   }
 
@@ -539,6 +545,7 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
       modelParams: ChatWithKnowledgeBaseRequestModelParams,
       ownerId: 'number',
       promptParams: 'string',
+      regionId: 'string',
     };
   }
 
