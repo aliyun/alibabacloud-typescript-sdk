@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate extends $dara.Model {
   /**
+   * @remarks
+   * The route URL.
+   * 
    * @example
    * /Path
    */
   path?: string;
   /**
+   * @remarks
+   * The type of the protection rule.
+   * 
    * @example
    * Header
    */
@@ -37,6 +43,10 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPred
 }
 
 export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate extends $dara.Model {
+  /**
+   * @remarks
+   * The path matching rule.
+   */
   pathPredicate?: ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPredicate;
   static names(): { [key: string]: string } {
     return {
@@ -64,15 +74,25 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate extends
 
 export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the route.
+   * 
    * @example
    * 16933
    */
   routeId?: number;
   /**
+   * @remarks
+   * The name of the route.
+   * 
    * @example
    * test-route
    */
   routeName?: string;
+  /**
+   * @remarks
+   * The routing rule.
+   */
   routePredicate?: ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicate;
   static names(): { [key: string]: string } {
     return {
@@ -104,28 +124,65 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
 
 export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The HTTP status code. Valid values:
+   * 
+   * *   **2xx**: The request was successful.
+   * *   **3xx**: The request was redirected.
+   * *   **4xx**: The request failed.
+   * *   **5xx**: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Responses.
+   */
   data?: ListSwimmingLaneGatewayRoutesResponseBodyData[];
+  /**
+   * @remarks
+   * The status code. Value values:
+   * 
+   * *   If the request was successful, **ErrorCode** is not returned.
+   * *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * Additional information. Valid values:
+   * 
+   * *   The error message returned because the request is normal and **success** is returned.
+   * *   If the request is abnormal, the specific exception error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: Valid values:
+   * 
+   * *   **true**: The configurations were obtained.
+   * *   **false**: The configurations failed to be queried.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace. This parameter is used to query the exact call information.
+   * 
    * @example
    * ac1a0b2215622246421415014e****
    */

@@ -21,10 +21,12 @@ export class DescribeInstanceLogRequest extends $dara.Model {
    * ******-d700e680-aa4d-4ec1-afc2-6566b5ff4d7a-85d44d4bfc-*****
    */
   instanceId?: string;
+  previous?: string;
   static names(): { [key: string]: string } {
     return {
       containerId: 'ContainerId',
       instanceId: 'InstanceId',
+      previous: 'Previous',
     };
   }
 
@@ -32,6 +34,7 @@ export class DescribeInstanceLogRequest extends $dara.Model {
     return {
       containerId: 'string',
       instanceId: 'string',
+      previous: 'string',
     };
   }
 

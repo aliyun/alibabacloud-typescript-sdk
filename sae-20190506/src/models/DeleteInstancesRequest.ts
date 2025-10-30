@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteInstancesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the instance to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example

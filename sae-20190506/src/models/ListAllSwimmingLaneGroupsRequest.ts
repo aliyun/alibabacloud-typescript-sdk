@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAllSwimmingLaneGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of a namespace.
+   * 
    * @example
    * cn-beijing:test
    */

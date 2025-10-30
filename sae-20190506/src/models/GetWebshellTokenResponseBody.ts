@@ -49,6 +49,10 @@ export class GetWebshellTokenResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * Response
+   */
   data?: GetWebshellTokenResponseBodyData;
   errorCode?: string;
   /**

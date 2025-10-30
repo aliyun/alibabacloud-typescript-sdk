@@ -2,34 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListSwimmingLaneGatewayRoutesRequest extends $dara.Model {
+export class UpdateNamespaceSlsConfigsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The unique ID of the gateway.
-   * 
    * @example
-   * gw-277c0727535f4aae917e48de0f******
+   * test
    */
-  gatewayUniqueId?: string;
+  nameSpaceShortId?: string;
   /**
-   * @remarks
-   * The ID of the namespace.
-   * 
    * @example
    * cn-beijing:test
    */
   namespaceId?: string;
+  /**
+   * @example
+   * [{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]
+   */
+  slsConfigs?: string;
   static names(): { [key: string]: string } {
     return {
-      gatewayUniqueId: 'GatewayUniqueId',
+      nameSpaceShortId: 'NameSpaceShortId',
       namespaceId: 'NamespaceId',
+      slsConfigs: 'SlsConfigs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gatewayUniqueId: 'string',
+      nameSpaceShortId: 'string',
       namespaceId: 'string',
+      slsConfigs: 'string',
     };
   }
 

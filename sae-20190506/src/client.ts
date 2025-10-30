@@ -1515,7 +1515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者更新泳道
+   * Creates or updates a lane.
    * 
    * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
    * @param headers - map
@@ -1590,7 +1590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者更新泳道
+   * Creates or updates a lane.
    * 
    * @param request - CreateOrUpdateSwimmingLaneRequest
    * @returns CreateOrUpdateSwimmingLaneResponse
@@ -1602,7 +1602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者更新泳道组
+   * Creates or updates a lane group.
    * 
    * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
    * @param headers - map
@@ -1665,7 +1665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建或者更新泳道组
+   * Creates or updates a lane group.
    * 
    * @param request - CreateOrUpdateSwimmingLaneGroupRequest
    * @returns CreateOrUpdateSwimmingLaneGroupResponse
@@ -2122,7 +2122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例
+   * Deletes an application instance.
    * 
    * @param request - DeleteInstancesRequest
    * @param headers - map
@@ -2159,7 +2159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例
+   * Deletes an application instance.
    * 
    * @param request - DeleteInstancesRequest
    * @returns DeleteInstancesResponse
@@ -2314,7 +2314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除泳道组
+   * Deletes a lane group.
    * 
    * @param request - DeleteSwimmingLaneGroupRequest
    * @param headers - map
@@ -2351,7 +2351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除泳道组
+   * Deletes a lane group.
    * 
    * @param request - DeleteSwimmingLaneGroupRequest
    * @returns DeleteSwimmingLaneGroupResponse
@@ -3799,6 +3799,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.previous)) {
+      query["Previous"] = request.previous;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4345,7 +4349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询泳道详情
+   * Queries details about swimlanes.
    * 
    * @param request - DescribeSwimmingLaneRequest
    * @param headers - map
@@ -4386,7 +4390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询泳道详情
+   * Queries details about swimlanes.
    * 
    * @param request - DescribeSwimmingLaneRequest
    * @returns DescribeSwimmingLaneResponse
@@ -4812,7 +4816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * Disable ARMS Advanced Edition monitoring.
    * 
    * @param request - DowngradeApplicationApmServiceRequest
    * @param headers - map
@@ -4845,7 +4849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+   * Disable ARMS Advanced Edition monitoring.
    * 
    * @param request - DowngradeApplicationApmServiceRequest
    * @returns DowngradeApplicationApmServiceResponse
@@ -5410,7 +5414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道组
+   * Queries all lane groups.
    * 
    * @param request - ListAllSwimmingLaneGroupsRequest
    * @param headers - map
@@ -5443,7 +5447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道组
+   * Queries all lane groups.
    * 
    * @param request - ListAllSwimmingLaneGroupsRequest
    * @returns ListAllSwimmingLaneGroupsResponse
@@ -5455,7 +5459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道
+   * Queries all swimlanes.
    * 
    * @param request - ListAllSwimmingLanesRequest
    * @param headers - map
@@ -5492,7 +5496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道
+   * Queries all swimlanes.
    * 
    * @param request - ListAllSwimmingLanesRequest
    * @returns ListAllSwimmingLanesResponse
@@ -5841,7 +5845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用列表，供全链路灰度拉取应用列表
+   * Obtains the application list for the end-to-end grayscale pull application list.
    * 
    * @param request - ListApplicationsForSwimmingLaneRequest
    * @param headers - map
@@ -5882,7 +5886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用列表，供全链路灰度拉取应用列表
+   * Obtains the application list for the end-to-end grayscale pull application list.
    * 
    * @param request - ListApplicationsForSwimmingLaneRequest
    * @returns ListApplicationsForSwimmingLaneResponse
@@ -6454,7 +6458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询泳道可选的网关路由
+   * Query the gateway routes that are available for a lane
    * 
    * @param request - ListSwimmingLaneGatewayRoutesRequest
    * @param headers - map
@@ -6491,7 +6495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询泳道可选的网关路由
+   * Query the gateway routes that are available for a lane
    * 
    * @param request - ListSwimmingLaneGatewayRoutesRequest
    * @returns ListSwimmingLaneGatewayRoutesResponse
@@ -6503,7 +6507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道标签列表
+   * Queries all lane tags.
    * 
    * @param request - ListSwimmingLaneGroupTagsRequest
    * @param headers - map
@@ -6540,7 +6544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有泳道标签列表
+   * Queries all lane tags.
    * 
    * @param request - ListSwimmingLaneGroupTagsRequest
    * @returns ListSwimmingLaneGroupTagsResponse
@@ -7901,7 +7905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用闲置模式更新
+   * Application Idle Mode Update
    * 
    * @param request - UpdateAppModeRequest
    * @param headers - map
@@ -7946,7 +7950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用闲置模式更新
+   * Application Idle Mode Update
    * 
    * @param request - UpdateAppModeRequest
    * @returns UpdateAppModeResponse
@@ -8709,6 +8713,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新命名空间级别sls配置
+   * 
+   * @param request - UpdateNamespaceSlsConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNamespaceSlsConfigsResponse
+   */
+  async updateNamespaceSlsConfigsWithOptions(request: $_model.UpdateNamespaceSlsConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNamespaceSlsConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nameSpaceShortId)) {
+      query["NameSpaceShortId"] = request.nameSpaceShortId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.slsConfigs)) {
+      query["SlsConfigs"] = request.slsConfigs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNamespaceSlsConfigs",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/cas/namespace/updateNamespaceSlsConfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNamespaceSlsConfigsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNamespaceSlsConfigsResponse({}));
+  }
+
+  /**
+   * 更新命名空间级别sls配置
+   * 
+   * @param request - UpdateNamespaceSlsConfigsRequest
+   * @returns UpdateNamespaceSlsConfigsResponse
+   */
+  async updateNamespaceSlsConfigs(request: $_model.UpdateNamespaceSlsConfigsRequest): Promise<$_model.UpdateNamespaceSlsConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNamespaceSlsConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * cn-beijing:test
    * 
    * @param request - UpdateNamespaceVpcRequest
@@ -8829,7 +8886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新泳道的启用属性
+   * Update the enabled property of the swimlane.
    * 
    * @param request - UpdateSwimmingLaneEnableAttributeRequest
    * @param headers - map
@@ -8874,7 +8931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新泳道的启用属性
+   * Update the enabled property of the swimlane.
    * 
    * @param request - UpdateSwimmingLaneEnableAttributeRequest
    * @returns UpdateSwimmingLaneEnableAttributeResponse
