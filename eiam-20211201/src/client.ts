@@ -84,6 +84,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加条款到品牌
+   * 
+   * @param request - AddCustomPrivacyPoliciesToBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCustomPrivacyPoliciesToBrandResponse
+   */
+  async addCustomPrivacyPoliciesToBrandWithOptions(request: $_model.AddCustomPrivacyPoliciesToBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddCustomPrivacyPoliciesToBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyIds)) {
+      query["CustomPrivacyPolicyIds"] = request.customPrivacyPolicyIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddCustomPrivacyPoliciesToBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddCustomPrivacyPoliciesToBrandResponse>(await this.callApi(params, req, runtime), new $_model.AddCustomPrivacyPoliciesToBrandResponse({}));
+  }
+
+  /**
+   * 添加条款到品牌
+   * 
+   * @param request - AddCustomPrivacyPoliciesToBrandRequest
+   * @returns AddCustomPrivacyPoliciesToBrandResponse
+   */
+  async addCustomPrivacyPoliciesToBrand(request: $_model.AddCustomPrivacyPoliciesToBrandRequest): Promise<$_model.AddCustomPrivacyPoliciesToBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addCustomPrivacyPoliciesToBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
@@ -707,6 +757,72 @@ export default class Client extends OpenApi {
   async createConditionalAccessPolicy(request: $_model.CreateConditionalAccessPolicyRequest): Promise<$_model.CreateConditionalAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义条款
+   * 
+   * @param request - CreateCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomPrivacyPolicyResponse
+   */
+  async createCustomPrivacyPolicyWithOptions(request: $_model.CreateCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyContents)) {
+      query["CustomPrivacyPolicyContents"] = request.customPrivacyPolicyContents;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyName)) {
+      query["CustomPrivacyPolicyName"] = request.customPrivacyPolicyName;
+    }
+
+    if (!$dara.isNull(request.defaultLanguageCode)) {
+      query["DefaultLanguageCode"] = request.defaultLanguageCode;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userConsentType)) {
+      query["UserConsentType"] = request.userConsentType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 创建自定义条款
+   * 
+   * @param request - CreateCustomPrivacyPolicyRequest
+   * @returns CreateCustomPrivacyPolicyResponse
+   */
+  async createCustomPrivacyPolicy(request: $_model.CreateCustomPrivacyPolicyRequest): Promise<$_model.CreateCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomPrivacyPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -1670,6 +1786,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除自定义条款
+   * 
+   * @param request - DeleteCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomPrivacyPolicyResponse
+   */
+  async deleteCustomPrivacyPolicyWithOptions(request: $_model.DeleteCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyId)) {
+      query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 删除自定义条款
+   * 
+   * @param request - DeleteCustomPrivacyPolicyRequest
+   * @returns DeleteCustomPrivacyPolicyResponse
+   */
+  async deleteCustomPrivacyPolicy(request: $_model.DeleteCustomPrivacyPolicyRequest): Promise<$_model.DeleteCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomPrivacyPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
    * 
    * @param request - DeleteDomainRequest
@@ -2620,6 +2782,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用自定义条款
+   * 
+   * @param request - DisableCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCustomPrivacyPolicyResponse
+   */
+  async disableCustomPrivacyPolicyWithOptions(request: $_model.DisableCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyId)) {
+      query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DisableCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 禁用自定义条款
+   * 
+   * @param request - DisableCustomPrivacyPolicyRequest
+   * @returns DisableCustomPrivacyPolicyResponse
+   */
+  async disableCustomPrivacyPolicy(request: $_model.DisableCustomPrivacyPolicyRequest): Promise<$_model.DisableCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCustomPrivacyPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
    * 
    * @param request - DisableDomainProxyTokenRequest
@@ -3328,6 +3536,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用自定义条款
+   * 
+   * @param request - EnableCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCustomPrivacyPolicyResponse
+   */
+  async enableCustomPrivacyPolicyWithOptions(request: $_model.EnableCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyId)) {
+      query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.EnableCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 启用自定义条款
+   * 
+   * @param request - EnableCustomPrivacyPolicyRequest
+   * @returns EnableCustomPrivacyPolicyResponse
+   */
+  async enableCustomPrivacyPolicy(request: $_model.EnableCustomPrivacyPolicyRequest): Promise<$_model.EnableCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCustomPrivacyPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
    * 
    * @param request - EnableDomainProxyTokenRequest
@@ -4021,6 +4275,52 @@ export default class Client extends OpenApi {
   async getConditionalAccessPolicy(request: $_model.GetConditionalAccessPolicyRequest): Promise<$_model.GetConditionalAccessPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getConditionalAccessPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义条款
+   * 
+   * @param request - GetCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomPrivacyPolicyResponse
+   */
+  async getCustomPrivacyPolicyWithOptions(request: $_model.GetCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyId)) {
+      query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 获取自定义条款
+   * 
+   * @param request - GetCustomPrivacyPolicyRequest
+   * @returns GetCustomPrivacyPolicyResponse
+   */
+  async getCustomPrivacyPolicy(request: $_model.GetCustomPrivacyPolicyRequest): Promise<$_model.GetCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomPrivacyPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -5916,6 +6216,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自定义条款列表查询。
+   * 
+   * @param request - ListCustomPrivacyPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomPrivacyPoliciesResponse
+   */
+  async listCustomPrivacyPoliciesWithOptions(request: $_model.ListCustomPrivacyPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomPrivacyPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyNameStartsWith)) {
+      query["CustomPrivacyPolicyNameStartsWith"] = request.customPrivacyPolicyNameStartsWith;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomPrivacyPolicies",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomPrivacyPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomPrivacyPoliciesResponse({}));
+  }
+
+  /**
+   * 自定义条款列表查询。
+   * 
+   * @param request - ListCustomPrivacyPoliciesRequest
+   * @returns ListCustomPrivacyPoliciesResponse
+   */
+  async listCustomPrivacyPolicies(request: $_model.ListCustomPrivacyPoliciesRequest): Promise<$_model.ListCustomPrivacyPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomPrivacyPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取品牌关联资源的资源
+   * 
+   * @param request - ListCustomPrivacyPoliciesForBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomPrivacyPoliciesForBrandResponse
+   */
+  async listCustomPrivacyPoliciesForBrandWithOptions(request: $_model.ListCustomPrivacyPoliciesForBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomPrivacyPoliciesForBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomPrivacyPoliciesForBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomPrivacyPoliciesForBrandResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomPrivacyPoliciesForBrandResponse({}));
+  }
+
+  /**
+   * 获取品牌关联资源的资源
+   * 
+   * @param request - ListCustomPrivacyPoliciesForBrandRequest
+   * @returns ListCustomPrivacyPoliciesForBrandResponse
+   */
+  async listCustomPrivacyPoliciesForBrand(request: $_model.ListCustomPrivacyPoliciesForBrandRequest): Promise<$_model.ListCustomPrivacyPoliciesForBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomPrivacyPoliciesForBrandWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
    * 
    * @param request - ListDomainProxyTokensRequest
@@ -7427,6 +7843,56 @@ export default class Client extends OpenApi {
   async removeApplicationAccountFromUser(request: $_model.RemoveApplicationAccountFromUserRequest): Promise<$_model.RemoveApplicationAccountFromUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeApplicationAccountFromUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除品牌关联条款
+   * 
+   * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
+   */
+  async removeCustomPrivacyPoliciesFromBrandWithOptions(request: $_model.RemoveCustomPrivacyPoliciesFromBrandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveCustomPrivacyPoliciesFromBrandResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.brandId)) {
+      query["BrandId"] = request.brandId;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyIds)) {
+      query["CustomPrivacyPolicyIds"] = request.customPrivacyPolicyIds;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveCustomPrivacyPoliciesFromBrand",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveCustomPrivacyPoliciesFromBrandResponse>(await this.callApi(params, req, runtime), new $_model.RemoveCustomPrivacyPoliciesFromBrandResponse({}));
+  }
+
+  /**
+   * 移除品牌关联条款
+   * 
+   * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
+   * @returns RemoveCustomPrivacyPoliciesFromBrandResponse
+   */
+  async removeCustomPrivacyPoliciesFromBrand(request: $_model.RemoveCustomPrivacyPoliciesFromBrandRequest): Promise<$_model.RemoveCustomPrivacyPoliciesFromBrandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeCustomPrivacyPoliciesFromBrandWithOptions(request, runtime);
   }
 
   /**
@@ -9101,6 +9567,68 @@ export default class Client extends OpenApi {
   async updateConditionalAccessPolicyDescription(request: $_model.UpdateConditionalAccessPolicyDescriptionRequest): Promise<$_model.UpdateConditionalAccessPolicyDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自定义条款
+   * 
+   * @param request - UpdateCustomPrivacyPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomPrivacyPolicyResponse
+   */
+  async updateCustomPrivacyPolicyWithOptions(request: $_model.UpdateCustomPrivacyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomPrivacyPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customPrivacyPolicyContents)) {
+      query["CustomPrivacyPolicyContents"] = request.customPrivacyPolicyContents;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyId)) {
+      query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId;
+    }
+
+    if (!$dara.isNull(request.customPrivacyPolicyName)) {
+      query["CustomPrivacyPolicyName"] = request.customPrivacyPolicyName;
+    }
+
+    if (!$dara.isNull(request.defaultLanguageCode)) {
+      query["DefaultLanguageCode"] = request.defaultLanguageCode;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userConsentType)) {
+      query["UserConsentType"] = request.userConsentType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomPrivacyPolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomPrivacyPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomPrivacyPolicyResponse({}));
+  }
+
+  /**
+   * 更新自定义条款
+   * 
+   * @param request - UpdateCustomPrivacyPolicyRequest
+   * @returns UpdateCustomPrivacyPolicyResponse
+   */
+  async updateCustomPrivacyPolicy(request: $_model.UpdateCustomPrivacyPolicyRequest): Promise<$_model.UpdateCustomPrivacyPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustomPrivacyPolicyWithOptions(request, runtime);
   }
 
   /**
