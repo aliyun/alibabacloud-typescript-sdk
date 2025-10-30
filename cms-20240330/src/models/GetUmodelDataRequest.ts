@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUmodelDataRequest extends $dara.Model {
   /**
+   * @remarks
+   * Query conditions
+   * 
    * @example
    * {
    * 	"filter": {
@@ -16,6 +19,8 @@ export class GetUmodelDataRequest extends $dara.Model {
   content?: any;
   /**
    * @remarks
+   * Method
+   * 
    * This parameter is required.
    * 
    * @example

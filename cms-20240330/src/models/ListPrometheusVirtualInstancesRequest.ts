@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Optional cloud product
+   * 
    * @example
    * ack-csi-fuse
    */

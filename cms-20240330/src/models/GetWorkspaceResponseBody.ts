@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -13,19 +15,24 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 工作空间描述
+   * Workspace Description
    * 
    * @example
    * workspace test
    */
   description?: string;
   /**
+   * @remarks
+   * Workspace Display Name
+   * 
    * @example
    * workspace-test
    */
   displayName?: string;
   /**
    * @remarks
+   * Last Modified Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -34,20 +41,23 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * 地域ID
+   * Region ID
    * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
   /**
    * @remarks
-   * 工作空间绑定的日志服务项目名称
+   * Log Service Project Name
    * 
    * @example
    * sls-project-test-001
@@ -55,7 +65,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * 工作空间名称
+   * Workspace Name
    * 
    * This parameter is required.
    * 

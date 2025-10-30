@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specified list of regionIds to filter (comma-separated).
+   * 
    * @example
    * cn-shenzhen
    * 
@@ -12,6 +15,9 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   filterRegionIds?: string;
   /**
+   * @remarks
+   * Maximum number of records to return.
+   * 
    * @example
    * 10
    * 
@@ -20,6 +26,9 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token.
+   * 
    * @example
    * xxxxxxxxxx
    * 
@@ -28,6 +37,9 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * List of instance IDs (comma-separated)
+   * 
    * @example
    * rw-00001,rw-00002,rw-00003
    * 
@@ -36,6 +48,9 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   prometheusInstanceIds?: string;
   /**
+   * @remarks
+   * Instance name (partial match supported)
+   * 
    * @example
    * test
    * 
@@ -44,11 +59,17 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    */
   prometheusInstanceName?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-aek2bhocin5e2na
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Resource type of the instance.
+   * 
    * @example
    * Prometheus
    * 
@@ -56,8 +77,15 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
    * true
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tagShrink?: string;
   /**
+   * @remarks
+   * Instance version: V1 or V2
+   * 
    * @example
    * V2
    * 

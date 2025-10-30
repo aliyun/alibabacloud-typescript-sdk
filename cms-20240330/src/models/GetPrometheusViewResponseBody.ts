@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * rw-63549e054ff596a4149927961dff
    */
   prometheusInstanceId?: string;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-north-2-gov-1
    */
   regionId?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 122xxxxx
    */
@@ -45,11 +54,17 @@ export class GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances exte
 
 export class GetPrometheusViewResponseBodyPrometheusViewTags extends $dara.Model {
   /**
+   * @remarks
+   * PagerDuty integration key.
+   * 
    * @example
    * global_score_series
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * 371293199010092839
    */
@@ -79,124 +94,217 @@ export class GetPrometheusViewResponseBodyPrometheusViewTags extends $dara.Model
 
 export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
   /**
+   * @remarks
+   * Password-free read policy (supports IP segments and VpcId).
+   * 
    * @example
-   * 0.0.0.0/0
+   * {
+   *   "SourceIp": [
+   *     "192.168.1.0/24",
+   *     "172.168.2.22"
+   *   ],
+   *   "SourceVpc": [
+   *     "vpc-xx1",
+   *     "vpc-xx2"
+   *   ]
+   * }
    */
   authFreeReadPolicy?: string;
   /**
+   * @remarks
+   * authToken string.
+   * 
    * @example
    * eJxxxxxx
    */
   authToken?: string;
   /**
+   * @remarks
+   * Instance creation time, using UTC+0 time, format is yyyy-MM-ddTHH:mmZ.
+   * 
    * @example
    * 2025-08-10T02:07:53Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Whether to enable password-free read.
+   * 
    * @example
    * true
    */
   enableAuthFreeRead?: boolean;
   /**
+   * @remarks
+   * Whether to enable authToken.
+   * 
    * @example
    * true
    */
   enableAuthToken?: boolean;
   /**
+   * @remarks
+   * Observability dashboard URL.
+   * 
    * @example
    * https://xxxx
    */
   folderUrl?: string;
   /**
+   * @remarks
+   * Bound managed Grafana instance ID.
+   * 
    * @example
    * g-xxx
    */
   grafanaInstanceId?: string;
   /**
+   * @remarks
+   * Bound managed Grafana instance name.
+   * 
    * @example
    * gxxx
    */
   grafanaInstanceName?: string;
   /**
+   * @remarks
+   * Public HTTP address.
+   * 
    * @example
    * http://xxxxxxxx
    */
   httpApiInterUrl?: string;
   /**
+   * @remarks
+   * Private HTTP address.
+   * 
    * @example
    * http://xxxxxxxx
    */
   httpApiIntraUrl?: string;
   /**
+   * @remarks
+   * Instance type, fixed value prom-view.
+   * 
    * @example
    * prom-view
    */
   instanceType?: string;
   /**
+   * @remarks
+   * Payment type. Currently, the fixed value is FREE (free).
+   * 
    * @example
    * FREE
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Product that the prom instance belongs to.
+   * 
    * @example
    * cms
    */
   product?: string;
+  /**
+   * @remarks
+   * Prometheus instance list.
+   */
   prometheusInstances?: GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances[];
   /**
+   * @remarks
+   * Prometheus view ID.
+   * 
    * @example
    * view-xxx
    */
   prometheusViewId?: string;
   /**
+   * @remarks
+   * Prometheus view name.
+   * 
    * @example
    * view1
    */
   prometheusViewName?: string;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Remote read public URL.
+   * 
    * @example
    * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
    */
   remoteReadInterUrl?: string;
   /**
+   * @remarks
+   * Remote read intranet URL.
+   * 
    * @example
    * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou-intranet.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
    */
   remoteReadIntraUrl?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-acfm3gn5i6bigbi
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Fixed value: PrometheusView
+   * 
    * @example
    * RegistryModule
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Backend data storage status
+   * 
    * @example
    * Pending2Running
    */
   status?: string;
+  /**
+   * @remarks
+   * Supported authentication types.
+   */
   supportAuthTypes?: string[];
+  /**
+   * @remarks
+   * Instance tag keys.
+   */
   tags?: GetPrometheusViewResponseBodyPrometheusViewTags[];
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 11222
    */
   userId?: string;
   /**
+   * @remarks
+   * Version.
+   * 
    * @example
    * V1
    */
   version?: string;
   /**
+   * @remarks
+   * Workspace to which the environment belongs
+   * 
    * @example
    * cms-monitor-test-aysls-pub-cn-fuzhou-monitor
    */
@@ -284,6 +392,10 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
 }
 
 export class GetPrometheusViewResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * View instance.
+   */
   prometheusView?: GetPrometheusViewResponseBodyPrometheusView;
   /**
    * @remarks

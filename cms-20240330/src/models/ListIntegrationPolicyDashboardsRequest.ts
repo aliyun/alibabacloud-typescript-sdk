@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyDashboardsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Addon Name.
+   * 
    * @example
    * cs-default
    */
   addonName?: string;
+  /**
+   * @remarks
+   * Query Language
+   * 
+   * @example
+   * zh
+   */
   language?: string;
   /**
+   * @remarks
+   * Component Scenario.
+   * 
    * @example
    * databse
    */

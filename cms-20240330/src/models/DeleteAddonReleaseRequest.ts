@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAddonReleaseRequest extends $dara.Model {
   /**
+   * @remarks
+   * Addon name. When AddonName is provided, it will ignore the ReleaseName parameter and batch uninstall all AddonReleases belonging to the same Addon.
+   * 
    * @example
    * cs-gpu
    */
   addonName?: string;
   /**
+   * @remarks
+   * Whether to force deletion, default is false.
+   * 
    * @example
    * false
    */
   force?: boolean;
   /**
+   * @remarks
+   * The name of the AddonRelease.
+   * 
    * @example
    * test-gpu-integration-name
    */

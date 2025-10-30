@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * Tag `key` value.
+   * 
    * @example
    * algo_bhv_expose_in_airec_exposure
    */
   key?: string;
   /**
+   * @remarks
+   * Tag `value` value.
+   * 
    * @example
    * [{\\"Id\\": \\"kgqie6hm\\", \\"Name\\": \\"Sheet1\\"}]
    */
@@ -38,20 +44,33 @@ export class UpdateIntegrationPolicyRequestTags extends $dara.Model {
 
 export class UpdateIntegrationPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * Fee package type, CS_Pro/CS_Basic/empty.
+   * 
    * @example
    * CS_Pro
    */
   feePackage?: string;
   /**
+   * @remarks
+   * Rule name, minimum 3 characters, maximum 63 characters, must start with a letter.
+   * 
    * @example
    * metrics-inner-manage
    */
   policyName?: string;
   /**
+   * @remarks
+   * Resource group ID of the instance.
+   * 
    * @example
    * rg-aekzoiafjtr7zyq
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Resource tags.
+   */
   tags?: UpdateIntegrationPolicyRequestTags[];
   static names(): { [key: string]: string } {
     return {

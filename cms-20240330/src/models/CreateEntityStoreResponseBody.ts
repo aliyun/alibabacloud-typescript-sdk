@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEntityStoreResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * request ID
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
   /**
+   * @remarks
+   * workspace name
+   * 
    * @example
    * workspace-test-001
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAggTaskGroupsRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * Key of the resource group tag.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * Value of the resource group tag.
+   * 
    * @example
    * value1
    */
@@ -38,37 +44,62 @@ export class ListAggTaskGroupsRequestTags extends $dara.Model {
 
 export class ListAggTaskGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * List of IDs for the aggregation task groups, which must be JSON parseable.
+   * 
    * @example
    * ["aggTaskGroup-xxx"]
    */
   filterAggTaskGroupIds?: string;
   /**
+   * @remarks
+   * List of names for the aggregation task groups, which must be JSON parseable.
+   * 
    * @example
    * ["apiserver_request_total"]
    */
   filterAggTaskGroupNames?: string;
   /**
+   * @remarks
+   * Maximum number of records to return.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Query token.
+   * 
    * @example
    * 28036394xxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Name search, supports fuzzy matching.
+   * 
    * @example
    * test
    */
   query?: string;
   /**
+   * @remarks
+   * Status of the aggregation task group, either \\"Running\\" or \\"Stopped\\". Default is Running.
+   * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * Resource group tags.
+   */
   tags?: ListAggTaskGroupsRequestTags[];
   /**
+   * @remarks
+   * The target Prometheus instance ID for the aggregation task group.
+   * 
    * @example
    * rw-pq4apob9jm
    */

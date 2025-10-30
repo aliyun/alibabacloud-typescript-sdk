@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Addon Release name.
+   * 
    * @example
    * release12345678
    */
   addonReleaseName?: string;
   /**
+   * @remarks
+   * Whether to encrypt Yaml.
+   * 
    * @example
    * true
    */
   encryptYaml?: boolean;
+  /**
+   * @remarks
+   * Namespace.
+   * 
+   * @example
+   * arms-prom
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {

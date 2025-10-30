@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePrometheusViewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Prometheus view instance ID.
+   * 
    * @example
    * rw-xxxxxx
    */
   prometheusViewId?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request.
    * 
    * @example
    * 64D964F5-76C7-19A2-9399-457744AB3619

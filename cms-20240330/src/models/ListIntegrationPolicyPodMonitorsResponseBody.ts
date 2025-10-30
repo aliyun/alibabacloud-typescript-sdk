@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * Collection interval
+   * 
    * @example
    * 30s
    */
   interval?: string;
   /**
+   * @remarks
+   * Number of matched targets
+   * 
    * @example
    * 1
    */
   matchedTargetCount?: number;
   /**
+   * @remarks
+   * Metric collection path
+   * 
    * @example
    * /metrics
    */
   path?: string;
   /**
+   * @remarks
+   * Port number
+   * 
    * @example
    * 9100
    */
   port?: string;
   /**
+   * @remarks
+   * Target port
+   * 
    * @example
    * https
    */
@@ -59,47 +74,78 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints ex
 
 export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $dara.Model {
   /**
+   * @remarks
+   * Addon name.
+   * 
    * @example
    * cloud-ecs
    */
   addonName?: string;
   /**
+   * @remarks
+   * Addon Release name.
+   * 
    * @example
    * release-2345678
    */
   addonReleaseName?: string;
   /**
+   * @remarks
+   * Addon version.
+   * 
    * @example
    * 0.0.1
    */
   addonVersion?: string;
   /**
+   * @remarks
+   * Configuration yaml.
+   * 
    * @example
    * apiVersion: xxxxx
    */
   configYaml?: string;
   /**
+   * @remarks
+   * Enable status.
+   * 
    * @example
    * run
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * Encrypt yaml.
+   * 
    * @example
    * YXBpVmVyc2lvbjogeHh4eHgK
    */
   encryptYaml?: boolean;
+  /**
+   * @remarks
+   * Instance endpoints.
+   */
   endpoints?: ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints[];
   /**
+   * @remarks
+   * Number of matched pods
+   * 
    * @example
    * 3
    */
   matchedPodCount?: number;
   /**
+   * @remarks
+   * Collection name.
+   * 
    * @example
    * znzmo_entity_test
    */
   name?: string;
   /**
+   * @remarks
+   * Namespace
+   * 
    * @example
    * sla-ns-d5aeb2b4f91b47
    */
@@ -147,16 +193,30 @@ export class ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors extends $da
 }
 
 export class ListIntegrationPolicyPodMonitorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Cluster ID.
+   * 
+   * @example
+   * et15prod-et15storage
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * PodMonitor list
+   */
   podMonitors?: ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors[];
   /**
+   * @remarks
+   * Policy ID.
+   * 
    * @example
    * policy-c9efed2b99c348d49e589c5f780fc074
    */
   policyId?: string;
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5

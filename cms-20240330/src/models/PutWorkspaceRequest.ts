@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class PutWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * 工作空间描述
+   * Description of the workspace
    * 
    * @example
    * workspace test
    */
   description?: string;
   /**
+   * @remarks
+   * Display name of the workspace
+   * 
    * @example
    * workspace-test
    */
   displayName?: string;
   /**
    * @remarks
-   * 工作空间绑定的日志服务项目名称
+   * Name of the Log Service project
    * 
    * This parameter is required.
    * 

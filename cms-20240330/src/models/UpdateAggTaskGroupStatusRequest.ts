@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAggTaskGroupStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Status of the aggregation task group, either “Running” or “Stopped”. Default is Running.
+   * 
    * This parameter is required.
    * 
    * @example

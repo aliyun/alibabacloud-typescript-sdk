@@ -3,13 +3,68 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara.Model {
+  /**
+   * @remarks
+   * Dashboard engine:
+   * grafana: shared grafana.
+   * cms: cms self-developed dashboard engine.
+   * 
+   * @example
+   * grafana
+   */
   engine?: string;
+  /**
+   * @remarks
+   * UID of the dashboard folder.
+   * 
+   * @example
+   * Env-AAA
+   */
   folderUid?: string;
+  /**
+   * @remarks
+   * Dashboard name
+   * 
+   * @example
+   * k8s-pod
+   */
   name?: string;
+  /**
+   * @remarks
+   * Region
+   * 
+   * @example
+   * cn-hongkong
+   */
   region?: string;
+  /**
+   * @remarks
+   * List of tags.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * Title of the UI module (not name)
+   * 
+   * @example
+   * test
+   */
   title?: string;
+  /**
+   * @remarks
+   * ID of the current Alibaba Cloud primary account, read-only
+   * 
+   * @example
+   * 1258199346721590
+   */
   uid?: string;
+  /**
+   * @remarks
+   * pagerDuty integration webhook. Supports V1 and V2 versions
+   * 
+   * @example
+   * https://agi.alicdn.com/user/0/0_0_5255362686.png?x-oss-process=image/quality,q_75/format,jpg&file=1734574878007.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,16 +105,23 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
 }
 
 export class ListIntegrationPolicyDashboardsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of dashboards.
+   */
   dashboards?: ListIntegrationPolicyDashboardsResponseBodyDashboards[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Number of components.
+   * 
    * @example
    * 1
    */

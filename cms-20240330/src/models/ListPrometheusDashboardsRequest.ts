@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPrometheusDashboardsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Language environment, default is Chinese zh | en
+   * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
+   * @remarks
+   * Resource Group ID.
+   * 
    * @example
    * rg-acfm3gn5i6bigbi
    */

@@ -3,14 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata extends $dara.Model {
+  /**
+   * @remarks
+   * Annotations
+   */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * Resource labels
+   */
   labels?: { [key: string]: string };
   /**
+   * @remarks
+   * Resource name
+   * 
    * @example
    * pod-1234567
    */
   name?: string;
   /**
+   * @remarks
+   * Namespace
+   * 
    * @example
    * arms-prom
    */
@@ -50,48 +64,83 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID, which can be specified if you need to pinpoint to the instance level. It depends on the data in EntityStore.
+   * 
    * @example
    * es-xxxxx
    */
   entityId?: string;
   /**
+   * @remarks
+   * Prom Instance ID.
+   * 
    * @example
    * i-bp122p85gthbniw8rsu9
    */
   instance?: string;
   /**
+   * @remarks
+   * Prom instance name
+   * 
    * @example
    * category_predict
    */
   instanceName?: string;
   /**
+   * @remarks
+   * Optional parameter, determined based on the current environment type
+   * 
    * @example
    * datagrid_cdm
    */
   project?: string;
   /**
+   * @remarks
+   * Region
+   * 
    * @example
    * cn-shenzhen
    */
   region?: string;
   /**
+   * @remarks
+   * Storage sharing scope: Environment | Region | Workspace | Custom
+   * 
    * @example
    * Region
    */
   shareScope?: string;
   /**
+   * @remarks
+   * Instance storage type
+   * 
    * @example
    * Prometheus
    */
   storageType?: string;
+  /**
+   * @remarks
+   * Tags to be applied to the target storage (injected as system tags)
+   */
   systemTags?: { [key: string]: string };
+  /**
+   * @remarks
+   * Tags to be applied to the target storage (injected as regular tags)
+   */
   tags?: { [key: string]: string };
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 12345678
    */
   userId?: string;
   /**
+   * @remarks
+   * Workspace
+   * 
    * @example
    * test-api
    */
@@ -145,46 +194,73 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsStatus extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * rmq-cn-uqm3ket1t0u
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Internal URL
+   * 
    * @example
    * http://192.168.xxxxxx
    */
   interUrl?: string;
   /**
+   * @remarks
+   * External URL
+   * 
    * @example
    * http://100.100.xxxxxx
    */
   intraUrl?: string;
   /**
+   * @remarks
+   * 存储需求名称
+   * 
    * @example
    * sr-xxxx
    */
   name?: string;
   /**
+   * @remarks
+   * 存储需求项目
+   * 
    * @example
    * jiuwu_algo
    */
   project?: string;
   /**
+   * @remarks
+   * Prom\\"s metric center
+   * 
    * @example
    * xxxx
    */
   promMetricStore?: string;
   /**
+   * @remarks
+   * Region
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * Instance storage type
+   * 
    * @example
    * Prometheus
    */
   storageType?: string;
   /**
+   * @remarks
+   * Workspace.
+   * 
    * @example
    * default
    */
@@ -227,19 +303,41 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 }
 
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirements extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of AddonReleases.
+   */
   addonReleaseNames?: string[];
   /**
+   * @remarks
+   * API Version
+   * 
    * @example
    * v1
    */
   apiVersion?: string;
   /**
+   * @remarks
+   * Resource kind
+   * 
    * @example
    * Pod
    */
   kind?: string;
+  /**
+   * @remarks
+   * Metadata
+   */
   metadata?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata;
+  /**
+   * @remarks
+   * Resource spec
+   */
   spec?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec;
+  /**
+   * @remarks
+   * Storage requirement status
+   */
   status?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsStatus;
   static names(): { [key: string]: string } {
     return {
@@ -287,12 +385,16 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of storage requirements
+   */
   storageRequirements?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirements[];
   static names(): { [key: string]: string } {
     return {

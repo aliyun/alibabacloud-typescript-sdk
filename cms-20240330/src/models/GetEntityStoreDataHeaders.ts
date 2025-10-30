@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetEntityStoreDataHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
+   * @remarks
+   * Content encoding type for the compression algorithm
+   * 
    * @example
    * gzip
    */

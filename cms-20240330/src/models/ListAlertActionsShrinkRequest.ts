@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertActionsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Unique identifier for the action integration.
+   */
   alertActionIdsShrink?: string;
   /**
+   * @remarks
+   * Name of the action integration.
+   * 
    * @example
    * testName
    */
   alertActionName?: string;
   /**
+   * @remarks
+   * Page number. Default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size. Default is 100.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Type of the action integration.
+   * 
    * @example
    * FC
    */

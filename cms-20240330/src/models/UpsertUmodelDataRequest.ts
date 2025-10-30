@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpsertUmodelDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Element content
+   */
   elements?: any[];
   /**
+   * @remarks
+   * Method
+   * 
    * @example
    * Upsert
    */

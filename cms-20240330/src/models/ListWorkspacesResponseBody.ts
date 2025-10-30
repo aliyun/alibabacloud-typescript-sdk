@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
+   * Creation time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -13,19 +15,24 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 工作空间描述
+   * Workspace description
    * 
    * @example
    * workspace test
    */
   description?: string;
   /**
+   * @remarks
+   * Workspace display name
+   * 
    * @example
    * workspace-test
    */
   displayName?: string;
   /**
    * @remarks
+   * Last modified time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -34,7 +41,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * 地域ID
+   * Region ID
    * 
    * @example
    * cn-heyuan
@@ -42,7 +49,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 工作空间绑定的日志服务项目名称
+   * Log Service project name
    * 
    * @example
    * sls-project-test-001
@@ -50,7 +57,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * 工作空间名称
+   * Workspace name
    * 
    * This parameter is required.
    * 
@@ -93,25 +100,45 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Page size
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Pagination Token
+   * 
    * @example
    * xxxxxxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 1
    */
   total?: number;
+  /**
+   * @remarks
+   * List of workspaces
+   */
   workspaces?: ListWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {
     return {

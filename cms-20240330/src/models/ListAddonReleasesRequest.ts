@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAddonReleasesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Addon component name.
+   * 
    * @example
    * cs-gpu
    */
   addonName?: string;
   /**
+   * @remarks
+   * Parent AddonReleaseId.
+   * 
    * @example
    * policy-xxxxxxxxxxxxx
    */

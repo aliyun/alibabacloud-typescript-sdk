@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.Model {
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1750315319946
    */
   createdAt?: string;
   /**
+   * @remarks
+   * HTTP API URL.
+   * 
    * @example
    * http://xxxxxxxx
    */
   httpApiUrl?: string;
   /**
+   * @remarks
+   * Applicable data source type: PROMETHEUS_DS
+   * 
+   * Prometheus instance ID
+   * 
    * @example
    * rw-b8cfbbe94194ac37fe83f3d2d16a
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Applicable query type: CMS_BASIC_QUERY.
+   * 
+   * Namespace of the metric
+   * 
    * @example
    * arms-prom
    */
   namespace?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai-cloudspe
    */
   regionId?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 17073812345
    */
@@ -65,10 +87,14 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
 }
 
 export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Instance information.
+   */
   instances?: ListPrometheusVirtualInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUmodelDataResponseBodyErrors extends $dara.Model {
   /**
+   * @remarks
+   * Details.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * Error type
+   * 
    * @example
    * external
    */
@@ -37,20 +43,41 @@ export class GetUmodelDataResponseBodyErrors extends $dara.Model {
 }
 
 export class GetUmodelDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error information
+   */
   errors?: GetUmodelDataResponseBodyErrors[];
+  /**
+   * @remarks
+   * List of node link relationships
+   */
   links?: any[];
+  /**
+   * @remarks
+   * List of nodes
+   */
   nodes?: any[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 123-123-234-345-123
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of node links
+   * 
    * @example
    * 0
    */
   totalLinksCount?: number;
   /**
+   * @remarks
+   * Total number of nodes
+   * 
    * @example
    * 0
    */

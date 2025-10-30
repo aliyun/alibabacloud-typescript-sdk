@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dara.Model {
+  /**
+   * @remarks
+   * Status code
+   * 
+   * @example
+   * Success,ExecuteTimeout,UModelNotExist
+   */
   code?: string;
+  /**
+   * @remarks
+   * Status level
+   * 
+   * @example
+   * Info,Warn,Error
+   */
   level?: string;
+  /**
+   * @remarks
+   * Calculation execution information
+   * 
+   * @example
+   * Query execution timeout after 30 seconds
+   */
   message?: string;
+  /**
+   * @remarks
+   * Suggestions when an error occurs during execution
+   * 
+   * @example
+   * Try to reduce the query scope or increase timeout limit, then retry
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,10 +63,42 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
 }
 
 export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
+  /**
+   * @remarks
+   * Information during the execution process
+   * 
+   * @example
+   * {}
+   */
   executionStates?: string;
+  /**
+   * @remarks
+   * Status level
+   * 
+   * @example
+   * Info,Warn,Error
+   */
   level?: string;
+  /**
+   * @remarks
+   * Execution result
+   * 
+   * @example
+   * Success,PartialSuccess,Error
+   */
   result?: string;
+  /**
+   * @remarks
+   * Retry policy
+   * 
+   * @example
+   * None,Once,Continuous
+   */
   retryPolicy?: string;
+  /**
+   * @remarks
+   * Detailed status information list
+   */
   statusItem?: GetEntityStoreDataResponseBodyResponseStatusStatusItem[];
   static names(): { [key: string]: string } {
     return {
@@ -73,13 +133,28 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
 }
 
 export class GetEntityStoreDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Total list of returned data
+   */
   data?: string[][];
+  /**
+   * @remarks
+   * List of request headers
+   */
   header?: string[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Result status
+   */
   responseStatus?: GetEntityStoreDataResponseBodyResponseStatus;
   static names(): { [key: string]: string } {
     return {

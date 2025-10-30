@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Authentication Token for Data Reporting
+   * 
+   * @example
+   * gaddp****@de20f2***1ce***
+   */
   authToken?: string;
+  /**
+   * @remarks
+   * Private Network Access Address
+   * 
+   * @example
+   * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou-intranet.log.aliyuncs.com
+   */
   privateDomain?: string;
   /**
    * @remarks
@@ -13,6 +27,13 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
    * proj-xtrace-xxxxx
    */
   project?: string;
+  /**
+   * @remarks
+   * Public Network Access Address
+   * 
+   * @example
+   * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com
+   */
   publicDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -42,30 +63,68 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
 }
 
 export class GetServiceObservabilityResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Endpoint and Authentication Information
+   */
   entryPointInfo?: GetServiceObservabilityResponseBodyEntryPointInfo;
+  /**
+   * @remarks
+   * Billing Type
+   * 
+   * @example
+   * arms=serverless;xtrace=serverless
+   */
   feeType?: string;
+  /**
+   * @remarks
+   * Quota Configuration
+   */
   quotas?: { [key: string]: string };
   /**
+   * @remarks
+   * Region
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 4852B9B5-345C-5CBC-A15F-786D83ECCBBA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * System Configuration
+   */
   settings?: { [key: string]: string };
   /**
+   * @remarks
+   * Resource Initialization Status
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * Application Observability Type
+   * 
    * @example
    * apm
    */
   type?: string;
+  /**
+   * @remarks
+   * Workspace Name
+   * 
+   * @example
+   * default-cms-1654218***343050-cn-hangzhou
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

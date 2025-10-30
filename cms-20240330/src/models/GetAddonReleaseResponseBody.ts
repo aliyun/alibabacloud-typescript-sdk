@@ -5,26 +5,41 @@ import { EntityGroupBase } from "./EntityGroupBase";
 
 export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
   /**
+   * @remarks
+   * First transition time.
+   * 
    * @example
    * 2024-11-04T16:10:22+08:00
    */
   firstTransitionTime?: string;
   /**
+   * @remarks
+   * Last transition time.
+   * 
    * @example
    * 2024-11-04T16:10:22+08:00
    */
   lastTransitionTime?: string;
   /**
+   * @remarks
+   * Details.
+   * 
    * @example
    * The addon loaded successfully
    */
   message?: string;
   /**
+   * @remarks
+   * Phase status.
+   * 
    * @example
    * True
    */
   status?: string;
   /**
+   * @remarks
+   * Phase type.
+   * 
    * @example
    * Loaded
    */
@@ -60,121 +75,195 @@ export class GetAddonReleaseResponseBodyReleaseConditions extends $dara.Model {
 
 export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
   /**
+   * @remarks
+   * Addon component name.
+   * 
    * @example
    * cs-gpu
    */
   addonName?: string;
   /**
+   * @remarks
+   * Number of alert rules.
+   * 
    * @example
    * 6
    */
   alertRuleCount?: number;
+  /**
+   * @remarks
+   * Installation phase information.
+   */
   conditions?: GetAddonReleaseResponseBodyReleaseConditions[];
   /**
+   * @remarks
+   * Component configuration information.
+   * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
    */
   config?: string;
   /**
+   * @remarks
+   * Connection time.
+   * 
    * @example
    * 2024-11-04T16:10:12+08:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * Number of dashboards.
+   * 
    * @example
    * 3
    */
   dashboardCount?: number;
+  /**
+   * @remarks
+   * Entity details.
+   */
   entityRules?: EntityGroupBase;
   /**
+   * @remarks
+   * Environment type.
+   * 
    * @example
    * CS
    */
   envType?: string;
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
    * policy-xxxxxxxxxxx
    */
   environmentId?: string;
   /**
+   * @remarks
+   * Number of plugins.
+   * 
    * @example
    * 2
    */
   exporterCount?: number;
   /**
+   * @remarks
+   * Whether there is a configuration.
+   * 
    * @example
    * true
    */
   haveConfig?: boolean;
   /**
+   * @remarks
+   * User ID for connection.
+   * 
    * @example
    * 1707xxxxxxxxxxxx
    */
   installUserId?: string;
   /**
+   * @remarks
+   * Language.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * Whether it is a managed component.
+   * 
    * @example
    * true
    */
   managed?: boolean;
   /**
+   * @remarks
+   * Parent AddonRelease ID.
+   * 
    * @example
    * policy-xxxxxxxxxxxxx
    */
   parentAddonReleaseId?: string;
   /**
+   * @remarks
+   * Policy ID.
+   * 
    * @example
    * policy-xxxxxxxxxxxxx
    */
   policyId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * Release ID。
+   * Release ID.
    * 
    * @example
    * 7339d808-66f9-4d40-83fa-xxxxxxxxxxx
    */
   releaseId?: string;
   /**
+   * @remarks
+   * The name of the Release.
+   * 
    * @example
    * test-gpu-integration-name
    */
   releaseName?: string;
   /**
+   * @remarks
+   * Component scenario.
+   * 
    * @example
    * container
    */
   scene?: string;
   /**
+   * @remarks
+   * Component status.
+   * 
    * @example
    * running
    */
   status?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2024-11-04T16:10:12+08:00
    */
   updateTime?: string;
   /**
+   * @remarks
+   * Owner user ID.
+   * 
    * @example
    * 1707xxxxxxxxxxxx
    */
   userId?: string;
   /**
+   * @remarks
+   * Component version.
+   * 
    * @example
    * 0.0.2
    */
   version?: string;
   /**
+   * @remarks
+   * Workspace.
+   * 
    * @example
    * default
    */
@@ -256,12 +345,22 @@ export class GetAddonReleaseResponseBodyRelease extends $dara.Model {
 
 export class GetAddonReleaseResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Component configuration.
+   * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
    */
   config?: string;
+  /**
+   * @remarks
+   * Detailed information.
+   */
   release?: GetAddonReleaseResponseBodyRelease;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Extended attributes.
+   * 
    * @example
    * {"language":"java"}
    */
   attributes?: string;
   /**
+   * @remarks
+   * Service description, only valid when serviceType=RUM.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * Display name, only valid when serviceType=RUM.
+   * 
    * @example
    * api-monitor-test
    */
   displayName?: string;
   /**
+   * @remarks
+   * Service status, only valid when serviceType=RUM.
+   * 
    * @example
    * Stopped
    */

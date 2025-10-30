@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListWorkspacesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Page size
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Pagination Token
+   * 
    * @example
    * xxxxxxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Region
+   * 
    * @example
    * cn-heyuan
    * 
@@ -22,11 +35,17 @@ export class ListWorkspacesRequest extends $dara.Model {
    */
   region?: string;
   /**
+   * @remarks
+   * Workspace name, fuzzy search
+   * 
    * @example
    * workspace-test-001
    */
   workspaceName?: string;
   /**
+   * @remarks
+   * Workspace name, exact match
+   * 
    * @example
    * workspace-test-001
    * 

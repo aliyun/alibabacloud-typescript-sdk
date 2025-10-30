@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListServicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records to return in this request.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token for the next query, an empty value indicates the last page.
+   * 
    * @example
    * 7-b81a-4bc9-bbfa-a50cc6988667
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Service type
+   * 
    * @example
    * apm
    */

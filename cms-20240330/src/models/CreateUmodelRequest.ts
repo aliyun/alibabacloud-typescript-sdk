@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUmodelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Umodel description
+   * 
    * @example
    * workspace test
    */

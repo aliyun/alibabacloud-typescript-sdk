@@ -30,7 +30,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装接入组件，代表进行一次接入
+   * Install the access component, representing a single access attempt
+   * 
+   * @remarks
+   * Used to create a site monitoring task
    * 
    * @param request - CreateAddonReleaseRequest
    * @param headers - map
@@ -99,7 +102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装接入组件，代表进行一次接入
+   * Install the access component, representing a single access attempt
+   * 
+   * @remarks
+   * Used to create a site monitoring task
    * 
    * @param request - CreateAddonReleaseRequest
    * @returns CreateAddonReleaseResponse
@@ -111,7 +117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建聚合任务组
+   * Create Aggregation Task Group
    * 
    * @param request - CreateAggTaskGroupRequest
    * @param headers - map
@@ -210,7 +216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建聚合任务组
+   * Create Aggregation Task Group
    * 
    * @param request - CreateAggTaskGroupRequest
    * @returns CreateAggTaskGroupResponse
@@ -222,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建EntityStore相关存储
+   * Create storage related to EntityStore
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -247,7 +253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建EntityStore相关存储
+   * Create storage related to EntityStore
    * @returns CreateEntityStoreResponse
    */
   async createEntityStore(workspaceName: string): Promise<$_model.CreateEntityStoreResponse> {
@@ -257,7 +263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建接入中心策略
+   * Create Access Center Policy
+   * 
+   * @remarks
+   * This interface is used to support users in creating event integration.
    * 
    * @param request - CreateIntegrationPolicyRequest
    * @param headers - map
@@ -310,7 +319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建接入中心策略
+   * Create Access Center Policy
+   * 
+   * @remarks
+   * This interface is used to support users in creating event integration.
    * 
    * @param request - CreateIntegrationPolicyRequest
    * @returns CreateIntegrationPolicyResponse
@@ -322,7 +334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus监控实例
+   * Create a Prometheus monitoring instance
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @param headers - map
@@ -399,7 +411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus监控实例
+   * Create a Prometheus monitoring instance
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @returns CreatePrometheusInstanceResponse
@@ -411,7 +423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建prometheus视图
+   * Create Prometheus View
+   * 
+   * @remarks
+   * Used to create a site monitoring task
    * 
    * @param request - CreatePrometheusViewRequest
    * @param headers - map
@@ -480,7 +495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建prometheus视图
+   * Create Prometheus View
+   * 
+   * @remarks
+   * Used to create a site monitoring task
    * 
    * @param request - CreatePrometheusViewRequest
    * @returns CreatePrometheusViewResponse
@@ -492,7 +510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus监控实例
+   * Create Prometheus Monitoring Instance
+   * 
+   * @remarks
+   * Create a Prometheus monitoring virtual instance.
    * 
    * @param request - CreatePrometheusVirtualInstanceRequest
    * @param headers - map
@@ -525,7 +546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Prometheus监控实例
+   * Create Prometheus Monitoring Instance
+   * 
+   * @remarks
+   * Create a Prometheus monitoring virtual instance.
    * 
    * @param request - CreatePrometheusVirtualInstanceRequest
    * @returns CreatePrometheusVirtualInstanceResponse
@@ -537,7 +561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Service
+   * Create Service
    * 
    * @param request - CreateServiceRequest
    * @param headers - map
@@ -594,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Service
+   * Create Service
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -606,7 +630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建票据
+   * Create Ticket
    * 
    * @param request - CreateTicketRequest
    * @param headers - map
@@ -643,7 +667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建票据
+   * Create Ticket
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -655,7 +679,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Umodel配置
+   * Create Umodel configuration
+   * 
+   * @remarks
+   * Create Umodel configuration in the specified workspace
    * 
    * @param request - CreateUmodelRequest
    * @param headers - map
@@ -688,7 +715,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Umodel配置
+   * Create Umodel configuration
+   * 
+   * @remarks
+   * Create Umodel configuration in the specified workspace
    * 
    * @param request - CreateUmodelRequest
    * @returns CreateUmodelResponse
@@ -700,7 +730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除addon release信息
+   * Delete addon release information
    * 
    * @param request - DeleteAddonReleaseRequest
    * @param headers - map
@@ -741,7 +771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除addon release信息
+   * Delete addon release information
    * 
    * @param request - DeleteAddonReleaseRequest
    * @returns DeleteAddonReleaseResponse
@@ -753,7 +783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除聚合任务组
+   * Delete Aggregation Task Group
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -778,7 +808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除聚合任务组
+   * Delete Aggregation Task Group
    * @returns DeleteAggTaskGroupResponse
    */
   async deleteAggTaskGroup(instanceId: string, groupId: string): Promise<$_model.DeleteAggTaskGroupResponse> {
@@ -788,7 +818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除EntityStore相关存储
+   * Delete EntityStore related storage
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除EntityStore相关存储
+   * Delete EntityStore related storage
    * @returns DeleteEntityStoreResponse
    */
   async deleteEntityStore(workspaceName: string): Promise<$_model.DeleteEntityStoreResponse> {
@@ -823,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除接入中心策略
+   * Delete Access Center Policy
    * 
    * @param request - DeleteIntegrationPolicyRequest
    * @param headers - map
@@ -856,7 +886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除接入中心策略
+   * Delete Access Center Policy
    * 
    * @param request - DeleteIntegrationPolicyRequest
    * @returns DeleteIntegrationPolicyResponse
@@ -868,7 +898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除prom实例
+   * Delete prom instance
+   * 
+   * @remarks
+   * Delete a Prometheus instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -893,7 +926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除prom实例
+   * Delete prom instance
+   * 
+   * @remarks
+   * Delete a Prometheus instance.
    * @returns DeletePrometheusInstanceResponse
    */
   async deletePrometheusInstance(prometheusInstanceId: string): Promise<$_model.DeletePrometheusInstanceResponse> {
@@ -903,7 +939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除prometheus视图实例
+   * Delete prometheus view instance
+   * 
+   * @remarks
+   * Delete prometheus view instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -928,7 +967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除prometheus视图实例
+   * Delete prometheus view instance
+   * 
+   * @remarks
+   * Delete prometheus view instance.
    * @returns DeletePrometheusViewResponse
    */
   async deletePrometheusView(prometheusViewId: string): Promise<$_model.DeletePrometheusViewResponse> {
@@ -938,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Service
+   * Delete Service
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -963,7 +1005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Service
+   * Delete Service
    * @returns DeleteServiceResponse
    */
   async deleteService(workspace: string, serviceId: string): Promise<$_model.DeleteServiceResponse> {
@@ -973,7 +1015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Umodel配置信息
+   * Delete Umodel configuration information
+   * 
+   * @remarks
+   * Delete the Umodel under the specified workspace
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -998,7 +1043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Umodel配置信息
+   * Delete Umodel configuration information
+   * 
+   * @remarks
+   * Delete the Umodel under the specified workspace
    * @returns DeleteUmodelResponse
    */
   async deleteUmodel(workspace: string): Promise<$_model.DeleteUmodelResponse> {
@@ -1008,7 +1056,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Umodel Elements
+   * Delete Umodel Elements
+   * 
+   * @remarks
+   * Delete the Umodel Data under a specified workspace
    * 
    * @param request - DeleteUmodelDataRequest
    * @param headers - map
@@ -1049,7 +1100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Umodel Elements
+   * Delete Umodel Elements
+   * 
+   * @remarks
+   * Delete the Umodel Data under a specified workspace
    * 
    * @param request - DeleteUmodelDataRequest
    * @returns DeleteUmodelDataResponse
@@ -1061,7 +1115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Delete Workspace
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1086,7 +1140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Delete Workspace
    * @returns DeleteWorkspaceResponse
    */
   async deleteWorkspace(workspaceName: string): Promise<$_model.DeleteWorkspaceResponse> {
@@ -1096,7 +1150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看addon release(查看接入状态)
+   * Check addon release (view connection status)
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1121,7 +1175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看addon release(查看接入状态)
+   * Check addon release (view connection status)
    * @returns GetAddonReleaseResponse
    */
   async getAddonRelease(releaseName: string, policyId: string): Promise<$_model.GetAddonReleaseResponse> {
@@ -1131,7 +1185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述聚合任务组
+   * Describes the aggregation task group
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1156,7 +1210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述聚合任务组
+   * Describes the aggregation task group
    * @returns GetAggTaskGroupResponse
    */
   async getAggTaskGroup(instanceId: string, groupId: string): Promise<$_model.GetAggTaskGroupResponse> {
@@ -1166,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取EntityStore相关存储信息
+   * Get EntityStore related storage information
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1191,7 +1245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取EntityStore相关存储信息
+   * Get EntityStore related storage information
    * @returns GetEntityStoreResponse
    */
   async getEntityStore(workspaceName: string): Promise<$_model.GetEntityStoreResponse> {
@@ -1201,7 +1255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定Workspace下的实体和关系数据，返回结果显示某时间区间中的实体数据（返回结果压缩后传输）。
+   * Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
    * 
    * @param request - GetEntityStoreDataRequest
    * @param headers - GetEntityStoreDataHeaders
@@ -1251,7 +1305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定Workspace下的实体和关系数据，返回结果显示某时间区间中的实体数据（返回结果压缩后传输）。
+   * Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
    * 
    * @param request - GetEntityStoreDataRequest
    * @returns GetEntityStoreDataResponse
@@ -1263,7 +1317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入中心策略列表信息
+   * Query the list of access center policies
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1288,7 +1342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入中心策略列表信息
+   * Query the list of access center policies
    * @returns GetIntegrationPolicyResponse
    */
   async getIntegrationPolicy(policyId: string): Promise<$_model.GetIntegrationPolicyResponse> {
@@ -1298,7 +1352,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定环境实例
+   * Query the instance in a specified environment
+   * 
+   * @remarks
+   * Retrieve details of a Prometheus instance.
    * 
    * @param request - GetPrometheusInstanceRequest
    * @param headers - map
@@ -1335,7 +1392,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定环境实例
+   * Query the instance in a specified environment
+   * 
+   * @remarks
+   * Retrieve details of a Prometheus instance.
    * 
    * @param request - GetPrometheusInstanceRequest
    * @returns GetPrometheusInstanceResponse
@@ -1347,7 +1407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定Prometheus视图实例
+   * Query a specified Prometheus view instance
+   * 
+   * @remarks
+   * Query a specified Prometheus view instance.
    * 
    * @param request - GetPrometheusViewRequest
    * @param headers - map
@@ -1384,7 +1447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定Prometheus视图实例
+   * Query a specified Prometheus view instance
+   * 
+   * @remarks
+   * Query a specified Prometheus view instance.
    * 
    * @param request - GetPrometheusViewRequest
    * @returns GetPrometheusViewResponse
@@ -1396,7 +1462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Service
+   * Query Service
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1421,7 +1487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Service
+   * Query Service
    * @returns GetServiceResponse
    */
   async getService(workspace: string, serviceId: string): Promise<$_model.GetServiceResponse> {
@@ -1431,7 +1497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用可观测实例
+   * Get Application Observability Instance
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1456,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用可观测实例
+   * Get Application Observability Instance
    * @returns GetServiceObservabilityResponse
    */
   async getServiceObservability(workspace: string, type: string): Promise<$_model.GetServiceObservabilityResponse> {
@@ -1466,7 +1532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Umodel配置信息
+   * Get Umodel configuration information
+   * 
+   * @remarks
+   * Get Umodel configuration information
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1491,7 +1560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Umodel配置信息
+   * Get Umodel configuration information
+   * 
+   * @remarks
+   * Get Umodel configuration information
    * @returns GetUmodelResponse
    */
   async getUmodel(workspace: string): Promise<$_model.GetUmodelResponse> {
@@ -1501,7 +1573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取相关联的 Umodel 图数据
+   * Retrieve associated Umodel graph data
+   * 
+   * @remarks
+   * Find Umodel
    * 
    * @param request - GetUmodelDataRequest
    * @param headers - map
@@ -1540,7 +1615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取相关联的 Umodel 图数据
+   * Retrieve associated Umodel graph data
+   * 
+   * @remarks
+   * Find Umodel
    * 
    * @param request - GetUmodelDataRequest
    * @returns GetUmodelDataResponse
@@ -1552,7 +1630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间
+   * Get Workspace
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1577,7 +1655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间
+   * Get Workspace
    * @returns GetWorkspaceResponse
    */
   async getWorkspace(workspaceName: string): Promise<$_model.GetWorkspaceResponse> {
@@ -1587,7 +1665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * addon的release列表
+   * List of addon releases
+   * 
+   * @remarks
+   * Query the list of access configurations
    * 
    * @param request - ListAddonReleasesRequest
    * @param headers - map
@@ -1624,7 +1705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * addon的release列表
+   * List of addon releases
+   * 
+   * @remarks
+   * Query the list of access configurations
    * 
    * @param request - ListAddonReleasesRequest
    * @returns ListAddonReleasesResponse
@@ -1636,7 +1720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举聚合任务组
+   * List Aggregation Task Groups
    * 
    * @param tmpReq - ListAggTaskGroupsRequest
    * @param headers - map
@@ -1703,7 +1787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举聚合任务组
+   * List Aggregation Task Groups
    * 
    * @param request - ListAggTaskGroupsRequest
    * @returns ListAggTaskGroupsResponse
@@ -1715,7 +1799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询告警动作
+   * Query Alert Actions
    * 
    * @param tmpReq - ListAlertActionsRequest
    * @param headers - map
@@ -1770,7 +1854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询告警动作
+   * Query Alert Actions
    * 
    * @param request - ListAlertActionsRequest
    * @returns ListAlertActionsResponse
@@ -1782,7 +1866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入中心策略列表信息
+   * Query Access Center Policy List Information
+   * 
+   * @remarks
+   * Query Integration List
    * 
    * @param tmpReq - ListIntegrationPoliciesRequest
    * @param headers - map
@@ -1873,7 +1960,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询接入中心策略列表信息
+   * Query Access Center Policy List Information
+   * 
+   * @remarks
+   * Query Integration List
    * 
    * @param request - ListIntegrationPoliciesRequest
    * @returns ListIntegrationPoliciesResponse
@@ -1885,7 +1975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的存储要求信息
+   * Get storage requirement information for the access center policy
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @param headers - map
@@ -1926,7 +2016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的存储要求信息
+   * Get storage requirement information for the access center policy
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @returns ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -1938,7 +2028,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 策略大盘列表
+   * Policy Dashboard List
+   * 
+   * @remarks
+   * This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyDashboardsRequest
    * @param headers - map
@@ -1979,7 +2072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 策略大盘列表
+   * Policy Dashboard List
+   * 
+   * @remarks
+   * This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyDashboardsRequest
    * @returns ListIntegrationPolicyDashboardsResponse
@@ -1991,7 +2087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的PodMonitor资源
+   * Get PodMonitor Resources of Access Center Policy
+   * 
+   * @remarks
+   * This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @param headers - map
@@ -2032,7 +2131,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的PodMonitor资源
+   * Get PodMonitor Resources of Access Center Policy
+   * 
+   * @remarks
+   * This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - ListIntegrationPolicyPodMonitorsRequest
    * @returns ListIntegrationPolicyPodMonitorsResponse
@@ -2044,7 +2146,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的存储要求信息
+   * Get Storage Requirements Information for Access Center Policy
+   * 
+   * @remarks
+   * During the effective period of the policy, all alarms within the application group will no longer send notifications.
+   *  
+   * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - ListIntegrationPolicyStorageRequirementsRequest
    * @param headers - map
@@ -2085,7 +2192,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取接入中心策略的存储要求信息
+   * Get Storage Requirements Information for Access Center Policy
+   * 
+   * @remarks
+   * During the effective period of the policy, all alarms within the application group will no longer send notifications.
+   *  
+   * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - ListIntegrationPolicyStorageRequirementsRequest
    * @returns ListIntegrationPolicyStorageRequirementsResponse
@@ -2097,7 +2209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus实例大盘列表
+   * Get Prometheus Instance Dashboard List
+   * 
+   * @remarks
+   * Get the list of Prometheus instance dashboards.
    * 
    * @param request - ListPrometheusDashboardsRequest
    * @param headers - map
@@ -2134,7 +2249,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus实例大盘列表
+   * Get Prometheus Instance Dashboard List
+   * 
+   * @remarks
+   * Get the list of Prometheus instance dashboards.
    * 
    * @param request - ListPrometheusDashboardsRequest
    * @returns ListPrometheusDashboardsResponse
@@ -2146,7 +2264,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus实例信息列表
+   * Get the list of Prometheus instance information
+   * 
+   * @remarks
+   * Get the list of Prometheus instances.
    * 
    * @param tmpReq - ListPrometheusInstancesRequest
    * @param headers - map
@@ -2217,7 +2338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus实例信息列表
+   * Get the list of Prometheus instance information
+   * 
+   * @remarks
+   * Get the list of Prometheus instances.
    * 
    * @param request - ListPrometheusInstancesRequest
    * @returns ListPrometheusInstancesResponse
@@ -2229,7 +2353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus视图实例信息列表
+   * Retrieve a list of Prometheus view instance information
+   * 
+   * @remarks
+   * Retrieve a list of Prometheus view instance information.
    * 
    * @param tmpReq - ListPrometheusViewsRequest
    * @param headers - map
@@ -2304,7 +2431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus视图实例信息列表
+   * Retrieve a list of Prometheus view instance information
+   * 
+   * @remarks
+   * Retrieve a list of Prometheus view instance information.
    * 
    * @param request - ListPrometheusViewsRequest
    * @returns ListPrometheusViewsResponse
@@ -2316,7 +2446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus虚拟实例
+   * Get Prometheus Virtual Instance
+   * 
+   * @remarks
+   * Used for creating a site monitoring task
    * 
    * @param request - ListPrometheusVirtualInstancesRequest
    * @param headers - map
@@ -2349,7 +2482,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Prometheus虚拟实例
+   * Get Prometheus Virtual Instance
+   * 
+   * @remarks
+   * Used for creating a site monitoring task
    * 
    * @param request - ListPrometheusVirtualInstancesRequest
    * @returns ListPrometheusVirtualInstancesResponse
@@ -2361,7 +2497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源Service
+   * List Resource Services
    * 
    * @param request - ListServicesRequest
    * @param headers - map
@@ -2402,7 +2538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源Service
+   * List Resource Services
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -2414,7 +2550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Get Workspace List
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -2469,7 +2605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间列表
+   * Get Workspace List
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -2481,7 +2617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Create Workspace
    * 
    * @param request - PutWorkspaceRequest
    * @param headers - map
@@ -2522,7 +2658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Create Workspace
    * 
    * @param request - PutWorkspaceRequest
    * @returns PutWorkspaceResponse
@@ -2534,7 +2670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级接入组件
+   * Upgrade Access Component
    * 
    * @param request - UpdateAddonReleaseRequest
    * @param headers - map
@@ -2579,7 +2715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级接入组件
+   * Upgrade Access Component
    * 
    * @param request - UpdateAddonReleaseRequest
    * @returns UpdateAddonReleaseResponse
@@ -2591,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用聚合任务组
+   * Apply Aggregation Task Group
    * 
    * @param request - UpdateAggTaskGroupRequest
    * @param headers - map
@@ -2684,7 +2820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用聚合任务组
+   * Apply Aggregation Task Group
    * 
    * @param request - UpdateAggTaskGroupRequest
    * @returns UpdateAggTaskGroupResponse
@@ -2696,7 +2832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新聚合任务组状态
+   * Update Aggregation Task Group Status
    * 
    * @param request - UpdateAggTaskGroupStatusRequest
    * @param headers - map
@@ -2729,7 +2865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新聚合任务组状态
+   * Update Aggregation Task Group Status
    * 
    * @param request - UpdateAggTaskGroupStatusRequest
    * @returns UpdateAggTaskGroupStatusResponse
@@ -2741,7 +2877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定策略
+   * Update the specified policy
    * 
    * @param request - UpdateIntegrationPolicyRequest
    * @param headers - map
@@ -2786,7 +2922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新指定策略
+   * Update the specified policy
    * 
    * @param request - UpdateIntegrationPolicyRequest
    * @returns UpdateIntegrationPolicyResponse
@@ -2798,7 +2934,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prom实例信息
+   * Update Prometheus instance information
+   * 
+   * @remarks
+   * Update Prometheus instance information.
    * 
    * @param request - UpdatePrometheusInstanceRequest
    * @param headers - map
@@ -2871,7 +3010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prom实例信息
+   * Update Prometheus instance information
+   * 
+   * @remarks
+   * Update Prometheus instance information.
    * 
    * @param request - UpdatePrometheusInstanceRequest
    * @returns UpdatePrometheusInstanceResponse
@@ -2883,7 +3025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prom视图实例信息
+   * Update Prometheus view instance information
+   * 
+   * @remarks
+   * Update Prometheus view instance information.
    * 
    * @param request - UpdatePrometheusViewRequest
    * @param headers - map
@@ -2940,7 +3085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Prom视图实例信息
+   * Update Prometheus view instance information
+   * 
+   * @remarks
+   * Update Prometheus view instance information.
    * 
    * @param request - UpdatePrometheusViewRequest
    * @returns UpdatePrometheusViewResponse
@@ -2952,7 +3100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateService
+   * Update Service
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -2997,7 +3145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateService
+   * Update Service
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse
@@ -3009,7 +3157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Umodel配置信息
+   * Update Umodel configuration information
+   * 
+   * @remarks
+   * Update Umodel configuration information
    * 
    * @param request - UpdateUmodelRequest
    * @param headers - map
@@ -3042,7 +3193,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Umodel配置信息
+   * Update Umodel configuration information
+   * 
+   * @remarks
+   * Update Umodel configuration information
    * 
    * @param request - UpdateUmodelRequest
    * @returns UpdateUmodelResponse
@@ -3054,7 +3208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 写入 Umodel Elements
+   * Write Umodel Elements
    * 
    * @param request - UpsertUmodelDataRequest
    * @param headers - map
@@ -3093,7 +3247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 写入 Umodel Elements
+   * Write Umodel Elements
    * 
    * @param request - UpsertUmodelDataRequest
    * @returns UpsertUmodelDataResponse
