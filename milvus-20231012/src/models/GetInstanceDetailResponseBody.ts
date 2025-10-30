@@ -397,6 +397,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * true
    */
   enableHa?: boolean;
+  encrypted?: string;
   /**
    * @remarks
    * The expiration time.
@@ -428,6 +429,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    * running
    */
   instanceStatus?: string;
+  kmsKeyId?: string;
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
   multiZoneMode?: string;
   /**
@@ -564,9 +566,11 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       clusterInfo: 'ClusterInfo',
       clusterName: 'ClusterName',
       enableHa: 'EnableHa',
+      encrypted: 'Encrypted',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
+      kmsKeyId: 'KmsKeyId',
       measureConfig: 'MeasureConfig',
       multiZoneMode: 'MultiZoneMode',
       nodeType: 'NodeType',
@@ -598,9 +602,11 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       clusterInfo: GetInstanceDetailResponseBodyDataClusterInfo,
       clusterName: 'string',
       enableHa: 'boolean',
+      encrypted: 'string',
       expireTime: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
+      kmsKeyId: 'string',
       measureConfig: GetInstanceDetailResponseBodyDataMeasureConfig,
       multiZoneMode: 'string',
       nodeType: 'string',

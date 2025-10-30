@@ -1,3 +1,6 @@
+export { InstanceDetailComponents } from './InstanceDetail';
+export { InstanceDetailTags } from './InstanceDetail';
+export { InstanceDetailVSwitchIds } from './InstanceDetail';
 export { DescribeAccessControlListResponseBodyData } from './DescribeAccessControlListResponseBody';
 export { GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList } from './GetInstanceDetailResponseBody';
 export { GetInstanceDetailResponseBodyDataClusterInfo } from './GetInstanceDetailResponseBody';
@@ -10,6 +13,7 @@ export { ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList } from '
 export { ListInstancesResponseBodyDataClusterInfo } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyDataTags } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyData } from './ListInstancesResponseBody';
+export { InstanceDetail } from './InstanceDetail';
 export { CreateDefaultRoleResponseBody } from './CreateDefaultRoleResponseBody';
 export { CreateDefaultRoleResponse } from './CreateDefaultRoleResponse';
 export { DescribeAccessControlListRequest } from './DescribeAccessControlListRequest';

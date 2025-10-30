@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class DescribeAccessControlListResponseBodyData extends $dara.Model {
   /**
    * @remarks
