@@ -252,6 +252,11 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
    */
   dlpTemplateMaxCount?: number;
   /**
+   * @example
+   * 2000
+   */
+  elasticQps?: number;
+  /**
    * @remarks
    * Indicates whether exclusive IP addresses are supported. Valid values:
    * 
@@ -262,6 +267,16 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
    * true
    */
   exclusiveIp?: boolean;
+  /**
+   * @example
+   * 10000
+   */
+  extendQps?: number;
+  /**
+   * @example
+   * 1000
+   */
+  freeQps?: number;
   /**
    * @remarks
    * Indicates whether global server load balancing (GSLB) is supported. Valid values:
@@ -365,6 +380,11 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
    * 20
    */
   majorProtectionTemplateMaxCount?: number;
+  /**
+   * @example
+   * 2000
+   */
+  qpsBillingCap?: number;
   /**
    * @remarks
    * Indicates whether the website tamper-proofing module is supported. Valid values:
@@ -489,7 +509,10 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       dlp: 'Dlp',
       dlpRuleInTemplateMaxCount: 'DlpRuleInTemplateMaxCount',
       dlpTemplateMaxCount: 'DlpTemplateMaxCount',
+      elasticQps: 'ElasticQps',
       exclusiveIp: 'ExclusiveIp',
+      extendQps: 'ExtendQps',
+      freeQps: 'FreeQps',
       gslb: 'Gslb',
       httpPorts: 'HttpPorts',
       httpsPorts: 'HttpsPorts',
@@ -501,6 +524,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       logService: 'LogService',
       majorProtection: 'MajorProtection',
       majorProtectionTemplateMaxCount: 'MajorProtectionTemplateMaxCount',
+      qpsBillingCap: 'QpsBillingCap',
       tamperproof: 'Tamperproof',
       tamperproofRuleInTemplateMaxCount: 'TamperproofRuleInTemplateMaxCount',
       tamperproofTemplateMaxCount: 'TamperproofTemplateMaxCount',
@@ -545,7 +569,10 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       dlp: 'boolean',
       dlpRuleInTemplateMaxCount: 'number',
       dlpTemplateMaxCount: 'number',
+      elasticQps: 'number',
       exclusiveIp: 'boolean',
+      extendQps: 'number',
+      freeQps: 'number',
       gslb: 'boolean',
       httpPorts: 'string',
       httpsPorts: 'string',
@@ -557,6 +584,7 @@ export class DescribeInstanceResponseBodyDetails extends $dara.Model {
       logService: 'boolean',
       majorProtection: 'boolean',
       majorProtectionTemplateMaxCount: 'number',
+      qpsBillingCap: 'number',
       tamperproof: 'boolean',
       tamperproofRuleInTemplateMaxCount: 'number',
       tamperproofTemplateMaxCount: 'number',

@@ -1076,6 +1076,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a hybrid cloud log delivery configuration.
+   * 
+   * @param request - CreateLogDeliveryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLogDeliveryConfigResponse
+   */
+  async createLogDeliveryConfigWithOptions(request: $_model.CreateLogDeliveryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLogDeliveryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryDetail)) {
+      query["DeliveryDetail"] = request.deliveryDetail;
+    }
+
+    if (!$dara.isNull(request.deliveryName)) {
+      query["DeliveryName"] = request.deliveryName;
+    }
+
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLogDeliveryConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLogDeliveryConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateLogDeliveryConfigResponse({}));
+  }
+
+  /**
+   * Creates a hybrid cloud log delivery configuration.
+   * 
+   * @param request - CreateLogDeliveryConfigRequest
+   * @returns CreateLogDeliveryConfigResponse
+   */
+  async createLogDeliveryConfig(request: $_model.CreateLogDeliveryConfigRequest): Promise<$_model.CreateLogDeliveryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLogDeliveryConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an IP address blacklist for major event protection.
    * 
    * @remarks
@@ -2023,6 +2085,118 @@ export default class Client extends OpenApi {
   async deleteHybridCloudClusterRule(request: $_model.DeleteHybridCloudClusterRuleRequest): Promise<$_model.DeleteHybridCloudClusterRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteHybridCloudClusterRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除组信息
+   * 
+   * @param request - DeleteHybridCloudGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHybridCloudGroupResponse
+   */
+  async deleteHybridCloudGroupWithOptions(request: $_model.DeleteHybridCloudGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHybridCloudGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHybridCloudGroup",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHybridCloudGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHybridCloudGroupResponse({}));
+  }
+
+  /**
+   * 删除组信息
+   * 
+   * @param request - DeleteHybridCloudGroupRequest
+   * @returns DeleteHybridCloudGroupResponse
+   */
+  async deleteHybridCloudGroup(request: $_model.DeleteHybridCloudGroupRequest): Promise<$_model.DeleteHybridCloudGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHybridCloudGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除日志外发配置
+   * 
+   * @param request - DeleteLogDeliveryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLogDeliveryConfigResponse
+   */
+  async deleteLogDeliveryConfigWithOptions(request: $_model.DeleteLogDeliveryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLogDeliveryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryName)) {
+      query["DeliveryName"] = request.deliveryName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLogDeliveryConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLogDeliveryConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLogDeliveryConfigResponse({}));
+  }
+
+  /**
+   * 删除日志外发配置
+   * 
+   * @param request - DeleteLogDeliveryConfigRequest
+   * @returns DeleteLogDeliveryConfigResponse
+   */
+  async deleteLogDeliveryConfig(request: $_model.DeleteLogDeliveryConfigRequest): Promise<$_model.DeleteLogDeliveryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLogDeliveryConfigWithOptions(request, runtime);
   }
 
   /**
@@ -6540,6 +6714,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+   * 
+   * @param request - DescribeHybridCloudProtectableCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHybridCloudProtectableCountResponse
+   */
+  async describeHybridCloudProtectableCountWithOptions(request: $_model.DescribeHybridCloudProtectableCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudProtectableCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeHybridCloudProtectableCount",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeHybridCloudProtectableCountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeHybridCloudProtectableCountResponse({}));
+  }
+
+  /**
+   * Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+   * 
+   * @param request - DescribeHybridCloudProtectableCountRequest
+   * @returns DescribeHybridCloudProtectableCountResponse
+   */
+  async describeHybridCloudProtectableCount(request: $_model.DescribeHybridCloudProtectableCountRequest): Promise<$_model.DescribeHybridCloudProtectableCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeHybridCloudProtectableCountWithOptions(request, runtime);
+  }
+
+  /**
    * 查询混合云域名详情
    * 
    * @param request - DescribeHybridCloudResourceDetailRequest
@@ -7109,6 +7333,126 @@ export default class Client extends OpenApi {
   async describeIpAbroadCountryInfos(request: $_model.DescribeIpAbroadCountryInfosRequest): Promise<$_model.DescribeIpAbroadCountryInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeIpAbroadCountryInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a hybrid cloud log delivery configuration.
+   * 
+   * @param request - DescribeLogDeliveryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogDeliveryConfigResponse
+   */
+  async describeLogDeliveryConfigWithOptions(request: $_model.DescribeLogDeliveryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLogDeliveryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryName)) {
+      query["DeliveryName"] = request.deliveryName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLogDeliveryConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLogDeliveryConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLogDeliveryConfigResponse({}));
+  }
+
+  /**
+   * Queries a hybrid cloud log delivery configuration.
+   * 
+   * @param request - DescribeLogDeliveryConfigRequest
+   * @returns DescribeLogDeliveryConfigResponse
+   */
+  async describeLogDeliveryConfig(request: $_model.DescribeLogDeliveryConfigRequest): Promise<$_model.DescribeLogDeliveryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLogDeliveryConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries all hybrid cloud log delivery configurations.
+   * 
+   * @param request - DescribeLogDeliveryConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogDeliveryConfigsResponse
+   */
+  async describeLogDeliveryConfigsWithOptions(request: $_model.DescribeLogDeliveryConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLogDeliveryConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryNameLike)) {
+      query["DeliveryNameLike"] = request.deliveryNameLike;
+    }
+
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLogDeliveryConfigs",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLogDeliveryConfigsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLogDeliveryConfigsResponse({}));
+  }
+
+  /**
+   * Queries all hybrid cloud log delivery configurations.
+   * 
+   * @param request - DescribeLogDeliveryConfigsRequest
+   * @returns DescribeLogDeliveryConfigsResponse
+   */
+  async describeLogDeliveryConfigs(request: $_model.DescribeLogDeliveryConfigsRequest): Promise<$_model.DescribeLogDeliveryConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLogDeliveryConfigsWithOptions(request, runtime);
   }
 
   /**
@@ -7756,6 +8100,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询防护对象日志外发状态
+   * 
+   * @param request - DescribeResourceLogDeliveryStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceLogDeliveryStatusResponse
+   */
+  async describeResourceLogDeliveryStatusWithOptions(request: $_model.DescribeResourceLogDeliveryStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceLogDeliveryStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceLogDeliveryStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourceLogDeliveryStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourceLogDeliveryStatusResponse({}));
+  }
+
+  /**
+   * 查询防护对象日志外发状态
+   * 
+   * @param request - DescribeResourceLogDeliveryStatusRequest
+   * @returns DescribeResourceLogDeliveryStatusResponse
+   */
+  async describeResourceLogDeliveryStatus(request: $_model.DescribeResourceLogDeliveryStatusRequest): Promise<$_model.DescribeResourceLogDeliveryStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceLogDeliveryStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询防护对象日志字段配置
+   * 
+   * @param request - DescribeResourceLogFieldConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeResourceLogFieldConfigResponse
+   */
+  async describeResourceLogFieldConfigWithOptions(request: $_model.DescribeResourceLogFieldConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceLogFieldConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeResourceLogFieldConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeResourceLogFieldConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeResourceLogFieldConfigResponse({}));
+  }
+
+  /**
+   * 查询防护对象日志字段配置
+   * 
+   * @param request - DescribeResourceLogFieldConfigRequest
+   * @returns DescribeResourceLogFieldConfigResponse
+   */
+  async describeResourceLogFieldConfig(request: $_model.DescribeResourceLogFieldConfigRequest): Promise<$_model.DescribeResourceLogFieldConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeResourceLogFieldConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether the log collection feature is enabled for a protected object.
    * 
    * @param request - DescribeResourceLogStatusRequest
@@ -8035,6 +8491,52 @@ export default class Client extends OpenApi {
   async describeResponseCodeTrendGraph(request: $_model.DescribeResponseCodeTrendGraphRequest): Promise<$_model.DescribeResponseCodeTrendGraphResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeResponseCodeTrendGraphWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询授权状态
+   * 
+   * @param request - DescribeRoleAuthStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRoleAuthStatusResponse
+   */
+  async describeRoleAuthStatusWithOptions(request: $_model.DescribeRoleAuthStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRoleAuthStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRoleAuthStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRoleAuthStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRoleAuthStatusResponse({}));
+  }
+
+  /**
+   * 查询授权状态
+   * 
+   * @param request - DescribeRoleAuthStatusRequest
+   * @returns DescribeRoleAuthStatusResponse
+   */
+  async describeRoleAuthStatus(request: $_model.DescribeRoleAuthStatusRequest): Promise<$_model.DescribeRoleAuthStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRoleAuthStatusWithOptions(request, runtime);
   }
 
   /**
@@ -10356,6 +10858,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建WAF服务关联角色
+   * 
+   * @param request - InitializeWafOperationRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitializeWafOperationRoleResponse
+   */
+  async initializeWafOperationRoleWithOptions(request: $_model.InitializeWafOperationRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InitializeWafOperationRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitializeWafOperationRole",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitializeWafOperationRoleResponse>(await this.callApi(params, req, runtime), new $_model.InitializeWafOperationRoleResponse({}));
+  }
+
+  /**
+   * 创建WAF服务关联角色
+   * 
+   * @param request - InitializeWafOperationRoleRequest
+   * @returns InitializeWafOperationRoleResponse
+   */
+  async initializeWafOperationRole(request: $_model.InitializeWafOperationRoleRequest): Promise<$_model.InitializeWafOperationRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initializeWafOperationRoleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries tag keys.
    * 
    * @param request - ListTagKeysRequest
@@ -11048,6 +11600,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改云产品接入的证书
+   * 
+   * @param request - ModifyCloudResourceCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCloudResourceCertResponse
+   */
+  async modifyCloudResourceCertWithOptions(request: $_model.ModifyCloudResourceCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCloudResourceCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certificates)) {
+      query["Certificates"] = request.certificates;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceInstanceId)) {
+      query["ResourceInstanceId"] = request.resourceInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCloudResourceCert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCloudResourceCertResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCloudResourceCertResponse({}));
+  }
+
+  /**
+   * 修改云产品接入的证书
+   * 
+   * @param request - ModifyCloudResourceCertRequest
+   * @returns ModifyCloudResourceCertResponse
+   */
+  async modifyCloudResourceCert(request: $_model.ModifyCloudResourceCertRequest): Promise<$_model.ModifyCloudResourceCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCloudResourceCertWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
@@ -11716,6 +12330,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改域名的证书
+   * 
+   * @param request - ModifyDomainCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDomainCertResponse
+   */
+  async modifyDomainCertWithOptions(request: $_model.ModifyDomainCertRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDomainCertResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certId)) {
+      query["CertId"] = request.certId;
+    }
+
+    if (!$dara.isNull(request.cipherSuite)) {
+      query["CipherSuite"] = request.cipherSuite;
+    }
+
+    if (!$dara.isNull(request.customCiphers)) {
+      query["CustomCiphers"] = request.customCiphers;
+    }
+
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.enableTLSv3)) {
+      query["EnableTLSv3"] = request.enableTLSv3;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.TLSVersion)) {
+      query["TLSVersion"] = request.TLSVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDomainCert",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDomainCertResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDomainCertResponse({}));
+  }
+
+  /**
+   * 修改域名的证书
+   * 
+   * @param request - ModifyDomainCertRequest
+   * @returns ModifyDomainCertResponse
+   */
+  async modifyDomainCert(request: $_model.ModifyDomainCertRequest): Promise<$_model.ModifyDomainCertResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDomainCertWithOptions(request, runtime);
+  }
+
+  /**
    * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
    * 
    * @param request - ModifyDomainPunishStatusRequest
@@ -12314,6 +12998,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a hybrid cloud log delivery configuration.
+   * 
+   * @param request - ModifyLogDeliveryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLogDeliveryConfigResponse
+   */
+  async modifyLogDeliveryConfigWithOptions(request: $_model.ModifyLogDeliveryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLogDeliveryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryDetail)) {
+      query["DeliveryDetail"] = request.deliveryDetail;
+    }
+
+    if (!$dara.isNull(request.deliveryName)) {
+      query["DeliveryName"] = request.deliveryName;
+    }
+
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLogDeliveryConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLogDeliveryConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLogDeliveryConfigResponse({}));
+  }
+
+  /**
+   * Modifies a hybrid cloud log delivery configuration.
+   * 
+   * @param request - ModifyLogDeliveryConfigRequest
+   * @returns ModifyLogDeliveryConfigResponse
+   */
+  async modifyLogDeliveryConfig(request: $_model.ModifyLogDeliveryConfigRequest): Promise<$_model.ModifyLogDeliveryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLogDeliveryConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies an IP address blacklist for major event protection.
    * 
    * @param request - ModifyMajorProtectionBlackIpRequest
@@ -12497,6 +13243,138 @@ export default class Client extends OpenApi {
   async modifyPauseProtectionStatus(request: $_model.ModifyPauseProtectionStatusRequest): Promise<$_model.ModifyPauseProtectionStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPauseProtectionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改防护对象日志外发状态
+   * 
+   * @param request - ModifyResourceLogDeliveryStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourceLogDeliveryStatusResponse
+   */
+  async modifyResourceLogDeliveryStatusWithOptions(request: $_model.ModifyResourceLogDeliveryStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourceLogDeliveryStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryName)) {
+      query["DeliveryName"] = request.deliveryName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyResourceLogDeliveryStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyResourceLogDeliveryStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyResourceLogDeliveryStatusResponse({}));
+  }
+
+  /**
+   * 修改防护对象日志外发状态
+   * 
+   * @param request - ModifyResourceLogDeliveryStatusRequest
+   * @returns ModifyResourceLogDeliveryStatusResponse
+   */
+  async modifyResourceLogDeliveryStatus(request: $_model.ModifyResourceLogDeliveryStatusRequest): Promise<$_model.ModifyResourceLogDeliveryStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyResourceLogDeliveryStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改防护对象的日志字段配置
+   * 
+   * @param request - ModifyResourceLogFieldConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyResourceLogFieldConfigResponse
+   */
+  async modifyResourceLogFieldConfigWithOptions(request: $_model.ModifyResourceLogFieldConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourceLogFieldConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliveryType)) {
+      query["DeliveryType"] = request.deliveryType;
+    }
+
+    if (!$dara.isNull(request.extendConfig)) {
+      query["ExtendConfig"] = request.extendConfig;
+    }
+
+    if (!$dara.isNull(request.fieldList)) {
+      query["FieldList"] = request.fieldList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logDeliveryStrategy)) {
+      query["LogDeliveryStrategy"] = request.logDeliveryStrategy;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyResourceLogFieldConfig",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyResourceLogFieldConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyResourceLogFieldConfigResponse({}));
+  }
+
+  /**
+   * 修改防护对象的日志字段配置
+   * 
+   * @param request - ModifyResourceLogFieldConfigRequest
+   * @returns ModifyResourceLogFieldConfigResponse
+   */
+  async modifyResourceLogFieldConfig(request: $_model.ModifyResourceLogFieldConfigRequest): Promise<$_model.ModifyResourceLogFieldConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyResourceLogFieldConfigWithOptions(request, runtime);
   }
 
   /**
