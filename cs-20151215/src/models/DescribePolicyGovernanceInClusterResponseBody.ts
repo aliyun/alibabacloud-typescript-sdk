@@ -2,74 +2,271 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLog extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * c8155823d057948c69a****
-   */
+export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny extends $dara.Model {
+  severity?: string;
+  violations?: string;
+  static names(): { [key: string]: string } {
+    return {
+      severity: 'severity',
+      violations: 'violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      severity: 'string',
+      violations: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn extends $dara.Model {
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      severity: 'severity',
+      violations: 'violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations extends $dara.Model {
+  deny?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny[];
+  warn?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn[];
+  static names(): { [key: string]: string } {
+    return {
+      deny: 'deny',
+      warn: 'warn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deny: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny },
+      warn: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deny)) {
+      $dara.Model.validateArray(this.deny);
+    }
+    if(Array.isArray(this.warn)) {
+      $dara.Model.validateArray(this.warn);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny extends $dara.Model {
+  policyDescription?: string;
+  policyName?: string;
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policyDescription: 'policyDescription',
+      policyName: 'policyName',
+      severity: 'severity',
+      violations: 'violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDescription: 'string',
+      policyName: 'string',
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn extends $dara.Model {
+  policyDescription?: string;
+  policyName?: string;
+  severity?: string;
+  violations?: number;
+  static names(): { [key: string]: string } {
+    return {
+      policyDescription: 'policyDescription',
+      policyName: 'policyName',
+      severity: 'severity',
+      violations: 'violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDescription: 'string',
+      policyName: 'string',
+      severity: 'string',
+      violations: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations extends $dara.Model {
+  deny?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny[];
+  warn?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn[];
+  static names(): { [key: string]: string } {
+    return {
+      deny: 'deny',
+      warn: 'warn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deny: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny },
+      warn: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.deny)) {
+      $dara.Model.validateArray(this.deny);
+    }
+    if(Array.isArray(this.warn)) {
+      $dara.Model.validateArray(this.warn);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dara.Model {
+  totalViolations?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations;
+  violations?: DescribePolicyGovernanceInClusterResponseBodyViolationViolations;
+  static names(): { [key: string]: string } {
+    return {
+      totalViolations: 'totalViolations',
+      violations: 'violations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalViolations: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations,
+      violations: DescribePolicyGovernanceInClusterResponseBodyViolationViolations,
+    };
+  }
+
+  validate() {
+    if(this.totalViolations && typeof (this.totalViolations as any).validate === 'function') {
+      (this.totalViolations as any).validate();
+    }
+    if(this.violations && typeof (this.violations as any).validate === 'function') {
+      (this.violations as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $dara.Model {
   clusterId?: string;
-  /**
-   * @remarks
-   * The policy type.
-   * 
-   * @example
-   * ACKAllowedRepos
-   */
+  constraintAction?: string;
+  constraintApiVersion?: string;
+  constraintCategory?: string;
+  constraintGroup?: string;
   constraintKind?: string;
-  /**
-   * @remarks
-   * The message that appears when an event is generated by a policy.
-   * 
-   * @example
-   * d4hdhs*****
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * Pod
-   */
+  constraintName?: string;
+  eventMsg?: string;
+  eventType?: string;
+  requestUid?: string;
+  requestUserinfo?: string;
+  requestUsername?: string;
   resourceKind?: string;
-  /**
-   * @remarks
-   * The resource name.
-   * 
-   * @example
-   * nginx-deployment-basic2-84ccb74bfc-df22p
-   */
   resourceName?: string;
-  /**
-   * @remarks
-   * The namespace to which the resource belongs.
-   * 
-   * @example
-   * default
-   */
-  resourceNamespace?: string;
+  time?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
+      constraintAction: 'constraint_action',
+      constraintApiVersion: 'constraint_api_version',
+      constraintCategory: 'constraint_category',
+      constraintGroup: 'constraint_group',
       constraintKind: 'constraint_kind',
-      msg: 'msg',
+      constraintName: 'constraint_name',
+      eventMsg: 'event_msg',
+      eventType: 'event_type',
+      requestUid: 'request_uid',
+      requestUserinfo: 'request_userinfo',
+      requestUsername: 'request_username',
       resourceKind: 'resource_kind',
       resourceName: 'resource_name',
-      resourceNamespace: 'resource_namespace',
+      time: 'time',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      constraintAction: 'string',
+      constraintApiVersion: 'string',
+      constraintCategory: 'string',
+      constraintGroup: 'string',
       constraintKind: 'string',
-      msg: 'string',
+      constraintName: 'string',
+      eventMsg: 'string',
+      eventType: 'string',
+      requestUid: 'string',
+      requestUserinfo: 'string',
+      requestUsername: 'string',
       resourceKind: 'string',
       resourceName: 'string',
-      resourceNamespace: 'string',
+      time: 'string',
     };
   }
 
@@ -91,11 +288,9 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
    * 100
    */
   count?: number;
-  /**
-   * @remarks
-   * The audit log content.
-   */
-  log?: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLog;
+  logProject?: string;
+  logStore?: string;
+  logs?: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs[];
   /**
    * @remarks
    * The status of the query. Valid values:
@@ -110,7 +305,9 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   static names(): { [key: string]: string } {
     return {
       count: 'count',
-      log: 'log',
+      logProject: 'log_project',
+      logStore: 'log_store',
+      logs: 'logs',
       progress: 'progress',
     };
   }
@@ -118,14 +315,16 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   static types(): { [key: string]: any } {
     return {
       count: 'number',
-      log: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLog,
+      logProject: 'string',
+      logStore: 'string',
+      logs: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs },
       progress: 'string',
     };
   }
 
   validate() {
-    if(this.log && typeof (this.log as any).validate === 'function') {
-      (this.log as any).validate();
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
     }
     super.validate();
   }
@@ -185,287 +384,8 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
   }
 }
 
-export class DescribePolicyGovernanceInClusterResponseBodyTotalViolationsDeny extends $dara.Model {
-  /**
-   * @remarks
-   * The severity level of the policy.
-   * 
-   * @example
-   * high
-   */
-  severity?: string;
-  /**
-   * @remarks
-   * The number of blocking events that are triggered.
-   * 
-   * @example
-   * 0
-   */
-  violations?: number;
-  static names(): { [key: string]: string } {
-    return {
-      severity: 'severity',
-      violations: 'violations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      severity: 'string',
-      violations: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyGovernanceInClusterResponseBodyTotalViolationsWarn extends $dara.Model {
-  /**
-   * @remarks
-   * The severity level of the policy.
-   * 
-   * @example
-   * low
-   */
-  severity?: string;
-  /**
-   * @remarks
-   * The number of alerting events that are triggered.
-   * 
-   * @example
-   * 5
-   */
-  violations?: number;
-  static names(): { [key: string]: string } {
-    return {
-      severity: 'severity',
-      violations: 'violations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      severity: 'string',
-      violations: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyGovernanceInClusterResponseBodyTotalViolations extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the blocking events that are triggered by the policies of each severity level.
-   */
-  deny?: DescribePolicyGovernanceInClusterResponseBodyTotalViolationsDeny;
-  /**
-   * @remarks
-   * Details about the alerting events that are triggered by the policies of each severity level.
-   */
-  warn?: DescribePolicyGovernanceInClusterResponseBodyTotalViolationsWarn;
-  static names(): { [key: string]: string } {
-    return {
-      deny: 'deny',
-      warn: 'warn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deny: DescribePolicyGovernanceInClusterResponseBodyTotalViolationsDeny,
-      warn: DescribePolicyGovernanceInClusterResponseBodyTotalViolationsWarn,
-    };
-  }
-
-  validate() {
-    if(this.deny && typeof (this.deny as any).validate === 'function') {
-      (this.deny as any).validate();
-    }
-    if(this.warn && typeof (this.warn as any).validate === 'function') {
-      (this.warn as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyGovernanceInClusterResponseBodyViolationsDeny extends $dara.Model {
-  /**
-   * @remarks
-   * The policy description.
-   * 
-   * @example
-   * Requires container images to begin with a repo string from a specified list.
-   */
-  policyDescription?: string;
-  /**
-   * @remarks
-   * The policy name.
-   * 
-   * @example
-   * policy-gatekeeper-ackallowedrepos
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The severity level of the policy.
-   * 
-   * @example
-   * high
-   */
-  severity?: string;
-  /**
-   * @remarks
-   * The total number of blocking events that are triggered by the policy.
-   * 
-   * @example
-   * 11
-   */
-  violations?: number;
-  static names(): { [key: string]: string } {
-    return {
-      policyDescription: 'policyDescription',
-      policyName: 'policyName',
-      severity: 'severity',
-      violations: 'violations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyDescription: 'string',
-      policyName: 'string',
-      severity: 'string',
-      violations: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyGovernanceInClusterResponseBodyViolationsWarn extends $dara.Model {
-  /**
-   * @remarks
-   * The policy description.
-   * 
-   * @example
-   * Controls Linux capabilities.
-   */
-  policyDescription?: string;
-  /**
-   * @remarks
-   * The policy name.
-   * 
-   * @example
-   * policy-gatekeeper-ackpspcapabilities
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The severity level of the policy.
-   * 
-   * @example
-   * high
-   */
-  severity?: string;
-  /**
-   * @remarks
-   * The total number of alerting events that are triggered by the policy.
-   * 
-   * @example
-   * 81
-   */
-  violations?: number;
-  static names(): { [key: string]: string } {
-    return {
-      policyDescription: 'policyDescription',
-      policyName: 'policyName',
-      severity: 'severity',
-      violations: 'violations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyDescription: 'string',
-      policyName: 'string',
-      severity: 'string',
-      violations: 'number',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolicyGovernanceInClusterResponseBodyViolations extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the blocking events that are triggered by each policy.
-   */
-  deny?: DescribePolicyGovernanceInClusterResponseBodyViolationsDeny;
-  /**
-   * @remarks
-   * Details about the alerting events that are triggered by the policies of each severity level.
-   */
-  warn?: DescribePolicyGovernanceInClusterResponseBodyViolationsWarn;
-  static names(): { [key: string]: string } {
-    return {
-      deny: 'deny',
-      warn: 'warn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deny: DescribePolicyGovernanceInClusterResponseBodyViolationsDeny,
-      warn: DescribePolicyGovernanceInClusterResponseBodyViolationsWarn,
-    };
-  }
-
-  validate() {
-    if(this.deny && typeof (this.deny as any).validate === 'function') {
-      (this.deny as any).validate();
-    }
-    if(this.warn && typeof (this.warn as any).validate === 'function') {
-      (this.warn as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
+  violation?: DescribePolicyGovernanceInClusterResponseBodyViolation;
   /**
    * @remarks
    * The audit logs of the policies in the cluster.
@@ -476,46 +396,31 @@ export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
    * Details about the policies of different severity levels that are enabled for the cluster.
    */
   onState?: DescribePolicyGovernanceInClusterResponseBodyOnState[];
-  /**
-   * @remarks
-   * Details about the blocking and alerting events that are triggered by policies of different severity levels.
-   */
-  totalViolations?: DescribePolicyGovernanceInClusterResponseBodyTotalViolations;
-  /**
-   * @remarks
-   * Details about the blocking and alerting events that are triggered by different policies.
-   */
-  violations?: DescribePolicyGovernanceInClusterResponseBodyViolations;
   static names(): { [key: string]: string } {
     return {
+      violation: 'Violation',
       admitLog: 'admit_log',
       onState: 'on_state',
-      totalViolations: 'totalViolations',
-      violations: 'violations',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      violation: DescribePolicyGovernanceInClusterResponseBodyViolation,
       admitLog: DescribePolicyGovernanceInClusterResponseBodyAdmitLog,
       onState: { 'type': 'array', 'itemType': DescribePolicyGovernanceInClusterResponseBodyOnState },
-      totalViolations: DescribePolicyGovernanceInClusterResponseBodyTotalViolations,
-      violations: DescribePolicyGovernanceInClusterResponseBodyViolations,
     };
   }
 
   validate() {
+    if(this.violation && typeof (this.violation as any).validate === 'function') {
+      (this.violation as any).validate();
+    }
     if(this.admitLog && typeof (this.admitLog as any).validate === 'function') {
       (this.admitLog as any).validate();
     }
     if(Array.isArray(this.onState)) {
       $dara.Model.validateArray(this.onState);
-    }
-    if(this.totalViolations && typeof (this.totalViolations as any).validate === 'function') {
-      (this.totalViolations as any).validate();
-    }
-    if(this.violations && typeof (this.violations as any).validate === 'function') {
-      (this.violations as any).validate();
     }
     super.validate();
   }
