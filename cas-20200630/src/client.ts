@@ -149,6 +149,10 @@ export default class Client extends OpenApi {
       query["ParentIdentifier"] = request.parentIdentifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.sanType)) {
       query["SanType"] = request.sanType;
     }
@@ -159,6 +163,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
@@ -269,6 +277,10 @@ export default class Client extends OpenApi {
       query["ParentIdentifier"] = request.parentIdentifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.sanType)) {
       query["SanType"] = request.sanType;
     }
@@ -279,6 +291,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
@@ -365,6 +381,14 @@ export default class Client extends OpenApi {
       query["ParentIdentifier"] = request.parentIdentifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!$dara.isNull(request.validity)) {
       query["Validity"] = request.validity;
     }
@@ -440,6 +464,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.validity)) {
@@ -572,8 +604,16 @@ export default class Client extends OpenApi {
       query["OrganizationUnit"] = request.organizationUnit;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
@@ -685,8 +725,16 @@ export default class Client extends OpenApi {
       query["ParentIdentifier"] = request.parentIdentifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
@@ -800,8 +848,16 @@ export default class Client extends OpenApi {
       query["ParentIdentifier"] = request.parentIdentifier;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
@@ -900,16 +956,30 @@ export default class Client extends OpenApi {
       query["PathLenConstraint"] = request.pathLenConstraint;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!$dara.isNull(request.years)) {
       query["Years"] = request.years;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateSubCACertificate",
@@ -1123,6 +1193,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.issuerType)) {
       query["IssuerType"] = request.issuerType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.showSize)) {
@@ -1507,6 +1581,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.identifier)) {
       query["Identifier"] = request.identifier;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.showSize)) {

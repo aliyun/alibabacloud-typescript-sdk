@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateServerCertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServerCertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -157,6 +183,7 @@ export class CreateServerCertificateRequest extends $dara.Model {
    * 271ae6bb538d538c70c01f81dg3****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The province, municipality, or autonomous region in which the organization is located. The value can contain letters. The default value is the name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
@@ -165,6 +192,7 @@ export class CreateServerCertificateRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  tags?: CreateServerCertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the server certificate. Unit: years.
@@ -189,7 +217,9 @@ export class CreateServerCertificateRequest extends $dara.Model {
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       years: 'Years',
     };
   }
@@ -210,12 +240,17 @@ export class CreateServerCertificateRequest extends $dara.Model {
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': CreateServerCertificateRequestTags },
       years: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

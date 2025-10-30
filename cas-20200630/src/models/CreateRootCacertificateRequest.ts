@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateRootCACertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRootCACertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -72,6 +98,7 @@ export class CreateRootCACertificateRequest extends $dara.Model {
    * Security
    */
   organizationUnit?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The name of the province, municipality, or autonomous region in which the organization is located. The value can contain letters.
@@ -82,6 +109,7 @@ export class CreateRootCACertificateRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  tags?: CreateRootCACertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the root CA certificate. Unit: years.
@@ -103,7 +131,9 @@ export class CreateRootCACertificateRequest extends $dara.Model {
       locality: 'Locality',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       years: 'Years',
     };
   }
@@ -117,12 +147,17 @@ export class CreateRootCACertificateRequest extends $dara.Model {
       locality: 'string',
       organization: 'string',
       organizationUnit: 'string',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': CreateRootCACertificateRequestTags },
       years: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

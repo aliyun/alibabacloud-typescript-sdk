@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeClientCertificateResponseBodyCertificateTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClientCertificateResponseBodyCertificate extends $dara.Model {
   /**
    * @remarks
@@ -124,6 +150,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * 160ae6bb538d538c70c01f81dcf2****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
@@ -201,6 +228,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
    * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
+  tags?: DescribeClientCertificateResponseBodyCertificateTags[];
   /**
    * @remarks
    * The content of the certificate.
@@ -225,6 +253,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sans: 'Sans',
       serialNumber: 'SerialNumber',
       sha2: 'Sha2',
@@ -232,6 +261,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       state: 'State',
       status: 'Status',
       subjectDN: 'SubjectDN',
+      tags: 'Tags',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -252,6 +282,7 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
       serialNumber: 'string',
       sha2: 'string',
@@ -259,11 +290,15 @@ export class DescribeClientCertificateResponseBodyCertificate extends $dara.Mode
       state: 'string',
       status: 'string',
       subjectDN: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeClientCertificateResponseBodyCertificateTags },
       x509Certificate: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

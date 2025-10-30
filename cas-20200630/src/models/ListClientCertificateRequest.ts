@@ -21,6 +21,7 @@ export class ListClientCertificateRequest extends $dara.Model {
    * 190ae6bb538d538c70c01f81dcf2****
    */
   identifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The number of certificates to return on each page. Default value: **20**.
@@ -33,6 +34,7 @@ export class ListClientCertificateRequest extends $dara.Model {
     return {
       currentPage: 'CurrentPage',
       identifier: 'Identifier',
+      resourceGroupId: 'ResourceGroupId',
       showSize: 'ShowSize',
     };
   }
@@ -41,6 +43,7 @@ export class ListClientCertificateRequest extends $dara.Model {
     return {
       currentPage: 'number',
       identifier: 'string',
+      resourceGroupId: 'string',
       showSize: 'number',
     };
   }

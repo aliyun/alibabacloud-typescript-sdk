@@ -109,12 +109,35 @@ export class CreateExternalCACertificateRequestApiPassthrough extends $dara.Mode
   }
 }
 
+export class CreateExternalCACertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalCACertificateRequest extends $dara.Model {
   apiPassthrough?: CreateExternalCACertificateRequestApiPassthrough;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----
    * MIIBczCCARgCAQAwgYoxFDASBgNVBAMMC2FsaXl1bi50ZXN0MQ0wCwYDVQQ
@@ -124,17 +147,13 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
    */
   csr?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * cas_deposit-cn-1234abcd
    */
   instanceId?: string;
+  resourceGroupId?: string;
+  tags?: CreateExternalCACertificateRequestTags[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 10y
    */
@@ -144,6 +163,8 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
       apiPassthrough: 'ApiPassthrough',
       csr: 'Csr',
       instanceId: 'InstanceId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       validity: 'Validity',
     };
   }
@@ -153,6 +174,8 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
       apiPassthrough: CreateExternalCACertificateRequestApiPassthrough,
       csr: 'string',
       instanceId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateExternalCACertificateRequestTags },
       validity: 'string',
     };
   }
@@ -160,6 +183,9 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
   validate() {
     if(this.apiPassthrough && typeof (this.apiPassthrough as any).validate === 'function') {
       (this.apiPassthrough as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCACertificateResponseBodyCertificateTags extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
   /**
    * @remarks
@@ -186,6 +212,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * 1a83bcbb89e562885e40aa0108f5****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * This parameter is deprecated.
@@ -252,6 +279,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * C=CN,O=Alibaba Cloud Computing Co., Ltd.,OU=Security,L=Hangzhou,ST=Zhejiang,CN=Aliyun
    */
   subjectDN?: string;
+  tags?: DescribeCACertificateResponseBodyCertificateTags[];
   /**
    * @remarks
    * The content of the CA certificate.
@@ -285,6 +313,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sans: 'Sans',
       serialNumber: 'SerialNumber',
       sha2: 'Sha2',
@@ -292,6 +321,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       state: 'State',
       status: 'Status',
       subjectDN: 'SubjectDN',
+      tags: 'Tags',
       x509Certificate: 'X509Certificate',
       years: 'Years',
     };
@@ -321,6 +351,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
       serialNumber: 'string',
       sha2: 'string',
@@ -328,12 +359,16 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       state: 'string',
       status: 'string',
       subjectDN: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeCACertificateResponseBodyCertificateTags },
       x509Certificate: 'string',
       years: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

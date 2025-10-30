@@ -127,6 +127,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
    * 1a83bcbb89e562885e40aa0108f5****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * This parameter is deprecated.
@@ -226,6 +227,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sans: 'Sans',
       serialNumber: 'SerialNumber',
       sha2: 'Sha2',
@@ -256,6 +258,7 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $dara.
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
       serialNumber: 'string',
       sha2: 'string',

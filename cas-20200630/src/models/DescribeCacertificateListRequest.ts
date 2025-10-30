@@ -57,6 +57,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
    * local
    */
   issuerType?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The number of CA certificates per page. Default value: **20**.
@@ -83,6 +84,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       identifier: 'Identifier',
       issuerType: 'IssuerType',
+      resourceGroupId: 'ResourceGroupId',
       showSize: 'ShowSize',
       validStatus: 'ValidStatus',
     };
@@ -95,6 +97,7 @@ export class DescribeCACertificateListRequest extends $dara.Model {
       currentPage: 'number',
       identifier: 'string',
       issuerType: 'string',
+      resourceGroupId: 'string',
       showSize: 'number',
       validStatus: 'string',
     };

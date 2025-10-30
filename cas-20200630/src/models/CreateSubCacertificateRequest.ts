@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateSubCACertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSubCACertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -23,6 +49,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
    * RSA_2048
    */
   algorithm?: string;
+  clientToken?: string;
   /**
    * @remarks
    * The common name or abbreviation of the organization. The value can contain letters.
@@ -103,8 +130,6 @@ export class CreateSubCACertificateRequest extends $dara.Model {
    * 
    * > You can call the [DescribeCACertificateList] operation to query the unique identifiers of all CA certificates.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1a83bcbb89e562885e40aa0108f5****
    */
@@ -117,6 +142,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
    * 0
    */
   pathLenConstraint?: number;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The name of the province or state in which the organization is located. The value can contain letters.
@@ -127,6 +153,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  tags?: CreateSubCACertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the intermediate CA certificate. Unit: years.
@@ -144,6 +171,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
+      clientToken: 'ClientToken',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
       crlDay: 'CrlDay',
@@ -154,7 +182,9 @@ export class CreateSubCACertificateRequest extends $dara.Model {
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
       pathLenConstraint: 'PathLenConstraint',
+      resourceGroupId: 'ResourceGroupId',
       state: 'State',
+      tags: 'Tags',
       years: 'Years',
     };
   }
@@ -162,6 +192,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       algorithm: 'string',
+      clientToken: 'string',
       commonName: 'string',
       countryCode: 'string',
       crlDay: 'number',
@@ -172,7 +203,9 @@ export class CreateSubCACertificateRequest extends $dara.Model {
       organizationUnit: 'string',
       parentIdentifier: 'string',
       pathLenConstraint: 'number',
+      resourceGroupId: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': CreateSubCACertificateRequestTags },
       years: 'number',
     };
   }
@@ -180,6 +213,9 @@ export class CreateSubCACertificateRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.extendedKeyUsages)) {
       $dara.Model.validateArray(this.extendedKeyUsages);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

@@ -2,6 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
+export class CreateClientCertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -141,6 +169,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
    * 273ae6bb538d538c70c01f81jh2****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The type of the Subject Alternative Name (SAN) extension that is supported by the client certificate. Valid values:
@@ -168,6 +197,7 @@ export class CreateClientCertificateRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  tags?: CreateClientCertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the client certificate. Unit: years.
@@ -191,9 +221,11 @@ export class CreateClientCertificateRequest extends $dara.Model {
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sanType: 'SanType',
       sanValue: 'SanValue',
       state: 'State',
+      tags: 'Tags',
       years: 'Years',
     };
   }
@@ -213,14 +245,19 @@ export class CreateClientCertificateRequest extends $dara.Model {
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sanType: 'number',
       sanValue: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': CreateClientCertificateRequestTags },
       years: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

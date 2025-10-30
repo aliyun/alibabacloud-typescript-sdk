@@ -124,6 +124,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
    * 160ae6bb538d538c70c01f81dcf2****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
@@ -225,6 +226,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sans: 'Sans',
       serialNumber: 'SerialNumber',
       sha2: 'Sha2',
@@ -252,6 +254,7 @@ export class ListClientCertificateResponseBodyCertificateList extends $dara.Mode
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
       serialNumber: 'string',
       sha2: 'string',

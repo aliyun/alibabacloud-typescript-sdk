@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage extends $dara.Model {
   /**
    * @remarks
@@ -415,6 +413,32 @@ export class CreateCustomCertificateRequestApiPassthrough extends $dara.Model {
   }
 }
 
+export class CreateCustomCertificateRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomCertificateRequest extends $dara.Model {
   /**
    * @remarks
@@ -470,6 +494,8 @@ export class CreateCustomCertificateRequest extends $dara.Model {
    * 1ed4068c-6f1b-6deb-8e32-3f8439a851cb
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
+  tags?: CreateCustomCertificateRequestTags[];
   /**
    * @remarks
    * The validity period of the certificate. The value cannot exceed the validity period of the certificate instance. Relative time and absolute time are supported.
@@ -504,6 +530,8 @@ export class CreateCustomCertificateRequest extends $dara.Model {
       enableCrl: 'EnableCrl',
       immediately: 'Immediately',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       validity: 'Validity',
     };
   }
@@ -515,6 +543,8 @@ export class CreateCustomCertificateRequest extends $dara.Model {
       enableCrl: 'number',
       immediately: 'number',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateCustomCertificateRequestTags },
       validity: 'string',
     };
   }
@@ -522,6 +552,9 @@ export class CreateCustomCertificateRequest extends $dara.Model {
   validate() {
     if(this.apiPassthrough && typeof (this.apiPassthrough as any).validate === 'function') {
       (this.apiPassthrough as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

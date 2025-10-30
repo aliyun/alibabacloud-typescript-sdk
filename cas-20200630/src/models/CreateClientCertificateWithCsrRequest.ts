@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateClientCertificateWithCsrRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClientCertificateWithCsrRequest extends $dara.Model {
   /**
    * @remarks
@@ -151,6 +177,7 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
    * 270ae6bb538d538c70c01f81fg3****
    */
   parentIdentifier?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The type of the Subject Alternative Name (SAN) extension that is supported by the client certificate. Valid values:
@@ -178,6 +205,7 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
    * Zhejiang
    */
   state?: string;
+  tags?: CreateClientCertificateWithCsrRequestTags[];
   /**
    * @remarks
    * The validity period of the client certificate. Unit: years.
@@ -202,9 +230,11 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
       parentIdentifier: 'ParentIdentifier',
+      resourceGroupId: 'ResourceGroupId',
       sanType: 'SanType',
       sanValue: 'SanValue',
       state: 'State',
+      tags: 'Tags',
       years: 'Years',
     };
   }
@@ -225,14 +255,19 @@ export class CreateClientCertificateWithCsrRequest extends $dara.Model {
       organization: 'string',
       organizationUnit: 'string',
       parentIdentifier: 'string',
+      resourceGroupId: 'string',
       sanType: 'number',
       sanValue: 'string',
       state: 'string',
+      tags: { 'type': 'array', 'itemType': CreateClientCertificateWithCsrRequestTags },
       years: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 

@@ -2,12 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateExternalCACertificateShrinkRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
   apiPassthroughShrink?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----
    * MIIBczCCARgCAQAwgYoxFDASBgNVBAMMC2FsaXl1bi50ZXN0MQ0wCwYDVQQ
@@ -17,17 +40,13 @@ export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
    */
   csr?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * cas_deposit-cn-1234abcd
    */
   instanceId?: string;
+  resourceGroupId?: string;
+  tags?: CreateExternalCACertificateShrinkRequestTags[];
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 10y
    */
@@ -37,6 +56,8 @@ export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
       apiPassthroughShrink: 'ApiPassthrough',
       csr: 'Csr',
       instanceId: 'InstanceId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
       validity: 'Validity',
     };
   }
@@ -46,11 +67,16 @@ export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
       apiPassthroughShrink: 'string',
       csr: 'string',
       instanceId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': CreateExternalCACertificateShrinkRequestTags },
       validity: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
