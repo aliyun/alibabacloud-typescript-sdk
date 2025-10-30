@@ -1857,6 +1857,8 @@ export default class Client extends OpenApi {
   /**
    * 卸载connector的应用
    * 
+   * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+   * 
    * @param tmpReq - DetachApplication2ConnectorRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachApplication2ConnectorResponse
@@ -1898,9 +1900,12 @@ export default class Client extends OpenApi {
   /**
    * 卸载connector的应用
    * 
+   * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+   * 
    * @param request - DetachApplication2ConnectorRequest
    * @returns DetachApplication2ConnectorResponse
    */
+  // Deprecated
   async detachApplication2Connector(request: $_model.DetachApplication2ConnectorRequest): Promise<$_model.DetachApplication2ConnectorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachApplication2ConnectorWithOptions(request, runtime);
