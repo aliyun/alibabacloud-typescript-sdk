@@ -68,6 +68,35 @@ export class GetInstanceResponseBodyAffinity extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyCloudDisksStatus extends $dara.Model {
+  available?: number;
+  capacity?: number;
+  usage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      capacity: 'Capacity',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'number',
+      capacity: 'number',
+      usage: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
   /**
    * @remarks
@@ -93,6 +122,7 @@ export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
    * /workspace
    */
   path?: string;
+  status?: GetInstanceResponseBodyCloudDisksStatus;
   /**
    * @remarks
    * The usage mode of the cloud disk. The value rootfs indicates that the cloud disk is used as the root file system.
@@ -106,6 +136,7 @@ export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
       capacity: 'Capacity',
       mountPath: 'MountPath',
       path: 'Path',
+      status: 'Status',
       subType: 'SubType',
     };
   }
@@ -115,11 +146,15 @@ export class GetInstanceResponseBodyCloudDisks extends $dara.Model {
       capacity: 'string',
       mountPath: 'string',
       path: 'string',
+      status: GetInstanceResponseBodyCloudDisksStatus,
       subType: 'string',
     };
   }
 
   validate() {
+    if(this.status && typeof (this.status as any).validate === 'function') {
+      (this.status as any).validate();
+    }
     super.validate();
   }
 

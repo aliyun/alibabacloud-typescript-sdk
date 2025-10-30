@@ -20,6 +20,7 @@ export { CreateInstanceRequestUserVpc } from './CreateInstanceRequest';
 export { CreateInstanceSnapshotRequestLabels } from './CreateInstanceSnapshotRequest';
 export { GetInstanceResponseBodyAffinityCPU } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyAffinity } from './GetInstanceResponseBody';
+export { GetInstanceResponseBodyCloudDisksStatus } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyCloudDisks } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyDatasets } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyIdleInstanceCuller } from './GetInstanceResponseBody';
