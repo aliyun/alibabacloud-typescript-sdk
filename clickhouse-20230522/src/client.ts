@@ -345,6 +345,10 @@ export default class Client extends OpenApi {
       query["DBInstanceDescription"] = request.DBInstanceDescription;
     }
 
+    if (!$dara.isNull(request.DBTimeZone)) {
+      query["DBTimeZone"] = request.DBTimeZone;
+    }
+
     if (!$dara.isNull(request.deploySchema)) {
       query["DeploySchema"] = request.deploySchema;
     }

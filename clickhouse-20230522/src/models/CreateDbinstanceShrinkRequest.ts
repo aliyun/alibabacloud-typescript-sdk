@@ -27,6 +27,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * Used for test
    */
   DBInstanceDescription?: string;
+  DBTimeZone?: string;
   /**
    * @remarks
    * The deployment status of the cluster.
@@ -149,6 +150,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       backupSetId: 'BackupSetId',
       clientToken: 'ClientToken',
       DBInstanceDescription: 'DBInstanceDescription',
+      DBTimeZone: 'DBTimeZone',
       deploySchema: 'DeploySchema',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
@@ -174,6 +176,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       backupSetId: 'string',
       clientToken: 'string',
       DBInstanceDescription: 'string',
+      DBTimeZone: 'string',
       deploySchema: 'string',
       engine: 'string',
       engineVersion: 'string',
