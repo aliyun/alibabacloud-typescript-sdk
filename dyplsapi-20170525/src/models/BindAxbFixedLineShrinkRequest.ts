@@ -23,7 +23,7 @@ export class BindAxbFixedLineShrinkRequest extends $dara.Model {
   anucodecalled?: string;
   /**
    * @remarks
-   * 应用id
+   * 号池ID。
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class BindAxbFixedLineShrinkRequest extends $dara.Model {
   extraShrink?: string;
   /**
    * @remarks
-   * 消息请求标识
+   * 消息请求唯一标识。
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class BindAxbFixedLineShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，不能超过100个长度
+   * 接入商自有字段，最大250字符长度
    * 
    * @example
    * remark

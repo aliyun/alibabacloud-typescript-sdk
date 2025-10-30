@@ -1,7 +1,122 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { QuerySecretNoRemainResponseBodySecretRemainDTO } from "./QuerySecretNoRemainResponseBodySecretRemainDto";
 
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The quantity of remaining phone numbers available for online purchase for the city.
+   * 
+   * @example
+   * 120
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The home location of the phone numbers.
+   * 
+   * @example
+   * Wuhan
+   */
+  city?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      city: 'City',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      city: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList extends $dara.Model {
+  remainDTO?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      remainDTO: 'remainDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remainDTO: { 'type': 'array', 'itemType': QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.remainDTO)) {
+      $dara.Model.validateArray(this.remainDTO);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The quantity of remaining phone numbers available for online purchase.
+   * 
+   * @example
+   * 0
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The home location of the phone numbers.
+   * 
+   * @example
+   * hangzhou
+   */
+  city?: string;
+  /**
+   * @remarks
+   * The information about remaining phone numbers available for online purchase.
+   */
+  remainDTOList?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      city: 'City',
+      remainDTOList: 'RemainDTOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      city: 'string',
+      remainDTOList: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList,
+    };
+  }
+
+  validate() {
+    if(this.remainDTOList && typeof (this.remainDTOList as any).validate === 'function') {
+      (this.remainDTOList as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class QuerySecretNoRemainResponseBody extends $dara.Model {
   /**

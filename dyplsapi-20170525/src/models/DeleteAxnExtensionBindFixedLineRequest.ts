@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAxnExtensionBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务id标识，由阿里云分配给客户侧
+   * 号池ID
    * 
    * This parameter is required.
    * 

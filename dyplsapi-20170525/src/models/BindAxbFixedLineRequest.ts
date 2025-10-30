@@ -1,7 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { BindAxbFixedLineRequestExtra } from "./BindAxbFixedLineRequestExtra";
 
+
+export class BindAxbFixedLineRequestExtra extends $dara.Model {
+  /**
+   * @remarks
+   * 录音控制，默认是0（不开通录音功能）。 0：不录音 1：录音
+   * 
+   * @example
+   * 示例值示例值
+   */
+  callrecording?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callrecording: 'Callrecording',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callrecording: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class BindAxbFixedLineRequest extends $dara.Model {
   /**
@@ -24,7 +53,7 @@ export class BindAxbFixedLineRequest extends $dara.Model {
   anucodecalled?: string;
   /**
    * @remarks
-   * 应用id
+   * 号池ID。
    * 
    * This parameter is required.
    * 
@@ -67,7 +96,7 @@ export class BindAxbFixedLineRequest extends $dara.Model {
   extra?: BindAxbFixedLineRequestExtra;
   /**
    * @remarks
-   * 消息请求标识
+   * 消息请求唯一标识。
    * 
    * This parameter is required.
    * 
@@ -78,7 +107,7 @@ export class BindAxbFixedLineRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，不能超过100个长度
+   * 接入商自有字段，最大250字符长度
    * 
    * @example
    * remark

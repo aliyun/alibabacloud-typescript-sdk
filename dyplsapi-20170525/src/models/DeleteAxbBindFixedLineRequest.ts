@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAxbBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 应用id
+   * 号池ID。
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAxbBindFixedLineRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * 消息请求标识
+   * 消息请求唯一标识。
    * 
    * This parameter is required.
    * 

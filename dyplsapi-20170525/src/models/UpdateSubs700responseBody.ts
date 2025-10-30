@@ -2,48 +2,63 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UnBindXBResponseBodyData extends $dara.Model {
+export class UpdateSubs700ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
    * @example
-   * 0000
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
    */
   code?: string;
   /**
-   * @remarks
-   * 返回信息
-   * 
    * @example
-   * 成功
+   * {}
+   */
+  data?: { [key: string]: any };
+  /**
+   * @example
+   * OK
    */
   message?: string;
   /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
    * @example
-   * false
+   * 9297B722-A016-43FB-B51A-E54050******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
 
   validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
     super.validate();
   }
 

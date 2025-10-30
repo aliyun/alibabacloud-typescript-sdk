@@ -2,44 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BindAxnExtensionFixedLineResponseBodyData extends $dara.Model {
+export class BindAxb700ResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * 绑定id
-   * 
    * @example
-   * GHX0534X202504221531579290029
+   * 700********0001
    */
-  subid?: string;
+  secretNo?: string;
   /**
-   * @remarks
-   * 隐私号码
-   * 
    * @example
-   * 0571409312
+   * 123*******
    */
-  telX?: string;
-  /**
-   * @remarks
-   * 分机号，只有4位
-   * 
-   * @example
-   * 1001
-   */
-  telXext?: string;
+  subsId?: number;
   static names(): { [key: string]: string } {
     return {
-      subid: 'Subid',
-      telX: 'TelX',
-      telXext: 'TelXext',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subid: 'string',
-      telX: 'string',
-      telXext: 'string',
+      secretNo: 'string',
+      subsId: 'number',
     };
   }
 
@@ -52,43 +36,33 @@ export class BindAxnExtensionFixedLineResponseBodyData extends $dara.Model {
   }
 }
 
-export class BindAxnExtensionFixedLineResponseBody extends $dara.Model {
+export class BindAxb700ResponseBody extends $dara.Model {
   /**
-   * @example
-   * None
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * 响应码 0：成功，其它失败，具体见文档
-   * 
    * @example
    * 0
    */
-  code?: string;
+  accessDeniedDetail?: string;
   /**
-   * @remarks
-   * 响应信息
-   */
-  data?: BindAxnExtensionFixedLineResponseBodyData;
-  /**
-   * @remarks
-   * 描述信息
-   * 
    * @example
-   * success
+   * 200
+   */
+  code?: string;
+  data?: BindAxb700ResponseBodyData;
+  /**
+   * @example
+   * OK
    */
   message?: string;
   /**
    * @example
-   * AE2D6997-643A-59CB-9B3C-918572E5CEAA
+   * 9297B722-A016-43FB-B51A-E54050******
    */
   requestId?: string;
   /**
    * @example
    * true
    */
-  success?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -104,10 +78,10 @@ export class BindAxnExtensionFixedLineResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: BindAxnExtensionFixedLineResponseBodyData,
+      data: BindAxb700ResponseBodyData,
       message: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
     };
   }
 

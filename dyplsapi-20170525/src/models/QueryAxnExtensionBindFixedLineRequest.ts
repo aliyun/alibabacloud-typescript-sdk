@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   /**
    * @remarks
-   * 业务id标识，由阿里云分配给客户侧
+   * 号池ID
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * 消息请求标识
+   * 消息请求唯一标识。
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 查询类型 0：根据绑定id查询 1：根据A号码查询
+   * 查询类型。取值： 0：根据绑定ID查询。1：根据X和A/B号码查询
    * 
    * This parameter is required.
    * 
@@ -38,15 +38,15 @@ export class QueryAxnExtensionBindFixedLineRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id，queryType=0时，必传
+   * 绑定ID。QueryType参数为0时必传。
    * 
    * @example
-   * 可参考绑定响应
+   * A203**************
    */
   subId?: string;
   /**
    * @remarks
-   * A号码，queryType=1时，必传
+   * A号码。QueryType参数为1时必传。
    * 
    * @example
    * 15500001111

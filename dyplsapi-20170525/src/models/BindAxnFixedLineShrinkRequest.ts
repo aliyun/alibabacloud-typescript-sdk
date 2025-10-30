@@ -23,7 +23,7 @@ export class BindAxnFixedLineShrinkRequest extends $dara.Model {
   anucodecalled?: string;
   /**
    * @remarks
-   * 业务id标识，由阿里云分配给客户侧
+   * 号池ID。
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class BindAxnFixedLineShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 接入商自有字段，最大100字符长度
+   * 接入商自有字段，最大250字符长度
    * 
    * @example
    * 12444

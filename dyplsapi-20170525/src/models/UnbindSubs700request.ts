@@ -2,71 +2,53 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAxnBindFixedLineRequest extends $dara.Model {
-  /**
-   * @remarks
-   * 号池ID。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * alitest
-   */
-  appId?: string;
-  /**
-   * @remarks
-   * 消息请求唯一标识
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12345dkwkd99d
-   */
-  orderId?: string;
+export class UnbindSubs700Request extends $dara.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FC10000016848****
+   */
+  poolKey?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * 绑定id
-   * 
    * This parameter is required.
    * 
    * @example
-   * GHX0534X202504221531579290029-2-1-aliaxn
+   * 100000****
    */
-  subId?: string;
+  subsId?: number;
   /**
    * @remarks
-   * 格式yyyyMMddHHmmssSSS，时间采用北京时间，24小时制，精确至毫秒
-   * 
    * This parameter is required.
    * 
    * @example
-   * 20250421141723098
+   * 700********0000
    */
-  ts?: string;
+  telX?: string;
   static names(): { [key: string]: string } {
     return {
-      appId: 'AppId',
-      orderId: 'OrderId',
       ownerId: 'OwnerId',
+      poolKey: 'PoolKey',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      subId: 'SubId',
-      ts: 'Ts',
+      subsId: 'SubsId',
+      telX: 'TelX',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      appId: 'string',
-      orderId: 'string',
       ownerId: 'number',
+      poolKey: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      subId: 'string',
-      ts: 'string',
+      subsId: 'number',
+      telX: 'string',
     };
   }
 

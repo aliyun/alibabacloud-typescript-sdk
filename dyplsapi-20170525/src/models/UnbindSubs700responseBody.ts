@@ -2,23 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteAxnBindFixedLineResponseBodyData extends $dara.Model {
+export class UnbindSubs700ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * 响应码 0：成功，其它失败，具体见文档
-   * 
    * @example
-   * 0
+   * {}
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 200
    */
   code?: string;
+  data?: { [key: string]: any };
   /**
-   * @remarks
-   * 描述信息
-   * 
    * @example
-   * success
+   * OK
    */
   message?: string;
+  /**
+   * @example
+   * 9297B722-A016-43FB-B51A-E54050******
+   */
+  requestId?: string;
   /**
    * @example
    * true
@@ -26,21 +31,30 @@ export class DeleteAxnBindFixedLineResponseBodyData extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
+      data: 'Data',
       message: 'Message',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
 
   validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
     super.validate();
   }
 

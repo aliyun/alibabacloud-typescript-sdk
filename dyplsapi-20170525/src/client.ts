@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dyplsapi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -370,6 +369,124 @@ export default class Client extends OpenApi {
   async bindAxb(request: $_model.BindAxbRequest): Promise<$_model.BindAxbResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAxbWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建700绑定关系
+   * 
+   * @param request - BindAxb700Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindAxb700Response
+   */
+  async bindAxb700WithOptions(request: $_model.BindAxb700Request, runtime: $dara.RuntimeOptions): Promise<$_model.BindAxb700Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.asrModelId)) {
+      query["AsrModelId"] = request.asrModelId;
+    }
+
+    if (!$dara.isNull(request.audio)) {
+      query["Audio"] = request.audio;
+    }
+
+    if (!$dara.isNull(request.callRestrict)) {
+      query["CallRestrict"] = request.callRestrict;
+    }
+
+    if (!$dara.isNull(request.callTimeout)) {
+      query["CallTimeout"] = request.callTimeout;
+    }
+
+    if (!$dara.isNull(request.dtmfConfig)) {
+      query["DtmfConfig"] = request.dtmfConfig;
+    }
+
+    if (!$dara.isNull(request.expiration)) {
+      query["Expiration"] = request.expiration;
+    }
+
+    if (!$dara.isNull(request.industrialId)) {
+      query["IndustrialId"] = request.industrialId;
+    }
+
+    if (!$dara.isNull(request.needAsr)) {
+      query["NeedAsr"] = request.needAsr;
+    }
+
+    if (!$dara.isNull(request.needRecord)) {
+      query["NeedRecord"] = request.needRecord;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["OutOrderId"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!$dara.isNull(request.recType)) {
+      query["RecType"] = request.recType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.telA)) {
+      query["TelA"] = request.telA;
+    }
+
+    if (!$dara.isNull(request.telB)) {
+      query["TelB"] = request.telB;
+    }
+
+    if (!$dara.isNull(request.telX)) {
+      query["TelX"] = request.telX;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindAxb700",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindAxb700Response>(await this.callApi(params, req, runtime), new $_model.BindAxb700Response({}));
+  }
+
+  /**
+   * 创建700绑定关系
+   * 
+   * @param request - BindAxb700Request
+   * @returns BindAxb700Response
+   */
+  async bindAxb700(request: $_model.BindAxb700Request): Promise<$_model.BindAxb700Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindAxb700WithOptions(request, runtime);
   }
 
   /**
@@ -1146,6 +1263,128 @@ export default class Client extends OpenApi {
   async bindBatchAxg(request: $_model.BindBatchAxgRequest): Promise<$_model.BindBatchAxgResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.bindBatchAxgWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建700Gxb绑定关系
+   * 
+   * @param request - BindGxb700Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindGxb700Response
+   */
+  async bindGxb700WithOptions(request: $_model.BindGxb700Request, runtime: $dara.RuntimeOptions): Promise<$_model.BindGxb700Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.asrModelId)) {
+      query["AsrModelId"] = request.asrModelId;
+    }
+
+    if (!$dara.isNull(request.audio)) {
+      query["Audio"] = request.audio;
+    }
+
+    if (!$dara.isNull(request.callRestrict)) {
+      query["CallRestrict"] = request.callRestrict;
+    }
+
+    if (!$dara.isNull(request.callTimeout)) {
+      query["CallTimeout"] = request.callTimeout;
+    }
+
+    if (!$dara.isNull(request.defaultA)) {
+      query["DefaultA"] = request.defaultA;
+    }
+
+    if (!$dara.isNull(request.dtmfConfig)) {
+      query["DtmfConfig"] = request.dtmfConfig;
+    }
+
+    if (!$dara.isNull(request.expiration)) {
+      query["Expiration"] = request.expiration;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.industrialId)) {
+      query["IndustrialId"] = request.industrialId;
+    }
+
+    if (!$dara.isNull(request.needAsr)) {
+      query["NeedAsr"] = request.needAsr;
+    }
+
+    if (!$dara.isNull(request.needRecord)) {
+      query["NeedRecord"] = request.needRecord;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.outOrderId)) {
+      query["OutOrderId"] = request.outOrderId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!$dara.isNull(request.recType)) {
+      query["RecType"] = request.recType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.telB)) {
+      query["TelB"] = request.telB;
+    }
+
+    if (!$dara.isNull(request.telX)) {
+      query["TelX"] = request.telX;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindGxb700",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindGxb700Response>(await this.callApi(params, req, runtime), new $_model.BindGxb700Response({}));
+  }
+
+  /**
+   * 创建700Gxb绑定关系
+   * 
+   * @param request - BindGxb700Request
+   * @returns BindGxb700Response
+   */
+  async bindGxb700(request: $_model.BindGxb700Request): Promise<$_model.BindGxb700Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindGxb700WithOptions(request, runtime);
   }
 
   /**
@@ -3975,6 +4214,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解除700绑定关系
+   * 
+   * @param request - UnbindSubs700Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindSubs700Response
+   */
+  async unbindSubs700WithOptions(request: $_model.UnbindSubs700Request, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindSubs700Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.subsId)) {
+      query["SubsId"] = request.subsId;
+    }
+
+    if (!$dara.isNull(request.telX)) {
+      query["TelX"] = request.telX;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindSubs700",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindSubs700Response>(await this.callApi(params, req, runtime), new $_model.UnbindSubs700Response({}));
+  }
+
+  /**
+   * 解除700绑定关系
+   * 
+   * @param request - UnbindSubs700Request
+   * @returns UnbindSubs700Response
+   */
+  async unbindSubs700(request: $_model.UnbindSubs700Request): Promise<$_model.UnbindSubs700Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindSubs700WithOptions(request, runtime);
+  }
+
+  /**
    * Unbinds a phone number.
    * 
    * @remarks
@@ -4432,6 +4733,124 @@ export default class Client extends OpenApi {
   async updateAxnExtensionBindFixedLine(request: $_model.UpdateAxnExtensionBindFixedLineRequest): Promise<$_model.UpdateAxnExtensionBindFixedLineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAxnExtensionBindFixedLineWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新700绑定关系
+   * 
+   * @param request - UpdateSubs700Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubs700Response
+   */
+  async updateSubs700WithOptions(request: $_model.UpdateSubs700Request, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSubs700Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.asrModelId)) {
+      query["AsrModelId"] = request.asrModelId;
+    }
+
+    if (!$dara.isNull(request.audio)) {
+      query["Audio"] = request.audio;
+    }
+
+    if (!$dara.isNull(request.callRestrict)) {
+      query["CallRestrict"] = request.callRestrict;
+    }
+
+    if (!$dara.isNull(request.defaultA)) {
+      query["DefaultA"] = request.defaultA;
+    }
+
+    if (!$dara.isNull(request.expiration)) {
+      query["Expiration"] = request.expiration;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.industrialId)) {
+      query["IndustrialId"] = request.industrialId;
+    }
+
+    if (!$dara.isNull(request.needAsr)) {
+      query["NeedAsr"] = request.needAsr;
+    }
+
+    if (!$dara.isNull(request.needRecord)) {
+      query["NeedRecord"] = request.needRecord;
+    }
+
+    if (!$dara.isNull(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.poolKey)) {
+      query["PoolKey"] = request.poolKey;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.subsId)) {
+      query["SubsId"] = request.subsId;
+    }
+
+    if (!$dara.isNull(request.telA)) {
+      query["TelA"] = request.telA;
+    }
+
+    if (!$dara.isNull(request.telB)) {
+      query["TelB"] = request.telB;
+    }
+
+    if (!$dara.isNull(request.telX)) {
+      query["TelX"] = request.telX;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSubs700",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSubs700Response>(await this.callApi(params, req, runtime), new $_model.UpdateSubs700Response({}));
+  }
+
+  /**
+   * 更新700绑定关系
+   * 
+   * @param request - UpdateSubs700Request
+   * @returns UpdateSubs700Response
+   */
+  async updateSubs700(request: $_model.UpdateSubs700Request): Promise<$_model.UpdateSubs700Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSubs700WithOptions(request, runtime);
   }
 
   /**

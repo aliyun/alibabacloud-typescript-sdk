@@ -1,9 +1,212 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreatePickUpWaybillRequestConsigneeAddress } from "./CreatePickUpWaybillRequestConsigneeAddress";
-import { CreatePickUpWaybillRequestGoodsInfos } from "./CreatePickUpWaybillRequestGoodsInfos";
-import { CreatePickUpWaybillRequestSendAddress } from "./CreatePickUpWaybillRequestSendAddress";
 
+
+export class CreatePickUpWaybillRequestConsigneeAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the consignee.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xihu
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hangzhou
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zhejiang
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the consignee is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillRequestGoodsInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The item name.
+   * 
+   * @example
+   * zhang
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The item quantity.
+   * 
+   * @example
+   * 1
+   */
+  quantity?: string;
+  /**
+   * @remarks
+   * The item weight. Unit: gram.
+   * 
+   * @example
+   * 1000
+   */
+  weight?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      quantity: 'Quantity',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      quantity: 'string',
+      weight: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillRequestSendAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the sender.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * wenjiang
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * chengdu
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Sichuan
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the sender is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreatePickUpWaybillRequest extends $dara.Model {
   /**
