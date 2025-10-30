@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("governance", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -560,6 +559,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.topicCode)) {
+      query["TopicCode"] = request.topicCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -686,6 +689,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!$dara.isNull(request.topicCode)) {
+      query["TopicCode"] = request.topicCode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

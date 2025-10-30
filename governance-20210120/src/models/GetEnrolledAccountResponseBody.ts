@@ -1,10 +1,367 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetEnrolledAccountResponseBodyBaselineItems } from "./GetEnrolledAccountResponseBodyBaselineItems";
-import { GetEnrolledAccountResponseBodyErrorInfo } from "./GetEnrolledAccountResponseBodyErrorInfo";
-import { GetEnrolledAccountResponseBodyInputs } from "./GetEnrolledAccountResponseBodyInputs";
-import { GetEnrolledAccountResponseBodyProgress } from "./GetEnrolledAccountResponseBodyProgress";
 
+
+export class GetEnrolledAccountResponseBodyBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyErrorInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * CompliancePackExists
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The compliance pack already exists.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The recommended solution.
+   * 
+   * @example
+   * https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
+   */
+  recommend?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6D5EAA86-2D41-5CB7-8DA7-B60093ACAA4E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      recommend: 'Recommend',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      recommend: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputsTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * product
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * governance
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The prefix of the account name.
+   * 
+   * @example
+   * test-account
+   */
+  accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 12868156179*****
+   */
+  accountUid?: number;
+  /**
+   * @remarks
+   * The baseline items.
+   */
+  baselineItems?: GetEnrolledAccountResponseBodyInputsBaselineItems[];
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * test-account
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The ID of the settlement account.
+   * 
+   * @example
+   * 19534534552*****
+   */
+  payerAccountUid?: number;
+  /**
+   * @remarks
+   * The tag.
+   */
+  tag?: GetEnrolledAccountResponseBodyInputsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      accountNamePrefix: 'AccountNamePrefix',
+      accountUid: 'AccountUid',
+      baselineItems: 'BaselineItems',
+      displayName: 'DisplayName',
+      folderId: 'FolderId',
+      payerAccountUid: 'PayerAccountUid',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountNamePrefix: 'string',
+      accountUid: 'number',
+      baselineItems: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsBaselineItems },
+      displayName: 'string',
+      folderId: 'string',
+      payerAccountUid: 'number',
+      tag: { 'type': 'array', 'itemType': GetEnrolledAccountResponseBodyInputsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.baselineItems)) {
+      $dara.Model.validateArray(this.baselineItems);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnrolledAccountResponseBodyProgress extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The status of applying the baseline to the account. Valid values:
+   * 
+   * *   Pending: The baseline is pending to be applied to the account.
+   * *   Running: The baseline is being applied to the account.
+   * *   Finished: : The baseline is applied to the account.
+   * *   Failed: : The baseline fails to be applied to the account.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class GetEnrolledAccountResponseBody extends $dara.Model {
   /**

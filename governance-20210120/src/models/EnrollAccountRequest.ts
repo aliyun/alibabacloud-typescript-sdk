@@ -1,8 +1,109 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { EnrollAccountRequestBaselineItems } from "./EnrollAccountRequestBaselineItems";
-import { EnrollAccountRequestTag } from "./EnrollAccountRequestTag";
 
+
+export class EnrollAccountRequestBaselineItems extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Whether to skip the baseline item. Valid values:
+   * 
+   * *   false: The baseline item is not skipped.
+   * *   true: The baseline item is skipped.
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tagKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class EnrollAccountRequest extends $dara.Model {
   /**

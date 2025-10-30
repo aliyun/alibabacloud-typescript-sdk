@@ -23,11 +23,17 @@ export class ListEvaluationMetadataRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * ResourceUtilization
+   */
+  topicCode?: string;
   static names(): { [key: string]: string } {
     return {
       language: 'Language',
       lensCode: 'LensCode',
       regionId: 'RegionId',
+      topicCode: 'TopicCode',
     };
   }
 
@@ -36,6 +42,7 @@ export class ListEvaluationMetadataRequest extends $dara.Model {
       language: 'string',
       lensCode: 'string',
       regionId: 'string',
+      topicCode: 'string',
     };
   }
 

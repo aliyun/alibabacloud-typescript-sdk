@@ -1,7 +1,50 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListEvaluationResultsRequestFilters } from "./ListEvaluationResultsRequestFilters";
 
+
+export class ListEvaluationResultsRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the filter condition. Valid values:
+   * 
+   * *   ResourceId: the resource ID.
+   * *   ResourceName: the name of the resource.
+   * *   ResourceType: the resource type.
+   * 
+   * @example
+   * ResourceId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The list of filter condition values.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListEvaluationResultsRequest extends $dara.Model {
   /**
@@ -17,6 +60,10 @@ export class ListEvaluationResultsRequest extends $dara.Model {
    * The filter conditions.
    */
   filters?: ListEvaluationResultsRequestFilters[];
+  /**
+   * @example
+   * basic
+   */
   lensCode?: string;
   /**
    * @remarks
@@ -26,8 +73,21 @@ export class ListEvaluationResultsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * ResourceDirectory
+   */
   scope?: string;
+  /**
+   * @example
+   * es-bp1r**************
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * IdentityAndAccessManagement
+   */
+  topicCode?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -36,6 +96,7 @@ export class ListEvaluationResultsRequest extends $dara.Model {
       regionId: 'RegionId',
       scope: 'Scope',
       snapshotId: 'SnapshotId',
+      topicCode: 'TopicCode',
     };
   }
 
@@ -47,6 +108,7 @@ export class ListEvaluationResultsRequest extends $dara.Model {
       regionId: 'string',
       scope: 'string',
       snapshotId: 'string',
+      topicCode: 'string',
     };
   }
 
