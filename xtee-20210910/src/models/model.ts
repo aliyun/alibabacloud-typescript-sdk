@@ -183,6 +183,7 @@ export { DescribeRuleSnapshotResponseBodyResultObject } from './DescribeRuleSnap
 export { DescribeRuleVersionListResponseBodyResultObjectConsoleAudit } from './DescribeRuleVersionListResponseBody';
 export { DescribeRuleVersionListResponseBodyResultObject } from './DescribeRuleVersionListResponseBody';
 export { DescribeSDKDownloadListResponseBodyResultObject } from './DescribeSdkdownloadListResponseBody';
+export { DescribeSafDeOrderResponseBodyResultObjectRegions } from './DescribeSafDeOrderResponseBody';
 export { DescribeSafDeOrderResponseBodyResultObject } from './DescribeSafDeOrderResponseBody';
 export { DescribeSafOrderResponseBodyResultObject } from './DescribeSafOrderResponseBody';
 export { DescribeSafStartConfigResponseBodyResultObject } from './DescribeSafStartConfigResponseBody';

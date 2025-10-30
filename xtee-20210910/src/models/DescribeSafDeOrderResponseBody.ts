@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Model {
+  expirationDate?: number;
+  region?: string;
+  specification?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expirationDate: 'expirationDate',
+      region: 'region',
+      specification: 'specification',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationDate: 'number',
+      region: 'string',
+      specification: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
@@ -23,10 +52,12 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
    * 2
    */
   openUserType?: number;
+  regions?: DescribeSafDeOrderResponseBodyResultObjectRegions[];
   static names(): { [key: string]: string } {
     return {
       expirationDate: 'expirationDate',
       openUserType: 'openUserType',
+      regions: 'regions',
     };
   }
 
@@ -34,10 +65,14 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
     return {
       expirationDate: 'number',
       openUserType: 'number',
+      regions: { 'type': 'array', 'itemType': DescribeSafDeOrderResponseBodyResultObjectRegions },
     };
   }
 
   validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
     super.validate();
   }
 
