@@ -1347,6 +1347,10 @@ export default class Client extends OpenApi {
       request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
     }
 
+    if (!$dara.isNull(tmpReq.labelKeys)) {
+      request.labelKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelKeys, "LabelKeys", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.allInstances)) {
       query["AllInstances"] = request.allInstances;
@@ -1358,6 +1362,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keysShrink)) {
       query["Keys"] = request.keysShrink;
+    }
+
+    if (!$dara.isNull(request.labelKeysShrink)) {
+      query["LabelKeys"] = request.labelKeysShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1648,9 +1656,17 @@ export default class Client extends OpenApi {
       request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
     }
 
+    if (!$dara.isNull(tmpReq.labelKeys)) {
+      request.labelKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelKeys, "LabelKeys", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.keysShrink)) {
       query["Keys"] = request.keysShrink;
+    }
+
+    if (!$dara.isNull(request.labelKeysShrink)) {
+      query["LabelKeys"] = request.labelKeysShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

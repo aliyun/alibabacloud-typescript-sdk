@@ -16,13 +16,17 @@ export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The keys of the tags that you want to delete.
+   * 
+   * @deprecated
    */
   keysShrink?: string;
+  labelKeysShrink?: string;
   static names(): { [key: string]: string } {
     return {
       allInstances: 'AllInstances',
       instanceIdsShrink: 'InstanceIds',
       keysShrink: 'Keys',
+      labelKeysShrink: 'LabelKeys',
     };
   }
 
@@ -31,6 +35,7 @@ export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
       allInstances: 'boolean',
       instanceIdsShrink: 'string',
       keysShrink: 'string',
+      labelKeysShrink: 'string',
     };
   }
 

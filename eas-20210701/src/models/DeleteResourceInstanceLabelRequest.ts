@@ -16,13 +16,17 @@ export class DeleteResourceInstanceLabelRequest extends $dara.Model {
   /**
    * @remarks
    * The keys of the tags that you want to delete.
+   * 
+   * @deprecated
    */
   keys?: string[];
+  labelKeys?: string[];
   static names(): { [key: string]: string } {
     return {
       allInstances: 'AllInstances',
       instanceIds: 'InstanceIds',
       keys: 'Keys',
+      labelKeys: 'LabelKeys',
     };
   }
 
@@ -31,6 +35,7 @@ export class DeleteResourceInstanceLabelRequest extends $dara.Model {
       allInstances: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       keys: { 'type': 'array', 'itemType': 'string' },
+      labelKeys: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -40,6 +45,9 @@ export class DeleteResourceInstanceLabelRequest extends $dara.Model {
     }
     if(Array.isArray(this.keys)) {
       $dara.Model.validateArray(this.keys);
+    }
+    if(Array.isArray(this.labelKeys)) {
+      $dara.Model.validateArray(this.labelKeys);
     }
     super.validate();
   }
