@@ -2,6 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
+export class AllocateAnycastEipAddressRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AllocateAnycastEipAddressRequest extends $dara.Model {
   /**
    * @remarks
@@ -92,6 +120,7 @@ export class AllocateAnycastEipAddressRequest extends $dara.Model {
    * international
    */
   serviceLocation?: string;
+  tag?: AllocateAnycastEipAddressRequestTag[];
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -102,6 +131,7 @@ export class AllocateAnycastEipAddressRequest extends $dara.Model {
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
       serviceLocation: 'ServiceLocation',
+      tag: 'Tag',
     };
   }
 
@@ -115,10 +145,14 @@ export class AllocateAnycastEipAddressRequest extends $dara.Model {
       name: 'string',
       resourceGroupId: 'string',
       serviceLocation: 'string',
+      tag: { 'type': 'array', 'itemType': AllocateAnycastEipAddressRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

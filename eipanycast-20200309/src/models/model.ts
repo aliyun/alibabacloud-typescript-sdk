@@ -1,3 +1,4 @@
+export { AllocateAnycastEipAddressRequestTag } from './AllocateAnycastEipAddressRequest';
 export { AssociateAnycastEipAddressRequestPopLocations } from './AssociateAnycastEipAddressRequest';
 export { DescribeAnycastEipAddressResponseBodyAnycastEipBindInfoListPopLocations } from './DescribeAnycastEipAddressResponseBody';
 export { DescribeAnycastEipAddressResponseBodyAnycastEipBindInfoList } from './DescribeAnycastEipAddressResponseBody';

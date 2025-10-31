@@ -71,6 +71,10 @@ export default class Client extends OpenApi {
       query["ServiceLocation"] = request.serviceLocation;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
