@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstanceResponseBodyInstance extends $dara.Model {
   /**
+   * @example
+   * GM/T0028_LEVEL_2
+   */
+  certification?: string;
+  certificationUrl?: string;
+  /**
    * @remarks
    * The ID of the cluster to which the HSM belongs.
    * 
@@ -179,6 +185,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      certification: 'Certification',
+      certificationUrl: 'CertificationUrl',
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
@@ -204,6 +212,8 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certification: 'string',
+      certificationUrl: 'string',
       clusterId: 'string',
       clusterName: 'string',
       createTime: 'number',
