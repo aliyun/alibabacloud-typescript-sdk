@@ -94,6 +94,16 @@ export class CreateDetectionRuleRequest extends $dara.Model {
    */
   detectionRuleStatus?: string;
   /**
+   * @example
+   * cfw-out-ip_aegis-netstat
+   */
+  detectionRuleTemplateId?: string;
+  /**
+   * @example
+   * v1.0.0
+   */
+  detectionRuleTemplateVersion?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -203,6 +213,8 @@ export class CreateDetectionRuleRequest extends $dara.Model {
       detectionRuleDescription: 'DetectionRuleDescription',
       detectionRuleName: 'DetectionRuleName',
       detectionRuleStatus: 'DetectionRuleStatus',
+      detectionRuleTemplateId: 'DetectionRuleTemplateId',
+      detectionRuleTemplateVersion: 'DetectionRuleTemplateVersion',
       detectionRuleType: 'DetectionRuleType',
       entityMappings: 'EntityMappings',
       incidentAggregationExpression: 'IncidentAggregationExpression',
@@ -238,6 +250,8 @@ export class CreateDetectionRuleRequest extends $dara.Model {
       detectionRuleDescription: 'string',
       detectionRuleName: 'string',
       detectionRuleStatus: 'string',
+      detectionRuleTemplateId: 'string',
+      detectionRuleTemplateVersion: 'string',
       detectionRuleType: 'string',
       entityMappings: 'string',
       incidentAggregationExpression: 'string',

@@ -451,6 +451,14 @@ export default class Client extends OpenApi {
       body["DetectionRuleStatus"] = request.detectionRuleStatus;
     }
 
+    if (!$dara.isNull(request.detectionRuleTemplateId)) {
+      body["DetectionRuleTemplateId"] = request.detectionRuleTemplateId;
+    }
+
+    if (!$dara.isNull(request.detectionRuleTemplateVersion)) {
+      body["DetectionRuleTemplateVersion"] = request.detectionRuleTemplateVersion;
+    }
+
     if (!$dara.isNull(request.detectionRuleType)) {
       body["DetectionRuleType"] = request.detectionRuleType;
     }

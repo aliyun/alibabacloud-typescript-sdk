@@ -25,6 +25,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentStatus?: number;
   /**
    * @example
+   * ["sys:data_source:siem","sys:trigger_type:auto"]
+   */
+  incidentTags?: string;
+  /**
+   * @example
    * dbb1d7211c9285c862aa89385098****
    */
   incidentUuid?: string;
@@ -54,6 +59,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       incidentName: 'IncidentName',
       incidentRemark: 'IncidentRemark',
       incidentStatus: 'IncidentStatus',
+      incidentTags: 'IncidentTags',
       incidentUuid: 'IncidentUuid',
       relateAlertCount: 'RelateAlertCount',
       relateAssetCount: 'RelateAssetCount',
@@ -68,6 +74,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
       incidentName: 'string',
       incidentRemark: 'string',
       incidentStatus: 'number',
+      incidentTags: 'string',
       incidentUuid: 'string',
       relateAlertCount: 'number',
       relateAssetCount: 'number',
