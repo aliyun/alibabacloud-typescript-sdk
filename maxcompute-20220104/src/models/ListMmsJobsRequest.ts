@@ -76,6 +76,11 @@ export class ListMmsJobsRequest extends $dara.Model {
    * false
    */
   stopped?: number;
+  /**
+   * @example
+   * 1
+   */
+  timerId?: number;
   static names(): { [key: string]: string } {
     return {
       sorter: 'sorter',
@@ -88,6 +93,7 @@ export class ListMmsJobsRequest extends $dara.Model {
       srcTableName: 'srcTableName',
       status: 'status',
       stopped: 'stopped',
+      timerId: 'timerId',
     };
   }
 
@@ -103,6 +109,7 @@ export class ListMmsJobsRequest extends $dara.Model {
       srcTableName: 'string',
       status: 'string',
       stopped: 'number',
+      timerId: 'number',
     };
   }
 

@@ -1311,6 +1311,14 @@ export default class Client extends OpenApi {
       query["verbose"] = request.verbose;
     }
 
+    if (!$dara.isNull(request.withQuotaProductType)) {
+      query["withQuotaProductType"] = request.withQuotaProductType;
+    }
+
+    if (!$dara.isNull(request.withStorageTierInfo)) {
+      query["withStorageTierInfo"] = request.withStorageTierInfo;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2743,6 +2751,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.stopped)) {
       query["stopped"] = request.stopped;
+    }
+
+    if (!$dara.isNull(request.timerId)) {
+      query["timerId"] = request.timerId;
     }
 
     if (!$dara.isNull(request.sorter)) {

@@ -11,15 +11,29 @@ export class GetProjectRequest extends $dara.Model {
    * true
    */
   verbose?: boolean;
+  /**
+   * @example
+   * true
+   */
+  withQuotaProductType?: boolean;
+  /**
+   * @example
+   * true
+   */
+  withStorageTierInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
       verbose: 'verbose',
+      withQuotaProductType: 'withQuotaProductType',
+      withStorageTierInfo: 'withStorageTierInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       verbose: 'boolean',
+      withQuotaProductType: 'boolean',
+      withStorageTierInfo: 'boolean',
     };
   }
 
