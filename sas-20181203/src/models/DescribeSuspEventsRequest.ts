@@ -307,6 +307,10 @@ export class DescribeSuspEventsRequest extends $dara.Model {
    * Y
    */
   strictMode?: string;
+  /**
+   * @remarks
+   * 告警支持的操作类型列表。
+   */
   supportOperateCodeList?: string[];
   /**
    * @remarks

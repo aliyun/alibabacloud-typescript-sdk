@@ -109,6 +109,13 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
    * 1.2.XX.XX
    */
   internetIp?: string;
+  /**
+   * @remarks
+   * Detailed asset information.
+   * 
+   * @example
+   * {"owner":{"displayName":"123","id":"123"},"intranetEndpoint":"oss-cn-shanghai-internal.aliyuncs.com","extranetEndpoint":"oss-cn-shanghai.aliyuncs.com","storageClass":"Standard","name":"test","location":"oss-cn-shanghai","creationDate":1629882579000,"region":"cn-shanghai"}
+   */
   originalAssetInfo?: string;
   /**
    * @remarks
@@ -153,7 +160,21 @@ export class GetCloudAssetDetailResponseBodyInstances extends $dara.Model {
    * 0
    */
   vendor?: number;
+  /**
+   * @remarks
+   * Account id for multi-cloud instances.
+   * 
+   * @example
+   * 123
+   */
   vendorUid?: string;
+  /**
+   * @remarks
+   * The account name of the multi-cloud instance.
+   * 
+   * @example
+   * test
+   */
   vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {

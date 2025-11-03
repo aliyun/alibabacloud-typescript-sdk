@@ -46,6 +46,10 @@ export class ListInstanceCatalogRequest extends $dara.Model {
    * The IDs of standards.
    */
   standardIds?: number[];
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   /**
    * @remarks

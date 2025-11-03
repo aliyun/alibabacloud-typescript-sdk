@@ -117,6 +117,17 @@ export class ExportVulRequest extends $dara.Model {
    * /etc/test
    */
   path?: string;
+  /**
+   * @remarks
+   * Indicates whether the application protection feature is supported. Valid values:
+   * 
+   * - **0**: no.
+   * 
+   * - **1**: yes.
+   * 
+   * @example
+   * 0
+   */
   raspDefend?: number;
   /**
    * @remarks

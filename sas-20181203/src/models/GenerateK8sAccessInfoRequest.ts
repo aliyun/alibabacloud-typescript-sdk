@@ -62,6 +62,9 @@ export class GenerateK8sAccessInfoRequest extends $dara.Model {
    */
   clusterName?: string;
   /**
+   * @remarks
+   * CPU architectures are divided into ARM architecture and x86 architecture.
+   * 
    * @example
    * arm
    */

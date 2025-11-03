@@ -98,7 +98,21 @@ export class GetSwitchRegionDetailResponseBodyData extends $dara.Model {
    * YES
    */
   isNoticed?: string;
+  /**
+   * @remarks
+   * Specifies whether to notify the account.
+   * 
+   * @example
+   * true
+   */
   needNotice?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to switch.
+   * 
+   * @example
+   * true
+   */
   needSwitch?: boolean;
   /**
    * @remarks

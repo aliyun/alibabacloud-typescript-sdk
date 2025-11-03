@@ -39,6 +39,7 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
    * strEqual
    */
   operator?: string;
+  remark?: string;
   /**
    * @remarks
    * The feature to which this operation belongs.
@@ -77,6 +78,7 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
       field: 'Field',
       fieldValue: 'FieldValue',
       operator: 'Operator',
+      remark: 'Remark',
       source: 'Source',
       targetType: 'TargetType',
       targetValue: 'TargetValue',
@@ -89,6 +91,7 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
       field: 'string',
       fieldValue: 'string',
       operator: 'string',
+      remark: 'string',
       source: 'string',
       targetType: 'string',
       targetValue: 'string',

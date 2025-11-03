@@ -52,6 +52,9 @@ export class ListK8sAccessInfoResponseBodyK8sAccessInfos extends $dara.Model {
    */
   clusterName?: string;
   /**
+   * @remarks
+   * CPU architecture, divided into ARM and x86 architectures.
+   * 
    * @example
    * arm
    */
@@ -157,7 +160,7 @@ export class ListK8sAccessInfoResponseBody extends $dara.Model {
   k8sAccessInfos?: ListK8sAccessInfoResponseBodyK8sAccessInfos[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 0B48AB3C-84FC-424D-A01D-B9270EF46038

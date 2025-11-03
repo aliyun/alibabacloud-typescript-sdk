@@ -14,6 +14,13 @@ export class SubmitCheckRequest extends $dara.Model {
    * POLICY
    */
   scanRange?: string;
+  /**
+   * @remarks
+   * The source of task.
+   * 
+   * @example
+   * YAO_CHI
+   */
   taskSource?: string;
   static names(): { [key: string]: string } {
     return {

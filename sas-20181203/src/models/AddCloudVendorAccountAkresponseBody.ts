@@ -117,6 +117,15 @@ export class AddCloudVendorAccountAKResponseBodyData extends $dara.Model {
    * The modules that are associated with the AccessKey pair.
    */
   authModules?: AddCloudVendorAccountAKResponseBodyDataAuthModules[];
+  /**
+   * @remarks
+   * Account ID. 
+   * 
+   * > The account ID of the cloud provider being integrated.
+   * 
+   * @example
+   * azure_demo_1
+   */
   ctdrCloudUserId?: string;
   /**
    * @remarks

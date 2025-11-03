@@ -144,7 +144,21 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
    * The modules that are associated with the AccessKey pair.
    */
   authModules?: DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAuthModules[];
+  /**
+   * @remarks
+   * The Account ID.
+   * 
+   * @example
+   * azure_demo_1
+   */
   ctdrCloudUserId?: string;
+  /**
+   * @remarks
+   * The extended information of the module.
+   * 
+   * @example
+   * {\\"product\\":\\"webFirewall\\",\\"remark\\":\\"remark\\"}
+   */
   extendInfo?: string;
   /**
    * @remarks
@@ -207,7 +221,21 @@ export class DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKs e
    * test
    */
   vendorAuthAlias?: string;
+  /**
+   * @remarks
+   * Account ID of the multi-cloud instance.
+   * 
+   * @example
+   * 123
+   */
   vendorUid?: string;
+  /**
+   * @remarks
+   * Account name of the multi-cloud instance.
+   * 
+   * @example
+   * VendorUserName
+   */
   vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {

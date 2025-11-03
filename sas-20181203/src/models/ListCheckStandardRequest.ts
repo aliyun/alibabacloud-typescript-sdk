@@ -29,6 +29,10 @@ export class ListCheckStandardRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   /**
    * @remarks

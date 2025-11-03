@@ -45,6 +45,10 @@ export class ListOperationProcessRequest extends $dara.Model {
    * The task IDs.
    */
   taskIds?: string[];
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   /**
    * @remarks

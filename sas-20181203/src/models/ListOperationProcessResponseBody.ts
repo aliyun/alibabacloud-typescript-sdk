@@ -71,7 +71,21 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
    * 1674388824000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Number of completed subtasks
+   * 
+   * @example
+   * 5
+   */
   detailTaskReadyCount?: number;
+  /**
+   * @remarks
+   * Total number of subtasks.
+   * 
+   * @example
+   * 10
+   */
   detailTaskTotalCount?: number;
   /**
    * @remarks
@@ -118,6 +132,14 @@ export class ListOperationProcessResponseBodyProcesses extends $dara.Model {
    * 3d7a1b68-599f-4e16-9b45-e920a183b***
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Task source. Values: 
+   * - **YAO_CHI**: YaoChi.
+   * 
+   * @example
+   * YAO_CHI
+   */
   taskSource?: string;
   /**
    * @remarks

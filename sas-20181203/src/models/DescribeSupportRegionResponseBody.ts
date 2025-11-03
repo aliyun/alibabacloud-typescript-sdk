@@ -11,6 +11,10 @@ export class DescribeSupportRegionResponseBody extends $dara.Model {
    * 2C0699D3-4107-5A46-A4C4-E129A5967788
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of supported regions
+   */
   supportRegion?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -252,7 +252,21 @@ export class ListCloudAssetInstancesResponseBodyInstances extends $dara.Model {
    * 0
    */
   vendor?: number;
+  /**
+   * @remarks
+   * The account ID of the multi-cloud instance.
+   * 
+   * @example
+   * 123xxx
+   */
   vendorUid?: string;
+  /**
+   * @remarks
+   * The user name of the multi-cloud instance.
+   * 
+   * @example
+   * testxxx
+   */
   vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {

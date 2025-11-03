@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUuidsByAppIdRequest extends $dara.Model {
   /**
    * @remarks
-   * SAE application ID.
+   * The ID of the SAE application.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -13,7 +13,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * The page number to display in a paginated query.
+   * The page number.
    * 
    * @example
    * 1
@@ -29,9 +29,10 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language type for request and response, default is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * 
+   * *   **zh**: Chinese.
+   * *   **en**: English.
    * 
    * @example
    * zh
@@ -39,7 +40,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of items to display per page in a paginated query.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -47,7 +48,7 @@ export class ListUuidsByAppIdRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Resource associated directory UID.
+   * The UID of the resource directory.
    * 
    * @example
    * 123456

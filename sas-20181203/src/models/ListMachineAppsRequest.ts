@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMachineAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * SAE application ID.
+   * The ID of the SAE application.
    * 
    * @example
    * 5b41f4bf-349f-4263-89b1-9234c034****
@@ -13,7 +13,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * SAE application name.
+   * The name of the SAE application.
    * 
    * @example
    * agent-commprice-shop
@@ -21,7 +21,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -29,12 +29,13 @@ export class ListMachineAppsRequest extends $dara.Model {
   appRegionId?: string;
   /**
    * @remarks
-   * The authorization version of the asset. Values:
-   * - **6**: Anti-virus edition
-   * - **5**: Advanced edition
-   * - **3**: Enterprise edition
-   * - **7**: Ultimate edition
-   * - **10**: Value-added Service Edition
+   * The edition of Security Center. Valid values:
+   * 
+   * *   **6**: Anti-virus.
+   * *   **5**: Advanced.
+   * *   **3**: Enterprise.
+   * *   **7**: Ultimate.
+   * *   **10**: Value-added Plan.
    * 
    * @example
    * 7
@@ -42,7 +43,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   authVersion?: string;
   /**
    * @remarks
-   * The page number to display in a paginated query.
+   * The page number.
    * 
    * @example
    * 1
@@ -50,9 +51,10 @@ export class ListMachineAppsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The language type for request and response, default value is **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * 
+   * *   **zh**: Chinese.
+   * *   **en**: English.
    * 
    * @example
    * zh
@@ -60,7 +62,7 @@ export class ListMachineAppsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of items to display per page in a paginated query.
+   * The number of entries per page.
    * 
    * @example
    * 20

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePropertyCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of AI services.
+   * 
+   * @example
+   * 3
+   */
   agentlessLlmService?: number;
+  /**
+   * @remarks
+   * The number of AI tools.
+   * 
+   * @example
+   * 13
+   */
   agentlessScaAiComponent?: number;
   /**
    * @remarks

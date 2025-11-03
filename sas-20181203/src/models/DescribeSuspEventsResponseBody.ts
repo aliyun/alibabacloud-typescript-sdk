@@ -589,6 +589,16 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $dara.Model {
    * "["authority_maintenance"]"
    */
   stages?: string;
+  /**
+   * @remarks
+   * Supported alarm operation types: 
+   * - **AI.false_positive**: Suspected false positive 
+   * - **AI.real_attack**: Real attack 
+   * - **AI.Insufficient_information_to_evaluate**: Insufficient information to evaluate
+   * 
+   * @example
+   * AI.real_attack
+   */
   supportOperateCode?: string;
   /**
    * @remarks

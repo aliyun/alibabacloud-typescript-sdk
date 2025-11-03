@@ -8,6 +8,13 @@ export class VerifyCheckResultRequest extends $dara.Model {
    * The IDs of the check items.
    */
   checkIds?: number[];
+  /**
+   * @remarks
+   * The source of task.
+   * 
+   * @example
+   * YAO_CHI
+   */
   taskSource?: string;
   static names(): { [key: string]: string } {
     return {

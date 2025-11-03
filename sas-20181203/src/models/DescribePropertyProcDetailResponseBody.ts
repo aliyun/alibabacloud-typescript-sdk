@@ -87,6 +87,13 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $dara.Model
    * root
    */
   euidName?: string;
+  /**
+   * @remarks
+   * Process file hash information.
+   * 
+   * @example
+   * 935c1861df1f4018d698e8b65abfa02d7e9037d8f68ca3c2065b6ca165d4****
+   */
   fileHash?: string;
   /**
    * @remarks

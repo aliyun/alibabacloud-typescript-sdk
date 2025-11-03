@@ -24,6 +24,13 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 1
    */
   allowPartialBuy?: number;
+  /**
+   * @remarks
+   * 防勒索备份容量，单位GB。
+   * 
+   * @example
+   * 160
+   */
   antiRansomwareCapacity?: number;
   /**
    * @remarks
@@ -106,6 +113,13 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 8954
    */
   imageScanCapacity?: number;
+  /**
+   * @remarks
+   * Instance purchase type. Values: - **0**: Self-purchased - **1**: Multi-account allocation
+   * 
+   * @example
+   * 0
+   */
   instanceBuyType?: number;
   /**
    * @remarks
@@ -203,6 +217,13 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 7
    */
   mergedVersion?: number;
+  /**
+   * @remarks
+   * Usage of multiple version numbers and license counts
+   * 
+   * @example
+   * null
+   */
   multiVersion?: string;
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDockerhubImageRiskStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The types of image risks to be queried.
+   * The risk types that you want to query.
    */
   types?: string[];
   static names(): { [key: string]: string } {

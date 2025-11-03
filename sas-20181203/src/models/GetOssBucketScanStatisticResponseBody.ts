@@ -43,6 +43,9 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
    * 1
    */
   noScanBucket?: number;
+  postPayInvokeCount?: number;
+  prePayAuthCount?: number;
+  prePayInvokeCount?: number;
   /**
    * @remarks
    * The remaining quota.
@@ -90,6 +93,9 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
       lowRisk: 'LowRisk',
       mediumRisk: 'MediumRisk',
       noScanBucket: 'NoScanBucket',
+      postPayInvokeCount: 'PostPayInvokeCount',
+      prePayAuthCount: 'PrePayAuthCount',
+      prePayInvokeCount: 'PrePayInvokeCount',
       remainAuth: 'RemainAuth',
       riskBucket: 'RiskBucket',
       scanObject: 'ScanObject',
@@ -105,6 +111,9 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
       lowRisk: 'number',
       mediumRisk: 'number',
       noScanBucket: 'number',
+      postPayInvokeCount: 'number',
+      prePayAuthCount: 'number',
+      prePayInvokeCount: 'number',
       remainAuth: 'number',
       riskBucket: 'number',
       scanObject: 'number',

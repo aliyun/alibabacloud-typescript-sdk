@@ -34,7 +34,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
   pageCount?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10

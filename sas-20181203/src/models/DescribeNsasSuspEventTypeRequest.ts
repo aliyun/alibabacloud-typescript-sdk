@@ -75,6 +75,10 @@ export class DescribeNsasSuspEventTypeRequest extends $dara.Model {
    * 180.212.XX.XX
    */
   sourceIp?: string;
+  /**
+   * @remarks
+   * List of supported alarm operation types.
+   */
   supportOperateCodeList?: string[];
   /**
    * @remarks

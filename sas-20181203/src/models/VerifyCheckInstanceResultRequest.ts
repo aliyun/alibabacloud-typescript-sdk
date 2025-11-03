@@ -18,6 +18,13 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
    * The instance IDs of the assets on which risks are detected based on the check item.
    */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The source of task.
+   * 
+   * @example
+   * YAO_CHI
+   */
   taskSource?: string;
   static names(): { [key: string]: string } {
     return {

@@ -97,6 +97,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * true
    */
   displaySandboxResult?: string;
+  errorMsg?: string;
   /**
    * @remarks
    * The ID of the alert.
@@ -148,6 +149,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 1694576692000
    */
   lastTime?: number;
+  matchedWhiteListRuleI18nStr?: string;
   /**
    * @remarks
    * The MD5 hash value of the file.
@@ -156,6 +158,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 5b394b54ca632fe51c4ab4a6dbaf****
    */
   md5?: string;
+  operateResult?: string;
   /**
    * @remarks
    * The key of the file that is stored in the OSS bucket.
@@ -164,6 +167,7 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 1/2023/07/21/10/18/16899059356518bcf6c64-a04e-492d-a421-4ae8b888****
    */
   ossKey?: string;
+  remark?: string;
   /**
    * @remarks
    * The risk level of the alert. Valid values:
@@ -203,23 +207,29 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * OSS
    */
   source?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'BucketName',
       details: 'Details',
       displaySandboxResult: 'DisplaySandboxResult',
+      errorMsg: 'ErrorMsg',
       eventId: 'EventId',
       eventName: 'EventName',
       filePath: 'FilePath',
       firstTime: 'FirstTime',
       hasSubEvent: 'HasSubEvent',
       lastTime: 'LastTime',
+      matchedWhiteListRuleI18nStr: 'MatchedWhiteListRuleI18nStr',
       md5: 'Md5',
+      operateResult: 'OperateResult',
       ossKey: 'OssKey',
+      remark: 'Remark',
       riskLevel: 'RiskLevel',
       sha1: 'Sha1',
       sha256: 'Sha256',
       source: 'Source',
+      status: 'Status',
     };
   }
 
@@ -228,18 +238,23 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
       bucketName: 'string',
       details: { 'type': 'array', 'itemType': ListObjectScanEventResponseBodyDataDetails },
       displaySandboxResult: 'string',
+      errorMsg: 'string',
       eventId: 'number',
       eventName: 'string',
       filePath: 'string',
       firstTime: 'number',
       hasSubEvent: 'boolean',
       lastTime: 'number',
+      matchedWhiteListRuleI18nStr: 'string',
       md5: 'string',
+      operateResult: 'string',
       ossKey: 'string',
+      remark: 'string',
       riskLevel: 'string',
       sha1: 'string',
       sha256: 'string',
       source: 'string',
+      status: 'number',
     };
   }
 

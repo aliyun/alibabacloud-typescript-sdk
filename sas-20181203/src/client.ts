@@ -4227,6 +4227,10 @@ export default class Client extends OpenApi {
       query["Operator"] = request.operator;
     }
 
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
     }
@@ -19582,7 +19586,7 @@ export default class Client extends OpenApi {
    * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
    * 
    * @remarks
-   * This operation is phased out. You can use the ListCheckInstanceResult operation.
+   * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
    * 
    * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
    * 
@@ -19638,7 +19642,7 @@ export default class Client extends OpenApi {
    * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
    * 
    * @remarks
-   * This operation is phased out. You can use the ListCheckInstanceResult operation.
+   * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
    * 
    * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
    * 
@@ -28392,7 +28396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the statistical counts of images across various dimensions.
+   * Queries the risk statistics of Docker Hub images.
    * 
    * @param request - GetDockerhubImageRiskStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28423,7 +28427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the statistical counts of images across various dimensions.
+   * Queries the risk statistics of Docker Hub images.
    * 
    * @param request - GetDockerhubImageRiskStatisticRequest
    * @returns GetDockerhubImageRiskStatisticResponse
@@ -29986,7 +29990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群镜像
+   * Get cluster image information.
    * 
    * @param request - GetOpaClusterImageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30029,7 +30033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群镜像
+   * Get cluster image information.
    * 
    * @param request - GetOpaClusterImageListRequest
    * @returns GetOpaClusterImageListResponse
@@ -30472,7 +30476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Image Scan Period.
+   * Queries the time range of image scans.
    * 
    * @param request - GetRegistryScanDayNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30495,7 +30499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Image Scan Period.
+   * Queries the time range of image scans.
    * @returns GetRegistryScanDayNumResponse
    */
   async getRegistryScanDayNum(): Promise<$_model.GetRegistryScanDayNumResponse> {
@@ -35341,7 +35345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询已安装的探针
+   * Query installed probes
    * 
    * @param request - ListHoneypotProbeUuidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35380,7 +35384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询已安装的探针
+   * Query installed probes
    * 
    * @param request - ListHoneypotProbeUuidRequest
    * @returns ListHoneypotProbeUuidResponse
@@ -35433,7 +35437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Image Registry Extended Information.
+   * Queries the additional configuration information about an image repository.
    * 
    * @param request - ListImageRegistryExtraRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35464,7 +35468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Image Registry Extended Information.
+   * Queries the additional configuration information about an image repository.
    * 
    * @param request - ListImageRegistryExtraRequest
    * @returns ListImageRegistryExtraResponse
@@ -36019,7 +36023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate to query the application list.
+   * Queries Serverless App Engine (SAE) applications.
    * 
    * @param request - ListMachineAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36078,7 +36082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate to query the application list.
+   * Queries Serverless App Engine (SAE) applications.
    * 
    * @param request - ListMachineAppsRequest
    * @returns ListMachineAppsResponse
@@ -36104,6 +36108,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventName)) {
       query["EventName"] = request.eventName;
+    }
+
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
     }
 
     if (!$dara.isNull(request.lang)) {
@@ -36156,12 +36164,20 @@ export default class Client extends OpenApi {
   async listObjectScanEventWithOptions(request: $_model.ListObjectScanEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListObjectScanEventResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.batchType)) {
+      query["BatchType"] = request.batchType;
+    }
+
     if (!$dara.isNull(request.bucketName)) {
       query["BucketName"] = request.bucketName;
     }
 
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
     }
 
     if (!$dara.isNull(request.eventName)) {
@@ -36194,6 +36210,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     if (!$dara.isNull(request.timeEnd)) {
@@ -37565,7 +37585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of instance UUIDs based on the application ID.
+   * Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37616,7 +37636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of instance UUIDs based on the application ID.
+   * Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
    * 
    * @param request - ListUuidsByAppIdRequest
    * @returns ListUuidsByAppIdResponse
@@ -39789,7 +39809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改代理集群
+   * Modify proxy cluster.
    * 
    * @param request - ModifyHybridProxyClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39824,7 +39844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改代理集群
+   * Modify proxy cluster.
    * 
    * @param request - ModifyHybridProxyClusterRequest
    * @returns ModifyHybridProxyClusterResponse
@@ -39835,7 +39855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改代理策略
+   * Modify proxy policy.
    * 
    * @param request - ModifyHybridProxyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39870,7 +39890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改代理策略
+   * Modify proxy policy.
    * 
    * @param request - ModifyHybridProxyPolicyRequest
    * @returns ModifyHybridProxyPolicyResponse
@@ -47401,6 +47421,10 @@ export default class Client extends OpenApi {
       query["Operator"] = request.operator;
     }
 
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
     if (!$dara.isNull(request.source)) {
       query["Source"] = request.source;
     }
@@ -48032,7 +48056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Image Service Whitelist.
+   * Updates the IP address whitelist of an image repository.
    * 
    * @param request - UpdateWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48067,7 +48091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Image Service Whitelist.
+   * Updates the IP address whitelist of an image repository.
    * 
    * @param request - UpdateWhiteListRequest
    * @returns UpdateWhiteListResponse

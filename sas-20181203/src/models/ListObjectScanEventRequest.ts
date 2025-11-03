@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListObjectScanEventRequest extends $dara.Model {
+  batchType?: string;
   /**
    * @remarks
    * The name of the OSS bucket.
@@ -21,6 +22,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  eventId?: number;
   /**
    * @remarks
    * The name of the alert.
@@ -97,6 +99,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * OSS
    */
   source?: string;
+  status?: number;
   /**
    * @remarks
    * The end of the time range during which the exception is detected.
@@ -115,8 +118,10 @@ export class ListObjectScanEventRequest extends $dara.Model {
   timeStart?: number;
   static names(): { [key: string]: string } {
     return {
+      batchType: 'BatchType',
       bucketName: 'BucketName',
       currentPage: 'CurrentPage',
+      eventId: 'EventId',
       eventName: 'EventName',
       lang: 'Lang',
       md5: 'Md5',
@@ -125,6 +130,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
       parentEventId: 'ParentEventId',
       riskLevel: 'RiskLevel',
       source: 'Source',
+      status: 'Status',
       timeEnd: 'TimeEnd',
       timeStart: 'TimeStart',
     };
@@ -132,8 +138,10 @@ export class ListObjectScanEventRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      batchType: 'string',
       bucketName: 'string',
       currentPage: 'number',
+      eventId: 'number',
       eventName: 'string',
       lang: 'string',
       md5: 'string',
@@ -142,6 +150,7 @@ export class ListObjectScanEventRequest extends $dara.Model {
       parentEventId: 'number',
       riskLevel: 'string',
       source: 'string',
+      status: 'number',
       timeEnd: 'number',
       timeStart: 'number',
     };

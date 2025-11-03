@@ -58,6 +58,14 @@ export class DescribeSuspEventDetailResponseBodyDetails extends $dara.Model {
 }
 
 export class DescribeSuspEventDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The unique ID of the alarm event.
+   * > If querying the anomaly information of a single alarm event, you need to provide the unique ID of the alarm event, which can be obtained by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) interface.
+   * 
+   * @example
+   * 8df914418f4211fb****
+   */
   alarmUniqueInfo?: string;
   /**
    * @remarks

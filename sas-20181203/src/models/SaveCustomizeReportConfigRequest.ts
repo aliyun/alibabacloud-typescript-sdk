@@ -16,6 +16,16 @@ export class SaveCustomizeReportConfigRequest extends $dara.Model {
    * SAS_GROUP
    */
   groupType?: string;
+  /**
+   * @remarks
+   * Whether the new account is connected by default. Values: 
+   * - **true**: Yes. 
+   * - **false**: No. 
+   * > Only supported in version 2.0.0.
+   * 
+   * @example
+   * true
+   */
   memberAccountSyncFlag?: boolean;
   /**
    * @remarks

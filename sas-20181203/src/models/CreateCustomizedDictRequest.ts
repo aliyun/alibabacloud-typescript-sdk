@@ -14,6 +14,13 @@ export class CreateCustomizedDictRequest extends $dara.Model {
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * Whether to overwrite. Value range: - true: Overwrite. - false: Do not overwrite.
+   * 
+   * @example
+   * false
+   */
   override?: boolean;
   /**
    * @remarks

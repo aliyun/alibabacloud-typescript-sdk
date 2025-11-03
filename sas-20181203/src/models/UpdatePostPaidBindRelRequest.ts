@@ -90,6 +90,13 @@ export class UpdatePostPaidBindRelRequest extends $dara.Model {
    * Parameters for the binding action.
    */
   bindAction?: UpdatePostPaidBindRelRequestBindAction[];
+  /**
+   * @remarks
+   * Whether to force upgrade the version.
+   * 
+   * @example
+   * false
+   */
   updateIfNecessary?: boolean;
   static names(): { [key: string]: string } {
     return {

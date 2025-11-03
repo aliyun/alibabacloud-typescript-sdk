@@ -395,6 +395,17 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
    * 1
    */
   autoBind?: number;
+  /**
+   * @remarks
+   * Cluster node need to check the machine version,  Value:
+   * 
+   * - **0** : Not required
+   * 
+   * - **1** : Required
+   * 
+   * @example
+   * Required
+   */
   clusterNodeCheck?: number;
   /**
    * @remarks
@@ -435,6 +446,17 @@ export class GetAuthSummaryResponseBody extends $dara.Model {
    * 1
    */
   highestVersion?: number;
+  /**
+   * @remarks
+   * Binding effective status, value:
+   * 
+   * - **NORMAL** : Effective
+   * 
+   * - **INVALID_NODE_VERSION**: Invalid
+   * 
+   * @example
+   * Effective
+   */
   invalidBindStatus?: string;
   /**
    * @remarks

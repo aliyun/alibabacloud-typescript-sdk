@@ -21,6 +21,13 @@ export class AddCloudVendorAccountAKRequest extends $dara.Model {
    * The modules that are associated with the AccessKey pair.
    */
   authModules?: string[];
+  /**
+   * @remarks
+   * Account ID. > The account ID of the cloud provider, required when permissions include threat analysis and response.
+   * 
+   * @example
+   * azure_demo_1
+   */
   ctdrCloudUserId?: string;
   /**
    * @remarks
@@ -33,6 +40,14 @@ export class AddCloudVendorAccountAKRequest extends $dara.Model {
    * global
    */
   domain?: string;
+  /**
+   * @remarks
+   * Extended information.
+   * > Used to record extended information from different vendors. > For Google Cloud, which is accessed via a service account, ExtendInfo stores the service key file in JSON format, excluding the private_key_id and zprivate_key fields. The file includes the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, universe_domain.
+   * 
+   * @example
+   * {\\"product\\":\\"webFirewall\\",\\"remark\\":\\"remark\\"}
+   */
   extendInfo?: string;
   /**
    * @remarks

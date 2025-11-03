@@ -135,6 +135,13 @@ export class DescribePropertyScaProcessDetailResponseBodyPropertys extends $dara
    * 162eb349-c2d9-4f8b-805c-75b43d4c****
    */
   uuid?: string;
+  /**
+   * @remarks
+   * The version of web application service.
+   * 
+   * @example
+   * 3.10.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

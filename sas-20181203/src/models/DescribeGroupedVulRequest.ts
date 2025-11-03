@@ -138,6 +138,17 @@ export class DescribeGroupedVulRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Indicates whether the application protection feature is supported. Valid values:
+   * 
+   * - **0**: no.
+   * 
+   * - **1**: yes.
+   * 
+   * @example
+   * 1
+   */
   raspDefend?: number;
   /**
    * @remarks

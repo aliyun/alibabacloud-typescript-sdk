@@ -128,6 +128,17 @@ export class DescribeStrategyResponseBodyStrategies extends $dara.Model {
    * 1
    */
   execStatus?: number;
+  /**
+   * @remarks
+   * The triggering method of baseline scanning. Value:
+   * 
+   * - **Schedule** : Periodic configuration of task triggers
+   * 
+   * - **Manual** : Manually triggered
+   * 
+   * @example
+   * Manual
+   */
   executionType?: string;
   /**
    * @remarks

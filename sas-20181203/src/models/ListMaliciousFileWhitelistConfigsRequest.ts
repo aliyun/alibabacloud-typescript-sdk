@@ -21,6 +21,7 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
    * ALL
    */
   eventName?: string;
+  idList?: number;
   /**
    * @remarks
    * The language of the content within the request and response. Default value: **zh**. Valid values:
@@ -52,6 +53,7 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
     return {
       currentPage: 'CurrentPage',
       eventName: 'EventName',
+      idList: 'IdList',
       lang: 'Lang',
       pageSize: 'PageSize',
       source: 'Source',
@@ -62,6 +64,7 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
     return {
       currentPage: 'number',
       eventName: 'string',
+      idList: 'number',
       lang: 'string',
       pageSize: 'number',
       source: 'string',

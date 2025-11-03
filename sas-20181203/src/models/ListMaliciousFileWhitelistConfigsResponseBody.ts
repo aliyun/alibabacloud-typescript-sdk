@@ -73,6 +73,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
    * strEqual
    */
   operator?: string;
+  remark?: string;
   /**
    * @remarks
    * The feature to which this operation belongs.
@@ -115,6 +116,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
       gmtModified: 'GmtModified',
       id: 'Id',
       operator: 'Operator',
+      remark: 'Remark',
       source: 'Source',
       targetType: 'TargetType',
       targetValue: 'TargetValue',
@@ -131,6 +133,7 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
       gmtModified: 'string',
       id: 'number',
       operator: 'string',
+      remark: 'string',
       source: 'string',
       targetType: 'string',
       targetValue: 'string',

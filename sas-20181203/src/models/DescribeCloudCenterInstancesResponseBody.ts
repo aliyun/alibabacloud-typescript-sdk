@@ -566,11 +566,17 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
    */
   vendorName?: string;
   /**
+   * @remarks
+   * Account ID of the multi-cloud instance.
+   * 
    * @example
    * 123
    */
   vendorUid?: string;
   /**
+   * @remarks
+   * Account name of the multi-cloud instance.
+   * 
    * @example
    * VendorUserName
    */
