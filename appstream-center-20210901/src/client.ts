@@ -173,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云应用交付组
+   * Creates a delivery group.
    * 
    * @param tmpReq - CreateAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -344,7 +344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云应用交付组
+   * Creates a delivery group.
    * 
    * @param request - CreateAppInstanceGroupRequest
    * @returns CreateAppInstanceGroupResponse
@@ -892,7 +892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取交付组详情
+   * Queries the details of a delivery group.
    * 
    * @param request - GetAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -927,7 +927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取交付组详情
+   * Queries the details of a delivery group.
    * 
    * @param request - GetAppInstanceGroupRequest
    * @returns GetAppInstanceGroupResponse
@@ -990,6 +990,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserId)) {
       body["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.environmentConfig)) {
+      body["EnvironmentConfig"] = request.environmentConfig;
     }
 
     if (!$dara.isNull(request.productType)) {
@@ -1468,7 +1472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询绑定信息，支持分页
+   * Queries the bindings between users and resources.
    * 
    * @param request - ListBindInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1523,7 +1527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询绑定信息，支持分页
+   * Queries the bindings between users and resources.
    * 
    * @param request - ListBindInfoRequest
    * @returns ListBindInfoResponse
@@ -1860,7 +1864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询交付组内持久会话列表
+   * Queries app instances of the persistent session type in a delivery group.
    * 
    * @param request - ListPersistentAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1907,7 +1911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询交付组内持久会话列表
+   * Queries app instances of the persistent session type in a delivery group.
    * 
    * @param request - ListPersistentAppInstancesRequest
    * @returns ListPersistentAppInstancesResponse

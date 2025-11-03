@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAppInstanceGroupRequestNetworkDomainRules extends $dara.Model {
+  /**
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @example
+   * block
+   */
   policy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,6 +77,10 @@ export class CreateAppInstanceGroupRequestNetwork extends $dara.Model {
    * 60
    */
   ipExpireMinutes?: number;
+  /**
+   * @example
+   * cn-hongkong+dir-842567****
+   */
   officeSiteId?: string;
   routes?: CreateAppInstanceGroupRequestNetworkRoutes[];
   /**
@@ -198,6 +210,10 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $d
 }
 
 export class CreateAppInstanceGroupRequestNodePool extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
   maxIdleAppInstanceAmount?: number;
   /**
    * @example
@@ -214,6 +230,10 @@ export class CreateAppInstanceGroupRequestNodePool extends $dara.Model {
    * 2
    */
   nodeCapacity?: number;
+  /**
+   * @example
+   * appstreaming.general.4c8g
+   */
   nodeInstanceType?: string;
   recurrenceSchedules?: CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules[];
   /**
@@ -300,7 +320,33 @@ export class CreateAppInstanceGroupRequestNodePool extends $dara.Model {
 }
 
 export class CreateAppInstanceGroupRequestRuntimePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the debugging mode. If you want to call the `GetDebugAppInstance` and `CreateImageFromAppInstanceGroup` operations, you must set this parameter to `ON`.
+   * 
+   * Valid values:
+   * 
+   * *   OFF
+   * *   ON
+   * 
+   * @example
+   * OFF
+   */
   debugMode?: string;
+  /**
+   * @remarks
+   * Specifies whether only one app can be opened in a session.
+   * 
+   * *   After you enable this feature, the system assigns a session to each app if you open multiple apps in a delivery group. This consumes a larger number of sessions.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   perSessionPerApp?: boolean;
   /**
    * @example
@@ -310,15 +356,43 @@ export class CreateAppInstanceGroupRequestRuntimePolicy extends $dara.Model {
    * true
    */
   persistentAppInstanceScheduleMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable pre-open for sessions.
+   * 
+   * *   Default value: true
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   sessionPreOpen?: string;
   /**
    * @remarks
-   * 会话类型。
+   * The session type.
+   * 
+   * Valid values:
+   * 
+   * *   CONSOLE: console session
+   * *   NORMAL: Remote Desktop Protocol (RDP)-based O\\&M session
    * 
    * @example
    * NORMAL
    */
   sessionType?: string;
+  /**
+   * @remarks
+   * The generation mode of the session users. Valid value:
+   * 
+   * *   wyid. In this case, you must set sessionPreOpen to false.
+   * 
+   * @example
+   * wyid
+   */
   sessionUserGenerationMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -386,8 +460,20 @@ export class CreateAppInstanceGroupRequestSecurityPolicy extends $dara.Model {
 }
 
 export class CreateAppInstanceGroupRequestStoragePolicyUserProfile extends $dara.Model {
+  /**
+   * @example
+   * ID20250101
+   */
   remoteStoragePath?: string;
+  /**
+   * @example
+   * NAS
+   */
   remoteStorageType?: string;
+  /**
+   * @example
+   * false
+   */
   userProfileSwitch?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -447,6 +533,10 @@ export class CreateAppInstanceGroupRequestStoragePolicy extends $dara.Model {
 }
 
 export class CreateAppInstanceGroupRequestUserDefinePolicy extends $dara.Model {
+  /**
+   * @example
+   * [{"target":"agent","config":{"abc":"xxx"}}]
+   */
   customConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,11 +587,35 @@ export class CreateAppInstanceGroupRequestUserInfo extends $dara.Model {
 }
 
 export class CreateAppInstanceGroupRequestVideoPolicy extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
   frameRate?: number;
+  /**
+   * @example
+   * 1080
+   */
   sessionResolutionHeight?: number;
+  /**
+   * @example
+   * 1920
+   */
   sessionResolutionWidth?: number;
+  /**
+   * @example
+   * video
+   */
   streamingMode?: string;
+  /**
+   * @example
+   * false
+   */
   terminalResolutionAdaptive?: boolean;
+  /**
+   * @example
+   * true
+   */
   webrtc?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -544,9 +658,20 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    */
   appCenterImageId?: string;
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * browser.package.5.250.appstreaming.general.basic
+   */
   appPackageType?: string;
+  /**
+   * @example
+   * pg-0clfzcy0adpcf****
+   */
   appPolicyId?: string;
   /**
+   * @remarks
+   * The authentication mode of the delivery group.
+   * 
    * @example
    * App
    * 
@@ -588,6 +713,10 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  /**
+   * @example
+   * cls-d39iq73l5c0a8****
+   */
   clusterId?: string;
   network?: CreateAppInstanceGroupRequestNetwork;
   nodePool?: CreateAppInstanceGroupRequestNodePool;
@@ -602,6 +731,9 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Week
    */
   periodUnit?: string;
   /**
@@ -622,6 +754,10 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    * 17440009****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The runtime policy.
+   */
   runtimePolicy?: CreateAppInstanceGroupRequestRuntimePolicy;
   securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
   /**
@@ -633,6 +769,10 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    */
   sessionTimeout?: number;
   storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
+  /**
+   * @example
+   * postPaid
+   */
   subPayType?: string;
   userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
   userInfo?: CreateAppInstanceGroupRequestUserInfo;

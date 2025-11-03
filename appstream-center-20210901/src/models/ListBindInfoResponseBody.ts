@@ -4,46 +4,84 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
   /**
+   * @remarks
+   * The account type.
+   * 
+   * Valid values:
+   * 
+   * *   ad: Active Directory (AD) account
+   * *   simple: convenience account
+   * 
    * @example
    * simple
    */
   accountType?: string;
   /**
+   * @remarks
+   * The app ID.
+   * 
    * @example
    * ca-fq738or6vd854****
    */
   appId?: string;
   /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
    * @example
    * aig-0abxhr6ce35w8****
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the app instance.
+   * 
    * @example
    * ai-83oe276fre4l3****
    */
   appInstanceId?: string;
   /**
+   * @remarks
+   * The app version.
+   * 
    * @example
    * 1.0
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudApp: App Streaming
+   * *   CloudBrowser: Cloud-based Browser
+   * *   AndroidCloud: Cloud Phone
+   * 
    * @example
    * CloudApp
    */
   productType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * Alice
    */
   userId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud Workspace user.
+   * 
    * @example
    * 2ca6f5a93536****
    */
@@ -86,23 +124,39 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
 }
 
 export class ListBindInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The bindings.
+   */
   bindInfoModels?: ListBindInfoResponseBodyBindInfoModels[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AD2D0761-1FE5-549D-B169-D3F8D19C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */

@@ -12,9 +12,20 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    */
   appCenterImageId?: string;
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * browser.package.5.250.appstreaming.general.basic
+   */
   appPackageType?: string;
+  /**
+   * @example
+   * pg-0clfzcy0adpcf****
+   */
   appPolicyId?: string;
   /**
+   * @remarks
+   * The authentication mode of the delivery group.
+   * 
    * @example
    * App
    * 
@@ -56,6 +67,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  /**
+   * @example
+   * cls-d39iq73l5c0a8****
+   */
   clusterId?: string;
   networkShrink?: string;
   nodePoolShrink?: string;
@@ -70,6 +85,9 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Week
    */
   periodUnit?: string;
   /**
@@ -90,6 +108,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    * 17440009****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The runtime policy.
+   */
   runtimePolicyShrink?: string;
   securityPolicyShrink?: string;
   /**
@@ -101,6 +123,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    */
   sessionTimeout?: number;
   storagePolicyShrink?: string;
+  /**
+   * @example
+   * postPaid
+   */
   subPayType?: string;
   userDefinePolicyShrink?: string;
   userInfoShrink?: string;

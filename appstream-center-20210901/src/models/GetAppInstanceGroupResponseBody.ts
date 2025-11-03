@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $dara.Model {
+  /**
+   * @example
+   * https://app-center-icon-****.png
+   */
   appIcon?: string;
   /**
    * @example
@@ -10,6 +14,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
    */
   appId?: string;
   appName?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   appVersion?: string;
   appVersionName?: string;
   static names(): { [key: string]: string } {
@@ -127,6 +135,13 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
    * 2
    */
   amount?: number;
+  /**
+   * @remarks
+   * The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+   * 
+   * @example
+   * 3
+   */
   maxIdleAppInstanceAmount?: number;
   /**
    * @example
@@ -307,8 +322,31 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
 }
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $dara.Model {
+  /**
+   * @remarks
+   * 标签键。
+   * 
+   * @example
+   * department
+   */
   key?: string;
+  /**
+   * @remarks
+   * 标签类型。取值范围：
+   * Custom：自定义标签。
+   * System：系统标签。
+   * 
+   * @example
+   * Custom
+   */
   scope?: string;
+  /**
+   * @remarks
+   * 标签值。
+   * 
+   * @example
+   * design
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,10 +375,17 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags extends $
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara.Model {
   /**
+   * @remarks
+   * 接入类型。
+   * 
    * @example
    * INTERNET
    */
   accessType?: string;
+  /**
+   * @example
+   * 1
+   */
   amount?: number;
   /**
    * @example
@@ -375,6 +420,9 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
   appPolicyId?: string;
   apps?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
   /**
+   * @remarks
+   * 授权模式。
+   * 
    * @example
    * App
    */
@@ -409,7 +457,15 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * 1
    */
   minAmount?: number;
+  /**
+   * @remarks
+   * The resource groups.
+   */
   nodePool?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
+  /**
+   * @example
+   * cn-beijing+dir-172301****
+   */
   officeSiteId?: string;
   /**
    * @example
@@ -467,6 +523,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    * 15
    */
   sessionTimeout?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   sessionType?: string;
   /**
    * @example
@@ -479,10 +539,28 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
    */
   specId?: string;
   /**
+   * @remarks
+   * The status of the delivery group.
+   * 
+   * Valid values:
+   * 
+   * *   PUBLISHED: The delivery group is published.
+   * *   FAILED: The delivery group failed to be published.
+   * *   MAINTAIN_FAILED: The delivery group failed to be updated.
+   * *   EXPIRED: The delivery group is expired.
+   * *   MAINTAINING: The delivery group is being updated.
+   * *   CEASED: The delivery group has overdue payments.
+   * *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
+   * *   DEPLOYING: The delivery group is being published.
+   * 
    * @example
    * PUBLISHED
    */
   status?: string;
+  /**
+   * @remarks
+   * 资源标签列表。
+   */
   tags?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
   static names(): { [key: string]: string } {
     return {

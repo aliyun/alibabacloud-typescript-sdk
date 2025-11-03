@@ -85,6 +85,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * alice
    */
   endUserId?: string;
+  environmentConfig?: string;
   /**
    * @remarks
    * The product type.
@@ -122,6 +123,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       appVersion: 'AppVersion',
       bizRegionId: 'BizRegionId',
       endUserId: 'EndUserId',
+      environmentConfig: 'EnvironmentConfig',
       productType: 'ProductType',
       taskId: 'TaskId',
     };
@@ -139,6 +141,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       appVersion: 'string',
       bizRegionId: 'string',
       endUserId: 'string',
+      environmentConfig: 'string',
       productType: 'string',
       taskId: 'string',
     };

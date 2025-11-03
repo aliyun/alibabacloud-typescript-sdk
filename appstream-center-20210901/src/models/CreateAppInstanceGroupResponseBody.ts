@@ -45,6 +45,10 @@ export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $da
 
 export class CreateAppInstanceGroupResponseBody extends $dara.Model {
   appInstanceGroupModel?: CreateAppInstanceGroupResponseBodyAppInstanceGroupModel;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

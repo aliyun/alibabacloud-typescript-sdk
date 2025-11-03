@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example

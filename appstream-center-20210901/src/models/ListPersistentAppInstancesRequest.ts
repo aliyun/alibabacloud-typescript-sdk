@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPersistentAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,22 +14,39 @@ export class ListPersistentAppInstancesRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The IDs of the persistent sessions.
+   * 
    * **if can be null:**
    * false
    */
   appInstancePersistentIds?: string[];
   /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The value cannot be greater than **100**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudApp: App Streaming
+   * *   CloudBrowser: Cloud-based Browser
+   * *   AndroidCloud: Cloud Phone
+   * 
    * This parameter is required.
    * 
    * @example
