@@ -205,6 +205,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
 
 export class HttpRoute extends $dara.Model {
   backend?: Backend;
+  builtin?: string;
   createTimestamp?: number;
   deployStatus?: string;
   description?: string;
@@ -219,6 +220,7 @@ export class HttpRoute extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backend: 'backend',
+      builtin: 'builtin',
       createTimestamp: 'createTimestamp',
       deployStatus: 'deployStatus',
       description: 'description',
@@ -236,6 +238,7 @@ export class HttpRoute extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backend: Backend,
+      builtin: 'string',
       createTimestamp: 'number',
       deployStatus: 'string',
       description: 'string',

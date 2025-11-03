@@ -361,6 +361,7 @@ export class HttpApiApiInfo extends $dara.Model {
    */
   httpApiId?: string;
   ingressInfo?: HttpApiApiInfoIngressInfo;
+  modelCategory?: string;
   /**
    * @example
    * test
@@ -391,6 +392,7 @@ export class HttpApiApiInfo extends $dara.Model {
       gatewayId: 'gatewayId',
       httpApiId: 'httpApiId',
       ingressInfo: 'ingressInfo',
+      modelCategory: 'modelCategory',
       name: 'name',
       protocols: 'protocols',
       resourceGroupId: 'resourceGroupId',
@@ -412,6 +414,7 @@ export class HttpApiApiInfo extends $dara.Model {
       gatewayId: 'string',
       httpApiId: 'string',
       ingressInfo: HttpApiApiInfoIngressInfo,
+      modelCategory: 'string',
       name: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',

@@ -64,6 +64,7 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
 }
 
 export class AiServiceConfig extends $dara.Model {
+  apiKeyGenerateMode?: string;
   /**
    * @example
    * https://dashscope.aliyun.com
@@ -81,6 +82,7 @@ export class AiServiceConfig extends $dara.Model {
   provider?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKeyGenerateMode: 'ApiKeyGenerateMode',
       address: 'address',
       apiKeys: 'apiKeys',
       bedrockServiceConfig: 'bedrockServiceConfig',
@@ -93,6 +95,7 @@ export class AiServiceConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKeyGenerateMode: 'string',
       address: 'string',
       apiKeys: { 'type': 'array', 'itemType': 'string' },
       bedrockServiceConfig: AiServiceConfigBedrockServiceConfig,
