@@ -22,7 +22,7 @@ export class CreateTransportLayerApplicationRequestRules extends $dara.Model {
    * Comment information for the rule (optional).
    * 
    * @example
-   * 测试
+   * test
    */
   comment?: string;
   /**

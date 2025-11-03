@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/esa20240910",
-  "version": "2.34.1",
+  "version": "2.34.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

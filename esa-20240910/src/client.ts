@@ -2751,6 +2751,10 @@ export default class Client extends OpenApi {
   async createOriginProtectionWithOptions(request: $_model.CreateOriginProtectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOriginProtectionResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoConfirmIPList)) {
+      query["AutoConfirmIPList"] = request.autoConfirmIPList;
+    }
+
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -16943,6 +16947,10 @@ export default class Client extends OpenApi {
   async updateOriginProtectionWithOptions(request: $_model.UpdateOriginProtectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOriginProtectionResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoConfirmIPList)) {
+      query["AutoConfirmIPList"] = request.autoConfirmIPList;
+    }
+
     if (!$dara.isNull(request.originConverge)) {
       query["OriginConverge"] = request.originConverge;
     }

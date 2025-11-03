@@ -252,7 +252,550 @@ export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $dara.Mode
   }
 }
 
+export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv4 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv6 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist extends $dara.Model {
+  regionalIPv4?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv4[];
+  regionalIPv6?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv6[];
+  static names(): { [key: string]: string } {
+    return {
+      regionalIPv4: 'RegionalIPv4',
+      regionalIPv6: 'RegionalIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionalIPv4: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv4 },
+      regionalIPv6: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalCurrentIPWhitelistRegionalIPv6 },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionalIPv4)) {
+      $dara.Model.validateArray(this.regionalIPv4);
+    }
+    if(Array.isArray(this.regionalIPv6)) {
+      $dara.Model.validateArray(this.regionalIPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv4 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv6 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelist extends $dara.Model {
+  regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv4[];
+  regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv6[];
+  static names(): { [key: string]: string } {
+    return {
+      regionalIPv4: 'RegionalIPv4',
+      regionalIPv6: 'RegionalIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionalIPv4: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv4 },
+      regionalIPv6: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelistRegionalIPv6 },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionalIPv4)) {
+      $dara.Model.validateArray(this.regionalIPv4);
+    }
+    if(Array.isArray(this.regionalIPv6)) {
+      $dara.Model.validateArray(this.regionalIPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv4 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv6 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelist extends $dara.Model {
+  regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv4[];
+  regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv6[];
+  static names(): { [key: string]: string } {
+    return {
+      regionalIPv4: 'RegionalIPv4',
+      regionalIPv6: 'RegionalIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionalIPv4: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv4 },
+      regionalIPv6: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelistRegionalIPv6 },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionalIPv4)) {
+      $dara.Model.validateArray(this.regionalIPv4);
+    }
+    if(Array.isArray(this.regionalIPv6)) {
+      $dara.Model.validateArray(this.regionalIPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv4 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv6 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelist extends $dara.Model {
+  regionalIPv4?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv4[];
+  regionalIPv6?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv6[];
+  static names(): { [key: string]: string } {
+    return {
+      regionalIPv4: 'RegionalIPv4',
+      regionalIPv6: 'RegionalIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionalIPv4: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv4 },
+      regionalIPv6: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelistRegionalIPv6 },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionalIPv4)) {
+      $dara.Model.validateArray(this.regionalIPv4);
+    }
+    if(Array.isArray(this.regionalIPv6)) {
+      $dara.Model.validateArray(this.regionalIPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalDiffIPWhitelist extends $dara.Model {
+  addedIPRegionWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelist;
+  noChangeIpWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelist;
+  removedIPRegionWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      addedIPRegionWhitelist: 'AddedIPRegionWhitelist',
+      noChangeIpWhitelist: 'NoChangeIpWhitelist',
+      removedIPRegionWhitelist: 'RemovedIPRegionWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addedIPRegionWhitelist: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistAddedIPRegionWhitelist,
+      noChangeIpWhitelist: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistNoChangeIpWhitelist,
+      removedIPRegionWhitelist: GetOriginProtectionResponseBodyRegionalDiffIPWhitelistRemovedIPRegionWhitelist,
+    };
+  }
+
+  validate() {
+    if(this.addedIPRegionWhitelist && typeof (this.addedIPRegionWhitelist as any).validate === 'function') {
+      (this.addedIPRegionWhitelist as any).validate();
+    }
+    if(this.noChangeIpWhitelist && typeof (this.noChangeIpWhitelist as any).validate === 'function') {
+      (this.noChangeIpWhitelist as any).validate();
+    }
+    if(this.removedIPRegionWhitelist && typeof (this.removedIPRegionWhitelist as any).validate === 'function') {
+      (this.removedIPRegionWhitelist as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv4 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv6 extends $dara.Model {
+  /**
+   * @example
+   * 101.66.250.0/25
+   */
+  cidr?: string;
+  /**
+   * @example
+   * chinese_mainland
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyRegionalLatestIPWhitelist extends $dara.Model {
+  regionalIPv4?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv4[];
+  regionalIPv6?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv6[];
+  static names(): { [key: string]: string } {
+    return {
+      regionalIPv4: 'RegionalIPv4',
+      regionalIPv6: 'RegionalIPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionalIPv4: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv4 },
+      regionalIPv6: { 'type': 'array', 'itemType': GetOriginProtectionResponseBodyRegionalLatestIPWhitelistRegionalIPv6 },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regionalIPv4)) {
+      $dara.Model.validateArray(this.regionalIPv4);
+    }
+    if(Array.isArray(this.regionalIPv6)) {
+      $dara.Model.validateArray(this.regionalIPv6);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetOriginProtectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * off
+   */
+  autoConfirmIPList?: string;
   /**
    * @remarks
    * The IP whitelist for origin protection used by the website.
@@ -301,6 +844,9 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
    * on
    */
   originProtection?: string;
+  regionalCurrentIPWhitelist?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist;
+  regionalDiffIPWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelist;
+  regionalLatestIPWhitelist?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelist;
   /**
    * @remarks
    * The request ID.
@@ -319,12 +865,16 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      autoConfirmIPList: 'AutoConfirmIPList',
       currentIPWhitelist: 'CurrentIPWhitelist',
       diffIPWhitelist: 'DiffIPWhitelist',
       latestIPWhitelist: 'LatestIPWhitelist',
       needUpdate: 'NeedUpdate',
       originConverge: 'OriginConverge',
       originProtection: 'OriginProtection',
+      regionalCurrentIPWhitelist: 'RegionalCurrentIPWhitelist',
+      regionalDiffIPWhitelist: 'RegionalDiffIPWhitelist',
+      regionalLatestIPWhitelist: 'RegionalLatestIPWhitelist',
       requestId: 'RequestId',
       siteId: 'SiteId',
     };
@@ -332,12 +882,16 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoConfirmIPList: 'string',
       currentIPWhitelist: GetOriginProtectionResponseBodyCurrentIPWhitelist,
       diffIPWhitelist: GetOriginProtectionResponseBodyDiffIPWhitelist,
       latestIPWhitelist: GetOriginProtectionResponseBodyLatestIPWhitelist,
       needUpdate: 'boolean',
       originConverge: 'string',
       originProtection: 'string',
+      regionalCurrentIPWhitelist: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist,
+      regionalDiffIPWhitelist: GetOriginProtectionResponseBodyRegionalDiffIPWhitelist,
+      regionalLatestIPWhitelist: GetOriginProtectionResponseBodyRegionalLatestIPWhitelist,
       requestId: 'string',
       siteId: 'number',
     };
@@ -352,6 +906,15 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
     }
     if(this.latestIPWhitelist && typeof (this.latestIPWhitelist as any).validate === 'function') {
       (this.latestIPWhitelist as any).validate();
+    }
+    if(this.regionalCurrentIPWhitelist && typeof (this.regionalCurrentIPWhitelist as any).validate === 'function') {
+      (this.regionalCurrentIPWhitelist as any).validate();
+    }
+    if(this.regionalDiffIPWhitelist && typeof (this.regionalDiffIPWhitelist as any).validate === 'function') {
+      (this.regionalDiffIPWhitelist as any).validate();
+    }
+    if(this.regionalLatestIPWhitelist && typeof (this.regionalLatestIPWhitelist as any).validate === 'function') {
+      (this.regionalLatestIPWhitelist as any).validate();
     }
     super.validate();
   }

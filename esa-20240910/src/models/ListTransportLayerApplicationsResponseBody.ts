@@ -20,7 +20,7 @@ export class ListTransportLayerApplicationsResponseBodyApplicationsRules extends
    * Comment information for the rule.
    * 
    * @example
-   * 测试
+   * test
    */
   comment?: string;
   /**

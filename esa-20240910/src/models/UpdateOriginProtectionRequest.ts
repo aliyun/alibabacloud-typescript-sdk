@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateOriginProtectionRequest extends $dara.Model {
   /**
+   * @example
+   * off
+   */
+  autoConfirmIPList?: string;
+  /**
    * @remarks
    * The IP convergence status.
    * 
@@ -28,6 +33,7 @@ export class UpdateOriginProtectionRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      autoConfirmIPList: 'AutoConfirmIPList',
       originConverge: 'OriginConverge',
       siteId: 'SiteId',
     };
@@ -35,6 +41,7 @@ export class UpdateOriginProtectionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoConfirmIPList: 'string',
       originConverge: 'string',
       siteId: 'number',
     };
