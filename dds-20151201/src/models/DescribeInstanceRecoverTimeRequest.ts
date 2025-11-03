@@ -16,6 +16,11 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
   destRegion?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -26,6 +31,7 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
       destRegion: 'DestRegion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -39,6 +45,7 @@ export class DescribeInstanceRecoverTimeRequest extends $dara.Model {
       destRegion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',

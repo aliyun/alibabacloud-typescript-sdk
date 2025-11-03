@@ -2850,6 +2850,10 @@ export default class Client extends OpenApi {
       query["BackupId"] = request.backupId;
     }
 
+    if (!$dara.isNull(request.backupJobId)) {
+      query["BackupJobId"] = request.backupJobId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -2880,6 +2884,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -2944,6 +2952,10 @@ export default class Client extends OpenApi {
       query["BackupId"] = request.backupId;
     }
 
+    if (!$dara.isNull(request.backupJobId)) {
+      query["BackupJobId"] = request.backupJobId;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -2974,6 +2986,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -7446,6 +7462,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.searchNodeClass)) {
+      query["SearchNodeClass"] = request.searchNodeClass;
+    }
+
+    if (!$dara.isNull(request.searchNodeCount)) {
+      query["SearchNodeCount"] = request.searchNodeCount;
+    }
+
+    if (!$dara.isNull(request.searchNodeStorage)) {
+      query["SearchNodeStorage"] = request.searchNodeStorage;
     }
 
     if (!$dara.isNull(request.targetHiddenZoneId)) {

@@ -1138,6 +1138,21 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
    */
   resourceGroupId?: string;
   /**
+   * @example
+   * mdb.shard.2x.xlarge.d
+   */
+  searchNodeClass?: string;
+  /**
+   * @example
+   * 2
+   */
+  searchNodeCount?: number;
+  /**
+   * @example
+   * 20
+   */
+  searchNodeStorage?: number;
+  /**
    * @remarks
    * The ID of the secondary zone 1 of the instance. Valid values:
    * 
@@ -1312,6 +1327,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       replicaSets: 'ReplicaSets',
       replicationFactor: 'ReplicationFactor',
       resourceGroupId: 'ResourceGroupId',
+      searchNodeClass: 'SearchNodeClass',
+      searchNodeCount: 'SearchNodeCount',
+      searchNodeStorage: 'SearchNodeStorage',
       secondaryZoneId: 'SecondaryZoneId',
       shardList: 'ShardList',
       storageEngine: 'StorageEngine',
@@ -1370,6 +1388,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance extend
       replicaSets: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceReplicaSets,
       replicationFactor: 'string',
       resourceGroupId: 'string',
+      searchNodeClass: 'string',
+      searchNodeCount: 'number',
+      searchNodeStorage: 'number',
       secondaryZoneId: 'string',
       shardList: DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceShardList,
       storageEngine: 'string',

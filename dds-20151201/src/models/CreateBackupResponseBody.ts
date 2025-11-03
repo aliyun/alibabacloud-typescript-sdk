@@ -12,6 +12,11 @@ export class CreateBackupResponseBody extends $dara.Model {
    */
   backupId?: string;
   /**
+   * @example
+   * 775051
+   */
+  backupJobId?: string;
+  /**
    * @remarks
    * The request ID.
    * 
@@ -22,6 +27,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupId: 'BackupId',
+      backupJobId: 'BackupJobId',
       requestId: 'RequestId',
     };
   }
@@ -29,6 +35,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupId: 'string',
+      backupJobId: 'string',
       requestId: 'string',
     };
   }

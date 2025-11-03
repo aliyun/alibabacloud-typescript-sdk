@@ -16,6 +16,11 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
   destRegion?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   srcRegion?: string;
@@ -25,6 +30,7 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
       destRegion: 'DestRegion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       srcRegion: 'SrcRegion',
@@ -37,6 +43,7 @@ export class DescribeClusterRecoverTimeRequest extends $dara.Model {
       destRegion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       srcRegion: 'string',

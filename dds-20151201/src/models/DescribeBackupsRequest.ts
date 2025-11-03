@@ -14,6 +14,11 @@ export class DescribeBackupsRequest extends $dara.Model {
    */
   backupId?: string;
   /**
+   * @example
+   * 775051
+   */
+  backupJobId?: string;
+  /**
    * @remarks
    * The instance ID.
    * 
@@ -75,6 +80,11 @@ export class DescribeBackupsRequest extends $dara.Model {
    * 30
    */
   pageSize?: number;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -99,6 +109,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupId: 'BackupId',
+      backupJobId: 'BackupJobId',
       DBInstanceId: 'DBInstanceId',
       destRegion: 'DestRegion',
       endTime: 'EndTime',
@@ -107,6 +118,7 @@ export class DescribeBackupsRequest extends $dara.Model {
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       srcRegion: 'SrcRegion',
@@ -117,6 +129,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupId: 'string',
+      backupJobId: 'string',
       DBInstanceId: 'string',
       destRegion: 'string',
       endTime: 'string',
@@ -125,6 +138,7 @@ export class DescribeBackupsRequest extends $dara.Model {
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       srcRegion: 'string',

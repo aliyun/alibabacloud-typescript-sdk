@@ -143,6 +143,21 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
   replicationFactor?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * mdb.shard.2x.xlarge.d
+   */
+  searchNodeClass?: string;
+  /**
+   * @example
+   * 2
+   */
+  searchNodeCount?: number;
+  /**
+   * @example
+   * 20
+   */
+  searchNodeStorage?: number;
   targetHiddenZoneId?: string;
   targetSecondaryZoneId?: string;
   targetVswitchId?: string;
@@ -164,6 +179,9 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
       replicationFactor: 'ReplicationFactor',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      searchNodeClass: 'SearchNodeClass',
+      searchNodeCount: 'SearchNodeCount',
+      searchNodeStorage: 'SearchNodeStorage',
       targetHiddenZoneId: 'TargetHiddenZoneId',
       targetSecondaryZoneId: 'TargetSecondaryZoneId',
       targetVswitchId: 'TargetVswitchId',
@@ -188,6 +206,9 @@ export class ModifyDBInstanceSpecRequest extends $dara.Model {
       replicationFactor: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      searchNodeClass: 'string',
+      searchNodeCount: 'number',
+      searchNodeStorage: 'number',
       targetHiddenZoneId: 'string',
       targetSecondaryZoneId: 'string',
       targetVswitchId: 'string',
