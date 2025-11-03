@@ -102,6 +102,40 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
   }
 }
 
+export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
@@ -224,6 +258,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
    * Active
    */
   status?: string;
+  tags?: DescribeAccessPointsResponseBodyAccessPointsTags[];
   /**
    * @remarks
    * The vSwitch ID.
@@ -256,6 +291,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
       rootPathPermission: 'RootPathPermission',
       rootPathStatus: 'RootPathStatus',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -277,6 +313,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
       rootPathPermission: DescribeAccessPointsResponseBodyAccessPointsRootPathPermission,
       rootPathStatus: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAccessPointsResponseBodyAccessPointsTags },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -288,6 +325,9 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
     }
     if(this.rootPathPermission && typeof (this.rootPathPermission as any).validate === 'function') {
       (this.rootPathPermission as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

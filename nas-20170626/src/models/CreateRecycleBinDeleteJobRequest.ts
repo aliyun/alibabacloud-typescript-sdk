@@ -19,7 +19,7 @@ export class CreateRecycleBinDeleteJobRequest extends $dara.Model {
    * @remarks
    * The ID of the file or directory that you want to permanently delete.
    * 
-   * You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/264193.html) operation to query the value of the FileId parameter.
+   * You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412174.html) operation to query the FileId of the deleted data.
    * 
    * This parameter is required.
    * 

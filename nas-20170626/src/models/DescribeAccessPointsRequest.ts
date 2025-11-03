@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAccessPointsRequestTag extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessPointsRequest extends $dara.Model {
   /**
    * @remarks
@@ -41,12 +75,14 @@ export class DescribeAccessPointsRequest extends $dara.Model {
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
    */
   nextToken?: string;
+  tag?: DescribeAccessPointsRequestTag[];
   static names(): { [key: string]: string } {
     return {
       accessGroup: 'AccessGroup',
       fileSystemId: 'FileSystemId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      tag: 'Tag',
     };
   }
 
@@ -56,10 +92,14 @@ export class DescribeAccessPointsRequest extends $dara.Model {
       fileSystemId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeAccessPointsRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

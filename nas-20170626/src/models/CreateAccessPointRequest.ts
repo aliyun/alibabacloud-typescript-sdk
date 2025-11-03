@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateAccessPointRequestTag extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAccessPointRequest extends $dara.Model {
   /**
    * @remarks
@@ -110,6 +144,7 @@ export class CreateAccessPointRequest extends $dara.Model {
    * /
    */
   rootDirectory?: string;
+  tag?: CreateAccessPointRequestTag[];
   /**
    * @remarks
    * The VPC ID.
@@ -143,6 +178,7 @@ export class CreateAccessPointRequest extends $dara.Model {
       posixSecondaryGroupIds: 'PosixSecondaryGroupIds',
       posixUserId: 'PosixUserId',
       rootDirectory: 'RootDirectory',
+      tag: 'Tag',
       vpcId: 'VpcId',
       vswId: 'VswId',
     };
@@ -161,12 +197,16 @@ export class CreateAccessPointRequest extends $dara.Model {
       posixSecondaryGroupIds: 'string',
       posixUserId: 'number',
       rootDirectory: 'string',
+      tag: { 'type': 'array', 'itemType': CreateAccessPointRequestTag },
       vpcId: 'string',
       vswId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

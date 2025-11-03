@@ -102,6 +102,40 @@ export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extend
   }
 }
 
+export class DescribeAccessPointResponseBodyAccessPointTags extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   /**
    * @remarks
@@ -230,6 +264,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
    * Active
    */
   status?: string;
+  tags?: DescribeAccessPointResponseBodyAccessPointTags[];
   /**
    * @remarks
    * The vSwitch ID.
@@ -265,6 +300,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
       rootPathPermission: 'RootPathPermission',
       rootPathStatus: 'RootPathStatus',
       status: 'Status',
+      tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
     };
@@ -287,6 +323,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
       rootPathPermission: DescribeAccessPointResponseBodyAccessPointRootPathPermission,
       rootPathStatus: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAccessPointResponseBodyAccessPointTags },
       vSwitchId: 'string',
       vpcId: 'string',
     };
@@ -298,6 +335,9 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
     }
     if(this.rootPathPermission && typeof (this.rootPathPermission as any).validate === 'function') {
       (this.rootPathPermission as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

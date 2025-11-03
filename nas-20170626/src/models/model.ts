@@ -1,5 +1,6 @@
 export { ApplyDataFlowAutoRefreshRequestAutoRefreshs } from './ApplyDataFlowAutoRefreshRequest';
 export { AttachVscToFilesystemsRequestResourceIds } from './AttachVscToFilesystemsRequest';
+export { CreateAccessPointRequestTag } from './CreateAccessPointRequest';
 export { CreateAccessPointResponseBodyAccessPoint } from './CreateAccessPointResponseBody';
 export { CreateDataFlowRequestAutoRefreshs } from './CreateDataFlowRequest';
 export { CreateDataFlowSubTaskRequestCondition } from './CreateDataFlowSubTaskRequest';
@@ -10,9 +11,12 @@ export { DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup } from './Descr
 export { DescribeAccessGroupsResponseBodyAccessGroups } from './DescribeAccessGroupsResponseBody';
 export { DescribeAccessPointResponseBodyAccessPointPosixUser } from './DescribeAccessPointResponseBody';
 export { DescribeAccessPointResponseBodyAccessPointRootPathPermission } from './DescribeAccessPointResponseBody';
+export { DescribeAccessPointResponseBodyAccessPointTags } from './DescribeAccessPointResponseBody';
 export { DescribeAccessPointResponseBodyAccessPoint } from './DescribeAccessPointResponseBody';
+export { DescribeAccessPointsRequestTag } from './DescribeAccessPointsRequest';
 export { DescribeAccessPointsResponseBodyAccessPointsPosixUser } from './DescribeAccessPointsResponseBody';
 export { DescribeAccessPointsResponseBodyAccessPointsRootPathPermission } from './DescribeAccessPointsResponseBody';
+export { DescribeAccessPointsResponseBodyAccessPointsTags } from './DescribeAccessPointsResponseBody';
 export { DescribeAccessPointsResponseBodyAccessPoints } from './DescribeAccessPointsResponseBody';
 export { DescribeAccessRulesResponseBodyAccessRulesAccessRule } from './DescribeAccessRulesResponseBody';
 export { DescribeAccessRulesResponseBodyAccessRules } from './DescribeAccessRulesResponseBody';

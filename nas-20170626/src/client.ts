@@ -977,6 +977,10 @@ export default class Client extends OpenApi {
       query["RootDirectory"] = request.rootDirectory;
     }
 
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
@@ -2419,8 +2423,7 @@ export default class Client extends OpenApi {
    * Restores a file or directory from the recycle bin.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Only General-purpose NAS file systems support this operation.
+   *   Only General-purpose NAS file systems support this operation.
    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
@@ -2453,8 +2456,7 @@ export default class Client extends OpenApi {
    * Restores a file or directory from the recycle bin.
    * 
    * @remarks
-   * ### Usage notes
-   * *   Only General-purpose NAS file systems support this operation.
+   *   Only General-purpose NAS file systems support this operation.
    * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
    * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
    * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
@@ -3447,6 +3449,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
