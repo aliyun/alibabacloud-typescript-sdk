@@ -3,6 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnbindSubs700Request extends $dara.Model {
+  /**
+   * @example
+   * 700.100.1/12345678
+   */
+  industrialId?: string;
+  /**
+   * @example
+   * 12345678
+   */
+  orderId?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -32,6 +42,8 @@ export class UnbindSubs700Request extends $dara.Model {
   telX?: string;
   static names(): { [key: string]: string } {
     return {
+      industrialId: 'IndustrialId',
+      orderId: 'OrderId',
       ownerId: 'OwnerId',
       poolKey: 'PoolKey',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -43,6 +55,8 @@ export class UnbindSubs700Request extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      industrialId: 'string',
+      orderId: 'string',
       ownerId: 'number',
       poolKey: 'string',
       resourceOwnerAccount: 'string',

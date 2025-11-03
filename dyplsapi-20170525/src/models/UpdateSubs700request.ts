@@ -32,7 +32,7 @@ export class UpdateSubs700Request extends $dara.Model {
   expiration?: string;
   /**
    * @example
-   * 示例值示例值
+   * 10000*****
    */
   groupId?: string;
   /**

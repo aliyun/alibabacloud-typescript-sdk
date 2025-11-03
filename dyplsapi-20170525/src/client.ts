@@ -4223,6 +4223,14 @@ export default class Client extends OpenApi {
   async unbindSubs700WithOptions(request: $_model.UnbindSubs700Request, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindSubs700Response> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.industrialId)) {
+      query["IndustrialId"] = request.industrialId;
+    }
+
+    if (!$dara.isNull(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
