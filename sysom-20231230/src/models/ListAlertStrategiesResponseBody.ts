@@ -50,6 +50,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
    * 1
    */
   id?: number;
+  k8sLabel?: boolean;
   /**
    * @example
    * strategy1
@@ -71,6 +72,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
       createdAt: 'createdAt',
       enabled: 'enabled',
       id: 'id',
+      k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
       uid: 'uid',
@@ -83,6 +85,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
       createdAt: 'string',
       enabled: 'boolean',
       id: 'number',
+      k8sLabel: 'boolean',
       name: 'string',
       strategy: ListAlertStrategiesResponseBodyDataStrategy,
       uid: 'string',

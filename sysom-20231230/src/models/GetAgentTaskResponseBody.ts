@@ -46,10 +46,12 @@ export class GetAgentTaskResponseBodyDataJobs extends $dara.Model {
 
 export class GetAgentTaskResponseBodyData extends $dara.Model {
   jobs?: GetAgentTaskResponseBodyDataJobs[];
+  status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       jobs: 'jobs',
+      status: 'status',
       taskId: 'task_id',
     };
   }
@@ -57,6 +59,7 @@ export class GetAgentTaskResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       jobs: { 'type': 'array', 'itemType': GetAgentTaskResponseBodyDataJobs },
+      status: 'string',
       taskId: 'string',
     };
   }

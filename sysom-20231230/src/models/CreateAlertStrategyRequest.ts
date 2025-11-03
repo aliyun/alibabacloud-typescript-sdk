@@ -43,6 +43,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
    * false
    */
   enabled?: boolean;
+  k8sLabel?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -59,6 +60,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enabled: 'enabled',
+      k8sLabel: 'k8sLabel',
       name: 'name',
       strategy: 'strategy',
     };
@@ -67,6 +69,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enabled: 'boolean',
+      k8sLabel: 'boolean',
       name: 'string',
       strategy: CreateAlertStrategyRequestStrategy,
     };

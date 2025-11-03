@@ -146,6 +146,10 @@ export default class Client extends OpenApi {
       body["enabled"] = request.enabled;
     }
 
+    if (!$dara.isNull(request.k8sLabel)) {
+      body["k8sLabel"] = request.k8sLabel;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
@@ -3218,6 +3222,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.k8sLabel)) {
+      body["k8sLabel"] = request.k8sLabel;
     }
 
     if (!$dara.isNull(request.name)) {
