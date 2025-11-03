@@ -67,7 +67,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -121,6 +121,13 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
    * The tag list.
    */
   tags?: ListVpcGatewayEndpointsRequestTags[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+   * 
+   * @example
+   * vpc-bp1gsk7h12ew7oegk****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -546,6 +546,13 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * Available
    */
   dhcpOptionsSetStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether DNS hostname is enabled.
+   * 
+   * @example
+   * DISABLED
+   */
   dnsHostnameStatus?: string;
   /**
    * @remarks

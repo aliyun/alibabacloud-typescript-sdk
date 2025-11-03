@@ -30,6 +30,13 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
    * 22/40
    */
   destinationPortRange?: string;
+  /**
+   * @remarks
+   * The version of IP protocol.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   /**
    * @remarks
@@ -179,6 +186,13 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
    * -1/-1
    */
   destinationPortRange?: string;
+  /**
+   * @remarks
+   * The version of IP protocol.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   /**
    * @remarks

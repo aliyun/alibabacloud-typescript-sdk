@@ -6,7 +6,7 @@ export class GetDhcpOptionsSetResponseBodyAssociateVpcs extends $dara.Model {
   /**
    * @remarks
    * The status of the VPC that is associated with the DHCP options set. Valid values:
-   * 
+   *  
    * *   **InUse**: in use
    * *   **Pending**: being configured
    * 
@@ -65,7 +65,7 @@ export class GetDhcpOptionsSetResponseBodyDhcpOptions extends $dara.Model {
   /**
    * @remarks
    * The lease time of the IPv6 addresses for the DHCP options set.
-   * 
+   *  
    * *   If you use hours as the unit, Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
    * *   If you use days as the unit, Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
    * 
@@ -78,6 +78,7 @@ export class GetDhcpOptionsSetResponseBodyDhcpOptions extends $dara.Model {
    * The lease time of the IPv4 addresses for the DHCP options set.
    * 
    * *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+   * 
    * *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
    * 
    * @example
@@ -157,6 +158,13 @@ export class GetDhcpOptionsSetResponseBody extends $dara.Model {
    * The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
    */
   associateVpcs?: GetDhcpOptionsSetResponseBodyAssociateVpcs[];
+  /**
+   * @remarks
+   * create time
+   * 
+   * @example
+   * 2025-08-21 ***
+   */
   creationTime?: string;
   /**
    * @remarks

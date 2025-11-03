@@ -21,10 +21,11 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $
   domainNameServers?: string;
   /**
    * @remarks
-   * The lease time of the IPv6 addresses for the DHCP options set.
+   * The lease time of the IPv6 DHCP options set.
    * 
-   * *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-   * *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+   * *   If you use hours as the unit, Unit: h. Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
+   * 
+   * *   If you use days as the unit, Unit: d. Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
    * 
    * @example
    * 3650d
@@ -117,10 +118,17 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
    * 2
    */
   associateVpcCount?: number;
+  /**
+   * @remarks
+   * The creation time of the DHCP options sets.
+   * 
+   * @example
+   * 2025-08-21 ***
+   */
   creationTime?: string;
   /**
    * @remarks
-   * The configuration information about the DHCP options set.
+   * The details of DHCP options.
    */
   dhcpOptions?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions;
   /**

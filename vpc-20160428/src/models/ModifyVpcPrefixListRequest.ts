@@ -17,7 +17,7 @@ export class ModifyVpcPrefixListRequestAddPrefixListEntry extends $dara.Model {
    * @remarks
    * The description of the CIDR block to be added to the prefix list.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * newcidr

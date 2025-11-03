@@ -2492,6 +2492,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将DHCP选项集与VPC关联
+   * 
    * @remarks
    *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -2559,6 +2561,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将DHCP选项集与VPC关联
+   * 
    * @remarks
    *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
    *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
@@ -7470,8 +7474,8 @@ export default class Client extends OpenApi {
    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
    * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-   * ### [](#)Prerequisite
-   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+   * ### [](#prerequisite)[](#)Prerequisite
+   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
    * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
    * 
    * @param request - CreateSslVpnServerRequest
@@ -7582,8 +7586,8 @@ export default class Client extends OpenApi {
    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
    * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-   * ### [](#)Prerequisite
-   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+   * ### [](#prerequisite)[](#)Prerequisite
+   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
    * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
    * 
    * @param request - CreateSslVpnServerRequest
@@ -10224,6 +10228,76 @@ export default class Client extends OpenApi {
   async deleteDhcpOptionsSet(request: $_model.DeleteDhcpOptionsSetRequest): Promise<$_model.DeleteDhcpOptionsSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDhcpOptionsSetWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a Express Connect instance, including the initiator and acceptor.
+   * 
+   * @param request - DeleteExpressConnectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExpressConnectResponse
+   */
+  async deleteExpressConnectWithOptions(request: $_model.DeleteExpressConnectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExpressConnectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.routerInterfaceId)) {
+      query["RouterInterfaceId"] = request.routerInterfaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteExpressConnect",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteExpressConnectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteExpressConnectResponse({}));
+  }
+
+  /**
+   * Deletes a Express Connect instance, including the initiator and acceptor.
+   * 
+   * @param request - DeleteExpressConnectRequest
+   * @returns DeleteExpressConnectResponse
+   */
+  async deleteExpressConnect(request: $_model.DeleteExpressConnectRequest): Promise<$_model.DeleteExpressConnectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteExpressConnectWithOptions(request, runtime);
   }
 
   /**
@@ -15921,6 +15995,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the cross-account authorization list of an Express Connect Router (ECR).
+   * 
+   * @param request - DescribeGrantRulesToEcrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGrantRulesToEcrResponse
+   */
+  async describeGrantRulesToEcrWithOptions(request: $_model.DescribeGrantRulesToEcrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGrantRulesToEcrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGrantRulesToEcr",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGrantRulesToEcrResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGrantRulesToEcrResponse({}));
+  }
+
+  /**
+   * Queries the cross-account authorization list of an Express Connect Router (ECR).
+   * 
+   * @param request - DescribeGrantRulesToEcrRequest
+   * @returns DescribeGrantRulesToEcrResponse
+   */
+  async describeGrantRulesToEcr(request: $_model.DescribeGrantRulesToEcrRequest): Promise<$_model.DescribeGrantRulesToEcrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGrantRulesToEcrWithOptions(request, runtime);
+  }
+
+  /**
    * Queries HaVips in a region.
    * 
    * @param request - DescribeHaVipsRequest
@@ -16808,7 +16944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询NAT已绑定ENI信息
+   * Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
    * 
    * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16887,7 +17023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询NAT已绑定ENI信息
+   * Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
    * 
    * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
    * @returns DescribeNatGatewayAssociateNetworkInterfacesResponse
@@ -19267,7 +19403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询VPC跨账号授权给ECR
+   * Queries the cross-account authorization information of an ECR for a specified network instance.
    * 
    * @param request - DescribeVpcGrantRulesToEcrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19346,7 +19482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询VPC跨账号授权给ECR
+   * Queries the cross-account authorization information of an ECR for a specified network instance.
    * 
    * @param request - DescribeVpcGrantRulesToEcrRequest
    * @returns DescribeVpcGrantRulesToEcrResponse
@@ -22349,6 +22485,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the list of regions available for an Express Connect circuit.
+   * 
+   * @param request - ListBusinessRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBusinessRegionsResponse
+   */
+  async listBusinessRegionsWithOptions(request: $_model.ListBusinessRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBusinessRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBusinessRegions",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBusinessRegionsResponse>(await this.callApi(params, req, runtime), new $_model.ListBusinessRegionsResponse({}));
+  }
+
+  /**
+   * Query the list of regions available for an Express Connect circuit.
+   * 
+   * @param request - ListBusinessRegionsRequest
+   * @returns ListBusinessRegionsResponse
+   */
+  async listBusinessRegions(request: $_model.ListBusinessRegionsRequest): Promise<$_model.ListBusinessRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBusinessRegionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries Dynamic Host Configuration Protocol (DHCP) options sets.
    * 
    * @param request - ListDhcpOptionsSetsRequest
@@ -23060,6 +23238,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.ipOrigin)) {
+      query["IpOrigin"] = request.ipOrigin;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -23138,6 +23320,72 @@ export default class Client extends OpenApi {
   async listNatIps(request: $_model.ListNatIpsRequest): Promise<$_model.ListNatIpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNatIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * Querying the connection features supported by a Express Connect circuit.
+   * 
+   * @param request - ListPhysicalConnectionFeaturesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPhysicalConnectionFeaturesResponse
+   */
+  async listPhysicalConnectionFeaturesWithOptions(request: $_model.ListPhysicalConnectionFeaturesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPhysicalConnectionFeaturesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.physicalConnectionId)) {
+      query["PhysicalConnectionId"] = request.physicalConnectionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPhysicalConnectionFeatures",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPhysicalConnectionFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ListPhysicalConnectionFeaturesResponse({}));
+  }
+
+  /**
+   * Querying the connection features supported by a Express Connect circuit.
+   * 
+   * @param request - ListPhysicalConnectionFeaturesRequest
+   * @returns ListPhysicalConnectionFeaturesResponse
+   */
+  async listPhysicalConnectionFeatures(request: $_model.ListPhysicalConnectionFeaturesRequest): Promise<$_model.ListPhysicalConnectionFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPhysicalConnectionFeaturesWithOptions(request, runtime);
   }
 
   /**
@@ -29655,7 +29903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通IP地址池功能。
+   * Enables the IP address pool feature.
    * 
    * @param request - OpenPublicIpAddressPoolServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29710,7 +29958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通IP地址池功能。
+   * Enables the IP address pool feature.
    * 
    * @param request - OpenPublicIpAddressPoolServiceRequest
    * @returns OpenPublicIpAddressPoolServiceResponse
@@ -31599,7 +31847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+   * Migrate a contiguous EIP group to an IP address pool.
    * 
    * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31650,7 +31898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+   * Migrate a contiguous EIP group to an IP address pool.
    * 
    * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
    * @returns TransformEipSegmentToPublicIpAddressPoolResponse

@@ -2,43 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OpenPublicIpAddressPoolServiceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The response messages.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
+export class DeleteExpressConnectResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
    * 
    * @example
-   * 28CF47AB-B6C0-5FA2-80C7-2B37726A92CB
+   * 980960B0-2969-40BF-8542-EBB34FD358AB
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       requestId: 'string',
     };
   }

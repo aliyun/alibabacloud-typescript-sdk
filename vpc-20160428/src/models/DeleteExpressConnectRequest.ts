@@ -2,53 +2,75 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OpenPublicIpAddressPoolServiceRequest extends $dara.Model {
+export class DeleteExpressConnectRequest extends $dara.Model {
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
-   * 
-   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * Use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * 123e4567-e89b-12d3-a456-426655442455
+   * 02fb3da4-130e-11e9-8e44-00****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to delete the route entries associated with the Express Connect instance.
+   * 
+   * *   **true**: forcefully deletes the snapshot
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  force?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
-   * Call [DescribeRegion](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-describeregions?spm=a2c63.p38356.0.i2) to get the region ID.
+   * The ID of the region where the Express Connect instance is deployed. Call the [DescribeRegions](36063) operation to query the region list.
    * 
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the Express Connect instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ri-119mfjz****
+   */
+  routerInterfaceId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      force: 'Force',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      routerInterfaceId: 'RouterInterfaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      force: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      routerInterfaceId: 'string',
     };
   }
 

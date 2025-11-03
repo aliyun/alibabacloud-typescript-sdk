@@ -27,6 +27,11 @@ export class ListNatIpsRequest extends $dara.Model {
    */
   dryRun?: boolean;
   /**
+   * @example
+   * cidr
+   */
+  ipOrigin?: string;
+  /**
    * @remarks
    * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
    * 
@@ -111,6 +116,7 @@ export class ListNatIpsRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      ipOrigin: 'IpOrigin',
       maxResults: 'MaxResults',
       natGatewayId: 'NatGatewayId',
       natIpCidr: 'NatIpCidr',
@@ -130,6 +136,7 @@ export class ListNatIpsRequest extends $dara.Model {
     return {
       clientToken: 'string',
       dryRun: 'boolean',
+      ipOrigin: 'string',
       maxResults: 'string',
       natGatewayId: 'string',
       natIpCidr: 'string',

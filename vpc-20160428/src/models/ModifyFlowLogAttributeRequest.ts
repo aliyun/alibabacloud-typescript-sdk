@@ -42,6 +42,12 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
    */
   flowLogName?: string;
   /**
+   * @remarks
+   * The version of the IP address. Valid values:
+   * 
+   * *   **IPV4**: the IPv4 address.
+   * *   **DualStack**: includes IPv4 and IPv6 address
+   * 
    * @example
    * IPv4
    */

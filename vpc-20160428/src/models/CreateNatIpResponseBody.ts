@@ -2,7 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateNatIpResponseBodyNatIps extends $dara.Model {
+  /**
+   * @example
+   * 192.168.1.128/28
+   * 
+   * **if can be null:**
+   * true
+   */
+  ipv4Prefix?: string;
+  /**
+   * @example
+   * 192.168.2.128
+   */
+  natIp?: string;
+  /**
+   * @example
+   * vpcnatip-xxxxxxxx
+   */
+  natIpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipv4Prefix: 'Ipv4Prefix',
+      natIp: 'NatIp',
+      natIpId: 'NatIpId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipv4Prefix: 'string',
+      natIp: 'string',
+      natIpId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateNatIpResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ""
+   */
   ipv4Prefix?: string;
   /**
    * @remarks
@@ -20,6 +68,7 @@ export class CreateNatIpResponseBody extends $dara.Model {
    * vpcnatip-gw8y7q3cpk3fggs8****
    */
   natIpId?: string;
+  natIps?: CreateNatIpResponseBodyNatIps[];
   /**
    * @remarks
    * The request ID.
@@ -33,6 +82,7 @@ export class CreateNatIpResponseBody extends $dara.Model {
       ipv4Prefix: 'Ipv4Prefix',
       natIp: 'NatIp',
       natIpId: 'NatIpId',
+      natIps: 'NatIps',
       requestId: 'RequestId',
     };
   }
@@ -42,11 +92,15 @@ export class CreateNatIpResponseBody extends $dara.Model {
       ipv4Prefix: 'string',
       natIp: 'string',
       natIpId: 'string',
+      natIps: { 'type': 'array', 'itemType': CreateNatIpResponseBodyNatIps },
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.natIps)) {
+      $dara.Model.validateArray(this.natIps);
+    }
     super.validate();
   }
 

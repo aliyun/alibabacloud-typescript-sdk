@@ -63,18 +63,19 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
+   *  
    * *   tf-testAccVpcDhcpOptionsSets-1585169790614573448
-   * 
+   *  
    *     <!-- -->
-   * 
+   *  
    *     :
-   * 
+   *  
    *     <!-- -->
-   * 
+   *  
    *     tf-testAccVpcDhcpOptionsSets-1585169790614573448
-   * 
+   *  
    *     <!-- -->
-   * 
+   *  
    *     .
    * 
    * @example
@@ -104,6 +105,7 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
    * 
    * *   You do not need to specify this parameter for the first request.
+   * 
    * *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
    * 
    * @example
