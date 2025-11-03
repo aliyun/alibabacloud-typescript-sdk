@@ -2602,6 +2602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取交付链
+   * 
    * @param request - GetChainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetChainResponse
@@ -2635,6 +2637,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取交付链
+   * 
    * @param request - GetChainRequest
    * @returns GetChainResponse
    */

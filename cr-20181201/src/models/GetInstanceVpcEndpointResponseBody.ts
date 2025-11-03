@@ -20,6 +20,9 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $dara.Model {
    */
   ip?: string;
   /**
+   * @remarks
+   * The error message detected in the linked VPC access control.
+   * 
    * @example
    * PRIVATE_ZONE_CONFLICT_AT_{private_zone_id}
    */
@@ -120,7 +123,7 @@ export class GetInstanceVpcEndpointResponseBody extends $dara.Model {
   isSuccess?: boolean;
   /**
    * @remarks
-   * The VPCs that are added to the access control list.
+   * List of linked VPCs
    */
   linkedVpcs?: GetInstanceVpcEndpointResponseBodyLinkedVpcs[];
   /**

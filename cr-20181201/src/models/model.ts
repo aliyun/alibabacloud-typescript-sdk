@@ -66,6 +66,7 @@ export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResp
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { ArtifactLifecyclePolicy } from './ArtifactLifecyclePolicy';
 export { RepoConfiguration } from './RepoConfiguration';
+export { RouteItem } from './RouteItem';
 export { CancelArtifactBuildTaskRequest } from './CancelArtifactBuildTaskRequest';
 export { CancelArtifactBuildTaskResponseBody } from './CancelArtifactBuildTaskResponseBody';
 export { CancelArtifactBuildTaskResponse } from './CancelArtifactBuildTaskResponse';

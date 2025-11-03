@@ -99,6 +99,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
    * crasr-mdbpung4i1rm****
    */
   ruleId?: string;
+  sourceDomain?: string;
   /**
    * @remarks
    * The name of the source namespace.
@@ -159,6 +160,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
       repoName: 'RepoName',
       requestId: 'RequestId',
       ruleId: 'RuleId',
+      sourceDomain: 'SourceDomain',
       sourceNamespaceName: 'SourceNamespaceName',
       sourceProvider: 'SourceProvider',
       sourceRepoName: 'SourceRepoName',
@@ -181,6 +183,7 @@ export class GetArtifactSubscriptionRuleResponseBody extends $dara.Model {
       repoName: 'string',
       requestId: 'string',
       ruleId: 'string',
+      sourceDomain: 'string',
       sourceNamespaceName: 'string',
       sourceProvider: 'string',
       sourceRepoName: 'string',
