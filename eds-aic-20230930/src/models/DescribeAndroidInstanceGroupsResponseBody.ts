@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule extends $dara.Model {
+  instanceId?: string;
+  qosRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      qosRuleId: 'QosRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      qosRuleId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules extends $dara.Model {
+  instanceQosRule?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceQosRule: 'InstanceQosRule',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceQosRule: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceQosRule)) {
+      $dara.Model.validateArray(this.instanceQosRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $dara.Model {
   /**
    * @remarks
@@ -98,6 +153,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   bandwidthPackageId?: string;
   bandwidthPackageStatus?: string;
   bandwidthPackageType?: string;
+  bindQosRules?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules;
   /**
    * @remarks
    * The billing method.
@@ -314,6 +370,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * vsw-t4n0yqs009ho024wt****
    */
   vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
@@ -322,6 +379,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageStatus: 'BandwidthPackageStatus',
       bandwidthPackageType: 'BandwidthPackageType',
+      bindQosRules: 'BindQosRules',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
@@ -352,6 +410,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       systemVersion: 'SystemVersion',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -363,6 +422,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       bandwidthPackageId: 'string',
       bandwidthPackageStatus: 'string',
       bandwidthPackageType: 'string',
+      bindQosRules: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules,
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
@@ -393,10 +453,14 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       systemVersion: 'string',
       tags: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags },
       vSwitchId: 'string',
+      zoneId: 'string',
     };
   }
 
   validate() {
+    if(this.bindQosRules && typeof (this.bindQosRules as any).validate === 'function') {
+      (this.bindQosRules as any).validate();
+    }
     if(Array.isArray(this.disks)) {
       $dara.Model.validateArray(this.disks);
     }

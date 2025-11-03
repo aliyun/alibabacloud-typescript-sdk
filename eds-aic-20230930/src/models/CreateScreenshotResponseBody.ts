@@ -11,6 +11,7 @@ export class CreateScreenshotResponseBodyTasks extends $dara.Model {
    * acp-bwhtebzah2fse****
    */
   androidInstanceId?: string;
+  screenshotId?: string;
   /**
    * @remarks
    * The ID of the task. You can use the task ID with the DescribeTasks operation to get the download link for the screenshot.
@@ -22,6 +23,7 @@ export class CreateScreenshotResponseBodyTasks extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       androidInstanceId: 'AndroidInstanceId',
+      screenshotId: 'ScreenshotId',
       taskId: 'TaskId',
     };
   }
@@ -29,6 +31,7 @@ export class CreateScreenshotResponseBodyTasks extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceId: 'string',
+      screenshotId: 'string',
       taskId: 'string',
     };
   }

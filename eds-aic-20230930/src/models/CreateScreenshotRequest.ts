@@ -18,6 +18,7 @@ export class CreateScreenshotRequest extends $dara.Model {
    * cloudphone-saved-bucket-cn-shanghai-default
    */
   ossBucketName?: string;
+  screenshotId?: string;
   /**
    * @remarks
    * Specifies whether to bypass the snapshot policy control. Default value: false.
@@ -30,6 +31,7 @@ export class CreateScreenshotRequest extends $dara.Model {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
       ossBucketName: 'OssBucketName',
+      screenshotId: 'ScreenshotId',
       skipCheckPolicyConfig: 'SkipCheckPolicyConfig',
     };
   }
@@ -38,6 +40,7 @@ export class CreateScreenshotRequest extends $dara.Model {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
       ossBucketName: 'string',
+      screenshotId: 'string',
       skipCheckPolicyConfig: 'string',
     };
   }

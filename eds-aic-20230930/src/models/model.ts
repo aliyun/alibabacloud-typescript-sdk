@@ -26,6 +26,8 @@ export { CreateSystemPropertyTemplateRequestSystemPropertyInfoCustomPropertyInfo
 export { CreateSystemPropertyTemplateRequestSystemPropertyInfo } from './CreateSystemPropertyTemplateRequest';
 export { DeleteImagesResponseBodyData } from './DeleteImagesResponseBody';
 export { DescribeAndroidInstanceGroupsRequestTags } from './DescribeAndroidInstanceGroupsRequest';
+export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule } from './DescribeAndroidInstanceGroupsResponseBody';
+export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules } from './DescribeAndroidInstanceGroupsResponseBody';
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks } from './DescribeAndroidInstanceGroupsResponseBody';
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags } from './DescribeAndroidInstanceGroupsResponseBody';
 export { DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel } from './DescribeAndroidInstanceGroupsResponseBody';

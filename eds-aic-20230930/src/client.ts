@@ -1070,6 +1070,10 @@ export default class Client extends OpenApi {
       query["OssBucketName"] = request.ossBucketName;
     }
 
+    if (!$dara.isNull(request.screenshotId)) {
+      query["ScreenshotId"] = request.screenshotId;
+    }
+
     if (!$dara.isNull(request.skipCheckPolicyConfig)) {
       query["SkipCheckPolicyConfig"] = request.skipCheckPolicyConfig;
     }
