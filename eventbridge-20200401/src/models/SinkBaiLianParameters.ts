@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class SinkBaiLianParametersAfter extends $dara.Model {
   form?: string;
   template?: string;

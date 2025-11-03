@@ -1,8 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParameters";
+import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
+import { EmbeddingTransformParameters } from "./EmbeddingTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
+import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
+import { SinkHttpsParameters } from "./SinkHttpsParameters";
 
 
 export class CreateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
@@ -801,34 +806,16 @@ export class CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters extend
   }
 }
 
-export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters extends $dara.Model {
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersName extends $dara.Model {
   /**
    * @example
-   * TEMPLATE
+   * CONSTANT
    */
   form?: string;
-  /**
-   * @example
-   * [
-   *   {
-   *     "name": "schema1",
-   *     "type": "INT",
-   *     "value": "${value1}"
-   *   },
-   *   {
-   *     "name": "schema2",
-   *     "type": "FLOAT",
-   *     "value": "${value2}"
-   *   }
-   * ]
-   */
   template?: string;
   /**
    * @example
-   * {
-   *   "value1":"v1",
-   *   "value2":"v2"
-   * }
+   * content
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -856,12 +843,132 @@ export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSc
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersType extends $dara.Model {
+  /**
+   * @example
+   * CONSTANT
+   */
+  form?: string;
+  template?: string;
+  /**
+   * @example
+   * STRING
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersValue extends $dara.Model {
+  /**
+   * @example
+   * JSONPATH
+   */
+  form?: string;
+  /**
+   * @example
+   * ${content}
+   */
+  template?: string;
+  /**
+   * @example
+   * $.data.content
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters extends $dara.Model {
+  name?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersName;
+  type?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersType;
+  value?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersValue;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersName,
+      type: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersType,
+      value: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParametersValue,
+    };
+  }
+
+  validate() {
+    if(this.name && typeof (this.name as any).validate === 'function') {
+      (this.name as any).validate();
+    }
+    if(this.type && typeof (this.type as any).validate === 'function') {
+      (this.type as any).validate();
+    }
+    if(this.value && typeof (this.value as any).validate === 'function') {
+      (this.value as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkDashVectorParametersPartition extends $dara.Model {
   /**
    * @example
    * CONSTANT
    */
   form?: string;
+  /**
+   * @example
+   * ${partition}
+   */
   template?: string;
   /**
    * @example
@@ -940,6 +1047,10 @@ export class CreateEventStreamingRequestSinkSinkDashVectorParametersVector exten
    * JSONPATH
    */
   form?: string;
+  /**
+   * @example
+   * ${vector}
+   */
   template?: string;
   /**
    * @example
@@ -982,7 +1093,7 @@ export class CreateEventStreamingRequestSinkSinkDashVectorParameters extends $da
    * collection1
    */
   collection?: string;
-  dashVectorSchemaParameters?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  dashVectorSchemaParameters?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters[];
   /**
    * @example
    * vrs-cn-lbj3ru1***
@@ -1019,7 +1130,7 @@ export class CreateEventStreamingRequestSinkSinkDashVectorParameters extends $da
     return {
       apiKey: 'string',
       collection: 'string',
-      dashVectorSchemaParameters: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters,
+      dashVectorSchemaParameters: { 'type': 'array', 'itemType': CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters },
       instanceId: 'string',
       network: 'string',
       operation: 'string',
@@ -1030,8 +1141,8 @@ export class CreateEventStreamingRequestSinkSinkDashVectorParameters extends $da
   }
 
   validate() {
-    if(this.dashVectorSchemaParameters && typeof (this.dashVectorSchemaParameters as any).validate === 'function') {
-      (this.dashVectorSchemaParameters as any).validate();
+    if(Array.isArray(this.dashVectorSchemaParameters)) {
+      $dara.Model.validateArray(this.dashVectorSchemaParameters);
     }
     if(this.partition && typeof (this.partition as any).validate === 'function') {
       (this.partition as any).validate();
@@ -5880,6 +5991,7 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $dara.Mode
 export class CreateEventStreamingRequestSink extends $dara.Model {
   sinkApacheKafkaParameters?: CreateEventStreamingRequestSinkSinkApacheKafkaParameters;
   sinkApacheRocketMQCheckpointParameters?: CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters;
+  sinkApiDestinationParameters?: SinkApiDestinationParameters;
   sinkBaiLianParameters?: SinkBaiLianParameters;
   sinkCustomizedKafkaConnectorParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
@@ -5901,6 +6013,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify CloudFlow as the event target.
    */
   sinkFnfParameters?: CreateEventStreamingRequestSinkSinkFnfParameters;
+  sinkHttpsParameters?: SinkHttpsParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify ApsaraMQ for Kafka as the event target.
@@ -5937,6 +6050,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     return {
       sinkApacheKafkaParameters: 'SinkApacheKafkaParameters',
       sinkApacheRocketMQCheckpointParameters: 'SinkApacheRocketMQCheckpointParameters',
+      sinkApiDestinationParameters: 'SinkApiDestinationParameters',
       sinkBaiLianParameters: 'SinkBaiLianParameters',
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
@@ -5946,6 +6060,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkDorisParameters: 'SinkDorisParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
+      sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
@@ -5961,6 +6076,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     return {
       sinkApacheKafkaParameters: CreateEventStreamingRequestSinkSinkApacheKafkaParameters,
       sinkApacheRocketMQCheckpointParameters: CreateEventStreamingRequestSinkSinkApacheRocketMQCheckpointParameters,
+      sinkApiDestinationParameters: SinkApiDestinationParameters,
       sinkBaiLianParameters: SinkBaiLianParameters,
       sinkCustomizedKafkaConnectorParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
@@ -5970,6 +6086,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkDorisParameters: CreateEventStreamingRequestSinkSinkDorisParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
+      sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: CreateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: CreateEventStreamingRequestSinkSinkMNSParameters,
       sinkOpenSourceRabbitMQParameters: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters,
@@ -5987,6 +6104,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkApacheRocketMQCheckpointParameters && typeof (this.sinkApacheRocketMQCheckpointParameters as any).validate === 'function') {
       (this.sinkApacheRocketMQCheckpointParameters as any).validate();
+    }
+    if(this.sinkApiDestinationParameters && typeof (this.sinkApiDestinationParameters as any).validate === 'function') {
+      (this.sinkApiDestinationParameters as any).validate();
     }
     if(this.sinkBaiLianParameters && typeof (this.sinkBaiLianParameters as any).validate === 'function') {
       (this.sinkBaiLianParameters as any).validate();
@@ -6014,6 +6134,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkFnfParameters && typeof (this.sinkFnfParameters as any).validate === 'function') {
       (this.sinkFnfParameters as any).validate();
+    }
+    if(this.sinkHttpsParameters && typeof (this.sinkHttpsParameters as any).validate === 'function') {
+      (this.sinkHttpsParameters as any).validate();
     }
     if(this.sinkKafkaParameters && typeof (this.sinkKafkaParameters as any).validate === 'function') {
       (this.sinkKafkaParameters as any).validate();
@@ -7386,19 +7509,37 @@ export class CreateEventStreamingRequestTransforms extends $dara.Model {
    * acs:fc:cn-hangzhou:*****:services/demo-service.LATEST/functions/demo-func
    */
   arn?: string;
+  baiLianAgentTransformParameters?: BaiLianAgentTransformParameters;
+  dashScopeTransformParameters?: DashScopeTransformParameters;
+  embeddingTransformParameters?: EmbeddingTransformParameters;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
+      baiLianAgentTransformParameters: 'BaiLianAgentTransformParameters',
+      dashScopeTransformParameters: 'DashScopeTransformParameters',
+      embeddingTransformParameters: 'EmbeddingTransformParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       arn: 'string',
+      baiLianAgentTransformParameters: BaiLianAgentTransformParameters,
+      dashScopeTransformParameters: DashScopeTransformParameters,
+      embeddingTransformParameters: EmbeddingTransformParameters,
     };
   }
 
   validate() {
+    if(this.baiLianAgentTransformParameters && typeof (this.baiLianAgentTransformParameters as any).validate === 'function') {
+      (this.baiLianAgentTransformParameters as any).validate();
+    }
+    if(this.dashScopeTransformParameters && typeof (this.dashScopeTransformParameters as any).validate === 'function') {
+      (this.dashScopeTransformParameters as any).validate();
+    }
+    if(this.embeddingTransformParameters && typeof (this.embeddingTransformParameters as any).validate === 'function') {
+      (this.embeddingTransformParameters as any).validate();
+    }
     super.validate();
   }
 

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Model {
+  allowedCIDRs?: string;
   /**
    * @remarks
    * The database name.
@@ -98,6 +99,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      allowedCIDRs: 'AllowedCIDRs',
       databaseName: 'DatabaseName',
       hostName: 'HostName',
       networkType: 'NetworkType',
@@ -114,6 +116,7 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      allowedCIDRs: 'string',
       databaseName: 'string',
       hostName: 'string',
       networkType: 'string',
