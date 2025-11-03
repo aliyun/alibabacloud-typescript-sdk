@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCdsFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The ID of the enterprise drive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCdsFilesRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the user to whom the cloud disk is allocated.
+   * The ID of the user to which the network disk is assigned.
    * 
    * @example
    * testUser
@@ -26,6 +26,13 @@ export class ListCdsFilesRequest extends $dara.Model {
    * The IDs of the files to be queried.
    */
   fileIds?: string[];
+  /**
+   * @remarks
+   * The ID of the team space.
+   * 
+   * @example
+   * cg-i1ruuudp92qpj****
+   */
   groupId?: string;
   /**
    * @remarks
@@ -37,7 +44,7 @@ export class ListCdsFilesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used for the next query. If this parameter is empty, all results are returned.
+   * The query token. Set the value to the value of the `NextToken` parameter returned in the last call to the operation. You do not need to set this parameter when you call the operation for the first time.
    * 
    * @example
    * WyI2Mzg4MjAwMzFhNGQwZWVmN2I3MjRkZjZhZjAyMWU4YzY1MmRjZmUyIiwibiIsIm4iLDEsLTEsMTY2OTg2NTQ3NTMxMiwiNjM4ODIwMDNlNTU0YmZiZjFkYTk0MmEyYTZhMjEyZDkxODdjMjAy****
@@ -49,101 +56,14 @@ export class ListCdsFilesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   CreateTimeDesc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in descending order based on the time when they are created.
-   * 
-   *     <!-- -->
-   * 
-   * *   ModifiedTimeAsc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in ascending order based on the time when they are modified.
-   * 
-   *     <!-- -->
-   * 
-   * *   NameDesc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in descending order based on their names.
-   * 
-   *     <!-- -->
-   * 
-   * *   SizeAsc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in ascending order based on their sizes.
-   * 
-   *     <!-- -->
-   * 
-   * *   ModifiedTimeDesc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in descending order based on the time when they are modified.
-   * 
-   *     <!-- -->
-   * 
-   * *   CreateTimeAsc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in ascending order based on the time when they are created.
-   * 
-   *     <!-- -->
-   * 
-   * *   SizeDesc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in descending order based on their sizes.
-   * 
-   *     <!-- -->
-   * 
-   * *   NameAsc
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     sorts files in ascending order based on their names.
-   * 
-   *     <!-- -->
+   * *   CreateTimeDesc: sorts the by creation time in descending order.
+   * *   ModifiedTimeAsc: sort the by modification time in ascending order.
+   * *   NameDesc: sorts the by file name in descending order.
+   * *   SizeAsc: sorts by file size in ascending order.
+   * *   ModifiedTimeDesc: sort the by modification time in descending order.
+   * *   CreateTimeAsc: sorts the by creation time in ascending order.
+   * *   SizeDesc: sorts by file size in descending order.
+   * *   NameAsc: sorts by file name in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -151,7 +71,7 @@ export class ListCdsFilesRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The ID of the parent file.
+   * The parent folder ID. You can obtain the value by using the response parameter `FileId` of this operation.
    * 
    * @example
    * 63636837e47e5a24a8a940218bef395c210e****
@@ -159,7 +79,7 @@ export class ListCdsFilesRequest extends $dara.Model {
   parentFileId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The ID of the logon region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by cloud computers.
    * 
    * @example
    * cn-hangzhou
@@ -171,29 +91,8 @@ export class ListCdsFilesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   available
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     returns only normal files.
-   * 
-   *     <!-- -->
-   * 
-   * *   uploading
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     returns only the files that are being uploaded.
-   * 
-   *     <!-- -->
+   * *   available: returns only normal file.
+   * *   uploading: returns only the of objects that are being uploaded.
    * 
    * @example
    * available

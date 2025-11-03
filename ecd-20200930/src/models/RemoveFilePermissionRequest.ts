@@ -19,29 +19,8 @@ export class RemoveFilePermissionRequestMemberListCdsIdentity extends $dara.Mode
    * 
    * Valid values:
    * 
-   * *   IT_Group
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     group
-   * 
-   *     <!-- -->
-   * 
-   * *   IT_User
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     user
-   * 
-   *     <!-- -->
+   * *   IT_Group: group.
+   * *   IT_User: user.
    * 
    * This parameter is required.
    * 
@@ -82,165 +61,23 @@ export class RemoveFilePermissionRequestMemberList extends $dara.Model {
   cdsIdentity?: RemoveFilePermissionRequestMemberListCdsIdentity;
   /**
    * @remarks
-   * The role ID. You can configure permissions on roles or actions. This parameter is used to specify the permissions on roles, which conflicts with the ActionList parameter. When you configure both the parameters, this parameter shall prevail.
+   * You can set permissions by specifying roles or by customizing operation permissions. This field is used to set permissions by specifying roles. This field is mutually exclusive with `ActionList`.
    * 
    * Valid values:
    * 
-   * *   SystemFileEditorWithoutShareLink
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to edit files but cannot share files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileUploaderAndDownloaderWithShareLink
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to upload, download, and share files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileDownloader
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to download files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileEditorWithoutDelete
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to edit files but cannot delete files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileOwner
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to collaborate with others
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileDownloaderWithShareLink
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to download and share files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileUploaderAndViewer
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to preview or upload files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileViewer
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to preview files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileEditor
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to edit files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileUploaderWithShareLink
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to upload or share files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileUploader
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permission to upload files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileUploaderAndDownloader
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to upload or download files
-   * 
-   *     <!-- -->
-   * 
-   * *   SystemFileMetaViewer
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     the role that has the permissions to view files
-   * 
-   *     <!-- -->
+   * *   SystemFileEditorWithoutShareLink: the role that has the permissions to edit files but cannot share files.
+   * *   SystemFileUploaderAndDownloaderWithShareLink: the role that has the permissions to upload, download, and share files.
+   * *   SystemFileDownloader: the role that has the permissions to download files.
+   * *   SystemFileEditorWithoutDelete: the role that has the permissions to edit files but cannot delete files.
+   * *   SystemFileOwner: the role that has the permissions to collaborate with others.
+   * *   SystemFileDownloaderWithShareLink: the role that has the permissions to download and share files
+   * *   SystemFileUploaderAndViewer: the role that has the permissions to preview or upload files.
+   * *   SystemFileViewer: the role that has the permissions to preview files.
+   * *   SystemFileEditor: the role that has the permissions to edit files
+   * *   SystemFileUploaderWithShareLink: the role that has the permissions to upload or share files.
+   * *   SystemFileUploader: the role that has the permission to upload files.
+   * *   SystemFileUploaderAndDownloader: the role that has the permissions to upload or download files.
+   * *   SystemFileMetaViewer: the role that has the permissions to view files
    * 
    * This parameter is required.
    * 
@@ -277,7 +114,7 @@ export class RemoveFilePermissionRequestMemberList extends $dara.Model {
 export class RemoveFilePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk in Cloud Drive Service.
+   * The ID of the enterprise drive.
    * 
    * This parameter is required.
    * 
@@ -287,7 +124,7 @@ export class RemoveFilePermissionRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the end user.
    * 
    * @example
    * user01
@@ -295,7 +132,7 @@ export class RemoveFilePermissionRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The file ID. The ID is a unique identifier for the file.
+   * The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
    * 
    * This parameter is required.
    * 
@@ -305,19 +142,22 @@ export class RemoveFilePermissionRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The group ID.
+   * The ID of the team space.
+   * 
+   * @example
+   * cg-1fbmvrc7ug5m7****
    */
   groupId?: string;
   /**
    * @remarks
-   * The users that you want to authorize.
+   * The users that you want to authorize to use the cloud disk.
    * 
    * This parameter is required.
    */
   memberList?: RemoveFilePermissionRequestMemberList[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 

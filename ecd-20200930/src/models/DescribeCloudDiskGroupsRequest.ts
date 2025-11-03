@@ -2,21 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class StartDesktopsRequest extends $dara.Model {
+export class DescribeCloudDiskGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer IDs. You can specify the IDs of 1 to 100 cloud computers.
-   * 
    * This parameter is required.
    * 
    * @example
-   * ecd-7w78ozhjcwa3u****
+   * cn-hangzhou+cds-0456357992
    */
-  desktopId?: string[];
+  cdsId?: string;
+  groupId?: string[];
+  groupName?: string;
+  /**
+   * @example
+   * root
+   */
+  parentOrgId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -25,21 +28,27 @@ export class StartDesktopsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      desktopId: 'DesktopId',
+      cdsId: 'CdsId',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      parentOrgId: 'ParentOrgId',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      desktopId: { 'type': 'array', 'itemType': 'string' },
+      cdsId: 'string',
+      groupId: { 'type': 'array', 'itemType': 'string' },
+      groupName: 'string',
+      parentOrgId: 'string',
       regionId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.desktopId)) {
-      $dara.Model.validateArray(this.desktopId);
+    if(Array.isArray(this.groupId)) {
+      $dara.Model.validateArray(this.groupId);
     }
     super.validate();
   }

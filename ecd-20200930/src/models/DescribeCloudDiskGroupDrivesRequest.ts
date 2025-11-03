@@ -2,48 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListTransferFilesRequest extends $dara.Model {
+export class DescribeCloudDiskGroupDrivesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * This parameter is required.
    * 
-   * Maximum value: 100.
-   * 
-   * Default value: 20.
-   * 
+   * @example
+   * cn-hangzhou+cds-6805637***
+   */
+  cdsId?: string;
+  groupName?: string;
+  /**
    * @example
    * 20
    */
   maxResults?: number;
   /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
    * @example
-   * caeba0bbb2be03f84eb48b699f0****
+   * MTA0MjA=
    */
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the transmission task.
+   * This parameter is required.
    * 
    * @example
-   * trt-03tdwg4tcuwdzv****
+   * cn-beijing
    */
-  taskId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      cdsId: 'CdsId',
+      groupName: 'GroupName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      taskId: 'TaskId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cdsId: 'string',
+      groupName: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      taskId: 'string',
+      regionId: 'string',
     };
   }
 

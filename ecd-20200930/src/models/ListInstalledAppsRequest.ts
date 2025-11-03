@@ -2,34 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteDriveRequest extends $dara.Model {
+export class ListInstalledAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user-level storage resource.
+   * This parameter is required.
    * 
    * @example
-   * dri-aaaa****
+   * ecd-39clsqyxr****
    */
-  driveId?: string;
+  desktopId?: string;
   /**
-   * @remarks
-   * The region ID.
-   * 
    * @example
-   * cn-hangzhou
+   * 1
    */
-  regionId?: string;
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      driveId: 'DriveId',
-      regionId: 'RegionId',
+      desktopId: 'DesktopId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      driveId: 'string',
-      regionId: 'string',
+      desktopId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify 1 to 20 IDs.
+   * The cloud computer IDs. You can specify the IDs of 1 to 100 cloud computers.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class StopDesktopsRequest extends $dara.Model {
    * ecd-7w78ozhjcwa3u****
    */
   desktopId?: string[];
+  /**
+   * @remarks
+   * Whether to perform a patch update when the update is ready. A value of true indicates that a patch update is performed.
+   * 
+   * @example
+   * false
+   */
   osUpdate?: boolean;
   /**
    * @remarks

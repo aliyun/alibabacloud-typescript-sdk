@@ -4,27 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEcdReportTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries returned per page. Maximum value: 200.
+   * 
    * @example
    * 20。
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * Valid values:
+   * 
+   * *   INIT: initializing
+   * *   FAILED
+   * *   RUNNING
+   * *   EXPIRED
+   * *   FINISHED
+   */
   status?: string[];
   /**
+   * @remarks
+   * The sub-type of the report export task.
+   * 
+   * Valid value:
+   * 
+   * *   DESKTOP: cloud computer
+   * 
    * @example
    * DESKTOP
    */
   subType?: string;
   /**
+   * @remarks
+   * The ID of the report export task.
+   * 
    * @example
    * ret-sfkdsjfi*****
    */
   taskId?: string;
   /**
+   * @remarks
+   * The type of the report.
+   * 
+   * Valid value:
+   * 
+   * *   RESOURCE_REPORT
+   * 
    * @example
    * RESOURCE_REPORT
    */

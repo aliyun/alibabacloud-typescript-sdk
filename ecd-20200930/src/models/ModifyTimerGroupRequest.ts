@@ -61,7 +61,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
 export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow end users to configure scheduled tasks.
+   * Specifies whether to allow end users to configure the scheduled task.
    * 
    * @example
    * true
@@ -109,14 +109,14 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist. If whitelisted processes are running, the scheduled task does not take effect upon inactivity.
+   * The process whitelist. If whitelisted processes are running, the scheduled task does not take effect.
    */
   processWhitelist?: string[];
   /**
    * @remarks
    * The reset option.
    * 
-   * Valid values:
+   * Valid value:
    * 
    * *   RESET_TYPE_SYSTEM: resets the system disk.
    * *   RESET_TYPE_USER_DISK: resets the data disk.
@@ -129,7 +129,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   segmentTimers?: ModifyTimerGroupRequestConfigTimersSegmentTimers[];
   /**
    * @remarks
-   * The scheduled task type.
+   * The type of the scheduled task.
    * 
    * Valid value:
    * 
@@ -141,7 +141,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
    * *   NoOperationHibernate: scheduled hibernation upon inactivity.
    * *   TimerShutdown: scheduled shutdown.
    * *   NoOperationReboot: scheduled restart upon inactivity.
-   * *   TimerReboot: scheduled restart.
+   * *   TimerReboot: Restarts the cloud computers on schedule.
    * 
    * @example
    * TIMER_BOOT
@@ -210,7 +210,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
 export class ModifyTimerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The scheduled task groups.
+   * The scheduled tasks.
    */
   configTimers?: ModifyTimerGroupRequestConfigTimers[];
   /**

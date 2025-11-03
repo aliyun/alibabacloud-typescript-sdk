@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class TransferTaskApprovalCallbackResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AE7B699F-625C-587E-BC5F-1395CA****
    */

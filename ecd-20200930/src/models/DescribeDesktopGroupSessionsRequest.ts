@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of shared desktop groups.
+   */
   desktopGroupIds?: string[];
   /**
+   * @remarks
+   * The name of the shared desktop.
+   * 
    * @example
    * ecd-4oyi32wmrctgx****
    */
@@ -19,14 +26,21 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the end user.
+   * The user ID of the terminal that connects to the session.
    * 
    * @example
    * xianqiu
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * Whether to supplement terminal information.
+   */
   fillTerminalInfo?: boolean;
   /**
+   * @remarks
+   * The language of the response.
+   * 
    * @example
    * zh-CN
    */
@@ -41,7 +55,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * "asdfdfsdfsdfds"
@@ -62,7 +76,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * @example
    * cn-hangzhou

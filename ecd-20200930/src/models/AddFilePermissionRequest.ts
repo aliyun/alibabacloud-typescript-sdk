@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFilePermissionRequestMemberListCdsIdentity extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user.
+   * The ID of the convenience user.
    * 
    * This parameter is required.
    * 
@@ -15,25 +15,12 @@ export class AddFilePermissionRequestMemberListCdsIdentity extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the user.
+   * The user type.
    * 
-   * Valid values:
+   * Set the value to TENANT_ADMIN.
    * 
-   * *   <!-- -->
-   * 
-   *     IT_Group
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   <!-- -->
-   * 
-   *     IT_User
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   IT_Group: group.
+   * *   IT_User: user.
    * 
    * This parameter is required.
    * 
@@ -90,23 +77,23 @@ export class AddFilePermissionRequestMemberList extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The ID of the role to which you want to attach the folder permissions. To configure the folder permissions: you can specify a role or create custom operation permissions. You can use RoleId to specify a role. RoleId is mutually exclusive with ActionList. If you specify both of them, the value of RoleId takes precedence.
+   * You can set permissions by specifying roles or by customizing operation permissions. This field is used to set permissions by specifying roles. This field is mutually exclusive with `ActionList`.
    * 
    * Valid values:
    * 
-   * * SystemFileEditorWithoutShareLink
-   * * SystemFileUploaderAndDownloaderWithShareLink
-   * * SystemFileDownloader
-   * * SystemFileEditorWithoutDelete
-   * * SystemFileOwner
-   * * SystemFileDownloaderWithShareLink
-   * * SystemFileUploaderAndViewer
-   * * SystemFileViewer
-   * * SystemFileEditor
-   * * SystemFileUploaderWithShareLink
-   * * SystemFileUploader
-   * * SystemFileUploaderAndDownloader
-   * * SystemFileMetaViewer
+   * *   SystemFileEditorWithoutShareLink: The role that can edit but cannot share files.
+   * *   SystemFileUploaderAndDownloaderWithShareLink: The role that can upload, download, and share files.
+   * *   SystemFileDownloader: The role that can download files.
+   * *   SystemFileEditorWithoutDelete: The role that can edit but cannot edit files.
+   * *   SystemFileOwner: The role that can collaborate with others on files.
+   * *   SystemFileDownloaderWithShareLink: The role that can download and share files.
+   * *   SystemFileUploaderAndViewer: The role that can preview and upload files.
+   * *   SystemFileViewer: The role that can preview files.
+   * *   SystemFileEditor: The role that can edit files.
+   * *   SystemFileUploaderWithShareLink: The role that can upload and share files.
+   * *   SystemFileUploader: The role that can upload files.
+   * *   SystemFileUploaderAndDownloader: The role that can upload and download files.
+   * *   SystemFileMetaViewer: The role that can view file list.
    * 
    * This parameter is required.
    * 
@@ -147,7 +134,7 @@ export class AddFilePermissionRequestMemberList extends $dara.Model {
 export class AddFilePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk whose folder you want to share.
+   * The ID of the enterprise drive.
    * 
    * This parameter is required.
    * 
@@ -157,7 +144,7 @@ export class AddFilePermissionRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the end user who uses the cloud disk.
+   * The ID of the user who uses the network disk.
    * 
    * @example
    * user01
@@ -165,7 +152,7 @@ export class AddFilePermissionRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
    * 
    * This parameter is required.
    * 
@@ -175,7 +162,7 @@ export class AddFilePermissionRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The ID of the team that uses cloud disks in Cloud Drive Service.
+   * The ID of the team space.
    * 
    * @example
    * cg-i1ruuudp92qpj****
@@ -183,14 +170,14 @@ export class AddFilePermissionRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The members who are granted the folder permissions.
+   * The users that you want to authorize to use the cloud disk.
    * 
    * This parameter is required.
    */
   memberList?: AddFilePermissionRequestMemberList[];
   /**
    * @remarks
-   * The region ID of the folder. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 

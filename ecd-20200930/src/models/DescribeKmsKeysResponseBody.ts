@@ -67,18 +67,28 @@ export class DescribeKmsKeysResponseBody extends $dara.Model {
    * @remarks
    * The authorization status.
    * 
+   * Valid value:
+   * 
+   * *   not_authorized
+   * *   authorized
+   * 
    * @example
    * authorized
    */
   authorizeStatus?: string;
   /**
    * @remarks
-   * Details about the customer master keys (CMKs).
+   * Customer master key (CMK)
    */
   keys?: DescribeKmsKeysResponseBodyKeys[];
   /**
    * @remarks
    * Indicates whether KMS is activated.
+   * 
+   * Valid value:
+   * 
+   * *   disabled
+   * *   enabled
    * 
    * @example
    * enabled

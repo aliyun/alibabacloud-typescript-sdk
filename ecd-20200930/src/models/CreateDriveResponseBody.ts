@@ -4,84 +4,149 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDriveResponseBodyDrive extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
    * @example
    * 1202****
    */
   aliUid?: string;
   /**
+   * @remarks
+   * The description of the storage resource.
+   * 
    * @example
    * test****
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the storage resource.
+   * 
    * @example
    * dom-aaaa****
    */
   domainId?: string;
   /**
+   * @remarks
+   * The ID of the user-level storage resource.
+   * 
    * @example
    * dri-aaaa****
    */
   driveId?: string;
   /**
+   * @remarks
+   * The ID of the external user-level storage resource.
+   * 
+   * >  A value is returned for this parameter only if ResourceType is set to PDS.
+   * 
    * @example
    * 1100****
    */
   externalDriveId?: string;
   /**
+   * @remarks
+   * The ID of the external user.
+   * 
    * @example
    * user01@cn-hangzhou.120****
    */
   externalUserId?: string;
   /**
+   * @remarks
+   * The time when the storage resource was created.
+   * 
    * @example
    * 2025-07-02T08:42:26.000+00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the storage resource was last modified.
+   * 
    * @example
    * 2025-07-07T02:46:04.000+00:00
    */
   gmtModified?: string;
   /**
    * @remarks
-   * ID。
+   * The ID.
    * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the storage resource.
+   * 
    * @example
    * test****
    */
   name?: string;
   /**
+   * @remarks
+   * >  This parameter is deprecated.
+   * 
    * @example
    * -
    */
   profileRoaming?: boolean;
   /**
+   * @remarks
+   * The status of the user-level storage resource.
+   * 
+   * Valid values:
+   * 
+   * *   INIT: initializing
+   * *   MAINTAIN: maintaining
+   * *   DELETING
+   * *   INVALID
+   * *   NORMAL
+   * *   FAIL: failed
+   * 
    * @example
    * NORMAL
    */
   status?: string;
   /**
+   * @remarks
+   * The total amount of the user-level storage resource capacity.
+   * 
+   * >  Unit: bytes.
+   * 
    * @example
    * 536870912000
    */
   totalSize?: number;
   /**
+   * @remarks
+   * The usage of the storage resource.
+   * 
+   * Valid values:
+   * 
+   * *   DESKTOP: data disk space
+   * *   USER_PROFILE: space for personal data of the user
+   * 
    * @example
    * USER_PROFILE
    */
   type?: string;
   /**
+   * @remarks
+   * The amount of user-level storage resource capacity used.
+   * 
+   * >  Unit: bytes.
+   * 
    * @example
    * 243175936
    */
   usedSize?: number;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * user01
    */
@@ -139,22 +204,38 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
 
 export class CreateDriveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. The value 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The user-level storage resource.
+   */
   drive?: CreateDriveResponseBodyDrive;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * B7AA****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKmsKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * @example
    * cn-hangzhou

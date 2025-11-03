@@ -196,7 +196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares a folder of a cloud disk with other users.
+   * Adds a shared folder to the network disk.
    * 
    * @remarks
    * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
@@ -256,7 +256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares a folder of a cloud disk with other users.
+   * Adds a shared folder to the network disk.
    * 
    * @remarks
    * You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
@@ -1326,7 +1326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Completes a file uploading task.
+   * After you create an object upload task, call this operation to upload the object.
    * 
    * @param request - CompleteCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1377,7 +1377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Completes a file uploading task.
+   * After you create an object upload task, call this operation to upload the object.
    * 
    * @param request - CompleteCdsFileRequest
    * @returns CompleteCdsFileResponse
@@ -3788,7 +3788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网盘
+   * Creates a user-level storage resource.
    * 
    * @param request - CreateDriveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3855,7 +3855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网盘
+   * Creates a user-level storage resource.
    * 
    * @param request - CreateDriveRequest
    * @returns CreateDriveResponse
@@ -3866,7 +3866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建无影数据报表导出任务
+   * Creates a data report export task.
    * 
    * @param request - CreateEcdReportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3913,7 +3913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建无影数据报表导出任务
+   * Creates a data report export task.
    * 
    * @param request - CreateEcdReportTaskRequest
    * @returns CreateEcdReportTaskResponse
@@ -5064,7 +5064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
    * 
    * @param request - CreateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5184,7 +5184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板
+   * Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -5287,7 +5287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file from a cloud disk in Cloud Drive Service.
+   * Delete files or folders from the network disk.
    * 
    * @param request - DeleteCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5334,7 +5334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a file from a cloud disk in Cloud Drive Service.
+   * Delete files or folders from the network disk.
    * 
    * @param request - DeleteCdsFileRequest
    * @returns DeleteCdsFileResponse
@@ -5767,7 +5767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网盘
+   * Deletes a drive.
    * 
    * @param request - DeleteDriveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5802,7 +5802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网盘
+   * Deletes a drive.
    * 
    * @param request - DeleteDriveRequest
    * @returns DeleteDriveResponse
@@ -7115,6 +7115,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询云盘团队空间列表
+   * 
+   * @param request - DescribeCloudDiskGroupDrivesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudDiskGroupDrivesResponse
+   */
+  async describeCloudDiskGroupDrivesWithOptions(request: $_model.DescribeCloudDiskGroupDrivesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudDiskGroupDrivesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cdsId)) {
+      query["CdsId"] = request.cdsId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudDiskGroupDrives",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCloudDiskGroupDrivesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudDiskGroupDrivesResponse({}));
+  }
+
+  /**
+   * 查询云盘团队空间列表
+   * 
+   * @param request - DescribeCloudDiskGroupDrivesRequest
+   * @returns DescribeCloudDiskGroupDrivesResponse
+   */
+  async describeCloudDiskGroupDrives(request: $_model.DescribeCloudDiskGroupDrivesRequest): Promise<$_model.DescribeCloudDiskGroupDrivesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudDiskGroupDrivesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云盘团队列表
+   * 
+   * @param request - DescribeCloudDiskGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudDiskGroupsResponse
+   */
+  async describeCloudDiskGroupsWithOptions(request: $_model.DescribeCloudDiskGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudDiskGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cdsId)) {
+      query["CdsId"] = request.cdsId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.parentOrgId)) {
+      query["ParentOrgId"] = request.parentOrgId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudDiskGroups",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCloudDiskGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudDiskGroupsResponse({}));
+  }
+
+  /**
+   * 查询云盘团队列表
+   * 
+   * @param request - DescribeCloudDiskGroupsRequest
+   * @returns DescribeCloudDiskGroupsResponse
+   */
+  async describeCloudDiskGroups(request: $_model.DescribeCloudDiskGroupsRequest): Promise<$_model.DescribeCloudDiskGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudDiskGroupsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of authorized team spaces.
    * 
    * @param request - DescribeCloudDriveGroupsRequest
@@ -7425,7 +7541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sessions in a desktop group.
+   * Queries cloud computer shares.
    * 
    * @param request - DescribeDesktopGroupSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7500,7 +7616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries sessions in a desktop group.
+   * Queries cloud computer shares.
    * 
    * @param request - DescribeDesktopGroupSessionsRequest
    * @returns DescribeDesktopGroupSessionsResponse
@@ -8473,7 +8589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网盘列表
+   * Queries user-level storage resources.
    * 
    * @param request - DescribeDrivesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8524,7 +8640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网盘列表
+   * Queries user-level storage resources.
    * 
    * @param request - DescribeDrivesRequest
    * @returns DescribeDrivesResponse
@@ -8535,7 +8651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据报表导出任务列表
+   * Queries data report export tasks.
    * 
    * @param request - DescribeEcdReportTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8586,7 +8702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据报表导出任务列表
+   * Queries data report export tasks.
    * 
    * @param request - DescribeEcdReportTasksRequest
    * @returns DescribeEcdReportTasksResponse
@@ -8925,7 +9041,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局桌面记录
+   * Queries the basic information of all cloud computers and the corresponding usage duration records.
+   * 
+   * @remarks
+   *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+   * *   By default, you can query all cloud computers that are deleted or not deleted.
+   * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+   * *   Sort criteria cannot be shared with other criteria.
    * 
    * @param request - DescribeGlobalDesktopRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9012,7 +9134,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局桌面记录
+   * Queries the basic information of all cloud computers and the corresponding usage duration records.
+   * 
+   * @remarks
+   *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+   * *   By default, you can query all cloud computers that are deleted or not deleted.
+   * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+   * *   Sort criteria cannot be shared with other criteria.
    * 
    * @param request - DescribeGlobalDesktopRecordsRequest
    * @returns DescribeGlobalDesktopRecordsResponse
@@ -10923,7 +11051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板列表
+   * Queries the details of cloud computer templates.
    * 
    * @param request - DescribeTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10990,7 +11118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板列表
+   * Queries the details of cloud computer templates.
    * 
    * @param request - DescribeTemplatesRequest
    * @returns DescribeTemplatesResponse
@@ -12541,7 +12669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in a cloud disk.
+   * Queries the list of files in the network disk and obtain the download link of the file.
    * 
    * @param tmpReq - ListCdsFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12614,7 +12742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the files in a cloud disk.
+   * Queries the list of files in the network disk and obtain the download link of the file.
    * 
    * @param request - ListCdsFilesRequest
    * @returns ListCdsFilesResponse
@@ -12705,7 +12833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about shared files of cloud disks.
+   * Queries the permissions on a shared file on a drive.
    * 
    * @param request - ListFilePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12752,7 +12880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about shared files of cloud disks.
+   * Queries the permissions on a shared file on a drive.
    * 
    * @param request - ListFilePermissionRequest
    * @returns ListFilePermissionResponse
@@ -12760,6 +12888,56 @@ export default class Client extends OpenApi {
   async listFilePermission(request: $_model.ListFilePermissionRequest): Promise<$_model.ListFilePermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFilePermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询桌面内安装的应用
+   * 
+   * @param request - ListInstalledAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstalledAppsResponse
+   */
+  async listInstalledAppsWithOptions(request: $_model.ListInstalledAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstalledAppsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstalledApps",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstalledAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListInstalledAppsResponse({}));
+  }
+
+  /**
+   * 查询桌面内安装的应用
+   * 
+   * @param request - ListInstalledAppsRequest
+   * @returns ListInstalledAppsResponse
+   */
+  async listInstalledApps(request: $_model.ListInstalledAppsRequest): Promise<$_model.ListInstalledAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstalledAppsWithOptions(request, runtime);
   }
 
   /**
@@ -12967,7 +13145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件下载地址
+   * Queries the file information of a file transmission task.
    * 
    * @param request - ListTransferFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13006,7 +13184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件下载地址
+   * Queries the file information of a file transmission task.
    * 
    * @param request - ListTransferFilesRequest
    * @returns ListTransferFilesResponse
@@ -13609,7 +13787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the files in a cloud disk.
+   * Modifies the attributes of a disk file or folder, such as the file name.
    * 
    * @param request - ModifyCdsFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13664,7 +13842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the files in a cloud disk.
+   * Modifies the attributes of a disk file or folder, such as the file name.
    * 
    * @param request - ModifyCdsFileRequest
    * @returns ModifyCdsFileResponse
@@ -15921,7 +16099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作区DNS信息
+   * Modifies the DNS information of an office network.
    * 
    * @param request - ModifyOfficeSiteDnsInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15960,7 +16138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作区DNS信息
+   * Modifies the DNS information of an office network.
    * 
    * @param request - ModifyOfficeSiteDnsInfoRequest
    * @returns ModifyOfficeSiteDnsInfoResponse
@@ -16419,7 +16597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板全量更新
+   * Modifies a custom cloud computer template.
    * 
    * @param request - ModifyTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16535,7 +16713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板全量更新
+   * Modifies a custom cloud computer template.
    * 
    * @param request - ModifyTemplateRequest
    * @returns ModifyTemplateResponse
@@ -16549,7 +16727,7 @@ export default class Client extends OpenApi {
    * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+   * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16591,7 +16769,7 @@ export default class Client extends OpenApi {
    * Modifies the basic information of a custom cloud computer template, including the template name and template description.
    * 
    * @remarks
-   * You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+   * This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
    * 
    * @param request - ModifyTemplateBaseInfoRequest
    * @returns ModifyTemplateBaseInfoResponse
@@ -17020,7 +17198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the file sharing feature of a folder in a cloud disk.
+   * Unshare a folder on the network disk.
    * 
    * @param tmpReq - RemoveFilePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17077,7 +17255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes the file sharing feature of a folder in a cloud disk.
+   * Unshare a folder on the network disk.
    * 
    * @param request - RemoveFilePermissionRequest
    * @returns RemoveFilePermissionResponse
@@ -18018,7 +18196,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置桌面维护模式
+   * Set the cloud computer maintenance mode.
+   * 
+   * @remarks
+   * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
    * 
    * @param request - SetDesktopMaintenanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18057,7 +18238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置桌面维护模式
+   * Set the cloud computer maintenance mode.
+   * 
+   * @remarks
+   * If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
    * 
    * @param request - SetDesktopMaintenanceRequest
    * @returns SetDesktopMaintenanceResponse
@@ -18522,7 +18706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件传输审批回调
+   * Queries the transmission and approval result for a submitted file.
    * 
    * @param request - TransferTaskApprovalCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18565,7 +18749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件传输审批回调
+   * Queries the transmission and approval result for a submitted file.
    * 
    * @param request - TransferTaskApprovalCallbackRequest
    * @returns TransferTaskApprovalCallbackResponse

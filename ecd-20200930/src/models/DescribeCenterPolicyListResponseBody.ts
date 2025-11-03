@@ -827,7 +827,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupId?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the policy.
    * 
    * @example
    * SYSTEM
@@ -1506,7 +1506,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
 export class DescribeCenterPolicyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer policies.
+   * The details about the cloud computer policies.
    */
   describePolicyGroups?: DescribeCenterPolicyListResponseBodyDescribePolicyGroups[];
   /**

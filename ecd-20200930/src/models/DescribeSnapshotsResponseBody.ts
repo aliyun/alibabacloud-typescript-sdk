@@ -70,7 +70,15 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * Running
    */
   desktopStatus?: string;
+  /**
+   * @example
+   * Available
+   */
   diskStatus?: string;
+  /**
+   * @example
+   * Windows
+   */
   osType?: string;
   /**
    * @remarks

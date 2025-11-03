@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the enterprise resource group.
+   * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The queried resource group name.
+   * 
    * @example
    * dms_test
    */
@@ -38,11 +44,17 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups exte
 
 export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $dara.Model {
   /**
+   * @remarks
+   * The end user ID.
+   * 
    * @example
    * TestUser
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The time when the session was created.
+   * 
    * @example
    * 2022-08-31T06:56:45Z
    */
@@ -72,114 +84,202 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
 
 export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Model {
   /**
+   * @remarks
+   * The connection status of the cloud desktop.
+   * 
    * @example
    * Connected
    */
   connectionStatus?: string;
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 2
    */
   cpu?: number;
   /**
+   * @remarks
+   * The ID of the cloud computer share.
+   * 
    * @example
    * dg-iaqu3bi2xtie****
    */
   desktopGroupId?: string;
   /**
+   * @remarks
+   * The name of the cloud computer share.
+   * 
    * @example
    * DemoCCGroup
    */
   desktopGroupName?: string;
   /**
+   * @remarks
+   * The cloud computer IDs.
+   * 
    * @example
    * ecd-g6t1ukbaea****
    */
   desktopId?: string;
   /**
+   * @remarks
+   * The cloud computer name.
+   * 
    * @example
    * DemoComputer
    */
   desktopName?: string;
   /**
+   * @remarks
+   * 桌面状态
+   * 
    * @example
    * Running
    */
   desktopStatus?: string;
   /**
+   * @remarks
+   * The end user ID.
+   * 
    * @example
    * TestUser
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The list of assigned terminal user IDs.
+   */
   endUserIds?: string[];
   /**
+   * @remarks
+   * The size of the GPU memory.
+   * 
    * @example
    * 8GiB
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The duration of the last connection to the cloud computer. Unit: seconds
+   * 
    * @example
    * 120
    */
   latestConnectionTime?: number;
   /**
+   * @remarks
+   * The memory of the cloud computer. Unit: MiB.
+   * 
    * @example
    * 4096
    */
   memory?: number;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hangzhou+dir-8904****
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The office network name.
+   * 
    * @example
    * TestOfficeSite
    */
   officeSiteName?: string;
   /**
+   * @remarks
+   * The OS type. Valid values:
+   * 
+   * *   Windows
+   * *   Linux
+   * 
    * @example
    * Linux
    */
   osType?: string;
   /**
+   * @remarks
+   * The specific model of the operating system.
+   * 
    * @example
    * Windows 10
    */
   platform?: string;
   /**
+   * @remarks
+   * Protocol type.
+   * 
+   * *   HDX
+   * *   ASP
+   * 
    * @example
    * ASP
    */
   protocolType?: string;
   /**
+   * @remarks
+   * The ID of the region where the instance resides.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the enterprise resource group.
+   */
   resourceGroups?: DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups[];
   /**
+   * @remarks
+   * The idle duration of the session. Unit: minutes.
+   * 
    * @example
    * 120
    */
   sessionIdleTime?: number;
+  /**
+   * @remarks
+   * The session details.
+   */
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessionsSessions[];
   /**
+   * @remarks
+   * The time when the status of the cloud computer was changed.
+   * 
    * @example
    * 1760583xxxx
    */
   statusChangeTime?: number;
   /**
+   * @remarks
+   * The billing method of the cloud computer. Valid values:
+   * 
+   * *   prePaid: The monthly purchase is unlimited.
+   * *   postPaid: pay-as-you-go
+   * *   monthPackage: monthly duration.
+   * 
    * @example
    * monthPackage
    */
   subPayType?: string;
   /**
+   * @remarks
+   * The total connection duration. Unit: seconds
+   * 
    * @example
    * 240
    */
   totalConnectionTime?: number;
   /**
+   * @remarks
+   * The startup duration of the cloud computer. Unit: seconds
+   * 
    * @example
    * 86400
    */
@@ -264,12 +364,22 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
 
 export class DescribeGlobalDesktopRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The session details.
+   */
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessions[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */

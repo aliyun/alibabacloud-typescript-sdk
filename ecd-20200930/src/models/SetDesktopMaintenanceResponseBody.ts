@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetDesktopMaintenanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BA6A1853-3EA9-5EEB-86C8-3D14A3E01905
    */

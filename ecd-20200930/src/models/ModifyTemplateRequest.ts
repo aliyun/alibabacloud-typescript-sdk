@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyTemplateRequestDataDiskList extends $dara.Model {
+  /**
+   * @remarks
+   * The PL of the data disk. Default value: `AutoPL`.
+   * 
+   * Valid values:
+   * 
+   * *   PL1: a PL1 ESSD
+   * *   PL0: a PL0 ESSD
+   * *   AutoPL: an AutoPL ESSD
+   */
   performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB. Valid range: 40 to 2040 GiB with an increment of 10 GiB.
+   * 
+   * @example
+   * 40
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {

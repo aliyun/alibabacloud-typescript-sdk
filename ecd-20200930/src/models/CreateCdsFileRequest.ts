@@ -148,8 +148,6 @@ export class CreateCdsFileRequest extends $dara.Model {
    * @remarks
    * The ID of the parent folder.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 637c9163b453b1a384874264ba79f3f9eab9****
    */

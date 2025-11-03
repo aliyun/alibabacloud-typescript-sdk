@@ -221,7 +221,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   bindCountMap?: { [key: string]: number };
   /**
    * @remarks
-   * The scheduled task configurations.
+   * The scheduled tasks.
    */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
   /**
@@ -327,7 +327,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
 export class DescribeTimerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the scheduled task group.
+   * The configuration group.
    */
   data?: DescribeTimerGroupResponseBodyData;
   /**

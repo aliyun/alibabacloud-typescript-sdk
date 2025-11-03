@@ -47,6 +47,10 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * eds.enterprise_office.8c16g
+   */
   resourceInstanceType?: string;
   /**
    * @example
@@ -136,7 +140,15 @@ export class CreateTemplateRequestResourceTagList extends $dara.Model {
 }
 
 export class CreateTemplateRequestSiteConfigList extends $dara.Model {
+  /**
+   * @example
+   * bwr-5a5371e0db954d********
+   */
   appRuleId?: string;
+  /**
+   * @example
+   * mainland
+   */
   siteId?: string;
   static names(): { [key: string]: string } {
     return {

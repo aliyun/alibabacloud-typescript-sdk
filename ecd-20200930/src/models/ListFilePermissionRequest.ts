@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilePermissionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The ID of the enterprise drive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListFilePermissionRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the end user who uses the cloud disk.
+   * The ID of the user who uses the drive.
    * 
    * @example
    * user01
@@ -23,7 +23,7 @@ export class ListFilePermissionRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the shared file.
+   * The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to get the file ID.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,15 @@ export class ListFilePermissionRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The group ID.
+   * The ID of the team space.
+   * 
+   * @example
+   * cg-c3acvkkbsfkte****
    */
   groupId?: string;
   /**
    * @remarks
-   * The region ID of the cloud disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 

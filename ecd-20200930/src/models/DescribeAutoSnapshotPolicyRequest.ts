@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoSnapshotPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
-   * *   Maximum value: 100
-   * *   Default value: 20
+   * *   Maximum value: 50.
+   * *   Default value: 50.
    * 
    * @example
    * 10

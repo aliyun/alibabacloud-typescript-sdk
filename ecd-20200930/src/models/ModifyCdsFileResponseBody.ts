@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCdsFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The modification result. The value success indicates that the modification is successful. If the modification failed, an error message is returned.
+   * The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
    * 
    * @example
    * success
@@ -41,7 +41,7 @@ export class ModifyCdsFileResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The returned error message. This parameter is not returned if the value of Code is `success`.
    * 
    * @example
    * success
@@ -57,25 +57,12 @@ export class ModifyCdsFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation was successful.
    * 
-   * Valid values:
+   * Valid value:
    * 
-   * *   true: The request is successful.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false: The request fails.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   true
+   * *   false
    * 
    * @example
    * true

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extends $dara.Model {
   /**
+   * @remarks
+   * The type of the terminal.
+   * 
    * @example
    * wuying_mac_x86_64
    */
   model?: string;
   /**
+   * @remarks
+   * The terminal type.
+   * 
    * @example
    * Mac
    */
   productName?: string;
   /**
+   * @remarks
+   * Terminal Serial Number
+   * 
    * @example
    * 96c530bc-6095-4014-8bbc-d461b8ac****
    */
   serialNumber?: string;
   /**
+   * @remarks
+   * The terminal UUID.
+   * 
    * @example
    * EBFDC7773BEBAD418A9F89429652****
    */
@@ -52,6 +64,9 @@ export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extend
 
 export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Model {
   /**
+   * @remarks
+   * 账号类型
+   * 
    * @example
    * SIMPLE
    */
@@ -66,7 +81,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   clientIp?: string;
   /**
    * @remarks
-   * The OS that the client runs.
+   * The operating system of the client.
    * 
    * @example
    * windows_\\"Windows10Enterprise\\"10.0(Build22000)
@@ -82,7 +97,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   clientVersion?: string;
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the shared cloud computer.
    * 
    * @example
    * dg-iaqu3bi2xtie****
@@ -90,7 +105,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the desktop group.
+   * The name of the cloud computer share.
    * 
    * @example
    * Test
@@ -98,13 +113,16 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   desktopGroupName?: string;
   /**
    * @remarks
-   * If the session is being established, the value of this parameter indicates the ID of the current cloud desktop. If the session is disconnected, the value of this parameter indicates the ID of the cloud desktop that was most recently connected.
+   * If the session status is Connected, it indicates the ID of the cloud computer that is currently connected. If the session status is Disconnected, it indicates the ID of the cloud computer that was last connected.
    * 
    * @example
    * ecd-g6t1ukbaea****
    */
   desktopId?: string;
   /**
+   * @remarks
+   * 办公网络类型
+   * 
    * @example
    * SIMPLE
    */
@@ -119,7 +137,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   endUserApplyCoordinateTime?: number;
   /**
    * @remarks
-   * The ID of the end user.
+   * The user ID of the terminal that connects to the session.
    * 
    * @example
    * xianqiu
@@ -143,7 +161,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   lastSessionStartTime?: string;
   /**
    * @remarks
-   * The duration of the most recent session.
+   * The duration of the most recent session. Unit: seconds.
    * 
    * @example
    * 120
@@ -151,7 +169,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   latestConnectionTime?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-8904****
@@ -159,7 +177,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The office network name.
    * 
    * @example
    * Test
@@ -167,10 +185,12 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   officeSiteName?: string;
   /**
    * @remarks
-   * The OS. Valid values:
+   * The operating system type of the cloud computer.
    * 
-   * *   Windows
-   * *   Linux
+   * Valid values:
+   * 
+   * *   linux.
+   * *   Windows.
    * 
    * @example
    * Windows
@@ -191,7 +211,12 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   ownType?: number;
   /**
    * @remarks
-   * The type of the protocol.
+   * The protocol type supported by the rule.
+   * 
+   * Valid value:
+   * 
+   * *   High-definition Experience (HDX).
+   * *   ASP.
    * 
    * @example
    * ASP
@@ -199,7 +224,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   protocolType?: string;
   /**
    * @remarks
-   * The duration during which the cloud desktop stays in the Idle state.
+   * The idle duration of the cloud computer. Unit: seconds.
    * 
    * @example
    * 120
@@ -231,10 +256,14 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * Connected
    */
   sessionStatus?: string;
+  /**
+   * @remarks
+   * Terminal Info
+   */
   terminalInfo?: DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo;
   /**
    * @remarks
-   * The total duration of the sessions.
+   * The total duration of the sessions. Unit: seconds.
    * 
    * @example
    * 120

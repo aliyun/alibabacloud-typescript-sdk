@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyOfficeSiteDnsInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F7E4322D-D679-5ACB-A909-490D2F0E****
    */

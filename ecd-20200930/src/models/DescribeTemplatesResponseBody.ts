@@ -161,7 +161,15 @@ export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Mode
 }
 
 export class DescribeTemplatesResponseBodyDataSiteConfigList extends $dara.Model {
+  /**
+   * @example
+   * bwr-5a5371e0*******
+   */
   appRuleId?: string;
+  /**
+   * @example
+   * mainland
+   */
   siteId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -361,6 +369,10 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The templates.
+   */
   data?: DescribeTemplatesResponseBodyData[];
   /**
    * @example

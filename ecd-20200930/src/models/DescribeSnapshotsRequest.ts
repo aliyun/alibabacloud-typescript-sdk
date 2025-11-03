@@ -54,6 +54,10 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    * 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
    */
   nextToken?: string;
+  /**
+   * @example
+   * Windows
+   */
   osType?: string;
   /**
    * @remarks

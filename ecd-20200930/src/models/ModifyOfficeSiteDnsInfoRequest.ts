@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyOfficeSiteDnsInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP addresses of the custom DNS servers. Up to 2 IP addresses can be specified.
+   */
   dnsAddress?: string[];
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class ModifyOfficeSiteDnsInfoRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example

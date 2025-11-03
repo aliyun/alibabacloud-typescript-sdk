@@ -472,7 +472,15 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule
 }
 
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels extends $dara.Model {
+  /**
+   * @remarks
+   * The event severity.
+   */
   eventLevel?: string;
+  /**
+   * @remarks
+   * The event type.
+   */
   eventType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -632,6 +640,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   authorizeSecurityPolicyRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
   /**
+   * @remarks
+   * The automatic client connection recovery configurations.
+   * 
    * @example
    * off
    */
@@ -997,6 +1008,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   mobileRestart?: string;
   /**
+   * @remarks
+   * Indicates whether the Windows security control is enabled for mobile clients.
+   * 
    * @example
    * off
    */
@@ -1017,11 +1031,17 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   mobileShutdown?: string;
   /**
+   * @remarks
+   * Indicates whether the Cloud Computer Manager is enabled for mobile clients.
+   * 
    * @example
    * off
    */
   mobileWuyingKeeper?: string;
   /**
+   * @remarks
+   * Indicates whether the Xiaoying AI Assistant is enabled for mobile clients.
+   * 
    * @example
    * off
    */
@@ -1164,12 +1184,20 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 10
    */
   recordEventDuration?: number;
+  /**
+   * @remarks
+   * The screen recording file suffix.
+   */
   recordEventFileExts?: string[];
   /**
    * @remarks
    * The array of absolute paths of the monitored files in the screen recording audit policy.
    */
   recordEventFilePaths?: string[];
+  /**
+   * @remarks
+   * Indicates whether the screen recording event severity is enabled.
+   */
   recordEventLevels?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels[];
   /**
    * @remarks
@@ -1954,7 +1982,7 @@ export class DescribePolicyGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The cloud computer policies.
+   * The details of the cloud computer policies.
    */
   describePolicyGroups?: DescribePolicyGroupsResponseBodyDescribePolicyGroups[];
   /**
