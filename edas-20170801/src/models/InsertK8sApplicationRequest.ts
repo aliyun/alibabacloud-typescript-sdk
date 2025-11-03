@@ -655,6 +655,7 @@ export class InsertK8sApplicationRequest extends $dara.Model {
    * edas-app-01-image-secret
    */
   secretName?: string;
+  securityContext?: string;
   /**
    * @remarks
    * The configurations of services in a Kubernetes cluster.
@@ -882,6 +883,7 @@ export class InsertK8sApplicationRequest extends $dara.Model {
       resourceGroupId: 'ResourceGroupId',
       runtimeClassName: 'RuntimeClassName',
       secretName: 'SecretName',
+      securityContext: 'SecurityContext',
       serviceConfigs: 'ServiceConfigs',
       sidecars: 'Sidecars',
       slsConfigs: 'SlsConfigs',
@@ -972,6 +974,7 @@ export class InsertK8sApplicationRequest extends $dara.Model {
       resourceGroupId: 'string',
       runtimeClassName: 'string',
       secretName: 'string',
+      securityContext: 'string',
       serviceConfigs: 'string',
       sidecars: 'string',
       slsConfigs: 'string',

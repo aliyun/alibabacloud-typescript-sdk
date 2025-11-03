@@ -2342,6 +2342,10 @@ export default class Client extends OpenApi {
       query["RuntimeClassName"] = request.runtimeClassName;
     }
 
+    if (!$dara.isNull(request.securityContext)) {
+      query["SecurityContext"] = request.securityContext;
+    }
+
     if (!$dara.isNull(request.sidecars)) {
       query["Sidecars"] = request.sidecars;
     }
@@ -2516,6 +2520,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeApplicationScalingRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request - DescribeLocalitySettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLocalitySettingResponse
+   */
+  async describeLocalitySettingWithOptions(request: $_model.DescribeLocalitySettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLocalitySettingResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLocalitySetting",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: `/pop/sp/applications/locality/setting`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLocalitySettingResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLocalitySettingResponse({}));
+  }
+
+  /**
+   * @param request - DescribeLocalitySettingRequest
+   * @returns DescribeLocalitySettingResponse
+   */
+  async describeLocalitySetting(request: $_model.DescribeLocalitySettingRequest): Promise<$_model.DescribeLocalitySettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeLocalitySettingWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4474,6 +4527,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.secretName)) {
       query["SecretName"] = request.secretName;
+    }
+
+    if (!$dara.isNull(request.securityContext)) {
+      query["SecurityContext"] = request.securityContext;
     }
 
     if (!$dara.isNull(request.serviceConfigs)) {

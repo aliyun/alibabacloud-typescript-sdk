@@ -354,6 +354,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
    * 1024
    */
   requestMem?: number;
+  securityContext?: string;
   /**
    * @remarks
    * The configuration information about the Server Load Balancer (SLB).
@@ -435,6 +436,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
       requestCpuM: 'RequestCpuM',
       requestEphemeralStorage: 'RequestEphemeralStorage',
       requestMem: 'RequestMem',
+      securityContext: 'SecurityContext',
       slbInfo: 'SlbInfo',
       tomcatVersion: 'TomcatVersion',
       workloadType: 'WorkloadType',
@@ -475,6 +477,7 @@ export class GetK8sApplicationResponseBodyApplcationApp extends $dara.Model {
       requestCpuM: 'number',
       requestEphemeralStorage: 'string',
       requestMem: 'number',
+      securityContext: 'string',
       slbInfo: 'string',
       tomcatVersion: 'string',
       workloadType: 'string',

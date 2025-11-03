@@ -527,6 +527,7 @@ export class DeployK8sApplicationRequest extends $dara.Model {
    * runc
    */
   runtimeClassName?: string;
+  securityContext?: string;
   /**
    * @example
    * [
@@ -739,6 +740,7 @@ export class DeployK8sApplicationRequest extends $dara.Model {
       replicas: 'Replicas',
       requestsEphemeralStorage: 'RequestsEphemeralStorage',
       runtimeClassName: 'RuntimeClassName',
+      securityContext: 'SecurityContext',
       sidecars: 'Sidecars',
       slsConfigs: 'SlsConfigs',
       startup: 'Startup',
@@ -812,6 +814,7 @@ export class DeployK8sApplicationRequest extends $dara.Model {
       replicas: 'number',
       requestsEphemeralStorage: 'number',
       runtimeClassName: 'string',
+      securityContext: 'string',
       sidecars: 'string',
       slsConfigs: 'string',
       startup: 'string',

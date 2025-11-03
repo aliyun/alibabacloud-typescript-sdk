@@ -38,6 +38,7 @@ export { DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultTrigger
 export { DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultTrigger } from './DescribeApplicationScalingRulesResponseBody';
 export { DescribeApplicationScalingRulesResponseBodyAppScalingRulesResult } from './DescribeApplicationScalingRulesResponseBody';
 export { DescribeApplicationScalingRulesResponseBodyAppScalingRules } from './DescribeApplicationScalingRulesResponseBody';
+export { DescribeLocalitySettingResponseBodyData } from './DescribeLocalitySettingResponseBody';
 export { DisableApplicationScalingRuleResponseBodyAppScalingRuleMetricMetrics } from './DisableApplicationScalingRuleResponseBody';
 export { DisableApplicationScalingRuleResponseBodyAppScalingRuleMetric } from './DisableApplicationScalingRuleResponseBody';
 export { DisableApplicationScalingRuleResponseBodyAppScalingRuleTriggerTriggers } from './DisableApplicationScalingRuleResponseBody';
@@ -375,6 +376,9 @@ export { DescribeAppInstanceListResponse } from './DescribeAppInstanceListRespon
 export { DescribeApplicationScalingRulesRequest } from './DescribeApplicationScalingRulesRequest';
 export { DescribeApplicationScalingRulesResponseBody } from './DescribeApplicationScalingRulesResponseBody';
 export { DescribeApplicationScalingRulesResponse } from './DescribeApplicationScalingRulesResponse';
+export { DescribeLocalitySettingRequest } from './DescribeLocalitySettingRequest';
+export { DescribeLocalitySettingResponseBody } from './DescribeLocalitySettingResponseBody';
+export { DescribeLocalitySettingResponse } from './DescribeLocalitySettingResponse';
 export { DisableApplicationScalingRuleRequest } from './DisableApplicationScalingRuleRequest';
 export { DisableApplicationScalingRuleResponseBody } from './DisableApplicationScalingRuleResponseBody';
 export { DisableApplicationScalingRuleResponse } from './DisableApplicationScalingRuleResponse';
