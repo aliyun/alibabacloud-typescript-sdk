@@ -237,12 +237,18 @@ export default class Client extends OpenApi {
    * @remarks
    * *Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
    * 
-   * @param request - CreateInstanceRequest
+   * @param tmpReq - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
    */
-  async createInstanceWithOptions(request: $_model.CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
-    request.validate();
+  async createInstanceWithOptions(tmpReq: $_model.CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
@@ -334,6 +340,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.supportTracing)) {
       query["SupportTracing"] = request.supportTracing;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.tracingStorageTime)) {

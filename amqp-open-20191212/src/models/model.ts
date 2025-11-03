@@ -1,4 +1,5 @@
 export { CreateAccountResponseBodyData } from './CreateAccountResponseBody';
+export { CreateInstanceRequestTags } from './CreateInstanceRequest';
 export { GetInstanceResponseBodyDataTags } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyData } from './GetInstanceResponseBody';
 export { GetMetadataAmountResponseBodyData } from './GetMetadataAmountResponseBody';
@@ -32,6 +33,7 @@ export { CreateExchangeRequest } from './CreateExchangeRequest';
 export { CreateExchangeResponseBody } from './CreateExchangeResponseBody';
 export { CreateExchangeResponse } from './CreateExchangeResponse';
 export { CreateInstanceRequest } from './CreateInstanceRequest';
+export { CreateInstanceShrinkRequest } from './CreateInstanceShrinkRequest';
 export { CreateInstanceResponseBody } from './CreateInstanceResponseBody';
 export { CreateInstanceResponse } from './CreateInstanceResponse';
 export { CreateQueueRequest } from './CreateQueueRequest';

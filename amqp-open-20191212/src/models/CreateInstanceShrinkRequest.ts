@@ -2,41 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateInstanceRequestTags extends $dara.Model {
-  /**
-   * @example
-   * testKey
-   */
-  key?: string;
-  /**
-   * @example
-   * testValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequest extends $dara.Model {
+export class CreateInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
@@ -271,7 +237,7 @@ export class CreateInstanceRequest extends $dara.Model {
    * true
    */
   supportTracing?: boolean;
-  tags?: CreateInstanceRequestTags[];
+  tagsShrink?: string;
   /**
    * @remarks
    * The retention period of messages. Unit: days. Valid values:
@@ -311,7 +277,7 @@ export class CreateInstanceRequest extends $dara.Model {
       storageSize: 'StorageSize',
       supportEip: 'SupportEip',
       supportTracing: 'SupportTracing',
-      tags: 'Tags',
+      tagsShrink: 'Tags',
       tracingStorageTime: 'TracingStorageTime',
     };
   }
@@ -341,15 +307,12 @@ export class CreateInstanceRequest extends $dara.Model {
       storageSize: 'number',
       supportEip: 'boolean',
       supportTracing: 'boolean',
-      tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
+      tagsShrink: 'string',
       tracingStorageTime: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
-    }
     super.validate();
   }
 
