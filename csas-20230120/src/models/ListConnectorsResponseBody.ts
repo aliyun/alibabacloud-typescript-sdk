@@ -143,6 +143,7 @@ export class ListConnectorsResponseBodyConnectorsUpgradeTime extends $dara.Model
 }
 
 export class ListConnectorsResponseBodyConnectors extends $dara.Model {
+  accelerateStatus?: string;
   /**
    * @remarks
    * Collection of associated internal network access applications.
@@ -228,6 +229,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
   upgradeTime?: ListConnectorsResponseBodyConnectorsUpgradeTime;
   static names(): { [key: string]: string } {
     return {
+      accelerateStatus: 'AccelerateStatus',
       applications: 'Applications',
       clusterIP: 'ClusterIP',
       clusterPort: 'ClusterPort',
@@ -244,6 +246,7 @@ export class ListConnectorsResponseBodyConnectors extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accelerateStatus: 'string',
       applications: { 'type': 'array', 'itemType': ListConnectorsResponseBodyConnectorsApplications },
       clusterIP: 'string',
       clusterPort: 'string',
