@@ -95,8 +95,6 @@ export class DescribeSqlPatternRequest extends $dara.Model {
    * 
    * > Only data within the last 30 days can be queried.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 2021-08-30
    */
