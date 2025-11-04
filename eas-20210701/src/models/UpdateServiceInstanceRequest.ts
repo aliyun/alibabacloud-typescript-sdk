@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateServiceInstanceRequest extends $dara.Model {
+  hibernate?: boolean;
   /**
    * @remarks
    * Specifies whether to isolate the service instance. Valid values:
@@ -16,12 +17,14 @@ export class UpdateServiceInstanceRequest extends $dara.Model {
   isolate?: boolean;
   static names(): { [key: string]: string } {
     return {
+      hibernate: 'Hibernate',
       isolate: 'Isolate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hibernate: 'boolean',
       isolate: 'boolean',
     };
   }

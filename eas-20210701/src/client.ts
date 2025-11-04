@@ -4781,6 +4781,10 @@ export default class Client extends OpenApi {
   async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceInstanceResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hibernate)) {
+      body["Hibernate"] = request.hibernate;
+    }
+
     if (!$dara.isNull(request.isolate)) {
       body["Isolate"] = request.isolate;
     }
