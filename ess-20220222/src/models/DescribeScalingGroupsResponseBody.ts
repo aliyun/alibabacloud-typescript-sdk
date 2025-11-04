@@ -521,6 +521,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
    * priority
    */
   allocationStrategy?: string;
+  autoRebalance?: boolean;
   /**
    * @remarks
    * Indicates whether instances in the scaling group are evenly distributed across the specified zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
@@ -532,6 +533,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
    * false
    */
   azBalance?: boolean;
+  balanceMode?: string;
   /**
    * @remarks
    * The capacity options.
@@ -1026,7 +1028,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
       activeScalingConfigurationId: 'ActiveScalingConfigurationId',
       albServerGroups: 'AlbServerGroups',
       allocationStrategy: 'AllocationStrategy',
+      autoRebalance: 'AutoRebalance',
       azBalance: 'AzBalance',
+      balanceMode: 'BalanceMode',
       capacityOptions: 'CapacityOptions',
       compensateWithOnDemand: 'CompensateWithOnDemand',
       creationTime: 'CreationTime',
@@ -1094,7 +1098,9 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $dara.Model 
       activeScalingConfigurationId: 'string',
       albServerGroups: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups },
       allocationStrategy: 'string',
+      autoRebalance: 'boolean',
       azBalance: 'boolean',
+      balanceMode: 'string',
       capacityOptions: DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions,
       compensateWithOnDemand: 'boolean',
       creationTime: 'string',

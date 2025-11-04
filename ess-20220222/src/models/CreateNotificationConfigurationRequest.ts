@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateNotificationConfigurationRequest extends $dara.Model {
+  /**
+   * @example
+   * PlainText
+   */
   messageEncoding?: string;
   /**
    * @remarks

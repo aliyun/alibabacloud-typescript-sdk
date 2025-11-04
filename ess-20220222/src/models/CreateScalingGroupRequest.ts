@@ -654,6 +654,7 @@ export class CreateScalingGroupRequest extends $dara.Model {
    * priority
    */
   allocationStrategy?: string;
+  autoRebalance?: boolean;
   /**
    * @remarks
    * Specifies whether to evenly distribute instances in the scaling group across multiple zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
@@ -669,6 +670,7 @@ export class CreateScalingGroupRequest extends $dara.Model {
    * false
    */
   azBalance?: boolean;
+  balanceMode?: string;
   /**
    * @remarks
    * The capacity options.
@@ -1102,7 +1104,9 @@ export class CreateScalingGroupRequest extends $dara.Model {
     return {
       albServerGroups: 'AlbServerGroups',
       allocationStrategy: 'AllocationStrategy',
+      autoRebalance: 'AutoRebalance',
       azBalance: 'AzBalance',
+      balanceMode: 'BalanceMode',
       capacityOptions: 'CapacityOptions',
       clientToken: 'ClientToken',
       compensateWithOnDemand: 'CompensateWithOnDemand',
@@ -1154,7 +1158,9 @@ export class CreateScalingGroupRequest extends $dara.Model {
     return {
       albServerGroups: { 'type': 'array', 'itemType': CreateScalingGroupRequestAlbServerGroups },
       allocationStrategy: 'string',
+      autoRebalance: 'boolean',
       azBalance: 'boolean',
+      balanceMode: 'string',
       capacityOptions: CreateScalingGroupRequestCapacityOptions,
       clientToken: 'string',
       compensateWithOnDemand: 'boolean',

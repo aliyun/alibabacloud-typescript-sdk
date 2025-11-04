@@ -183,6 +183,7 @@ export class ModifyScalingGroupRequest extends $dara.Model {
    * priority
    */
   allocationStrategy?: string;
+  autoRebalance?: boolean;
   /**
    * @remarks
    * Specifies whether to evenly distribute instances in the scaling group across zones. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
@@ -196,6 +197,7 @@ export class ModifyScalingGroupRequest extends $dara.Model {
    * false
    */
   azBalance?: boolean;
+  balanceMode?: string;
   /**
    * @remarks
    * The capacity options.
@@ -491,7 +493,9 @@ export class ModifyScalingGroupRequest extends $dara.Model {
     return {
       activeScalingConfigurationId: 'ActiveScalingConfigurationId',
       allocationStrategy: 'AllocationStrategy',
+      autoRebalance: 'AutoRebalance',
       azBalance: 'AzBalance',
+      balanceMode: 'BalanceMode',
       capacityOptions: 'CapacityOptions',
       compensateWithOnDemand: 'CompensateWithOnDemand',
       customPolicyARN: 'CustomPolicyARN',
@@ -530,7 +534,9 @@ export class ModifyScalingGroupRequest extends $dara.Model {
     return {
       activeScalingConfigurationId: 'string',
       allocationStrategy: 'string',
+      autoRebalance: 'boolean',
       azBalance: 'boolean',
+      balanceMode: 'string',
       capacityOptions: ModifyScalingGroupRequestCapacityOptions,
       compensateWithOnDemand: 'boolean',
       customPolicyARN: 'string',
