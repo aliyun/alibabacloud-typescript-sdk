@@ -80,6 +80,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
    * The source IP addresses of the attacks.
    */
   attackIps?: string[];
+  attackerList?: string[];
   /**
    * @remarks
    * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
@@ -231,6 +232,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
       attackIp: 'AttackIp',
       attackIpInfo: 'AttackIpInfo',
       attackIps: 'AttackIps',
+      attackerList: 'AttackerList',
       endTs: 'EndTs',
       eventId: 'EventId',
       eventInfo: 'EventInfo',
@@ -260,6 +262,7 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
       attackIp: 'string',
       attackIpInfo: 'string',
       attackIps: { 'type': 'array', 'itemType': 'string' },
+      attackerList: { 'type': 'array', 'itemType': 'string' },
       endTs: 'number',
       eventId: 'string',
       eventInfo: 'string',
@@ -281,6 +284,9 @@ export class DescribeApisecEventsResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.attackIps)) {
       $dara.Model.validateArray(this.attackIps);
+    }
+    if(Array.isArray(this.attackerList)) {
+      $dara.Model.validateArray(this.attackerList);
     }
     super.validate();
   }

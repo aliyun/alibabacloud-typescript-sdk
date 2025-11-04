@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   /**
+   * @example
+   * admin
+   */
+  account?: string;
+  /**
    * @remarks
    * The API.
    * 
@@ -119,6 +124,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      account: 'Account',
       apiFormat: 'ApiFormat',
       clientIP: 'ClientIP',
       clusterId: 'ClusterId',
@@ -137,6 +143,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      account: 'string',
       apiFormat: 'string',
       clientIP: 'string',
       clusterId: 'string',

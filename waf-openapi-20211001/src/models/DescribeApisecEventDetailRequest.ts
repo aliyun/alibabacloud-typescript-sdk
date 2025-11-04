@@ -2,36 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMajorProtectionBlackIpV2Request extends $dara.Model {
+export class DescribeApisecEventDetailRequest extends $dara.Model {
   /**
    * @example
-   * Protection for major events
+   * 428
    */
-  description?: string;
+  clusterId?: string;
+  /**
+   * @example
+   * event_info
+   */
+  detailType?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1716528465
+   * 18ba94fea9***e66ba0557b7b91
    */
-  expiredTime?: number;
+  eventId?: string;
+  /**
+   * @example
+   * ip
+   */
+  eventScope?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * waf_v3prepaid_public_cn-2r42s6y****
+   * waf_elasticity-cn-0xldbqtm005
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 192.0.XX.XX,192.0.XX.XX/24
-   */
-  ipList?: string;
   /**
    * @example
    * cn-hangzhou
@@ -42,45 +44,27 @@ export class CreateMajorProtectionBlackIpV2Request extends $dara.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12399
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2221
-   */
-  templateId?: number;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      expiredTime: 'ExpiredTime',
+      clusterId: 'ClusterId',
+      detailType: 'DetailType',
+      eventId: 'EventId',
+      eventScope: 'EventScope',
       instanceId: 'InstanceId',
-      ipList: 'IpList',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
-      ruleId: 'RuleId',
-      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      expiredTime: 'number',
+      clusterId: 'string',
+      detailType: 'string',
+      eventId: 'string',
+      eventScope: 'string',
       instanceId: 'string',
-      ipList: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
-      ruleId: 'number',
-      templateId: 'number',
     };
   }
 

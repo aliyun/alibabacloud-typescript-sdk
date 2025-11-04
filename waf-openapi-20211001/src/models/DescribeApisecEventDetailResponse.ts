@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateMajorProtectionBlackIpV2ResponseBody } from "./CreateMajorProtectionBlackIpV2responseBody";
+import { DescribeApisecEventDetailResponseBody } from "./DescribeApisecEventDetailResponseBody";
 
 
-export class CreateMajorProtectionBlackIpV2Response extends $dara.Model {
+export class DescribeApisecEventDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: CreateMajorProtectionBlackIpV2ResponseBody;
+  body?: DescribeApisecEventDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class CreateMajorProtectionBlackIpV2Response extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CreateMajorProtectionBlackIpV2ResponseBody,
+      body: DescribeApisecEventDetailResponseBody,
     };
   }
 

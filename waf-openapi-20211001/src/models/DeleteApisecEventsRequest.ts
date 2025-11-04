@@ -20,6 +20,11 @@ export class DeleteApisecEventsRequest extends $dara.Model {
    */
   eventIds?: string[];
   /**
+   * @example
+   * ip
+   */
+  eventScope?: string;
+  /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
@@ -54,6 +59,7 @@ export class DeleteApisecEventsRequest extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       eventIds: 'EventIds',
+      eventScope: 'EventScope',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -64,6 +70,7 @@ export class DeleteApisecEventsRequest extends $dara.Model {
     return {
       clusterId: 'string',
       eventIds: { 'type': 'array', 'itemType': 'string' },
+      eventScope: 'string',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

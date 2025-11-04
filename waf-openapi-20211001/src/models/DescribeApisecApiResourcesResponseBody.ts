@@ -12,6 +12,11 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
    */
   abnormalNum?: number;
   /**
+   * @example
+   * 1
+   */
+  accountEventNum?: number;
+  /**
    * @remarks
    * The total number of calls to this API in the previous 30 days.
    * 
@@ -225,6 +230,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       abnormalNum: 'AbnormalNum',
+      accountEventNum: 'AccountEventNum',
       allCnt: 'AllCnt',
       apiFormat: 'ApiFormat',
       apiId: 'ApiId',
@@ -253,6 +259,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       abnormalNum: 'number',
+      accountEventNum: 'number',
       allCnt: 'number',
       apiFormat: 'string',
       apiId: 'string',

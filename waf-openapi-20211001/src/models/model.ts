@@ -245,9 +245,6 @@ export { CreateLogDeliveryConfigResponse } from './CreateLogDeliveryConfigRespon
 export { CreateMajorProtectionBlackIpRequest } from './CreateMajorProtectionBlackIpRequest';
 export { CreateMajorProtectionBlackIpResponseBody } from './CreateMajorProtectionBlackIpResponseBody';
 export { CreateMajorProtectionBlackIpResponse } from './CreateMajorProtectionBlackIpResponse';
-export { CreateMajorProtectionBlackIpV2Request } from './CreateMajorProtectionBlackIpV2request';
-export { CreateMajorProtectionBlackIpV2ResponseBody } from './CreateMajorProtectionBlackIpV2responseBody';
-export { CreateMajorProtectionBlackIpV2Response } from './CreateMajorProtectionBlackIpV2response';
 export { CreateMemberAccountsRequest } from './CreateMemberAccountsRequest';
 export { CreateMemberAccountsResponseBody } from './CreateMemberAccountsResponseBody';
 export { CreateMemberAccountsResponse } from './CreateMemberAccountsResponse';
@@ -323,6 +320,9 @@ export { DescribeApisecApiResourcesResponse } from './DescribeApisecApiResources
 export { DescribeApisecAssetTrendRequest } from './DescribeApisecAssetTrendRequest';
 export { DescribeApisecAssetTrendResponseBody } from './DescribeApisecAssetTrendResponseBody';
 export { DescribeApisecAssetTrendResponse } from './DescribeApisecAssetTrendResponse';
+export { DescribeApisecEventDetailRequest } from './DescribeApisecEventDetailRequest';
+export { DescribeApisecEventDetailResponseBody } from './DescribeApisecEventDetailResponseBody';
+export { DescribeApisecEventDetailResponse } from './DescribeApisecEventDetailResponse';
 export { DescribeApisecEventDomainStatisticRequest } from './DescribeApisecEventDomainStatisticRequest';
 export { DescribeApisecEventDomainStatisticResponseBody } from './DescribeApisecEventDomainStatisticResponseBody';
 export { DescribeApisecEventDomainStatisticResponse } from './DescribeApisecEventDomainStatisticResponse';

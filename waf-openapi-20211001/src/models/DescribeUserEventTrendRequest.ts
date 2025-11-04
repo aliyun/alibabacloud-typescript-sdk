@@ -13,6 +13,11 @@ export class DescribeUserEventTrendRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @example
+   * ip
+   */
+  eventScope?: string;
+  /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
@@ -46,6 +51,7 @@ export class DescribeUserEventTrendRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      eventScope: 'EventScope',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
@@ -55,6 +61,7 @@ export class DescribeUserEventTrendRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      eventScope: 'string',
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',

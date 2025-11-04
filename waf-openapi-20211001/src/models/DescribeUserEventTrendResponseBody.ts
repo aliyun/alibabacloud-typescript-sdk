@@ -34,6 +34,8 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
    * 
    * @example
    * 1723435200
+   * 
+   * @deprecated
    */
   timeStamp?: number;
   /**

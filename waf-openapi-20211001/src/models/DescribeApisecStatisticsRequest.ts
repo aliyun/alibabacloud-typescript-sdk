@@ -13,6 +13,10 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    * 428
    */
   clusterId?: string;
+  /**
+   * @example
+   * 4809859200000
+   */
   endTime?: number;
   /**
    * @remarks
@@ -46,6 +50,10 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    * rg-aek2***uwbs5q
    */
   resourceManagerResourceGroupId?: string;
+  /**
+   * @example
+   * 1668496310000
+   */
   startTime?: number;
   /**
    * @remarks

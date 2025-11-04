@@ -20,6 +20,11 @@ export class ModifyApisecEventsRequest extends $dara.Model {
    */
   eventIds?: string[];
   /**
+   * @example
+   * ip
+   */
+  eventScope?: string;
+  /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
@@ -76,6 +81,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       eventIds: 'EventIds',
+      eventScope: 'EventScope',
       instanceId: 'InstanceId',
       note: 'Note',
       regionId: 'RegionId',
@@ -88,6 +94,7 @@ export class ModifyApisecEventsRequest extends $dara.Model {
     return {
       clusterId: 'string',
       eventIds: { 'type': 'array', 'itemType': 'string' },
+      eventScope: 'string',
       instanceId: 'string',
       note: 'string',
       regionId: 'string',

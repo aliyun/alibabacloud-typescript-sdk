@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeApisecEventsRequest extends $dara.Model {
   /**
+   * @example
+   * 1818743389962696
+   */
+  account?: string;
+  /**
    * @remarks
    * The API.
    * 
@@ -75,6 +80,11 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * low
    */
   eventLevel?: string;
+  /**
+   * @example
+   * ip
+   */
+  eventScope?: string;
   /**
    * @remarks
    * The type of the event.
@@ -196,6 +206,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   userStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      account: 'Account',
       apiFormat: 'ApiFormat',
       apiId: 'ApiId',
       apiTag: 'ApiTag',
@@ -204,6 +215,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
       endTs: 'EndTs',
       eventId: 'EventId',
       eventLevel: 'EventLevel',
+      eventScope: 'EventScope',
       eventTag: 'EventTag',
       instanceId: 'InstanceId',
       matchedHost: 'MatchedHost',
@@ -221,6 +233,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      account: 'string',
       apiFormat: 'string',
       apiId: 'string',
       apiTag: 'string',
@@ -229,6 +242,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
       endTs: 'number',
       eventId: 'string',
       eventLevel: 'string',
+      eventScope: 'string',
       eventTag: 'string',
       instanceId: 'string',
       matchedHost: 'string',

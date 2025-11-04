@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  account?: number;
+  /**
    * @remarks
    * The number of handled events.
    * 
@@ -75,7 +80,15 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
    * 10
    */
   medium?: number;
+  /**
+   * @example
+   * 0
+   */
   notFixed?: number;
+  /**
+   * @example
+   * 1
+   */
   systemFixed?: number;
   /**
    * @remarks
@@ -93,6 +106,10 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
    * 10
    */
   toBeFixed?: number;
+  /**
+   * @example
+   * 2
+   */
   toBeVerified?: number;
   /**
    * @remarks
@@ -136,6 +153,7 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      account: 'Account',
       actioned: 'Actioned',
       api: 'Api',
       confirmed: 'Confirmed',
@@ -160,6 +178,7 @@ export class DescribeApisecStatisticsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      account: 'number',
       actioned: 'number',
       api: 'number',
       confirmed: 'number',

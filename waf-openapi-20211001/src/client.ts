@@ -1214,76 +1214,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加重保场景黑IP
-   * 
-   * @param request - CreateMajorProtectionBlackIpV2Request
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateMajorProtectionBlackIpV2Response
-   */
-  async createMajorProtectionBlackIpV2WithOptions(request: $_model.CreateMajorProtectionBlackIpV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMajorProtectionBlackIpV2Response> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.expiredTime)) {
-      query["ExpiredTime"] = request.expiredTime;
-    }
-
-    if (!$dara.isNull(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!$dara.isNull(request.ipList)) {
-      query["IpList"] = request.ipList;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
-      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
-    }
-
-    if (!$dara.isNull(request.ruleId)) {
-      query["RuleId"] = request.ruleId;
-    }
-
-    if (!$dara.isNull(request.templateId)) {
-      query["TemplateId"] = request.templateId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateMajorProtectionBlackIpV2",
-      version: "2021-10-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateMajorProtectionBlackIpV2Response>(await this.callApi(params, req, runtime), new $_model.CreateMajorProtectionBlackIpV2Response({}));
-  }
-
-  /**
-   * 添加重保场景黑IP
-   * 
-   * @param request - CreateMajorProtectionBlackIpV2Request
-   * @returns CreateMajorProtectionBlackIpV2Response
-   */
-  async createMajorProtectionBlackIpV2(request: $_model.CreateMajorProtectionBlackIpV2Request): Promise<$_model.CreateMajorProtectionBlackIpV2Response> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createMajorProtectionBlackIpV2WithOptions(request, runtime);
-  }
-
-  /**
    * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
    * 
    * @param request - CreateMemberAccountsRequest
@@ -1585,6 +1515,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventIds)) {
       query["EventIds"] = request.eventIds;
+    }
+
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -2862,6 +2796,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询安全事件详情
+   * 
+   * @param request - DescribeApisecEventDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecEventDetailResponse
+   */
+  async describeApisecEventDetailWithOptions(request: $_model.DescribeApisecEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApisecEventDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.detailType)) {
+      query["DetailType"] = request.detailType;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApisecEventDetail",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApisecEventDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApisecEventDetailResponse({}));
+  }
+
+  /**
+   * 查询安全事件详情
+   * 
+   * @param request - DescribeApisecEventDetailRequest
+   * @returns DescribeApisecEventDetailResponse
+   */
+  async describeApisecEventDetail(request: $_model.DescribeApisecEventDetailRequest): Promise<$_model.DescribeApisecEventDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApisecEventDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the statistics on domain names on which security events are detected by the API security module.
    * 
    * @param request - DescribeApisecEventDomainStatisticRequest
@@ -2945,6 +2945,10 @@ export default class Client extends OpenApi {
   async describeApisecEventsWithOptions(request: $_model.DescribeApisecEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApisecEventsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.account)) {
+      query["Account"] = request.account;
+    }
+
     if (!$dara.isNull(request.apiFormat)) {
       query["ApiFormat"] = request.apiFormat;
     }
@@ -2975,6 +2979,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventLevel)) {
       query["EventLevel"] = request.eventLevel;
+    }
+
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
     }
 
     if (!$dara.isNull(request.eventTag)) {
@@ -9597,6 +9605,10 @@ export default class Client extends OpenApi {
   async describeSensitiveRequestLogWithOptions(request: $_model.DescribeSensitiveRequestLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSensitiveRequestLogResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.account)) {
+      query["Account"] = request.account;
+    }
+
     if (!$dara.isNull(request.apiFormat)) {
       query["ApiFormat"] = request.apiFormat;
     }
@@ -10373,6 +10385,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -10429,6 +10445,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -11229,6 +11249,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.eventIds)) {
       query["EventIds"] = request.eventIds;
+    }
+
+    if (!$dara.isNull(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
     }
 
     if (!$dara.isNull(request.instanceId)) {
