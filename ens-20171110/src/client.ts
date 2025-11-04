@@ -8085,6 +8085,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.DescribeInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.eipAddresses)) {
+      request.eipAddressesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eipAddresses, "EipAddresses", "json");
+    }
+
     if (!$dara.isNull(tmpReq.serviceStatus)) {
       request.serviceStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceStatus, "ServiceStatus", "json");
     }
@@ -8094,6 +8098,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.eipAddressesShrink)) {
+      query["EipAddresses"] = request.eipAddressesShrink;
+    }
+
     if (!$dara.isNull(request.ensRegionId)) {
       query["EnsRegionId"] = request.ensRegionId;
     }

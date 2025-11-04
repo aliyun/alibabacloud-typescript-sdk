@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesShrinkRequest extends $dara.Model {
+  eipAddressesShrink?: string;
   /**
    * @remarks
    * The region ID.
@@ -174,6 +175,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      eipAddressesShrink: 'EipAddresses',
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
       ensServiceId: 'EnsServiceId',
@@ -199,6 +201,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eipAddressesShrink: 'string',
       ensRegionId: 'string',
       ensRegionIds: 'string',
       ensServiceId: 'string',

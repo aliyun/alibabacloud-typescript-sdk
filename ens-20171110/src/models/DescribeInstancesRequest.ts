@@ -43,6 +43,7 @@ export class DescribeInstancesRequestTags extends $dara.Model {
 }
 
 export class DescribeInstancesRequest extends $dara.Model {
+  eipAddresses?: string[];
   /**
    * @remarks
    * The region ID.
@@ -214,6 +215,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      eipAddresses: 'EipAddresses',
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
       ensServiceId: 'EnsServiceId',
@@ -239,6 +241,7 @@ export class DescribeInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      eipAddresses: { 'type': 'array', 'itemType': 'string' },
       ensRegionId: 'string',
       ensRegionIds: 'string',
       ensServiceId: 'string',
@@ -263,6 +266,9 @@ export class DescribeInstancesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.eipAddresses)) {
+      $dara.Model.validateArray(this.eipAddresses);
+    }
     if(Array.isArray(this.serviceStatus)) {
       $dara.Model.validateArray(this.serviceStatus);
     }
