@@ -35,6 +35,7 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $dara.Model {
    * 60
    */
   maxExecutionTime?: number;
+  maxExecutionTimeMs?: string;
   /**
    * @remarks
    * The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
@@ -121,6 +122,7 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $dara.Model {
       DBName: 'DBName',
       DBNodeId: 'DBNodeId',
       maxExecutionTime: 'MaxExecutionTime',
+      maxExecutionTimeMs: 'MaxExecutionTimeMs',
       maxLockTime: 'MaxLockTime',
       parseMaxRowCount: 'ParseMaxRowCount',
       parseTotalRowCounts: 'ParseTotalRowCounts',
@@ -140,6 +142,7 @@ export class DescribeSlowLogsResponseBodyItemsSQLSlowLog extends $dara.Model {
       DBName: 'string',
       DBNodeId: 'string',
       maxExecutionTime: 'number',
+      maxExecutionTimeMs: 'string',
       maxLockTime: 'number',
       parseMaxRowCount: 'number',
       parseTotalRowCounts: 'number',
