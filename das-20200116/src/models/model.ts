@@ -109,6 +109,7 @@ export { GetAutonomousNotifyEventsInRangeResponseBodyData } from './GetAutonomou
 export { GetBlockingDetailListResponseBodyDataList } from './GetBlockingDetailListResponseBody';
 export { GetBlockingDetailListResponseBodyData } from './GetBlockingDetailListResponseBody';
 export { GetDBInstanceConnectivityDiagnosisResponseBodyData } from './GetDbinstanceConnectivityDiagnosisResponseBody';
+export { GetDasAgentSSEResponseBodyMetadata } from './GetDasAgentSseresponseBody';
 export { GetDasProServiceUsageResponseBodyData } from './GetDasProServiceUsageResponseBody';
 export { GetDasSQLLogHotDataResponseBodyDataList } from './GetDasSqllogHotDataResponseBody';
 export { GetDasSQLLogHotDataResponseBodyData } from './GetDasSqllogHotDataResponseBody';
@@ -372,6 +373,9 @@ export { GetBlockingDetailListResponse } from './GetBlockingDetailListResponse';
 export { GetDBInstanceConnectivityDiagnosisRequest } from './GetDbinstanceConnectivityDiagnosisRequest';
 export { GetDBInstanceConnectivityDiagnosisResponseBody } from './GetDbinstanceConnectivityDiagnosisResponseBody';
 export { GetDBInstanceConnectivityDiagnosisResponse } from './GetDbinstanceConnectivityDiagnosisResponse';
+export { GetDasAgentSSERequest } from './GetDasAgentSserequest';
+export { GetDasAgentSSEResponseBody } from './GetDasAgentSseresponseBody';
+export { GetDasAgentSSEResponse } from './GetDasAgentSseresponse';
 export { GetDasProServiceUsageRequest } from './GetDasProServiceUsageRequest';
 export { GetDasProServiceUsageResponseBody } from './GetDasProServiceUsageResponseBody';
 export { GetDasProServiceUsageResponse } from './GetDasProServiceUsageResponse';

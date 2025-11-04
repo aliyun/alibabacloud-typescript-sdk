@@ -3651,6 +3651,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - GetDasAgentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDasAgentSSEResponse
+   */
+  async *getDasAgentSSEWithSSE(request: $_model.GetDasAgentSSERequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetDasAgentSSEResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDasAgentSSE",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.GetDasAgentSSEResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.GetDasAgentSSEResponse({}));
+    }
+  }
+
+  /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - GetDasAgentSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDasAgentSSEResponse
+   */
+  async getDasAgentSSEWithOptions(request: $_model.GetDasAgentSSERequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDasAgentSSEResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDasAgentSSE",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDasAgentSSEResponse>(await this.callApi(params, req, runtime), new $_model.GetDasAgentSSEResponse({}));
+  }
+
+  /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - GetDasAgentSSERequest
+   * @returns GetDasAgentSSEResponse
+   */
+  async getDasAgentSSE(request: $_model.GetDasAgentSSERequest): Promise<$_model.GetDasAgentSSEResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDasAgentSSEWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
    * 
    * @remarks
