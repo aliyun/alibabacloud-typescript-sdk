@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecognitionEntitiesResponseBodyEntitiesEntity extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the entity.
+   * 
    * @example
    * **************544cb84754************
    */
   entityId?: string;
   /**
+   * @remarks
+   * The additional information of the entity, in JSON format.
+   * 
    * @example
    * {}
    */
   entityInfo?: string;
+  /**
+   * @remarks
+   * The name of the entity.
+   */
   entityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,23 +76,39 @@ export class ListRecognitionEntitiesResponseBodyEntities extends $dara.Model {
 }
 
 export class ListRecognitionEntitiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The entities.
+   */
   entities?: ListRecognitionEntitiesResponseBodyEntities;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentDialoguesRequest extends $dara.Model {
   /**
    * @remarks
+   * Specify the end of the time range to query using a UNIX timestamp accurate to milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,16 +14,28 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
    */
   endTime?: number;
   /**
+   * @remarks
+   * The sorting order. Valid values: 
+   * 
+   * - DESC: descending order (default)
+   * - ASC: ascending order
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
@@ -29,6 +43,8 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   roundLimit?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +53,8 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * Specify the start of the time range to query using a UNIX timestamp accurate to milliseconds.
+   * 
    * This parameter is required.
    * 
    * @example

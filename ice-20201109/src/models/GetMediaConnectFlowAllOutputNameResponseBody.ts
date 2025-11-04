@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetMediaConnectFlowAllOutputNameResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response body, as an array of strings.
+   */
   content?: string[];
   /**
+   * @remarks
+   * The call description.
+   * 
    * @example
    * OK
    */
   description?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 559E9828-245D-5CBA-9C7A-4E01453F091F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned error code. A value of 0 indicates the call is successful.
+   * 
    * @example
    * 0
    */

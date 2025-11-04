@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStorageListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-****
    */
   appId?: string;
   /**
+   * @remarks
+   * The OSS storage status.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * vod_oss_bucket
    */

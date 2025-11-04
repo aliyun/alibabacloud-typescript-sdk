@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ForbidMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response body.
+   * 
    * @example
    * ""
    */
   content?: string;
   /**
+   * @remarks
+   * The call description.
+   * 
    * @example
    * OK
    */
   description?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1BCA0CFC-CBD4-5656-9D04-21B1FADBB92A
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned error code. A value of 0 indicates the call is successful.
+   * 
    * @example
    * 0
    */

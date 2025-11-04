@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitCopyrightJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * bfb786c63****f4d80648792021eff90
    */
@@ -30,21 +33,31 @@ export class SubmitCopyrightJobResponseBodyData extends $dara.Model {
 }
 
 export class SubmitCopyrightJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitCopyrightJobResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * FA258E67-09B8-4EAA-8F33-BA567834A2C3
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */

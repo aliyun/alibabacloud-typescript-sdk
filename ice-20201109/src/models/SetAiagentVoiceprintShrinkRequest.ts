@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetAIAgentVoiceprintShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The input file.
+   */
   inputShrink?: string;
   /**
+   * @remarks
+   * A unique identifier for the voiceprint. Generate this ID based on your own business rules. Requirement: 1 to 127 characters in length.
+   * 
    * @example
    * vp_1699123456_8527
    */

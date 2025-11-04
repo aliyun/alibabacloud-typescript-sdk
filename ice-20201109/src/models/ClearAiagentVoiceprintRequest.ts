@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ClearAIAgentVoiceprintRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier for the voiceprint.
+   * 
    * @example
    * vp_1699123456_8527
    */

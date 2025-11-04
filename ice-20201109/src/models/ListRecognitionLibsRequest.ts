@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecognitionLibsRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of recognition algorithm. Valid values:
+   * 
+   * *   landmark
+   * *   object
+   * *   logo
+   * *   face
+   * *   label
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +23,8 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +33,8 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 50.
+   * 
    * This parameter is required.
    * 
    * @example

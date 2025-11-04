@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRecognitionEntityRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of recognition algorithm associated with the entity. Valid values:
+   * 
+   * *   landmark
+   * *   object
+   * *   logo
+   * *   face
+   * *   label
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,8 @@ export class DeleteRecognitionEntityRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
+   * The ID of the entity to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +31,8 @@ export class DeleteRecognitionEntityRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
+   * The ID of the recognition library.
+   * 
    * This parameter is required.
    * 
    * @example

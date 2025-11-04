@@ -5,15 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecognitionLibRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of recognition algorithm. Valid values:
+   * 
+   * *   landmark
+   * *   object
+   * *   logo
+   * *   face
+   * *   label
+   * 
    * This parameter is required.
    * 
    * @example
    * landmark
    */
   algorithm?: string;
+  /**
+   * @remarks
+   * The description of the recognition library. Max length: 128 bytes.
+   */
   libDescription?: string;
   /**
    * @remarks
+   * The name of the recognition library. Max length: 64 bytes.
+   * 
    * This parameter is required.
    */
   libName?: string;

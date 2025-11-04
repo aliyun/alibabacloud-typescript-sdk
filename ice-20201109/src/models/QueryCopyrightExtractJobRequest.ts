@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCopyrightExtractJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The job ID. You can obtain the value of this parameter from the response of the SubmitCopyrightExtractJob operation.
+   * 
    * This parameter is required.
    * 
    * @example

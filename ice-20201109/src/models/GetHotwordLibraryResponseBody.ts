@@ -5,35 +5,54 @@ import { Hotword } from "./Hotword";
 
 export class GetHotwordLibraryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The time when the hotword library was created.
+   * 
    * @example
    * 2020-12-23T13:33:49Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The description of the hotword library.
+   * 
    * @example
    * 热词库描述
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the hotword library.
+   * 
    * @example
    * ****05512043f49f697f7425****
    */
   hotwordLibraryId?: string;
+  /**
+   * @remarks
+   * The hotword list.
+   */
   hotwords?: Hotword[];
   /**
+   * @remarks
+   * The name of the hotword library.
+   * 
    * @example
    * 热词库名称
    */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ****12e8864746a0a398****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The usage scenario of the hotword library.
+   * 
    * @example
    * ASR
    */

@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-****
    */
   appId?: string;
   /**
+   * @remarks
+   * The time when the configuration was created.
+   * 
    * @example
    * 2024-06-06T01:55:07Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * Indicates whether it is the default storage location.
+   * 
    * @example
    * true
    */
   defaultStorage?: boolean;
   /**
+   * @remarks
+   * Indicates whether temporary files created during editing processes are stored in this location.
+   * 
    * @example
    * false
    */
   editingTempFileStorage?: boolean;
   /**
+   * @remarks
+   * The time when the configuration was last modified.
+   * 
    * @example
    * 2024-06-06T03:07:07Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The file path.
+   * 
    * @example
    * your-path/
    */
   path?: string;
   /**
+   * @remarks
+   * The OSS storage status.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The bucket.
+   * 
    * @example
    * your-bucket
    */
   storageLocation?: string;
   /**
+   * @remarks
+   * The storage type.
+   * 
    * @example
    * vod_oss_bucket
    */
@@ -88,12 +115,16 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
 export class GetStorageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******73-8B78-5D86-A50C-49B96C******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The storage configurations.
+   */
   storageInfoList?: GetStorageListResponseBodyStorageInfoList[];
   static names(): { [key: string]: string } {
     return {

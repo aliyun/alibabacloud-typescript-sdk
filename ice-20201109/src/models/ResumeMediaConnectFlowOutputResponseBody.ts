@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResumeMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response body.
+   * 
    * @example
    * ""
    */
   content?: string;
   /**
+   * @remarks
+   * The call description.
+   * 
    * @example
    * OK
    */
   description?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned error code. A value of 0 indicates the call is successful.
+   * 
    * @example
    * 0
    */

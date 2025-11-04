@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitTraceAbJobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * bfb786c639894f4d80648792021e****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media ID.
+   * 
    * @example
    * bf53333264f4d80648792021e****
    */
@@ -37,21 +43,31 @@ export class SubmitTraceAbJobResponseBodyData extends $dara.Model {
 }
 
 export class SubmitTraceAbJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitTraceAbJobResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */

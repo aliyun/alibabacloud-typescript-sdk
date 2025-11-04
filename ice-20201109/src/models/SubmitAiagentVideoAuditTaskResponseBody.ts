@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAIAgentVideoAuditTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * **********fb04483915d4f2**********
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * **********-586A-AC29-742247******
    */

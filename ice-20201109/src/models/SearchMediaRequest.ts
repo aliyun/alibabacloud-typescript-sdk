@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaRequest extends $dara.Model {
   /**
+   * @example
+   * {}
+   */
+  customFilters?: string;
+  /**
    * @remarks
    * The ID of the entity.
    * 
@@ -59,6 +64,7 @@ export class SearchMediaRequest extends $dara.Model {
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
+      customFilters: 'CustomFilters',
       entityId: 'EntityId',
       match: 'Match',
       pageNo: 'PageNo',
@@ -71,6 +77,7 @@ export class SearchMediaRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customFilters: 'string',
       entityId: 'string',
       match: 'string',
       pageNo: 'number',

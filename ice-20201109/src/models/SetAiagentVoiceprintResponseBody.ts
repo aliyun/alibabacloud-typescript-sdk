@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetAIAgentVoiceprintResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 550e8400********55440000
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the registered voiceprint.
+   * 
    * @example
    * vp_1699123456_8527
    */

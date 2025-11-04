@@ -984,6 +984,11 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
    */
   aiRoughData?: SearchMediaResponseBodyMediaInfoListAiRoughData;
   /**
+   * @example
+   * {}
+   */
+  customFields?: string;
+  /**
    * @remarks
    * The information about the files.
    */
@@ -1006,6 +1011,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
     return {
       aiData: 'AiData',
       aiRoughData: 'AiRoughData',
+      customFields: 'CustomFields',
       fileInfoList: 'FileInfoList',
       indexStatusList: 'IndexStatusList',
       mediaBasicInfo: 'MediaBasicInfo',
@@ -1017,6 +1023,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
     return {
       aiData: SearchMediaResponseBodyMediaInfoListAiData,
       aiRoughData: SearchMediaResponseBodyMediaInfoListAiRoughData,
+      customFields: 'string',
       fileInfoList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListFileInfoList },
       indexStatusList: { 'type': 'array', 'itemType': SearchMediaResponseBodyMediaInfoListIndexStatusList },
       mediaBasicInfo: SearchMediaResponseBodyMediaInfoListMediaBasicInfo,

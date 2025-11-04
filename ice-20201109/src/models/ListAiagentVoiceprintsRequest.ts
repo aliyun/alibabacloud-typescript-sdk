@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAIAgentVoiceprintsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Value values: [1,100].
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * A unique identifier for the voiceprint. This parameter is optional. If provided, only the information for that ID is returned. If not specified, all voiceprints under the account are returned.
+   * 
    * @example
    * vp_1699123456_8527
    */

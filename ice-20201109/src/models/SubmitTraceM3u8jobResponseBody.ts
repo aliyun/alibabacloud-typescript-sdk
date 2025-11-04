@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitTraceM3u8JobResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * bfb786c639894f4d8064879202****
    */
@@ -30,8 +33,15 @@ export class SubmitTraceM3u8JobResponseBodyData extends $dara.Model {
 }
 
 export class SubmitTraceM3u8JobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitTraceM3u8JobResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * ok
    */

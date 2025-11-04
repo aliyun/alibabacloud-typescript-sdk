@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectExportJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the project export task.
+   * 
    * This parameter is required.
    * 
    * @example

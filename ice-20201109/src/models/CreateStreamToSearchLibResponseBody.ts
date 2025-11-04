@@ -4,24 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStreamToSearchLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: succeeded.
+   * *   false: failed.
+   * 
    * @example
    * true
    */

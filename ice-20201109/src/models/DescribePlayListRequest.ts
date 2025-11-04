@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePlayListRequest extends $dara.Model {
   /**
    * @remarks
+   * The beginning of the time range to query. By default, the system queries data of the current day.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribePlayListRequest extends $dara.Model {
   beginTs?: string;
   /**
    * @remarks
+   * The end of the time range to query. The time range cannot exceed 24 hours.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,33 @@ export class DescribePlayListRequest extends $dara.Model {
    */
   endTs?: string;
   /**
+   * @remarks
+   * The criteria by which the sorting is performed. Valid values:
+   * 
+   * - FirstFrameDuration
+   * - PlayDuration
+   * - VideoDuration
+   * - StuckDuration
+   * 
    * @example
    * FirstFrameDuration
    */
   orderName?: string;
   /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - DESC: descending order.
+   * - ASC: ascending order.
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
    * @remarks
+   * The page number. Default value: 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +59,8 @@ export class DescribePlayListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,16 +68,31 @@ export class DescribePlayListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The playback type. Valid value: 
+   * 
+   * - vod
+   * 
    * @example
    * vod
    */
   playType?: string;
   /**
+   * @remarks
+   * The playback status. Valid values:
+   * 
+   * - complete
+   * - playing
+   * - unusual: A playback error occurs.
+   * 
    * @example
    * complete
    */
   status?: string;
   /**
+   * @remarks
+   * The TraceId of the player.
+   * 
    * @example
    * 0bc5e70516766285805381012d271e
    */

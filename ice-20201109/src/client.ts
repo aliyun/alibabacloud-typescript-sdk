@@ -564,7 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标流媒资
+   * Adds tags for a specific live stream media asset.
    * 
    * @param request - AddStreamTagToSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 打标流媒资
+   * Adds tags for a specific live stream media asset.
    * 
    * @param request - AddStreamTagToSearchLibRequest
    * @returns AddStreamTagToSearchLibResponse
@@ -964,7 +964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消智能生产任务
+   * Cancels an intelligent production job.
    * 
    * @param request - CancelIProductionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -999,7 +999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消智能生产任务
+   * Cancels an intelligent production job.
    * 
    * @param request - CancelIProductionJobRequest
    * @returns CancelIProductionJobResponse
@@ -1010,7 +1010,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清除声纹ID对应的声纹
+   * Deletes a voiceprint based on its ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * ``````````
    * 
    * @param request - ClearAIAgentVoiceprintRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1041,7 +1045,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清除声纹ID对应的声纹
+   * Deletes a voiceprint based on its ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * ``````````
    * 
    * @param request - ClearAIAgentVoiceprintRequest
    * @returns ClearAIAgentVoiceprintResponse
@@ -1052,7 +1060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭MediaConnect实例的双流灾备功能
+   * Disables Source Failover for a MediaConnect flow.
+   * 
+   * @remarks
+   *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
    * 
    * @param request - CloseMediaConnectFlowFailoverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,7 +1094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭MediaConnect实例的双流灾备功能
+   * Disables Source Failover for a MediaConnect flow.
+   * 
+   * @remarks
+   *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
    * 
    * @param request - CloseMediaConnectFlowFailoverRequest
    * @returns CloseMediaConnectFlowFailoverResponse
@@ -1094,7 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭流媒资
+   * Stops the tagging and analysis process for a live stream media asset.
    * 
    * @param request - CloseStreamToSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,7 +1147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭流媒资
+   * Stops the tagging and analysis process for a live stream media asset.
    * 
    * @param request - CloseStreamToSearchLibRequest
    * @returns CloseStreamToSearchLibResponse
@@ -1586,7 +1600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词库
+   * Creates a hotword library.
    * 
    * @param tmpReq - CreateHotwordLibraryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1635,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建热词库
+   * Creates a hotword library.
    * 
    * @param request - CreateHotwordLibraryRequest
    * @returns CreateHotwordLibraryResponse
@@ -2452,7 +2466,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义实体
+   * Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2511,7 +2529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义实体
+   * Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionEntityRequest
    * @returns CreateRecognitionEntityResponse
@@ -2522,7 +2544,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义库。
+   * Creates a custom library to store the entity information for recognition.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2577,7 +2604,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义库。
+   * Creates a custom library to store the entity information for recognition.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionLibRequest
    * @returns CreateRecognitionLibResponse
@@ -2588,7 +2620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册自定义实体照片
+   * Adds a sample image or a text label to a specific entity within a recognition library.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2651,7 +2687,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册自定义实体照片
+   * Adds a sample image or a text label to a specific entity within a recognition library.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - CreateRecognitionSampleRequest
    * @returns CreateRecognitionSampleResponse
@@ -2872,7 +2912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建流媒资
+   * Registers a live stream as a media asset.
    * 
    * @param request - CreateStreamToSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2911,7 +2951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建流媒资
+   * Registers a live stream as a media asset.
    * 
    * @param request - CreateStreamToSearchLibRequest
    * @returns CreateStreamToSearchLibResponse
@@ -3290,7 +3330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体的对话历史记录。
+   * Deletes dialog records of an AI agent.
    * 
    * @param request - DeleteAIAgentDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,7 +3369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体的对话历史记录。
+   * Deletes dialog records of an AI agent.
    * 
    * @param request - DeleteAIAgentDialogueRequest
    * @returns DeleteAIAgentDialogueResponse
@@ -3810,7 +3850,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除热词词库
+   * Deletes a specified hotword library based on the ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to delete a specified hotword library.
+   * *   The delete operation is irreversible.
+   * *   You can create up to 100 hotword libraries in an account.
    * 
    * @param request - DeleteHotwordLibraryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3841,7 +3887,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除热词词库
+   * Deletes a specified hotword library based on the ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to delete a specified hotword library.
+   * *   The delete operation is irreversible.
+   * *   You can create up to 100 hotword libraries in an account.
    * 
    * @param request - DeleteHotwordLibraryRequest
    * @returns DeleteHotwordLibraryResponse
@@ -4896,7 +4948,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义库实体
+   * Deletes an entity from the specified custom recognition library.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4951,7 +5007,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义库实体
+   * Deletes an entity from the specified custom recognition library.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionEntityRequest
    * @returns DeleteRecognitionEntityResponse
@@ -4962,7 +5022,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义库
+   * Deletes a custom recognition library, including all entities and samples within it.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5013,7 +5077,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义库
+   * Deletes a custom recognition library, including all entities and samples within it.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionLibRequest
    * @returns DeleteRecognitionLibResponse
@@ -5024,7 +5092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体照片
+   * Deletes a sample for a custom entity.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionSampleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5083,7 +5155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体照片
+   * Deletes a sample for a custom entity.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - DeleteRecognitionSampleRequest
    * @returns DeleteRecognitionSampleResponse
@@ -5776,6 +5852,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+   * 
    * @param request - DescribePlayListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePlayListResponse
@@ -5837,6 +5915,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+   * 
    * @param request - DescribePlayListRequest
    * @returns DescribePlayListResponse
    */
@@ -6026,7 +6106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用某个MediaConnect实例的某个输出
+   * Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
    * 
    * @param request - ForbidMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6061,7 +6141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用某个MediaConnect实例的某个输出
+   * Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
    * 
    * @param request - ForbidMediaConnectFlowOutputRequest
    * @returns ForbidMediaConnectFlowOutputResponse
@@ -6244,7 +6324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成直播互动消息所需的token
+   * Generates the token required for interactive messaging.
    * 
    * @param request - GenerateMessageChatTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6287,7 +6367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成直播互动消息所需的token
+   * Generates the token required for interactive messaging.
    * 
    * @param request - GenerateMessageChatTokenRequest
    * @returns GenerateMessageChatTokenResponse
@@ -6295,6 +6375,48 @@ export default class Client extends OpenApi {
   async generateMessageChatToken(request: $_model.GenerateMessageChatTokenRequest): Promise<$_model.GenerateMessageChatTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateMessageChatTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a workflow task.
+   * 
+   * @param request - GetAIWorkflowTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIWorkflowTaskResponse
+   */
+  async getAIWorkflowTaskWithOptions(request: $_model.GetAIWorkflowTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIWorkflowTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIWorkflowTask",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAIWorkflowTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetAIWorkflowTaskResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a workflow task.
+   * 
+   * @param request - GetAIWorkflowTaskRequest
+   * @returns GetAIWorkflowTaskResponse
+   */
+  async getAIWorkflowTask(request: $_model.GetAIWorkflowTaskRequest): Promise<$_model.GetAIWorkflowTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAIWorkflowTaskWithOptions(request, runtime);
   }
 
   /**
@@ -7034,7 +7156,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热词词库
+   * Queries the information about a specified hotword library based on the ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
    * 
    * @param request - GetHotwordLibraryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7065,7 +7191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询热词词库
+   * Queries the information about a specified hotword library based on the ID.
+   * 
+   * @remarks
+   * ## [](#)
+   * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
    * 
    * @param request - GetHotwordLibraryRequest
    * @returns GetHotwordLibraryResponse
@@ -7568,7 +7698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MediaConnect可用的区域
+   * Retrieves all regions where MediaConnect is available.
    * 
    * @param request - GetMediaConnectAvailableRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7591,7 +7721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MediaConnect可用的区域
+   * Retrieves all regions where MediaConnect is available.
    * @returns GetMediaConnectAvailableRegionResponse
    */
   async getMediaConnectAvailableRegion(): Promise<$_model.GetMediaConnectAvailableRegionResponse> {
@@ -7650,7 +7780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个MediaConnect实例下的所有output的名字
+   * Retrieves the names of all outputs for a MediaConnect flow.
    * 
    * @param request - GetMediaConnectFlowAllOutputNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7681,7 +7811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个MediaConnect实例下的所有output的名字
+   * Retrieves the names of all outputs for a MediaConnect flow.
    * 
    * @param request - GetMediaConnectFlowAllOutputNameRequest
    * @returns GetMediaConnectFlowAllOutputNameResponse
@@ -8360,7 +8490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工程导出任务
+   * Queries the information of a project export task.
    * 
    * @param request - GetProjectExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8391,7 +8521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工程导出任务
+   * Queries the information of a project export task.
    * 
    * @param request - GetProjectExportJobRequest
    * @returns GetProjectExportJobResponse
@@ -8678,7 +8808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取存储地址列表
+   * Obtains storage configurations.
    * 
    * @param request - GetStorageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8717,7 +8847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取存储地址列表
+   * Obtains storage configurations.
    * 
    * @param request - GetStorageListRequest
    * @returns GetStorageListResponse
@@ -8728,7 +8858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询流媒资打标
+   * Retrieves tags of a live stream media asset.
    * 
    * @param request - GetStreamTagListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8791,7 +8921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询流媒资打标
+   * Retrieves tags of a live stream media asset.
    * 
    * @param request - GetStreamTagListRequest
    * @returns GetStreamTagListResponse
@@ -9386,7 +9516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体的对话历史记录。
+   * Lists the dialog records of an AI agent.
    * 
    * @param request - ListAIAgentDialoguesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9441,7 +9571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能体的对话历史记录。
+   * Lists the dialog records of an AI agent.
    * 
    * @param request - ListAIAgentDialoguesRequest
    * @returns ListAIAgentDialoguesResponse
@@ -9576,7 +9706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新回调配置
+   * Lists the registered voiceprints.
    * 
    * @param request - ListAIAgentVoiceprintsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9615,7 +9745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新回调配置
+   * Lists the registered voiceprints.
    * 
    * @param request - ListAIAgentVoiceprintsRequest
    * @returns ListAIAgentVoiceprintsResponse
@@ -10550,7 +10680,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有热词库的列表
+   * Queries hotword libraries that meet specific search conditions.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to get information about all hotword libraries that you created.
+   * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+   * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+   * *   The maximum number of entries returned for each request is 100. Default value: 10.
+   * *   Use `NextToken` for pagination.
    * 
    * @param request - ListHotwordLibrariesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10613,7 +10751,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询所有热词库的列表
+   * Queries hotword libraries that meet specific search conditions.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to get information about all hotword libraries that you created.
+   * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+   * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+   * *   The maximum number of entries returned for each request is 100. Default value: 10.
+   * *   Use `NextToken` for pagination.
    * 
    * @param request - ListHotwordLibrariesRequest
    * @returns ListHotwordLibrariesResponse
@@ -11282,7 +11428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MediaConvertJob 列表
+   * Retrieves MediaConvert tasks.
    * 
    * @param request - ListMediaConvertJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11337,7 +11483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MediaConvertJob 列表
+   * Retrieves MediaConvert tasks.
    * 
    * @param request - ListMediaConvertJobsRequest
    * @returns ListMediaConvertJobsResponse
@@ -11976,7 +12122,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库下实体列表
+   * Retrieves all entities in a specified recognition library. Pagination is supported.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - ListRecognitionEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12035,7 +12185,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库下实体列表
+   * Retrieves all entities in a specified recognition library. Pagination is supported.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - ListRecognitionEntitiesRequest
    * @returns ListRecognitionEntitiesResponse
@@ -12046,7 +12200,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库列表
+   * Retrieves all custom recognition libraries. Pagination is supported.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - ListRecognitionLibsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12101,7 +12259,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库列表
+   * Retrieves all custom recognition libraries. Pagination is supported.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+   * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
    * 
    * @param request - ListRecognitionLibsRequest
    * @returns ListRecognitionLibsResponse
@@ -12112,7 +12274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库实体的图片列表
+   * Retrieves all samples of a custom entity. Pagination is supported.
    * 
    * @param request - ListRecognitionSamplesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12175,7 +12337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义库实体的图片列表
+   * Retrieves all samples of a custom entity. Pagination is supported.
    * 
    * @param request - ListRecognitionSamplesRequest
    * @returns ListRecognitionSamplesResponse
@@ -13046,7 +13208,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作流任务实例列表
+   * Retrieves workflow tasks.
+   * 
+   * @remarks
+   * This API only returns data from the last 90 days.
    * 
    * @param request - ListWorkflowTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13101,7 +13266,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作流任务实例列表
+   * Retrieves workflow tasks.
+   * 
+   * @remarks
+   * This API only returns data from the last 90 days.
    * 
    * @param request - ListWorkflowTasksRequest
    * @returns ListWorkflowTasksResponse
@@ -13112,7 +13280,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启MediaConnect双流灾备
+   * Enables Source Failover for a MediaConnect flow.
+   * 
+   * @remarks
+   *   Before this operation, you must add a source to the flow.
+   * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
    * 
    * @param request - OpenMediaConnectFlowFailoverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13143,7 +13315,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启MediaConnect双流灾备
+   * Enables Source Failover for a MediaConnect flow.
+   * 
+   * @remarks
+   *   Before this operation, you must add a source to the flow.
+   * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
    * 
    * @param request - OpenMediaConnectFlowFailoverRequest
    * @returns OpenMediaConnectFlowFailoverResponse
@@ -13154,7 +13330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询版权水印提取任务
+   * Queries a job for extracting a copyright watermark.
    * 
    * @param request - QueryCopyrightExtractJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13185,7 +13361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询版权水印提取任务
+   * Queries a job for extracting a copyright watermark.
    * 
    * @param request - QueryCopyrightExtractJobRequest
    * @returns QueryCopyrightExtractJobResponse
@@ -13196,7 +13372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频版权水印任务列表
+   * Queries copyright watermarking jobs.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryCopyrightJobListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13247,7 +13426,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频版权水印任务列表
+   * Queries copyright watermarking jobs.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryCopyrightJobListRequest
    * @returns QueryCopyrightJobListResponse
@@ -13702,7 +13884,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频溯源水印ab流任务
+   * Queries A/B watermarking jobs.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryTraceAbJobListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13753,7 +13938,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频溯源水印ab流任务
+   * Queries A/B watermarking jobs.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryTraceAbJobListRequest
    * @returns QueryTraceAbJobListResponse
@@ -13764,7 +13952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询溯源水印提取任务
+   * Queries a job for extracting a trace watermark.
+   * 
+   * @remarks
+   * This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryTraceExtractJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13795,7 +13986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询溯源水印提取任务
+   * Queries a job for extracting a trace watermark.
+   * 
+   * @remarks
+   * This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - QueryTraceExtractJobRequest
    * @returns QueryTraceExtractJobResponse
@@ -13806,7 +14000,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频溯源水印m3u8任务
+   * Queries jobs for generating M3U8 files containing specific trace watermark information.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
    * 
    * @param request - QueryTraceM3u8JobListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13853,7 +14051,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频溯源水印m3u8任务
+   * Queries jobs for generating M3U8 files containing specific trace watermark information.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
    * 
    * @param request - QueryTraceM3u8JobListRequest
    * @returns QueryTraceM3u8JobListResponse
@@ -13864,7 +14066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频理解任务结果
+   * Retrieves the results of an AI analysis and processing task.
    * 
    * @param tmpReq - QueryVideoCognitionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13909,7 +14111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询视频理解任务结果
+   * Retrieves the results of an AI analysis and processing task.
    * 
    * @param request - QueryVideoCognitionJobRequest
    * @returns QueryVideoCognitionJobResponse
@@ -14132,7 +14334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复某个MediaConnect实例的某个输出
+   * Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
    * 
    * @param request - ResumeMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14167,7 +14369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复某个MediaConnect实例的某个输出
+   * Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
    * 
    * @param request - ResumeMediaConnectFlowOutputRequest
    * @returns ResumeMediaConnectFlowOutputResponse
@@ -14318,6 +14520,10 @@ export default class Client extends OpenApi {
   async searchMediaWithOptions(request: $_model.SearchMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customFilters)) {
+      query["CustomFilters"] = request.customFilters;
+    }
+
     if (!$dara.isNull(request.entityId)) {
       query["EntityId"] = request.entityId;
     }
@@ -14390,6 +14596,10 @@ export default class Client extends OpenApi {
   async searchMediaByAILabelWithOptions(request: $_model.SearchMediaByAILabelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaByAILabelResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customFilters)) {
+      query["CustomFilters"] = request.customFilters;
+    }
+
     if (!$dara.isNull(request.matchingMode)) {
       query["MatchingMode"] = request.matchingMode;
     }
@@ -14432,6 +14642,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.text)) {
       query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.utcCreate)) {
+      query["UtcCreate"] = request.utcCreate;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -14478,6 +14692,10 @@ export default class Client extends OpenApi {
   async searchMediaByFaceWithOptions(request: $_model.SearchMediaByFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaByFaceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customFilters)) {
+      query["CustomFilters"] = request.customFilters;
+    }
+
     if (!$dara.isNull(request.entityId)) {
       query["EntityId"] = request.entityId;
     }
@@ -14508,6 +14726,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.searchLibName)) {
       query["SearchLibName"] = request.searchLibName;
+    }
+
+    if (!$dara.isNull(request.utcCreate)) {
+      query["UtcCreate"] = request.utcCreate;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -14542,7 +14764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+   * Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
    * 
    * @param request - SearchMediaByHybridRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14551,6 +14773,10 @@ export default class Client extends OpenApi {
   async searchMediaByHybridWithOptions(request: $_model.SearchMediaByHybridRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaByHybridResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customFilters)) {
+      query["CustomFilters"] = request.customFilters;
+    }
+
     if (!$dara.isNull(request.mediaId)) {
       query["MediaId"] = request.mediaId;
     }
@@ -14579,6 +14805,10 @@ export default class Client extends OpenApi {
       query["Text"] = request.text;
     }
 
+    if (!$dara.isNull(request.utcCreate)) {
+      query["UtcCreate"] = request.utcCreate;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14597,7 +14827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+   * Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
    * 
    * @param request - SearchMediaByHybridRequest
    * @returns SearchMediaByHybridResponse
@@ -14620,6 +14850,10 @@ export default class Client extends OpenApi {
   async searchMediaByMultimodalWithOptions(request: $_model.SearchMediaByMultimodalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMediaByMultimodalResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customFilters)) {
+      query["CustomFilters"] = request.customFilters;
+    }
+
     if (!$dara.isNull(request.mediaType)) {
       query["MediaType"] = request.mediaType;
     }
@@ -14642,6 +14876,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.text)) {
       query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.utcCreate)) {
+      query["UtcCreate"] = request.utcCreate;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -14928,7 +15166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 传入消息作为LLM输入。
+   * Sends a message as input to the large language model (LLM).
    * 
    * @param request - SendAIAgentTextRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14963,7 +15201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 传入消息作为LLM输入。
+   * Sends a message as input to the large language model (LLM).
    * 
    * @param request - SendAIAgentTextRequest
    * @returns SendAIAgentTextResponse
@@ -15066,7 +15304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向IM客户端发送消息。
+   * Sends a message to the client.
    * 
    * @param request - SendMessageChatTextRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15121,7 +15359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向IM客户端发送消息。
+   * Sends a message to the client.
    * 
    * @param request - SendMessageChatTextRequest
    * @returns SendMessageChatTextResponse
@@ -15132,7 +15370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置声纹
+   * Registers a voiceprint.
    * 
    * @param tmpReq - SetAIAgentVoiceprintRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15173,7 +15411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置声纹
+   * Registers a voiceprint.
    * 
    * @param request - SetAIAgentVoiceprintRequest
    * @returns SetAIAgentVoiceprintResponse
@@ -15624,6 +15862,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates a workflow task for automated media processing based on a workflow template.
+   * 
+   * @remarks
+   *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+   * 
+   * @param request - StartAIWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAIWorkflowResponse
+   */
+  async startAIWorkflowWithOptions(request: $_model.StartAIWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartAIWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dispatchTag)) {
+      query["DispatchTag"] = request.dispatchTag;
+    }
+
+    if (!$dara.isNull(request.inputs)) {
+      query["Inputs"] = request.inputs;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAIWorkflow",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartAIWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.StartAIWorkflowResponse({}));
+  }
+
+  /**
+   * Initiates a workflow task for automated media processing based on a workflow template.
+   * 
+   * @remarks
+   *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+   * 
+   * @param request - StartAIWorkflowRequest
+   * @returns StartAIWorkflowResponse
+   */
+  async startAIWorkflow(request: $_model.StartAIWorkflowRequest): Promise<$_model.StartAIWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startAIWorkflowWithOptions(request, runtime);
+  }
+
+  /**
    * Starts a channel.
    * 
    * @param request - StartChannelRequest
@@ -15900,6 +16198,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually stops a workflow task.
+   * 
+   * @remarks
+   * This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+   * 
+   * @param request - StopAIWorkflowTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAIWorkflowTaskResponse
+   */
+  async stopAIWorkflowTaskWithOptions(request: $_model.StopAIWorkflowTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopAIWorkflowTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAIWorkflowTask",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopAIWorkflowTaskResponse>(await this.callApi(params, req, runtime), new $_model.StopAIWorkflowTaskResponse({}));
+  }
+
+  /**
+   * Manually stops a workflow task.
+   * 
+   * @remarks
+   * This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+   * 
+   * @param request - StopAIWorkflowTaskRequest
+   * @returns StopAIWorkflowTaskResponse
+   */
+  async stopAIWorkflowTask(request: $_model.StopAIWorkflowTaskRequest): Promise<$_model.StopAIWorkflowTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopAIWorkflowTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Stops a MediaWeaver channel.
    * 
    * @param request - StopChannelRequest
@@ -16034,7 +16380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频送审任务
+   * Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+   * 
+   * @remarks
+   * Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
    * 
    * @param tmpReq - SubmitAIAgentVideoAuditTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16099,7 +16448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频送审任务
+   * Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+   * 
+   * @remarks
+   * Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
    * 
    * @param request - SubmitAIAgentVideoAuditTaskRequest
    * @returns SubmitAIAgentVideoAuditTaskResponse
@@ -16284,7 +16636,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+   * Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+   * 
+   * @remarks
+   * - The input supports only text or a human voice audio file in MP3 or WAV format.
+   * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+   * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
    * 
    * @param request - SubmitAvatarVideoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16335,7 +16692,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+   * Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+   * 
+   * @remarks
+   * - The input supports only text or a human voice audio file in MP3 or WAV format.
+   * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+   * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
    * 
    * @param request - SubmitAvatarVideoJobRequest
    * @returns SubmitAvatarVideoJobResponse
@@ -16410,7 +16772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交版权水印提取作业
+   * Submits a job that extracts a copyright watermark.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param tmpReq - SubmitCopyrightExtractJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16455,7 +16820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交版权水印提取作业
+   * Submits a job that extracts a copyright watermark.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - SubmitCopyrightExtractJobRequest
    * @returns SubmitCopyrightExtractJobResponse
@@ -16466,7 +16834,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交版权水印任务
+   * Submits a job for adding a copyright watermark to a video.
+   * 
+   * @remarks
+   *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+   * *   Each API call supports processing only one video.
+   * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param tmpReq - SubmitCopyrightJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16539,7 +16912,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交版权水印任务
+   * Submits a job for adding a copyright watermark to a video.
+   * 
+   * @remarks
+   *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+   * *   Each API call supports processing only one video.
+   * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
    * 
    * @param request - SubmitCopyrightJobRequest
    * @returns SubmitCopyrightJobResponse
@@ -17802,7 +18180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交工程导出任务
+   * Submits a project export task.
    * 
    * @param request - SubmitProjectExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17851,7 +18229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交工程导出任务
+   * Submits a project export task.
    * 
    * @param request - SubmitProjectExportJobRequest
    * @returns SubmitProjectExportJobResponse
@@ -17859,6 +18237,74 @@ export default class Client extends OpenApi {
   async submitProjectExportJob(request: $_model.SubmitProjectExportJobRequest): Promise<$_model.SubmitProjectExportJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitProjectExportJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+   * 
+   * @remarks
+   *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+   * - The feature is in public preview and charges no fees.
+   * 
+   * @param request - SubmitSceneMediaSelectionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSceneMediaSelectionJobResponse
+   */
+  async submitSceneMediaSelectionJobWithOptions(request: $_model.SubmitSceneMediaSelectionJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSceneMediaSelectionJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.editingConfig)) {
+      body["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!$dara.isNull(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSceneMediaSelectionJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSceneMediaSelectionJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSceneMediaSelectionJobResponse({}));
+  }
+
+  /**
+   * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+   * 
+   * @remarks
+   *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+   * - The feature is in public preview and charges no fees.
+   * 
+   * @param request - SubmitSceneMediaSelectionJobRequest
+   * @returns SubmitSceneMediaSelectionJobResponse
+   */
+  async submitSceneMediaSelectionJob(request: $_model.SubmitSceneMediaSelectionJobRequest): Promise<$_model.SubmitSceneMediaSelectionJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSceneMediaSelectionJobWithOptions(request, runtime);
   }
 
   /**
@@ -17918,7 +18364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交拆条任务
+   * Splits a long video into multiple video clips and outputs as video files or media assets.
    * 
    * @param request - SubmitSegmentationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17967,7 +18413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交拆条任务
+   * Splits a long video into multiple video clips and outputs as video files or media assets.
    * 
    * @param request - SubmitSegmentationJobRequest
    * @returns SubmitSegmentationJobResponse
@@ -18394,7 +18840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频溯源水印ab流任务
+   * Submits an A/B watermarking job.
+   * 
+   * @remarks
+   *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
    * 
    * @param tmpReq - SubmitTraceAbJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18459,7 +18908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频溯源水印ab流任务
+   * Submits an A/B watermarking job.
+   * 
+   * @remarks
+   *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
    * 
    * @param request - SubmitTraceAbJobRequest
    * @returns SubmitTraceAbJobResponse
@@ -18470,7 +18922,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交溯源水印提取任务
+   * Submits a job to extract the trace watermark.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
    * 
    * @param tmpReq - SubmitTraceExtractJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18515,7 +18971,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交溯源水印提取任务
+   * Submits a job to extract the trace watermark.
+   * 
+   * @remarks
+   *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
    * 
    * @param request - SubmitTraceExtractJobRequest
    * @returns SubmitTraceExtractJobResponse
@@ -18526,7 +18986,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频溯源水印m3u8文件任务
+   * Submits a job that generates an M3U8 file containing specific trace watermark information.
+   * 
+   * @remarks
+   *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+   * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
    * 
    * @param tmpReq - SubmitTraceM3u8JobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18579,7 +19044,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频溯源水印m3u8文件任务
+   * Submits a job that generates an M3U8 file containing specific trace watermark information.
+   * 
+   * @remarks
+   *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+   * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+   * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
    * 
    * @param request - SubmitTraceM3u8JobRequest
    * @returns SubmitTraceM3u8JobResponse
@@ -18666,7 +19136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频理解任务
+   * Submits a video for AI analysis and processing.
    * 
    * @param tmpReq - SubmitVideoCognitionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18719,7 +19189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交视频理解任务
+   * Submits a video for AI analysis and processing.
    * 
    * @param request - SubmitVideoCognitionJobRequest
    * @returns SubmitVideoCognitionJobResponse
@@ -19366,7 +19836,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热词库
+   * Modifies a specified hotword library, including its name, description, and hotword list.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to modify a specified hotword library.
+   * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+   * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+   * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+   * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
    * 
    * @param tmpReq - UpdateHotwordLibraryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19415,7 +19893,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新热词库
+   * Modifies a specified hotword library, including its name, description, and hotword list.
+   * 
+   * @remarks
+   * ## [](#)
+   * *   You can call this operation to modify a specified hotword library.
+   * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+   * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+   * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+   * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
    * 
    * @param request - UpdateHotwordLibraryRequest
    * @returns UpdateHotwordLibraryResponse

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecognitionEntitiesRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of recognition algorithm associated with the entity. Valid values:
+   * 
+   * *   landmark
+   * *   object
+   * *   logo
+   * *   face
+   * *   label
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,8 @@ export class ListRecognitionEntitiesRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
+   * The ID of the recognition library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +33,8 @@ export class ListRecognitionEntitiesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +43,8 @@ export class ListRecognitionEntitiesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: 1 to 50.
+   * 
    * This parameter is required.
    * 
    * @example

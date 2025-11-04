@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageChatTextRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,29 @@ export class SendMessageChatTextRequest extends $dara.Model {
    */
   AIAgentId?: string;
   /**
+   * @remarks
+   * The mode of message sending. Valid values:
+   * - online
+   * - offline
+   * 
+   * Default value: offline.
+   * 
    * @example
    * online
    */
   mode?: string;
   /**
+   * @remarks
+   * Specifies whether to archive chat records. Default value: true.
+   * 
    * @example
    * true
    */
   needArchiving?: boolean;
   /**
    * @remarks
+   * The ID of the user who receives the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +45,8 @@ export class SendMessageChatTextRequest extends $dara.Model {
   receiverId?: string;
   /**
    * @remarks
+   * The ID of the session.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,11 +55,21 @@ export class SendMessageChatTextRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * The content of the message.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Hello
    */
   text?: string;
   /**
    * @remarks
+   * The type of the message. Valid values:
+   * 
+   * - announcement: notification.
+   * - custom: custom message.
+   * 
    * This parameter is required.
    * 
    * @example

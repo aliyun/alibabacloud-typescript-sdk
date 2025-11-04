@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelIProductionJobRequest extends $dara.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the intelligent production job.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCopyrightJobListResponseBodyDataInput extends $dara.Model {
   /**
+   * @remarks
+   * The specific input information.
+   * 
    * @example
    * oss://bucket/object
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -38,11 +47,20 @@ export class QueryCopyrightJobListResponseBodyDataInput extends $dara.Model {
 
 export class QueryCopyrightJobListResponseBodyDataOutput extends $dara.Model {
   /**
+   * @remarks
+   * The specific output information.
+   * 
    * @example
    * oss://bucket/object
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -72,48 +90,83 @@ export class QueryCopyrightJobListResponseBodyDataOutput extends $dara.Model {
 
 export class QueryCopyrightJobListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the job.
+   * 
    * @example
    * 1627357322
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The last modification time of the job.
+   * 
    * @example
    * 1627357322
    */
   gmtModified?: number;
+  /**
+   * @remarks
+   * Information about the input video for watermarking.
+   */
   input?: QueryCopyrightJobListResponseBodyDataInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * bfb786c639894f4d80648792021****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The watermark level.
+   * 
    * @example
    * 2
    */
   level?: number;
   /**
+   * @remarks
+   * The content of the embedded watermark.
+   * 
    * @example
    * test
    */
   message?: string;
+  /**
+   * @remarks
+   * Information about the watermarked output video.
+   */
   output?: QueryCopyrightJobListResponseBodyDataOutput;
   /**
+   * @remarks
+   * The job result.
+   * 
    * @example
    * {"Code":"success","Message":"ok"}
    */
   result?: string;
   /**
+   * @remarks
+   * The status of the job.
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * 123
    */
   userData?: string;
   /**
+   * @remarks
+   * The ID of the user who initiated the job.
+   * 
    * @example
    * 1346693***
    */
@@ -166,21 +219,31 @@ export class QueryCopyrightJobListResponseBodyData extends $dara.Model {
 }
 
 export class QueryCopyrightJobListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryCopyrightJobListResponseBodyData[];
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */

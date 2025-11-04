@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByFaceRequest extends $dara.Model {
   /**
+   * @example
+   * {}
+   */
+  customFilters?: string;
+  /**
    * @remarks
    * The ID of the entity.
    * 
@@ -67,8 +72,14 @@ export class SearchMediaByFaceRequest extends $dara.Model {
    * test1
    */
   searchLibName?: string;
+  /**
+   * @example
+   * {}
+   */
+  utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
+      customFilters: 'CustomFilters',
       entityId: 'EntityId',
       faceSearchToken: 'FaceSearchToken',
       mediaType: 'MediaType',
@@ -77,11 +88,13 @@ export class SearchMediaByFaceRequest extends $dara.Model {
       pageSize: 'PageSize',
       personImageUrl: 'PersonImageUrl',
       searchLibName: 'SearchLibName',
+      utcCreate: 'UtcCreate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customFilters: 'string',
       entityId: 'string',
       faceSearchToken: 'string',
       mediaType: 'string',
@@ -90,6 +103,7 @@ export class SearchMediaByFaceRequest extends $dara.Model {
       pageSize: 'number',
       personImageUrl: 'string',
       searchLibName: 'string',
+      utcCreate: 'string',
     };
   }
 

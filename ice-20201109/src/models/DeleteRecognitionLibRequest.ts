@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRecognitionLibRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of recognition algorithm. Valid values:
+   * 
+   * *   landmark
+   * *   object
+   * *   logo
+   * *   face
+   * *   label
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,8 @@ export class DeleteRecognitionLibRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
+   * The ID of the recognition library.
+   * 
    * This parameter is required.
    * 
    * @example

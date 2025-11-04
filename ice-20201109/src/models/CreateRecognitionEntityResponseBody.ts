@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateRecognitionEntityResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the created entity.
+   * 
    * @example
    * **************544cb84754************
    */
   entityId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */

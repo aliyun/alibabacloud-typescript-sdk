@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchMediaByAILabelRequest extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  customFilters?: string;
   matchingMode?: string;
   /**
    * @remarks
@@ -89,8 +94,14 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
    * The content that you want to query.
    */
   text?: string;
+  /**
+   * @example
+   * {}
+   */
+  utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
+      customFilters: 'CustomFilters',
       matchingMode: 'MatchingMode',
       mediaId: 'MediaId',
       mediaType: 'MediaType',
@@ -102,11 +113,13 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
       sortBy: 'SortBy',
       specificSearch: 'SpecificSearch',
       text: 'Text',
+      utcCreate: 'UtcCreate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customFilters: 'string',
       matchingMode: 'string',
       mediaId: 'string',
       mediaType: 'string',
@@ -118,6 +131,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
       sortBy: 'string',
       specificSearch: 'boolean',
       text: 'string',
+      utcCreate: 'string',
     };
   }
 

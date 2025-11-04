@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The trace watermark information.
+   */
   trace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,21 +30,31 @@ export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
 }
 
 export class QueryTraceExtractJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryTraceExtractJobResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */

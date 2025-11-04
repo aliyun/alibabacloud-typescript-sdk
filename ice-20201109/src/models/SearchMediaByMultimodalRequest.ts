@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByMultimodalRequest extends $dara.Model {
   /**
+   * @example
+   * {}
+   */
+  customFilters?: string;
+  /**
    * @remarks
    * The type of the media assets.
    * 
@@ -46,25 +51,34 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
    * The content that you want to query. You can describe the content in natural language.
    */
   text?: string;
+  /**
+   * @example
+   * {}
+   */
+  utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
+      customFilters: 'CustomFilters',
       mediaType: 'MediaType',
       namespace: 'Namespace',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       searchLibName: 'SearchLibName',
       text: 'Text',
+      utcCreate: 'UtcCreate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customFilters: 'string',
       mediaType: 'string',
       namespace: 'string',
       pageNo: 'number',
       pageSize: 'number',
       searchLibName: 'string',
       text: 'string',
+      utcCreate: 'string',
     };
   }
 

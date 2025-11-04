@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitAvatarVideoJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * ******70dcc471edaf00e6f6f4******
    */
   mediaId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

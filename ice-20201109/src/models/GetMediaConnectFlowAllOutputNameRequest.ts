@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectFlowAllOutputNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the MediaConnect flow.
+   * 
    * This parameter is required.
    * 
    * @example

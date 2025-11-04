@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryCopyrightExtractJobResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The copyright watermark information.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,21 +30,31 @@ export class QueryCopyrightExtractJobResponseBodyData extends $dara.Model {
 }
 
 export class QueryCopyrightExtractJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryCopyrightExtractJobResponseBodyData;
   /**
+   * @remarks
+   * The message returned.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */

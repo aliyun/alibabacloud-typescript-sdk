@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SendMessageChatTextResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */

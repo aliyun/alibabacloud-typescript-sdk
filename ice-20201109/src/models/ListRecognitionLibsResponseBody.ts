@@ -3,12 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecognitionLibsResponseBodyLibsLib extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the recognition library.
+   */
   libDescription?: string;
   /**
+   * @remarks
+   * The ID of the recognition library.
+   * 
    * @example
    * *************24b47865c6**************
    */
   libId?: string;
+  /**
+   * @remarks
+   * The name of the recognition library.
+   */
   libName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,23 +73,39 @@ export class ListRecognitionLibsResponseBodyLibs extends $dara.Model {
 }
 
 export class ListRecognitionLibsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The recognition libraries.
+   */
   libs?: ListRecognitionLibsResponseBodyLibs;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 180
    */

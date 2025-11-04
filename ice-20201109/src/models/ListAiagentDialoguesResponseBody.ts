@@ -40,6 +40,9 @@ export class ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList extends $
 export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   attachedFileList?: ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList[];
   /**
+   * @remarks
+   * The unique ID of the dialog.
+   * 
    * @example
    * 19de81b3b3d94abda22****
    */
@@ -47,23 +50,79 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
   extend?: string;
   nodeId?: string;
   /**
+   * @remarks
+   * The speaker. Valid values: 
+   * 
+   * - user
+   * - agent
+   * 
    * @example
    * user
    */
   producer?: string;
+  /**
+   * @remarks
+   * The reasoning trace.
+   * 
+   * @example
+   * I\\"m thinking
+   */
   reasoningText?: string;
   /**
+   * @remarks
+   * The ID of the conversational turn.
+   * 
    * @example
    * f27f9b9be28642a88e18****
    */
   roundId?: string;
+  /**
+   * @remarks
+   * The source of the message. Valid values:
+   * 
+   * chat: messaging conversations.
+   * 
+   * call: voice calls.
+   * 
+   * @example
+   * chat
+   */
   source?: string;
+  /**
+   * @remarks
+   * The specific content.
+   * 
+   * @example
+   * Hello
+   */
   text?: string;
   /**
+   * @remarks
+   * The UNIX timestamp, measured in milliseconds, which indicates the time when the message was generated.
+   * 
    * @example
    * 1734511087000
    */
   time?: number;
+  /**
+   * @remarks
+   * The message type. Valid values:
+   * 
+   * Voice calls:
+   * 
+   * 1.  greeting: the welcome message.
+   * 2.  normal: the voice response.
+   * 3.  speech: the proactive message.
+   * 
+   * Messaging conversations:
+   * 
+   * 1.  normal: the text reply.
+   * 2.  announcement: the proactive text message.
+   * 3.  custom: the custom message.
+   * 
+   * @example
+   * announcement
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -110,8 +169,15 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
 }
 
 export class ListAIAgentDialoguesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The dialog records.
+   */
   dialogues?: ListAIAgentDialoguesResponseBodyDialogues[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-***************
    */

@@ -4,9 +4,15 @@ import { MediaConvertJobWithoutDetail } from "./MediaConvertJobWithoutDetail";
 
 
 export class ListMediaConvertJobsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The tasks.
+   */
   jobs?: MediaConvertJobWithoutDetail[];
   /**
    * @remarks
+   * Indicates the read position returned by the current call. An empty value means all data has been read.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,7 +21,7 @@ export class ListMediaConvertJobsResponseBody extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

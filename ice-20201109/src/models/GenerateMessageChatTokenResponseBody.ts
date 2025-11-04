@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateMessageChatTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The AppID of the user.
+   * 
    * @example
    * ***********
    */
   appId?: string;
   /**
+   * @remarks
+   * The application signature.
+   * 
    * @example
    * H4sIAAAAAAAE******************
    */
   appSign?: string;
   /**
+   * @remarks
+   * The nonce used to generate the token.
+   * 
    * @example
    * AK-***********
    */
   nonce?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req_1234567890abcdef
    */
   requestId?: string;
   /**
+   * @remarks
+   * The role used to generate the token.
+   * 
    * @example
    * admin
    */
   role?: string;
   /**
+   * @remarks
+   * The expiration time. Unit: seconds. Expiration time = Current time + Validity period.
+   * 
    * @example
    * 1700000000
    */
   timeStamp?: number;
   /**
+   * @remarks
+   * The generated token.
+   * 
    * @example
    * acet**********
    */
   token?: string;
   /**
+   * @remarks
+   * The ID of the user for joining the channel.
+   * 
    * @example
    * YOURUSERID
    */

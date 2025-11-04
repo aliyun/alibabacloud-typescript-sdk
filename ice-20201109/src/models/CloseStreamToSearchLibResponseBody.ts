@@ -4,24 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class CloseStreamToSearchLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */

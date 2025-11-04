@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to include Automatic Speech Recognition (ASR) results.
+   * 
    * @example
    * true
    */
   needAsr?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include Optical Character Recognition (OCR) results.
+   * 
    * @example
    * true
    */
   needOcr?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include the URL to the raw output of the algorithm.
+   * 
    * @example
    * true
    */
@@ -44,9 +53,15 @@ export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
 }
 
 export class QueryVideoCognitionJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to include the full algorithm results in the response.
+   */
   includeResults?: QueryVideoCognitionJobRequestIncludeResults;
   /**
    * @remarks
+   * The ID of the task to query. It is returned when you call the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +69,9 @@ export class QueryVideoCognitionJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Additional request parameters, provided as a JSON string.
+   * 
    * @example
    * {}
    */

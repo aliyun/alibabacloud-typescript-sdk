@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryVideoCognitionJobShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to include the full algorithm results in the response.
+   */
   includeResultsShrink?: string;
   /**
    * @remarks
+   * The ID of the task to query. It is returned when you call the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,9 @@ export class QueryVideoCognitionJobShrinkRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Additional request parameters, provided as a JSON string.
+   * 
    * @example
    * {}
    */

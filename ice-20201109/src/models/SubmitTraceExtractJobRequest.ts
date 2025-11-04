@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTraceExtractJobRequestInput extends $dara.Model {
   /**
    * @remarks
+   * The specific information for the source file, which can be an OSS URL or a media asset ID. OSS URL formats:
+   * 
+   * 1\\. oss://bucket/object
+   * 
+   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +21,11 @@ export class SubmitTraceExtractJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the source file. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,15 +58,30 @@ export class SubmitTraceExtractJobRequestInput extends $dara.Model {
 export class SubmitTraceExtractJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The source video file from which to extract the watermark.
+   * 
+   * > The OSS object or media asset must reside in the same region as the IMS service region.
+   * 
    * This parameter is required.
    */
   input?: SubmitTraceExtractJobRequestInput;
   /**
+   * @remarks
+   * Additional parameters for the watermark job, provided as a JSON string. Supported parameter:
+   * 
+   * *   m3u8Type: The extraction algorithm type. Defaults to v1.
+   * 
+   *     *   v1: Extracts from an M3U8 with absolute paths.
+   *     *   v2: Extracts from an M3U8 with relative paths.
+   * 
    * @example
    * {"m3u8Type":"v1"}
    */
   params?: string;
   /**
+   * @remarks
+   * The custom data, which can be up to 1,024 bytes in size.
+   * 
    * @example
    * 123
    */

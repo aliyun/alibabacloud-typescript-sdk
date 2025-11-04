@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTraceAbJobListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end of the creation time range for the query, in UNIX timestamp format.
+   * 
    * @example
    * 1627357325
    */
   createTimeEnd?: number;
   /**
+   * @remarks
+   * The start of the creation time range for the query, in UNIX timestamp format.
+   * 
    * @example
    * 1627357322
    */
   createTimeStart?: number;
   /**
+   * @remarks
+   * The job ID. You can obtain the value of this parameter from the response of the SubmitTraceAbJob operation.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 0
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The media ID for the trace watermark. You can obtain this from the response of the SubmitTraceAbJob operation.
+   * 
    * @example
    * ****437bd2b51105d07b12a9****
    */

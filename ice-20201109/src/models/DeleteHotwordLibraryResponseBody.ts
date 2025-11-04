@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHotwordLibraryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ****83B7-7F87-4792-BFE9-63CD2137****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

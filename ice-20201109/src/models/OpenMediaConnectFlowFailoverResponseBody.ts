@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class OpenMediaConnectFlowFailoverResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response body.
+   * 
    * @example
    * ""
    */
   content?: string;
   /**
+   * @remarks
+   * The call description.
+   * 
    * @example
    * OK
    */
   description?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 11357BE8-4C54-58EA-890A-5AB646EDE4B2
    */
   requestId?: string;
   /**
+   * @remarks
+   * The returned error code. A value of 0 indicates the call is successful.
+   * 
    * @example
    * 0
    */

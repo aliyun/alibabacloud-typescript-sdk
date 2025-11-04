@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateStreamToSearchLibRequest extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the live stream to be ingested and analyzed.
+   * 
    * @example
    * rtmp://xxx
    */
   input?: string;
   /**
+   * @remarks
+   * The namespace.
+   * 
    * @example
    * name-1
    */
   namespace?: string;
   /**
+   * @remarks
+   * The search library.
+   * 
    * @example
    * Stream_xxx
    */

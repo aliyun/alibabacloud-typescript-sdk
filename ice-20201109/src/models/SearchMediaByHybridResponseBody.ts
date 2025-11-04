@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Model {
   /**
+   * @remarks
+   * The start time of the relevant clip.
+   * 
    * @example
    * 2
    */
   from?: number;
   /**
+   * @remarks
+   * The relevance score of the clip for the query.
+   * 
    * @example
    * 0.99
    */
   score?: number;
   /**
+   * @remarks
+   * The end time of the relevant clip.
+   * 
    * @example
    * 4
    */
@@ -44,8 +53,15 @@ export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Mode
 }
 
 export class SearchMediaByHybridResponseBodyMediaList extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the relevant clips.
+   */
   clipInfo?: SearchMediaByHybridResponseBodyMediaListClipInfo[];
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * a18936e0e28771edb59ae6f6f47a****
    */
@@ -78,22 +94,38 @@ export class SearchMediaByHybridResponseBodyMediaList extends $dara.Model {
 
 export class SearchMediaByHybridResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The media assets that match the search query.
+   */
   mediaList?: SearchMediaByHybridResponseBodyMediaList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
   success?: string;
   /**
+   * @remarks
+   * The total number of media assets that match the search criteria.
+   * 
    * @example
    * 30
    */

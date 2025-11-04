@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the image sample.
+   * 
    * @example
    * https://example.com/sample.png
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * The sample ID.
+   * 
    * @example
    * xxxxxxxxxxxxx
    */
@@ -64,22 +70,38 @@ export class ListRecognitionSamplesResponseBodySamples extends $dara.Model {
 
 export class ListRecognitionSamplesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The samples.
+   */
   samples?: ListRecognitionSamplesResponseBodySamples;
   /**
+   * @remarks
+   * The total number of samples.
+   * 
    * @example
    * 5
    */
