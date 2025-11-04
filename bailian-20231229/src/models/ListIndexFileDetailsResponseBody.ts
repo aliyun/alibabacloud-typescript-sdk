@@ -3,19 +3,71 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
+  /**
+   * @example
+   * DashSplitter
+   */
   chunkMode?: string;
+  /**
+   * @example
+   * 600
+   */
   chunkSize?: string;
+  /**
+   * @example
+   * 110002
+   */
   code?: string;
+  /**
+   * @example
+   * pdf
+   */
   documentType?: string;
+  /**
+   * @example
+   * true
+   */
   enableHeaders?: string;
+  /**
+   * @example
+   * 1744856423000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * doc_c134aa2073204a5d936d870bf960f56axxxxxxxx
+   */
   id?: string;
+  /**
+   * @example
+   * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
+   */
   message?: string;
   name?: string;
+  /**
+   * @example
+   * 100
+   */
   overlapSize?: string;
+  /**
+   * @example
+   * 996764
+   */
   size?: number;
+  /**
+   * @example
+   * cate_21a407a3372c4ba7aedc649709143f0cxxxxxxxx
+   */
   sourceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @example
+   * " "
+   */
   separator?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,9 +118,25 @@ export class ListIndexFileDetailsResponseBodyDataDocuments extends $dara.Model {
 
 export class ListIndexFileDetailsResponseBodyData extends $dara.Model {
   documents?: ListIndexFileDetailsResponseBodyDataDocuments[];
+  /**
+   * @example
+   * 79c0alxxxx
+   */
   indexId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -122,6 +190,10 @@ export class ListIndexFileDetailsResponseBody extends $dara.Model {
    * 35A267BF-xxxx-54DB-8394-AA3B0742D833
    */
   requestId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   /**
    * @example

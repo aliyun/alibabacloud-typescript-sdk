@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeParseSettingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The result of the modification.
+   * 
    * @example
    * true
    */
@@ -31,27 +34,49 @@ export class ChangeParseSettingResponseBodyData extends $dara.Model {
 
 export class ChangeParseSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data fields.
+   */
   data?: ChangeParseSettingResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * User not authorized to operate on the specified resource.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BA8ADD9-53D6-53F0-918F-A1E776AD230E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   status?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */

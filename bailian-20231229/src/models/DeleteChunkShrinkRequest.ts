@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChunkShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of text chunks to be deleted. You can specify up to 10 chunk IDs at a time.
+   * 
    * This parameter is required.
    */
   chunkIdsShrink?: string;
   /**
    * @remarks
+   * The knowledge base ID, which is the `Data.Id` parameter returned by **CreateIndex**.
+   * 
    * This parameter is required.
    * 
    * @example

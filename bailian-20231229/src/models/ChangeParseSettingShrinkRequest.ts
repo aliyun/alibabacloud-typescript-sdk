@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeParseSettingShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The category ID, which is the `CategoryId` returned by **AddCategory**. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Application Data](https://bailian.console.alibabacloud.com/?tab=app#/data-center) page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ChangeParseSettingShrinkRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
+   * The file type. Valid values: pdf, docx, and doc.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +25,23 @@ export class ChangeParseSettingShrinkRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
+   * The parser code. Valid values:
+   * 
+   * *   DOCMIND (Intelligent parsing)
+   * *   DOCMIND_DIGITAL (Digital parsing)
+   * *   DOCMIND_LLM_VERSION (LLM parsing)
+   * *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
+   * 
    * This parameter is required.
    * 
    * @example
    * DOCMIND
    */
   parser?: string;
+  /**
+   * @remarks
+   * The parser configuration. Currently, this is available only for Qwen VL parsing.
+   */
   parserConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {

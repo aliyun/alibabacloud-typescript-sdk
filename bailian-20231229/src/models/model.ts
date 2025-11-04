@@ -5,6 +5,8 @@ export { AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList } from './Ad
 export { AddFilesFromAuthorizedOssResponseBodyData } from './AddFilesFromAuthorizedOssResponseBody';
 export { ApplyFileUploadLeaseResponseBodyDataParam } from './ApplyFileUploadLeaseResponseBody';
 export { ApplyFileUploadLeaseResponseBodyData } from './ApplyFileUploadLeaseResponseBody';
+export { ApplyTempStorageLeaseResponseBodyDataParam } from './ApplyTempStorageLeaseResponseBody';
+export { ApplyTempStorageLeaseResponseBodyData } from './ApplyTempStorageLeaseResponseBody';
 export { ChangeParseSettingRequestParserConfig } from './ChangeParseSettingRequest';
 export { ChangeParseSettingResponseBodyData } from './ChangeParseSettingResponseBody';
 export { CreateAndPulishAgentRequestApplicationConfigHistoryConfig } from './CreateAndPulishAgentRequest';
@@ -106,6 +108,9 @@ export { AddFilesFromAuthorizedOssResponse } from './AddFilesFromAuthorizedOssRe
 export { ApplyFileUploadLeaseRequest } from './ApplyFileUploadLeaseRequest';
 export { ApplyFileUploadLeaseResponseBody } from './ApplyFileUploadLeaseResponseBody';
 export { ApplyFileUploadLeaseResponse } from './ApplyFileUploadLeaseResponse';
+export { ApplyTempStorageLeaseRequest } from './ApplyTempStorageLeaseRequest';
+export { ApplyTempStorageLeaseResponseBody } from './ApplyTempStorageLeaseResponseBody';
+export { ApplyTempStorageLeaseResponse } from './ApplyTempStorageLeaseResponse';
 export { ChangeParseSettingRequest } from './ChangeParseSettingRequest';
 export { ChangeParseSettingShrinkRequest } from './ChangeParseSettingShrinkRequest';
 export { ChangeParseSettingResponseBody } from './ChangeParseSettingResponseBody';

@@ -2,26 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetAvailableParserTypesRequest extends $dara.Model {
+export class ApplyTempStorageLeaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The file type. Valid values: pdf, docx, and doc.
-   * 
    * This parameter is required.
    * 
    * @example
-   * pdf
+   * example.txt
    */
-  fileType?: string;
+  fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1024
+   */
+  sizeInBytes?: number;
   static names(): { [key: string]: string } {
     return {
-      fileType: 'FileType',
+      fileName: 'FileName',
+      sizeInBytes: 'SizeInBytes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileType: 'string',
+      fileName: 'string',
+      sizeInBytes: 'number',
     };
   }
 

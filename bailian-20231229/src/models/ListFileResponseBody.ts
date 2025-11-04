@@ -14,6 +14,9 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The document ID, which is the `FileId` parameter returned by the [AddFile](~~AddFile~~) operation. To view the ID, click the icon next to the file name on the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+   * 
    * @example
    * file_5ff599b3455a45db8c41b0054b361518_10098576
    */
@@ -85,6 +88,10 @@ export class ListFileResponseBodyDataFileList extends $dara.Model {
 }
 
 export class ListFileResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of documents in the category.
+   */
   fileList?: ListFileResponseBodyDataFileList[];
   /**
    * @example
@@ -144,6 +151,10 @@ export class ListFileResponseBody extends $dara.Model {
    * success
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListFileResponseBodyData;
   /**
    * @example

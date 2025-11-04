@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListFileRequest extends $dara.Model {
   /**
    * @remarks
+   * The category ID, which is the `CategoryId` returned by the [AddCategory](~~AddCategory~~) operation. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+   * 
    * This parameter is required.
    * 
    * @example
