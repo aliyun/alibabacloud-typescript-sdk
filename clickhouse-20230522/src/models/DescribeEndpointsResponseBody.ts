@@ -52,6 +52,11 @@ export class DescribeEndpointsResponseBodyDataEndpointsPorts extends $dara.Model
 
 export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   /**
+   * @example
+   * cc-ad321**-clickhouse
+   */
+  computingGroupId?: string;
+  /**
    * @remarks
    * The endpoint of the cluster.
    * 
@@ -117,6 +122,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
   vpcInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      computingGroupId: 'ComputingGroupId',
       connectionString: 'ConnectionString',
       IPAddress: 'IPAddress',
       netType: 'NetType',
@@ -130,6 +136,7 @@ export class DescribeEndpointsResponseBodyDataEndpoints extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      computingGroupId: 'string',
       connectionString: 'string',
       IPAddress: 'string',
       netType: 'string',
