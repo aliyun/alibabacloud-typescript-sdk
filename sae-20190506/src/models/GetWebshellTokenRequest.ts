@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetWebshellTokenRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the interactive messaging application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,11 @@ export class GetWebshellTokenRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the container.
+   * The name of the init container.
    * 
    * Note:
    * 
-   * *   If this parameter is specified, Cloud Assistant runs the command in the specified container of the instance.
+   * *   If you specify this parameter, Cloud Assistant runs the command in the specified container of the instances.
    * 
    * *   If this parameter is specified, the command can run only on Linux instances on which Cloud Assistant Agent 2.2.3.344 or later is installed.
    * 
@@ -34,6 +36,8 @@ export class GetWebshellTokenRequest extends $dara.Model {
   containerName?: string;
   /**
    * @remarks
+   * The name of the pod.
+   * 
    * This parameter is required.
    * 
    * @example

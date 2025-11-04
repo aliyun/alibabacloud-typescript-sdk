@@ -35,7 +35,7 @@ export class UpdateIngressResponseBodyData extends $dara.Model {
 export class UpdateIngressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code or the error code. Valid values:
    * 
    * *   **2xx**: The request was successful.
    * *   **3xx**: The request was redirected.
@@ -48,12 +48,12 @@ export class UpdateIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * Responses.
    */
   data?: UpdateIngressResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The status code. Value values:
    * 
    * *   If the request was successful, **ErrorCode** is not returned.
    * *   If the request failed, **ErrorCode** is returned. For more information, see the **Error codes** section of this topic.
@@ -61,10 +61,10 @@ export class UpdateIngressResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The returned information.
+   * Additional information. Valid values:
    * 
-   * *   If the request was successful, **success** is returned.
-   * *   If the request failed, an error code is returned.
+   * *   The error message returned because the request is normal and **success** is returned.
+   * *   If the request is abnormal, the specific exception error code is returned.
    * 
    * @example
    * success
@@ -72,7 +72,7 @@ export class UpdateIngressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -80,10 +80,10 @@ export class UpdateIngressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the configurations of the routing rule were updated. Valid values:
+   * Whether the configuration of the Ingress instance is updated. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * *   **true**: The update was successful.
+   * *   **false**: Update failed.
    * 
    * @example
    * true
@@ -91,7 +91,7 @@ export class UpdateIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID.
+   * The ID of the trace.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
+  apmJavaAgentVersion?: string;
   /**
    * @remarks
    * The number of applications.
@@ -172,6 +173,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
   vpcName?: string;
   static names(): { [key: string]: string } {
     return {
+      apmJavaAgentVersion: 'ApmJavaAgentVersion',
       appCount: 'AppCount',
       belongRegion: 'BelongRegion',
       description: 'Description',
@@ -197,6 +199,7 @@ export class DescribeNamespaceResourcesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apmJavaAgentVersion: 'string',
       appCount: 'number',
       belongRegion: 'string',
       description: 'string',

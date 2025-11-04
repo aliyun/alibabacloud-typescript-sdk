@@ -755,6 +755,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * cri-xxxxxx
    */
   acrInstanceId?: string;
+  agentVersion?: string;
   albIngressReadinessGate?: string;
   /**
    * @remarks
@@ -981,6 +982,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * false
    */
   enableIdle?: boolean;
+  enableNamespaceAgentVersion?: boolean;
   /**
    * @remarks
    * Enable new ARMS feature.
@@ -1618,6 +1620,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
       acrInstanceId: 'AcrInstanceId',
+      agentVersion: 'AgentVersion',
       albIngressReadinessGate: 'AlbIngressReadinessGate',
       appDescription: 'AppDescription',
       appId: 'AppId',
@@ -1643,6 +1646,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableIdle: 'EnableIdle',
+      enableNamespaceAgentVersion: 'EnableNamespaceAgentVersion',
       enableNewArms: 'EnableNewArms',
       enablePrometheus: 'EnablePrometheus',
       envs: 'Envs',
@@ -1719,6 +1723,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
     return {
       acrAssumeRoleArn: 'string',
       acrInstanceId: 'string',
+      agentVersion: 'string',
       albIngressReadinessGate: 'string',
       appDescription: 'string',
       appId: 'string',
@@ -1744,6 +1749,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       enableCpuBurst: 'string',
       enableGreyTagRoute: 'boolean',
       enableIdle: 'boolean',
+      enableNamespaceAgentVersion: 'boolean',
       enableNewArms: 'boolean',
       enablePrometheus: 'boolean',
       envs: 'string',

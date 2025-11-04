@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationDescriptionRequest extends $dara.Model {
   /**
    * @remarks
+   * The new description of the application. The description can be up to 1,024 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateApplicationDescriptionRequest extends $dara.Model {
   appDescription?: string;
   /**
    * @remarks
+   * The ID of the application that you want to update.
+   * 
    * This parameter is required.
    * 
    * @example

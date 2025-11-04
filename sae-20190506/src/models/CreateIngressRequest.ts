@@ -6,11 +6,11 @@ export class CreateIngressRequest extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the certificate that is associated with the **CLB** instance.
+   * The ID of the **CLB** certificate. Valid values:
    * 
    * *   If you set **LoadBalanceType** to **clb**, you can use CertId to configure a certificate for the HTTPS listener.
    * 
-   * For more information about how to manage the SSL certificate IDs that are used by CLB instances, see [Overview](https://help.aliyun.com/document_detail/90792.html).
+   * For more information about how to use SSL certificate IDs for CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
    * 
    * @example
    * 188077086902****_176993d****_181437****_108724****
@@ -18,10 +18,10 @@ export class CreateIngressRequest extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The IDs of the certificates that are associated with the **ALB** instance.
+   * The ID of the multi-certificate **ALB**. Valid values:
    * 
-   * *   If you set **LoadBalanceType** to **alb**, you can use CertIds to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with commas (,).
-   * *   The ID of the SSL certificate that is used by an ALB instance can be obtained from Certificate Management Service. For example, if you specify `756***-cn-hangzhou`, `756***` is the certificate ID that is obtained from the service page, and `-cn-hangzhou` is the fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
+   * *   If the **LoadBalanceType** is **alb**, use this field to configure multiple certificates for HTTPS listeners. Separate multiple certificate IDs with commas (,).
+   * *   The ID of the SSL certificate used by ALB must be obtained from the digital certificate product. For example, in the configuration `756***-cn-hangzhou`, the `756***` is the certificate ID obtained from the product page, and the `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
    * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
@@ -30,9 +30,12 @@ export class CreateIngressRequest extends $dara.Model {
   corsConfig?: string;
   /**
    * @remarks
-   * Default forwarding rule. Traffic is forwarded to the specified application through a designated port based on the IP address. Parameter descriptions are as follows:
-   * - **appId**: Application ID. - **containerPort**: Application instance port.
-   * > All requests that do not match or do not meet the **Rules** for forwarding will be directed to this specified application.
+   * The default forwarding rule. Forwards traffic to a specified application through a specified port based on the IP address. The following table describes the parameters.
+   * 
+   * *   **appId**: the ID of the application.
+   * *   **containerPort**: The port of the application instance.
+   * 
+   * >  All requests that do not match or satisfy **Rules** forwarding rules are forwarded to the specified application.
    * 
    * This parameter is required.
    * 
@@ -42,7 +45,7 @@ export class CreateIngressRequest extends $dara.Model {
   defaultRule?: string;
   /**
    * @remarks
-   * Route rule name.
+   * The name of the routing rule.
    * 
    * @example
    * ingress-for-sae-test
@@ -56,7 +59,7 @@ export class CreateIngressRequest extends $dara.Model {
   enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
-   * The timeout period of an idle connection. Unit: seconds Valid values: 1 to 60. If no requests are received within the specified timeout period, ALB closes the current connection. When a new request is received, ALB establishes a new connection.
+   * Specifies the connection idle timeout period. Unit: seconds. Valid values: 1 to 60. If there is no access request within the timeout period, the SLB will temporarily interrupt the current connection until the next request comes to re-establish a new connection.
    * 
    * @example
    * 15
@@ -64,8 +67,7 @@ export class CreateIngressRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * SThe frontend port that is used by the ALB instance.
-   * Valid values: 1 to 65535.
+   * The SLB listening port. This port cannot be occupied.
    * 
    * This parameter is required.
    * 
@@ -75,8 +77,10 @@ export class CreateIngressRequest extends $dara.Model {
   listenerPort?: number;
   /**
    * @remarks
-   * Request forwarding protocol. The value description is as follows:
-   * - **HTTP**: Suitable for applications that need to identify data content. - **HTTPS**: Suitable for applications that require encrypted transmission.
+   * The request forwarding protocol. Valid values:
+   * 
+   * *   **HTTP**: suitable for applications that need to identify data content.
+   * *   **HTTPS**: suitable for applications that require encrypted transmission.
    * 
    * @example
    * HTTP
@@ -84,10 +88,10 @@ export class CreateIngressRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The type of the SLB instance. The instance type can be specified only when you create a routing rule. You cannot change the instance type when you update the routing rule. Valid values:
+   * SLB the type of the SLB instance. It depends on the type that you entered when you created the routing rule and cannot be changed when you update it. Valid values:
    * 
-   * *   **clb**
-   * *   **alb**
+   * *   **clb**: traditional SLB CLB (formerly SLB).
+   * *   **alb**: Applied SLB ALB.
    * 
    * @example
    * clb
@@ -96,7 +100,7 @@ export class CreateIngressRequest extends $dara.Model {
   loadBalancerEdition?: string;
   /**
    * @remarks
-   * The ID of the namespace where the application is located. Currently, cross-namespace applications are not supported.
+   * The ID of the namespace where the application resides. Currently, cross-namespace applications are not supported.
    * 
    * This parameter is required.
    * 
@@ -106,7 +110,7 @@ export class CreateIngressRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The timeout period of a request. Unit: seconds. Valid values: 1 to 180. If no response is received from the backend server within the specified timeout period, ALB stops waiting for the response and returns an HTTP 504 error code to the client.
+   * Specifies the request timeout period. Unit: seconds. Valid values: 1 to 180. If the backend server does not respond within the timeout period, the SLB abandons the wait and returns an HTTP 504 error code to the client.
    * 
    * @example
    * 3
@@ -114,16 +118,16 @@ export class CreateIngressRequest extends $dara.Model {
   requestTimeout?: number;
   /**
    * @remarks
-   * The forwarding rules. You can specify a port and an application in a forwarding rule to forward traffic based on the specified domain name and request path. The following list describes the involved parameters:
+   * The forwarding rule. Forwards traffic to a specified application through a specified port based on the domain name and request path. The following table describes the parameters.
    * 
    * *   **appId**: the ID of the application.
-   * *   **containerPort**: the container port of the application.
+   * *   **containerPort**: The port of the application instance.
    * *   **domain**: the domain name.
    * *   **path**: the request path.
-   * *   **backendProtocol**: the backend service protocol. Valid values: http, https, and grpc. Default value: http.
-   * *   **rewritePath**: the rewrite path.
+   * *   **backendProtocol**: The backend service protocol. Valid values: http, https, and grpc. Default value: http.
+   * *   **rewritePath**: Rewrite the path.
    * 
-   * >  The path rewrite feature is supported only by ALB instances.
+   * >  Only ALB allows you to set the RewritePath feature. CLB does not support this feature.
    * 
    * This parameter is required.
    * 
@@ -133,7 +137,7 @@ export class CreateIngressRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The ID of a security policy.
+   * The ID of the security policy instance.
    * 
    * @example
    * sp-bp1bpn0kn9****
@@ -143,7 +147,7 @@ export class CreateIngressRequest extends $dara.Model {
    * @remarks
    * The Server Load Balancer (SLB) instance that is used by the routing rule.
    * 
-   * >  The SLB instance can be a Classic Load Balancer (CLB) instance or an Application Load Balancer (ALB) instance.
+   * >  SLB SLB instances include CLB instances and ALB instances.
    * 
    * @example
    * lb-uf6hucc7inlqrtcq5****

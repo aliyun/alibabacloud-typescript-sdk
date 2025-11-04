@@ -21,6 +21,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * cri-xxxxxx
    */
   acrInstanceId?: string;
+  agentVersion?: string;
   /**
    * @remarks
    * The description of the template. The description cannot exceed 1,024 characters in length.
@@ -225,6 +226,8 @@ export class CreateApplicationRequest extends $dara.Model {
    * false
    */
   enableEbpf?: string;
+  enableNamespaceAgentVersion?: boolean;
+  enableNamespaceSlsConfig?: boolean;
   /**
    * @remarks
    * Indicates whether to enable the new ARMS feature:
@@ -847,6 +850,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
       acrInstanceId: 'AcrInstanceId',
+      agentVersion: 'AgentVersion',
       appDescription: 'AppDescription',
       appName: 'AppName',
       appSource: 'AppSource',
@@ -866,6 +870,8 @@ export class CreateApplicationRequest extends $dara.Model {
       emptyDirDesc: 'EmptyDirDesc',
       enableCpuBurst: 'EnableCpuBurst',
       enableEbpf: 'EnableEbpf',
+      enableNamespaceAgentVersion: 'EnableNamespaceAgentVersion',
+      enableNamespaceSlsConfig: 'EnableNamespaceSlsConfig',
       enableNewArms: 'EnableNewArms',
       enablePrometheus: 'EnablePrometheus',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
@@ -933,6 +939,7 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'string',
       acrInstanceId: 'string',
+      agentVersion: 'string',
       appDescription: 'string',
       appName: 'string',
       appSource: 'string',
@@ -952,6 +959,8 @@ export class CreateApplicationRequest extends $dara.Model {
       emptyDirDesc: 'string',
       enableCpuBurst: 'boolean',
       enableEbpf: 'string',
+      enableNamespaceAgentVersion: 'boolean',
+      enableNamespaceSlsConfig: 'boolean',
       enableNewArms: 'boolean',
       enablePrometheus: 'boolean',
       enableSidecarResourceIsolated: 'boolean',

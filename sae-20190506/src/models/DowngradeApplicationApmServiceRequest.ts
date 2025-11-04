@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DowngradeApplicationApmServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the interactive messaging application.
+   * 
    * This parameter is required.
    * 
    * @example

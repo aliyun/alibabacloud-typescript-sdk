@@ -21,6 +21,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * cri-xxxxxx
    */
   acrInstanceId?: string;
+  agentVersion?: string;
   albIngressReadinessGate?: string;
   /**
    * @remarks
@@ -221,6 +222,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * false
    */
   enableGreyTagRoute?: boolean;
+  enableNamespaceAgentVersion?: boolean;
   /**
    * @remarks
    * Enable new ARMS features.
@@ -888,6 +890,7 @@ export class DeployApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
       acrInstanceId: 'AcrInstanceId',
+      agentVersion: 'AgentVersion',
       albIngressReadinessGate: 'AlbIngressReadinessGate',
       appId: 'AppId',
       associateEip: 'AssociateEip',
@@ -907,6 +910,7 @@ export class DeployApplicationRequest extends $dara.Model {
       enableAhas: 'EnableAhas',
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
+      enableNamespaceAgentVersion: 'EnableNamespaceAgentVersion',
       enableNewArms: 'EnableNewArms',
       enablePrometheus: 'EnablePrometheus',
       enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
@@ -973,6 +977,7 @@ export class DeployApplicationRequest extends $dara.Model {
     return {
       acrAssumeRoleArn: 'string',
       acrInstanceId: 'string',
+      agentVersion: 'string',
       albIngressReadinessGate: 'string',
       appId: 'string',
       associateEip: 'boolean',
@@ -992,6 +997,7 @@ export class DeployApplicationRequest extends $dara.Model {
       enableAhas: 'string',
       enableCpuBurst: 'boolean',
       enableGreyTagRoute: 'boolean',
+      enableNamespaceAgentVersion: 'boolean',
       enableNewArms: 'boolean',
       enablePrometheus: 'boolean',
       enableSidecarResourceIsolated: 'boolean',
