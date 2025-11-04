@@ -2089,6 +2089,14 @@ export default class Client extends OpenApi {
       query["NeedStatusNotify"] = request.needStatusNotify;
     }
 
+    if (!$dara.isNull(request.notifyAuthKey)) {
+      query["NotifyAuthKey"] = request.notifyAuthKey;
+    }
+
+    if (!$dara.isNull(request.notifyReqAuth)) {
+      query["NotifyReqAuth"] = request.notifyReqAuth;
+    }
+
     if (!$dara.isNull(request.notifyUrl)) {
       query["NotifyUrl"] = request.notifyUrl;
     }
@@ -29842,6 +29850,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.needStatusNotify)) {
       query["NeedStatusNotify"] = request.needStatusNotify;
+    }
+
+    if (!$dara.isNull(request.notifyAuthKey)) {
+      query["NotifyAuthKey"] = request.notifyAuthKey;
+    }
+
+    if (!$dara.isNull(request.notifyReqAuth)) {
+      query["NotifyReqAuth"] = request.notifyReqAuth;
     }
 
     if (!$dara.isNull(request.notifyUrl)) {

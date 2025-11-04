@@ -35,6 +35,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
    * July 26,  16:14{"domain":"al.xxxx.com","stream":"livestream01","pull _stream_result":true,"cdn":"al"}
    */
   notifyContent?: string;
+  notifyHeader?: string;
   notifyResponse?: string;
   /**
    * @remarks
@@ -93,6 +94,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
       description: 'Description',
       domainName: 'DomainName',
       notifyContent: 'NotifyContent',
+      notifyHeader: 'NotifyHeader',
       notifyResponse: 'NotifyResponse',
       notifyResult: 'NotifyResult',
       notifyTime: 'NotifyTime',
@@ -108,6 +110,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
       description: 'string',
       domainName: 'string',
       notifyContent: 'string',
+      notifyHeader: 'string',
       notifyResponse: 'string',
       notifyResult: 'string',
       notifyTime: 'string',

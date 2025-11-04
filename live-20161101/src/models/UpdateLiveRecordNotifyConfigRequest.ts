@@ -24,6 +24,8 @@ export class UpdateLiveRecordNotifyConfigRequest extends $dara.Model {
    * false
    */
   needStatusNotify?: boolean;
+  notifyAuthKey?: string;
+  notifyReqAuth?: boolean;
   /**
    * @remarks
    * The callback URL that is used to receive notifications about recording events and status.
@@ -60,6 +62,8 @@ export class UpdateLiveRecordNotifyConfigRequest extends $dara.Model {
     return {
       domainName: 'DomainName',
       needStatusNotify: 'NeedStatusNotify',
+      notifyAuthKey: 'NotifyAuthKey',
+      notifyReqAuth: 'NotifyReqAuth',
       notifyUrl: 'NotifyUrl',
       onDemandUrl: 'OnDemandUrl',
       ownerId: 'OwnerId',
@@ -71,6 +75,8 @@ export class UpdateLiveRecordNotifyConfigRequest extends $dara.Model {
     return {
       domainName: 'string',
       needStatusNotify: 'boolean',
+      notifyAuthKey: 'string',
+      notifyReqAuth: 'boolean',
       notifyUrl: 'string',
       onDemandUrl: 'string',
       ownerId: 'number',

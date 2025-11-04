@@ -22,6 +22,8 @@ export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig ex
    * false
    */
   needStatusNotify?: boolean;
+  notifyAuthKey?: string;
+  notifyReqAuth?: boolean;
   /**
    * @remarks
    * The recording callback URL.
@@ -42,6 +44,8 @@ export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig ex
     return {
       domainName: 'DomainName',
       needStatusNotify: 'NeedStatusNotify',
+      notifyAuthKey: 'NotifyAuthKey',
+      notifyReqAuth: 'NotifyReqAuth',
       notifyUrl: 'NotifyUrl',
       onDemandUrl: 'OnDemandUrl',
     };
@@ -51,6 +55,8 @@ export class DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig ex
     return {
       domainName: 'string',
       needStatusNotify: 'boolean',
+      notifyAuthKey: 'string',
+      notifyReqAuth: 'boolean',
       notifyUrl: 'string',
       onDemandUrl: 'string',
     };
