@@ -45,6 +45,14 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
+   * 57
+   */
+  taskCps?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
    * 1152311212312***
    */
   taskId?: string;
@@ -81,6 +89,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startType: 'StartType',
+      taskCps: 'TaskCps',
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskStartTime: 'TaskStartTime',
@@ -100,6 +109,7 @@ export class UpdateAiCallTaskRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startType: 'string',
+      taskCps: 'number',
       taskId: 'string',
       taskName: 'string',
       taskStartTime: 'number',

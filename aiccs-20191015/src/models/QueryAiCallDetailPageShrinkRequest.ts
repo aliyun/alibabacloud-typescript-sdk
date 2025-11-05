@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryAiCallDetailPageRequest extends $dara.Model {
+export class QueryAiCallDetailPageShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1212131231****
@@ -18,7 +18,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
    * 053714454****
    */
   calledNumber?: string;
-  detailIds?: number[];
+  detailIdsShrink?: string;
   /**
    * @example
    * 1748948749000
@@ -93,7 +93,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       batchId: 'BatchId',
       callResult: 'CallResult',
       calledNumber: 'CalledNumber',
-      detailIds: 'DetailIds',
+      detailIdsShrink: 'DetailIds',
       endCallingTime: 'EndCallingTime',
       endImportedTime: 'EndImportedTime',
       majorIntent: 'MajorIntent',
@@ -117,7 +117,7 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
       batchId: 'string',
       callResult: 'string',
       calledNumber: 'string',
-      detailIds: { 'type': 'array', 'itemType': 'number' },
+      detailIdsShrink: 'string',
       endCallingTime: 'number',
       endImportedTime: 'number',
       majorIntent: 'string',
@@ -137,9 +137,6 @@ export class QueryAiCallDetailPageRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.detailIds)) {
-      $dara.Model.validateArray(this.detailIds);
-    }
     super.validate();
   }
 

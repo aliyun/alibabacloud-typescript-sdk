@@ -5300,6 +5300,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 语音智能体外呼任务导入单条数据
+   * 
+   * @param tmpReq - ImportOneTaskPhoneNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportOneTaskPhoneNumberResponse
+   */
+  async importOneTaskPhoneNumberWithOptions(tmpReq: $_model.ImportOneTaskPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportOneTaskPhoneNumberResponse> {
+    tmpReq.validate();
+    let request = new $_model.ImportOneTaskPhoneNumberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.variables)) {
+      request.variablesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.variables, "Variables", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.variablesShrink)) {
+      query["Variables"] = request.variablesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportOneTaskPhoneNumber",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportOneTaskPhoneNumberResponse>(await this.callApi(params, req, runtime), new $_model.ImportOneTaskPhoneNumberResponse({}));
+  }
+
+  /**
+   * 语音智能体外呼任务导入单条数据
+   * 
+   * @param request - ImportOneTaskPhoneNumberRequest
+   * @returns ImportOneTaskPhoneNumberResponse
+   */
+  async importOneTaskPhoneNumber(request: $_model.ImportOneTaskPhoneNumberRequest): Promise<$_model.ImportOneTaskPhoneNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importOneTaskPhoneNumberWithOptions(request, runtime);
+  }
+
+  /**
    * 导入任务号码数据
    * 
    * @param tmpReq - ImportTaskNumberDatasRequest
@@ -6656,12 +6728,18 @@ export default class Client extends OpenApi {
   /**
    * 查询明细记录
    * 
-   * @param request - QueryAiCallDetailPageRequest
+   * @param tmpReq - QueryAiCallDetailPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAiCallDetailPageResponse
    */
-  async queryAiCallDetailPageWithOptions(request: $_model.QueryAiCallDetailPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiCallDetailPageResponse> {
-    request.validate();
+  async queryAiCallDetailPageWithOptions(tmpReq: $_model.QueryAiCallDetailPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiCallDetailPageResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryAiCallDetailPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.detailIds)) {
+      request.detailIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detailIds, "DetailIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.batchId)) {
       query["BatchId"] = request.batchId;
@@ -6673,6 +6751,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.detailIdsShrink)) {
+      query["DetailIds"] = request.detailIdsShrink;
     }
 
     if (!$dara.isNull(request.endCallingTime)) {
@@ -9039,6 +9121,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.startType)) {
       query["StartType"] = request.startType;
+    }
+
+    if (!$dara.isNull(request.taskCps)) {
+      query["TaskCps"] = request.taskCps;
     }
 
     if (!$dara.isNull(request.taskId)) {
