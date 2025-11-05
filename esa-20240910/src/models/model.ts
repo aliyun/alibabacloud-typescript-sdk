@@ -102,6 +102,7 @@ export { DescribeSiteTopDataRequestFields } from './DescribeSiteTopDataRequest';
 export { DescribeSiteTopDataResponseBodyDataDetailData } from './DescribeSiteTopDataResponseBody';
 export { DescribeSiteTopDataResponseBodyData } from './DescribeSiteTopDataResponseBody';
 export { DescribeUrlObservationDataResponseBodyUrlDetailData } from './DescribeUrlObservationDataResponseBody';
+export { GetApiSchemaUsageResponseBodyUsages } from './GetApiSchemaUsageResponseBody';
 export { GetCertificateResponseBodyResultDCV } from './GetCertificateResponseBody';
 export { GetCertificateResponseBodyResult } from './GetCertificateResponseBody';
 export { GetCertificateQuotaResponseBodySiteUsage } from './GetCertificateQuotaResponseBody';
@@ -735,6 +736,9 @@ export { EnableCustomScenePolicyResponse } from './EnableCustomScenePolicyRespon
 export { ExportRecordsRequest } from './ExportRecordsRequest';
 export { ExportRecordsResponseBody } from './ExportRecordsResponseBody';
 export { ExportRecordsResponse } from './ExportRecordsResponse';
+export { GetApiSchemaUsageRequest } from './GetApiSchemaUsageRequest';
+export { GetApiSchemaUsageResponseBody } from './GetApiSchemaUsageResponseBody';
+export { GetApiSchemaUsageResponse } from './GetApiSchemaUsageResponse';
 export { GetCacheReserveSpecificationResponseBody } from './GetCacheReserveSpecificationResponseBody';
 export { GetCacheReserveSpecificationResponse } from './GetCacheReserveSpecificationResponse';
 export { GetCacheRuleRequest } from './GetCacheRuleRequest';
