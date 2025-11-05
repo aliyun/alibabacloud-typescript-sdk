@@ -1292,6 +1292,10 @@ export default class Client extends OpenApi {
       body["max_nodes"] = request.maxNodes;
     }
 
+    if (!$dara.isNull(request.nodeComponents)) {
+      body["node_components"] = request.nodeComponents;
+    }
+
     if (!$dara.isNull(request.nodeConfig)) {
       body["node_config"] = request.nodeConfig;
     }
@@ -4934,6 +4938,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listOperationPlansWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取单个地域的自动运维执行计划列表
+   * 
+   * @param request - ListOperationPlansForRegionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationPlansForRegionResponse
+   */
+  async listOperationPlansForRegionWithOptions(regionId: string, request: $_model.ListOperationPlansForRegionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationPlansForRegionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["state"] = request.state;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationPlansForRegion",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/regions/${$dara.URL.percentEncode(regionId)}/operation/plans`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationPlansForRegionResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationPlansForRegionResponse({}));
+  }
+
+  /**
+   * 获取单个地域的自动运维执行计划列表
+   * 
+   * @param request - ListOperationPlansForRegionRequest
+   * @returns ListOperationPlansForRegionResponse
+   */
+  async listOperationPlansForRegion(regionId: string, request: $_model.ListOperationPlansForRegionRequest): Promise<$_model.ListOperationPlansForRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOperationPlansForRegionWithOptions(regionId, request, headers, runtime);
   }
 
   /**

@@ -621,6 +621,72 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $dara.M
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig extends $dara.Model {
+  customConfig?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      customConfig: 'custom_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.customConfig) {
+      $dara.Model.validateMap(this.customConfig);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterNodePoolDetailResponseBodyNodeComponents extends $dara.Model {
+  config?: DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig;
+  /**
+   * @example
+   * kubelet
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.33.3-aliyun.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      name: 'name',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig,
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig extends $dara.Model {
   hugepage?: Hugepage;
   static names(): { [key: string]: string } {
@@ -1707,6 +1773,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
    * 10
    */
   maxNodes?: number;
+  nodeComponents?: DescribeClusterNodePoolDetailResponseBodyNodeComponents[];
   /**
    * @remarks
    * The node configurations.
@@ -1743,6 +1810,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
       maxNodes: 'max_nodes',
+      nodeComponents: 'node_components',
       nodeConfig: 'node_config',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
@@ -1762,6 +1830,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
       kubernetesConfig: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig,
       management: DescribeClusterNodePoolDetailResponseBodyManagement,
       maxNodes: 'number',
+      nodeComponents: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyNodeComponents },
       nodeConfig: DescribeClusterNodePoolDetailResponseBodyNodeConfig,
       nodepoolInfo: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo,
       scalingGroup: DescribeClusterNodePoolDetailResponseBodyScalingGroup,
@@ -1785,6 +1854,9 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
     }
     if(this.management && typeof (this.management as any).validate === 'function') {
       (this.management as any).validate();
+    }
+    if(Array.isArray(this.nodeComponents)) {
+      $dara.Model.validateArray(this.nodeComponents);
     }
     if(this.nodeConfig && typeof (this.nodeConfig as any).validate === 'function') {
       (this.nodeConfig as any).validate();

@@ -8,6 +8,8 @@ export { NodepoolManagementAutoUpgradePolicy } from './Nodepool';
 export { NodepoolManagementAutoVulFixPolicy } from './Nodepool';
 export { NodepoolManagementUpgradeConfig } from './Nodepool';
 export { NodepoolManagement } from './Nodepool';
+export { NodepoolNodeComponentsConfig } from './Nodepool';
+export { NodepoolNodeComponents } from './Nodepool';
 export { NodepoolNodeConfig } from './Nodepool';
 export { NodepoolNodepoolInfo } from './Nodepool';
 export { NodepoolScalingGroupPrivatePoolOptions } from './Nodepool';
@@ -36,6 +38,8 @@ export { CreateClusterNodePoolRequestManagementAutoUpgradePolicy } from './Creat
 export { CreateClusterNodePoolRequestManagementAutoVulFixPolicy } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestManagementUpgradeConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestManagement } from './CreateClusterNodePoolRequest';
+export { CreateClusterNodePoolRequestNodeComponentsConfig } from './CreateClusterNodePoolRequest';
+export { CreateClusterNodePoolRequestNodeComponents } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodeConfig } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestNodepoolInfo } from './CreateClusterNodePoolRequest';
 export { CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions } from './CreateClusterNodePoolRequest';
@@ -69,6 +73,8 @@ export { DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy } 
 export { DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyManagement } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyNodeComponents } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyNodepoolInfo } from './DescribeClusterNodePoolDetailResponseBody';
@@ -87,6 +93,8 @@ export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolic
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagement } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponentsConfig } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo } from './DescribeClusterNodePoolsResponseBody';
@@ -167,6 +175,7 @@ export { ListClusterInspectReportsResponseBodyReports } from './ListClusterInspe
 export { ListClusterKubeconfigStatesResponseBodyPage } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStates } from './ListClusterKubeconfigStatesResponseBody';
 export { ListOperationPlansResponseBodyPlans } from './ListOperationPlansResponseBody';
+export { ListOperationPlansForRegionResponseBodyPlans } from './ListOperationPlansForRegionResponseBody';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
 export { ListUserKubeConfigStatesResponseBodyPage } from './ListUserKubeConfigStatesResponseBody';
@@ -425,6 +434,9 @@ export { ListClusterKubeconfigStatesResponse } from './ListClusterKubeconfigStat
 export { ListOperationPlansRequest } from './ListOperationPlansRequest';
 export { ListOperationPlansResponseBody } from './ListOperationPlansResponseBody';
 export { ListOperationPlansResponse } from './ListOperationPlansResponse';
+export { ListOperationPlansForRegionRequest } from './ListOperationPlansForRegionRequest';
+export { ListOperationPlansForRegionResponseBody } from './ListOperationPlansForRegionResponseBody';
+export { ListOperationPlansForRegionResponse } from './ListOperationPlansForRegionResponse';
 export { ListTagResourcesRequest } from './ListTagResourcesRequest';
 export { ListTagResourcesShrinkRequest } from './ListTagResourcesShrinkRequest';
 export { ListTagResourcesResponseBody } from './ListTagResourcesResponseBody';

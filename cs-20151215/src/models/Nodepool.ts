@@ -447,6 +447,72 @@ export class NodepoolManagement extends $dara.Model {
   }
 }
 
+export class NodepoolNodeComponentsConfig extends $dara.Model {
+  customConfig?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      customConfig: 'custom_config',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.customConfig) {
+      $dara.Model.validateMap(this.customConfig);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodepoolNodeComponents extends $dara.Model {
+  config?: NodepoolNodeComponentsConfig;
+  /**
+   * @example
+   * kubelet
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.33.3-aliyun.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      name: 'name',
+      version: 'version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: NodepoolNodeComponentsConfig,
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class NodepoolNodeConfig extends $dara.Model {
   kubeletConfiguration?: KubeletConfig;
   static names(): { [key: string]: string } {
@@ -1021,6 +1087,7 @@ export class Nodepool extends $dara.Model {
    * 10
    */
   maxNodes?: number;
+  nodeComponents?: NodepoolNodeComponents[];
   nodeConfig?: NodepoolNodeConfig;
   nodepoolInfo?: NodepoolNodepoolInfo;
   scalingGroup?: NodepoolScalingGroup;
@@ -1034,6 +1101,7 @@ export class Nodepool extends $dara.Model {
       kubernetesConfig: 'kubernetes_config',
       management: 'management',
       maxNodes: 'max_nodes',
+      nodeComponents: 'node_components',
       nodeConfig: 'node_config',
       nodepoolInfo: 'nodepool_info',
       scalingGroup: 'scaling_group',
@@ -1050,6 +1118,7 @@ export class Nodepool extends $dara.Model {
       kubernetesConfig: NodepoolKubernetesConfig,
       management: NodepoolManagement,
       maxNodes: 'number',
+      nodeComponents: { 'type': 'array', 'itemType': NodepoolNodeComponents },
       nodeConfig: NodepoolNodeConfig,
       nodepoolInfo: NodepoolNodepoolInfo,
       scalingGroup: NodepoolScalingGroup,
@@ -1069,6 +1138,9 @@ export class Nodepool extends $dara.Model {
     }
     if(this.management && typeof (this.management as any).validate === 'function') {
       (this.management as any).validate();
+    }
+    if(Array.isArray(this.nodeComponents)) {
+      $dara.Model.validateArray(this.nodeComponents);
     }
     if(this.nodeConfig && typeof (this.nodeConfig as any).validate === 'function') {
       (this.nodeConfig as any).validate();
