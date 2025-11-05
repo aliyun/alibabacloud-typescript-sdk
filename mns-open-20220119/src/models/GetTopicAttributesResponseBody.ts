@@ -100,6 +100,11 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    */
   tags?: GetTopicAttributesResponseBodyDataTags[];
   /**
+   * @example
+   * http:// 111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
+   */
+  topicInnerUrl?: string;
+  /**
    * @remarks
    * The name of the topic.
    * 
@@ -108,6 +113,11 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
    */
   topicName?: string;
   topicType?: string;
+  /**
+   * @example
+   * http:// 111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
+   */
+  topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -117,8 +127,10 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
       messageCount: 'MessageCount',
       messageRetentionPeriod: 'MessageRetentionPeriod',
       tags: 'Tags',
+      topicInnerUrl: 'TopicInnerUrl',
       topicName: 'TopicName',
       topicType: 'TopicType',
+      topicUrl: 'TopicUrl',
     };
   }
 
@@ -131,8 +143,10 @@ export class GetTopicAttributesResponseBodyData extends $dara.Model {
       messageCount: 'number',
       messageRetentionPeriod: 'number',
       tags: { 'type': 'array', 'itemType': GetTopicAttributesResponseBodyDataTags },
+      topicInnerUrl: 'string',
       topicName: 'string',
       topicType: 'string',
+      topicUrl: 'string',
     };
   }
 
