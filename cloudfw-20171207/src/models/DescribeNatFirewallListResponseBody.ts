@@ -126,6 +126,8 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
    * proxy-******
    */
   proxyName?: string;
+  proxyNetworkInterfaceId?: string;
+  proxyRouteTableId?: string;
   /**
    * @remarks
    * The status of the NAT firewall. Valid values:
@@ -142,6 +144,7 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
    * normal
    */
   proxyStatus?: string;
+  proxyVSwitchId?: string;
   /**
    * @remarks
    * The region ID of your Cloud Firewall.
@@ -186,7 +189,10 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
       natRouteEntryList: 'NatRouteEntryList',
       proxyId: 'ProxyId',
       proxyName: 'ProxyName',
+      proxyNetworkInterfaceId: 'ProxyNetworkInterfaceId',
+      proxyRouteTableId: 'ProxyRouteTableId',
       proxyStatus: 'ProxyStatus',
+      proxyVSwitchId: 'ProxyVSwitchId',
       regionId: 'RegionId',
       strictMode: 'StrictMode',
       vpcId: 'VpcId',
@@ -204,7 +210,10 @@ export class DescribeNatFirewallListResponseBodyNatFirewallList extends $dara.Mo
       natRouteEntryList: { 'type': 'array', 'itemType': DescribeNatFirewallListResponseBodyNatFirewallListNatRouteEntryList },
       proxyId: 'string',
       proxyName: 'string',
+      proxyNetworkInterfaceId: 'string',
+      proxyRouteTableId: 'string',
       proxyStatus: 'string',
+      proxyVSwitchId: 'string',
       regionId: 'string',
       strictMode: 'number',
       vpcId: 'string',
