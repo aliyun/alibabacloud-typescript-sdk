@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDiskReplicaPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 123456****
@@ -21,7 +21,7 @@ export class CreateDiskReplicaPairResponseBody extends $dara.Model {
   replicaPairId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C123F94F-4E38-19AE-942A-A8D6F44F****

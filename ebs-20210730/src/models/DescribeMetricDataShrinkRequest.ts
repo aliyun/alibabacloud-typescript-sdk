@@ -37,13 +37,15 @@ export class DescribeMetricDataShrinkRequest extends $dara.Model {
   aggreOverLineOps?: string;
   /**
    * @remarks
-   * Dimension map, in JSON format, representing the dimensions being queried. The currently available keys are:
-   * - DiskId: Cloud disk name, e.g., d-xxx.
-   * - DeviceType: Type of cloud disk, system indicates system disk, data indicates data disk.
-   * - DeviceCategory: Category of cloud disk, e.g., cloud_essd.
-   * - EcsInstanceId: Name of the ECS instance where the disk is located, e.g., i-xxx.
+   * The dimension map, in the JSON format. Valid values:
    * 
-   * The returned results are the intersection of all dimension filter conditions.
+   * *   DiskId: the disk name. Example: d-xxx.
+   * *   DeviceType: the disk type. system indicates the system disk, and data indicates the data disk.
+   * *   DeviceCategory: the disk category. Example: cloud_essd.
+   * *   EcsInstanceId: the ECS instance name. Example: i-xxx.
+   * *   Azone: the zone, such as cn-hangzhou-a.
+   * 
+   * The returned result is the intersection of all dimension filtering conditions.
    * 
    * @example
    * {"DiskId":["d-bp14xxxx","d-bp11xxxx"], "DeviceCategory": ["cloud_essd"]}
@@ -57,6 +59,10 @@ export class DescribeMetricDataShrinkRequest extends $dara.Model {
    * 2023-11-21T02:00:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of fields used for grouping and aggregation.
+   */
   groupByLabelsShrink?: string;
   /**
    * @remarks
@@ -79,12 +85,14 @@ export class DescribeMetricDataShrinkRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The interval for obtaining metric data. Unit: seconds. The default value is 5 seconds. Possible values include:
+   * The granularity at which data is collected for the metric. Unit: seconds. Default value: 5. Valid values:
    * 
-   * - 5: 5s precision query, can query up to 12 hours of data
-   * - 10: 10s precision query, can query up to 24 hours of data
-   * - 60: 60s precision query, can query up to 7 days of data
-   * - 3600: 3600s precision query, can query up to 30 days of data
+   * *   5: 5 seconds. The query time range can be up to 12 hours.
+   * *   10: 10 seconds. The query time range can be up to 24 hours.
+   * *   60: 60 seconds. The query time range can be up to 7 days.
+   * *   300: 300 seconds. The query time range can be up to 30 days.
+   * *   600: 600 seconds. The query time range can be up to 30 days.
+   * *   3600: 3,600 seconds. The query time range can be up to 30 days.
    * 
    * @example
    * 60
@@ -100,7 +108,7 @@ export class DescribeMetricDataShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time point for obtaining metric data. The earliest selectable time is one year before the current moment. When both StartTime and EndTime parameters are empty, it defaults to querying the most recent period\\"s monitoring metrics. Represented according to the ISO 8601 standard, using UTC +0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The beginning of the time range to query. You can specify a point in time that is up to 30 days before the current time. If both StartTime and EndTime are left empty, the monitoring metric data of the most recent statistical period is queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-11-21T01:50:00Z

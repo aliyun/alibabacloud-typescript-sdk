@@ -1,21 +1,58 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDiskReplicaPairRequestTag } from "./CreateDiskReplicaPairRequestTag";
 
+
+export class CreateDiskReplicaPairRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDiskReplicaPairRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth to use to asynchronously replicate data between the primary disk and secondary disk. Unit: Kbit/s. Valid values:
+   * The bandwidth to use to asynchronously replicate data from the primary disk to the secondary disk. Unit: Kbit/s. Valid values:
    * 
-   * *   10240 : equal to 10 Mbit/s
-   * *   20480 : equal to 20 Mbit/s
-   * *   51200 : equal to 50 Mbit/s
-   * *   102400 : equal to 100 Mbit/s
+   * *   10240
+   * *   20480
+   * *   51200
+   * *   102400
    * 
-   * Default value: 10240.
-   * 
-   * When you set the ChargeType parameter to POSTPAY, the Bandwidth parameter is automatically set to 0 and cannot be modified. The value 0 indicates that bandwidth is dynamically allocated based on the volume of data that is asynchronously replicated from the primary disk to the secondary disk.
+   * Default value: 10240. When you set the ChargeType parameter to POSTPAY, the Bandwidth parameter is automatically set to 0 and cannot be modified. The value 0 indicates that bandwidth is dynamically allocated based on the volume of data that is asynchronously replicated from the primary disk to the secondary disk.
    * 
    * @example
    * 10240
@@ -36,7 +73,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -90,10 +127,17 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
    * d-iq80sgp4d0xbk24q****
    */
   diskId?: string;
+  /**
+   * @remarks
+   * Whether to enable replication time control. By default, this parameter is disabled.
+   * 
+   * @example
+   * true
+   */
   enableRtc?: boolean;
   /**
    * @remarks
-   * The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * The name of the replication pair. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * TestReplicaPair
@@ -101,10 +145,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   pairName?: string;
   /**
    * @remarks
-   * The subscription duration of the replication pair. This parameter is required when the `ChargeType` parameter is set to PREPAY. The unit of the subscription duration is specified by the `PeriodUnit` parameter.
-   * 
-   * *   Valid values when the `PeriodUnit` parameter is set to Week: 1, 2, 3, and 4.
-   * *   Valid values when the `PeriodUnit` parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * The subscription duration of the replication pair. When `ChargeType` is set to PREPAY, this parameter must be specified. Valid values: 1, 2, 3, 6, 12, 24, 36, and 60. The subscription duration unit is specified by `PeriodUnit`.
    * 
    * @example
    * 1
@@ -112,12 +153,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration of the replication pair. Valid values:
-   * 
-   * *   Week.
-   * *   Month
-   * 
-   * Default value: Month.
+   * The unit of the subscription duration of the replication pair. Set the value to Month. Valid value: Month
    * 
    * @example
    * Month
@@ -125,7 +161,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The recovery point objective (RPO) of the replication pair. Unit: seconds. Set the value to 900.
+   * The recovery point objective (RPO) of the replication pair. Unit: seconds. Valid value: 900.
    * 
    * @example
    * 900
@@ -143,7 +179,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which to assign the replication group.
+   * The ID of the resource group to which the replication pair belongs.
    * 
    * @example
    * rg-acfmvs****
@@ -161,7 +197,7 @@ export class CreateDiskReplicaPairRequest extends $dara.Model {
   sourceZoneId?: string;
   /**
    * @remarks
-   * The resource tags. You can specify up to 20 tags.
+   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
    */
   tag?: CreateDiskReplicaPairRequestTag[];
   static names(): { [key: string]: string } {

@@ -29,6 +29,13 @@ export class ModifyDiskReplicaPairRequest extends $dara.Model {
    * This is description.
    */
   description?: string;
+  /**
+   * @remarks
+   * Whether to enable replication time control.
+   * 
+   * @example
+   * true
+   */
   enableRtc?: boolean;
   /**
    * @remarks

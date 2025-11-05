@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListReportsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * app-xxx
+   */
   appId?: string;
   /**
    * @remarks

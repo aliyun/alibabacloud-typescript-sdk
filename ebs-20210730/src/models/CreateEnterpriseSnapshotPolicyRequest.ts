@@ -1,12 +1,357 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo } from "./CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo";
-import { CreateEnterpriseSnapshotPolicyRequestRetainRule } from "./CreateEnterpriseSnapshotPolicyRequestRetainRule";
-import { CreateEnterpriseSnapshotPolicyRequestSchedule } from "./CreateEnterpriseSnapshotPolicyRequestSchedule";
-import { CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules } from "./CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules";
-import { CreateEnterpriseSnapshotPolicyRequestStorageRule } from "./CreateEnterpriseSnapshotPolicyRequestStorageRule";
-import { CreateEnterpriseSnapshotPolicyRequestTag } from "./CreateEnterpriseSnapshotPolicyRequestTag";
 
+
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the destination. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Number of days to retain the destination snapshot. The range of values is greater than 1.
+   * 
+   * @example
+   * 7
+   */
+  retainDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      retainDays: 'RetainDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      retainDays: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Whether cross-region replication is enabled. The range of values:
+   * 
+   * - true
+   * 
+   * - false
+   * 
+   * @example
+   * false
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The list of destination regions.
+   */
+  regions?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      regions: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model {
+  /**
+   * @remarks
+   * Maximum number of retained snapshots.
+   * 
+   * @example
+   * 10
+   */
+  number?: number;
+  /**
+   * @remarks
+   * The time interval , valid value greater than 1.
+   * 
+   * @example
+   * 14
+   */
+  timeInterval?: number;
+  /**
+   * @remarks
+   * The unit of time, valid values:
+   * 
+   * - DAYS
+   * 
+   * - WEEKS
+   * 
+   * @example
+   * DAYS
+   */
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      number: 'Number',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      number: 'number',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
+   * 
+   * For example, you can use 0 0 4 1/1 * ? to specify 04:00:00 (UTC+8) on the first day of each month.
+   * 
+   * This parameter is required.
+   */
+  cronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronExpression: 'CronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronExpression: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $dara.Model {
+  /**
+   * @remarks
+   * The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
+   * - WEEKS
+   * - MONTHS
+   * - YEARS
+   * 
+   * @example
+   * WEEKS
+   */
+  specialPeriodUnit?: string;
+  /**
+   * @remarks
+   * Retention Time Value. The range of values is greater than 1.
+   * 
+   * @example
+   * 14
+   */
+  timeInterval?: number;
+  /**
+   * @remarks
+   * Retention time unit for special snapshots. The range of values:
+   * 
+   * - DAYS
+   * 
+   * - WEEKS
+   * 
+   * @example
+   * WEEKS
+   */
+  timeUnit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specialPeriodUnit: 'SpecialPeriodUnit',
+      timeInterval: 'TimeInterval',
+      timeUnit: 'TimeUnit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specialPeriodUnit: 'string',
+      timeInterval: 'number',
+      timeUnit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the special retention is enabled.
+   * 
+   * *   true: enable
+   * *   false: disable
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The special retention rules.
+   */
+  rules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable the rapid availability of snapshots. The range of values:
+   * 
+   * - true
+   * 
+   * - false
+   * 
+   * @example
+   * false
+   */
+  enableImmediateAccess?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableImmediateAccess: 'EnableImmediateAccess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableImmediateAccess: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tag-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tag-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
   /**

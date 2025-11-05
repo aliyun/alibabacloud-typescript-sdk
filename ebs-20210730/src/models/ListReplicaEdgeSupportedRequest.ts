@@ -2,40 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeSolutionInstanceConfigurationRequestParameters extends $dara.Model {
+export class ListReplicaEdgeSupportedRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the parameter.
-   * 
    * This parameter is required.
    * 
    * @example
-   * ***
+   * cn-hangzhou-h
    */
-  parameterKey?: string;
+  azone?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * e71d8a535bd9c****
+   */
+  nextToken?: string;
   /**
    * @remarks
-   * The value of the parameter.
-   * 
-   * > The Parameters parameter is optional. If you specify Parameters, you must specify ParameterValue.
-   * 
    * This parameter is required.
    * 
    * @example
-   * ***
+   * cn-hangzhou
    */
-  parameterValue?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      parameterKey: 'ParameterKey',
-      parameterValue: 'ParameterValue',
+      azone: 'Azone',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parameterKey: 'string',
-      parameterValue: 'string',
+      azone: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
     };
   }
 

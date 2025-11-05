@@ -1,7 +1,46 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDiskReplicaGroupRequestTag } from "./CreateDiskReplicaGroupRequestTag";
 
+
+export class CreateDiskReplicaGroupRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of tag N of the replication pair-consistent group.
+   * 
+   * @example
+   * tag-key
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N of the replication pair-consistent group.
+   * 
+   * @example
+   * tag-value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDiskReplicaGroupRequest extends $dara.Model {
   /**
@@ -50,6 +89,13 @@ export class CreateDiskReplicaGroupRequest extends $dara.Model {
    * cn-shanghai-e
    */
   destinationZoneId?: string;
+  /**
+   * @remarks
+   * Whether to enable replication time control. By default, this parameter is disabled.
+   * 
+   * @example
+   * true
+   */
   enableRtc?: boolean;
   /**
    * @remarks
