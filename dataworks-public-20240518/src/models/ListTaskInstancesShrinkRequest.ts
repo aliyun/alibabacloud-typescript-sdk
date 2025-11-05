@@ -100,6 +100,16 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The status of the task instance.
+   * 
+   * *   `NotRun`: Not started
+   * *   `Running`
+   * *   `Failure`
+   * *   `Success`
+   * *   `WaitTime`: Awaiting scheduled time
+   * *   `WaitResource`: Awaiting resources
+   * 
    * @example
    * Success
    */
@@ -176,11 +186,11 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   SmokeTest
-   * *   Manual
-   * *   SupplementData
-   * *   ManualWorkflow
-   * *   Normal
+   * *   SmokeTest: Testing
+   * *   Manual: Manually triggered node
+   * *   SupplementData: Data backfill
+   * *   ManualWorkflow: Manually triggered workflow
+   * *   Normal: Scheduled execution
    * 
    * @example
    * Normal

@@ -278,6 +278,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    */
   runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
+   * @remarks
+   * The script parameter list.
+   * 
    * @example
    * para1=val1 para2=val2
    */
@@ -379,11 +382,17 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The timestamp for when it started waiting for resources.
+   * 
    * @example
    * 1710239005403
    */
   waitingResourceTime?: number;
   /**
+   * @remarks
+   * The timestamp for when it started waiting for the scheduled time.
+   * 
    * @example
    * 1710239005403
    */
@@ -590,7 +599,7 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination details.
+   * The pagination information.
    */
   pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
   /**

@@ -85,6 +85,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
    * *   SmokeTest: Smoke test
    * *   SupplementData: Data backfill
    * *   ManualWorkflow: Manually triggered workflow
+   * *   TriggerWorkflow: Triggered Workflow
    * 
    * @example
    * Normal

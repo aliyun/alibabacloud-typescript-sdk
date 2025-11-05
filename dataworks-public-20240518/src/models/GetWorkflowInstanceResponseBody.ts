@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkflowInstanceResponseBodyWorkflowInstanceTags extends $dara.Model {
   /**
+   * @remarks
+   * The key of a tag.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of a tag.
+   * 
    * @example
    * value1
    */
@@ -112,6 +118,10 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * WorkInstance1
    */
   name?: string;
+  /**
+   * @example
+   * 1000
+   */
   owner?: string;
   /**
    * @remarks
@@ -155,11 +165,12 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * @remarks
    * The type of the workflow instance. Valid values:
    * 
-   * *   Normal
-   * *   Manual
-   * *   SmokeTest
-   * *   SupplementData
-   * *   ManualWorkflow
+   * *   Normal: Scheduled execution
+   * *   Manual: Manually triggered node
+   * *   SmokeTest: Testing
+   * *   SupplementData: Data backfill
+   * *   ManualWorkflow: Manually triggered workflow
+   * *   TriggerWorkflow: Triggered Workflow
    * 
    * @example
    * Normal
@@ -178,6 +189,10 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * The workflow parameters.
    */
   workflowParameters?: string;
+  /**
+   * @example
+   * 1234
+   */
   workflowTaskInstanceId?: number;
   static names(): { [key: string]: string } {
     return {

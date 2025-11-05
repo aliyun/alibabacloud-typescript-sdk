@@ -73,7 +73,7 @@ export class GetCreateWorkflowInstancesResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of asynchronously creating a workflow instance.
+   * The creation result of the workflow instance.
    */
   result?: GetCreateWorkflowInstancesResultResponseBodyResult;
   static names(): { [key: string]: string } {
