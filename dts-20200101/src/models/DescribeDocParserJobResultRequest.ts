@@ -8,6 +8,7 @@ export class DescribeDocParserJobResultRequest extends $dara.Model {
    * dts-20250729-y0zz3t13h7d****
    */
   dtsJobId?: string;
+  ragInstanceId?: string;
   /**
    * @example
    * cn-hangzhou
@@ -21,6 +22,7 @@ export class DescribeDocParserJobResultRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dtsJobId: 'DtsJobId',
+      ragInstanceId: 'RagInstanceId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -29,6 +31,7 @@ export class DescribeDocParserJobResultRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dtsJobId: 'string',
+      ragInstanceId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
     };

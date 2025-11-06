@@ -13,6 +13,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
    * https://oss-cn-hangzhou.aliyuncs.com/storage/pdf/40184458-fbb0-44cf-a391-350628ceccdd17375122****
    */
   fileUrl?: string;
+  ragInstanceId?: string;
   /**
    * @example
    * cn-hangzhou
@@ -32,6 +33,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
     return {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
+      ragInstanceId: 'RagInstanceId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resultType: 'ResultType',
@@ -42,6 +44,7 @@ export class CreateDocParserJobRequest extends $dara.Model {
     return {
       fileName: 'string',
       fileUrl: 'string',
+      ragInstanceId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resultType: 'string',
