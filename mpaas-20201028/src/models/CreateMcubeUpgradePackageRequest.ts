@@ -11,10 +11,12 @@ export class CreateMcubeUpgradePackageRequest extends $dara.Model {
   desc?: string;
   downloadUrl?: string;
   fileUrl?: string;
+  harmonyLabel?: string;
   iconFileUrl?: string;
   installAmount?: number;
   iosSymbolfileUrl?: string;
   isEnterprise?: number;
+  largeIconUrl?: string;
   needCheck?: number;
   onexFlag?: boolean;
   platform?: string;
@@ -31,10 +33,12 @@ export class CreateMcubeUpgradePackageRequest extends $dara.Model {
       desc: 'Desc',
       downloadUrl: 'DownloadUrl',
       fileUrl: 'FileUrl',
+      harmonyLabel: 'HarmonyLabel',
       iconFileUrl: 'IconFileUrl',
       installAmount: 'InstallAmount',
       iosSymbolfileUrl: 'IosSymbolfileUrl',
       isEnterprise: 'IsEnterprise',
+      largeIconUrl: 'LargeIconUrl',
       needCheck: 'NeedCheck',
       onexFlag: 'OnexFlag',
       platform: 'Platform',
@@ -54,10 +58,12 @@ export class CreateMcubeUpgradePackageRequest extends $dara.Model {
       desc: 'string',
       downloadUrl: 'string',
       fileUrl: 'string',
+      harmonyLabel: 'string',
       iconFileUrl: 'string',
       installAmount: 'number',
       iosSymbolfileUrl: 'string',
       isEnterprise: 'number',
+      largeIconUrl: 'string',
       needCheck: 'number',
       onexFlag: 'boolean',
       platform: 'string',

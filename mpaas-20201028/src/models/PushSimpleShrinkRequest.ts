@@ -32,6 +32,7 @@ export class PushSimpleShrinkRequest extends $dara.Model {
   iconUrls?: string;
   imageUrls?: string;
   miChannelId?: string;
+  notifyLevelShrink?: string;
   notifyType?: string;
   pushAction?: number;
   pushStyle?: number;
@@ -78,6 +79,7 @@ export class PushSimpleShrinkRequest extends $dara.Model {
       iconUrls: 'IconUrls',
       imageUrls: 'ImageUrls',
       miChannelId: 'MiChannelId',
+      notifyLevelShrink: 'NotifyLevel',
       notifyType: 'NotifyType',
       pushAction: 'PushAction',
       pushStyle: 'PushStyle',
@@ -115,6 +117,7 @@ export class PushSimpleShrinkRequest extends $dara.Model {
       iconUrls: 'string',
       imageUrls: 'string',
       miChannelId: 'string',
+      notifyLevelShrink: 'string',
       notifyType: 'string',
       pushAction: 'number',
       pushStyle: 'number',

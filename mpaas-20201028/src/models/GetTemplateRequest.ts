@@ -2,29 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UploadUserAppToMsaRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class GetTemplateRequest extends $dara.Model {
   appId?: string;
-  fileName?: string;
-  fileUrl?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  templateId?: string;
+  templateName?: string;
   tenantId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
       tenantId: 'TenantId',
       workspaceId: 'WorkspaceId',
     };
@@ -33,8 +21,8 @@ export class UploadUserAppToMsaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      fileName: 'string',
-      fileUrl: 'string',
+      templateId: 'string',
+      templateName: 'string',
       tenantId: 'string',
       workspaceId: 'string',
     };

@@ -65,6 +65,7 @@ export class PushMultipleRequest extends $dara.Model {
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
+  notifyLevel?: { [key: string]: any };
   notifyType?: string;
   pushAction?: number;
   silent?: number;
@@ -102,6 +103,7 @@ export class PushMultipleRequest extends $dara.Model {
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
+      notifyLevel: 'NotifyLevel',
       notifyType: 'NotifyType',
       pushAction: 'PushAction',
       silent: 'Silent',
@@ -130,6 +132,7 @@ export class PushMultipleRequest extends $dara.Model {
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
+      notifyLevel: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       notifyType: 'string',
       pushAction: 'number',
       silent: 'number',
@@ -147,6 +150,9 @@ export class PushMultipleRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.notifyLevel) {
+      $dara.Model.validateMap(this.notifyLevel);
+    }
     if(Array.isArray(this.targetMsg)) {
       $dara.Model.validateArray(this.targetMsg);
     }

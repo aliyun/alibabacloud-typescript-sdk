@@ -2,28 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMdsMiniprogramTaskRequest extends $dara.Model {
-  appId?: string;
-  greyConfigInfo?: string;
-  greyEndtimeData?: string;
-  greyNum?: string;
-  h5Id?: string;
-  id?: number;
-  memo?: string;
+export class CreateMdsCubeTaskRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * ALIPUBE5C3F6D091419
    */
-  packageId?: number;
-  publishMode?: string;
+  appId?: string;
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * ""
+   */
+  greyConfigInfo?: string;
+  /**
+   * @example
+   * ""
+   */
+  greyEndtimeData?: string;
+  /**
+   * @example
+   * 1
+   */
+  greyNum?: number;
+  /**
+   * @example
+   * 0
+   */
+  publishMode?: number;
+  /**
+   * @example
+   * 3
    */
   publishType?: number;
-  syncMode?: string;
+  /**
+   * @example
+   * task_test
+   */
+  taskDesc?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateResourceId?: number;
+  /**
+   * @example
+   * ZXCXMAHQ-zh_CN
+   */
   tenantId?: string;
+  /**
+   * @example
+   * test1,test2
+   */
   whitelistIds?: string;
+  /**
+   * @example
+   * dev
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,13 +64,10 @@ export class CreateMdsMiniprogramTaskRequest extends $dara.Model {
       greyConfigInfo: 'GreyConfigInfo',
       greyEndtimeData: 'GreyEndtimeData',
       greyNum: 'GreyNum',
-      h5Id: 'H5Id',
-      id: 'Id',
-      memo: 'Memo',
-      packageId: 'PackageId',
       publishMode: 'PublishMode',
       publishType: 'PublishType',
-      syncMode: 'SyncMode',
+      taskDesc: 'TaskDesc',
+      templateResourceId: 'TemplateResourceId',
       tenantId: 'TenantId',
       whitelistIds: 'WhitelistIds',
       workspaceId: 'WorkspaceId',
@@ -49,14 +79,11 @@ export class CreateMdsMiniprogramTaskRequest extends $dara.Model {
       appId: 'string',
       greyConfigInfo: 'string',
       greyEndtimeData: 'string',
-      greyNum: 'string',
-      h5Id: 'string',
-      id: 'number',
-      memo: 'string',
-      packageId: 'number',
-      publishMode: 'string',
+      greyNum: 'number',
+      publishMode: 'number',
       publishType: 'number',
-      syncMode: 'string',
+      taskDesc: 'string',
+      templateResourceId: 'number',
       tenantId: 'string',
       whitelistIds: 'string',
       workspaceId: 'string',

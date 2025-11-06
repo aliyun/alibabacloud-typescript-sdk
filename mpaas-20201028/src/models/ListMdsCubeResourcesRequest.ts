@@ -2,41 +2,63 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UploadUserAppToMsaRequest extends $dara.Model {
+export class ListMdsCubeResourcesRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * ALIPUBE5C3F6D091419
    */
   appId?: string;
-  fileName?: string;
-  fileUrl?: string;
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * test12435
+   */
+  templateId?: string;
+  /**
+   * @example
+   * ZXCXMAHQ-zh_CN
    */
   tenantId?: string;
   /**
-   * @remarks
-   * This parameter is required.
+   * @example
+   * dev
    */
   workspaceId?: string;
+  /**
+   * @example
+   * test
+   */
+  test?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      fileName: 'FileName',
-      fileUrl: 'FileUrl',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      templateId: 'TemplateId',
       tenantId: 'TenantId',
       workspaceId: 'WorkspaceId',
+      test: 'test',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      fileName: 'string',
-      fileUrl: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      templateId: 'string',
       tenantId: 'string',
       workspaceId: 'string',
+      test: 'string',
     };
   }
 

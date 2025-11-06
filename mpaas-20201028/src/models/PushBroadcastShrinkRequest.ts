@@ -9,7 +9,9 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   appId?: string;
+  bindEndTime?: number;
   bindPeriod?: number;
+  bindStartTime?: number;
   channelId?: string;
   classification?: string;
   /**
@@ -29,6 +31,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   msgkey?: string;
+  notifyLevelShrink?: string;
   notifyType?: string;
   pushAction?: number;
   pushStatus?: number;
@@ -44,9 +47,12 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
   templateName?: string;
   tenantId?: string;
   thirdChannelCategoryShrink?: string;
+  timeMode?: number;
   transparentMessagePayload?: any;
   transparentMessageUrgency?: string;
+  unBindEndTime?: number;
   unBindPeriod?: number;
+  unBindStartTime?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -56,7 +62,9 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
     return {
       androidChannel: 'AndroidChannel',
       appId: 'AppId',
+      bindEndTime: 'BindEndTime',
       bindPeriod: 'BindPeriod',
+      bindStartTime: 'BindStartTime',
       channelId: 'ChannelId',
       classification: 'Classification',
       deliveryType: 'DeliveryType',
@@ -64,6 +72,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
       msgkey: 'Msgkey',
+      notifyLevelShrink: 'NotifyLevel',
       notifyType: 'NotifyType',
       pushAction: 'PushAction',
       pushStatus: 'PushStatus',
@@ -75,9 +84,12 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       templateName: 'TemplateName',
       tenantId: 'TenantId',
       thirdChannelCategoryShrink: 'ThirdChannelCategory',
+      timeMode: 'TimeMode',
       transparentMessagePayload: 'TransparentMessagePayload',
       transparentMessageUrgency: 'TransparentMessageUrgency',
+      unBindEndTime: 'UnBindEndTime',
       unBindPeriod: 'UnBindPeriod',
+      unBindStartTime: 'UnBindStartTime',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -86,7 +98,9 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
     return {
       androidChannel: 'number',
       appId: 'string',
+      bindEndTime: 'number',
       bindPeriod: 'number',
+      bindStartTime: 'number',
       channelId: 'string',
       classification: 'string',
       deliveryType: 'number',
@@ -94,6 +108,7 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       extendedParams: 'string',
       miChannelId: 'string',
       msgkey: 'string',
+      notifyLevelShrink: 'string',
       notifyType: 'string',
       pushAction: 'number',
       pushStatus: 'number',
@@ -105,9 +120,12 @@ export class PushBroadcastShrinkRequest extends $dara.Model {
       templateName: 'string',
       tenantId: 'string',
       thirdChannelCategoryShrink: 'string',
+      timeMode: 'number',
       transparentMessagePayload: 'any',
       transparentMessageUrgency: 'string',
+      unBindEndTime: 'number',
       unBindPeriod: 'number',
+      unBindStartTime: 'number',
       workspaceId: 'string',
     };
   }

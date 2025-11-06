@@ -65,6 +65,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
   expiredSeconds?: number;
   extendedParams?: string;
   miChannelId?: string;
+  notifyLevelShrink?: string;
   notifyType?: string;
   pushAction?: number;
   silent?: number;
@@ -102,6 +103,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
       expiredSeconds: 'ExpiredSeconds',
       extendedParams: 'ExtendedParams',
       miChannelId: 'MiChannelId',
+      notifyLevelShrink: 'NotifyLevel',
       notifyType: 'NotifyType',
       pushAction: 'PushAction',
       silent: 'Silent',
@@ -130,6 +132,7 @@ export class PushMultipleShrinkRequest extends $dara.Model {
       expiredSeconds: 'number',
       extendedParams: 'string',
       miChannelId: 'string',
+      notifyLevelShrink: 'string',
       notifyType: 'string',
       pushAction: 'number',
       silent: 'number',

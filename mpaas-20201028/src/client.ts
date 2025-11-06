@@ -368,6 +368,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ChangeMdsCubeTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeMdsCubeTaskStatusResponse
+   */
+  async changeMdsCubeTaskStatusWithOptions(request: $_model.ChangeMdsCubeTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeMdsCubeTaskStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.taskStatus)) {
+      body["TaskStatus"] = request.taskStatus;
+    }
+
+    if (!$dara.isNull(request.templateResourceId)) {
+      body["TemplateResourceId"] = request.templateResourceId;
+    }
+
+    if (!$dara.isNull(request.templateTaskId)) {
+      body["TemplateTaskId"] = request.templateTaskId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeMdsCubeTaskStatus",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeMdsCubeTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.ChangeMdsCubeTaskStatusResponse({}));
+  }
+
+  /**
+   * @param request - ChangeMdsCubeTaskStatusRequest
+   * @returns ChangeMdsCubeTaskStatusResponse
+   */
+  async changeMdsCubeTaskStatus(request: $_model.ChangeMdsCubeTaskStatusRequest): Promise<$_model.ChangeMdsCubeTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeMdsCubeTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CopyMcdpGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CopyMcdpGroupResponse
@@ -1155,6 +1213,10 @@ export default class Client extends OpenApi {
       body["FileUrl"] = request.fileUrl;
     }
 
+    if (!$dara.isNull(request.harmonyLabel)) {
+      body["HarmonyLabel"] = request.harmonyLabel;
+    }
+
     if (!$dara.isNull(request.iconFileUrl)) {
       body["IconFileUrl"] = request.iconFileUrl;
     }
@@ -1169,6 +1231,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.isEnterprise)) {
       body["IsEnterprise"] = request.isEnterprise;
+    }
+
+    if (!$dara.isNull(request.largeIconUrl)) {
+      body["LargeIconUrl"] = request.largeIconUrl;
     }
 
     if (!$dara.isNull(request.needCheck)) {
@@ -1470,6 +1536,240 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateMdsCubeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMdsCubeResourceResponse
+   */
+  async createMdsCubeResourceWithOptions(request: $_model.CreateMdsCubeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMdsCubeResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidMaxVersion)) {
+      body["AndroidMaxVersion"] = request.androidMaxVersion;
+    }
+
+    if (!$dara.isNull(request.androidMinVersion)) {
+      body["AndroidMinVersion"] = request.androidMinVersion;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.extendInfo)) {
+      body["ExtendInfo"] = request.extendInfo;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.iosMaxVersion)) {
+      body["IosMaxVersion"] = request.iosMaxVersion;
+    }
+
+    if (!$dara.isNull(request.iosMinVersion)) {
+      body["IosMinVersion"] = request.iosMinVersion;
+    }
+
+    if (!$dara.isNull(request.mockDataUrl)) {
+      body["MockDataUrl"] = request.mockDataUrl;
+    }
+
+    if (!$dara.isNull(request.onexFlag)) {
+      body["OnexFlag"] = request.onexFlag;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.previewPictureUrl)) {
+      body["PreviewPictureUrl"] = request.previewPictureUrl;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateResourceDesc)) {
+      body["TemplateResourceDesc"] = request.templateResourceDesc;
+    }
+
+    if (!$dara.isNull(request.templateResourceVersion)) {
+      body["TemplateResourceVersion"] = request.templateResourceVersion;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMdsCubeResource",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMdsCubeResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateMdsCubeResourceResponse({}));
+  }
+
+  /**
+   * @param request - CreateMdsCubeResourceRequest
+   * @returns CreateMdsCubeResourceResponse
+   */
+  async createMdsCubeResource(request: $_model.CreateMdsCubeResourceRequest): Promise<$_model.CreateMdsCubeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMdsCubeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateMdsCubeTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMdsCubeTaskResponse
+   */
+  async createMdsCubeTaskWithOptions(request: $_model.CreateMdsCubeTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMdsCubeTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.greyConfigInfo)) {
+      body["GreyConfigInfo"] = request.greyConfigInfo;
+    }
+
+    if (!$dara.isNull(request.greyEndtimeData)) {
+      body["GreyEndtimeData"] = request.greyEndtimeData;
+    }
+
+    if (!$dara.isNull(request.greyNum)) {
+      body["GreyNum"] = request.greyNum;
+    }
+
+    if (!$dara.isNull(request.publishMode)) {
+      body["PublishMode"] = request.publishMode;
+    }
+
+    if (!$dara.isNull(request.publishType)) {
+      body["PublishType"] = request.publishType;
+    }
+
+    if (!$dara.isNull(request.taskDesc)) {
+      body["TaskDesc"] = request.taskDesc;
+    }
+
+    if (!$dara.isNull(request.templateResourceId)) {
+      body["TemplateResourceId"] = request.templateResourceId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.whitelistIds)) {
+      body["WhitelistIds"] = request.whitelistIds;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMdsCubeTask",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMdsCubeTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateMdsCubeTaskResponse({}));
+  }
+
+  /**
+   * @param request - CreateMdsCubeTaskRequest
+   * @returns CreateMdsCubeTaskResponse
+   */
+  async createMdsCubeTask(request: $_model.CreateMdsCubeTaskRequest): Promise<$_model.CreateMdsCubeTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMdsCubeTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateMdsCubeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMdsCubeTemplateResponse
+   */
+  async createMdsCubeTemplateWithOptions(request: $_model.CreateMdsCubeTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMdsCubeTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateDesc)) {
+      body["TemplateDesc"] = request.templateDesc;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMdsCubeTemplate",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMdsCubeTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateMdsCubeTemplateResponse({}));
+  }
+
+  /**
+   * @param request - CreateMdsCubeTemplateRequest
+   * @returns CreateMdsCubeTemplateResponse
+   */
+  async createMdsCubeTemplate(request: $_model.CreateMdsCubeTemplateRequest): Promise<$_model.CreateMdsCubeTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMdsCubeTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateMdsMiniprogramTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMdsMiniprogramTaskResponse
@@ -1491,6 +1791,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.greyNum)) {
       body["GreyNum"] = request.greyNum;
+    }
+
+    if (!$dara.isNull(request.h5Id)) {
+      body["H5Id"] = request.h5Id;
     }
 
     if (!$dara.isNull(request.id)) {
@@ -1737,6 +2041,100 @@ export default class Client extends OpenApi {
   async createOpenSingleData(request: $_model.CreateOpenSingleDataRequest): Promise<$_model.CreateOpenSingleDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createOpenSingleDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建模版
+   * 
+   * @param request - CreateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
+   */
+  async createTemplateWithOptions(request: $_model.CreateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.descInfo)) {
+      body["DescInfo"] = request.descInfo;
+    }
+
+    if (!$dara.isNull(request.iconUrls)) {
+      body["IconUrls"] = request.iconUrls;
+    }
+
+    if (!$dara.isNull(request.imageUrls)) {
+      body["ImageUrls"] = request.imageUrls;
+    }
+
+    if (!$dara.isNull(request.jumpAction)) {
+      body["JumpAction"] = request.jumpAction;
+    }
+
+    if (!$dara.isNull(request.pushStyle)) {
+      body["PushStyle"] = request.pushStyle;
+    }
+
+    if (!$dara.isNull(request.showStyle)) {
+      body["ShowStyle"] = request.showStyle;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.uri)) {
+      body["Uri"] = request.uri;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["Variables"] = request.variables;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTemplate",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateTemplateResponse({}));
+  }
+
+  /**
+   * 创建模版
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
+   */
+  async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2199,6 +2597,64 @@ export default class Client extends OpenApi {
   async deleteMdsWhitelistContent(request: $_model.DeleteMdsWhitelistContentRequest): Promise<$_model.DeleteMdsWhitelistContentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMdsWhitelistContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除模版
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplateWithOptions(request: $_model.DeleteTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTemplate",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTemplateResponse({}));
+  }
+
+  /**
+   * 删除模版
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplate(request: $_model.DeleteTemplateRequest): Promise<$_model.DeleteTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2710,6 +3166,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取模版
+   * 
+   * @param request - GetTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
+   */
+  async getTemplateWithOptions(request: $_model.GetTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTemplate",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetTemplateResponse({}));
+  }
+
+  /**
+   * 获取模版
+   * 
+   * @param request - GetTemplateRequest
+   * @returns GetTemplateResponse
+   */
+  async getTemplate(request: $_model.GetTemplateRequest): Promise<$_model.GetTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetUserAppDonwloadUrlInMsaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserAppDonwloadUrlInMsaResponse
@@ -2857,6 +3371,109 @@ export default class Client extends OpenApi {
   async getUserAppUploadProcessInMsa(request: $_model.GetUserAppUploadProcessInMsaRequest): Promise<$_model.GetUserAppUploadProcessInMsaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserAppUploadProcessInMsaWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询报表
+   * 
+   * @param request - ListAnalysisCoreIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAnalysisCoreIndexResponse
+   */
+  async listAnalysisCoreIndexWithOptions(request: $_model.ListAnalysisCoreIndexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAnalysisCoreIndexResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      body["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAnalysisCoreIndex",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAnalysisCoreIndexResponse>(await this.callApi(params, req, runtime), new $_model.ListAnalysisCoreIndexResponse({}));
+  }
+
+  /**
+   * 查询报表
+   * 
+   * @param request - ListAnalysisCoreIndexRequest
+   * @returns ListAnalysisCoreIndexResponse
+   */
+  async listAnalysisCoreIndex(request: $_model.ListAnalysisCoreIndexRequest): Promise<$_model.ListAnalysisCoreIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAnalysisCoreIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListCubecardAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCubecardAppsResponse
+   */
+  async listCubecardAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListCubecardAppsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCubecardApps",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCubecardAppsResponse>(await this.callApi(params, req, runtime), new $_model.ListCubecardAppsResponse({}));
+  }
+
+  /**
+   * @returns ListCubecardAppsResponse
+   */
+  async listCubecardApps(): Promise<$_model.ListCubecardAppsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCubecardAppsWithOptions(runtime);
   }
 
   /**
@@ -3494,6 +4111,184 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListMdsCubeResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMdsCubeResourcesResponse
+   */
+  async listMdsCubeResourcesWithOptions(request: $_model.ListMdsCubeResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMdsCubeResourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.test)) {
+      body["test"] = request.test;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMdsCubeResources",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMdsCubeResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListMdsCubeResourcesResponse({}));
+  }
+
+  /**
+   * @param request - ListMdsCubeResourcesRequest
+   * @returns ListMdsCubeResourcesResponse
+   */
+  async listMdsCubeResources(request: $_model.ListMdsCubeResourcesRequest): Promise<$_model.ListMdsCubeResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMdsCubeResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListMdsCubeTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMdsCubeTasksResponse
+   */
+  async listMdsCubeTasksWithOptions(request: $_model.ListMdsCubeTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMdsCubeTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.templateResourceId)) {
+      body["TemplateResourceId"] = request.templateResourceId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMdsCubeTasks",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMdsCubeTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMdsCubeTasksResponse({}));
+  }
+
+  /**
+   * @param request - ListMdsCubeTasksRequest
+   * @returns ListMdsCubeTasksResponse
+   */
+  async listMdsCubeTasks(request: $_model.ListMdsCubeTasksRequest): Promise<$_model.ListMdsCubeTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMdsCubeTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListMdsCubeTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMdsCubeTemplatesResponse
+   */
+  async listMdsCubeTemplatesWithOptions(request: $_model.ListMdsCubeTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMdsCubeTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMdsCubeTemplates",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMdsCubeTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListMdsCubeTemplatesResponse({}));
+  }
+
+  /**
+   * @param request - ListMdsCubeTemplatesRequest
+   * @returns ListMdsCubeTemplatesResponse
+   */
+  async listMdsCubeTemplates(request: $_model.ListMdsCubeTemplatesRequest): Promise<$_model.ListMdsCubeTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMdsCubeTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ListMgsApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMgsApiResponse
@@ -3589,6 +4384,64 @@ export default class Client extends OpenApi {
   async listMgsApi(request: $_model.ListMgsApiRequest): Promise<$_model.ListMgsApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMgsApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询模版列表
+   * 
+   * @param request - ListTemplatePageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplatePageResponse
+   */
+  async listTemplatePageWithOptions(request: $_model.ListTemplatePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplatePageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTemplatePage",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTemplatePageResponse>(await this.callApi(params, req, runtime), new $_model.ListTemplatePageResponse({}));
+  }
+
+  /**
+   * 分页查询模版列表
+   * 
+   * @param request - ListTemplatePageRequest
+   * @returns ListTemplatePageResponse
+   */
+  async listTemplatePage(request: $_model.ListTemplatePageRequest): Promise<$_model.ListTemplatePageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTemplatePageWithOptions(request, runtime);
   }
 
   /**
@@ -3724,6 +4577,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.PushBroadcastShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notifyLevel)) {
+      request.notifyLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel, "NotifyLevel", "json");
+    }
+
     if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
@@ -3737,8 +4594,16 @@ export default class Client extends OpenApi {
       body["AppId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.bindEndTime)) {
+      body["BindEndTime"] = request.bindEndTime;
+    }
+
     if (!$dara.isNull(request.bindPeriod)) {
       body["BindPeriod"] = request.bindPeriod;
+    }
+
+    if (!$dara.isNull(request.bindStartTime)) {
+      body["BindStartTime"] = request.bindStartTime;
     }
 
     if (!$dara.isNull(request.channelId)) {
@@ -3767,6 +4632,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.msgkey)) {
       body["Msgkey"] = request.msgkey;
+    }
+
+    if (!$dara.isNull(request.notifyLevelShrink)) {
+      body["NotifyLevel"] = request.notifyLevelShrink;
     }
 
     if (!$dara.isNull(request.notifyType)) {
@@ -3813,6 +4682,10 @@ export default class Client extends OpenApi {
       body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink;
     }
 
+    if (!$dara.isNull(request.timeMode)) {
+      body["TimeMode"] = request.timeMode;
+    }
+
     if (!$dara.isNull(request.transparentMessagePayload)) {
       body["TransparentMessagePayload"] = request.transparentMessagePayload;
     }
@@ -3821,8 +4694,16 @@ export default class Client extends OpenApi {
       body["TransparentMessageUrgency"] = request.transparentMessageUrgency;
     }
 
+    if (!$dara.isNull(request.unBindEndTime)) {
+      body["UnBindEndTime"] = request.unBindEndTime;
+    }
+
     if (!$dara.isNull(request.unBindPeriod)) {
       body["UnBindPeriod"] = request.unBindPeriod;
+    }
+
+    if (!$dara.isNull(request.unBindStartTime)) {
+      body["UnBindStartTime"] = request.unBindStartTime;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -3864,6 +4745,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.PushMultipleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notifyLevel)) {
+      request.notifyLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel, "NotifyLevel", "json");
+    }
+
     if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
@@ -3907,6 +4792,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
+    }
+
+    if (!$dara.isNull(request.notifyLevelShrink)) {
+      body["NotifyLevel"] = request.notifyLevelShrink;
     }
 
     if (!$dara.isNull(request.notifyType)) {
@@ -3985,6 +4874,64 @@ export default class Client extends OpenApi {
   async pushMultiple(request: $_model.PushMultipleRequest): Promise<$_model.PushMultipleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMultipleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询设备状态信息
+   * 
+   * @param request - PushQueryDeviceStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushQueryDeviceStateResponse
+   */
+  async pushQueryDeviceStateWithOptions(request: $_model.PushQueryDeviceStateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushQueryDeviceStateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["Target"] = request.target;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      body["TargetType"] = request.targetType;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushQueryDeviceState",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushQueryDeviceStateResponse>(await this.callApi(params, req, runtime), new $_model.PushQueryDeviceStateResponse({}));
+  }
+
+  /**
+   * 查询设备状态信息
+   * 
+   * @param request - PushQueryDeviceStateRequest
+   * @returns PushQueryDeviceStateResponse
+   */
+  async pushQueryDeviceState(request: $_model.PushQueryDeviceStateRequest): Promise<$_model.PushQueryDeviceStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pushQueryDeviceStateWithOptions(request, runtime);
   }
 
   /**
@@ -4088,6 +5035,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.PushSimpleShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notifyLevel)) {
+      request.notifyLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel, "NotifyLevel", "json");
+    }
+
     if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
@@ -4143,6 +5094,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
+    }
+
+    if (!$dara.isNull(request.notifyLevelShrink)) {
+      body["NotifyLevel"] = request.notifyLevelShrink;
     }
 
     if (!$dara.isNull(request.notifyType)) {
@@ -4258,6 +5213,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.PushTemplateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.notifyLevel)) {
+      request.notifyLevelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel, "NotifyLevel", "json");
+    }
+
     if (!$dara.isNull(tmpReq.thirdChannelCategory)) {
       request.thirdChannelCategoryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory, "ThirdChannelCategory", "json");
     }
@@ -4301,6 +5260,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.miChannelId)) {
       body["MiChannelId"] = request.miChannelId;
+    }
+
+    if (!$dara.isNull(request.notifyLevelShrink)) {
+      body["NotifyLevel"] = request.notifyLevelShrink;
     }
 
     if (!$dara.isNull(request.notifyType)) {
@@ -4453,6 +5416,56 @@ export default class Client extends OpenApi {
   async pushUnBind(request: $_model.PushUnBindRequest): Promise<$_model.PushUnBindResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pushUnBindWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - QueryCubecardFiletokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCubecardFiletokenResponse
+   */
+  async queryCubecardFiletokenWithOptions(request: $_model.QueryCubecardFiletokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCubecardFiletokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.onexFlag)) {
+      body["OnexFlag"] = request.onexFlag;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCubecardFiletoken",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCubecardFiletokenResponse>(await this.callApi(params, req, runtime), new $_model.QueryCubecardFiletokenResponse({}));
+  }
+
+  /**
+   * @param request - QueryCubecardFiletokenRequest
+   * @returns QueryCubecardFiletokenResponse
+   */
+  async queryCubecardFiletoken(request: $_model.QueryCubecardFiletokenRequest): Promise<$_model.QueryCubecardFiletokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCubecardFiletokenWithOptions(request, runtime);
   }
 
   /**
@@ -5892,6 +6905,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - UpdateMdsCubeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMdsCubeResourceResponse
+   */
+  async updateMdsCubeResourceWithOptions(request: $_model.UpdateMdsCubeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMdsCubeResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.mockDataUrl)) {
+      body["MockDataUrl"] = request.mockDataUrl;
+    }
+
+    if (!$dara.isNull(request.onexFlag)) {
+      body["OnexFlag"] = request.onexFlag;
+    }
+
+    if (!$dara.isNull(request.templateResourceId)) {
+      body["TemplateResourceId"] = request.templateResourceId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMdsCubeResource",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMdsCubeResourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMdsCubeResourceResponse({}));
+  }
+
+  /**
+   * @param request - UpdateMdsCubeResourceRequest
+   * @returns UpdateMdsCubeResourceResponse
+   */
+  async updateMdsCubeResource(request: $_model.UpdateMdsCubeResourceRequest): Promise<$_model.UpdateMdsCubeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMdsCubeResourceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - UpdateMpaasAppInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMpaasAppInfoResponse
@@ -6217,6 +7288,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.appId)) {
       body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
     }
 
     if (!$dara.isNull(request.fileUrl)) {

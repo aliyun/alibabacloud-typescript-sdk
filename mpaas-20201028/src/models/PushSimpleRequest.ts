@@ -32,6 +32,7 @@ export class PushSimpleRequest extends $dara.Model {
   iconUrls?: string;
   imageUrls?: string;
   miChannelId?: string;
+  notifyLevel?: { [key: string]: any };
   notifyType?: string;
   pushAction?: number;
   pushStyle?: number;
@@ -78,6 +79,7 @@ export class PushSimpleRequest extends $dara.Model {
       iconUrls: 'IconUrls',
       imageUrls: 'ImageUrls',
       miChannelId: 'MiChannelId',
+      notifyLevel: 'NotifyLevel',
       notifyType: 'NotifyType',
       pushAction: 'PushAction',
       pushStyle: 'PushStyle',
@@ -115,6 +117,7 @@ export class PushSimpleRequest extends $dara.Model {
       iconUrls: 'string',
       imageUrls: 'string',
       miChannelId: 'string',
+      notifyLevel: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       notifyType: 'string',
       pushAction: 'number',
       pushStyle: 'number',
@@ -138,6 +141,9 @@ export class PushSimpleRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.notifyLevel) {
+      $dara.Model.validateMap(this.notifyLevel);
+    }
     if(this.thirdChannelCategory) {
       $dara.Model.validateMap(this.thirdChannelCategory);
     }
