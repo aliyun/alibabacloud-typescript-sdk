@@ -424,6 +424,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建应用合流模版
+   * 
+   * @param tmpReq - CreateAppViewTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppViewTemplateResponse
+   */
+  async createAppViewTemplateWithOptions(tmpReq: $_model.CreateAppViewTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppViewTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAppViewTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateShrink)) {
+      query["Template"] = request.templateShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppViewTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppViewTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppViewTemplateResponse({}));
+  }
+
+  /**
+   * 创建应用合流模版
+   * 
+   * @param request - CreateAppViewTemplateRequest
+   * @returns CreateAppViewTemplateResponse
+   */
+  async createAppViewTemplate(request: $_model.CreateAppViewTemplateRequest): Promise<$_model.CreateAppViewTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppViewTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateAutoLiveStreamRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAutoLiveStreamRuleResponse
@@ -873,6 +925,58 @@ export default class Client extends OpenApi {
   async deleteAppStreamingOutTemplate(request: $_model.DeleteAppStreamingOutTemplateRequest): Promise<$_model.DeleteAppStreamingOutTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppStreamingOutTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除应用合流模版
+   * 
+   * @param tmpReq - DeleteAppViewTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppViewTemplateResponse
+   */
+  async deleteAppViewTemplateWithOptions(tmpReq: $_model.DeleteAppViewTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppViewTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAppViewTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateShrink)) {
+      query["Template"] = request.templateShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppViewTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppViewTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppViewTemplateResponse({}));
+  }
+
+  /**
+   * 删除应用合流模版
+   * 
+   * @param request - DeleteAppViewTemplateRequest
+   * @returns DeleteAppViewTemplateResponse
+   */
+  async deleteAppViewTemplate(request: $_model.DeleteAppViewTemplateRequest): Promise<$_model.DeleteAppViewTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppViewTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1685,6 +1789,108 @@ export default class Client extends OpenApi {
   async describeAppStreamingOutTemplates(request: $_model.DescribeAppStreamingOutTemplatesRequest): Promise<$_model.DescribeAppStreamingOutTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppStreamingOutTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看合流开关
+   * 
+   * @param request - DescribeAppViewStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppViewStatusResponse
+   */
+  async describeAppViewStatusWithOptions(request: $_model.DescribeAppViewStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppViewStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAppViewStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAppViewStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppViewStatusResponse({}));
+  }
+
+  /**
+   * 查看合流开关
+   * 
+   * @param request - DescribeAppViewStatusRequest
+   * @returns DescribeAppViewStatusResponse
+   */
+  async describeAppViewStatus(request: $_model.DescribeAppViewStatusRequest): Promise<$_model.DescribeAppViewStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAppViewStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用合流模版列表
+   * 
+   * @param tmpReq - DescribeAppViewTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppViewTemplatesResponse
+   */
+  async describeAppViewTemplatesWithOptions(tmpReq: $_model.DescribeAppViewTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAppViewTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeAppViewTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.conditionShrink)) {
+      query["Condition"] = request.conditionShrink;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAppViewTemplates",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAppViewTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAppViewTemplatesResponse({}));
+  }
+
+  /**
+   * 应用合流模版列表
+   * 
+   * @param request - DescribeAppViewTemplatesRequest
+   * @returns DescribeAppViewTemplatesResponse
+   */
+  async describeAppViewTemplates(request: $_model.DescribeAppViewTemplatesRequest): Promise<$_model.DescribeAppViewTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAppViewTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -4922,6 +5128,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改合流开关
+   * 
+   * @param request - ModifyAppViewStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppViewStatusResponse
+   */
+  async modifyAppViewStatusWithOptions(request: $_model.ModifyAppViewStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppViewStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppViewStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppViewStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppViewStatusResponse({}));
+  }
+
+  /**
+   * 修改合流开关
+   * 
+   * @param request - ModifyAppViewStatusRequest
+   * @returns ModifyAppViewStatusResponse
+   */
+  async modifyAppViewStatus(request: $_model.ModifyAppViewStatusRequest): Promise<$_model.ModifyAppViewStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppViewStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用合流模版
+   * 
+   * @param tmpReq - ModifyAppViewTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppViewTemplateResponse
+   */
+  async modifyAppViewTemplateWithOptions(tmpReq: $_model.ModifyAppViewTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppViewTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAppViewTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateShrink)) {
+      query["Template"] = request.templateShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppViewTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppViewTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppViewTemplateResponse({}));
+  }
+
+  /**
+   * 更新应用合流模版
+   * 
+   * @param request - ModifyAppViewTemplateRequest
+   * @returns ModifyAppViewTemplateResponse
+   */
+  async modifyAppViewTemplate(request: $_model.ModifyAppViewTemplateRequest): Promise<$_model.ModifyAppViewTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppViewTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 更新app回调
    * 
    * @param tmpReq - ModifyCallbackMetaRequest
@@ -5085,6 +5385,154 @@ export default class Client extends OpenApi {
   async modifyMPULayout(request: $_model.ModifyMPULayoutRequest): Promise<$_model.ModifyMPULayoutResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyMPULayoutWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置流属性
+   * 
+   * @param tmpReq - ModifyStreamingPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyStreamingPropertyResponse
+   */
+  async modifyStreamingPropertyWithOptions(tmpReq: $_model.ModifyStreamingPropertyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyStreamingPropertyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyStreamingPropertyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.viewSubscribers)) {
+      request.viewSubscribersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers, "ViewSubscribers", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.viewContent)) {
+      query["ViewContent"] = request.viewContent;
+    }
+
+    if (!$dara.isNull(request.viewSubscribersShrink)) {
+      query["ViewSubscribers"] = request.viewSubscribersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyStreamingProperty",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyStreamingPropertyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyStreamingPropertyResponse({}));
+  }
+
+  /**
+   * 设置流属性
+   * 
+   * @param request - ModifyStreamingPropertyRequest
+   * @returns ModifyStreamingPropertyResponse
+   */
+  async modifyStreamingProperty(request: $_model.ModifyStreamingPropertyRequest): Promise<$_model.ModifyStreamingPropertyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyStreamingPropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置合流布局
+   * 
+   * @param tmpReq - ModifyViewLayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyViewLayoutResponse
+   */
+  async modifyViewLayoutWithOptions(tmpReq: $_model.ModifyViewLayoutRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyViewLayoutResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyViewLayoutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.layoutSpecifiedUsers)) {
+      request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!$dara.isNull(request.images)) {
+      query["Images"] = request.images;
+    }
+
+    if (!$dara.isNull(request.layoutSpecifiedUsersShrink)) {
+      query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink;
+    }
+
+    if (!$dara.isNull(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.texts)) {
+      query["Texts"] = request.texts;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyViewLayout",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyViewLayoutResponse>(await this.callApi(params, req, runtime), new $_model.ModifyViewLayoutResponse({}));
+  }
+
+  /**
+   * 设置合流布局
+   * 
+   * @param request - ModifyViewLayoutRequest
+   * @returns ModifyViewLayoutResponse
+   */
+  async modifyViewLayout(request: $_model.ModifyViewLayoutRequest): Promise<$_model.ModifyViewLayoutResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyViewLayoutWithOptions(request, runtime);
   }
 
   /**
@@ -5261,6 +5709,204 @@ export default class Client extends OpenApi {
   async removeUsers(request: $_model.RemoveUsersRequest): Promise<$_model.RemoveUsersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消Sip邀请
+   * 
+   * @param request - RtcCancelSipInviteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RtcCancelSipInviteResponse
+   */
+  async rtcCancelSipInviteWithOptions(request: $_model.RtcCancelSipInviteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RtcCancelSipInviteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RtcCancelSipInvite",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RtcCancelSipInviteResponse>(await this.callApi(params, req, runtime), new $_model.RtcCancelSipInviteResponse({}));
+  }
+
+  /**
+   * 取消Sip邀请
+   * 
+   * @param request - RtcCancelSipInviteRequest
+   * @returns RtcCancelSipInviteResponse
+   */
+  async rtcCancelSipInvite(request: $_model.RtcCancelSipInviteRequest): Promise<$_model.RtcCancelSipInviteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rtcCancelSipInviteWithOptions(request, runtime);
+  }
+
+  /**
+   * 邀请SIP加入频道
+   * 
+   * @param request - RtcSipInviteMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RtcSipInviteMemberResponse
+   */
+  async rtcSipInviteMemberWithOptions(request: $_model.RtcSipInviteMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RtcSipInviteMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appToken)) {
+      query["AppToken"] = request.appToken;
+    }
+
+    if (!$dara.isNull(request.callNumber)) {
+      query["CallNumber"] = request.callNumber;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.registered)) {
+      query["Registered"] = request.registered;
+    }
+
+    if (!$dara.isNull(request.serverAddress)) {
+      query["ServerAddress"] = request.serverAddress;
+    }
+
+    if (!$dara.isNull(request.sipDisplayName)) {
+      query["SipDisplayName"] = request.sipDisplayName;
+    }
+
+    if (!$dara.isNull(request.sipRoomId)) {
+      query["SipRoomId"] = request.sipRoomId;
+    }
+
+    if (!$dara.isNull(request.sipUri)) {
+      query["SipUri"] = request.sipUri;
+    }
+
+    if (!$dara.isNull(request.sipUserAgent)) {
+      query["SipUserAgent"] = request.sipUserAgent;
+    }
+
+    if (!$dara.isNull(request.sipUserId)) {
+      query["SipUserId"] = request.sipUserId;
+    }
+
+    if (!$dara.isNull(request.sipUserPassword)) {
+      query["SipUserPassword"] = request.sipUserPassword;
+    }
+
+    if (!$dara.isNull(request.uid)) {
+      query["Uid"] = request.uid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RtcSipInviteMember",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RtcSipInviteMemberResponse>(await this.callApi(params, req, runtime), new $_model.RtcSipInviteMemberResponse({}));
+  }
+
+  /**
+   * 邀请SIP加入频道
+   * 
+   * @param request - RtcSipInviteMemberRequest
+   * @returns RtcSipInviteMemberResponse
+   */
+  async rtcSipInviteMember(request: $_model.RtcSipInviteMemberRequest): Promise<$_model.RtcSipInviteMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rtcSipInviteMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * Mute操作
+   * 
+   * @param request - RtcSipMuteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RtcSipMuteResponse
+   */
+  async rtcSipMuteWithOptions(request: $_model.RtcSipMuteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RtcSipMuteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.operations)) {
+      query["Operations"] = request.operations;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RtcSipMute",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RtcSipMuteResponse>(await this.callApi(params, req, runtime), new $_model.RtcSipMuteResponse({}));
+  }
+
+  /**
+   * Mute操作
+   * 
+   * @param request - RtcSipMuteRequest
+   * @returns RtcSipMuteResponse
+   */
+  async rtcSipMute(request: $_model.RtcSipMuteRequest): Promise<$_model.RtcSipMuteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rtcSipMuteWithOptions(request, runtime);
   }
 
   /**
@@ -6055,6 +6701,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开始合流
+   * 
+   * @param tmpReq - StartViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartViewResponse
+   */
+  async startViewWithOptions(tmpReq: $_model.StartViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartViewResponse> {
+    tmpReq.validate();
+    let request = new $_model.StartViewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.viewSubscribers)) {
+      request.viewSubscribersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers, "ViewSubscribers", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.bgColor)) {
+      query["BgColor"] = request.bgColor;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!$dara.isNull(request.regionColor)) {
+      query["RegionColor"] = request.regionColor;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannel)) {
+      query["StartWithoutChannel"] = request.startWithoutChannel;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannelWaitTime)) {
+      query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.viewContent)) {
+      query["ViewContent"] = request.viewContent;
+    }
+
+    if (!$dara.isNull(request.viewSubscribersShrink)) {
+      query["ViewSubscribers"] = request.viewSubscribersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartView",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartViewResponse>(await this.callApi(params, req, runtime), new $_model.StartViewResponse({}));
+  }
+
+  /**
+   * 开始合流
+   * 
+   * @param request - StartViewRequest
+   * @returns StartViewResponse
+   */
+  async startView(request: $_model.StartViewRequest): Promise<$_model.StartViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startViewWithOptions(request, runtime);
+  }
+
+  /**
    * 停止AI Agent
    * 
    * @param request - StopAgentRequest
@@ -6446,6 +7180,56 @@ export default class Client extends OpenApi {
   async stopStreamingOut(request: $_model.StopStreamingOutRequest): Promise<$_model.StopStreamingOutResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopStreamingOutWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止合流
+   * 
+   * @param request - StopViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopViewResponse
+   */
+  async stopViewWithOptions(request: $_model.StopViewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopViewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopView",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopViewResponse>(await this.callApi(params, req, runtime), new $_model.StopViewResponse({}));
+  }
+
+  /**
+   * 停止合流
+   * 
+   * @param request - StopViewRequest
+   * @returns StopViewResponse
+   */
+  async stopView(request: $_model.StopViewRequest): Promise<$_model.StopViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopViewWithOptions(request, runtime);
   }
 
   /**
