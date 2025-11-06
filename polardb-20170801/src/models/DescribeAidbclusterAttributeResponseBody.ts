@@ -66,6 +66,11 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
   cpuCores?: string;
   /**
    * @example
+   * 2020-08-14T05:58:42Z
+   */
+  creationTime?: string;
+  /**
+   * @example
    * polar.pg.g8.8xlarge.gu30
    */
   DBNodeClass?: string;
@@ -128,6 +133,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
     return {
       childVolumes: 'ChildVolumes',
       cpuCores: 'CpuCores',
+      creationTime: 'CreationTime',
       DBNodeClass: 'DBNodeClass',
       DBNodeDescription: 'DBNodeDescription',
       DBNodeId: 'DBNodeId',
@@ -147,6 +153,7 @@ export class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $dara.Model
     return {
       childVolumes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes },
       cpuCores: 'string',
+      creationTime: 'string',
       DBNodeClass: 'string',
       DBNodeDescription: 'string',
       DBNodeId: 'string',

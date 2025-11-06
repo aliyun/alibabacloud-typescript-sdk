@@ -11564,6 +11564,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询vpc
+   * 
    * @param request - DescribeRdsVpcsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRdsVpcsResponse
@@ -11621,6 +11623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询vpc
+   * 
    * @param request - DescribeRdsVpcsRequest
    * @returns DescribeRdsVpcsResponse
    */
