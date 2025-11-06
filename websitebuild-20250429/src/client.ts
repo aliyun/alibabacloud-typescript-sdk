@@ -280,6 +280,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DispatchConsoleAPIForPartner
+   * 
+   * @param request - DispatchConsoleAPIForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DispatchConsoleAPIForPartnerResponse
+   */
+  async dispatchConsoleAPIForPartnerWithOptions(request: $_model.DispatchConsoleAPIForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DispatchConsoleAPIForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.liveToken)) {
+      query["LiveToken"] = request.liveToken;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.siteHost)) {
+      query["SiteHost"] = request.siteHost;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DispatchConsoleAPIForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DispatchConsoleAPIForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.DispatchConsoleAPIForPartnerResponse({}));
+  }
+
+  /**
+   * DispatchConsoleAPIForPartner
+   * 
+   * @param request - DispatchConsoleAPIForPartnerRequest
+   * @returns DispatchConsoleAPIForPartnerResponse
+   */
+  async dispatchConsoleAPIForPartner(request: $_model.DispatchConsoleAPIForPartnerRequest): Promise<$_model.DispatchConsoleAPIForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+  }
+
+  /**
    * 查询Logo创建任务
    * 
    * @param request - GetCreateLogoTaskRequest
@@ -415,6 +473,52 @@ export default class Client extends OpenApi {
   async getIcpFilingInfoForPartner(request: $_model.GetIcpFilingInfoForPartnerRequest): Promise<$_model.GetIcpFilingInfoForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getIcpFilingInfoForPartnerWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过授权码得到accessToken
+   * 
+   * @param request - GetUserAccessTokenForPartnerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserAccessTokenForPartnerResponse
+   */
+  async getUserAccessTokenForPartnerWithOptions(request: $_model.GetUserAccessTokenForPartnerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserAccessTokenForPartnerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteHost)) {
+      query["SiteHost"] = request.siteHost;
+    }
+
+    if (!$dara.isNull(request.ticket)) {
+      query["Ticket"] = request.ticket;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserAccessTokenForPartner",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserAccessTokenForPartnerResponse>(await this.callApi(params, req, runtime), new $_model.GetUserAccessTokenForPartnerResponse({}));
+  }
+
+  /**
+   * 通过授权码得到accessToken
+   * 
+   * @param request - GetUserAccessTokenForPartnerRequest
+   * @returns GetUserAccessTokenForPartnerResponse
+   */
+  async getUserAccessTokenForPartner(request: $_model.GetUserAccessTokenForPartnerRequest): Promise<$_model.GetUserAccessTokenForPartnerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUserAccessTokenForPartnerWithOptions(request, runtime);
   }
 
   /**
