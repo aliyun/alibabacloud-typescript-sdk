@@ -1,4 +1,4 @@
-export { ListConsoleProductResponseBodyData } from './ListConsoleProductResponseBodyData';
+export { ListConsoleProductResponseBodyData } from './ListConsoleProductResponseBody';
 export { GetOpenApiListRequest } from './GetOpenApiListRequest';
 export { GetOpenApiListResponseBody } from './GetOpenApiListResponseBody';
 export { GetOpenApiListResponse } from './GetOpenApiListResponse';
