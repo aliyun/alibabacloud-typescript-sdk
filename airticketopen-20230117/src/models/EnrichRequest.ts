@@ -52,10 +52,13 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
    */
   departureCity?: string;
   /**
+   * @example
+   * 2023-03-10
+   */
+  departureDate?: string;
+  /**
    * @remarks
    * departure time in string format (yyyy-MM-dd HH:mm:ss)
-   * 
-   * This parameter is required.
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -79,6 +82,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
       childCabin: 'child_cabin',
       departureAirport: 'departure_airport',
       departureCity: 'departure_city',
+      departureDate: 'departure_date',
       departureTime: 'departure_time',
       marketingFlightNo: 'marketing_flight_no',
     };
@@ -92,6 +96,7 @@ export class EnrichRequestJourneyParamListSegmentParamList extends $dara.Model {
       childCabin: 'string',
       departureAirport: 'string',
       departureCity: 'string',
+      departureDate: 'string',
       departureTime: 'string',
       marketingFlightNo: 'string',
     };

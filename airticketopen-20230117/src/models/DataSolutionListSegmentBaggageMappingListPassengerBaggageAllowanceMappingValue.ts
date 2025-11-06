@@ -67,6 +67,46 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
    * true
    */
   isAllCarryOnWeight?: boolean;
+  /**
+   * @example
+   * 55
+   */
+  carryLength?: number;
+  /**
+   * @example
+   * 40
+   */
+  carryWidth?: number;
+  /**
+   * @example
+   * 20
+   */
+  carryHeight?: number;
+  /**
+   * @example
+   * 115
+   */
+  carrySumOfLengthWidthHeight?: number;
+  /**
+   * @example
+   * 60
+   */
+  length?: number;
+  /**
+   * @example
+   * 40
+   */
+  width?: number;
+  /**
+   * @example
+   * 60
+   */
+  height?: number;
+  /**
+   * @example
+   * 200
+   */
+  sumOfLengthWidthHeight?: number;
   static names(): { [key: string]: string } {
     return {
       baggageAmount: 'baggage_amount',
@@ -77,6 +117,14 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
       carryOnWeight: 'carry_on_weight',
       carryOnWeightUnit: 'carry_on_weight_unit',
       isAllCarryOnWeight: 'is_all_carry_on_weight',
+      carryLength: 'carry_length',
+      carryWidth: 'carry_width',
+      carryHeight: 'carry_height',
+      carrySumOfLengthWidthHeight: 'carry_sum_of_length_width_height',
+      length: 'length',
+      width: 'width',
+      height: 'height',
+      sumOfLengthWidthHeight: 'sum_of_length_width_height',
     };
   }
 
@@ -90,6 +138,14 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
       carryOnWeight: 'number',
       carryOnWeightUnit: 'string',
       isAllCarryOnWeight: 'boolean',
+      carryLength: 'number',
+      carryWidth: 'number',
+      carryHeight: 'number',
+      carrySumOfLengthWidthHeight: 'number',
+      length: 'number',
+      width: 'number',
+      height: 'number',
+      sumOfLengthWidthHeight: 'number',
     };
   }
 
