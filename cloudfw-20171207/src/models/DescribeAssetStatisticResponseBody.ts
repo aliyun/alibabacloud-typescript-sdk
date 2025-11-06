@@ -35,8 +35,42 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGe
   }
 }
 
+export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic extends $dara.Model {
+  memberList?: string[];
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memberList: 'MemberList',
+      regionNo: 'RegionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memberList: { 'type': 'array', 'itemType': 'string' },
+      regionNo: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic extends $dara.Model {
   cfwGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic[];
+  cfwTotalGeneralInstanceRegionStatistic?: DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic[];
   /**
    * @example
    * 1
@@ -70,6 +104,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   static names(): { [key: string]: string } {
     return {
       cfwGeneralInstanceRegionStatistic: 'CfwGeneralInstanceRegionStatistic',
+      cfwTotalGeneralInstanceRegionStatistic: 'CfwTotalGeneralInstanceRegionStatistic',
       totalCfwGeneralInstanceCnt: 'TotalCfwGeneralInstanceCnt',
       totalCfwGeneralInstanceUsedCnt: 'TotalCfwGeneralInstanceUsedCnt',
       totalGeneralInstanceUsedCnt: 'TotalGeneralInstanceUsedCnt',
@@ -82,6 +117,7 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   static types(): { [key: string]: any } {
     return {
       cfwGeneralInstanceRegionStatistic: { 'type': 'array', 'itemType': DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic },
+      cfwTotalGeneralInstanceRegionStatistic: { 'type': 'array', 'itemType': DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic },
       totalCfwGeneralInstanceCnt: 'number',
       totalCfwGeneralInstanceUsedCnt: 'number',
       totalGeneralInstanceUsedCnt: 'number',
@@ -94,6 +130,9 @@ export class DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic exte
   validate() {
     if(Array.isArray(this.cfwGeneralInstanceRegionStatistic)) {
       $dara.Model.validateArray(this.cfwGeneralInstanceRegionStatistic);
+    }
+    if(Array.isArray(this.cfwTotalGeneralInstanceRegionStatistic)) {
+      $dara.Model.validateArray(this.cfwTotalGeneralInstanceRegionStatistic);
     }
     super.validate();
   }

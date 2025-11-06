@@ -31,6 +31,7 @@ export { DescribeAddressBookResponseBodyAcls } from './DescribeAddressBookRespon
 export { DescribeAssetListResponseBodyAssets } from './DescribeAssetListResponseBody';
 export { DescribeAssetRiskListResponseBodyAssetList } from './DescribeAssetRiskListResponseBody';
 export { DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic } from './DescribeAssetStatisticResponseBody';
+export { DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic } from './DescribeAssetStatisticResponseBody';
 export { DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic } from './DescribeAssetStatisticResponseBody';
 export { DescribeAssetStatisticResponseBodyResourceSpecStatistic } from './DescribeAssetStatisticResponseBody';
 export { DescribeCfwRiskLevelSummaryResponseBodyRiskList } from './DescribeCfwRiskLevelSummaryResponseBody';
