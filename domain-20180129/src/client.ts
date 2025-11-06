@@ -1,23141 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AcknowledgeTaskResultRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2659c29493e94416b297a7691340ccc4
-   */
-  taskDetailNo?: string[];
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      taskDetailNo: 'TaskDetailNo',
-      userClientIp: 'UserClientIp',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      taskDetailNo: { 'type': 'array', 'itemType': 'string' },
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AcknowledgeTaskResultResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D6CB3623-4726-4947-AC2B-2C6E673B447C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  result?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AcknowledgeTaskResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AcknowledgeTaskResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AcknowledgeTaskResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com,aliyundoc.com
-   */
-  keyword?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyword: 'Keyword',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyword: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * C560A803-B975-481D-A66B-A4395EA863A1
-   */
-  requestId?: string;
-  sensitiveWordMatchResultList?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      sensitiveWordMatchResultList: 'SensitiveWordMatchResultList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      sensitiveWordMatchResultList: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchFuzzyMatchDomainSensitiveWordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchFuzzyMatchDomainSensitiveWordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelDomainVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The action type. Valid values:
-   * 
-   * *   **DOMAINAUDIT**: review a domain name review.
-   * *   **AUDITCONTACT**: review a contact.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * AUDITCONTACT
-   */
-  actionType?: string;
-  /**
-   * @remarks
-   * Thee instance ID of the domain name. You can call the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) operation to query the instance ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * S2019270W570xxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The IP address of the client. Set the value to **127.0.0.1**.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelDomainVerificationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0AC0AF67-D303-4EB9-B20E-B4D4B2C3F97B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelDomainVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelDomainVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelDomainVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelOperationAuditRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  auditRecordId?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditRecordId: 'AuditRecordId',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditRecordId: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelOperationAuditResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9KFCF6F8-243C-40EC-8035-4B12KKFD7D90
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelOperationAuditResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelOperationAuditResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelOperationAuditResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelQualificationVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * knet
-   */
-  qualificationType?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      qualificationType: 'QualificationType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      qualificationType: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelQualificationVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelQualificationVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelQualificationVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelQualificationVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelTaskRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 7f217ae0-61f5-42e2-a1c3-42bad0124****
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      taskNo: 'TaskNo',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      taskNo: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelTaskResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 010E55C9-C64C-4C85-9BB2-7C225ADA6C86
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $tea.Model {
-  /**
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * rg-aek2tcx7os7bkmq
-   */
-  newResourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20227H17A561968
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * Domain
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      newResourceGroupId: 'NewResourceGroupId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      newResourceGroupId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4EA05A10-D4BC-47EA-AD9E-370A46BB4FB9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  result?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test**.xin
-   */
-  domainName?: string;
-  /**
-   * @example
-   * create
-   */
-  feeCommand?: string;
-  /**
-   * @example
-   * USD
-   */
-  feeCurrency?: string;
-  /**
-   * @example
-   * 1
-   */
-  feePeriod?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      feeCommand: 'FeeCommand',
-      feeCurrency: 'FeeCurrency',
-      feePeriod: 'FeePeriod',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      feeCommand: 'string',
-      feeCurrency: 'string',
-      feePeriod: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  avail?: string;
-  /**
-   * @example
-   * test**.xin
-   */
-  domainName?: string;
-  /**
-   * @example
-   * true
-   */
-  dynamicCheck?: boolean;
-  /**
-   * @example
-   * true
-   */
-  premium?: string;
-  /**
-   * @example
-   * 1286
-   */
-  price?: number;
-  /**
-   * @example
-   * In use
-   */
-  reason?: string;
-  /**
-   * @example
-   * BA7A4FD4-EB9A-4A20-BB0C-9AEB15634DC1
-   */
-  requestId?: string;
-  staticPriceInfo?: CheckDomainResponseBodyStaticPriceInfo;
-  static names(): { [key: string]: string } {
-    return {
-      avail: 'Avail',
-      domainName: 'DomainName',
-      dynamicCheck: 'DynamicCheck',
-      premium: 'Premium',
-      price: 'Price',
-      reason: 'Reason',
-      requestId: 'RequestId',
-      staticPriceInfo: 'StaticPriceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      avail: 'string',
-      domainName: 'string',
-      dynamicCheck: 'boolean',
-      premium: 'string',
-      price: 'number',
-      reason: 'string',
-      requestId: 'string',
-      staticPriceInfo: CheckDomainResponseBodyStaticPriceInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainSunriseClaimRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainSunriseClaimResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 2017092100/8/2/1/kDfu9htHGEx_y-LJ3XSlKMZ70000020001
-   */
-  claimKey?: string;
-  /**
-   * @example
-   * BA7A4FD4-EB9A-4A20-BB0C-9AEB15634DC1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  result?: number;
-  static names(): { [key: string]: string } {
-    return {
-      claimKey: 'ClaimKey',
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      claimKey: 'string',
-      requestId: 'string',
-      result: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainSunriseClaimResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckDomainSunriseClaimResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckDomainSunriseClaimResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckIntlFixPriceDomainStatusRequest extends $tea.Model {
-  /**
-   * @example
-   * appp16.com
-   */
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckIntlFixPriceDomainStatusResponseBody extends $tea.Model {
-  module?: CheckIntlFixPriceDomainStatusResponseBodyModule;
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: CheckIntlFixPriceDomainStatusResponseBodyModule,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckIntlFixPriceDomainStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckIntlFixPriceDomainStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckIntlFixPriceDomainStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMaxYearOfServerLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * activate
-   */
-  checkAction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkAction: 'CheckAction',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkAction: 'string',
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMaxYearOfServerLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  maxYear?: number;
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxYear: 'MaxYear',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxYear: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMaxYearOfServerLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckMaxYearOfServerLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckMaxYearOfServerLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckProcessingServerLockApplyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1
-   */
-  feePeriod?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      feePeriod: 'FeePeriod',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      feePeriod: 'number',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckProcessingServerLockApplyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  exists?: boolean;
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exists: 'Exists',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exists: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckProcessingServerLockApplyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckProcessingServerLockApplyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckProcessingServerLockApplyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckTransferInFeasibilityRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * test
-   */
-  transferAuthorizationCode?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      transferAuthorizationCode: 'TransferAuthorizationCode',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      transferAuthorizationCode: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckTransferInFeasibilityResponseBody extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  canTransfer?: boolean;
-  /**
-   * @example
-   * CheckTransferResult.DomainTransferProhibited
-   */
-  code?: string;
-  /**
-   * @example
-   * This domain name is in transfer prohibited status, so it cannot be transferred. You can contact your original registrar to change its status.
-   */
-  message?: string;
-  /**
-   * @example
-   * 2a
-   */
-  productId?: string;
-  /**
-   * @example
-   * FC0D6B89-2353-4D64-BD80-6606A7DBD7C1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      canTransfer: 'CanTransfer',
-      code: 'Code',
-      message: 'Message',
-      productId: 'ProductId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canTransfer: 'boolean',
-      code: 'string',
-      message: 'string',
-      productId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckTransferInFeasibilityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckTransferInFeasibilityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckTransferInFeasibilityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmTransferInEmailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * abc.com
-   */
-  domainName?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test@test.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      email: 'Email',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      email: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmTransferInEmailResponseBody extends $tea.Model {
-  failList?: ConfirmTransferInEmailResponseBodyFailList;
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  successList?: ConfirmTransferInEmailResponseBodySuccessList;
-  static names(): { [key: string]: string } {
-    return {
-      failList: 'FailList',
-      requestId: 'RequestId',
-      successList: 'SuccessList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failList: ConfirmTransferInEmailResponseBodyFailList,
-      requestId: 'string',
-      successList: ConfirmTransferInEmailResponseBodySuccessList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmTransferInEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ConfirmTransferInEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConfirmTransferInEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIntlFixedPriceDomainOrderRequest extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  autoPay?: boolean;
-  /**
-   * @example
-   * 13350500
-   */
-  contactId?: number;
-  /**
-   * @example
-   * appp16.com
-   */
-  domain?: string;
-  /**
-   * @example
-   * 58.00
-   */
-  expectedPrice?: number;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      contactId: 'ContactId',
-      domain: 'Domain',
-      expectedPrice: 'ExpectedPrice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      contactId: 'number',
-      domain: 'string',
-      expectedPrice: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIntlFixedPriceDomainOrderResponseBody extends $tea.Model {
-  module?: CreateIntlFixedPriceDomainOrderResponseBodyModule;
-  /**
-   * @example
-   * E879DC07-38EE-4408-9F33-73B30CD965CD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: CreateIntlFixedPriceDomainOrderResponseBodyModule,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIntlFixedPriceDomainOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateIntlFixedPriceDomainOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateIntlFixedPriceDomainOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteContactTemplatesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  registrantProfileIds?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      registrantProfileIds: 'RegistrantProfileIds',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      registrantProfileIds: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteContactTemplatesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D73432C-7600-4779-ACBB-C3B5CA145D32
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteContactTemplatesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteContactTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteContactTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDomainGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123456
-   */
-  domainGroupId?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainGroupId: 'DomainGroupId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroupId: 'number',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDomainGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDomainGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDomainGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDomainGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEmailVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test1@aliyun.com,test2@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEmailVerificationResponseBody extends $tea.Model {
-  failList?: DeleteEmailVerificationResponseBodyFailList[];
-  /**
-   * @example
-   * 7A3D0E4A-0D4B-4BD0-90D7-A61DF8DD26AE
-   */
-  requestId?: string;
-  successList?: DeleteEmailVerificationResponseBodySuccessList[];
-  static names(): { [key: string]: string } {
-    return {
-      failList: 'FailList',
-      requestId: 'RequestId',
-      successList: 'SuccessList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failList: { 'type': 'array', 'itemType': DeleteEmailVerificationResponseBodyFailList },
-      requestId: 'string',
-      successList: { 'type': 'array', 'itemType': DeleteEmailVerificationResponseBodySuccessList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEmailVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEmailVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEmailVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRegistrantProfileRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3600000
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      registrantProfileId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRegistrantProfileResponseBody extends $tea.Model {
-  /**
-   * @example
-   * C50E41A0-09F1-4491-8DB8-AF55BD2D0CC8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRegistrantProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteRegistrantProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteRegistrantProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DomainSpecialBizCancelRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3666
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DomainSpecialBizCancelResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether retries are allowed.
-   * 
-   * @example
-   * False
-   */
-  allowRetry?: boolean;
-  /**
-   * @remarks
-   * The name of the application for which the error code is returned.
-   * 
-   * @example
-   * test-com
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * -
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * -
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The array of error parameters that are returned.
-   */
-  errorArgs?: any[];
-  /**
-   * @remarks
-   * The error code.
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 110001
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP status code that is directly returned.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * -
-   */
-  module?: any;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 096DCF79-A89A-5CED-B7DE-1B04761023B9
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values: true and false.
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * Indicates whether to perform synchronous processing.
-   * 
-   * @example
-   * True
-   */
-  synchro?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      allowRetry: 'AllowRetry',
-      appName: 'AppName',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errorArgs: 'ErrorArgs',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      httpStatusCode: 'HttpStatusCode',
-      module: 'Module',
-      requestId: 'RequestId',
-      success: 'Success',
-      synchro: 'Synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRetry: 'boolean',
-      appName: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errorArgs: { 'type': 'array', 'itemType': 'any' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      httpStatusCode: 'number',
-      module: 'any',
-      requestId: 'string',
-      success: 'boolean',
-      synchro: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DomainSpecialBizCancelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DomainSpecialBizCancelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DomainSpecialBizCancelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EmailVerifiedRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * abc@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EmailVerifiedResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BF014B60-C708-4253-B5F2-3F9B493F398B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EmailVerifiedResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EmailVerifiedResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EmailVerifiedResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FuzzyMatchDomainSensitiveWordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * xxx**.cn
-   */
-  keyword?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyword: 'Keyword',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyword: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FuzzyMatchDomainSensitiveWordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  exist?: boolean;
-  /**
-   * @example
-   * xxx**.cn
-   */
-  keyword?: string;
-  matchedSentiveWords?: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords;
-  /**
-   * @example
-   * D15F91FD-0B34-4E48-8CBF-EFA5D2A31586
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exist: 'Exist',
-      keyword: 'Keyword',
-      matchedSentiveWords: 'MatchedSentiveWords',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exist: 'boolean',
-      keyword: 'string',
-      matchedSentiveWords: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FuzzyMatchDomainSensitiveWordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FuzzyMatchDomainSensitiveWordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FuzzyMatchDomainSensitiveWordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIntlFixPriceDomainListUrlRequest extends $tea.Model {
-  /**
-   * @example
-   * 20240809
-   */
-  listDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      listDate: 'ListDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      listDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIntlFixPriceDomainListUrlResponseBody extends $tea.Model {
-  module?: GetIntlFixPriceDomainListUrlResponseBodyModule;
-  /**
-   * @example
-   * BF014B60-C708-4253-B5F2-3F9B493F398B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: GetIntlFixPriceDomainListUrlResponseBodyModule,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIntlFixPriceDomainListUrlResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetIntlFixPriceDomainListUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetIntlFixPriceDomainListUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOperationOssUploadPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  auditType?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditType: 'AuditType',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditType: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOperationOssUploadPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * hObpgEXoca42****
-   */
-  accessid?: string;
-  /**
-   * @example
-   * eyJleHBpcmF0aW9uIjoiMjAaMC0wNy0wMlQxKToyMDoxMS44ODRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsNTI0Mjg4MDBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwiMTIxOTU0MTE2MTIxMzA1Ny9PRkZMSU5FX1RSQU5TRkVSLzE1OTM2ODg1MTE4ODMi****
-   */
-  encodedPolicy?: string;
-  /**
-   * @example
-   * 1593688811881
-   */
-  expireTime?: string;
-  /**
-   * @example
-   * 1219541161213157/OFFLINE_TRANSFER/159368851****
-   */
-  fileDir?: string;
-  /**
-   * @remarks
-   * OSS Endpoint。
-   * 
-   * @example
-   * //***-basic-cert.oss-cn-***.aliyuncs.com/
-   */
-  host?: string;
-  /**
-   * @example
-   * 9DFCF6F8-243C-40EC-8035-4B12FEFD7D011
-   */
-  requestId?: string;
-  /**
-   * @example
-   * pNVECGkyL0tl4bKXekV5ErZ****
-   */
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessid: 'Accessid',
-      encodedPolicy: 'EncodedPolicy',
-      expireTime: 'ExpireTime',
-      fileDir: 'FileDir',
-      host: 'Host',
-      requestId: 'RequestId',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessid: 'string',
-      encodedPolicy: 'string',
-      expireTime: 'string',
-      fileDir: 'string',
-      host: 'string',
-      requestId: 'string',
-      signature: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOperationOssUploadPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetOperationOssUploadPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetOperationOssUploadPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualificationUploadPolicyRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualificationUploadPolicyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * hObpgEXoca42****
-   */
-  accessid?: string;
-  /**
-   * @example
-   * 20211220/131953297274****_4de3db85-4f98-488d-845b-d75bf035b13d
-   */
-  dir?: string;
-  /**
-   * @example
-   * 1593688811881
-   */
-  expire?: string;
-  /**
-   * @example
-   * https://********-review.oss-cn-********.aliyuncs.com
-   */
-  host?: string;
-  /**
-   * @example
-   * eyJleHBpcmF0aW9uIjoiMjAaMC0wNy0wMlQxKToyMDoxMS44ODRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsNTI0Mjg4MDBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwiMTIxOTU0MTE2MTIxMzA1Ny9PRkZMSU5FX1RSQU5TRkVSLzE1OTM2ODg1MTE4ODMi****
-   */
-  policy?: string;
-  /**
-   * @example
-   * 20211220/131953297274****_4de3db85-4f98-488d-845b-d75bf035b13d_${filename}
-   */
-  prefix?: string;
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  /**
-   * @example
-   * pNVECGkyL0tl4bKXekV5ErZ****
-   */
-  signature?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessid: 'Accessid',
-      dir: 'Dir',
-      expire: 'Expire',
-      host: 'Host',
-      policy: 'Policy',
-      prefix: 'Prefix',
-      requestId: 'RequestId',
-      signature: 'Signature',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessid: 'string',
-      dir: 'string',
-      expire: 'string',
-      host: 'string',
-      policy: 'string',
-      prefix: 'string',
-      requestId: 'string',
-      signature: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualificationUploadPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetQualificationUploadPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetQualificationUploadPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEmailVerificationRequest extends $tea.Model {
-  /**
-   * @example
-   * 1522080000000
-   */
-  beginCreateTime?: number;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endCreateTime?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 500
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  /**
-   * @example
-   * 1
-   */
-  verificationStatus?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beginCreateTime: 'BeginCreateTime',
-      email: 'Email',
-      endCreateTime: 'EndCreateTime',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      userClientIp: 'UserClientIp',
-      verificationStatus: 'VerificationStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginCreateTime: 'number',
-      email: 'string',
-      endCreateTime: 'number',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      userClientIp: 'string',
-      verificationStatus: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEmailVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: ListEmailVerificationResponseBodyData[];
-  /**
-   * @example
-   * false
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 500
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * 78C60CC3-FF0A-44E2-989A-DDE0597791C3
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListEmailVerificationResponseBodyData },
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEmailVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListEmailVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListEmailVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServerLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The start of the time range to query.
-   * 
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  beginStartDate?: number;
-  /**
-   * @remarks
-   * The domain name for which you want to query the enabled registry lock.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The end of the expiration time.
-   * 
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  endExpireDate?: number;
-  /**
-   * @remarks
-   * The end of the time range to query.
-   * 
-   * @example
-   * 2020-07-10 17:37:36
-   */
-  endStartDate?: number;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
-   * 
-   * Default value: en.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the product to which the domain name with the registry lock enabled belongs.
-   * 
-   * @example
-   * 1807**
-   */
-  lockProductId?: string;
-  /**
-   * @remarks
-   * The field that you use to sort the query results.
-   * 
-   * Valid values:
-   * 
-   * *   EXPIRE_DATE
-   * 
-   * @example
-   * EXPIRE_DATE
-   */
-  orderBy?: string;
-  /**
-   * @remarks
-   * The order of the information based on which you want to sort the domain names, such as the registration date and expiration date. Valid values: ASC and DESC. The value ASC specifies the ascending order. The value DESC specifies the descending order. If this parameter is not configured, the default value DESC is used.
-   * 
-   * @example
-   * DESC
-   */
-  orderByType?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The status of the registry lock. Valid values:
-   * 
-   * *   1: The registry lock is not enabled.
-   * *   2: The registry lock is enabled.
-   * *   3: The registry lock is disabled.
-   * 
-   * @example
-   * 1
-   */
-  serverLockStatus?: number;
-  /**
-   * @remarks
-   * The start of the expiration time.
-   * 
-   * @example
-   * 2020-07-10 17:37:36
-   */
-  startExpireDate?: number;
-  /**
-   * @remarks
-   * The IP address of the client. For example, you can set the value to **127.0.0.1**.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginStartDate: 'BeginStartDate',
-      domainName: 'DomainName',
-      endExpireDate: 'EndExpireDate',
-      endStartDate: 'EndStartDate',
-      lang: 'Lang',
-      lockProductId: 'LockProductId',
-      orderBy: 'OrderBy',
-      orderByType: 'OrderByType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      serverLockStatus: 'ServerLockStatus',
-      startExpireDate: 'StartExpireDate',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginStartDate: 'number',
-      domainName: 'string',
-      endExpireDate: 'number',
-      endStartDate: 'number',
-      lang: 'string',
-      lockProductId: 'string',
-      orderBy: 'string',
-      orderByType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      serverLockStatus: 'number',
-      startExpireDate: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServerLockResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 0
-   */
-  currentPageNum?: number;
-  /**
-   * @remarks
-   * The response parameters.
-   */
-  data?: ListServerLockResponseBodyData[];
-  /**
-   * @remarks
-   * Indicates whether the current page is followed by a page.
-   * 
-   * @example
-   * false
-   */
-  nextPage?: boolean;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Indicates whether the current page is preceded by a page.
-   * 
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalItemNum?: number;
-  /**
-   * @remarks
-   * The total number of pages returned.
-   * 
-   * @example
-   * 1
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': ListServerLockResponseBodyData },
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServerLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListServerLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListServerLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2017092100/8/2/1/kDfu9htHGEx_y-LJ3XSlKMZ70000020001
-   */
-  claimKey?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      claimKey: 'ClaimKey',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      claimKey: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBody extends $tea.Model {
-  claims?: LookupTmchNoticeResponseBodyClaims;
-  /**
-   * @example
-   * 586608000000
-   */
-  id?: number;
-  /**
-   * @example
-   * noted
-   */
-  label?: string;
-  /**
-   * @example
-   * 2018-10-15T00:00:00.0Z
-   */
-  notAfter?: string;
-  /**
-   * @example
-   * 2018-10-13T00:00:00.0Z
-   */
-  notBefore?: string;
-  /**
-   * @example
-   * 01C10C8E-0468-468C-BCD9-E709BDD0AE8F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      claims: 'Claims',
-      id: 'Id',
-      label: 'Label',
-      notAfter: 'NotAfter',
-      notBefore: 'NotBefore',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      claims: LookupTmchNoticeResponseBodyClaims,
-      id: 'number',
-      label: 'string',
-      notAfter: 'string',
-      notBefore: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: LookupTmchNoticeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LookupTmchNoticeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PollTaskResultRequest extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * S20181T0WLI85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskResultStatus?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      taskNo: 'TaskNo',
-      taskResultStatus: 'TaskResultStatus',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      taskNo: 'string',
-      taskResultStatus: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PollTaskResultResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: PollTaskResultResponseBodyData;
-  /**
-   * @example
-   * false
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * E879DC07-38EE-4408-9F33-73B30CD965CD
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 10
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: PollTaskResultResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PollTaskResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PollTaskResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PollTaskResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListRequest extends $tea.Model {
-  /**
-   * @example
-   * -1
-   */
-  domainGroupId?: number;
-  /**
-   * @example
-   * false
-   */
-  domainNameSort?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  domainStatus?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endExpirationDate?: number;
-  /**
-   * @example
-   * 5
-   */
-  endLength?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endRegistrationDate?: number;
-  /**
-   * @example
-   * test
-   */
-  excluded?: string;
-  /**
-   * @example
-   * false
-   */
-  excludedPrefix?: boolean;
-  /**
-   * @example
-   * false
-   */
-  excludedSuffix?: boolean;
-  /**
-   * @example
-   * false
-   */
-  expirationDateSort?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  form?: number;
-  isPremiumDomain?: boolean;
-  /**
-   * @example
-   * test
-   */
-  keyWord?: string;
-  /**
-   * @example
-   * false
-   */
-  keyWordPrefix?: boolean;
-  /**
-   * @example
-   * true
-   */
-  keyWordSuffix?: boolean;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * gTLD
-   */
-  productDomainType?: string;
-  /**
-   * @example
-   * false
-   */
-  productDomainTypeSort?: boolean;
-  /**
-   * @example
-   * false
-   */
-  registrationDateSort?: boolean;
-  /**
-   * @example
-   * rg-acfmw6bpc6n7zai
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * 1522080000000
-   */
-  startExpirationDate?: number;
-  /**
-   * @example
-   * 5
-   */
-  startLength?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  startRegistrationDate?: number;
-  /**
-   * @example
-   * com.cn
-   */
-  suffixs?: string;
-  tag?: QueryAdvancedDomainListRequestTag[];
-  /**
-   * @example
-   * -1
-   */
-  tradeType?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainGroupId: 'DomainGroupId',
-      domainNameSort: 'DomainNameSort',
-      domainStatus: 'DomainStatus',
-      endExpirationDate: 'EndExpirationDate',
-      endLength: 'EndLength',
-      endRegistrationDate: 'EndRegistrationDate',
-      excluded: 'Excluded',
-      excludedPrefix: 'ExcludedPrefix',
-      excludedSuffix: 'ExcludedSuffix',
-      expirationDateSort: 'ExpirationDateSort',
-      form: 'Form',
-      isPremiumDomain: 'IsPremiumDomain',
-      keyWord: 'KeyWord',
-      keyWordPrefix: 'KeyWordPrefix',
-      keyWordSuffix: 'KeyWordSuffix',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      productDomainType: 'ProductDomainType',
-      productDomainTypeSort: 'ProductDomainTypeSort',
-      registrationDateSort: 'RegistrationDateSort',
-      resourceGroupId: 'ResourceGroupId',
-      startExpirationDate: 'StartExpirationDate',
-      startLength: 'StartLength',
-      startRegistrationDate: 'StartRegistrationDate',
-      suffixs: 'Suffixs',
-      tag: 'Tag',
-      tradeType: 'TradeType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroupId: 'number',
-      domainNameSort: 'boolean',
-      domainStatus: 'number',
-      endExpirationDate: 'number',
-      endLength: 'number',
-      endRegistrationDate: 'number',
-      excluded: 'string',
-      excludedPrefix: 'boolean',
-      excludedSuffix: 'boolean',
-      expirationDateSort: 'boolean',
-      form: 'number',
-      isPremiumDomain: 'boolean',
-      keyWord: 'string',
-      keyWordPrefix: 'boolean',
-      keyWordSuffix: 'boolean',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      productDomainType: 'string',
-      productDomainTypeSort: 'boolean',
-      registrationDateSort: 'boolean',
-      resourceGroupId: 'string',
-      startExpirationDate: 'number',
-      startLength: 'number',
-      startRegistrationDate: 'number',
-      suffixs: 'string',
-      tag: { 'type': 'array', 'itemType': QueryAdvancedDomainListRequestTag },
-      tradeType: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: QueryAdvancedDomainListResponseBodyData;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * D200000-C0B9-4CD3-B92A-9B44A000000
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 549
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 275
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryAdvancedDomainListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryAdvancedDomainListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryAdvancedDomainListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryArtExtensionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.art
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryArtExtensionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 2019-10-01
-   */
-  dateOrPeriod?: string;
-  /**
-   * @example
-   * 20 cm
-   */
-  dimensions?: string;
-  /**
-   * @example
-   * iconicity
-   */
-  features?: string;
-  /**
-   * @example
-   * realism
-   */
-  inscriptionsAndMarkings?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  maker?: string;
-  /**
-   * @example
-   * silk
-   */
-  materialsAndTechniques?: string;
-  /**
-   * @example
-   * The embroidery
-   */
-  objectType?: string;
-  /**
-   * @example
-   * drawings
-   */
-  reference?: string;
-  /**
-   * @example
-   * 814B2AF0-ED6F-4C13-B41C-8AC0B1023583
-   */
-  requestId?: string;
-  /**
-   * @example
-   * peace
-   */
-  subject?: string;
-  /**
-   * @example
-   * Peace and friendship
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateOrPeriod: 'DateOrPeriod',
-      dimensions: 'Dimensions',
-      features: 'Features',
-      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
-      maker: 'Maker',
-      materialsAndTechniques: 'MaterialsAndTechniques',
-      objectType: 'ObjectType',
-      reference: 'Reference',
-      requestId: 'RequestId',
-      subject: 'Subject',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateOrPeriod: 'string',
-      dimensions: 'string',
-      features: 'string',
-      inscriptionsAndMarkings: 'string',
-      maker: 'string',
-      materialsAndTechniques: 'string',
-      objectType: 'string',
-      reference: 'string',
-      requestId: 'string',
-      subject: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryArtExtensionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryArtExtensionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryArtExtensionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChangeLogListRequest extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endDate?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  startDate?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      endDate: 'EndDate',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      startDate: 'StartDate',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      endDate: 'number',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      startDate: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChangeLogListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: QueryChangeLogListResponseBodyData;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * 2DEDFF32-7827-46B1-BE90-3DB8ABD91A58
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  resultLimit?: boolean;
-  /**
-   * @example
-   * 1000
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 1000
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      resultLimit: 'ResultLimit',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryChangeLogListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      resultLimit: 'boolean',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChangeLogListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryChangeLogListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryChangeLogListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryContactInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * admin
-   */
-  contactType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactType: 'ContactType',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactType: 'string',
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryContactInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * xi hu qu *** jiedao *** xiaoqu *** zhuang 101
-   */
-  address?: string;
-  /**
-   * @example
-   * hang zhou shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * 2019-03-20 11:37:29
-   */
-  createDate?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 310024
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * zhe jiang
-   */
-  province?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * C39ECA8A-BB5E-4F92-B013-6A032FA06B04
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1820000****
-   */
-  telephone?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      createDate: 'CreateDate',
-      email: 'Email',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      requestId: 'RequestId',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      createDate: 'string',
-      email: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      requestId: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryContactInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryContactInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryContactInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordResponseBody extends $tea.Model {
-  DSRecordList?: QueryDSRecordResponseBodyDSRecordList[];
-  /**
-   * @example
-   * 814B2AF0-ED6F-4C13-B41C-8AC0B1023583
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DSRecordList: 'DSRecordList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DSRecordList: { 'type': 'array', 'itemType': QueryDSRecordResponseBodyDSRecordList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDnsHostRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ST2017120814571100001303
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDnsHostResponseBody extends $tea.Model {
-  dnsHostList?: QueryDnsHostResponseBodyDnsHostList[];
-  /**
-   * @example
-   * 18A313DD-3AF3-40AA-84F9-56BA45DC511F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsHostList: 'DnsHostList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsHostList: { 'type': 'array', 'itemType': QueryDnsHostResponseBodyDnsHostList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDnsHostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponseBody extends $tea.Model {
-  adminDivisions?: QueryDomainAdminDivisionResponseBodyAdminDivisions;
-  /**
-   * @example
-   * 4EA05A10-D4BC-47EA-AD9E-370A46BB4FB9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      adminDivisions: 'AdminDivisions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adminDivisions: QueryDomainAdminDivisionResponseBodyAdminDivisions,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainAdminDivisionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainAdminDivisionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The Domain Name System (DNS) servers of the domain name.
-   */
-  dnsList?: QueryDomainByDomainNameResponseBodyDnsList;
-  /**
-   * @remarks
-   * The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to query the ID of the domain name group.
-   * 
-   * @example
-   * 123456
-   */
-  domainGroupId?: number;
-  /**
-   * @remarks
-   * The name of the domain name group.
-   */
-  domainGroupName?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * Indicates whether privacy protection is enabled for the domain name.
-   * 
-   * @example
-   * false
-   */
-  domainNameProxyService?: boolean;
-  /**
-   * @remarks
-   * The status of name auditing for the domain name. Valid values:
-   * 
-   * *   **NONAUDIT**: The name auditing for the domain name is not performed.
-   * *   **SUCCEED**: The name auditing for the domain name is successful.
-   * *   **FAILED**: The name auditing for the domain name fails.
-   * *   **AUDITING**: The name auditing for the domain name is in progress.
-   * 
-   * @example
-   * SUCCEED
-   */
-  domainNameVerificationStatus?: string;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   1: The domain name needs to be renewed.
-   * *   2: The domain name needs to be redeemed.
-   * *   3: The domain name is normal.
-   * 
-   * @example
-   * 3
-   */
-  domainStatus?: string;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   New gTLD
-   * *   gTLD
-   * *   ccTLD
-   * 
-   * @example
-   * gTLD
-   */
-  domainType?: string;
-  /**
-   * @remarks
-   * The email address of the domain name registrant.
-   * 
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * Indicates whether the domain name is in the ClientHold state.
-   * 
-   * @example
-   * false
-   */
-  emailVerificationClientHold?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the email address passes verification. Valid values:
-   * 
-   * *   **0**: The email address fails the verification.
-   * *   **1**: The email address passes the verification.
-   * 
-   * @example
-   * 1
-   */
-  emailVerificationStatus?: number;
-  /**
-   * @remarks
-   * The number of days from the expiration date of the domain name to the current date.
-   * 
-   * @example
-   * 356
-   */
-  expirationCurrDateDiff?: number;
-  /**
-   * @remarks
-   * The expiration date.
-   * 
-   * @example
-   * 2019-12-07 17:02:13
-   */
-  expirationDate?: string;
-  /**
-   * @remarks
-   * The timestamp generated when the domain name expired.
-   * 
-   * @example
-   * 1625111915000
-   */
-  expirationDateLong?: number;
-  /**
-   * @remarks
-   * Indicates whether the domain name expires. Valid values:
-   * 
-   * *   **1**: The domain name does not expire.
-   * *   **2**: The domain name expires.
-   * 
-   * @example
-   * 1
-   */
-  expirationDateStatus?: string;
-  /**
-   * @remarks
-   * The instance ID of the domain name.
-   * 
-   * @example
-   * S20179H1BBI9****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the domain name is a premium domain name.
-   * 
-   * @example
-   * false
-   */
-  premium?: boolean;
-  /**
-   * @remarks
-   * The status of real-name verification for the domain name. Valid values:
-   * 
-   * *   **NONAUDIT**: The real-name verification is not performed.
-   * *   **SUCCEED**: The real-name verification is successful.
-   * *   **FAILED**: The real-name verification fails.
-   * *   **AUDITING**: The real-name verification is in progress.
-   * 
-   * @example
-   * NONAUDIT
-   */
-  realNameStatus?: string;
-  /**
-   * @remarks
-   * The name of the contact.
-   * 
-   * @example
-   * Test litm
-   */
-  registrantName?: string;
-  /**
-   * @remarks
-   * The registrant of the domain name.
-   * 
-   * @example
-   * Test litm
-   */
-  registrantOrganization?: string;
-  /**
-   * @remarks
-   * The type of contact who registers the domain name. Valid values:
-   * 
-   * *   **1**: individual.
-   * *   **2**: enterprise.
-   * 
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @remarks
-   * The status of the information about the domain name registrant. Valid values:
-   * 
-   * *   **PENDING**: The information about the domain name registrant is being modified.
-   * *   **NORMAL**: normal.
-   * 
-   * @example
-   * NORMAL
-   */
-  registrantUpdatingStatus?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered.
-   * 
-   * @example
-   * 2017-12-07 17:02:13
-   */
-  registrationDate?: string;
-  /**
-   * @remarks
-   * The timestamp generated when the domain name was registered.
-   * 
-   * @example
-   * 1584675448000
-   */
-  registrationDateLong?: number;
-  /**
-   * @remarks
-   * The remarks on the domain name.
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 44101664-3E70-4F0E-89E5-CCB74BF*****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmw6bpc6n7zai
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
-  tag?: QueryDomainByDomainNameResponseBodyTag;
-  /**
-   * @remarks
-   * The transfer status of the domain name. Valid values:
-   * 
-   * *   **NORMAL**: The domain name is normal.
-   * *   **PENDING**: The domain name is being transferred out from Alibaba Cloud.
-   * 
-   * @example
-   * NORMAL
-   */
-  transferOutStatus?: string;
-  /**
-   * @remarks
-   * The status of the transfer lock for the domain name. Valid values:
-   * 
-   * *   **NONE_SETTING**: No transfer lock is configured.
-   * *   **OPEN**: The transfer lock is enabled.
-   * *   **CLOSE**: The transfer lock is disabled.
-   * 
-   * @example
-   * CLOSE
-   */
-  transferProhibitionLock?: string;
-  /**
-   * @remarks
-   * The status of the security lock for the domain name. Valid values:
-   * 
-   * *   **NONE_SETTING**: No security lock is configured.
-   * *   **OPEN**: The security lock is enabled.
-   * *   **CLOSE**: The security lock is disabled.
-   * 
-   * @example
-   * CLOSE
-   */
-  updateProhibitionLock?: string;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The Chinese name of the domain name contact.
-   */
-  zhRegistrantName?: string;
-  /**
-   * @remarks
-   * The Chinese name of the domain name registrant.
-   */
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'DnsList',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainName: 'DomainName',
-      domainNameProxyService: 'DomainNameProxyService',
-      domainNameVerificationStatus: 'DomainNameVerificationStatus',
-      domainStatus: 'DomainStatus',
-      domainType: 'DomainType',
-      email: 'Email',
-      emailVerificationClientHold: 'EmailVerificationClientHold',
-      emailVerificationStatus: 'EmailVerificationStatus',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDateStatus: 'ExpirationDateStatus',
-      instanceId: 'InstanceId',
-      premium: 'Premium',
-      realNameStatus: 'RealNameStatus',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      registrantUpdatingStatus: 'RegistrantUpdatingStatus',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      remark: 'Remark',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      transferOutStatus: 'TransferOutStatus',
-      transferProhibitionLock: 'TransferProhibitionLock',
-      updateProhibitionLock: 'UpdateProhibitionLock',
-      userId: 'UserId',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: QueryDomainByDomainNameResponseBodyDnsList,
-      domainGroupId: 'number',
-      domainGroupName: 'string',
-      domainName: 'string',
-      domainNameProxyService: 'boolean',
-      domainNameVerificationStatus: 'string',
-      domainStatus: 'string',
-      domainType: 'string',
-      email: 'string',
-      emailVerificationClientHold: 'boolean',
-      emailVerificationStatus: 'number',
-      expirationCurrDateDiff: 'number',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      expirationDateStatus: 'string',
-      instanceId: 'string',
-      premium: 'boolean',
-      realNameStatus: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      registrantUpdatingStatus: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      remark: 'string',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      tag: QueryDomainByDomainNameResponseBodyTag,
-      transferOutStatus: 'string',
-      transferProhibitionLock: 'string',
-      updateProhibitionLock: 'string',
-      userId: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainByDomainNameResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainByDomainNameResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20131205001****
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdResponseBody extends $tea.Model {
-  dnsList?: QueryDomainByInstanceIdResponseBodyDnsList;
-  /**
-   * @example
-   * 1234
-   */
-  domainGroupId?: number;
-  domainGroupName?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * false
-   */
-  domainNameProxyService?: boolean;
-  /**
-   * @example
-   * NONAUDIT
-   */
-  domainNameVerificationStatus?: string;
-  /**
-   * @example
-   * 1
-   */
-  domainStatus?: string;
-  /**
-   * @example
-   * gTLD
-   */
-  domainType?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * false
-   */
-  emailVerificationClientHold?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  emailVerificationStatus?: number;
-  /**
-   * @example
-   * 356
-   */
-  expirationCurrDateDiff?: number;
-  /**
-   * @example
-   * 2019-12-07 17:02:13
-   */
-  expirationDate?: string;
-  /**
-   * @example
-   * 1625111915000
-   */
-  expirationDateLong?: number;
-  /**
-   * @example
-   * 1
-   */
-  expirationDateStatus?: string;
-  /**
-   * @example
-   * S20179H1BBI9test
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * false
-   */
-  premium?: boolean;
-  /**
-   * @example
-   * NONAUDIT
-   */
-  realNameStatus?: string;
-  /**
-   * @example
-   * Test litm
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * Test litm
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * NORMAL
-   */
-  registrantUpdatingStatus?: string;
-  /**
-   * @example
-   * 2017-12-07 17:02:13
-   */
-  registrationDate?: string;
-  /**
-   * @example
-   * 1625111915000
-   */
-  registrationDateLong?: number;
-  remark?: string;
-  /**
-   * @example
-   * 23C9B3C4-9E2C-4405-A88D-BD33E459D140
-   */
-  requestId?: string;
-  /**
-   * @example
-   * rg-acfmw6bpc6n7zai
-   */
-  resourceGroupId?: string;
-  tag?: QueryDomainByInstanceIdResponseBodyTag;
-  /**
-   * @example
-   * NORMAL
-   */
-  transferOutStatus?: string;
-  /**
-   * @example
-   * CLOSE
-   */
-  transferProhibitionLock?: string;
-  /**
-   * @example
-   * CLOSE
-   */
-  updateProhibitionLock?: string;
-  /**
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'DnsList',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainName: 'DomainName',
-      domainNameProxyService: 'DomainNameProxyService',
-      domainNameVerificationStatus: 'DomainNameVerificationStatus',
-      domainStatus: 'DomainStatus',
-      domainType: 'DomainType',
-      email: 'Email',
-      emailVerificationClientHold: 'EmailVerificationClientHold',
-      emailVerificationStatus: 'EmailVerificationStatus',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDateStatus: 'ExpirationDateStatus',
-      instanceId: 'InstanceId',
-      premium: 'Premium',
-      realNameStatus: 'RealNameStatus',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      registrantUpdatingStatus: 'RegistrantUpdatingStatus',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      remark: 'Remark',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      transferOutStatus: 'TransferOutStatus',
-      transferProhibitionLock: 'TransferProhibitionLock',
-      updateProhibitionLock: 'UpdateProhibitionLock',
-      userId: 'UserId',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: QueryDomainByInstanceIdResponseBodyDnsList,
-      domainGroupId: 'number',
-      domainGroupName: 'string',
-      domainName: 'string',
-      domainNameProxyService: 'boolean',
-      domainNameVerificationStatus: 'string',
-      domainStatus: 'string',
-      domainType: 'string',
-      email: 'string',
-      emailVerificationClientHold: 'boolean',
-      emailVerificationStatus: 'number',
-      expirationCurrDateDiff: 'number',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      expirationDateStatus: 'string',
-      instanceId: 'string',
-      premium: 'boolean',
-      realNameStatus: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      registrantUpdatingStatus: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      remark: 'string',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      tag: QueryDomainByInstanceIdResponseBodyTag,
-      transferOutStatus: 'string',
-      transferProhibitionLock: 'string',
-      updateProhibitionLock: 'string',
-      userId: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainByInstanceIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainByInstanceIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainGroupListRequest extends $tea.Model {
-  domainGroupName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * false
-   */
-  showDeletingGroup?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainGroupName: 'DomainGroupName',
-      lang: 'Lang',
-      showDeletingGroup: 'ShowDeletingGroup',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroupName: 'string',
-      lang: 'string',
-      showDeletingGroup: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainGroupListResponseBody extends $tea.Model {
-  data?: QueryDomainGroupListResponseBodyData;
-  /**
-   * @example
-   * 80011ABC-F573-4795-B0E8-377BFBBA3422
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryDomainGroupListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainGroupListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainGroupListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainGroupListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the domain name registrant.
-   * 
-   * @example
-   * Guangzhou Jinye Renewable Resources Recycling Co., Ltd
-   */
-  ccompany?: string;
-  /**
-   * @remarks
-   * The ID of the domain name group.
-   * 
-   * @example
-   * 123456
-   */
-  domainGroupId?: string;
-  /**
-   * @remarks
-   * The domain name that you want to search for.
-   * 
-   * @example
-   * test.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The end of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
-   * 
-   * @example
-   * 1522080000000
-   */
-  endExpirationDate?: number;
-  /**
-   * @remarks
-   * The end of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
-   * 
-   * @example
-   * 1522080000000
-   */
-  endRegistrationDate?: number;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The order of the information based on which the domain names are sorted, such as the registration date and expiration date. Valid values:
-   * 
-   * *   **ASC**: ascending order
-   * *   **DESC**: descending order
-   * 
-   * >  If this parameter is not specified, the default value **DESC** is used.
-   * 
-   * @example
-   * ASC
-   */
-  orderByType?: string;
-  /**
-   * @remarks
-   * The field that you use to sort the domain names. Valid values:
-   * 
-   * *   **RegistrationDate**: registration date
-   * *   **ExpirationDate**: expiration date
-   * 
-   * >  If this parameter is not specified, the domain names are sorted by the time when they were added to the database.
-   * 
-   * @example
-   * RegistrationDate
-   */
-  orderKeyType?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **New gTLD**: new generic top-level domain names
-   * *   **gTLD**: generic top-level domain names
-   * *   **ccTLD**: country code top-level domain names
-   * 
-   * @example
-   * New gTLD
-   */
-  productDomainType?: string;
-  /**
-   * @remarks
-   * The category of the domain names that you want to query. Valid values:
-   * 
-   * *   **1**: the domain names that need to be renewed
-   * *   **2**: the domain names that need to be redeemed
-   * 
-   * @example
-   * 1
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek2indvyxgpfti
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
-   * 
-   * @example
-   * 1522080000000
-   */
-  startExpirationDate?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
-   * 
-   * @example
-   * 1522080000000
-   */
-  startRegistrationDate?: number;
-  /**
-   * @remarks
-   * The tags to add to the resource.
-   */
-  tag?: QueryDomainListRequestTag[];
-  /**
-   * @remarks
-   * The IP address of the client. Set the value to **127.0.0.1**.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ccompany: 'Ccompany',
-      domainGroupId: 'DomainGroupId',
-      domainName: 'DomainName',
-      endExpirationDate: 'EndExpirationDate',
-      endRegistrationDate: 'EndRegistrationDate',
-      lang: 'Lang',
-      orderByType: 'OrderByType',
-      orderKeyType: 'OrderKeyType',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      productDomainType: 'ProductDomainType',
-      queryType: 'QueryType',
-      resourceGroupId: 'ResourceGroupId',
-      startExpirationDate: 'StartExpirationDate',
-      startRegistrationDate: 'StartRegistrationDate',
-      tag: 'Tag',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ccompany: 'string',
-      domainGroupId: 'string',
-      domainName: 'string',
-      endExpirationDate: 'number',
-      endRegistrationDate: 'number',
-      lang: 'string',
-      orderByType: 'string',
-      orderKeyType: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      productDomainType: 'string',
-      queryType: 'string',
-      resourceGroupId: 'string',
-      startExpirationDate: 'number',
-      startRegistrationDate: 'number',
-      tag: { 'type': 'array', 'itemType': QueryDomainListRequestTag },
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 0
-   */
-  currentPageNum?: number;
-  /**
-   * @remarks
-   * The domain names.
-   */
-  data?: QueryDomainListResponseBodyData;
-  /**
-   * @remarks
-   * Indicates whether the current page is followed by a page.
-   * 
-   * @example
-   * false
-   */
-  nextPage?: boolean;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 5
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Indicates whether the current page is preceded by a page.
-   * 
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B7AB5469-5E38-4AA9-A920-C65B7A9C8E6E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of domain names returned.
-   * 
-   * @example
-   * 1
-   */
-  totalItemNum?: number;
-  /**
-   * @remarks
-   * The total number of pages returned.
-   * 
-   * @example
-   * 1
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryDomainListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainRealNameVerificationInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aliyundoc.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * false
-   */
-  fetchImage?: boolean;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      fetchImage: 'FetchImage',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      fetchImage: 'boolean',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainRealNameVerificationInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * aliyundoc.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * dGVzdA==
-   */
-  identityCredential?: string;
-  /**
-   * @example
-   * 5****************9
-   */
-  identityCredentialNo?: string;
-  /**
-   * @example
-   * SFZ
-   */
-  identityCredentialType?: string;
-  /**
-   * @example
-   * http://dbu-nap-p.oss-cn-hangzhou.aliyuncs.com/20190219/140692647406xxxx_5d6baea3e7314fd986afdd86e33exxxx.jpg
-   */
-  identityCredentialUrl?: string;
-  /**
-   * @example
-   * S2019270W570****
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 4DF9D693-0D5B-4EB7-8922-7ECA6BD59314
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  submissionDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      identityCredentialUrl: 'IdentityCredentialUrl',
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-      submissionDate: 'SubmissionDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      identityCredentialUrl: 'string',
-      instanceId: 'string',
-      requestId: 'string',
-      submissionDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainRealNameVerificationInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainRealNameVerificationInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainRealNameVerificationInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * 123
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether retries are allowed.
-   * 
-   * @example
-   * False
-   */
-  allowRetry?: boolean;
-  /**
-   * @remarks
-   * The name of the application for which the error code is returned.
-   * 
-   * @example
-   * test-com
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * -
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * -
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The array of error parameters that are returned.
-   */
-  errorArgs?: any[];
-  /**
-   * @remarks
-   * The error code.
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 110001
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP status code that is directly returned.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  module?: QueryDomainSpecialBizDetailResponseBodyModule;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A83E1D74-E46B-505C-947A-8C6B7E41C011
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * Indicates whether to perform synchronous processing.
-   * 
-   * @example
-   * true
-   */
-  synchro?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      allowRetry: 'AllowRetry',
-      appName: 'AppName',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errorArgs: 'ErrorArgs',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      httpStatusCode: 'HttpStatusCode',
-      module: 'Module',
-      requestId: 'RequestId',
-      success: 'Success',
-      synchro: 'Synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRetry: 'boolean',
-      appName: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errorArgs: { 'type': 'array', 'itemType': 'any' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      httpStatusCode: 'number',
-      module: QueryDomainSpecialBizDetailResponseBodyModule,
-      requestId: 'string',
-      success: 'boolean',
-      synchro: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainSpecialBizDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainSpecialBizDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The business type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * govRegister
-   */
-  bizType?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test003.cn
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizType: 'BizType',
-      domainName: 'DomainName',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizType: 'string',
-      domainName: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether retries are allowed.
-   * 
-   * @example
-   * False
-   */
-  allowRetry?: boolean;
-  /**
-   * @remarks
-   * The name of the application for which the error code is returned.
-   * 
-   * @example
-   * test-com
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * -
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * -
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The array of error parameters that are returned.
-   */
-  errorArgs?: any[];
-  /**
-   * @remarks
-   * The error code.
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 110001
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP status code that is directly returned.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  module?: QueryDomainSpecialBizInfoByDomainResponseBodyModule;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 97663DFF-D24D-55AE-A577-6CC5AF20B732
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values: true and false
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * Indicates whether to perform synchronous processing.
-   * 
-   * @example
-   * true
-   */
-  synchro?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      allowRetry: 'AllowRetry',
-      appName: 'AppName',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errorArgs: 'ErrorArgs',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      httpStatusCode: 'HttpStatusCode',
-      module: 'Module',
-      requestId: 'RequestId',
-      success: 'Success',
-      synchro: 'Synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRetry: 'boolean',
-      appName: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errorArgs: { 'type': 'array', 'itemType': 'any' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      httpStatusCode: 'number',
-      module: QueryDomainSpecialBizInfoByDomainResponseBodyModule,
-      requestId: 'string',
-      success: 'boolean',
-      synchro: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainSpecialBizInfoByDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainSpecialBizInfoByDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSuffixRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSuffixResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D1C9DE44-1D7F-4F66-9653-00000
-   */
-  requestId?: string;
-  suffixList?: QueryDomainSuffixResponseBodySuffixList;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      suffixList: 'SuffixList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      suffixList: QueryDomainSuffixResponseBodySuffixList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSuffixResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDomainSuffixResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDomainSuffixResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEmailVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * abc@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEmailVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 42.*.*.31
-   */
-  confirmIp?: string;
-  /**
-   * @example
-   * abc@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 72b36ba0572e423bbb3f19640896****
-   */
-  emailVerificationNo?: string;
-  /**
-   * @example
-   * 2019-02-19 16:38:07
-   */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 2019-02-19 16:40:38
-   */
-  gmtModified?: string;
-  /**
-   * @example
-   * FC4F7D02-8A83-4E37-B935-2D48A1B8423E
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 42.*.*.115
-   */
-  sendIp?: string;
-  /**
-   * @example
-   * 2019-02-19 16:38:07
-   */
-  tokenSendTime?: string;
-  /**
-   * @example
-   * 140692647406****
-   */
-  userId?: string;
-  /**
-   * @example
-   * 1
-   */
-  verificationStatus?: number;
-  /**
-   * @example
-   * 2019-02-19 16:40:38
-   */
-  verificationTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      confirmIp: 'ConfirmIp',
-      email: 'Email',
-      emailVerificationNo: 'EmailVerificationNo',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      requestId: 'RequestId',
-      sendIp: 'SendIp',
-      tokenSendTime: 'TokenSendTime',
-      userId: 'UserId',
-      verificationStatus: 'VerificationStatus',
-      verificationTime: 'VerificationTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confirmIp: 'string',
-      email: 'string',
-      emailVerificationNo: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      requestId: 'string',
-      sendIp: 'string',
-      tokenSendTime: 'string',
-      userId: 'string',
-      verificationStatus: 'number',
-      verificationTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEmailVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryEmailVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryEmailVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEnsAssociationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.luxe
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEnsAssociationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0x123456789012345678901234567890123456****
-   */
-  address?: string;
-  /**
-   * @example
-   * 3ECD5439-39A2-477D-9A19-64FCA1F77EEB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryEnsAssociationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryEnsAssociationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryEnsAssociationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForDomainRealNameVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ACTIVATE
-   */
-  realNameVerificationAction?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      realNameVerificationAction: 'RealNameVerificationAction',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      realNameVerificationAction: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForDomainRealNameVerificationResponseBody extends $tea.Model {
-  data?: QueryFailReasonForDomainRealNameVerificationResponseBodyData[];
-  /**
-   * @example
-   * 1F1BA893-AD33-4248-8CB8-1657E3733052
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryFailReasonForDomainRealNameVerificationResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForDomainRealNameVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryFailReasonForDomainRealNameVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryFailReasonForDomainRealNameVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234567
-   */
-  registrantProfileID?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      registrantProfileID: 'RegistrantProfileID',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      registrantProfileID: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
-  data?: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBodyData[];
-  /**
-   * @example
-   * 548C407F-AEA2-4B5D-90DF-EC11EBB1D76F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryFailReasonForRegistrantProfileRealNameVerificationResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForRegistrantProfileRealNameVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  limit?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * knet
-   */
-  qualificationType?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      limit: 'Limit',
-      qualificationType: 'QualificationType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      limit: 'number',
-      qualificationType: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponseBody extends $tea.Model {
-  data?: QueryFailingReasonListForQualificationResponseBodyData[];
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryFailingReasonListForQualificationResponseBodyData },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryFailingReasonListForQualificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryFailingReasonListForQualificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryIntlFixedPriceOrderListRequest extends $tea.Model {
-  /**
-   * @example
-   * T2024061115213700****
-   */
-  bizId?: string;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 6
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      currentPage: 'number',
-      pageSize: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryIntlFixedPriceOrderListResponseBody extends $tea.Model {
-  module?: QueryIntlFixedPriceOrderListResponseBodyModule;
-  /**
-   * @example
-   * D6CB3623-4726-4947-AC2B-2C6E673B447C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: QueryIntlFixedPriceOrderListResponseBodyModule,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryIntlFixedPriceOrderListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryIntlFixedPriceOrderListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryIntlFixedPriceOrderListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLocalEnsAssociationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.luxe
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLocalEnsAssociationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 3ECD5439-39A2-477D-9A19-64FCA1F77EEB
-   */
-  address?: string;
-  /**
-   * @example
-   * 0x1234567890123456789012345678901234567890
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryLocalEnsAssociationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryLocalEnsAssociationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryLocalEnsAssociationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  auditRecordId?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditRecordId: 'AuditRecordId',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditRecordId: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoDetailResponseBody extends $tea.Model {
-  auditInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  auditType?: number;
-  businessName?: string;
-  /**
-   * @example
-   * 1581919010100
-   */
-  createTime?: number;
-  /**
-   * @example
-   * example.com,aliyundoc.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1
-   */
-  id?: string;
-  remark?: string;
-  /**
-   * @example
-   * 9DFCF6F8-243C-40EC-8035-4B12FEFD7D1L
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1581919010101
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditInfo: 'AuditInfo',
-      auditStatus: 'AuditStatus',
-      auditType: 'AuditType',
-      businessName: 'BusinessName',
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      id: 'Id',
-      remark: 'Remark',
-      requestId: 'RequestId',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditInfo: 'string',
-      auditStatus: 'number',
-      auditType: 'number',
-      businessName: 'string',
-      createTime: 'number',
-      domainName: 'string',
-      id: 'string',
-      remark: 'string',
-      requestId: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryOperationAuditInfoDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryOperationAuditInfoDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoListRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  auditType?: number;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      auditType: 'AuditType',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      auditType: 'number',
-      domainName: 'string',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  currentPageNum?: number;
-  data?: QueryOperationAuditInfoListResponseBodyData[];
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * true
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * 9DFCF6F8-243C-40EC-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 199
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': QueryOperationAuditInfoListResponseBodyData },
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryOperationAuditInfoListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryOperationAuditInfoListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryQualificationDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * knet
-   */
-  qualificationType?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      qualificationType: 'QualificationType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      qualificationType: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryQualificationDetailResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  credentials?: QueryQualificationDetailResponseBodyCredentials;
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 943a1662898a****0acbdbeca91
-   */
-  trackId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      credentials: 'Credentials',
-      requestId: 'RequestId',
-      trackId: 'TrackId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      credentials: QueryQualificationDetailResponseBodyCredentials,
-      requestId: 'string',
-      trackId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryQualificationDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryQualificationDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryQualificationDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfileRealNameVerificationInfoRequest extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  fetchImage?: boolean;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fetchImage: 'FetchImage',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fetchImage: 'boolean',
-      lang: 'string',
-      registrantProfileId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfileRealNameVerificationInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * dGVzdA==
-   */
-  identityCredential?: string;
-  /**
-   * @example
-   * 4111111111111110**
-   */
-  identityCredentialNo?: string;
-  /**
-   * @example
-   * SFZ
-   */
-  identityCredentialType?: string;
-  /**
-   * @example
-   * http://test.oss-cn-hangzhou.aliyuncs.com/20170522/1219541161213057_070445190.jpg
-   */
-  identityCredentialUrl?: string;
-  /**
-   * @example
-   * 2017-05-22 19:04:49
-   */
-  modificationDate?: string;
-  /**
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 4D73432C-7600-4779-ACBB-C3B5CA145D32
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2017-05-22 19:04:49
-   */
-  submissionDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      identityCredentialUrl: 'IdentityCredentialUrl',
-      modificationDate: 'ModificationDate',
-      registrantProfileId: 'RegistrantProfileId',
-      requestId: 'RequestId',
-      submissionDate: 'SubmissionDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      identityCredentialUrl: 'string',
-      modificationDate: 'string',
-      registrantProfileId: 'number',
-      requestId: 'string',
-      submissionDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfileRealNameVerificationInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryRegistrantProfileRealNameVerificationInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryRegistrantProfileRealNameVerificationInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfilesRequest extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  defaultRegistrantProfile?: boolean;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 500
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * SUCCEED
-   */
-  realNameStatus?: string;
-  /**
-   * @example
-   * li si
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * common
-   */
-  registrantProfileType?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  remark?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRegistrantProfile: 'DefaultRegistrantProfile',
-      email: 'Email',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      realNameStatus: 'RealNameStatus',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantProfileType: 'RegistrantProfileType',
-      registrantType: 'RegistrantType',
-      remark: 'Remark',
-      userClientIp: 'UserClientIp',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRegistrantProfile: 'boolean',
-      email: 'string',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      realNameStatus: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantProfileType: 'string',
-      registrantType: 'string',
-      remark: 'string',
-      userClientIp: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfilesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  registrantProfiles?: QueryRegistrantProfilesResponseBodyRegistrantProfiles;
-  /**
-   * @example
-   * 94053D79-7455-4F71-BF06-20EB2DEDE6BD
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 9
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      registrantProfiles: 'RegistrantProfiles',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      registrantProfiles: QueryRegistrantProfilesResponseBodyRegistrantProfiles,
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfilesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryRegistrantProfilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryRegistrantProfilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServerLockRequest extends $tea.Model {
-  /**
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServerLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * S20190N1DAI4****
-   */
-  domainInstanceId?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 2030-07-10 17:37:36
-   */
-  expireDate?: string;
-  /**
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  gmtModified?: string;
-  /**
-   * @example
-   * S2021591IQ28****
-   */
-  lockInstanceId?: string;
-  /**
-   * @example
-   * 1807**
-   */
-  lockProductId?: string;
-  /**
-   * @example
-   * 9DFCF6F8-243C-****-8035-4B12FEFD7D48
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2
-   */
-  serverLockStatus?: number;
-  /**
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  startDate?: string;
-  /**
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainInstanceId: 'DomainInstanceId',
-      domainName: 'DomainName',
-      expireDate: 'ExpireDate',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      lockInstanceId: 'LockInstanceId',
-      lockProductId: 'LockProductId',
-      requestId: 'RequestId',
-      serverLockStatus: 'ServerLockStatus',
-      startDate: 'StartDate',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainInstanceId: 'string',
-      domainName: 'string',
-      expireDate: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      lockInstanceId: 'string',
-      lockProductId: 'string',
-      requestId: 'string',
-      serverLockStatus: 'number',
-      startDate: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServerLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryServerLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryServerLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryRequest extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainNameCursor?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec
-   */
-  taskDetailNoCursor?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 0
-   */
-  taskStatus?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      domainNameCursor: 'DomainNameCursor',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      taskDetailNoCursor: 'TaskDetailNoCursor',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      domainNameCursor: 'string',
-      lang: 'string',
-      pageSize: 'number',
-      taskDetailNoCursor: 'string',
-      taskNo: 'string',
-      taskStatus: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBody extends $tea.Model {
-  currentPageCursor?: QueryTaskDetailHistoryResponseBodyCurrentPageCursor;
-  nextPageCursor?: QueryTaskDetailHistoryResponseBodyNextPageCursor;
-  objects?: QueryTaskDetailHistoryResponseBodyObjects[];
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  prePageCursor?: QueryTaskDetailHistoryResponseBodyPrePageCursor;
-  /**
-   * @example
-   * 548CAE74-88F8-402F-8C12-97E747389C51
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageCursor: 'CurrentPageCursor',
-      nextPageCursor: 'NextPageCursor',
-      objects: 'Objects',
-      pageSize: 'PageSize',
-      prePageCursor: 'PrePageCursor',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageCursor: QueryTaskDetailHistoryResponseBodyCurrentPageCursor,
-      nextPageCursor: QueryTaskDetailHistoryResponseBodyNextPageCursor,
-      objects: { 'type': 'array', 'itemType': QueryTaskDetailHistoryResponseBodyObjects },
-      pageSize: 'number',
-      prePageCursor: QueryTaskDetailHistoryResponseBodyPrePageCursor,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTaskDetailHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTaskDetailHistoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailListRequest extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * S20179H1BBI9test
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatus?: number;
-  /**
-   * @example
-   * 127.0.0.0
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      taskNo: 'string',
-      taskStatus: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: QueryTaskDetailListResponseBodyData;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * 6A2320E4-D870-49C9-A6DC-test
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryTaskDetailListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTaskDetailListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTaskDetailListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryRequest extends $tea.Model {
-  /**
-   * @example
-   * 1522080000000
-   */
-  beginCreateTime?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  createTimeCursor?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endCreateTime?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * aa634d3f-927e-4d17-9d2c-test
-   */
-  taskNoCursor?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginCreateTime: 'BeginCreateTime',
-      createTimeCursor: 'CreateTimeCursor',
-      endCreateTime: 'EndCreateTime',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      taskNoCursor: 'TaskNoCursor',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginCreateTime: 'number',
-      createTimeCursor: 'number',
-      endCreateTime: 'number',
-      lang: 'string',
-      pageSize: 'number',
-      taskNoCursor: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBody extends $tea.Model {
-  currentPageCursor?: QueryTaskInfoHistoryResponseBodyCurrentPageCursor;
-  nextPageCursor?: QueryTaskInfoHistoryResponseBodyNextPageCursor;
-  objects?: QueryTaskInfoHistoryResponseBodyObjects[];
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  prePageCursor?: QueryTaskInfoHistoryResponseBodyPrePageCursor;
-  /**
-   * @example
-   * EB3FCCBA-CA1F-4D31-9F34-test
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageCursor: 'CurrentPageCursor',
-      nextPageCursor: 'NextPageCursor',
-      objects: 'Objects',
-      pageSize: 'PageSize',
-      prePageCursor: 'PrePageCursor',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageCursor: QueryTaskInfoHistoryResponseBodyCurrentPageCursor,
-      nextPageCursor: QueryTaskInfoHistoryResponseBodyNextPageCursor,
-      objects: { 'type': 'array', 'itemType': QueryTaskInfoHistoryResponseBodyObjects },
-      pageSize: 'number',
-      prePageCursor: QueryTaskInfoHistoryResponseBodyPrePageCursor,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTaskInfoHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTaskInfoHistoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskListRequest extends $tea.Model {
-  /**
-   * @example
-   * 1522080000000
-   */
-  beginCreateTime?: number;
-  /**
-   * @example
-   * 1522080000000
-   */
-  endCreateTime?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginCreateTime: 'BeginCreateTime',
-      endCreateTime: 'EndCreateTime',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginCreateTime: 'number',
-      endCreateTime: 'number',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: QueryTaskListResponseBodyData;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 2
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * 8D7D294A-8E99-481F-B64C-017EFC793059
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 43
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 22
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryTaskListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTaskListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTaskListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInByInstanceIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181T0WLI85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInByInstanceIdResponseBody extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  expirationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  expirationDateLong?: number;
-  /**
-   * @example
-   * S20181T0WLI85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  modificationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  modificationDateLong?: number;
-  /**
-   * @example
-   * true
-   */
-  needMailCheck?: boolean;
-  /**
-   * @example
-   * 0
-   */
-  progressBarType?: number;
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  /**
-   * @example
-   * clientCancelled
-   */
-  resultCode?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  resultDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  resultDateLong?: number;
-  resultMsg?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
-  simpleTransferInStatus?: string;
-  /**
-   * @example
-   * 11
-   */
-  status?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  submissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  submissionDateLong?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  transferAuthorizationCodeSubmissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  transferAuthorizationCodeSubmissionDateLong?: number;
-  /**
-   * @example
-   * 123456
-   */
-  userId?: string;
-  /**
-   * @example
-   * true
-   */
-  whoisMailStatus?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      email: 'Email',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      instanceId: 'InstanceId',
-      modificationDate: 'ModificationDate',
-      modificationDateLong: 'ModificationDateLong',
-      needMailCheck: 'NeedMailCheck',
-      progressBarType: 'ProgressBarType',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultDate: 'ResultDate',
-      resultDateLong: 'ResultDateLong',
-      resultMsg: 'ResultMsg',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
-      status: 'Status',
-      submissionDate: 'SubmissionDate',
-      submissionDateLong: 'SubmissionDateLong',
-      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
-      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
-      userId: 'UserId',
-      whoisMailStatus: 'WhoisMailStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      email: 'string',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      instanceId: 'string',
-      modificationDate: 'string',
-      modificationDateLong: 'number',
-      needMailCheck: 'boolean',
-      progressBarType: 'number',
-      requestId: 'string',
-      resultCode: 'string',
-      resultDate: 'string',
-      resultDateLong: 'number',
-      resultMsg: 'string',
-      simpleTransferInStatus: 'string',
-      status: 'number',
-      submissionDate: 'string',
-      submissionDateLong: 'number',
-      transferAuthorizationCodeSubmissionDate: 'string',
-      transferAuthorizationCodeSubmissionDateLong: 'number',
-      userId: 'string',
-      whoisMailStatus: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInByInstanceIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTransferInByInstanceIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTransferInByInstanceIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInListRequest extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * INIT
-   */
-  simpleTransferInStatus?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  submissionEndDate?: number;
-  /**
-   * @example
-   * 1514428524669
-   */
-  submissionStartDate?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
-      submissionEndDate: 'SubmissionEndDate',
-      submissionStartDate: 'SubmissionStartDate',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      simpleTransferInStatus: 'string',
-      submissionEndDate: 'number',
-      submissionStartDate: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPageNum?: number;
-  data?: QueryTransferInListResponseBodyData;
-  /**
-   * @example
-   * true
-   */
-  nextPage?: boolean;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * false
-   */
-  prePage?: boolean;
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 40
-   */
-  totalItemNum?: number;
-  /**
-   * @example
-   * 2
-   */
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      nextPage: 'NextPage',
-      pageSize: 'PageSize',
-      prePage: 'PrePage',
-      requestId: 'RequestId',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: QueryTransferInListResponseBodyData,
-      nextPage: 'boolean',
-      pageSize: 'number',
-      prePage: 'boolean',
-      requestId: 'string',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTransferInListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTransferInListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferOutInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferOutInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 2018-04-13 19:57:56
-   */
-  expirationDate?: string;
-  /**
-   * @example
-   * 2018-04-13 19:57:56
-   */
-  pendingRequestDate?: string;
-  /**
-   * @example
-   * BBEC5A50-DFDF-482E-8343-B4EB0105E055
-   */
-  requestId?: string;
-  /**
-   * @example
-   * clientRejected
-   */
-  resultCode?: string;
-  /**
-   * @example
-   * Transfer out rejected
-   */
-  resultMsg?: string;
-  /**
-   * @example
-   * 8
-   */
-  status?: number;
-  /**
-   * @example
-   * 2018-04-13 19:57:56
-   */
-  transferAuthorizationCodeSendDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      expirationDate: 'ExpirationDate',
-      pendingRequestDate: 'PendingRequestDate',
-      requestId: 'RequestId',
-      resultCode: 'ResultCode',
-      resultMsg: 'ResultMsg',
-      status: 'Status',
-      transferAuthorizationCodeSendDate: 'TransferAuthorizationCodeSendDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      expirationDate: 'string',
-      pendingRequestDate: 'string',
-      requestId: 'string',
-      resultCode: 'string',
-      resultMsg: 'string',
-      status: 'number',
-      transferAuthorizationCodeSendDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferOutInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTransferOutInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTransferOutInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dGVzdA==
-   */
-  identityCredential?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 43012512345678****
-   */
-  identityCredentialNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * SFZ
-   */
-  identityCredentialType?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234567
-   */
-  registrantProfileID?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      lang: 'Lang',
-      registrantProfileID: 'RegistrantProfileID',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      lang: 'string',
-      registrantProfileID: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 51D584A2-0CCD-4336-AD7D-1AD4C67B5545
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegistrantProfileRealNameVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RegistrantProfileRealNameVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RegistrantProfileRealNameVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResendEmailVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test1@aliyun.com,test2@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResendEmailVerificationResponseBody extends $tea.Model {
-  failList?: ResendEmailVerificationResponseBodyFailList[];
-  /**
-   * @example
-   * 0EA54E99-DB48-4CE3-A099-6ED8E451B8AC
-   */
-  requestId?: string;
-  successList?: ResendEmailVerificationResponseBodySuccessList[];
-  static names(): { [key: string]: string } {
-    return {
-      failList: 'FailList',
-      requestId: 'RequestId',
-      successList: 'SuccessList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failList: { 'type': 'array', 'itemType': ResendEmailVerificationResponseBodyFailList },
-      requestId: 'string',
-      successList: { 'type': 'array', 'itemType': ResendEmailVerificationResponseBodySuccessList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResendEmailVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResendEmailVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResendEmailVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetQualificationVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetQualificationVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D6CB3623-4726-4947-AC2B-2C6E673B447C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetQualificationVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetQualificationVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetQualificationVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchDomainRemarkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S12344567
-   */
-  instanceIds?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * MyRemarkInfo
-   */
-  remark?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      lang: 'Lang',
-      remark: 'Remark',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: 'string',
-      lang: 'string',
-      remark: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchDomainRemarkResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4189E320-961E-4786-8E15-0000
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchDomainRemarkResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchDomainRemarkResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchDomainRemarkResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForApplyQuickTransferOutOpenlyRequest extends $tea.Model {
-  domainNames?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainNames: 'DomainNames',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainNames: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D6CB3623-4726-4947-AC2B-2C6E673B447C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForApplyQuickTransferOutOpenlyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForApplyQuickTransferOutOpenlyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderActivateRequest extends $tea.Model {
-  /**
-   * @example
-   * 123456
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  orderActivateParam?: SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam[];
-  /**
-   * @example
-   * 123124
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      lang: 'Lang',
-      orderActivateParam: 'OrderActivateParam',
-      promotionNo: 'PromotionNo',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      lang: 'string',
-      orderActivateParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam },
-      promotionNo: 'string',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderActivateResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderActivateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForCreatingOrderActivateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForCreatingOrderActivateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRedeemRequest extends $tea.Model {
-  /**
-   * @example
-   * 123123
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  orderRedeemParam?: SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam[];
-  /**
-   * @example
-   * 123213123
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      lang: 'Lang',
-      orderRedeemParam: 'OrderRedeemParam',
-      promotionNo: 'PromotionNo',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      lang: 'string',
-      orderRedeemParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam },
-      promotionNo: 'string',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRedeemResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRedeemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForCreatingOrderRedeemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForCreatingOrderRedeemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRenewRequest extends $tea.Model {
-  /**
-   * @example
-   * 12312412
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  orderRenewParam?: SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam[];
-  /**
-   * @example
-   * 123123123
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      lang: 'Lang',
-      orderRenewParam: 'OrderRenewParam',
-      promotionNo: 'PromotionNo',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      lang: 'string',
-      orderRenewParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam },
-      promotionNo: 'string',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRenewResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRenewResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForCreatingOrderRenewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForCreatingOrderRenewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderTransferRequest extends $tea.Model {
-  /**
-   * @example
-   * 123123
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  orderTransferParam?: SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam[];
-  /**
-   * @example
-   * 123123
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      lang: 'Lang',
-      orderTransferParam: 'OrderTransferParam',
-      promotionNo: 'PromotionNo',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      lang: 'string',
-      orderTransferParam: { 'type': 'array', 'itemType': SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam },
-      promotionNo: 'string',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderTransferResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderTransferResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForCreatingOrderTransferResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForCreatingOrderTransferResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForDomainNameProxyServiceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test1.com,test2.com,test3.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForDomainNameProxyServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f54923
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForDomainNameProxyServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForDomainNameProxyServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForDomainNameProxyServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForGenerateDomainCertificateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The domain names.
-   * 
-   * This parameter is required.
-   */
-  domainNames?: string[];
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainNames: 'DomainNames',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainNames: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForGenerateDomainCertificateShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The domain names.
-   * 
-   * This parameter is required.
-   */
-  domainNamesShrink?: string;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainNamesShrink: 'DomainNames',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainNamesShrink: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForGenerateDomainCertificateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 8b1cd755-4928-4b02-adee-e5d41d7b1939
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForGenerateDomainCertificateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForGenerateDomainCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForGenerateDomainCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForModifyingDomainDnsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  aliyunDns?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * ns1.test.com
-   */
-  domainNameServer?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliyunDns: 'AliyunDns',
-      domainName: 'DomainName',
-      domainNameServer: 'DomainNameServer',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliyunDns: 'boolean',
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      domainNameServer: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForModifyingDomainDnsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 6A862A8A-E7AB-4C4E-8946-A74122D9CC4B
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 35fb2fb7-d4d6-4478-9408-22cb63696b86
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForModifyingDomainDnsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForModifyingDomainDnsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForModifyingDomainDnsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForReserveDropListDomainRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123123
-   */
-  contactTemplateId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domains?: SaveBatchTaskForReserveDropListDomainRequestDomains[];
-  static names(): { [key: string]: string } {
-    return {
-      contactTemplateId: 'ContactTemplateId',
-      domains: 'Domains',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactTemplateId: 'string',
-      domains: { 'type': 'array', 'itemType': SaveBatchTaskForReserveDropListDomainRequestDomains },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForReserveDropListDomainResponseBody extends $tea.Model {
-  /**
-   * @example
-   * B7AB5469-5E38-4AA9-A920-C65B7A9C8E6E
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForReserveDropListDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForReserveDropListDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForReserveDropListDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferOutByAuthorizationCodeRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  long?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  transferOutParamList?: SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList[];
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      long: 'Long',
-      transferOutParamList: 'TransferOutParamList',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      long: 'string',
-      transferOutParamList: { 'type': 'array', 'itemType': SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList },
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferOutByAuthorizationCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForTransferOutByAuthorizationCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferProhibitionLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test1.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferProhibitionLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferProhibitionLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForTransferProhibitionLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForTransferProhibitionLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdateProhibitionLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * aliyundoc.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdateProhibitionLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdateProhibitionLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForUpdateProhibitionLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForUpdateProhibitionLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends $tea.Model {
-  /**
-   * @example
-   * chao yang qu
-   */
-  address?: string;
-  /**
-   * @example
-   * bei jing shi
-   */
-  city?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registrant
-   */
-  contactType?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * alibabacloud.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * test@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 123456
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantOrganization?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1235
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1234567890
-   */
-  telephone?: string;
-  /**
-   * @example
-   * false
-   */
-  transferOutProhibited?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      contactType: 'ContactType',
-      country: 'Country',
-      domainName: 'DomainName',
-      email: 'Email',
-      lang: 'Lang',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      transferOutProhibited: 'TransferOutProhibited',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      contactType: 'string',
-      country: 'string',
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      email: 'string',
-      lang: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      transferOutProhibited: 'boolean',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 464AF466-CA8E-43A8-B61D-test
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 65de2165-ca09-491f-9fe0-test
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByNewContactResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForUpdatingContactInfoByNewContactResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registrant
-   */
-  contactType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * true
-   */
-  transferOutProhibited?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactType: 'ContactType',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      transferOutProhibited: 'TransferOutProhibited',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactType: 'string',
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      registrantProfileId: 'number',
-      transferOutProhibited: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody extends $tea.Model {
-  /**
-   * @example
-   * EDC28FEC-6BE0-4583-95BC
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 880f1579-be51-4dd3-a69d
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveDomainGroupRequest extends $tea.Model {
-  /**
-   * @example
-   * 123456
-   */
-  domainGroupId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domainGroupName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroupId: 'number',
-      domainGroupName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveDomainGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  beingDeleted?: boolean;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
-  creationDate?: string;
-  /**
-   * @example
-   * 123456
-   */
-  domainGroupId?: number;
-  domainGroupName?: string;
-  /**
-   * @example
-   * COMPLETE
-   */
-  domainGroupStatus?: string;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
-  modificationDate?: string;
-  /**
-   * @example
-   * 80011ABC-F573-4795-B0E8-377BFBBA3422
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beingDeleted: 'BeingDeleted',
-      creationDate: 'CreationDate',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainGroupStatus: 'DomainGroupStatus',
-      modificationDate: 'ModificationDate',
-      requestId: 'RequestId',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beingDeleted: 'boolean',
-      creationDate: 'string',
-      domainGroupId: 'number',
-      domainGroupName: 'string',
-      domainGroupStatus: 'string',
-      modificationDate: 'string',
-      requestId: 'string',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveDomainGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveDomainGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveDomainGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileRequest extends $tea.Model {
-  /**
-   * @example
-   * zhe jiang sheng hang zhou shi shi li qu shi li zhen shi li da sha 1001 hao
-   */
-  address?: string;
-  /**
-   * @example
-   * hang zhou shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * false
-   */
-  defaultRegistrantProfile?: boolean;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 310024
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * zhe jiang
-   */
-  province?: string;
-  /**
-   * @example
-   * li si
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * li si
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 3600000
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * common
-   */
-  registrantProfileType?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1829756****
-   */
-  telephone?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      defaultRegistrantProfile: 'DefaultRegistrantProfile',
-      email: 'Email',
-      lang: 'Lang',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantProfileType: 'RegistrantProfileType',
-      registrantType: 'RegistrantType',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      defaultRegistrantProfile: 'boolean',
-      email: 'string',
-      lang: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantProfileType: 'string',
-      registrantType: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 3600000
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * D09B153B-294D-42F1-BB61-F1C72136DFD3
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      registrantProfileId: 'RegistrantProfileId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      registrantProfileId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveRegistrantProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveRegistrantProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileRealNameVerificationRequest extends $tea.Model {
-  /**
-   * @example
-   * chao yang qu
-   */
-  address?: string;
-  /**
-   * @example
-   * bei jing shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * dGVzdA==
-   */
-  identityCredential?: string;
-  /**
-   * @example
-   * 4111111111111110**
-   */
-  identityCredentialNo?: string;
-  /**
-   * @example
-   * SFZ
-   */
-  identityCredentialType?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1234567
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * common
-   */
-  registrantProfileType?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 12345678
-   */
-  telephone?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      email: 'Email',
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      lang: 'Lang',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantProfileType: 'RegistrantProfileType',
-      registrantType: 'RegistrantType',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      email: 'string',
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      lang: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantProfileType: 'string',
-      registrantType: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileRealNameVerificationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 4D73432C-7600-****-ACBB-C3B5CA145D32
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      registrantProfileId: 'RegistrantProfileId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      registrantProfileId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveRegistrantProfileRealNameVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveRegistrantProfileRealNameVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveRegistrantProfileRealNameVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAddingDSRecordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  algorithm?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598
-   */
-  digest?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  digestType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  keyTag?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      digest: 'Digest',
-      digestType: 'DigestType',
-      domainName: 'DomainName',
-      keyTag: 'KeyTag',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'number',
-      digest: 'string',
-      digestType: 'number',
-      domainName: 'string',
-      keyTag: 'number',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAddingDSRecordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAddingDSRecordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForAddingDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForAddingDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApplyQuickTransferOutOpenlyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D200000-C0B9-4CD3-B92A-9B44A000000
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApplyQuickTransferOutOpenlyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForApplyQuickTransferOutOpenlyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApprovingTransferOutRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApprovingTransferOutResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForApprovingTransferOutResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForApprovingTransferOutResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForApprovingTransferOutResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAssociatingEnsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0x1234567890123456789012345678901234567890
-   */
-  address?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.luxe
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAssociatingEnsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForAssociatingEnsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForAssociatingEnsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForAssociatingEnsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferInRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferInResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferInResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCancelingTransferInResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCancelingTransferInResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferOutRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferOutResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCancelingTransferOutResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCancelingTransferOutResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCancelingTransferOutResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingDnsHostRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dns1
-   */
-  dnsName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S1234567890
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 218.xx.xx.236
-   */
-  ip?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsName: 'DnsName',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsName: 'string',
-      instanceId: 'string',
-      ip: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingDnsHostResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0F1B3547-BE50-4206-8F78-9540FFB85BC1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e9b8e8b4-7334-4548-9cec-c30b6891f292
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingDnsHostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCreatingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCreatingDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderActivateRequest extends $tea.Model {
-  /**
-   * @example
-   * chao yang qu
-   */
-  address?: string;
-  /**
-   * @example
-   * true
-   */
-  aliyunDns?: boolean;
-  /**
-   * @example
-   * bei jing shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * 123456
-   */
-  couponNo?: string;
-  /**
-   * @example
-   * ns1.aliyun.com
-   */
-  dns1?: string;
-  /**
-   * @example
-   * ns2.aliyun.com
-   */
-  dns2?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * false
-   */
-  enableDomainProxy?: boolean;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * false
-   */
-  permitPremiumActivation?: boolean;
-  /**
-   * @example
-   * 1234567
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * 123123
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 123
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * rg-XX
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * 1
-   */
-  subscriptionDuration?: number;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 12345678
-   */
-  telephone?: string;
-  /**
-   * @example
-   * false
-   */
-  trademarkDomainActivation?: boolean;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      aliyunDns: 'AliyunDns',
-      city: 'City',
-      country: 'Country',
-      couponNo: 'CouponNo',
-      dns1: 'Dns1',
-      dns2: 'Dns2',
-      domainName: 'DomainName',
-      email: 'Email',
-      enableDomainProxy: 'EnableDomainProxy',
-      lang: 'Lang',
-      permitPremiumActivation: 'PermitPremiumActivation',
-      postalCode: 'PostalCode',
-      promotionNo: 'PromotionNo',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantType: 'RegistrantType',
-      resourceGroupId: 'ResourceGroupId',
-      subscriptionDuration: 'SubscriptionDuration',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      trademarkDomainActivation: 'TrademarkDomainActivation',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      aliyunDns: 'boolean',
-      city: 'string',
-      country: 'string',
-      couponNo: 'string',
-      dns1: 'string',
-      dns2: 'string',
-      domainName: 'string',
-      email: 'string',
-      enableDomainProxy: 'boolean',
-      lang: 'string',
-      permitPremiumActivation: 'boolean',
-      postalCode: 'string',
-      promotionNo: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantType: 'string',
-      resourceGroupId: 'string',
-      subscriptionDuration: 'number',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      trademarkDomainActivation: 'boolean',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderActivateResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderActivateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCreatingOrderActivateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCreatingOrderActivateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRedeemRequest extends $tea.Model {
-  /**
-   * @example
-   * 123123
-   */
-  couponNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0000
-   */
-  currentExpirationDate?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 123123
-   */
-  promotionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      currentExpirationDate: 'CurrentExpirationDate',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      promotionNo: 'PromotionNo',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      currentExpirationDate: 'number',
-      domainName: 'string',
-      lang: 'string',
-      promotionNo: 'string',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRedeemResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRedeemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCreatingOrderRedeemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCreatingOrderRedeemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRenewRequest extends $tea.Model {
-  /**
-   * @example
-   * 123123
-   */
-  couponNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0000
-   */
-  currentExpirationDate?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 123132
-   */
-  promotionNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  subscriptionDuration?: number;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      couponNo: 'CouponNo',
-      currentExpirationDate: 'CurrentExpirationDate',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      promotionNo: 'PromotionNo',
-      subscriptionDuration: 'SubscriptionDuration',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      couponNo: 'string',
-      currentExpirationDate: 'number',
-      domainName: 'string',
-      lang: 'string',
-      promotionNo: 'string',
-      subscriptionDuration: 'number',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRenewResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderRenewResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCreatingOrderRenewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCreatingOrderRenewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderTransferRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testCode
-   */
-  authorizationCode?: string;
-  /**
-   * @example
-   * 123456
-   */
-  couponNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * false
-   */
-  permitPremiumTransfer?: boolean;
-  /**
-   * @example
-   * 123456
-   */
-  promotionNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123456
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * false
-   */
-  useCoupon?: boolean;
-  /**
-   * @example
-   * false
-   */
-  usePromotion?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizationCode: 'AuthorizationCode',
-      couponNo: 'CouponNo',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      permitPremiumTransfer: 'PermitPremiumTransfer',
-      promotionNo: 'PromotionNo',
-      registrantProfileId: 'RegistrantProfileId',
-      useCoupon: 'UseCoupon',
-      usePromotion: 'UsePromotion',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationCode: 'string',
-      couponNo: 'string',
-      domainName: 'string',
-      lang: 'string',
-      permitPremiumTransfer: 'boolean',
-      promotionNo: 'string',
-      registrantProfileId: 'number',
-      useCoupon: 'boolean',
-      usePromotion: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderTransferResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForCreatingOrderTransferResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForCreatingOrderTransferResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForCreatingOrderTransferResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDSRecordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  keyTag?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      keyTag: 'KeyTag',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      keyTag: 'number',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDSRecordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDSRecordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForDeletingDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForDeletingDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dns1
-   */
-  dnsName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S2019270W570xxxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsName: 'DnsName',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsName: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 8fc97e44-837a-447d-ac61-ea28d2fe8a38
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 8fc97e44-837a-447d-ac61-ea28d2fexxxx
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDeletingDnsHostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForDeletingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForDeletingDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDisassociatingEnsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.luxe
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDisassociatingEnsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDisassociatingEnsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForDisassociatingEnsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForDisassociatingEnsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDomainNameProxyServiceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDomainNameProxyServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForDomainNameProxyServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForDomainNameProxyServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForDomainNameProxyServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForGenerateDomainCertificateRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForGenerateDomainCertificateResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 3E68AB12-3D1F-5B9A-A358-F6B7852AD0B6
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 2741a831-d9ea-4dfb-af94-61948c0478c3
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForGenerateDomainCertificateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForGenerateDomainCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForGenerateDomainCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDSRecordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  algorithm?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598
-   */
-  digest?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  digestType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  keyTag?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      digest: 'Digest',
-      digestType: 'DigestType',
-      domainName: 'DomainName',
-      keyTag: 'KeyTag',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'number',
-      digest: 'string',
-      digestType: 'number',
-      domainName: 'string',
-      keyTag: 'number',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDSRecordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDSRecordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForModifyingDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForModifyingDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDnsHostRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dns1
-   */
-  dnsName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S123456789
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 218.xx.xx.236
-   */
-  ip?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsName: 'DnsName',
-      instanceId: 'InstanceId',
-      ip: 'Ip',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsName: 'string',
-      instanceId: 'string',
-      ip: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDnsHostResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0F1B3547-BE50-4206-8F78-9540FFB85BC1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e9b8e8b4-7334-4548-9cec-c30b6891f292
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForModifyingDnsHostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForModifyingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForModifyingDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForQueryingTransferAuthorizationCodeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForQueryingTransferAuthorizationCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForQueryingTransferAuthorizationCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForReserveDropListDomainRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  contactTemplateId?: string;
-  dns1?: string;
-  dns2?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contactTemplateId: 'ContactTemplateId',
-      dns1: 'Dns1',
-      dns2: 'Dns2',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contactTemplateId: 'string',
-      dns1: 'string',
-      dns2: 'string',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForReserveDropListDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForReserveDropListDomainResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForReserveDropListDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForReserveDropListDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSaveArtExtensionRequest extends $tea.Model {
-  /**
-   * @example
-   * 2019-10-01
-   */
-  dateOrPeriod?: string;
-  /**
-   * @example
-   * 20 cm
-   */
-  dimensions?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test.art
-   */
-  domainName?: string;
-  /**
-   * @example
-   * iconicity
-   */
-  features?: string;
-  /**
-   * @example
-   * realism
-   */
-  inscriptionsAndMarkings?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  maker?: string;
-  /**
-   * @example
-   * silk
-   */
-  materialsAndTechniques?: string;
-  /**
-   * @example
-   * The embroidery
-   */
-  objectType?: string;
-  /**
-   * @example
-   * drawings
-   */
-  reference?: string;
-  /**
-   * @example
-   * peace
-   */
-  subject?: string;
-  /**
-   * @example
-   * Peace and friendship
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dateOrPeriod: 'DateOrPeriod',
-      dimensions: 'Dimensions',
-      domainName: 'DomainName',
-      features: 'Features',
-      inscriptionsAndMarkings: 'InscriptionsAndMarkings',
-      lang: 'Lang',
-      maker: 'Maker',
-      materialsAndTechniques: 'MaterialsAndTechniques',
-      objectType: 'ObjectType',
-      reference: 'Reference',
-      subject: 'Subject',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dateOrPeriod: 'string',
-      dimensions: 'string',
-      domainName: 'string',
-      features: 'string',
-      inscriptionsAndMarkings: 'string',
-      lang: 'string',
-      maker: 'string',
-      materialsAndTechniques: 'string',
-      objectType: 'string',
-      reference: 'string',
-      subject: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSaveArtExtensionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AB
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e141
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSaveArtExtensionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForSaveArtExtensionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForSaveArtExtensionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDSRecordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDSRecordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E2598CAF-DBFE-494E-95EF-B42A33C178AA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e893148f-6343-4ae1-9eba-6e2a4116e142
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDSRecordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForSynchronizingDSRecordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForSynchronizingDSRecordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ST2017120814571100001303
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 0F1B3547-BE50-4206-8F78-9540FFB85BC1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * e9b8e8b4-7334-4548-9cec-c30b6891f292
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForSynchronizingDnsHostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForSynchronizingDnsHostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForSynchronizingDnsHostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferOutByAuthorizationCodeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Test2o#Lck
-   */
-  authorizationCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizationCode: 'AuthorizationCode',
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationCode: 'string',
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * C560A803-B975-481D-A66B-A4395EA863A1
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferOutByAuthorizationCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForTransferOutByAuthorizationCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferProhibitionLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferProhibitionLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForTransferProhibitionLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForTransferProhibitionLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForTransferProhibitionLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdateProhibitionLockRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  status?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      status: 'Status',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      status: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdateProhibitionLockResponseBody extends $tea.Model {
-  /**
-   * @example
-   * F51977F9-2B40-462B-BCCD-CF5BB1E9DB56
-   */
-  requestId?: string;
-  /**
-   * @example
-   * d3babb0a-c939-4c25-8c65-c47b65f5492a
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdateProhibitionLockResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForUpdateProhibitionLockResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForUpdateProhibitionLockResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdatingContactInfoRequest extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  addTransferLock?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registrant
-   */
-  contactType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * S123456789
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addTransferLock: 'AddTransferLock',
-      contactType: 'ContactType',
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addTransferLock: 'boolean',
-      contactType: 'string',
-      domainName: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      registrantProfileId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdatingContactInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveSingleTaskForUpdatingContactInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveSingleTaskForUpdatingContactInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveSingleTaskForUpdatingContactInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainDeleteRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S20181*****85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainDeleteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 23C9B3C4-9E2C-4405-A88D-BD33E459D140
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainDeleteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveTaskForSubmittingDomainDeleteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveTaskForSubmittingDomainDeleteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domainName?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  identityCredential?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  identityCredentialNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  identityCredentialType?: string;
-  lang?: string;
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  instanceId?: string;
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  registrantProfileId?: number;
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      registrantProfileId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody extends $tea.Model {
-  requestId?: string;
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest extends $tea.Model {
-  /**
-   * @example
-   * chao yang qu
-   */
-  address?: string;
-  /**
-   * @example
-   * bei jing shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * alibabacloud.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * test@aliyun.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * h6UPhXz/ADP/2Q==
-   */
-  identityCredential?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 5****************9
-   */
-  identityCredentialNo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * SFZ
-   */
-  identityCredentialType?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 123456
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * ce shi
-   */
-  registrantOrganization?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 12345
-   */
-  telExt?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12345678
-   */
-  telephone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  transferOutProhibited?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      domainName: 'DomainName',
-      email: 'Email',
-      identityCredential: 'IdentityCredential',
-      identityCredentialNo: 'IdentityCredentialNo',
-      identityCredentialType: 'IdentityCredentialType',
-      lang: 'Lang',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      transferOutProhibited: 'TransferOutProhibited',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      email: 'string',
-      identityCredential: 'string',
-      identityCredentialNo: 'string',
-      identityCredentialType: 'string',
-      lang: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      transferOutProhibited: 'boolean',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody extends $tea.Model {
-  /**
-   * @example
-   * EDC28FEC-6BE0-4583-95BC-test
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 880f1579-be51-4dd3-a69d-test
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  registrantProfileId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  transferOutProhibited?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      registrantProfileId: 'RegistrantProfileId',
-      transferOutProhibited: 'TransferOutProhibited',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      lang: 'string',
-      registrantProfileId: 'number',
-      transferOutProhibited: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3cb1adc3-20e8-44ae-9e76-e812fa6fc9d8
-   */
-  taskNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskNo: 'TaskNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to obtain the ID of the domain name group.
-   * 
-   * @example
-   * 123456
-   */
-  domainGroupId?: number;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   **0**: All.
-   * *   **1**: The domain name needs to be renewed.
-   * *   **2**: The domain name needs to be redeemed.
-   * *   **3**: The domain name is normal.
-   * *   **4**: The domain name is being transferred from Alibaba Cloud.
-   * *   **5**: The information about the domain name registrant is being modified.
-   * *   **6**: Real-name verification is not performed on the domain name.
-   * *   **7**: Real-name verification for the domain name fails. Real-name reverification is required.
-   * *   **8**: The domain name is being reviewed.
-   * 
-   * @example
-   * 0
-   */
-  domainStatus?: number;
-  /**
-   * @remarks
-   * The end of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1541520000000
-   */
-  endExpirationDate?: number;
-  /**
-   * @remarks
-   * The end of domain name length to query.
-   * 
-   * @example
-   * 3
-   */
-  endLength?: number;
-  /**
-   * @remarks
-   * The end of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1541520000000
-   */
-  endRegistrationDate?: number;
-  /**
-   * @remarks
-   * The keyword that is used to exclude domain names.
-   * 
-   * @example
-   * test
-   */
-  excluded?: string;
-  /**
-   * @remarks
-   * Specifies whether to exclude the prefix keyword.
-   * 
-   * @example
-   * false
-   */
-  excludedPrefix?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to exclude the suffix keyword.
-   * 
-   * @example
-   * true
-   */
-  excludedSuffix?: boolean;
-  /**
-   * @remarks
-   * The composition of the domain name.
-   * 
-   * @example
-   * 1
-   */
-  form?: number;
-  /**
-   * @remarks
-   * The keyword.
-   * 
-   * @example
-   * test
-   */
-  keyWord?: string;
-  /**
-   * @remarks
-   * Specifies whether the keyword is the prefix.
-   * 
-   * @example
-   * true
-   */
-  keyWordPrefix?: boolean;
-  /**
-   * @remarks
-   * Specifies whether the keyword is the suffix.
-   * 
-   * @example
-   * false
-   */
-  keyWordSuffix?: boolean;
-  /**
-   * @remarks
-   * The language of the error message to return if the request fails. Valid values:
-   * 
-   * *   **zh**: Chinese.
-   * *   **en**: English.
-   * 
-   * Default value: **en**.
-   * 
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 50
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **New gTLD**
-   * *   **gTLD**
-   * *   **ccTLD**
-   * *   **other**
-   * 
-   * @example
-   * gTLD
-   */
-  productDomainType?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-acfmw6bpc6n7zai
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The scroll ID. This parameter is a technical parameter.
-   * 
-   * @example
-   * test
-   */
-  scrollId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query domain names based on expiration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1541520000000
-   */
-  startExpirationDate?: number;
-  /**
-   * @remarks
-   * The start of the domain name length to query.
-   * 
-   * @example
-   * 0
-   */
-  startLength?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query domain names based on registration dates. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1541520000000
-   */
-  startRegistrationDate?: number;
-  /**
-   * @remarks
-   * The suffixes of domain names to be queried. Separate multiple suffixes with commas (,).
-   * 
-   * @example
-   * com
-   */
-  suffixs?: string;
-  /**
-   * @remarks
-   * The publishing status of the domain name. Valid values:
-   * 
-   * *   **2**: The domain name is published at a fixed price.
-   * *   **3**: The domain name is published with the price negotiable.
-   * *   **4**: The domain name is published for bidding.
-   * *   **6**: The domain name is published with price push.
-   * *   **-1**: The domain name is not published.
-   * 
-   * @example
-   * -1
-   */
-  tradeType?: number;
-  /**
-   * @remarks
-   * The IP address of the client. Set the value to **127.0.0.1**.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainGroupId: 'DomainGroupId',
-      domainStatus: 'DomainStatus',
-      endExpirationDate: 'EndExpirationDate',
-      endLength: 'EndLength',
-      endRegistrationDate: 'EndRegistrationDate',
-      excluded: 'Excluded',
-      excludedPrefix: 'ExcludedPrefix',
-      excludedSuffix: 'ExcludedSuffix',
-      form: 'Form',
-      keyWord: 'KeyWord',
-      keyWordPrefix: 'KeyWordPrefix',
-      keyWordSuffix: 'KeyWordSuffix',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      productDomainType: 'ProductDomainType',
-      resourceGroupId: 'ResourceGroupId',
-      scrollId: 'ScrollId',
-      startExpirationDate: 'StartExpirationDate',
-      startLength: 'StartLength',
-      startRegistrationDate: 'StartRegistrationDate',
-      suffixs: 'Suffixs',
-      tradeType: 'TradeType',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroupId: 'number',
-      domainStatus: 'number',
-      endExpirationDate: 'number',
-      endLength: 'number',
-      endRegistrationDate: 'number',
-      excluded: 'string',
-      excludedPrefix: 'boolean',
-      excludedSuffix: 'boolean',
-      form: 'number',
-      keyWord: 'string',
-      keyWordPrefix: 'boolean',
-      keyWordSuffix: 'boolean',
-      lang: 'string',
-      pageSize: 'number',
-      productDomainType: 'string',
-      resourceGroupId: 'string',
-      scrollId: 'string',
-      startExpirationDate: 'number',
-      startLength: 'number',
-      startRegistrationDate: 'number',
-      suffixs: 'string',
-      tradeType: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The domain names.
-   */
-  data?: ScrollDomainListResponseBodyData;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 50
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 722AB7F5-61F0-408C-A012-4784AFD34083
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The scroll ID.
-   * 
-   * @example
-   * test
-   */
-  scrollId?: string;
-  /**
-   * @remarks
-   * The number of remaining domain names to be queried.
-   * 
-   * @example
-   * 200
-   */
-  totalItemNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      scrollId: 'ScrollId',
-      totalItemNum: 'TotalItemNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ScrollDomainListResponseBodyData,
-      pageSize: 'number',
-      requestId: 'string',
-      scrollId: 'string',
-      totalItemNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ScrollDomainListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ScrollDomainListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultRegistrantProfileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234567
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      registrantProfileId: 'RegistrantProfileId',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      registrantProfileId: 'number',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultRegistrantProfileResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4D73432C-7600-4779-ACBB-C3B5CA145D32
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDefaultRegistrantProfileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetDefaultRegistrantProfileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDefaultRegistrantProfileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetupDomainAutoRenewRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * S2019270W570xxxx
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * SET
-   */
-  operation?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      operation: 'Operation',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      operation: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetupDomainAutoRenewResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 8fc97e44-837a-447d-ac61-ea28d2fe8a38
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  result?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetupDomainAutoRenewResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetupDomainAutoRenewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetupDomainAutoRenewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDomainSpecialBizCredentialsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * 219
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The certificate information.
-   */
-  credentials?: string;
-  /**
-   * @remarks
-   * The extended information.
-   * 
-   * @example
-   * {\\"addTransferLock\\":true}
-   */
-  extend?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      credentials: 'Credentials',
-      extend: 'Extend',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      credentials: 'string',
-      extend: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDomainSpecialBizCredentialsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether retries are allowed.
-   * 
-   * @example
-   * False
-   */
-  allowRetry?: boolean;
-  /**
-   * @remarks
-   * The name of the application for which the error code is returned.
-   * 
-   * @example
-   * test-com
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * -
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * -
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The array of error parameters that are returned.
-   */
-  errorArgs?: any[];
-  /**
-   * @remarks
-   * The error code.
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * 110001
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP status code that is directly returned.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * -
-   */
-  module?: any;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A83E1D74-E46B-505C-947A-8C6B7E41C011
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * True
-   */
-  success?: boolean;
-  /**
-   * @remarks
-   * Indicates whether to perform synchronous processing.
-   * 
-   * @example
-   * True
-   */
-  synchro?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      allowRetry: 'AllowRetry',
-      appName: 'AppName',
-      dynamicCode: 'DynamicCode',
-      dynamicMessage: 'DynamicMessage',
-      errorArgs: 'ErrorArgs',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      httpStatusCode: 'HttpStatusCode',
-      module: 'Module',
-      requestId: 'RequestId',
-      success: 'Success',
-      synchro: 'Synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRetry: 'boolean',
-      appName: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      errorArgs: { 'type': 'array', 'itemType': 'any' },
-      errorCode: 'string',
-      errorMsg: 'string',
-      httpStatusCode: 'number',
-      module: 'any',
-      requestId: 'string',
-      success: 'boolean',
-      synchro: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitDomainSpecialBizCredentialsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitDomainSpecialBizCredentialsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitDomainSpecialBizCredentialsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * false
-   */
-  sendIfExist?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      email: 'Email',
-      lang: 'Lang',
-      sendIfExist: 'SendIfExist',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      email: 'string',
-      lang: 'string',
-      sendIfExist: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponseBody extends $tea.Model {
-  existList?: SubmitEmailVerificationResponseBodyExistList[];
-  failList?: SubmitEmailVerificationResponseBodyFailList[];
-  /**
-   * @example
-   * E2A8A5EF-DF8A-4C48-8FD4-9F6BD71AB26D
-   */
-  requestId?: string;
-  successList?: SubmitEmailVerificationResponseBodySuccessList[];
-  static names(): { [key: string]: string } {
-    return {
-      existList: 'ExistList',
-      failList: 'FailList',
-      requestId: 'RequestId',
-      successList: 'SuccessList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      existList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodyExistList },
-      failList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodyFailList },
-      requestId: 'string',
-      successList: { 'type': 'array', 'itemType': SubmitEmailVerificationResponseBodySuccessList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitEmailVerificationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitEmailVerificationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationAuditInfoRequest extends $tea.Model {
-  auditInfo?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  auditType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com,example.org
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditInfo: 'AuditInfo',
-      auditType: 'AuditType',
-      domainName: 'DomainName',
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditInfo: 'string',
-      auditType: 'number',
-      domainName: 'string',
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationAuditInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @example
-   * 9DKCF6F8-243C-40EC-8035-4B12FEFD7C22
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationAuditInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitOperationAuditInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitOperationAuditInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationCredentialsRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  auditRecordId?: number;
-  /**
-   * @example
-   * 1
-   */
-  auditType?: number;
-  credentials?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1
-   */
-  regType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditRecordId: 'AuditRecordId',
-      auditType: 'AuditType',
-      credentials: 'Credentials',
-      lang: 'Lang',
-      regType: 'RegType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditRecordId: 'number',
-      auditType: 'number',
-      credentials: 'string',
-      lang: 'string',
-      regType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationCredentialsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9DFCF6F8-243C-40EC-8035-4B12FEFX7D98
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitOperationCredentialsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SubmitOperationCredentialsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SubmitOperationCredentialsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInCheckMailTokenRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3bdbaa0e-faa2-4ad2-98f4-bcfeb0237054
-   */
-  token?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      token: 'Token',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      token: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInCheckMailTokenResponseBody extends $tea.Model {
-  failList?: TransferInCheckMailTokenResponseBodyFailList;
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  successList?: TransferInCheckMailTokenResponseBodySuccessList;
-  static names(): { [key: string]: string } {
-    return {
-      failList: 'FailList',
-      requestId: 'RequestId',
-      successList: 'SuccessList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failList: TransferInCheckMailTokenResponseBodyFailList,
-      requestId: 'string',
-      successList: TransferInCheckMailTokenResponseBodySuccessList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInCheckMailTokenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferInCheckMailTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferInCheckMailTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInReenterTransferAuthorizationCodeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testCode
-   */
-  transferAuthorizationCode?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      transferAuthorizationCode: 'TransferAuthorizationCode',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      transferAuthorizationCode: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInReenterTransferAuthorizationCodeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInReenterTransferAuthorizationCodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferInReenterTransferAuthorizationCodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferInReenterTransferAuthorizationCodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInRefetchWhoisEmailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInRefetchWhoisEmailResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInRefetchWhoisEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferInRefetchWhoisEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferInRefetchWhoisEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInResendMailTokenRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      lang: 'Lang',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      lang: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInResendMailTokenResponseBody extends $tea.Model {
-  /**
-   * @example
-   * AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInResendMailTokenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TransferInResendMailTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TransferInResendMailTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDomainToDomainGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  dataSource?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234
-   */
-  domainGroupId?: number;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string[];
-  /**
-   * @example
-   * dGVzdA==
-   */
-  fileToUpload?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * false
-   */
-  replace?: boolean;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSource: 'DataSource',
-      domainGroupId: 'DomainGroupId',
-      domainName: 'DomainName',
-      fileToUpload: 'FileToUpload',
-      lang: 'Lang',
-      replace: 'Replace',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSource: 'number',
-      domainGroupId: 'number',
-      domainName: { 'type': 'array', 'itemType': 'string' },
-      fileToUpload: 'string',
-      lang: 'string',
-      replace: 'boolean',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDomainToDomainGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 40F46D3D-F4F3-4CCB-AC30-2DD20E32E528
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDomainToDomainGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDomainToDomainGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDomainToDomainGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyContactFieldRequest extends $tea.Model {
-  /**
-   * @example
-   * Rd. xitucheng
-   */
-  address?: string;
-  /**
-   * @example
-   * Bei jing
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  postalCode?: string;
-  /**
-   * @example
-   * Bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * wang xian sheng
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * wang xian sheng
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 01
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1390000****
-   */
-  telephone?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      domainName: 'DomainName',
-      email: 'Email',
-      lang: 'Lang',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      userClientIp: 'UserClientIp',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      domainName: 'string',
-      email: 'string',
-      lang: 'string',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      userClientIp: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyContactFieldResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ABAC3BAC-FCFA-4DAE-B47C-FA4105CB07C6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyContactFieldResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VerifyContactFieldResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyContactFieldResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyEmailRequest extends $tea.Model {
-  /**
-   * @example
-   * en
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 0b32247496409441e9e179ea7c2e0****
-   */
-  token?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  userClientIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      token: 'Token',
-      userClientIp: 'UserClientIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      token: 'string',
-      userClientIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyEmailResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FD3AD289-83EE-4E32-803A-CF1B3A8EEE64
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyEmailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VerifyEmailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyEmailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWordsMatchedSensitiveWord extends $tea.Model {
-  /**
-   * @example
-   * xxx
-   */
-  word?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords extends $tea.Model {
-  matchedSensitiveWord?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWordsMatchedSensitiveWord[];
-  static names(): { [key: string]: string } {
-    return {
-      matchedSensitiveWord: 'MatchedSensitiveWord',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matchedSensitiveWord: { 'type': 'array', 'itemType': BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWordsMatchedSensitiveWord },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResult extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  exist?: boolean;
-  /**
-   * @example
-   * example.com,aliyundoc.com
-   */
-  keyword?: string;
-  matchedSentiveWords?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords;
-  static names(): { [key: string]: string } {
-    return {
-      exist: 'Exist',
-      keyword: 'Keyword',
-      matchedSentiveWords: 'MatchedSentiveWords',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exist: 'boolean',
-      keyword: 'string',
-      matchedSentiveWords: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultList extends $tea.Model {
-  sensitiveWordMatchResult?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResult[];
-  static names(): { [key: string]: string } {
-    return {
-      sensitiveWordMatchResult: 'SensitiveWordMatchResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sensitiveWordMatchResult: { 'type': 'array', 'itemType': BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainResponseBodyStaticPriceInfoPriceInfo extends $tea.Model {
-  action?: string;
-  money?: number;
-  period?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'action',
-      money: 'money',
-      period: 'period',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      money: 'number',
-      period: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckDomainResponseBodyStaticPriceInfo extends $tea.Model {
-  priceInfo?: CheckDomainResponseBodyStaticPriceInfoPriceInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: { 'type': 'array', 'itemType': CheckDomainResponseBodyStaticPriceInfoPriceInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckIntlFixPriceDomainStatusResponseBodyModule extends $tea.Model {
-  /**
-   * @example
-   * USD
-   */
-  currency?: string;
-  /**
-   * @example
-   * 1567353497
-   */
-  deadDate?: number;
-  /**
-   * @example
-   * example.com
-   */
-  domain?: string;
-  /**
-   * @example
-   * 1567353497
-   */
-  endTime?: number;
-  /**
-   * @example
-   * true
-   */
-  premium?: boolean;
-  /**
-   * @example
-   * 20.00
-   */
-  price?: number;
-  /**
-   * @example
-   * 1566353497
-   */
-  regDate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currency: 'Currency',
-      deadDate: 'DeadDate',
-      domain: 'Domain',
-      endTime: 'EndTime',
-      premium: 'Premium',
-      price: 'Price',
-      regDate: 'RegDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currency: 'string',
-      deadDate: 'number',
-      domain: 'string',
-      endTime: 'number',
-      premium: 'boolean',
-      price: 'number',
-      regDate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmTransferInEmailResponseBodyFailList extends $tea.Model {
-  failDomain?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      failDomain: 'FailDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failDomain: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfirmTransferInEmailResponseBodySuccessList extends $tea.Model {
-  successDomain?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      successDomain: 'SuccessDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successDomain: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateIntlFixedPriceDomainOrderResponseBodyModule extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domain?: string;
-  /**
-   * @example
-   * 31199295f2074ce895645d386cb2****
-   */
-  orderNo?: string;
-  /**
-   * @example
-   * 100.00
-   */
-  payPrice?: number;
-  /**
-   * @example
-   * https://
-   */
-  payUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      orderNo: 'OrderNo',
-      payPrice: 'PayPrice',
-      payUrl: 'PayUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      orderNo: 'string',
-      payPrice: 'number',
-      payUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEmailVerificationResponseBodyFailList extends $tea.Model {
-  /**
-   * @example
-   * ParameterIllegall
-   */
-  code?: string;
-  /**
-   * @example
-   * test1@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * Parameter error
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEmailVerificationResponseBodySuccessList extends $tea.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * test2@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * Success
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord extends $tea.Model {
-  /**
-   * @example
-   * xxx
-   */
-  word?: string;
-  static names(): { [key: string]: string } {
-    return {
-      word: 'Word',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      word: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWords extends $tea.Model {
-  matchedSensitiveWord?: FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord[];
-  static names(): { [key: string]: string } {
-    return {
-      matchedSensitiveWord: 'MatchedSensitiveWord',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matchedSensitiveWord: { 'type': 'array', 'itemType': FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIntlFixPriceDomainListUrlResponseBodyModule extends $tea.Model {
-  /**
-   * @example
-   * http://intl-fixed-price.oss-cn-zhangjiakou.aliyuncs.com/aliyun_intl_fixed_price_domain_20240827.gz?Expires=1724830838&OSSAccessKeyId=LTAI5tPMAybR4gfSEjdfAk1F&Signature=tb0SPs6tKb9gLKyQ5ibpQnBUuTY%3D
-   */
-  downloadUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      downloadUrl: 'DownloadUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      downloadUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEmailVerificationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  confirmIp?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 00000a21fd374da99d9c95b48500000
-   */
-  emailVerificationNo?: string;
-  /**
-   * @example
-   * 2017-12-25 03:38:46
-   */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 2017-12-25 03:41:11
-   */
-  gmtModified?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  sendIp?: string;
-  /**
-   * @example
-   * 2017-12-25 03:38:46
-   */
-  tokenSendTime?: string;
-  /**
-   * @example
-   * 0000
-   */
-  userId?: string;
-  /**
-   * @example
-   * 1
-   */
-  verificationStatus?: number;
-  /**
-   * @example
-   * 2017-12-25 03:41:11
-   */
-  verificationTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      confirmIp: 'ConfirmIp',
-      email: 'Email',
-      emailVerificationNo: 'EmailVerificationNo',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      sendIp: 'SendIp',
-      tokenSendTime: 'TokenSendTime',
-      userId: 'UserId',
-      verificationStatus: 'VerificationStatus',
-      verificationTime: 'VerificationTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confirmIp: 'string',
-      email: 'string',
-      emailVerificationNo: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      sendIp: 'string',
-      tokenSendTime: 'string',
-      userId: 'string',
-      verificationStatus: 'number',
-      verificationTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServerLockResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID of the domain name.
-   * 
-   * @example
-   * S20190N1DAI4****
-   */
-  domainInstanceId?: string;
-  /**
-   * @remarks
-   * The domain name that has valid registry lock information.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The expiration time.
-   * 
-   * @example
-   * 2030-07-10 17:37:36
-   */
-  expireDate?: string;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2020-02-19 16:38:07
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the domain name was last modified.
-   * 
-   * @example
-   * 2022-02-19 16:40:38
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The instance ID of the domain name for which the registry lock is enabled.
-   * 
-   * @example
-   * S2021591IQ28****
-   */
-  lockInstanceId?: string;
-  /**
-   * @remarks
-   * The ID of the product to which the domain name with the registry lock enabled belongs.
-   * 
-   * @example
-   * 1807**
-   */
-  lockProductId?: string;
-  /**
-   * @remarks
-   * The status of the registry lock.
-   * 
-   * @example
-   * 2
-   */
-  serverLockStatus?: string;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * @example
-   * 2021-07-10 17:37:36
-   */
-  startDate?: string;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainInstanceId: 'DomainInstanceId',
-      domainName: 'DomainName',
-      expireDate: 'ExpireDate',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      lockInstanceId: 'LockInstanceId',
-      lockProductId: 'LockProductId',
-      serverLockStatus: 'ServerLockStatus',
-      startDate: 'StartDate',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainInstanceId: 'string',
-      domainName: 'string',
-      expireDate: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      lockInstanceId: 'string',
-      lockProductId: 'string',
-      serverLockStatus: 'string',
-      startDate: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimClassDescsClassDesc extends $tea.Model {
-  /**
-   * @example
-   * 18
-   */
-  classNum?: number;
-  /**
-   * @example
-   * New Zealand
-   */
-  desc?: string;
-  static names(): { [key: string]: string } {
-    return {
-      classNum: 'ClassNum',
-      desc: 'Desc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      classNum: 'number',
-      desc: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimClassDescs extends $tea.Model {
-  classDesc?: LookupTmchNoticeResponseBodyClaimsClaimClassDescsClassDesc[];
-  static names(): { [key: string]: string } {
-    return {
-      classDesc: 'ClassDesc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      classDesc: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaimClassDescsClassDesc },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet extends $tea.Model {
-  street?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      street: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr extends $tea.Model {
-  /**
-   * @example
-   * NZ
-   */
-  cc?: string;
-  /**
-   * @example
-   * Auckland
-   */
-  city?: string;
-  /**
-   * @example
-   * 1010
-   */
-  pc?: string;
-  /**
-   * @example
-   * Auckland
-   */
-  sp?: string;
-  street?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet;
-  static names(): { [key: string]: string } {
-    return {
-      cc: 'Cc',
-      city: 'City',
-      pc: 'Pc',
-      sp: 'Sp',
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cc: 'string',
-      city: 'string',
-      pc: 'string',
-      sp: 'string',
-      street: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContactsContact extends $tea.Model {
-  addr?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 4472335**8
-   */
-  fax?: string;
-  /**
-   * @example
-   * Tom
-   */
-  name?: string;
-  /**
-   * @example
-   * Tom
-   */
-  org?: string;
-  /**
-   * @example
-   * agent
-   */
-  type?: string;
-  /**
-   * @example
-   * 1390000****
-   */
-  voice?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addr: 'Addr',
-      email: 'Email',
-      fax: 'Fax',
-      name: 'Name',
-      org: 'Org',
-      type: 'Type',
-      voice: 'Voice',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addr: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr,
-      email: 'string',
-      fax: 'string',
-      name: 'string',
-      org: 'string',
-      type: 'string',
-      voice: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimContacts extends $tea.Model {
-  contact?: LookupTmchNoticeResponseBodyClaimsClaimContactsContact[];
-  static names(): { [key: string]: string } {
-    return {
-      contact: 'Contact',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contact: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaimContactsContact },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet extends $tea.Model {
-  street?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      street: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $tea.Model {
-  /**
-   * @example
-   * NZ
-   */
-  cc?: string;
-  /**
-   * @example
-   * Wellington
-   */
-  city?: string;
-  /**
-   * @example
-   * 6011
-   */
-  pc?: string;
-  /**
-   * @example
-   * Wellington
-   */
-  sp?: string;
-  street?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet;
-  static names(): { [key: string]: string } {
-    return {
-      cc: 'Cc',
-      city: 'City',
-      pc: 'Pc',
-      sp: 'Sp',
-      street: 'Street',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cc: 'string',
-      city: 'string',
-      pc: 'string',
-      sp: 'string',
-      street: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolder extends $tea.Model {
-  addr?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr;
-  /**
-   * @example
-   * owner
-   */
-  entitlement?: string;
-  /**
-   * @example
-   * Whitcoulls 2011 Limited
-   */
-  org?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addr: 'Addr',
-      entitlement: 'Entitlement',
-      org: 'Org',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addr: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr,
-      entitlement: 'string',
-      org: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimHolders extends $tea.Model {
-  holder?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolder[];
-  static names(): { [key: string]: string } {
-    return {
-      holder: 'Holder',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      holder: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaimHoldersHolder },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaimJurDesc extends $tea.Model {
-  /**
-   * @example
-   * New Zealand
-   */
-  desc?: string;
-  /**
-   * @example
-   * NZ
-   */
-  jurCC?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'Desc',
-      jurCC: 'JurCC',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      jurCC: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaimsClaim extends $tea.Model {
-  classDescs?: LookupTmchNoticeResponseBodyClaimsClaimClassDescs;
-  contacts?: LookupTmchNoticeResponseBodyClaimsClaimContacts;
-  /**
-   * @example
-   * Class 9: Calculators; bags, coverings,containers, carriers and holders for mobile phones, personal handheld computers and notebooks; headphones; speakers; blank storage media;batteries. Class 16: Paper
-   */
-  goodsAndServices?: string;
-  holders?: LookupTmchNoticeResponseBodyClaimsClaimHolders;
-  jurDesc?: LookupTmchNoticeResponseBodyClaimsClaimJurDesc;
-  /**
-   * @example
-   * POTED
-   */
-  markName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      classDescs: 'ClassDescs',
-      contacts: 'Contacts',
-      goodsAndServices: 'GoodsAndServices',
-      holders: 'Holders',
-      jurDesc: 'JurDesc',
-      markName: 'MarkName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      classDescs: LookupTmchNoticeResponseBodyClaimsClaimClassDescs,
-      contacts: LookupTmchNoticeResponseBodyClaimsClaimContacts,
-      goodsAndServices: 'string',
-      holders: LookupTmchNoticeResponseBodyClaimsClaimHolders,
-      jurDesc: LookupTmchNoticeResponseBodyClaimsClaimJurDesc,
-      markName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LookupTmchNoticeResponseBodyClaims extends $tea.Model {
-  claim?: LookupTmchNoticeResponseBodyClaimsClaim[];
-  static names(): { [key: string]: string } {
-    return {
-      claim: 'Claim',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      claim: { 'type': 'array', 'itemType': LookupTmchNoticeResponseBodyClaimsClaim },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PollTaskResultResponseBodyDataTaskDetail extends $tea.Model {
-  /**
-   * @example
-   * 2018-03-26 15:08:20
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * The operation is successful.
-   */
-  errorMsg?: string;
-  /**
-   * @example
-   * S201817141000000
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 15fee9d10d514bada66bd08c5723c583
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * b95bc334-f7d8-4f39-8a62-4c4302a243d8
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * test
-   */
-  taskResult?: string;
-  /**
-   * @example
-   * EXECUTE_SUCCESS
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 0
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2018-03-26 15:22:18
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskResult: 'TaskResult',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskResult: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PollTaskResultResponseBodyData extends $tea.Model {
-  taskDetail?: PollTaskResultResponseBodyDataTaskDetail[];
-  static names(): { [key: string]: string } {
-    return {
-      taskDetail: 'TaskDetail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskDetail: { 'type': 'array', 'itemType': PollTaskResultResponseBodyDataTaskDetail },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBodyDataDomainDnsList extends $tea.Model {
-  dns?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dns: 'Dns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dns: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBodyDataDomainTagTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBodyDataDomainTag extends $tea.Model {
-  tag?: QueryAdvancedDomainListResponseBodyDataDomainTagTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': QueryAdvancedDomainListResponseBodyDataDomainTagTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBodyDataDomain extends $tea.Model {
-  dnsList?: QueryAdvancedDomainListResponseBodyDataDomainDnsList;
-  /**
-   * @example
-   * SUCCEED
-   */
-  domainAuditStatus?: string;
-  /**
-   * @example
-   * -1
-   */
-  domainGroupId?: string;
-  domainGroupName?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 5
-   */
-  domainStatus?: string;
-  /**
-   * @example
-   * gTLD
-   */
-  domainType?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 356
-   */
-  expirationCurrDateDiff?: number;
-  /**
-   * @example
-   * 2019-04-09 17:07:03
-   */
-  expirationDate?: string;
-  /**
-   * @example
-   * 1554800823000
-   */
-  expirationDateLong?: number;
-  /**
-   * @example
-   * 1
-   */
-  expirationDateStatus?: string;
-  /**
-   * @example
-   * S20182000000000
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * false
-   */
-  premium?: boolean;
-  /**
-   * @example
-   * 2a
-   */
-  productId?: string;
-  /**
-   * @example
-   * Tom
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * 2018-04-09 17:07:03
-   */
-  registrationDate?: string;
-  /**
-   * @example
-   * 1523264823000
-   */
-  registrationDateLong?: number;
-  remark?: string;
-  /**
-   * @example
-   * rg-aek2yyciz557g3q
-   */
-  resourceGroupId?: string;
-  tag?: QueryAdvancedDomainListResponseBodyDataDomainTag;
-  /**
-   * @example
-   * Tom
-   */
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'DnsList',
-      domainAuditStatus: 'DomainAuditStatus',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainName: 'DomainName',
-      domainStatus: 'DomainStatus',
-      domainType: 'DomainType',
-      email: 'Email',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDateStatus: 'ExpirationDateStatus',
-      instanceId: 'InstanceId',
-      premium: 'Premium',
-      productId: 'ProductId',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      remark: 'Remark',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: QueryAdvancedDomainListResponseBodyDataDomainDnsList,
-      domainAuditStatus: 'string',
-      domainGroupId: 'string',
-      domainGroupName: 'string',
-      domainName: 'string',
-      domainStatus: 'string',
-      domainType: 'string',
-      email: 'string',
-      expirationCurrDateDiff: 'number',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      expirationDateStatus: 'string',
-      instanceId: 'string',
-      premium: 'boolean',
-      productId: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      remark: 'string',
-      resourceGroupId: 'string',
-      tag: QueryAdvancedDomainListResponseBodyDataDomainTag,
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAdvancedDomainListResponseBodyData extends $tea.Model {
-  domain?: QueryAdvancedDomainListResponseBodyDataDomain[];
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: { 'type': 'array', 'itemType': QueryAdvancedDomainListResponseBodyDataDomain },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChangeLogListResponseBodyDataChangeLog extends $tea.Model {
-  /**
-   * @example
-   * dns1;dns2 -> dns3;dns4
-   */
-  details?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * DNS modification
-   */
-  operation?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  operationIPAddress?: string;
-  /**
-   * @example
-   * Failed
-   */
-  result?: string;
-  /**
-   * @example
-   * 2017-12-26 12:00:00
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      details: 'Details',
-      domainName: 'DomainName',
-      operation: 'Operation',
-      operationIPAddress: 'OperationIPAddress',
-      result: 'Result',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      details: 'string',
-      domainName: 'string',
-      operation: 'string',
-      operationIPAddress: 'string',
-      result: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryChangeLogListResponseBodyData extends $tea.Model {
-  changeLog?: QueryChangeLogListResponseBodyDataChangeLog[];
-  static names(): { [key: string]: string } {
-    return {
-      changeLog: 'ChangeLog',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      changeLog: { 'type': 'array', 'itemType': QueryChangeLogListResponseBodyDataChangeLog },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDSRecordResponseBodyDSRecordList extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  algorithm?: number;
-  /**
-   * @example
-   * f58fa917424383934c7b0cf1a90f61d692745680fa06f5ecdbe0924e86de9598
-   */
-  digest?: string;
-  /**
-   * @example
-   * 2
-   */
-  digestType?: number;
-  /**
-   * @example
-   * 1
-   */
-  keyTag?: number;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      digest: 'Digest',
-      digestType: 'DigestType',
-      keyTag: 'KeyTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'number',
-      digest: 'string',
-      digestType: 'number',
-      keyTag: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDnsHostResponseBodyDnsHostList extends $tea.Model {
-  /**
-   * @example
-   * ns3
-   */
-  dnsName?: string;
-  ipList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dnsName: 'DnsName',
-      ipList: 'IpList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsName: 'string',
-      ipList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildrenChildren extends $tea.Model {
-  childDivisionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      childDivisionName: 'ChildDivisionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      childDivisionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildren extends $tea.Model {
-  children?: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildrenChildren[];
-  static names(): { [key: string]: string } {
-    return {
-      children: 'Children',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      children: { 'type': 'array', 'itemType': QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildrenChildren },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivision extends $tea.Model {
-  children?: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildren;
-  divisionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      children: 'Children',
-      divisionName: 'DivisionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      children: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivisionChildren,
-      divisionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainAdminDivisionResponseBodyAdminDivisions extends $tea.Model {
-  adminDivision?: QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivision[];
-  static names(): { [key: string]: string } {
-    return {
-      adminDivision: 'AdminDivision',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adminDivision: { 'type': 'array', 'itemType': QueryDomainAdminDivisionResponseBodyAdminDivisionsAdminDivision },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameResponseBodyDnsList extends $tea.Model {
-  dns?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dns: 'Dns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dns: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameResponseBodyTagTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   */
-  vaue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      vaue: 'Vaue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      vaue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByDomainNameResponseBodyTag extends $tea.Model {
-  tag?: QueryDomainByDomainNameResponseBodyTagTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': QueryDomainByDomainNameResponseBodyTagTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdResponseBodyDnsList extends $tea.Model {
-  dns?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dns: 'Dns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dns: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdResponseBodyTagTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainByInstanceIdResponseBodyTag extends $tea.Model {
-  tag?: QueryDomainByInstanceIdResponseBodyTagTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': QueryDomainByInstanceIdResponseBodyTagTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainGroupListResponseBodyDataDomainGroup extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  beingDeleted?: boolean;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
-  creationDate?: string;
-  /**
-   * @example
-   * -1
-   */
-  domainGroupId?: string;
-  domainGroupName?: string;
-  /**
-   * @example
-   * COMPLETE
-   */
-  domainGroupStatus?: string;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
-  modificationDate?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      beingDeleted: 'BeingDeleted',
-      creationDate: 'CreationDate',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainGroupStatus: 'DomainGroupStatus',
-      modificationDate: 'ModificationDate',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beingDeleted: 'boolean',
-      creationDate: 'string',
-      domainGroupId: 'string',
-      domainGroupName: 'string',
-      domainGroupStatus: 'string',
-      modificationDate: 'string',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainGroupListResponseBodyData extends $tea.Model {
-  domainGroup?: QueryDomainGroupListResponseBodyDataDomainGroup[];
-  static names(): { [key: string]: string } {
-    return {
-      domainGroup: 'DomainGroup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainGroup: { 'type': 'array', 'itemType': QueryDomainGroupListResponseBodyDataDomainGroup },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag to add to the resource.
-   * 
-   * @example
-   * testKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag to add to the resource.
-   * 
-   * @example
-   * testValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponseBodyDataDomainTagTag extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the tag added to the resource.
-   * 
-   * @example
-   * testKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The value of the tag added to the resource.
-   * 
-   * @example
-   * testValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponseBodyDataDomainTag extends $tea.Model {
-  tag?: QueryDomainListResponseBodyDataDomainTagTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': QueryDomainListResponseBodyDataDomainTagTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponseBodyDataDomain extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the domain name registrant.
-   * 
-   * @example
-   * Guangzhou Forest Advertising Decoration Co., LTD
-   */
-  ccompany?: string;
-  chgholderStatus?: string;
-  /**
-   * @remarks
-   * The state of real-name verification for the domain name. Valid values:
-   * 
-   * *   **FAILED**: Real-name verification for the domain name fails.
-   * *   **SUCCEED**: Real-name verification for the domain name is successful.
-   * *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-   * *   **AUDITING**: Real-name verification for the domain name is in progress.
-   * 
-   * @example
-   * FAILED
-   */
-  domainAuditStatus?: string;
-  /**
-   * @remarks
-   * The ID of the domain name group.
-   * 
-   * @example
-   * 123456
-   */
-  domainGroupId?: string;
-  /**
-   * @remarks
-   * The name of the domain name group.
-   * 
-   * @example
-   * 测试分组
-   */
-  domainGroupName?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The state of the domain name. Valid values:
-   * 
-   * *   **1**: The domain name needs to be renewed.
-   * *   **2**: The domain name needs to be redeemed.
-   * *   **3**: The domain name is normal.
-   * 
-   * @example
-   * 3
-   */
-  domainStatus?: string;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **New gTLD**
-   * *   **gTLD**
-   * *   **ccTLD**
-   * 
-   * @example
-   * gTLD
-   */
-  domainType?: string;
-  /**
-   * @remarks
-   * The number of days from the expiration date of the domain name to the current date.
-   * 
-   * @example
-   * -30
-   */
-  expirationCurrDateDiff?: number;
-  /**
-   * @remarks
-   * The time when the domain name expires.
-   * 
-   * @example
-   * 2017-11-02 04:00:45
-   */
-  expirationDate?: string;
-  /**
-   * @remarks
-   * The validity period of the domain name. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1522080000000
-   */
-  expirationDateLong?: number;
-  /**
-   * @remarks
-   * Indicates whether the domain name expires. Valid values:
-   * 
-   * *   **1**: The domain name does not expire.
-   * *   **2**: The domain name expires.
-   * 
-   * @example
-   * 1
-   */
-  expirationDateStatus?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * ST20151102120031118
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the domain name is a premium domain name.
-   * 
-   * @example
-   * true
-   */
-  premium?: boolean;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * 2a
-   */
-  productId?: string;
-  /**
-   * @remarks
-   * The registration type of the domain name. Valid values:
-   * 
-   * *   **1**: individual
-   * *   **2**: enterprise
-   * 
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered.
-   * 
-   * @example
-   * 2017-11-02 04:00:45
-   */
-  registrationDate?: string;
-  /**
-   * @remarks
-   * Indicates how long the domain name has been registered. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1522080000000
-   */
-  registrationDateLong?: number;
-  /**
-   * @remarks
-   * The remarks of the domain name.
-   * 
-   * @example
-   * 备注
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the domain name belongs.
-   * 
-   * @example
-   * rg-aek2yyciz557g3q
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags added to the resource.
-   */
-  tag?: QueryDomainListResponseBodyDataDomainTag;
-  static names(): { [key: string]: string } {
-    return {
-      ccompany: 'Ccompany',
-      chgholderStatus: 'ChgholderStatus',
-      domainAuditStatus: 'DomainAuditStatus',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainName: 'DomainName',
-      domainStatus: 'DomainStatus',
-      domainType: 'DomainType',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDateStatus: 'ExpirationDateStatus',
-      instanceId: 'InstanceId',
-      premium: 'Premium',
-      productId: 'ProductId',
-      registrantType: 'RegistrantType',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      remark: 'Remark',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ccompany: 'string',
-      chgholderStatus: 'string',
-      domainAuditStatus: 'string',
-      domainGroupId: 'string',
-      domainGroupName: 'string',
-      domainName: 'string',
-      domainStatus: 'string',
-      domainType: 'string',
-      expirationCurrDateDiff: 'number',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      expirationDateStatus: 'string',
-      instanceId: 'string',
-      premium: 'boolean',
-      productId: 'string',
-      registrantType: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      remark: 'string',
-      resourceGroupId: 'string',
-      tag: QueryDomainListResponseBodyDataDomainTag,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainListResponseBodyData extends $tea.Model {
-  domain?: QueryDomainListResponseBodyDataDomain[];
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: { 'type': 'array', 'itemType': QueryDomainListResponseBodyDataDomain },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact extends $tea.Model {
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * 258
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The city.
-   */
-  CCity?: string;
-  /**
-   * @remarks
-   * The organization name.
-   */
-  CCompany?: string;
-  /**
-   * @remarks
-   * The country code.
-   * 
-   * @example
-   * CN
-   */
-  CCountry?: string;
-  /**
-   * @remarks
-   * The contact name.
-   */
-  CName?: string;
-  /**
-   * @remarks
-   * The province.
-   */
-  CProvince?: string;
-  /**
-   * @remarks
-   * The address.
-   */
-  CVenu?: string;
-  /**
-   * @remarks
-   * The city in English.
-   * 
-   * @example
-   * an shan Shi
-   */
-  ECity?: string;
-  /**
-   * @remarks
-   * The organization name in English.
-   * 
-   * @example
-   * hebeihuiheguandaozhizaoyouxiangongsi
-   */
-  ECompany?: string;
-  /**
-   * @remarks
-   * The contact name in English.
-   * 
-   * @example
-   * tong da wei
-   */
-  EName?: string;
-  /**
-   * @remarks
-   * The province in English.
-   * 
-   * @example
-   * liao ning
-   */
-  EProvince?: string;
-  /**
-   * @remarks
-   * The address in English.
-   * 
-   * @example
-   * tie xi qu xin kai jie 59-4 hao
-   */
-  EVenu?: string;
-  /**
-   * @remarks
-   * The email address.
-   * 
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * The extended information.
-   * 
-   * @example
-   * -
-   */
-  extend?: string;
-  /**
-   * @remarks
-   * The fax country code.
-   * 
-   * @example
-   * 86
-   */
-  faxArea?: string;
-  /**
-   * @remarks
-   * The fax extension number.
-   * 
-   * @example
-   * 61284565
-   */
-  faxExt?: string;
-  /**
-   * @remarks
-   * The fax number with an area code or mobile number.
-   * 
-   * @example
-   * 16604121234
-   */
-  faxMain?: string;
-  /**
-   * @remarks
-   * The mobile number.
-   * 
-   * @example
-   * 156********
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * The zip code.
-   * 
-   * @example
-   * 100000
-   */
-  postalcode?: string;
-  /**
-   * @remarks
-   * The contact type. Valid values: 1: individual. 2: enterprise.
-   * 
-   * @example
-   * 1
-   */
-  regType?: number;
-  /**
-   * @remarks
-   * The registrant ID.
-   * 
-   * @example
-   * 121000002****
-   */
-  registrantId?: string;
-  /**
-   * @remarks
-   * The calling code of the country or region where the domain name contact is located.
-   * 
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @remarks
-   * The telephone extension number.
-   * 
-   * @example
-   * 61284565
-   */
-  telExt?: string;
-  /**
-   * @remarks
-   * The landline number with an area code or mobile number.
-   * 
-   * @example
-   * 16604121234
-   */
-  telMain?: string;
-  /**
-   * @remarks
-   * The VSP contact ID.
-   * 
-   * @example
-   * 121000001****
-   */
-  vspContactId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      CCity: 'CCity',
-      CCompany: 'CCompany',
-      CCountry: 'CCountry',
-      CName: 'CName',
-      CProvince: 'CProvince',
-      CVenu: 'CVenu',
-      ECity: 'ECity',
-      ECompany: 'ECompany',
-      EName: 'EName',
-      EProvince: 'EProvince',
-      EVenu: 'EVenu',
-      email: 'Email',
-      extend: 'Extend',
-      faxArea: 'FaxArea',
-      faxExt: 'FaxExt',
-      faxMain: 'FaxMain',
-      mobile: 'Mobile',
-      postalcode: 'Postalcode',
-      regType: 'RegType',
-      registrantId: 'RegistrantId',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telMain: 'TelMain',
-      vspContactId: 'VspContactId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      CCity: 'string',
-      CCompany: 'string',
-      CCountry: 'string',
-      CName: 'string',
-      CProvince: 'string',
-      CVenu: 'string',
-      ECity: 'string',
-      ECompany: 'string',
-      EName: 'string',
-      EProvince: 'string',
-      EVenu: 'string',
-      email: 'string',
-      extend: 'string',
-      faxArea: 'string',
-      faxExt: 'string',
-      faxMain: 'string',
-      mobile: 'string',
-      postalcode: 'string',
-      regType: 'number',
-      registrantId: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telMain: 'string',
-      vspContactId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the associated workflow.
-   * 
-   * @example
-   * T20220831150014000001
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The certificate number.
-   * 
-   * @example
-   * 4111111111111110**
-   */
-  credentialNo?: string;
-  /**
-   * @remarks
-   * The certificate type.
-   * 
-   * @example
-   * SFZ
-   */
-  credentialType?: string;
-  /**
-   * @remarks
-   * The certificate URL.
-   * 
-   * @example
-   * http://test.oss-cn-hangzhou.aliyuncs.com/20170522/1219541161213057_070445190.jpg
-   */
-  credentialUrl?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test003.cn
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * Indicates whether the certificate belongs to the registrant.
-   * 
-   * @example
-   * 1
-   */
-  holderCert?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * S20172315BJ37809
-   */
-  saleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      credentialNo: 'CredentialNo',
-      credentialType: 'CredentialType',
-      credentialUrl: 'CredentialUrl',
-      domainName: 'DomainName',
-      holderCert: 'HolderCert',
-      saleId: 'SaleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      credentialNo: 'string',
-      credentialType: 'string',
-      credentialUrl: 'string',
-      domainName: 'string',
-      holderCert: 'number',
-      saleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult extends $tea.Model {
-  /**
-   * @remarks
-   * The cost type.
-   * 
-   * @example
-   * activate
-   */
-  actionType?: string;
-  /**
-   * @remarks
-   * The amount of the order.
-   * 
-   * @example
-   * 0.0
-   */
-  orderAmount?: number;
-  /**
-   * @remarks
-   * The currency.
-   * 
-   * @example
-   * CNY
-   */
-  orderCurrency?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * S201601060123456
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The order status.
-   * 
-   * @example
-   * ORDER_WAIT_PAY
-   */
-  orderStatus?: string;
-  /**
-   * @remarks
-   * The time when the order was placed.
-   * 
-   * @example
-   * 2023-09-19T14:28Z
-   */
-  orderTime?: string;
-  /**
-   * @remarks
-   * The validity period.
-   * 
-   * @example
-   * 1
-   */
-  orderYear?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * S201601063418719
-   */
-  saleId?: string;
-  /**
-   * @remarks
-   * The suborder ID.
-   * 
-   * @example
-   * S201601061234567
-   */
-  subOrderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      orderAmount: 'OrderAmount',
-      orderCurrency: 'OrderCurrency',
-      orderId: 'OrderId',
-      orderStatus: 'OrderStatus',
-      orderTime: 'OrderTime',
-      orderYear: 'OrderYear',
-      saleId: 'SaleId',
-      subOrderId: 'SubOrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'string',
-      orderAmount: 'number',
-      orderCurrency: 'string',
-      orderId: 'string',
-      orderStatus: 'string',
-      orderTime: 'string',
-      orderYear: 'number',
-      saleId: 'string',
-      subOrderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizDetailResponseBodyModule extends $tea.Model {
-  /**
-   * @remarks
-   * The review information.
-   */
-  auditMsg?: string;
-  /**
-   * @remarks
-   * The business name.
-   */
-  bizName?: string;
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * A83E1D74-E46B-505C-947A-8C6B7E41C012
-   */
-  bizNo?: string;
-  /**
-   * @remarks
-   * The business status.
-   * 
-   * @example
-   * REGISTRANT_VSP_AUDIT_SUCCESS
-   */
-  bizStatus?: string;
-  /**
-   * @remarks
-   * The business type.
-   * 
-   * @example
-   * govRegister
-   */
-  bizType?: string;
-  /**
-   * @remarks
-   * The time when the business was created.
-   * 
-   * @example
-   * 2023-01-17 11:31:10
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test003.cn
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The contact information.
-   */
-  domainSpecialBizContact?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact;
-  /**
-   * @remarks
-   * The certificate information.
-   */
-  domainSpecialBizCredentials?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials[];
-  /**
-   * @remarks
-   * The information about the order.
-   */
-  domainSpecialOrderResult?: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult;
-  /**
-   * @remarks
-   * The time when the business was created.
-   * 
-   * @example
-   * 2023-03-21 15:10:04.0
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the business was modified.
-   * 
-   * @example
-   * 2023-03-21 15:10:04.0
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The primary key.
-   * 
-   * @example
-   * 34083
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 123
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * 1
-   */
-  productId?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * S20172315BJ37809
-   */
-  saleId?: string;
-  /**
-   * @remarks
-   * The business status.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The description of business status.
-   */
-  statusDesc?: string;
-  /**
-   * @remarks
-   * The time when the business was updated.
-   * 
-   * @example
-   * 2020-11-17 18:11:15
-   */
-  updateTime?: number;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditMsg: 'AuditMsg',
-      bizName: 'BizName',
-      bizNo: 'BizNo',
-      bizStatus: 'BizStatus',
-      bizType: 'BizType',
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      domainSpecialBizContact: 'DomainSpecialBizContact',
-      domainSpecialBizCredentials: 'DomainSpecialBizCredentials',
-      domainSpecialOrderResult: 'DomainSpecialOrderResult',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      orderId: 'OrderId',
-      productId: 'ProductId',
-      saleId: 'SaleId',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditMsg: 'string',
-      bizName: 'string',
-      bizNo: 'string',
-      bizStatus: 'string',
-      bizType: 'string',
-      createTime: 'number',
-      domainName: 'string',
-      domainSpecialBizContact: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizContact,
-      domainSpecialBizCredentials: { 'type': 'array', 'itemType': QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialBizCredentials },
-      domainSpecialOrderResult: QueryDomainSpecialBizDetailResponseBodyModuleDomainSpecialOrderResult,
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      orderId: 'string',
-      productId: 'string',
-      saleId: 'string',
-      status: 'number',
-      statusDesc: 'string',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact extends $tea.Model {
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * 258
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The city.
-   */
-  CCity?: string;
-  /**
-   * @remarks
-   * The organization name.
-   */
-  CCompany?: string;
-  /**
-   * @remarks
-   * The country code.
-   * 
-   * @example
-   * CN
-   */
-  CCountry?: string;
-  /**
-   * @remarks
-   * The contact name.
-   */
-  CName?: string;
-  /**
-   * @remarks
-   * The province.
-   */
-  CProvince?: string;
-  /**
-   * @remarks
-   * The address.
-   */
-  CVenu?: string;
-  /**
-   * @remarks
-   * The city in English.
-   * 
-   * @example
-   * an shan Shi
-   */
-  ECity?: string;
-  /**
-   * @remarks
-   * The organization name in English.
-   * 
-   * @example
-   * hebeihuiheguandaozhizaoyouxiangongsi
-   */
-  ECompany?: string;
-  /**
-   * @remarks
-   * The contact name in English.
-   * 
-   * @example
-   * tong da wei
-   */
-  EName?: string;
-  /**
-   * @remarks
-   * The province in English.
-   * 
-   * @example
-   * liao ning
-   */
-  EProvince?: string;
-  /**
-   * @remarks
-   * The address in English.
-   * 
-   * @example
-   * tie xi qu xin kai jie 59-4 hao
-   */
-  EVenu?: string;
-  /**
-   * @remarks
-   * The email address.
-   * 
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * The extended information.
-   * 
-   * @example
-   * -
-   */
-  extend?: string;
-  /**
-   * @remarks
-   * The fax country code.
-   * 
-   * @example
-   * 86
-   */
-  faxArea?: string;
-  /**
-   * @remarks
-   * The fax extension number.
-   * 
-   * @example
-   * 61284565
-   */
-  faxExt?: string;
-  /**
-   * @remarks
-   * The fax number with an area code or mobile number.
-   * 
-   * @example
-   * 16604121234
-   */
-  faxMain?: string;
-  /**
-   * @remarks
-   * The mobile number.
-   * 
-   * @example
-   * 156********
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * The zip code.
-   * 
-   * @example
-   * 100000
-   */
-  postalcode?: string;
-  /**
-   * @remarks
-   * The contact type. Valid values: 1: individual. 2: enterprise.
-   * 
-   * @example
-   * 1
-   */
-  regType?: number;
-  /**
-   * @remarks
-   * The registrant ID.
-   * 
-   * @example
-   * 121000002****
-   */
-  registrantId?: string;
-  /**
-   * @remarks
-   * The calling code of the country or region where the domain name contact is located.
-   * 
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @remarks
-   * The telephone extension number.
-   * 
-   * @example
-   * 2756
-   */
-  telExt?: string;
-  /**
-   * @remarks
-   * The landline number with an area code or mobile number.
-   * 
-   * @example
-   * 16604121234
-   */
-  telMain?: string;
-  /**
-   * @remarks
-   * The VSP contact ID.
-   * 
-   * @example
-   * 121000001****
-   */
-  vspContactId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      CCity: 'CCity',
-      CCompany: 'CCompany',
-      CCountry: 'CCountry',
-      CName: 'CName',
-      CProvince: 'CProvince',
-      CVenu: 'CVenu',
-      ECity: 'ECity',
-      ECompany: 'ECompany',
-      EName: 'EName',
-      EProvince: 'EProvince',
-      EVenu: 'EVenu',
-      email: 'Email',
-      extend: 'Extend',
-      faxArea: 'FaxArea',
-      faxExt: 'FaxExt',
-      faxMain: 'FaxMain',
-      mobile: 'Mobile',
-      postalcode: 'Postalcode',
-      regType: 'RegType',
-      registrantId: 'RegistrantId',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telMain: 'TelMain',
-      vspContactId: 'VspContactId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      CCity: 'string',
-      CCompany: 'string',
-      CCountry: 'string',
-      CName: 'string',
-      CProvince: 'string',
-      CVenu: 'string',
-      ECity: 'string',
-      ECompany: 'string',
-      EName: 'string',
-      EProvince: 'string',
-      EVenu: 'string',
-      email: 'string',
-      extend: 'string',
-      faxArea: 'string',
-      faxExt: 'string',
-      faxMain: 'string',
-      mobile: 'string',
-      postalcode: 'string',
-      regType: 'number',
-      registrantId: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telMain: 'string',
-      vspContactId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the associated workflow.
-   * 
-   * @example
-   * T20220831150014000001
-   */
-  bizId?: number;
-  /**
-   * @remarks
-   * The certificate number.
-   * 
-   * @example
-   * 4111111111111110**
-   */
-  credentialNo?: string;
-  /**
-   * @remarks
-   * The certificate type.
-   * 
-   * @example
-   * SFZ
-   */
-  credentialType?: string;
-  /**
-   * @remarks
-   * The certificate URL.
-   * 
-   * @example
-   * http://test.oss-cn-hangzhou.aliyuncs.com/20170522/1219541161213057_070445190.jpg
-   */
-  credentialUrl?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test003.cn
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * Indicates whether the certificate belongs to the registrant.
-   * 
-   * @example
-   * 1
-   */
-  holderCert?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * S20172315BJ37809
-   */
-  saleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      credentialNo: 'CredentialNo',
-      credentialType: 'CredentialType',
-      credentialUrl: 'CredentialUrl',
-      domainName: 'DomainName',
-      holderCert: 'HolderCert',
-      saleId: 'SaleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'number',
-      credentialNo: 'string',
-      credentialType: 'string',
-      credentialUrl: 'string',
-      domainName: 'string',
-      holderCert: 'number',
-      saleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSpecialBizInfoByDomainResponseBodyModule extends $tea.Model {
-  /**
-   * @remarks
-   * The review information.
-   */
-  auditMsg?: string;
-  /**
-   * @remarks
-   * The business name.
-   */
-  bizName?: string;
-  /**
-   * @remarks
-   * The business ID.
-   * 
-   * @example
-   * A83E1D74-E46B-505C-947A-8C6B7E41C012
-   */
-  bizNo?: string;
-  /**
-   * @remarks
-   * The business status.
-   * 
-   * @example
-   * REGISTRANT_VSP_AUDIT_SUCCESS
-   */
-  bizStatus?: string;
-  /**
-   * @remarks
-   * The business type.
-   * 
-   * @example
-   * govRegister
-   */
-  bizType?: string;
-  /**
-   * @remarks
-   * The time when the business was created.
-   * 
-   * @example
-   * 2023-01-17 11:31:10
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test003.cn
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The contact information.
-   */
-  domainSpecialBizContact?: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact;
-  /**
-   * @remarks
-   * The certificate information.
-   */
-  domainSpecialBizCredentials?: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials[];
-  /**
-   * @remarks
-   * The time when the business was created.
-   * 
-   * @example
-   * 2023-03-21 15:10:04.0
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The time when the business was modified.
-   * 
-   * @example
-   * 2023-03-21 15:10:04.0
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * The primary key.
-   * 
-   * @example
-   * 34083
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 123
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * 1
-   */
-  productId?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * S20172315BJ37809
-   */
-  saleId?: string;
-  /**
-   * @remarks
-   * The business status.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The description of business status.
-   */
-  statusDesc?: string;
-  /**
-   * @remarks
-   * The time when the business was updated.
-   * 
-   * @example
-   * 2020-11-17 18:11:15
-   */
-  updateTime?: number;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 121000000****
-   */
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditMsg: 'AuditMsg',
-      bizName: 'BizName',
-      bizNo: 'BizNo',
-      bizStatus: 'BizStatus',
-      bizType: 'BizType',
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      domainSpecialBizContact: 'DomainSpecialBizContact',
-      domainSpecialBizCredentials: 'DomainSpecialBizCredentials',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      orderId: 'OrderId',
-      productId: 'ProductId',
-      saleId: 'SaleId',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditMsg: 'string',
-      bizName: 'string',
-      bizNo: 'string',
-      bizStatus: 'string',
-      bizType: 'string',
-      createTime: 'number',
-      domainName: 'string',
-      domainSpecialBizContact: QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizContact,
-      domainSpecialBizCredentials: { 'type': 'array', 'itemType': QueryDomainSpecialBizInfoByDomainResponseBodyModuleDomainSpecialBizCredentials },
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      orderId: 'string',
-      productId: 'string',
-      saleId: 'string',
-      status: 'number',
-      statusDesc: 'string',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDomainSuffixResponseBodySuffixList extends $tea.Model {
-  suffix?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      suffix: 'Suffix',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      suffix: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForDomainRealNameVerificationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2017-03-17 11:08:02
-   */
-  date?: string;
-  /**
-   * @example
-   * SUCCEED
-   */
-  domainNameVerificationStatus?: string;
-  failReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      domainNameVerificationStatus: 'DomainNameVerificationStatus',
-      failReason: 'FailReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      domainNameVerificationStatus: 'string',
-      failReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailReasonForRegistrantProfileRealNameVerificationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2017-03-17 11:08:02
-   */
-  date?: string;
-  failReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      failReason: 'FailReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      failReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFailingReasonListForQualificationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2017-03-17 11:08:02
-   */
-  date?: string;
-  failReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      failReason: 'FailReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      failReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryIntlFixedPriceOrderListResponseBodyModuleData extends $tea.Model {
-  bizId?: string;
-  createTime?: number;
-  domain?: string;
-  orderType?: number;
-  price?: number;
-  status?: number;
-  updateTime?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      createTime: 'CreateTime',
-      domain: 'Domain',
-      orderType: 'OrderType',
-      price: 'Price',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      createTime: 'number',
-      domain: 'string',
-      orderType: 'number',
-      price: 'number',
-      status: 'number',
-      updateTime: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryIntlFixedPriceOrderListResponseBodyModule extends $tea.Model {
-  currentPageNum?: number;
-  data?: QueryIntlFixedPriceOrderListResponseBodyModuleData[];
-  pageSize?: number;
-  totalItemNum?: number;
-  totalPageNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPageNum: 'CurrentPageNum',
-      data: 'Data',
-      pageSize: 'PageSize',
-      totalItemNum: 'TotalItemNum',
-      totalPageNum: 'TotalPageNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPageNum: 'number',
-      data: { 'type': 'array', 'itemType': QueryIntlFixedPriceOrderListResponseBodyModuleData },
-      pageSize: 'number',
-      totalItemNum: 'number',
-      totalPageNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOperationAuditInfoListResponseBodyData extends $tea.Model {
-  auditInfo?: string;
-  /**
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  auditType?: number;
-  businessName?: string;
-  /**
-   * @example
-   * 1581919010101
-   */
-  createTime?: number;
-  /**
-   * @example
-   * example.com,aliyundoc.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1
-   */
-  id?: number;
-  remark?: string;
-  /**
-   * @example
-   * 1581919010101
-   */
-  updateTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditInfo: 'AuditInfo',
-      auditStatus: 'AuditStatus',
-      auditType: 'AuditType',
-      businessName: 'BusinessName',
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      id: 'Id',
-      remark: 'Remark',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditInfo: 'string',
-      auditStatus: 'number',
-      auditType: 'number',
-      businessName: 'string',
-      createTime: 'number',
-      domainName: 'string',
-      id: 'number',
-      remark: 'string',
-      updateTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryQualificationDetailResponseBodyCredentialsQualificationCredential extends $tea.Model {
-  /**
-   * @example
-   * 92610725MA7G2E****
-   */
-  credentialNo?: string;
-  /**
-   * @example
-   * SHSQB
-   */
-  credentialType?: string;
-  credentialUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialNo: 'CredentialNo',
-      credentialType: 'CredentialType',
-      credentialUrl: 'CredentialUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialNo: 'string',
-      credentialType: 'string',
-      credentialUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryQualificationDetailResponseBodyCredentials extends $tea.Model {
-  qualificationCredential?: QueryQualificationDetailResponseBodyCredentialsQualificationCredential[];
-  static names(): { [key: string]: string } {
-    return {
-      qualificationCredential: 'QualificationCredential',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      qualificationCredential: { 'type': 'array', 'itemType': QueryQualificationDetailResponseBodyCredentialsQualificationCredential },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProfile extends $tea.Model {
-  /**
-   * @example
-   * zhe jiang sheng hang zhou shi shi li qu shi li zhen shi li da sha 1001 hao
-   */
-  address?: string;
-  /**
-   * @example
-   * hang zhou shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * 2019-02-18 10:46:47
-   */
-  createTime?: string;
-  credentialNo?: string;
-  credentialType?: string;
-  /**
-   * @example
-   * false
-   */
-  defaultRegistrantProfile?: boolean;
-  /**
-   * @example
-   * 82106****@qq.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 1
-   */
-  emailVerificationStatus?: number;
-  /**
-   * @example
-   * 310024
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * zhe jiang
-   */
-  province?: string;
-  /**
-   * @example
-   * SUCCEED
-   */
-  realNameStatus?: string;
-  /**
-   * @example
-   * li si
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * li si
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 1000001
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * common
-   */
-  registrantProfileType?: string;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  remark?: string;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1829756****
-   */
-  telephone?: string;
-  /**
-   * @example
-   * 2019-03-15 15:32:45
-   */
-  updateTime?: string;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      city: 'City',
-      country: 'Country',
-      createTime: 'CreateTime',
-      credentialNo: 'CredentialNo',
-      credentialType: 'CredentialType',
-      defaultRegistrantProfile: 'DefaultRegistrantProfile',
-      email: 'Email',
-      emailVerificationStatus: 'EmailVerificationStatus',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      realNameStatus: 'RealNameStatus',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantProfileType: 'RegistrantProfileType',
-      registrantType: 'RegistrantType',
-      remark: 'Remark',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      updateTime: 'UpdateTime',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      city: 'string',
-      country: 'string',
-      createTime: 'string',
-      credentialNo: 'string',
-      credentialType: 'string',
-      defaultRegistrantProfile: 'boolean',
-      email: 'string',
-      emailVerificationStatus: 'number',
-      postalCode: 'string',
-      province: 'string',
-      realNameStatus: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantProfileType: 'string',
-      registrantType: 'string',
-      remark: 'string',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      updateTime: 'string',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRegistrantProfilesResponseBodyRegistrantProfiles extends $tea.Model {
-  registrantProfile?: QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProfile[];
-  static names(): { [key: string]: string } {
-    return {
-      registrantProfile: 'RegistrantProfile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      registrantProfile: { 'type': 'array', 'itemType': QueryRegistrantProfilesResponseBodyRegistrantProfilesRegistrantProfile },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyCurrentPageCursor extends $tea.Model {
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  errorMsg?: string;
-  /**
-   * @example
-   * S1234456789
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-2342
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * EXECUTE_SUCCESS
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 0
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyNextPageCursor extends $tea.Model {
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  errorMsg?: string;
-  /**
-   * @example
-   * S1234567890
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-2424
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * EXECUTE_FAILURE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 5
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyObjects extends $tea.Model {
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  errorMsg?: string;
-  /**
-   * @example
-   * S123456789
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-4234
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * EXECUTE_FAILURE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 5
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailHistoryResponseBodyPrePageCursor extends $tea.Model {
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  errorMsg?: string;
-  /**
-   * @example
-   * S123456789
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-123
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * EXECUTE_FAILURE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 5
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2019-07-30 00:00:00
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailListResponseBodyDataTaskDetail extends $tea.Model {
-  /**
-   * @example
-   * 2018-01-25 20:46:57
-   */
-  createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * The operation is successful.
-   */
-  errorMsg?: string;
-  failReason?: string;
-  /**
-   * @example
-   * S20179H1BBI9test
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
-  taskDetailNo?: string;
-  /**
-   * @example
-   * 60d6e201-8ee5-47ab-8fdc-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 12345
-   */
-  taskResult?: string;
-  /**
-   * @example
-   * EXECUTE_SUCCESS
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 2
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * ORDER_RENEW
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  /**
-   * @example
-   * 0
-   */
-  tryCount?: number;
-  /**
-   * @example
-   * 2018-01-25 20:47:01
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      domainName: 'DomainName',
-      errorMsg: 'ErrorMsg',
-      failReason: 'FailReason',
-      instanceId: 'InstanceId',
-      taskDetailNo: 'TaskDetailNo',
-      taskNo: 'TaskNo',
-      taskResult: 'TaskResult',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-      tryCount: 'TryCount',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      domainName: 'string',
-      errorMsg: 'string',
-      failReason: 'string',
-      instanceId: 'string',
-      taskDetailNo: 'string',
-      taskNo: 'string',
-      taskResult: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-      tryCount: 'number',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailListResponseBodyData extends $tea.Model {
-  taskDetail?: QueryTaskDetailListResponseBodyDataTaskDetail[];
-  static names(): { [key: string]: string } {
-    return {
-      taskDetail: 'TaskDetail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskDetail: { 'type': 'array', 'itemType': QueryTaskDetailListResponseBodyDataTaskDetail },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyCurrentPageCursor extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  clientip?: string;
-  /**
-   * @example
-   * 2017-11-01 17:22:51
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 1509528171000
-   */
-  createTimeLong?: number;
-  /**
-   * @example
-   * aa634d3f-927e-4d17-9d2c-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 1
-   */
-  taskNum?: number;
-  /**
-   * @example
-   * COMPLETE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientip: 'Clientip',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      taskNo: 'TaskNo',
-      taskNum: 'TaskNum',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientip: 'string',
-      createTime: 'string',
-      createTimeLong: 'number',
-      taskNo: 'string',
-      taskNum: 'number',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyNextPageCursor extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  clientip?: string;
-  /**
-   * @example
-   * 2017-10-27 13:07:07
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 1509080827000
-   */
-  createTimeLong?: number;
-  /**
-   * @example
-   * 8f112aa1-98be-48c3-82f8-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 15
-   */
-  taskNum?: number;
-  /**
-   * @example
-   * COMPLETE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientip: 'Clientip',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      taskNo: 'TaskNo',
-      taskNum: 'TaskNum',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientip: 'string',
-      createTime: 'string',
-      createTimeLong: 'number',
-      taskNo: 'string',
-      taskNum: 'number',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyObjects extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  clientip?: string;
-  /**
-   * @example
-   * 2017-11-01 17:22:51
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 1509528171000
-   */
-  createTimeLong?: number;
-  /**
-   * @example
-   * aa634d3f-927e-4d17-9d2c-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 1
-   */
-  taskNum?: number;
-  /**
-   * @example
-   * COMPLETE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientip: 'Clientip',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      taskNo: 'TaskNo',
-      taskNum: 'TaskNum',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientip: 'string',
-      createTime: 'string',
-      createTimeLong: 'number',
-      taskNo: 'string',
-      taskNum: 'number',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoHistoryResponseBodyPrePageCursor extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  clientip?: string;
-  /**
-   * @example
-   * 2017-11-01 17:19:47
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 1509527987000
-   */
-  createTimeLong?: number;
-  /**
-   * @example
-   * f9baa3d5-33b9-4c81-8847-test
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 15
-   */
-  taskNum?: number;
-  /**
-   * @example
-   * COMPLETE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 3
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientip: 'Clientip',
-      createTime: 'CreateTime',
-      createTimeLong: 'CreateTimeLong',
-      taskNo: 'TaskNo',
-      taskNum: 'TaskNum',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientip: 'string',
-      createTime: 'string',
-      createTimeLong: 'number',
-      taskNo: 'string',
-      taskNum: 'number',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskListResponseBodyDataTaskInfo extends $tea.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
-  clientip?: string;
-  /**
-   * @example
-   * Dec 26,2017 11:00:54
-   */
-  createTime?: string;
-  /**
-   * @example
-   * INIT
-   */
-  taskCancelStatus?: string;
-  /**
-   * @example
-   * 0
-   */
-  taskCancelStatusCode?: number;
-  /**
-   * @example
-   * 8b1cd755-4928-4b02-adee-e5d41d7b1939
-   */
-  taskNo?: string;
-  /**
-   * @example
-   * 1
-   */
-  taskNum?: number;
-  /**
-   * @example
-   * COMPLETE
-   */
-  taskStatus?: string;
-  /**
-   * @example
-   * 1
-   */
-  taskStatusCode?: number;
-  /**
-   * @example
-   * CREATE_DNSHOST
-   */
-  taskType?: string;
-  taskTypeDescription?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientip: 'Clientip',
-      createTime: 'CreateTime',
-      taskCancelStatus: 'TaskCancelStatus',
-      taskCancelStatusCode: 'TaskCancelStatusCode',
-      taskNo: 'TaskNo',
-      taskNum: 'TaskNum',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-      taskTypeDescription: 'TaskTypeDescription',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientip: 'string',
-      createTime: 'string',
-      taskCancelStatus: 'string',
-      taskCancelStatusCode: 'number',
-      taskNo: 'string',
-      taskNum: 'number',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-      taskTypeDescription: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskListResponseBodyData extends $tea.Model {
-  taskInfo?: QueryTaskListResponseBodyDataTaskInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskInfo: { 'type': 'array', 'itemType': QueryTaskListResponseBodyDataTaskInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInListResponseBodyDataTransferInInfo extends $tea.Model {
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  expirationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  expirationDateLong?: number;
-  /**
-   * @example
-   * S20181T0WLI85212
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  modificationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  modificationDateLong?: number;
-  /**
-   * @example
-   * true
-   */
-  needMailCheck?: boolean;
-  /**
-   * @example
-   * 0
-   */
-  progressBarType?: number;
-  /**
-   * @example
-   * clientCancelled
-   */
-  resultCode?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  resultDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  resultDateLong?: number;
-  resultMsg?: string;
-  /**
-   * @example
-   * FAIL
-   */
-  simpleTransferInStatus?: string;
-  /**
-   * @example
-   * 11
-   */
-  status?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  submissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  submissionDateLong?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
-  transferAuthorizationCodeSubmissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
-  transferAuthorizationCodeSubmissionDateLong?: number;
-  /**
-   * @example
-   * 123456
-   */
-  userId?: string;
-  /**
-   * @example
-   * true
-   */
-  whoisMailStatus?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      email: 'Email',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      instanceId: 'InstanceId',
-      modificationDate: 'ModificationDate',
-      modificationDateLong: 'ModificationDateLong',
-      needMailCheck: 'NeedMailCheck',
-      progressBarType: 'ProgressBarType',
-      resultCode: 'ResultCode',
-      resultDate: 'ResultDate',
-      resultDateLong: 'ResultDateLong',
-      resultMsg: 'ResultMsg',
-      simpleTransferInStatus: 'SimpleTransferInStatus',
-      status: 'Status',
-      submissionDate: 'SubmissionDate',
-      submissionDateLong: 'SubmissionDateLong',
-      transferAuthorizationCodeSubmissionDate: 'TransferAuthorizationCodeSubmissionDate',
-      transferAuthorizationCodeSubmissionDateLong: 'TransferAuthorizationCodeSubmissionDateLong',
-      userId: 'UserId',
-      whoisMailStatus: 'WhoisMailStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      email: 'string',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      instanceId: 'string',
-      modificationDate: 'string',
-      modificationDateLong: 'number',
-      needMailCheck: 'boolean',
-      progressBarType: 'number',
-      resultCode: 'string',
-      resultDate: 'string',
-      resultDateLong: 'number',
-      resultMsg: 'string',
-      simpleTransferInStatus: 'string',
-      status: 'number',
-      submissionDate: 'string',
-      submissionDateLong: 'number',
-      transferAuthorizationCodeSubmissionDate: 'string',
-      transferAuthorizationCodeSubmissionDateLong: 'number',
-      userId: 'string',
-      whoisMailStatus: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTransferInListResponseBodyData extends $tea.Model {
-  transferInInfo?: QueryTransferInListResponseBodyDataTransferInInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      transferInInfo: 'TransferInInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      transferInInfo: { 'type': 'array', 'itemType': QueryTransferInListResponseBodyDataTransferInInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResendEmailVerificationResponseBodyFailList extends $tea.Model {
-  /**
-   * @example
-   * SendTokenQuotaExceeded
-   */
-  code?: string;
-  /**
-   * @example
-   * test1@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * The maximum number of attempts allowed to send the email verification link is exceeded.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResendEmailVerificationResponseBodySuccessList extends $tea.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * test2@aliyun.com
-   */
-  email?: string;
-  /**
-   * @example
-   * Success
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderActivateRequestOrderActivateParam extends $tea.Model {
-  /**
-   * @example
-   * chao yan qu *** dasha *** hao
-   */
-  address?: string;
-  /**
-   * @example
-   * true
-   */
-  aliyunDns?: boolean;
-  /**
-   * @example
-   * bei jing shi
-   */
-  city?: string;
-  /**
-   * @example
-   * CN
-   */
-  country?: string;
-  /**
-   * @example
-   * ns2.aliyun.com
-   */
-  dns1?: string;
-  /**
-   * @example
-   * ns1.aliyun.com
-   */
-  dns2?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * true
-   */
-  enableDomainProxy?: boolean;
-  /**
-   * @example
-   * true
-   */
-  permitPremiumActivation?: boolean;
-  /**
-   * @example
-   * 102629
-   */
-  postalCode?: string;
-  /**
-   * @example
-   * bei jing
-   */
-  province?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  registrantName?: string;
-  /**
-   * @example
-   * zhang san
-   */
-  registrantOrganization?: string;
-  /**
-   * @example
-   * 000000
-   */
-  registrantProfileId?: number;
-  /**
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @example
-   * rg-XX
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * 1
-   */
-  subscriptionDuration?: number;
-  /**
-   * @example
-   * 86
-   */
-  telArea?: string;
-  /**
-   * @example
-   * 1234
-   */
-  telExt?: string;
-  /**
-   * @example
-   * 1820000****
-   */
-  telephone?: string;
-  /**
-   * @example
-   * false
-   */
-  trademarkDomainActivation?: boolean;
-  zhAddress?: string;
-  zhCity?: string;
-  zhProvince?: string;
-  zhRegistrantName?: string;
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'Address',
-      aliyunDns: 'AliyunDns',
-      city: 'City',
-      country: 'Country',
-      dns1: 'Dns1',
-      dns2: 'Dns2',
-      domainName: 'DomainName',
-      email: 'Email',
-      enableDomainProxy: 'EnableDomainProxy',
-      permitPremiumActivation: 'PermitPremiumActivation',
-      postalCode: 'PostalCode',
-      province: 'Province',
-      registrantName: 'RegistrantName',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantProfileId: 'RegistrantProfileId',
-      registrantType: 'RegistrantType',
-      resourceGroupId: 'ResourceGroupId',
-      subscriptionDuration: 'SubscriptionDuration',
-      telArea: 'TelArea',
-      telExt: 'TelExt',
-      telephone: 'Telephone',
-      trademarkDomainActivation: 'TrademarkDomainActivation',
-      zhAddress: 'ZhAddress',
-      zhCity: 'ZhCity',
-      zhProvince: 'ZhProvince',
-      zhRegistrantName: 'ZhRegistrantName',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      aliyunDns: 'boolean',
-      city: 'string',
-      country: 'string',
-      dns1: 'string',
-      dns2: 'string',
-      domainName: 'string',
-      email: 'string',
-      enableDomainProxy: 'boolean',
-      permitPremiumActivation: 'boolean',
-      postalCode: 'string',
-      province: 'string',
-      registrantName: 'string',
-      registrantOrganization: 'string',
-      registrantProfileId: 'number',
-      registrantType: 'string',
-      resourceGroupId: 'string',
-      subscriptionDuration: 'number',
-      telArea: 'string',
-      telExt: 'string',
-      telephone: 'string',
-      trademarkDomainActivation: 'boolean',
-      zhAddress: 'string',
-      zhCity: 'string',
-      zhProvince: 'string',
-      zhRegistrantName: 'string',
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRedeemRequestOrderRedeemParam extends $tea.Model {
-  /**
-   * @example
-   * 000000
-   */
-  currentExpirationDate?: number;
-  /**
-   * @example
-   * Aliyun.com
-   */
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentExpirationDate: 'CurrentExpirationDate',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentExpirationDate: 'number',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $tea.Model {
-  /**
-   * @example
-   * 1522080000000
-   */
-  currentExpirationDate?: number;
-  /**
-   * @example
-   * Aliyun.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * 1
-   */
-  subscriptionDuration?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentExpirationDate: 'CurrentExpirationDate',
-      domainName: 'DomainName',
-      subscriptionDuration: 'SubscriptionDuration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentExpirationDate: 'number',
-      domainName: 'string',
-      subscriptionDuration: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForCreatingOrderTransferRequestOrderTransferParam extends $tea.Model {
-  /**
-   * @example
-   * testCode
-   */
-  authorizationCode?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @example
-   * false
-   */
-  permitPremiumTransfer?: boolean;
-  /**
-   * @example
-   * 123456
-   */
-  registrantProfileId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      authorizationCode: 'AuthorizationCode',
-      domainName: 'DomainName',
-      permitPremiumTransfer: 'PermitPremiumTransfer',
-      registrantProfileId: 'RegistrantProfileId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationCode: 'string',
-      domainName: 'string',
-      permitPremiumTransfer: 'boolean',
-      registrantProfileId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForReserveDropListDomainRequestDomains extends $tea.Model {
-  dns1?: string;
-  dns2?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dns1: 'Dns1',
-      dns2: 'Dns2',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dns1: 'string',
-      dns2: 'string',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBatchTaskForTransferOutByAuthorizationCodeRequestTransferOutParamList extends $tea.Model {
-  /**
-   * @example
-   * Test2o#Lck
-   */
-  authorizationCode?: string;
-  /**
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authorizationCode: 'AuthorizationCode',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizationCode: 'string',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBodyDataDomainDnsList extends $tea.Model {
-  dns?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dns: 'Dns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dns: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBodyDataDomainTagTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * testKey
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * testValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBodyDataDomainTag extends $tea.Model {
-  tag?: ScrollDomainListResponseBodyDataDomainTagTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': ScrollDomainListResponseBodyDataDomainTagTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBodyDataDomain extends $tea.Model {
-  /**
-   * @remarks
-   * The Domain Name System (DNS) servers of the domain name.
-   */
-  dnsList?: ScrollDomainListResponseBodyDataDomainDnsList;
-  /**
-   * @remarks
-   * The status of real-name verification for the domain name. Valid values:
-   * 
-   * *   **FAILED**: Real-name verification for the domain name fails.
-   * *   **SUCCEED**: Real-name verification for the domain name is successful.
-   * *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-   * *   **AUDITING**: Real-name verification for the domain name is in progress.
-   * 
-   * @example
-   * NONAUDIT
-   */
-  domainAuditStatus?: string;
-  /**
-   * @remarks
-   * The ID of the domain name group.
-   * 
-   * @example
-   * 1234
-   */
-  domainGroupId?: string;
-  /**
-   * @remarks
-   * The name of the domain name group.
-   * 
-   * @example
-   * test group
-   */
-  domainGroupName?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
-  domainName?: string;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   **1**: The domain name needs to be renewed.
-   * *   **2**: The domain name needs to be redeemed.
-   * *   **3**: The domain name is normal.
-   * *   **4**: The domain name is being transferred out.
-   * *   **5**: The information about the domain name registrant is being modified.
-   * *   **6**: Real-name verification is not performed on the domain name.
-   * *   **7**: Real-name verification for the domain name fails.
-   * *   **8**: The real-name verification is being reviewed.
-   * 
-   * @example
-   * 3
-   */
-  domainStatus?: string;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **New gTLD**
-   * *   **gTLD**
-   * *   **ccTLD**
-   * 
-   * @example
-   * gTLD
-   */
-  domainType?: string;
-  /**
-   * @remarks
-   * The email address.
-   * 
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @remarks
-   * The number of days from the expiration date of the domain name to the current date.
-   * 
-   * @example
-   * 10
-   */
-  expirationCurrDateDiff?: number;
-  /**
-   * @remarks
-   * The time when the domain name expires.
-   * 
-   * @example
-   * 2019-02-15 17:30:35
-   */
-  expirationDate?: string;
-  /**
-   * @remarks
-   * The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1550223035000
-   */
-  expirationDateLong?: number;
-  /**
-   * @remarks
-   * Indicates whether the domain name expires. Valid values:
-   * 
-   * *   **1**: The domain name does not expire.
-   * *   **2**: The domain name expires.
-   * 
-   * @example
-   * 1
-   */
-  expirationDateStatus?: string;
-  /**
-   * @remarks
-   * The instance ID of the domain name.
-   * 
-   * @example
-   * S1234
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the domain name is a premium domain name.
-   * 
-   * @example
-   * false
-   */
-  premium?: boolean;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * 2a
-   */
-  productId?: string;
-  /**
-   * @remarks
-   * The registrant of the domain name.
-   * 
-   * @example
-   * alibaba cloud
-   */
-  registrantOrganization?: string;
-  /**
-   * @remarks
-   * The registration type of the domain name. Valid values:
-   * 
-   * *   **1**: individual.
-   * *   **2**: enterprise.
-   * 
-   * @example
-   * 1
-   */
-  registrantType?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered.
-   * 
-   * @example
-   * 2017-02-15 00:00:00
-   */
-  registrationDate?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered. This value is a UNIX timestamp that indicates the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1487088000000
-   */
-  registrationDateLong?: number;
-  /**
-   * @remarks
-   * The remarks on the domain name.
-   * 
-   * @example
-   * test domain
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek2yyciz557g3q
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource tag.
-   */
-  tag?: ScrollDomainListResponseBodyDataDomainTag;
-  /**
-   * @remarks
-   * The Chinese name of the domain name registrant.
-   * 
-   * @example
-   * 阿里云
-   */
-  zhRegistrantOrganization?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'DnsList',
-      domainAuditStatus: 'DomainAuditStatus',
-      domainGroupId: 'DomainGroupId',
-      domainGroupName: 'DomainGroupName',
-      domainName: 'DomainName',
-      domainStatus: 'DomainStatus',
-      domainType: 'DomainType',
-      email: 'Email',
-      expirationCurrDateDiff: 'ExpirationCurrDateDiff',
-      expirationDate: 'ExpirationDate',
-      expirationDateLong: 'ExpirationDateLong',
-      expirationDateStatus: 'ExpirationDateStatus',
-      instanceId: 'InstanceId',
-      premium: 'Premium',
-      productId: 'ProductId',
-      registrantOrganization: 'RegistrantOrganization',
-      registrantType: 'RegistrantType',
-      registrationDate: 'RegistrationDate',
-      registrationDateLong: 'RegistrationDateLong',
-      remark: 'Remark',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      zhRegistrantOrganization: 'ZhRegistrantOrganization',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: ScrollDomainListResponseBodyDataDomainDnsList,
-      domainAuditStatus: 'string',
-      domainGroupId: 'string',
-      domainGroupName: 'string',
-      domainName: 'string',
-      domainStatus: 'string',
-      domainType: 'string',
-      email: 'string',
-      expirationCurrDateDiff: 'number',
-      expirationDate: 'string',
-      expirationDateLong: 'number',
-      expirationDateStatus: 'string',
-      instanceId: 'string',
-      premium: 'boolean',
-      productId: 'string',
-      registrantOrganization: 'string',
-      registrantType: 'string',
-      registrationDate: 'string',
-      registrationDateLong: 'number',
-      remark: 'string',
-      resourceGroupId: 'string',
-      tag: ScrollDomainListResponseBodyDataDomainTag,
-      zhRegistrantOrganization: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScrollDomainListResponseBodyData extends $tea.Model {
-  domain?: ScrollDomainListResponseBodyDataDomain[];
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: { 'type': 'array', 'itemType': ScrollDomainListResponseBodyDataDomain },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponseBodyExistList extends $tea.Model {
-  /**
-   * @example
-   * SendTokenQuotaExceeded
-   */
-  code?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * The maximum number of attempts allowed to send the email verification link is exceeded.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponseBodyFailList extends $tea.Model {
-  /**
-   * @example
-   * SendTokenQuotaExceeded
-   */
-  code?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * The maximum number of attempts allowed to send the email verification link is exceeded
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitEmailVerificationResponseBodySuccessList extends $tea.Model {
-  /**
-   * @example
-   * Success
-   */
-  code?: string;
-  /**
-   * @example
-   * username@example.com
-   */
-  email?: string;
-  /**
-   * @example
-   * Success
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      email: 'Email',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      email: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInCheckMailTokenResponseBodyFailList extends $tea.Model {
-  failDomain?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      failDomain: 'FailDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failDomain: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TransferInCheckMailTokenResponseBodySuccessList extends $tea.Model {
-  successDomain?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      successDomain: 'SuccessDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successDomain: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -23144,15 +18,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -23162,25 +36,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AcknowledgeTaskResultResponse
    */
-  async acknowledgeTaskResultWithOptions(request: AcknowledgeTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<AcknowledgeTaskResultResponse> {
-    Util.validateModel(request);
+  async acknowledgeTaskResultWithOptions(request: $_model.AcknowledgeTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AcknowledgeTaskResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.taskDetailNo)) {
+    if (!$dara.isNull(request.taskDetailNo)) {
       query["TaskDetailNo"] = request.taskDetailNo;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AcknowledgeTaskResult",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23191,7 +65,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AcknowledgeTaskResultResponse>(await this.callApi(params, req, runtime), new AcknowledgeTaskResultResponse({}));
+    return $dara.cast<$_model.AcknowledgeTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.AcknowledgeTaskResultResponse({}));
   }
 
   /**
@@ -23200,8 +74,8 @@ export default class Client extends OpenApi {
    * @param request - AcknowledgeTaskResultRequest
    * @returns AcknowledgeTaskResultResponse
    */
-  async acknowledgeTaskResult(request: AcknowledgeTaskResultRequest): Promise<AcknowledgeTaskResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async acknowledgeTaskResult(request: $_model.AcknowledgeTaskResultRequest): Promise<$_model.AcknowledgeTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.acknowledgeTaskResultWithOptions(request, runtime);
   }
 
@@ -23212,25 +86,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchFuzzyMatchDomainSensitiveWordResponse
    */
-  async batchFuzzyMatchDomainSensitiveWordWithOptions(request: BatchFuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
-    Util.validateModel(request);
+  async batchFuzzyMatchDomainSensitiveWordWithOptions(request: $_model.BatchFuzzyMatchDomainSensitiveWordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchFuzzyMatchDomainSensitiveWordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchFuzzyMatchDomainSensitiveWord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23241,7 +115,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchFuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new BatchFuzzyMatchDomainSensitiveWordResponse({}));
+    return $dara.cast<$_model.BatchFuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new $_model.BatchFuzzyMatchDomainSensitiveWordResponse({}));
   }
 
   /**
@@ -23250,8 +124,8 @@ export default class Client extends OpenApi {
    * @param request - BatchFuzzyMatchDomainSensitiveWordRequest
    * @returns BatchFuzzyMatchDomainSensitiveWordResponse
    */
-  async batchFuzzyMatchDomainSensitiveWord(request: BatchFuzzyMatchDomainSensitiveWordRequest): Promise<BatchFuzzyMatchDomainSensitiveWordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async batchFuzzyMatchDomainSensitiveWord(request: $_model.BatchFuzzyMatchDomainSensitiveWordRequest): Promise<$_model.BatchFuzzyMatchDomainSensitiveWordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.batchFuzzyMatchDomainSensitiveWordWithOptions(request, runtime);
   }
 
@@ -23262,29 +136,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelDomainVerificationResponse
    */
-  async cancelDomainVerificationWithOptions(request: CancelDomainVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CancelDomainVerificationResponse> {
-    Util.validateModel(request);
+  async cancelDomainVerificationWithOptions(request: $_model.CancelDomainVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelDomainVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.actionType)) {
+    if (!$dara.isNull(request.actionType)) {
       query["ActionType"] = request.actionType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelDomainVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23295,7 +169,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelDomainVerificationResponse>(await this.callApi(params, req, runtime), new CancelDomainVerificationResponse({}));
+    return $dara.cast<$_model.CancelDomainVerificationResponse>(await this.callApi(params, req, runtime), new $_model.CancelDomainVerificationResponse({}));
   }
 
   /**
@@ -23304,8 +178,8 @@ export default class Client extends OpenApi {
    * @param request - CancelDomainVerificationRequest
    * @returns CancelDomainVerificationResponse
    */
-  async cancelDomainVerification(request: CancelDomainVerificationRequest): Promise<CancelDomainVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelDomainVerification(request: $_model.CancelDomainVerificationRequest): Promise<$_model.CancelDomainVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelDomainVerificationWithOptions(request, runtime);
   }
 
@@ -23316,21 +190,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelOperationAuditResponse
    */
-  async cancelOperationAuditWithOptions(request: CancelOperationAuditRequest, runtime: $Util.RuntimeOptions): Promise<CancelOperationAuditResponse> {
-    Util.validateModel(request);
+  async cancelOperationAuditWithOptions(request: $_model.CancelOperationAuditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelOperationAuditResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditRecordId)) {
+    if (!$dara.isNull(request.auditRecordId)) {
       query["AuditRecordId"] = request.auditRecordId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelOperationAudit",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23341,7 +215,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelOperationAuditResponse>(await this.callApi(params, req, runtime), new CancelOperationAuditResponse({}));
+    return $dara.cast<$_model.CancelOperationAuditResponse>(await this.callApi(params, req, runtime), new $_model.CancelOperationAuditResponse({}));
   }
 
   /**
@@ -23350,8 +224,8 @@ export default class Client extends OpenApi {
    * @param request - CancelOperationAuditRequest
    * @returns CancelOperationAuditResponse
    */
-  async cancelOperationAudit(request: CancelOperationAuditRequest): Promise<CancelOperationAuditResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelOperationAudit(request: $_model.CancelOperationAuditRequest): Promise<$_model.CancelOperationAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelOperationAuditWithOptions(request, runtime);
   }
 
@@ -23360,29 +234,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelQualificationVerificationResponse
    */
-  async cancelQualificationVerificationWithOptions(request: CancelQualificationVerificationRequest, runtime: $Util.RuntimeOptions): Promise<CancelQualificationVerificationResponse> {
-    Util.validateModel(request);
+  async cancelQualificationVerificationWithOptions(request: $_model.CancelQualificationVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelQualificationVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.qualificationType)) {
+    if (!$dara.isNull(request.qualificationType)) {
       query["QualificationType"] = request.qualificationType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelQualificationVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23393,15 +267,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelQualificationVerificationResponse>(await this.callApi(params, req, runtime), new CancelQualificationVerificationResponse({}));
+    return $dara.cast<$_model.CancelQualificationVerificationResponse>(await this.callApi(params, req, runtime), new $_model.CancelQualificationVerificationResponse({}));
   }
 
   /**
    * @param request - CancelQualificationVerificationRequest
    * @returns CancelQualificationVerificationResponse
    */
-  async cancelQualificationVerification(request: CancelQualificationVerificationRequest): Promise<CancelQualificationVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelQualificationVerification(request: $_model.CancelQualificationVerificationRequest): Promise<$_model.CancelQualificationVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelQualificationVerificationWithOptions(request, runtime);
   }
 
@@ -23410,25 +284,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelTaskResponse
    */
-  async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
-    Util.validateModel(request);
+  async cancelTaskWithOptions(request: $_model.CancelTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.taskNo)) {
+    if (!$dara.isNull(request.taskNo)) {
       query["TaskNo"] = request.taskNo;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelTask",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23439,15 +313,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    return $dara.cast<$_model.CancelTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelTaskResponse({}));
   }
 
   /**
    * @param request - CancelTaskRequest
    * @returns CancelTaskResponse
    */
-  async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async cancelTask(request: $_model.CancelTaskRequest): Promise<$_model.CancelTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelTaskWithOptions(request, runtime);
   }
 
@@ -23458,33 +332,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.newResourceGroupId)) {
+    if (!$dara.isNull(request.newResourceGroupId)) {
       query["NewResourceGroupId"] = request.newResourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23495,7 +369,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
   }
 
   /**
@@ -23504,8 +378,8 @@ export default class Client extends OpenApi {
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
@@ -23514,33 +388,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDomainResponse
    */
-  async checkDomainWithOptions(request: CheckDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainResponse> {
-    Util.validateModel(request);
+  async checkDomainWithOptions(request: $_model.CheckDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDomainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.feeCommand)) {
+    if (!$dara.isNull(request.feeCommand)) {
       query["FeeCommand"] = request.feeCommand;
     }
 
-    if (!Util.isUnset(request.feeCurrency)) {
+    if (!$dara.isNull(request.feeCurrency)) {
       query["FeeCurrency"] = request.feeCurrency;
     }
 
-    if (!Util.isUnset(request.feePeriod)) {
+    if (!$dara.isNull(request.feePeriod)) {
       query["FeePeriod"] = request.feePeriod;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckDomain",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23551,15 +425,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckDomainResponse>(await this.callApi(params, req, runtime), new CheckDomainResponse({}));
+    return $dara.cast<$_model.CheckDomainResponse>(await this.callApi(params, req, runtime), new $_model.CheckDomainResponse({}));
   }
 
   /**
    * @param request - CheckDomainRequest
    * @returns CheckDomainResponse
    */
-  async checkDomain(request: CheckDomainRequest): Promise<CheckDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkDomain(request: $_model.CheckDomainRequest): Promise<$_model.CheckDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDomainWithOptions(request, runtime);
   }
 
@@ -23568,25 +442,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckDomainSunriseClaimResponse
    */
-  async checkDomainSunriseClaimWithOptions(request: CheckDomainSunriseClaimRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainSunriseClaimResponse> {
-    Util.validateModel(request);
+  async checkDomainSunriseClaimWithOptions(request: $_model.CheckDomainSunriseClaimRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckDomainSunriseClaimResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckDomainSunriseClaim",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23597,15 +471,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckDomainSunriseClaimResponse>(await this.callApi(params, req, runtime), new CheckDomainSunriseClaimResponse({}));
+    return $dara.cast<$_model.CheckDomainSunriseClaimResponse>(await this.callApi(params, req, runtime), new $_model.CheckDomainSunriseClaimResponse({}));
   }
 
   /**
    * @param request - CheckDomainSunriseClaimRequest
    * @returns CheckDomainSunriseClaimResponse
    */
-  async checkDomainSunriseClaim(request: CheckDomainSunriseClaimRequest): Promise<CheckDomainSunriseClaimResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkDomainSunriseClaim(request: $_model.CheckDomainSunriseClaimRequest): Promise<$_model.CheckDomainSunriseClaimResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkDomainSunriseClaimWithOptions(request, runtime);
   }
 
@@ -23616,17 +490,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckIntlFixPriceDomainStatusResponse
    */
-  async checkIntlFixPriceDomainStatusWithOptions(request: CheckIntlFixPriceDomainStatusRequest, runtime: $Util.RuntimeOptions): Promise<CheckIntlFixPriceDomainStatusResponse> {
-    Util.validateModel(request);
+  async checkIntlFixPriceDomainStatusWithOptions(request: $_model.CheckIntlFixPriceDomainStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckIntlFixPriceDomainStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domain)) {
+    if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckIntlFixPriceDomainStatus",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23637,7 +511,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckIntlFixPriceDomainStatusResponse>(await this.callApi(params, req, runtime), new CheckIntlFixPriceDomainStatusResponse({}));
+    return $dara.cast<$_model.CheckIntlFixPriceDomainStatusResponse>(await this.callApi(params, req, runtime), new $_model.CheckIntlFixPriceDomainStatusResponse({}));
   }
 
   /**
@@ -23646,8 +520,8 @@ export default class Client extends OpenApi {
    * @param request - CheckIntlFixPriceDomainStatusRequest
    * @returns CheckIntlFixPriceDomainStatusResponse
    */
-  async checkIntlFixPriceDomainStatus(request: CheckIntlFixPriceDomainStatusRequest): Promise<CheckIntlFixPriceDomainStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkIntlFixPriceDomainStatus(request: $_model.CheckIntlFixPriceDomainStatusRequest): Promise<$_model.CheckIntlFixPriceDomainStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkIntlFixPriceDomainStatusWithOptions(request, runtime);
   }
 
@@ -23656,29 +530,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckMaxYearOfServerLockResponse
    */
-  async checkMaxYearOfServerLockWithOptions(request: CheckMaxYearOfServerLockRequest, runtime: $Util.RuntimeOptions): Promise<CheckMaxYearOfServerLockResponse> {
-    Util.validateModel(request);
+  async checkMaxYearOfServerLockWithOptions(request: $_model.CheckMaxYearOfServerLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckMaxYearOfServerLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.checkAction)) {
+    if (!$dara.isNull(request.checkAction)) {
       query["CheckAction"] = request.checkAction;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckMaxYearOfServerLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23689,15 +563,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckMaxYearOfServerLockResponse>(await this.callApi(params, req, runtime), new CheckMaxYearOfServerLockResponse({}));
+    return $dara.cast<$_model.CheckMaxYearOfServerLockResponse>(await this.callApi(params, req, runtime), new $_model.CheckMaxYearOfServerLockResponse({}));
   }
 
   /**
    * @param request - CheckMaxYearOfServerLockRequest
    * @returns CheckMaxYearOfServerLockResponse
    */
-  async checkMaxYearOfServerLock(request: CheckMaxYearOfServerLockRequest): Promise<CheckMaxYearOfServerLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkMaxYearOfServerLock(request: $_model.CheckMaxYearOfServerLockRequest): Promise<$_model.CheckMaxYearOfServerLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkMaxYearOfServerLockWithOptions(request, runtime);
   }
 
@@ -23706,29 +580,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckProcessingServerLockApplyResponse
    */
-  async checkProcessingServerLockApplyWithOptions(request: CheckProcessingServerLockApplyRequest, runtime: $Util.RuntimeOptions): Promise<CheckProcessingServerLockApplyResponse> {
-    Util.validateModel(request);
+  async checkProcessingServerLockApplyWithOptions(request: $_model.CheckProcessingServerLockApplyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckProcessingServerLockApplyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.feePeriod)) {
+    if (!$dara.isNull(request.feePeriod)) {
       query["FeePeriod"] = request.feePeriod;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckProcessingServerLockApply",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23739,15 +613,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckProcessingServerLockApplyResponse>(await this.callApi(params, req, runtime), new CheckProcessingServerLockApplyResponse({}));
+    return $dara.cast<$_model.CheckProcessingServerLockApplyResponse>(await this.callApi(params, req, runtime), new $_model.CheckProcessingServerLockApplyResponse({}));
   }
 
   /**
    * @param request - CheckProcessingServerLockApplyRequest
    * @returns CheckProcessingServerLockApplyResponse
    */
-  async checkProcessingServerLockApply(request: CheckProcessingServerLockApplyRequest): Promise<CheckProcessingServerLockApplyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkProcessingServerLockApply(request: $_model.CheckProcessingServerLockApplyRequest): Promise<$_model.CheckProcessingServerLockApplyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkProcessingServerLockApplyWithOptions(request, runtime);
   }
 
@@ -23756,29 +630,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckTransferInFeasibilityResponse
    */
-  async checkTransferInFeasibilityWithOptions(request: CheckTransferInFeasibilityRequest, runtime: $Util.RuntimeOptions): Promise<CheckTransferInFeasibilityResponse> {
-    Util.validateModel(request);
+  async checkTransferInFeasibilityWithOptions(request: $_model.CheckTransferInFeasibilityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckTransferInFeasibilityResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.transferAuthorizationCode)) {
+    if (!$dara.isNull(request.transferAuthorizationCode)) {
       query["TransferAuthorizationCode"] = request.transferAuthorizationCode;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckTransferInFeasibility",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23789,15 +663,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckTransferInFeasibilityResponse>(await this.callApi(params, req, runtime), new CheckTransferInFeasibilityResponse({}));
+    return $dara.cast<$_model.CheckTransferInFeasibilityResponse>(await this.callApi(params, req, runtime), new $_model.CheckTransferInFeasibilityResponse({}));
   }
 
   /**
    * @param request - CheckTransferInFeasibilityRequest
    * @returns CheckTransferInFeasibilityResponse
    */
-  async checkTransferInFeasibility(request: CheckTransferInFeasibilityRequest): Promise<CheckTransferInFeasibilityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async checkTransferInFeasibility(request: $_model.CheckTransferInFeasibilityRequest): Promise<$_model.CheckTransferInFeasibilityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkTransferInFeasibilityWithOptions(request, runtime);
   }
 
@@ -23806,29 +680,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfirmTransferInEmailResponse
    */
-  async confirmTransferInEmailWithOptions(request: ConfirmTransferInEmailRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmTransferInEmailResponse> {
-    Util.validateModel(request);
+  async confirmTransferInEmailWithOptions(request: $_model.ConfirmTransferInEmailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmTransferInEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConfirmTransferInEmail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23839,15 +713,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConfirmTransferInEmailResponse>(await this.callApi(params, req, runtime), new ConfirmTransferInEmailResponse({}));
+    return $dara.cast<$_model.ConfirmTransferInEmailResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmTransferInEmailResponse({}));
   }
 
   /**
    * @param request - ConfirmTransferInEmailRequest
    * @returns ConfirmTransferInEmailResponse
    */
-  async confirmTransferInEmail(request: ConfirmTransferInEmailRequest): Promise<ConfirmTransferInEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async confirmTransferInEmail(request: $_model.ConfirmTransferInEmailRequest): Promise<$_model.ConfirmTransferInEmailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.confirmTransferInEmailWithOptions(request, runtime);
   }
 
@@ -23858,29 +732,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIntlFixedPriceDomainOrderResponse
    */
-  async createIntlFixedPriceDomainOrderWithOptions(request: CreateIntlFixedPriceDomainOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntlFixedPriceDomainOrderResponse> {
-    Util.validateModel(request);
+  async createIntlFixedPriceDomainOrderWithOptions(request: $_model.CreateIntlFixedPriceDomainOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIntlFixedPriceDomainOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.autoPay)) {
+    if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
 
-    if (!Util.isUnset(request.contactId)) {
+    if (!$dara.isNull(request.contactId)) {
       query["ContactId"] = request.contactId;
     }
 
-    if (!Util.isUnset(request.domain)) {
+    if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
     }
 
-    if (!Util.isUnset(request.expectedPrice)) {
+    if (!$dara.isNull(request.expectedPrice)) {
       query["ExpectedPrice"] = request.expectedPrice;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateIntlFixedPriceDomainOrder",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23891,7 +765,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateIntlFixedPriceDomainOrderResponse>(await this.callApi(params, req, runtime), new CreateIntlFixedPriceDomainOrderResponse({}));
+    return $dara.cast<$_model.CreateIntlFixedPriceDomainOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateIntlFixedPriceDomainOrderResponse({}));
   }
 
   /**
@@ -23900,8 +774,8 @@ export default class Client extends OpenApi {
    * @param request - CreateIntlFixedPriceDomainOrderRequest
    * @returns CreateIntlFixedPriceDomainOrderResponse
    */
-  async createIntlFixedPriceDomainOrder(request: CreateIntlFixedPriceDomainOrderRequest): Promise<CreateIntlFixedPriceDomainOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createIntlFixedPriceDomainOrder(request: $_model.CreateIntlFixedPriceDomainOrderRequest): Promise<$_model.CreateIntlFixedPriceDomainOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createIntlFixedPriceDomainOrderWithOptions(request, runtime);
   }
 
@@ -23912,21 +786,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteContactTemplatesResponse
    */
-  async deleteContactTemplatesWithOptions(request: DeleteContactTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactTemplatesResponse> {
-    Util.validateModel(request);
+  async deleteContactTemplatesWithOptions(request: $_model.DeleteContactTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContactTemplatesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.registrantProfileIds)) {
+    if (!$dara.isNull(request.registrantProfileIds)) {
       query["RegistrantProfileIds"] = request.registrantProfileIds;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteContactTemplates",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23937,7 +811,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteContactTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteContactTemplatesResponse({}));
+    return $dara.cast<$_model.DeleteContactTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContactTemplatesResponse({}));
   }
 
   /**
@@ -23946,8 +820,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteContactTemplatesRequest
    * @returns DeleteContactTemplatesResponse
    */
-  async deleteContactTemplates(request: DeleteContactTemplatesRequest): Promise<DeleteContactTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteContactTemplates(request: $_model.DeleteContactTemplatesRequest): Promise<$_model.DeleteContactTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteContactTemplatesWithOptions(request, runtime);
   }
 
@@ -23958,25 +832,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDomainGroupResponse
    */
-  async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
-    Util.validateModel(request);
+  async deleteDomainGroupWithOptions(request: $_model.DeleteDomainGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDomainGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDomainGroup",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -23987,7 +861,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new DeleteDomainGroupResponse({}));
+    return $dara.cast<$_model.DeleteDomainGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDomainGroupResponse({}));
   }
 
   /**
@@ -23996,8 +870,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteDomainGroupRequest
    * @returns DeleteDomainGroupResponse
    */
-  async deleteDomainGroup(request: DeleteDomainGroupRequest): Promise<DeleteDomainGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteDomainGroup(request: $_model.DeleteDomainGroupRequest): Promise<$_model.DeleteDomainGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDomainGroupWithOptions(request, runtime);
   }
 
@@ -24008,25 +882,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEmailVerificationResponse
    */
-  async deleteEmailVerificationWithOptions(request: DeleteEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEmailVerificationResponse> {
-    Util.validateModel(request);
+  async deleteEmailVerificationWithOptions(request: $_model.DeleteEmailVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEmailVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteEmailVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24037,7 +911,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteEmailVerificationResponse>(await this.callApi(params, req, runtime), new DeleteEmailVerificationResponse({}));
+    return $dara.cast<$_model.DeleteEmailVerificationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEmailVerificationResponse({}));
   }
 
   /**
@@ -24046,8 +920,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteEmailVerificationRequest
    * @returns DeleteEmailVerificationResponse
    */
-  async deleteEmailVerification(request: DeleteEmailVerificationRequest): Promise<DeleteEmailVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteEmailVerification(request: $_model.DeleteEmailVerificationRequest): Promise<$_model.DeleteEmailVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEmailVerificationWithOptions(request, runtime);
   }
 
@@ -24058,25 +932,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRegistrantProfileResponse
    */
-  async deleteRegistrantProfileWithOptions(request: DeleteRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRegistrantProfileResponse> {
-    Util.validateModel(request);
+  async deleteRegistrantProfileWithOptions(request: $_model.DeleteRegistrantProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistrantProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteRegistrantProfile",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24087,7 +961,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteRegistrantProfileResponse>(await this.callApi(params, req, runtime), new DeleteRegistrantProfileResponse({}));
+    return $dara.cast<$_model.DeleteRegistrantProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRegistrantProfileResponse({}));
   }
 
   /**
@@ -24096,8 +970,8 @@ export default class Client extends OpenApi {
    * @param request - DeleteRegistrantProfileRequest
    * @returns DeleteRegistrantProfileResponse
    */
-  async deleteRegistrantProfile(request: DeleteRegistrantProfileRequest): Promise<DeleteRegistrantProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteRegistrantProfile(request: $_model.DeleteRegistrantProfileRequest): Promise<$_model.DeleteRegistrantProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRegistrantProfileWithOptions(request, runtime);
   }
 
@@ -24108,23 +982,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DomainSpecialBizCancelResponse
    */
-  async domainSpecialBizCancelWithOptions(request: DomainSpecialBizCancelRequest, runtime: $Util.RuntimeOptions): Promise<DomainSpecialBizCancelResponse> {
-    Util.validateModel(request);
+  async domainSpecialBizCancelWithOptions(request: $_model.DomainSpecialBizCancelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DomainSpecialBizCancelResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       body["BizId"] = request.bizId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DomainSpecialBizCancel",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24135,7 +1009,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DomainSpecialBizCancelResponse>(await this.callApi(params, req, runtime), new DomainSpecialBizCancelResponse({}));
+    return $dara.cast<$_model.DomainSpecialBizCancelResponse>(await this.callApi(params, req, runtime), new $_model.DomainSpecialBizCancelResponse({}));
   }
 
   /**
@@ -24144,8 +1018,8 @@ export default class Client extends OpenApi {
    * @param request - DomainSpecialBizCancelRequest
    * @returns DomainSpecialBizCancelResponse
    */
-  async domainSpecialBizCancel(request: DomainSpecialBizCancelRequest): Promise<DomainSpecialBizCancelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async domainSpecialBizCancel(request: $_model.DomainSpecialBizCancelRequest): Promise<$_model.DomainSpecialBizCancelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.domainSpecialBizCancelWithOptions(request, runtime);
   }
 
@@ -24156,25 +1030,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EmailVerifiedResponse
    */
-  async emailVerifiedWithOptions(request: EmailVerifiedRequest, runtime: $Util.RuntimeOptions): Promise<EmailVerifiedResponse> {
-    Util.validateModel(request);
+  async emailVerifiedWithOptions(request: $_model.EmailVerifiedRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EmailVerifiedResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EmailVerified",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24185,7 +1059,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EmailVerifiedResponse>(await this.callApi(params, req, runtime), new EmailVerifiedResponse({}));
+    return $dara.cast<$_model.EmailVerifiedResponse>(await this.callApi(params, req, runtime), new $_model.EmailVerifiedResponse({}));
   }
 
   /**
@@ -24194,8 +1068,8 @@ export default class Client extends OpenApi {
    * @param request - EmailVerifiedRequest
    * @returns EmailVerifiedResponse
    */
-  async emailVerified(request: EmailVerifiedRequest): Promise<EmailVerifiedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async emailVerified(request: $_model.EmailVerifiedRequest): Promise<$_model.EmailVerifiedResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.emailVerifiedWithOptions(request, runtime);
   }
 
@@ -24206,25 +1080,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FuzzyMatchDomainSensitiveWordResponse
    */
-  async fuzzyMatchDomainSensitiveWordWithOptions(request: FuzzyMatchDomainSensitiveWordRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyMatchDomainSensitiveWordResponse> {
-    Util.validateModel(request);
+  async fuzzyMatchDomainSensitiveWordWithOptions(request: $_model.FuzzyMatchDomainSensitiveWordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FuzzyMatchDomainSensitiveWordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FuzzyMatchDomainSensitiveWord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24235,7 +1109,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new FuzzyMatchDomainSensitiveWordResponse({}));
+    return $dara.cast<$_model.FuzzyMatchDomainSensitiveWordResponse>(await this.callApi(params, req, runtime), new $_model.FuzzyMatchDomainSensitiveWordResponse({}));
   }
 
   /**
@@ -24244,29 +1118,29 @@ export default class Client extends OpenApi {
    * @param request - FuzzyMatchDomainSensitiveWordRequest
    * @returns FuzzyMatchDomainSensitiveWordResponse
    */
-  async fuzzyMatchDomainSensitiveWord(request: FuzzyMatchDomainSensitiveWordRequest): Promise<FuzzyMatchDomainSensitiveWordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async fuzzyMatchDomainSensitiveWord(request: $_model.FuzzyMatchDomainSensitiveWordRequest): Promise<$_model.FuzzyMatchDomainSensitiveWordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.fuzzyMatchDomainSensitiveWordWithOptions(request, runtime);
   }
 
   /**
-   * 查询国际一口价在售域名列表
+   * Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
    * 
    * @param request - GetIntlFixPriceDomainListUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIntlFixPriceDomainListUrlResponse
    */
-  async getIntlFixPriceDomainListUrlWithOptions(request: GetIntlFixPriceDomainListUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetIntlFixPriceDomainListUrlResponse> {
-    Util.validateModel(request);
+  async getIntlFixPriceDomainListUrlWithOptions(request: $_model.GetIntlFixPriceDomainListUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntlFixPriceDomainListUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.listDate)) {
+    if (!$dara.isNull(request.listDate)) {
       query["ListDate"] = request.listDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetIntlFixPriceDomainListUrl",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24277,17 +1151,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetIntlFixPriceDomainListUrlResponse>(await this.callApi(params, req, runtime), new GetIntlFixPriceDomainListUrlResponse({}));
+    return $dara.cast<$_model.GetIntlFixPriceDomainListUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetIntlFixPriceDomainListUrlResponse({}));
   }
 
   /**
-   * 查询国际一口价在售域名列表
+   * Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
    * 
    * @param request - GetIntlFixPriceDomainListUrlRequest
    * @returns GetIntlFixPriceDomainListUrlResponse
    */
-  async getIntlFixPriceDomainListUrl(request: GetIntlFixPriceDomainListUrlRequest): Promise<GetIntlFixPriceDomainListUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getIntlFixPriceDomainListUrl(request: $_model.GetIntlFixPriceDomainListUrlRequest): Promise<$_model.GetIntlFixPriceDomainListUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getIntlFixPriceDomainListUrlWithOptions(request, runtime);
   }
 
@@ -24296,21 +1170,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOperationOssUploadPolicyResponse
    */
-  async getOperationOssUploadPolicyWithOptions(request: GetOperationOssUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetOperationOssUploadPolicyResponse> {
-    Util.validateModel(request);
+  async getOperationOssUploadPolicyWithOptions(request: $_model.GetOperationOssUploadPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOperationOssUploadPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditType)) {
+    if (!$dara.isNull(request.auditType)) {
       query["AuditType"] = request.auditType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOperationOssUploadPolicy",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24321,15 +1195,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOperationOssUploadPolicyResponse>(await this.callApi(params, req, runtime), new GetOperationOssUploadPolicyResponse({}));
+    return $dara.cast<$_model.GetOperationOssUploadPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetOperationOssUploadPolicyResponse({}));
   }
 
   /**
    * @param request - GetOperationOssUploadPolicyRequest
    * @returns GetOperationOssUploadPolicyResponse
    */
-  async getOperationOssUploadPolicy(request: GetOperationOssUploadPolicyRequest): Promise<GetOperationOssUploadPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getOperationOssUploadPolicy(request: $_model.GetOperationOssUploadPolicyRequest): Promise<$_model.GetOperationOssUploadPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOperationOssUploadPolicyWithOptions(request, runtime);
   }
 
@@ -24338,21 +1212,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualificationUploadPolicyResponse
    */
-  async getQualificationUploadPolicyWithOptions(request: GetQualificationUploadPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetQualificationUploadPolicyResponse> {
-    Util.validateModel(request);
+  async getQualificationUploadPolicyWithOptions(request: $_model.GetQualificationUploadPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetQualificationUploadPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualificationUploadPolicy",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24363,15 +1237,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualificationUploadPolicyResponse>(await this.callApi(params, req, runtime), new GetQualificationUploadPolicyResponse({}));
+    return $dara.cast<$_model.GetQualificationUploadPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetQualificationUploadPolicyResponse({}));
   }
 
   /**
    * @param request - GetQualificationUploadPolicyRequest
    * @returns GetQualificationUploadPolicyResponse
    */
-  async getQualificationUploadPolicy(request: GetQualificationUploadPolicyRequest): Promise<GetQualificationUploadPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getQualificationUploadPolicy(request: $_model.GetQualificationUploadPolicyRequest): Promise<$_model.GetQualificationUploadPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualificationUploadPolicyWithOptions(request, runtime);
   }
 
@@ -24380,45 +1254,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEmailVerificationResponse
    */
-  async listEmailVerificationWithOptions(request: ListEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ListEmailVerificationResponse> {
-    Util.validateModel(request);
+  async listEmailVerificationWithOptions(request: $_model.ListEmailVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEmailVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginCreateTime)) {
+    if (!$dara.isNull(request.beginCreateTime)) {
       query["BeginCreateTime"] = request.beginCreateTime;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.endCreateTime)) {
+    if (!$dara.isNull(request.endCreateTime)) {
       query["EndCreateTime"] = request.endCreateTime;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.verificationStatus)) {
+    if (!$dara.isNull(request.verificationStatus)) {
       query["VerificationStatus"] = request.verificationStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEmailVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24429,15 +1303,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEmailVerificationResponse>(await this.callApi(params, req, runtime), new ListEmailVerificationResponse({}));
+    return $dara.cast<$_model.ListEmailVerificationResponse>(await this.callApi(params, req, runtime), new $_model.ListEmailVerificationResponse({}));
   }
 
   /**
    * @param request - ListEmailVerificationRequest
    * @returns ListEmailVerificationResponse
    */
-  async listEmailVerification(request: ListEmailVerificationRequest): Promise<ListEmailVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listEmailVerification(request: $_model.ListEmailVerificationRequest): Promise<$_model.ListEmailVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEmailVerificationWithOptions(request, runtime);
   }
 
@@ -24448,65 +1322,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServerLockResponse
    */
-  async listServerLockWithOptions(request: ListServerLockRequest, runtime: $Util.RuntimeOptions): Promise<ListServerLockResponse> {
-    Util.validateModel(request);
+  async listServerLockWithOptions(request: $_model.ListServerLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListServerLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginStartDate)) {
+    if (!$dara.isNull(request.beginStartDate)) {
       query["BeginStartDate"] = request.beginStartDate;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.endExpireDate)) {
+    if (!$dara.isNull(request.endExpireDate)) {
       query["EndExpireDate"] = request.endExpireDate;
     }
 
-    if (!Util.isUnset(request.endStartDate)) {
+    if (!$dara.isNull(request.endStartDate)) {
       query["EndStartDate"] = request.endStartDate;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.lockProductId)) {
+    if (!$dara.isNull(request.lockProductId)) {
       query["LockProductId"] = request.lockProductId;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderByType)) {
+    if (!$dara.isNull(request.orderByType)) {
       query["OrderByType"] = request.orderByType;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serverLockStatus)) {
+    if (!$dara.isNull(request.serverLockStatus)) {
       query["ServerLockStatus"] = request.serverLockStatus;
     }
 
-    if (!Util.isUnset(request.startExpireDate)) {
+    if (!$dara.isNull(request.startExpireDate)) {
       query["StartExpireDate"] = request.startExpireDate;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListServerLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24517,7 +1391,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListServerLockResponse>(await this.callApi(params, req, runtime), new ListServerLockResponse({}));
+    return $dara.cast<$_model.ListServerLockResponse>(await this.callApi(params, req, runtime), new $_model.ListServerLockResponse({}));
   }
 
   /**
@@ -24526,8 +1400,8 @@ export default class Client extends OpenApi {
    * @param request - ListServerLockRequest
    * @returns ListServerLockResponse
    */
-  async listServerLock(request: ListServerLockRequest): Promise<ListServerLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listServerLock(request: $_model.ListServerLockRequest): Promise<$_model.ListServerLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listServerLockWithOptions(request, runtime);
   }
 
@@ -24536,25 +1410,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LookupTmchNoticeResponse
    */
-  async lookupTmchNoticeWithOptions(request: LookupTmchNoticeRequest, runtime: $Util.RuntimeOptions): Promise<LookupTmchNoticeResponse> {
-    Util.validateModel(request);
+  async lookupTmchNoticeWithOptions(request: $_model.LookupTmchNoticeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LookupTmchNoticeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.claimKey)) {
+    if (!$dara.isNull(request.claimKey)) {
       query["ClaimKey"] = request.claimKey;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LookupTmchNotice",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24565,15 +1439,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LookupTmchNoticeResponse>(await this.callApi(params, req, runtime), new LookupTmchNoticeResponse({}));
+    return $dara.cast<$_model.LookupTmchNoticeResponse>(await this.callApi(params, req, runtime), new $_model.LookupTmchNoticeResponse({}));
   }
 
   /**
    * @param request - LookupTmchNoticeRequest
    * @returns LookupTmchNoticeResponse
    */
-  async lookupTmchNotice(request: LookupTmchNoticeRequest): Promise<LookupTmchNoticeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async lookupTmchNotice(request: $_model.LookupTmchNoticeRequest): Promise<$_model.LookupTmchNoticeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.lookupTmchNoticeWithOptions(request, runtime);
   }
 
@@ -24582,45 +1456,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PollTaskResultResponse
    */
-  async pollTaskResultWithOptions(request: PollTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<PollTaskResultResponse> {
-    Util.validateModel(request);
+  async pollTaskResultWithOptions(request: $_model.PollTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PollTaskResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskNo)) {
+    if (!$dara.isNull(request.taskNo)) {
       query["TaskNo"] = request.taskNo;
     }
 
-    if (!Util.isUnset(request.taskResultStatus)) {
+    if (!$dara.isNull(request.taskResultStatus)) {
       query["TaskResultStatus"] = request.taskResultStatus;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PollTaskResult",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24631,15 +1505,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PollTaskResultResponse>(await this.callApi(params, req, runtime), new PollTaskResultResponse({}));
+    return $dara.cast<$_model.PollTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.PollTaskResultResponse({}));
   }
 
   /**
    * @param request - PollTaskResultRequest
    * @returns PollTaskResultResponse
    */
-  async pollTaskResult(request: PollTaskResultRequest): Promise<PollTaskResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async pollTaskResult(request: $_model.PollTaskResultRequest): Promise<$_model.PollTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pollTaskResultWithOptions(request, runtime);
   }
 
@@ -24650,129 +1524,129 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryAdvancedDomainListResponse
    */
-  async queryAdvancedDomainListWithOptions(request: QueryAdvancedDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAdvancedDomainListResponse> {
-    Util.validateModel(request);
+  async queryAdvancedDomainListWithOptions(request: $_model.QueryAdvancedDomainListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAdvancedDomainListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.domainNameSort)) {
+    if (!$dara.isNull(request.domainNameSort)) {
       query["DomainNameSort"] = request.domainNameSort;
     }
 
-    if (!Util.isUnset(request.domainStatus)) {
+    if (!$dara.isNull(request.domainStatus)) {
       query["DomainStatus"] = request.domainStatus;
     }
 
-    if (!Util.isUnset(request.endExpirationDate)) {
+    if (!$dara.isNull(request.endExpirationDate)) {
       query["EndExpirationDate"] = request.endExpirationDate;
     }
 
-    if (!Util.isUnset(request.endLength)) {
+    if (!$dara.isNull(request.endLength)) {
       query["EndLength"] = request.endLength;
     }
 
-    if (!Util.isUnset(request.endRegistrationDate)) {
+    if (!$dara.isNull(request.endRegistrationDate)) {
       query["EndRegistrationDate"] = request.endRegistrationDate;
     }
 
-    if (!Util.isUnset(request.excluded)) {
+    if (!$dara.isNull(request.excluded)) {
       query["Excluded"] = request.excluded;
     }
 
-    if (!Util.isUnset(request.excludedPrefix)) {
+    if (!$dara.isNull(request.excludedPrefix)) {
       query["ExcludedPrefix"] = request.excludedPrefix;
     }
 
-    if (!Util.isUnset(request.excludedSuffix)) {
+    if (!$dara.isNull(request.excludedSuffix)) {
       query["ExcludedSuffix"] = request.excludedSuffix;
     }
 
-    if (!Util.isUnset(request.expirationDateSort)) {
+    if (!$dara.isNull(request.expirationDateSort)) {
       query["ExpirationDateSort"] = request.expirationDateSort;
     }
 
-    if (!Util.isUnset(request.form)) {
+    if (!$dara.isNull(request.form)) {
       query["Form"] = request.form;
     }
 
-    if (!Util.isUnset(request.isPremiumDomain)) {
+    if (!$dara.isNull(request.isPremiumDomain)) {
       query["IsPremiumDomain"] = request.isPremiumDomain;
     }
 
-    if (!Util.isUnset(request.keyWord)) {
+    if (!$dara.isNull(request.keyWord)) {
       query["KeyWord"] = request.keyWord;
     }
 
-    if (!Util.isUnset(request.keyWordPrefix)) {
+    if (!$dara.isNull(request.keyWordPrefix)) {
       query["KeyWordPrefix"] = request.keyWordPrefix;
     }
 
-    if (!Util.isUnset(request.keyWordSuffix)) {
+    if (!$dara.isNull(request.keyWordSuffix)) {
       query["KeyWordSuffix"] = request.keyWordSuffix;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productDomainType)) {
+    if (!$dara.isNull(request.productDomainType)) {
       query["ProductDomainType"] = request.productDomainType;
     }
 
-    if (!Util.isUnset(request.productDomainTypeSort)) {
+    if (!$dara.isNull(request.productDomainTypeSort)) {
       query["ProductDomainTypeSort"] = request.productDomainTypeSort;
     }
 
-    if (!Util.isUnset(request.registrationDateSort)) {
+    if (!$dara.isNull(request.registrationDateSort)) {
       query["RegistrationDateSort"] = request.registrationDateSort;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startExpirationDate)) {
+    if (!$dara.isNull(request.startExpirationDate)) {
       query["StartExpirationDate"] = request.startExpirationDate;
     }
 
-    if (!Util.isUnset(request.startLength)) {
+    if (!$dara.isNull(request.startLength)) {
       query["StartLength"] = request.startLength;
     }
 
-    if (!Util.isUnset(request.startRegistrationDate)) {
+    if (!$dara.isNull(request.startRegistrationDate)) {
       query["StartRegistrationDate"] = request.startRegistrationDate;
     }
 
-    if (!Util.isUnset(request.suffixs)) {
+    if (!$dara.isNull(request.suffixs)) {
       query["Suffixs"] = request.suffixs;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.tradeType)) {
+    if (!$dara.isNull(request.tradeType)) {
       query["TradeType"] = request.tradeType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryAdvancedDomainList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24783,7 +1657,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryAdvancedDomainListResponse>(await this.callApi(params, req, runtime), new QueryAdvancedDomainListResponse({}));
+    return $dara.cast<$_model.QueryAdvancedDomainListResponse>(await this.callApi(params, req, runtime), new $_model.QueryAdvancedDomainListResponse({}));
   }
 
   /**
@@ -24792,8 +1666,8 @@ export default class Client extends OpenApi {
    * @param request - QueryAdvancedDomainListRequest
    * @returns QueryAdvancedDomainListResponse
    */
-  async queryAdvancedDomainList(request: QueryAdvancedDomainListRequest): Promise<QueryAdvancedDomainListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryAdvancedDomainList(request: $_model.QueryAdvancedDomainListRequest): Promise<$_model.QueryAdvancedDomainListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAdvancedDomainListWithOptions(request, runtime);
   }
 
@@ -24802,25 +1676,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryArtExtensionResponse
    */
-  async queryArtExtensionWithOptions(request: QueryArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<QueryArtExtensionResponse> {
-    Util.validateModel(request);
+  async queryArtExtensionWithOptions(request: $_model.QueryArtExtensionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryArtExtensionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryArtExtension",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24831,58 +1705,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryArtExtensionResponse>(await this.callApi(params, req, runtime), new QueryArtExtensionResponse({}));
+    return $dara.cast<$_model.QueryArtExtensionResponse>(await this.callApi(params, req, runtime), new $_model.QueryArtExtensionResponse({}));
   }
 
   /**
    * @param request - QueryArtExtensionRequest
    * @returns QueryArtExtensionResponse
    */
-  async queryArtExtension(request: QueryArtExtensionRequest): Promise<QueryArtExtensionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryArtExtension(request: $_model.QueryArtExtensionRequest): Promise<$_model.QueryArtExtensionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryArtExtensionWithOptions(request, runtime);
   }
 
   /**
+   * 查询操作记录
+   * 
    * @param request - QueryChangeLogListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryChangeLogListResponse
    */
-  async queryChangeLogListWithOptions(request: QueryChangeLogListRequest, runtime: $Util.RuntimeOptions): Promise<QueryChangeLogListResponse> {
-    Util.validateModel(request);
+  async queryChangeLogListWithOptions(request: $_model.QueryChangeLogListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryChangeLogListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryChangeLogList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24893,15 +1769,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryChangeLogListResponse>(await this.callApi(params, req, runtime), new QueryChangeLogListResponse({}));
+    return $dara.cast<$_model.QueryChangeLogListResponse>(await this.callApi(params, req, runtime), new $_model.QueryChangeLogListResponse({}));
   }
 
   /**
+   * 查询操作记录
+   * 
    * @param request - QueryChangeLogListRequest
    * @returns QueryChangeLogListResponse
    */
-  async queryChangeLogList(request: QueryChangeLogListRequest): Promise<QueryChangeLogListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryChangeLogList(request: $_model.QueryChangeLogListRequest): Promise<$_model.QueryChangeLogListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryChangeLogListWithOptions(request, runtime);
   }
 
@@ -24910,29 +1788,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryContactInfoResponse
    */
-  async queryContactInfoWithOptions(request: QueryContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryContactInfoResponse> {
-    Util.validateModel(request);
+  async queryContactInfoWithOptions(request: $_model.QueryContactInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryContactInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactType)) {
+    if (!$dara.isNull(request.contactType)) {
       query["ContactType"] = request.contactType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryContactInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24943,15 +1821,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryContactInfoResponse>(await this.callApi(params, req, runtime), new QueryContactInfoResponse({}));
+    return $dara.cast<$_model.QueryContactInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryContactInfoResponse({}));
   }
 
   /**
    * @param request - QueryContactInfoRequest
    * @returns QueryContactInfoResponse
    */
-  async queryContactInfo(request: QueryContactInfoRequest): Promise<QueryContactInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryContactInfo(request: $_model.QueryContactInfoRequest): Promise<$_model.QueryContactInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryContactInfoWithOptions(request, runtime);
   }
 
@@ -24960,25 +1838,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDSRecordResponse
    */
-  async queryDSRecordWithOptions(request: QueryDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryDSRecordResponse> {
-    Util.validateModel(request);
+  async queryDSRecordWithOptions(request: $_model.QueryDSRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDSRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDSRecord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -24989,15 +1867,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDSRecordResponse>(await this.callApi(params, req, runtime), new QueryDSRecordResponse({}));
+    return $dara.cast<$_model.QueryDSRecordResponse>(await this.callApi(params, req, runtime), new $_model.QueryDSRecordResponse({}));
   }
 
   /**
    * @param request - QueryDSRecordRequest
    * @returns QueryDSRecordResponse
    */
-  async queryDSRecord(request: QueryDSRecordRequest): Promise<QueryDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDSRecord(request: $_model.QueryDSRecordRequest): Promise<$_model.QueryDSRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDSRecordWithOptions(request, runtime);
   }
 
@@ -25006,25 +1884,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDnsHostResponse
    */
-  async queryDnsHostWithOptions(request: QueryDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<QueryDnsHostResponse> {
-    Util.validateModel(request);
+  async queryDnsHostWithOptions(request: $_model.QueryDnsHostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDnsHostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDnsHost",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25035,15 +1913,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDnsHostResponse>(await this.callApi(params, req, runtime), new QueryDnsHostResponse({}));
+    return $dara.cast<$_model.QueryDnsHostResponse>(await this.callApi(params, req, runtime), new $_model.QueryDnsHostResponse({}));
   }
 
   /**
    * @param request - QueryDnsHostRequest
    * @returns QueryDnsHostResponse
    */
-  async queryDnsHost(request: QueryDnsHostRequest): Promise<QueryDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDnsHost(request: $_model.QueryDnsHostRequest): Promise<$_model.QueryDnsHostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDnsHostWithOptions(request, runtime);
   }
 
@@ -25052,21 +1930,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainAdminDivisionResponse
    */
-  async queryDomainAdminDivisionWithOptions(request: QueryDomainAdminDivisionRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainAdminDivisionResponse> {
-    Util.validateModel(request);
+  async queryDomainAdminDivisionWithOptions(request: $_model.QueryDomainAdminDivisionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainAdminDivisionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainAdminDivision",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25077,15 +1955,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainAdminDivisionResponse>(await this.callApi(params, req, runtime), new QueryDomainAdminDivisionResponse({}));
+    return $dara.cast<$_model.QueryDomainAdminDivisionResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainAdminDivisionResponse({}));
   }
 
   /**
    * @param request - QueryDomainAdminDivisionRequest
    * @returns QueryDomainAdminDivisionResponse
    */
-  async queryDomainAdminDivision(request: QueryDomainAdminDivisionRequest): Promise<QueryDomainAdminDivisionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainAdminDivision(request: $_model.QueryDomainAdminDivisionRequest): Promise<$_model.QueryDomainAdminDivisionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainAdminDivisionWithOptions(request, runtime);
   }
 
@@ -25096,25 +1974,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainByDomainNameResponse
    */
-  async queryDomainByDomainNameWithOptions(request: QueryDomainByDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByDomainNameResponse> {
-    Util.validateModel(request);
+  async queryDomainByDomainNameWithOptions(request: $_model.QueryDomainByDomainNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainByDomainNameResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainByDomainName",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25125,7 +2003,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainByDomainNameResponse>(await this.callApi(params, req, runtime), new QueryDomainByDomainNameResponse({}));
+    return $dara.cast<$_model.QueryDomainByDomainNameResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainByDomainNameResponse({}));
   }
 
   /**
@@ -25134,8 +2012,8 @@ export default class Client extends OpenApi {
    * @param request - QueryDomainByDomainNameRequest
    * @returns QueryDomainByDomainNameResponse
    */
-  async queryDomainByDomainName(request: QueryDomainByDomainNameRequest): Promise<QueryDomainByDomainNameResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainByDomainName(request: $_model.QueryDomainByDomainNameRequest): Promise<$_model.QueryDomainByDomainNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainByDomainNameWithOptions(request, runtime);
   }
 
@@ -25146,25 +2024,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainByInstanceIdResponse
    */
-  async queryDomainByInstanceIdWithOptions(request: QueryDomainByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByInstanceIdResponse> {
-    Util.validateModel(request);
+  async queryDomainByInstanceIdWithOptions(request: $_model.QueryDomainByInstanceIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainByInstanceIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainByInstanceId",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25175,7 +2053,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryDomainByInstanceIdResponse({}));
+    return $dara.cast<$_model.QueryDomainByInstanceIdResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainByInstanceIdResponse({}));
   }
 
   /**
@@ -25184,8 +2062,8 @@ export default class Client extends OpenApi {
    * @param request - QueryDomainByInstanceIdRequest
    * @returns QueryDomainByInstanceIdResponse
    */
-  async queryDomainByInstanceId(request: QueryDomainByInstanceIdRequest): Promise<QueryDomainByInstanceIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainByInstanceId(request: $_model.QueryDomainByInstanceIdRequest): Promise<$_model.QueryDomainByInstanceIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainByInstanceIdWithOptions(request, runtime);
   }
 
@@ -25194,29 +2072,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainGroupListResponse
    */
-  async queryDomainGroupListWithOptions(request: QueryDomainGroupListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainGroupListResponse> {
-    Util.validateModel(request);
+  async queryDomainGroupListWithOptions(request: $_model.QueryDomainGroupListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainGroupListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainGroupName)) {
+    if (!$dara.isNull(request.domainGroupName)) {
       query["DomainGroupName"] = request.domainGroupName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.showDeletingGroup)) {
+    if (!$dara.isNull(request.showDeletingGroup)) {
       query["ShowDeletingGroup"] = request.showDeletingGroup;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainGroupList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25227,15 +2105,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainGroupListResponse>(await this.callApi(params, req, runtime), new QueryDomainGroupListResponse({}));
+    return $dara.cast<$_model.QueryDomainGroupListResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainGroupListResponse({}));
   }
 
   /**
    * @param request - QueryDomainGroupListRequest
    * @returns QueryDomainGroupListResponse
    */
-  async queryDomainGroupList(request: QueryDomainGroupListRequest): Promise<QueryDomainGroupListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainGroupList(request: $_model.QueryDomainGroupListRequest): Promise<$_model.QueryDomainGroupListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainGroupListWithOptions(request, runtime);
   }
 
@@ -25246,81 +2124,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainListResponse
    */
-  async queryDomainListWithOptions(request: QueryDomainListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainListResponse> {
-    Util.validateModel(request);
+  async queryDomainListWithOptions(request: $_model.QueryDomainListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ccompany)) {
+    if (!$dara.isNull(request.ccompany)) {
       query["Ccompany"] = request.ccompany;
     }
 
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.endExpirationDate)) {
+    if (!$dara.isNull(request.endExpirationDate)) {
       query["EndExpirationDate"] = request.endExpirationDate;
     }
 
-    if (!Util.isUnset(request.endRegistrationDate)) {
+    if (!$dara.isNull(request.endRegistrationDate)) {
       query["EndRegistrationDate"] = request.endRegistrationDate;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.orderByType)) {
+    if (!$dara.isNull(request.orderByType)) {
       query["OrderByType"] = request.orderByType;
     }
 
-    if (!Util.isUnset(request.orderKeyType)) {
+    if (!$dara.isNull(request.orderKeyType)) {
       query["OrderKeyType"] = request.orderKeyType;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productDomainType)) {
+    if (!$dara.isNull(request.productDomainType)) {
       query["ProductDomainType"] = request.productDomainType;
     }
 
-    if (!Util.isUnset(request.queryType)) {
+    if (!$dara.isNull(request.queryType)) {
       query["QueryType"] = request.queryType;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.registrar)) {
+      query["Registrar"] = request.registrar;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.startExpirationDate)) {
+    if (!$dara.isNull(request.startExpirationDate)) {
       query["StartExpirationDate"] = request.startExpirationDate;
     }
 
-    if (!Util.isUnset(request.startRegistrationDate)) {
+    if (!$dara.isNull(request.startRegistrationDate)) {
       query["StartRegistrationDate"] = request.startRegistrationDate;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25331,7 +2213,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainListResponse>(await this.callApi(params, req, runtime), new QueryDomainListResponse({}));
+    return $dara.cast<$_model.QueryDomainListResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainListResponse({}));
   }
 
   /**
@@ -25340,8 +2222,8 @@ export default class Client extends OpenApi {
    * @param request - QueryDomainListRequest
    * @returns QueryDomainListResponse
    */
-  async queryDomainList(request: QueryDomainListRequest): Promise<QueryDomainListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainList(request: $_model.QueryDomainListRequest): Promise<$_model.QueryDomainListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainListWithOptions(request, runtime);
   }
 
@@ -25350,29 +2232,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainRealNameVerificationInfoResponse
    */
-  async queryDomainRealNameVerificationInfoWithOptions(request: QueryDomainRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainRealNameVerificationInfoResponse> {
-    Util.validateModel(request);
+  async queryDomainRealNameVerificationInfoWithOptions(request: $_model.QueryDomainRealNameVerificationInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainRealNameVerificationInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.fetchImage)) {
+    if (!$dara.isNull(request.fetchImage)) {
       query["FetchImage"] = request.fetchImage;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainRealNameVerificationInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25383,16 +2265,68 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryDomainRealNameVerificationInfoResponse({}));
+    return $dara.cast<$_model.QueryDomainRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainRealNameVerificationInfoResponse({}));
   }
 
   /**
    * @param request - QueryDomainRealNameVerificationInfoRequest
    * @returns QueryDomainRealNameVerificationInfoResponse
    */
-  async queryDomainRealNameVerificationInfo(request: QueryDomainRealNameVerificationInfoRequest): Promise<QueryDomainRealNameVerificationInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainRealNameVerificationInfo(request: $_model.QueryDomainRealNameVerificationInfoRequest): Promise<$_model.QueryDomainRealNameVerificationInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainRealNameVerificationInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 实时查询域名价格
+   * 
+   * @param tmpReq - QueryDomainRealTimePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDomainRealTimePriceResponse
+   */
+  async queryDomainRealTimePriceWithOptions(tmpReq: $_model.QueryDomainRealTimePriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainRealTimePriceResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryDomainRealTimePriceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.domainItem)) {
+      request.domainItemShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.domainItem, "DomainItem", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.currency)) {
+      query["Currency"] = request.currency;
+    }
+
+    if (!$dara.isNull(request.domainItemShrink)) {
+      query["DomainItem"] = request.domainItemShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDomainRealTimePrice",
+      version: "2018-01-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDomainRealTimePriceResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainRealTimePriceResponse({}));
+  }
+
+  /**
+   * 实时查询域名价格
+   * 
+   * @param request - QueryDomainRealTimePriceRequest
+   * @returns QueryDomainRealTimePriceResponse
+   */
+  async queryDomainRealTimePrice(request: $_model.QueryDomainRealTimePriceRequest): Promise<$_model.QueryDomainRealTimePriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryDomainRealTimePriceWithOptions(request, runtime);
   }
 
   /**
@@ -25402,23 +2336,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainSpecialBizDetailResponse
    */
-  async queryDomainSpecialBizDetailWithOptions(request: QueryDomainSpecialBizDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSpecialBizDetailResponse> {
-    Util.validateModel(request);
+  async queryDomainSpecialBizDetailWithOptions(request: $_model.QueryDomainSpecialBizDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainSpecialBizDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       body["BizId"] = request.bizId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainSpecialBizDetail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25429,7 +2363,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainSpecialBizDetailResponse>(await this.callApi(params, req, runtime), new QueryDomainSpecialBizDetailResponse({}));
+    return $dara.cast<$_model.QueryDomainSpecialBizDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainSpecialBizDetailResponse({}));
   }
 
   /**
@@ -25438,8 +2372,8 @@ export default class Client extends OpenApi {
    * @param request - QueryDomainSpecialBizDetailRequest
    * @returns QueryDomainSpecialBizDetailResponse
    */
-  async queryDomainSpecialBizDetail(request: QueryDomainSpecialBizDetailRequest): Promise<QueryDomainSpecialBizDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainSpecialBizDetail(request: $_model.QueryDomainSpecialBizDetailRequest): Promise<$_model.QueryDomainSpecialBizDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainSpecialBizDetailWithOptions(request, runtime);
   }
 
@@ -25450,27 +2384,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainSpecialBizInfoByDomainResponse
    */
-  async queryDomainSpecialBizInfoByDomainWithOptions(request: QueryDomainSpecialBizInfoByDomainRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSpecialBizInfoByDomainResponse> {
-    Util.validateModel(request);
+  async queryDomainSpecialBizInfoByDomainWithOptions(request: $_model.QueryDomainSpecialBizInfoByDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainSpecialBizInfoByDomainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       body["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       body["DomainName"] = request.domainName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainSpecialBizInfoByDomain",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25481,7 +2415,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainSpecialBizInfoByDomainResponse>(await this.callApi(params, req, runtime), new QueryDomainSpecialBizInfoByDomainResponse({}));
+    return $dara.cast<$_model.QueryDomainSpecialBizInfoByDomainResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainSpecialBizInfoByDomainResponse({}));
   }
 
   /**
@@ -25490,8 +2424,8 @@ export default class Client extends OpenApi {
    * @param request - QueryDomainSpecialBizInfoByDomainRequest
    * @returns QueryDomainSpecialBizInfoByDomainResponse
    */
-  async queryDomainSpecialBizInfoByDomain(request: QueryDomainSpecialBizInfoByDomainRequest): Promise<QueryDomainSpecialBizInfoByDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainSpecialBizInfoByDomain(request: $_model.QueryDomainSpecialBizInfoByDomainRequest): Promise<$_model.QueryDomainSpecialBizInfoByDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainSpecialBizInfoByDomainWithOptions(request, runtime);
   }
 
@@ -25500,21 +2434,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDomainSuffixResponse
    */
-  async queryDomainSuffixWithOptions(request: QueryDomainSuffixRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainSuffixResponse> {
-    Util.validateModel(request);
+  async queryDomainSuffixWithOptions(request: $_model.QueryDomainSuffixRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDomainSuffixResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDomainSuffix",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25525,15 +2459,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDomainSuffixResponse>(await this.callApi(params, req, runtime), new QueryDomainSuffixResponse({}));
+    return $dara.cast<$_model.QueryDomainSuffixResponse>(await this.callApi(params, req, runtime), new $_model.QueryDomainSuffixResponse({}));
   }
 
   /**
    * @param request - QueryDomainSuffixRequest
    * @returns QueryDomainSuffixResponse
    */
-  async queryDomainSuffix(request: QueryDomainSuffixRequest): Promise<QueryDomainSuffixResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryDomainSuffix(request: $_model.QueryDomainSuffixRequest): Promise<$_model.QueryDomainSuffixResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDomainSuffixWithOptions(request, runtime);
   }
 
@@ -25544,25 +2478,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryEmailVerificationResponse
    */
-  async queryEmailVerificationWithOptions(request: QueryEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryEmailVerificationResponse> {
-    Util.validateModel(request);
+  async queryEmailVerificationWithOptions(request: $_model.QueryEmailVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEmailVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryEmailVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25573,7 +2507,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryEmailVerificationResponse>(await this.callApi(params, req, runtime), new QueryEmailVerificationResponse({}));
+    return $dara.cast<$_model.QueryEmailVerificationResponse>(await this.callApi(params, req, runtime), new $_model.QueryEmailVerificationResponse({}));
   }
 
   /**
@@ -25582,8 +2516,8 @@ export default class Client extends OpenApi {
    * @param request - QueryEmailVerificationRequest
    * @returns QueryEmailVerificationResponse
    */
-  async queryEmailVerification(request: QueryEmailVerificationRequest): Promise<QueryEmailVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryEmailVerification(request: $_model.QueryEmailVerificationRequest): Promise<$_model.QueryEmailVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryEmailVerificationWithOptions(request, runtime);
   }
 
@@ -25592,25 +2526,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryEnsAssociationResponse
    */
-  async queryEnsAssociationWithOptions(request: QueryEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryEnsAssociationResponse> {
-    Util.validateModel(request);
+  async queryEnsAssociationWithOptions(request: $_model.QueryEnsAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEnsAssociationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryEnsAssociation",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25621,15 +2555,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryEnsAssociationResponse({}));
+    return $dara.cast<$_model.QueryEnsAssociationResponse>(await this.callApi(params, req, runtime), new $_model.QueryEnsAssociationResponse({}));
   }
 
   /**
    * @param request - QueryEnsAssociationRequest
    * @returns QueryEnsAssociationResponse
    */
-  async queryEnsAssociation(request: QueryEnsAssociationRequest): Promise<QueryEnsAssociationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryEnsAssociation(request: $_model.QueryEnsAssociationRequest): Promise<$_model.QueryEnsAssociationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryEnsAssociationWithOptions(request, runtime);
   }
 
@@ -25638,29 +2572,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailReasonForDomainRealNameVerificationResponse
    */
-  async queryFailReasonForDomainRealNameVerificationWithOptions(request: QueryFailReasonForDomainRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
-    Util.validateModel(request);
+  async queryFailReasonForDomainRealNameVerificationWithOptions(request: $_model.QueryFailReasonForDomainRealNameVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFailReasonForDomainRealNameVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.realNameVerificationAction)) {
+    if (!$dara.isNull(request.realNameVerificationAction)) {
       query["RealNameVerificationAction"] = request.realNameVerificationAction;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryFailReasonForDomainRealNameVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25671,15 +2605,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryFailReasonForDomainRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForDomainRealNameVerificationResponse({}));
+    return $dara.cast<$_model.QueryFailReasonForDomainRealNameVerificationResponse>(await this.callApi(params, req, runtime), new $_model.QueryFailReasonForDomainRealNameVerificationResponse({}));
   }
 
   /**
    * @param request - QueryFailReasonForDomainRealNameVerificationRequest
    * @returns QueryFailReasonForDomainRealNameVerificationResponse
    */
-  async queryFailReasonForDomainRealNameVerification(request: QueryFailReasonForDomainRealNameVerificationRequest): Promise<QueryFailReasonForDomainRealNameVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryFailReasonForDomainRealNameVerification(request: $_model.QueryFailReasonForDomainRealNameVerificationRequest): Promise<$_model.QueryFailReasonForDomainRealNameVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryFailReasonForDomainRealNameVerificationWithOptions(request, runtime);
   }
 
@@ -25688,25 +2622,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
    */
-  async queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
-    Util.validateModel(request);
+  async queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request: $_model.QueryFailReasonForRegistrantProfileRealNameVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileID)) {
+    if (!$dara.isNull(request.registrantProfileID)) {
       query["RegistrantProfileID"] = request.registrantProfileID;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryFailReasonForRegistrantProfileRealNameVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25717,15 +2651,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryFailReasonForRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new QueryFailReasonForRegistrantProfileRealNameVerificationResponse({}));
+    return $dara.cast<$_model.QueryFailReasonForRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new $_model.QueryFailReasonForRegistrantProfileRealNameVerificationResponse({}));
   }
 
   /**
    * @param request - QueryFailReasonForRegistrantProfileRealNameVerificationRequest
    * @returns QueryFailReasonForRegistrantProfileRealNameVerificationResponse
    */
-  async queryFailReasonForRegistrantProfileRealNameVerification(request: QueryFailReasonForRegistrantProfileRealNameVerificationRequest): Promise<QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryFailReasonForRegistrantProfileRealNameVerification(request: $_model.QueryFailReasonForRegistrantProfileRealNameVerificationRequest): Promise<$_model.QueryFailReasonForRegistrantProfileRealNameVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
@@ -25734,33 +2668,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryFailingReasonListForQualificationResponse
    */
-  async queryFailingReasonListForQualificationWithOptions(request: QueryFailingReasonListForQualificationRequest, runtime: $Util.RuntimeOptions): Promise<QueryFailingReasonListForQualificationResponse> {
-    Util.validateModel(request);
+  async queryFailingReasonListForQualificationWithOptions(request: $_model.QueryFailingReasonListForQualificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFailingReasonListForQualificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.qualificationType)) {
+    if (!$dara.isNull(request.qualificationType)) {
       query["QualificationType"] = request.qualificationType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryFailingReasonListForQualification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25771,15 +2705,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryFailingReasonListForQualificationResponse>(await this.callApi(params, req, runtime), new QueryFailingReasonListForQualificationResponse({}));
+    return $dara.cast<$_model.QueryFailingReasonListForQualificationResponse>(await this.callApi(params, req, runtime), new $_model.QueryFailingReasonListForQualificationResponse({}));
   }
 
   /**
    * @param request - QueryFailingReasonListForQualificationRequest
    * @returns QueryFailingReasonListForQualificationResponse
    */
-  async queryFailingReasonListForQualification(request: QueryFailingReasonListForQualificationRequest): Promise<QueryFailingReasonListForQualificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryFailingReasonListForQualification(request: $_model.QueryFailingReasonListForQualificationRequest): Promise<$_model.QueryFailingReasonListForQualificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryFailingReasonListForQualificationWithOptions(request, runtime);
   }
 
@@ -25790,29 +2724,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryIntlFixedPriceOrderListResponse
    */
-  async queryIntlFixedPriceOrderListWithOptions(request: QueryIntlFixedPriceOrderListRequest, runtime: $Util.RuntimeOptions): Promise<QueryIntlFixedPriceOrderListResponse> {
-    Util.validateModel(request);
+  async queryIntlFixedPriceOrderListWithOptions(request: $_model.QueryIntlFixedPriceOrderListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryIntlFixedPriceOrderListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryIntlFixedPriceOrderList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25823,7 +2757,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryIntlFixedPriceOrderListResponse>(await this.callApi(params, req, runtime), new QueryIntlFixedPriceOrderListResponse({}));
+    return $dara.cast<$_model.QueryIntlFixedPriceOrderListResponse>(await this.callApi(params, req, runtime), new $_model.QueryIntlFixedPriceOrderListResponse({}));
   }
 
   /**
@@ -25832,8 +2766,8 @@ export default class Client extends OpenApi {
    * @param request - QueryIntlFixedPriceOrderListRequest
    * @returns QueryIntlFixedPriceOrderListResponse
    */
-  async queryIntlFixedPriceOrderList(request: QueryIntlFixedPriceOrderListRequest): Promise<QueryIntlFixedPriceOrderListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryIntlFixedPriceOrderList(request: $_model.QueryIntlFixedPriceOrderListRequest): Promise<$_model.QueryIntlFixedPriceOrderListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryIntlFixedPriceOrderListWithOptions(request, runtime);
   }
 
@@ -25842,25 +2776,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryLocalEnsAssociationResponse
    */
-  async queryLocalEnsAssociationWithOptions(request: QueryLocalEnsAssociationRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocalEnsAssociationResponse> {
-    Util.validateModel(request);
+  async queryLocalEnsAssociationWithOptions(request: $_model.QueryLocalEnsAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryLocalEnsAssociationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryLocalEnsAssociation",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25871,15 +2805,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryLocalEnsAssociationResponse>(await this.callApi(params, req, runtime), new QueryLocalEnsAssociationResponse({}));
+    return $dara.cast<$_model.QueryLocalEnsAssociationResponse>(await this.callApi(params, req, runtime), new $_model.QueryLocalEnsAssociationResponse({}));
   }
 
   /**
    * @param request - QueryLocalEnsAssociationRequest
    * @returns QueryLocalEnsAssociationResponse
    */
-  async queryLocalEnsAssociation(request: QueryLocalEnsAssociationRequest): Promise<QueryLocalEnsAssociationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryLocalEnsAssociation(request: $_model.QueryLocalEnsAssociationRequest): Promise<$_model.QueryLocalEnsAssociationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryLocalEnsAssociationWithOptions(request, runtime);
   }
 
@@ -25888,21 +2822,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOperationAuditInfoDetailResponse
    */
-  async queryOperationAuditInfoDetailWithOptions(request: QueryOperationAuditInfoDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryOperationAuditInfoDetailResponse> {
-    Util.validateModel(request);
+  async queryOperationAuditInfoDetailWithOptions(request: $_model.QueryOperationAuditInfoDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryOperationAuditInfoDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditRecordId)) {
+    if (!$dara.isNull(request.auditRecordId)) {
       query["AuditRecordId"] = request.auditRecordId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryOperationAuditInfoDetail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25913,15 +2847,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryOperationAuditInfoDetailResponse>(await this.callApi(params, req, runtime), new QueryOperationAuditInfoDetailResponse({}));
+    return $dara.cast<$_model.QueryOperationAuditInfoDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryOperationAuditInfoDetailResponse({}));
   }
 
   /**
    * @param request - QueryOperationAuditInfoDetailRequest
    * @returns QueryOperationAuditInfoDetailResponse
    */
-  async queryOperationAuditInfoDetail(request: QueryOperationAuditInfoDetailRequest): Promise<QueryOperationAuditInfoDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryOperationAuditInfoDetail(request: $_model.QueryOperationAuditInfoDetailRequest): Promise<$_model.QueryOperationAuditInfoDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryOperationAuditInfoDetailWithOptions(request, runtime);
   }
 
@@ -25930,37 +2864,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOperationAuditInfoListResponse
    */
-  async queryOperationAuditInfoListWithOptions(request: QueryOperationAuditInfoListRequest, runtime: $Util.RuntimeOptions): Promise<QueryOperationAuditInfoListResponse> {
-    Util.validateModel(request);
+  async queryOperationAuditInfoListWithOptions(request: $_model.QueryOperationAuditInfoListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryOperationAuditInfoListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.auditType)) {
+    if (!$dara.isNull(request.auditType)) {
       query["AuditType"] = request.auditType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryOperationAuditInfoList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -25971,15 +2905,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryOperationAuditInfoListResponse>(await this.callApi(params, req, runtime), new QueryOperationAuditInfoListResponse({}));
+    return $dara.cast<$_model.QueryOperationAuditInfoListResponse>(await this.callApi(params, req, runtime), new $_model.QueryOperationAuditInfoListResponse({}));
   }
 
   /**
    * @param request - QueryOperationAuditInfoListRequest
    * @returns QueryOperationAuditInfoListResponse
    */
-  async queryOperationAuditInfoList(request: QueryOperationAuditInfoListRequest): Promise<QueryOperationAuditInfoListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryOperationAuditInfoList(request: $_model.QueryOperationAuditInfoListRequest): Promise<$_model.QueryOperationAuditInfoListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryOperationAuditInfoListWithOptions(request, runtime);
   }
 
@@ -25988,29 +2922,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryQualificationDetailResponse
    */
-  async queryQualificationDetailWithOptions(request: QueryQualificationDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryQualificationDetailResponse> {
-    Util.validateModel(request);
+  async queryQualificationDetailWithOptions(request: $_model.QueryQualificationDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryQualificationDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.qualificationType)) {
+    if (!$dara.isNull(request.qualificationType)) {
       query["QualificationType"] = request.qualificationType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryQualificationDetail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26021,15 +2955,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryQualificationDetailResponse>(await this.callApi(params, req, runtime), new QueryQualificationDetailResponse({}));
+    return $dara.cast<$_model.QueryQualificationDetailResponse>(await this.callApi(params, req, runtime), new $_model.QueryQualificationDetailResponse({}));
   }
 
   /**
    * @param request - QueryQualificationDetailRequest
    * @returns QueryQualificationDetailResponse
    */
-  async queryQualificationDetail(request: QueryQualificationDetailRequest): Promise<QueryQualificationDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryQualificationDetail(request: $_model.QueryQualificationDetailRequest): Promise<$_model.QueryQualificationDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryQualificationDetailWithOptions(request, runtime);
   }
 
@@ -26038,29 +2972,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
    */
-  async queryRegistrantProfileRealNameVerificationInfoWithOptions(request: QueryRegistrantProfileRealNameVerificationInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
-    Util.validateModel(request);
+  async queryRegistrantProfileRealNameVerificationInfoWithOptions(request: $_model.QueryRegistrantProfileRealNameVerificationInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRegistrantProfileRealNameVerificationInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fetchImage)) {
+    if (!$dara.isNull(request.fetchImage)) {
       query["FetchImage"] = request.fetchImage;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryRegistrantProfileRealNameVerificationInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26071,82 +3005,89 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryRegistrantProfileRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfileRealNameVerificationInfoResponse({}));
+    return $dara.cast<$_model.QueryRegistrantProfileRealNameVerificationInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryRegistrantProfileRealNameVerificationInfoResponse({}));
   }
 
   /**
    * @param request - QueryRegistrantProfileRealNameVerificationInfoRequest
    * @returns QueryRegistrantProfileRealNameVerificationInfoResponse
    */
-  async queryRegistrantProfileRealNameVerificationInfo(request: QueryRegistrantProfileRealNameVerificationInfoRequest): Promise<QueryRegistrantProfileRealNameVerificationInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryRegistrantProfileRealNameVerificationInfo(request: $_model.QueryRegistrantProfileRealNameVerificationInfoRequest): Promise<$_model.QueryRegistrantProfileRealNameVerificationInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryRegistrantProfileRealNameVerificationInfoWithOptions(request, runtime);
   }
 
   /**
+   * Queries the registrant profiles that belong to your Alibaba Cloud account.
+   * 
+   * @remarks
+   * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
+   * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
+   * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+   * 
    * @param request - QueryRegistrantProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRegistrantProfilesResponse
    */
-  async queryRegistrantProfilesWithOptions(request: QueryRegistrantProfilesRequest, runtime: $Util.RuntimeOptions): Promise<QueryRegistrantProfilesResponse> {
-    Util.validateModel(request);
+  async queryRegistrantProfilesWithOptions(request: $_model.QueryRegistrantProfilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRegistrantProfilesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.defaultRegistrantProfile)) {
+    if (!$dara.isNull(request.defaultRegistrantProfile)) {
       query["DefaultRegistrantProfile"] = request.defaultRegistrantProfile;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.realNameStatus)) {
+    if (!$dara.isNull(request.realNameStatus)) {
       query["RealNameStatus"] = request.realNameStatus;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.registrantProfileType)) {
+    if (!$dara.isNull(request.registrantProfileType)) {
       query["RegistrantProfileType"] = request.registrantProfileType;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryRegistrantProfiles",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26157,15 +3098,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryRegistrantProfilesResponse>(await this.callApi(params, req, runtime), new QueryRegistrantProfilesResponse({}));
+    return $dara.cast<$_model.QueryRegistrantProfilesResponse>(await this.callApi(params, req, runtime), new $_model.QueryRegistrantProfilesResponse({}));
   }
 
   /**
+   * Queries the registrant profiles that belong to your Alibaba Cloud account.
+   * 
+   * @remarks
+   * You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
+   * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
+   * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+   * 
    * @param request - QueryRegistrantProfilesRequest
    * @returns QueryRegistrantProfilesResponse
    */
-  async queryRegistrantProfiles(request: QueryRegistrantProfilesRequest): Promise<QueryRegistrantProfilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryRegistrantProfiles(request: $_model.QueryRegistrantProfilesRequest): Promise<$_model.QueryRegistrantProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryRegistrantProfilesWithOptions(request, runtime);
   }
 
@@ -26174,25 +3122,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryServerLockResponse
    */
-  async queryServerLockWithOptions(request: QueryServerLockRequest, runtime: $Util.RuntimeOptions): Promise<QueryServerLockResponse> {
-    Util.validateModel(request);
+  async queryServerLockWithOptions(request: $_model.QueryServerLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryServerLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryServerLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26203,15 +3151,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryServerLockResponse>(await this.callApi(params, req, runtime), new QueryServerLockResponse({}));
+    return $dara.cast<$_model.QueryServerLockResponse>(await this.callApi(params, req, runtime), new $_model.QueryServerLockResponse({}));
   }
 
   /**
    * @param request - QueryServerLockRequest
    * @returns QueryServerLockResponse
    */
-  async queryServerLock(request: QueryServerLockRequest): Promise<QueryServerLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryServerLock(request: $_model.QueryServerLockRequest): Promise<$_model.QueryServerLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryServerLockWithOptions(request, runtime);
   }
 
@@ -26220,45 +3168,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskDetailHistoryResponse
    */
-  async queryTaskDetailHistoryWithOptions(request: QueryTaskDetailHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailHistoryResponse> {
-    Util.validateModel(request);
+  async queryTaskDetailHistoryWithOptions(request: $_model.QueryTaskDetailHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskDetailHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.domainNameCursor)) {
+    if (!$dara.isNull(request.domainNameCursor)) {
       query["DomainNameCursor"] = request.domainNameCursor;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskDetailNoCursor)) {
+    if (!$dara.isNull(request.taskDetailNoCursor)) {
       query["TaskDetailNoCursor"] = request.taskDetailNoCursor;
     }
 
-    if (!Util.isUnset(request.taskNo)) {
+    if (!$dara.isNull(request.taskNo)) {
       query["TaskNo"] = request.taskNo;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       query["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTaskDetailHistory",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26269,62 +3217,64 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTaskDetailHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailHistoryResponse({}));
+    return $dara.cast<$_model.QueryTaskDetailHistoryResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskDetailHistoryResponse({}));
   }
 
   /**
    * @param request - QueryTaskDetailHistoryRequest
    * @returns QueryTaskDetailHistoryResponse
    */
-  async queryTaskDetailHistory(request: QueryTaskDetailHistoryRequest): Promise<QueryTaskDetailHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTaskDetailHistory(request: $_model.QueryTaskDetailHistoryRequest): Promise<$_model.QueryTaskDetailHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTaskDetailHistoryWithOptions(request, runtime);
   }
 
   /**
+   * Queries the details of a specific domain name task by page.
+   * 
    * @param request - QueryTaskDetailListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskDetailListResponse
    */
-  async queryTaskDetailListWithOptions(request: QueryTaskDetailListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailListResponse> {
-    Util.validateModel(request);
+  async queryTaskDetailListWithOptions(request: $_model.QueryTaskDetailListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskDetailListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskNo)) {
+    if (!$dara.isNull(request.taskNo)) {
       query["TaskNo"] = request.taskNo;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       query["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTaskDetailList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26335,15 +3285,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTaskDetailListResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailListResponse({}));
+    return $dara.cast<$_model.QueryTaskDetailListResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskDetailListResponse({}));
   }
 
   /**
+   * Queries the details of a specific domain name task by page.
+   * 
    * @param request - QueryTaskDetailListRequest
    * @returns QueryTaskDetailListResponse
    */
-  async queryTaskDetailList(request: QueryTaskDetailListRequest): Promise<QueryTaskDetailListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTaskDetailList(request: $_model.QueryTaskDetailListRequest): Promise<$_model.QueryTaskDetailListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTaskDetailListWithOptions(request, runtime);
   }
 
@@ -26352,41 +3304,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskInfoHistoryResponse
    */
-  async queryTaskInfoHistoryWithOptions(request: QueryTaskInfoHistoryRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskInfoHistoryResponse> {
-    Util.validateModel(request);
+  async queryTaskInfoHistoryWithOptions(request: $_model.QueryTaskInfoHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskInfoHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginCreateTime)) {
+    if (!$dara.isNull(request.beginCreateTime)) {
       query["BeginCreateTime"] = request.beginCreateTime;
     }
 
-    if (!Util.isUnset(request.createTimeCursor)) {
+    if (!$dara.isNull(request.createTimeCursor)) {
       query["CreateTimeCursor"] = request.createTimeCursor;
     }
 
-    if (!Util.isUnset(request.endCreateTime)) {
+    if (!$dara.isNull(request.endCreateTime)) {
       query["EndCreateTime"] = request.endCreateTime;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.taskNoCursor)) {
+    if (!$dara.isNull(request.taskNoCursor)) {
       query["TaskNoCursor"] = request.taskNoCursor;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTaskInfoHistory",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26397,54 +3349,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTaskInfoHistoryResponse>(await this.callApi(params, req, runtime), new QueryTaskInfoHistoryResponse({}));
+    return $dara.cast<$_model.QueryTaskInfoHistoryResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskInfoHistoryResponse({}));
   }
 
   /**
    * @param request - QueryTaskInfoHistoryRequest
    * @returns QueryTaskInfoHistoryResponse
    */
-  async queryTaskInfoHistory(request: QueryTaskInfoHistoryRequest): Promise<QueryTaskInfoHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTaskInfoHistory(request: $_model.QueryTaskInfoHistoryRequest): Promise<$_model.QueryTaskInfoHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTaskInfoHistoryWithOptions(request, runtime);
   }
 
   /**
+   * 查询任务列表
+   * 
    * @param request - QueryTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskListResponse
    */
-  async queryTaskListWithOptions(request: QueryTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskListResponse> {
-    Util.validateModel(request);
+  async queryTaskListWithOptions(request: $_model.QueryTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.beginCreateTime)) {
+    if (!$dara.isNull(request.beginCreateTime)) {
       query["BeginCreateTime"] = request.beginCreateTime;
     }
 
-    if (!Util.isUnset(request.endCreateTime)) {
+    if (!$dara.isNull(request.endCreateTime)) {
       query["EndCreateTime"] = request.endCreateTime;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTaskList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26455,15 +3409,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTaskListResponse>(await this.callApi(params, req, runtime), new QueryTaskListResponse({}));
+    return $dara.cast<$_model.QueryTaskListResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskListResponse({}));
   }
 
   /**
+   * 查询任务列表
+   * 
    * @param request - QueryTaskListRequest
    * @returns QueryTaskListResponse
    */
-  async queryTaskList(request: QueryTaskListRequest): Promise<QueryTaskListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTaskList(request: $_model.QueryTaskListRequest): Promise<$_model.QueryTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTaskListWithOptions(request, runtime);
   }
 
@@ -26472,25 +3428,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTransferInByInstanceIdResponse
    */
-  async queryTransferInByInstanceIdWithOptions(request: QueryTransferInByInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInByInstanceIdResponse> {
-    Util.validateModel(request);
+  async queryTransferInByInstanceIdWithOptions(request: $_model.QueryTransferInByInstanceIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTransferInByInstanceIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTransferInByInstanceId",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26501,15 +3457,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTransferInByInstanceIdResponse>(await this.callApi(params, req, runtime), new QueryTransferInByInstanceIdResponse({}));
+    return $dara.cast<$_model.QueryTransferInByInstanceIdResponse>(await this.callApi(params, req, runtime), new $_model.QueryTransferInByInstanceIdResponse({}));
   }
 
   /**
    * @param request - QueryTransferInByInstanceIdRequest
    * @returns QueryTransferInByInstanceIdResponse
    */
-  async queryTransferInByInstanceId(request: QueryTransferInByInstanceIdRequest): Promise<QueryTransferInByInstanceIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTransferInByInstanceId(request: $_model.QueryTransferInByInstanceIdRequest): Promise<$_model.QueryTransferInByInstanceIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTransferInByInstanceIdWithOptions(request, runtime);
   }
 
@@ -26518,45 +3474,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTransferInListResponse
    */
-  async queryTransferInListWithOptions(request: QueryTransferInListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferInListResponse> {
-    Util.validateModel(request);
+  async queryTransferInListWithOptions(request: $_model.QueryTransferInListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTransferInListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.simpleTransferInStatus)) {
+    if (!$dara.isNull(request.simpleTransferInStatus)) {
       query["SimpleTransferInStatus"] = request.simpleTransferInStatus;
     }
 
-    if (!Util.isUnset(request.submissionEndDate)) {
+    if (!$dara.isNull(request.submissionEndDate)) {
       query["SubmissionEndDate"] = request.submissionEndDate;
     }
 
-    if (!Util.isUnset(request.submissionStartDate)) {
+    if (!$dara.isNull(request.submissionStartDate)) {
       query["SubmissionStartDate"] = request.submissionStartDate;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTransferInList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26567,15 +3523,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTransferInListResponse>(await this.callApi(params, req, runtime), new QueryTransferInListResponse({}));
+    return $dara.cast<$_model.QueryTransferInListResponse>(await this.callApi(params, req, runtime), new $_model.QueryTransferInListResponse({}));
   }
 
   /**
    * @param request - QueryTransferInListRequest
    * @returns QueryTransferInListResponse
    */
-  async queryTransferInList(request: QueryTransferInListRequest): Promise<QueryTransferInListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTransferInList(request: $_model.QueryTransferInListRequest): Promise<$_model.QueryTransferInListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTransferInListWithOptions(request, runtime);
   }
 
@@ -26584,25 +3540,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTransferOutInfoResponse
    */
-  async queryTransferOutInfoWithOptions(request: QueryTransferOutInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryTransferOutInfoResponse> {
-    Util.validateModel(request);
+  async queryTransferOutInfoWithOptions(request: $_model.QueryTransferOutInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTransferOutInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTransferOutInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26613,15 +3569,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTransferOutInfoResponse>(await this.callApi(params, req, runtime), new QueryTransferOutInfoResponse({}));
+    return $dara.cast<$_model.QueryTransferOutInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryTransferOutInfoResponse({}));
   }
 
   /**
    * @param request - QueryTransferOutInfoRequest
    * @returns QueryTransferOutInfoResponse
    */
-  async queryTransferOutInfo(request: QueryTransferOutInfoRequest): Promise<QueryTransferOutInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryTransferOutInfo(request: $_model.QueryTransferOutInfoRequest): Promise<$_model.QueryTransferOutInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTransferOutInfoWithOptions(request, runtime);
   }
 
@@ -26632,39 +3588,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegistrantProfileRealNameVerificationResponse
    */
-  async registrantProfileRealNameVerificationWithOptions(request: RegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<RegistrantProfileRealNameVerificationResponse> {
-    Util.validateModel(request);
+  async registrantProfileRealNameVerificationWithOptions(request: $_model.RegistrantProfileRealNameVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegistrantProfileRealNameVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.identityCredentialNo)) {
+    if (!$dara.isNull(request.identityCredentialNo)) {
       query["IdentityCredentialNo"] = request.identityCredentialNo;
     }
 
-    if (!Util.isUnset(request.identityCredentialType)) {
+    if (!$dara.isNull(request.identityCredentialType)) {
       query["IdentityCredentialType"] = request.identityCredentialType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileID)) {
+    if (!$dara.isNull(request.registrantProfileID)) {
       query["RegistrantProfileID"] = request.registrantProfileID;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.identityCredential)) {
+    if (!$dara.isNull(request.identityCredential)) {
       body["IdentityCredential"] = request.identityCredential;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RegistrantProfileRealNameVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26675,7 +3631,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new RegistrantProfileRealNameVerificationResponse({}));
+    return $dara.cast<$_model.RegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new $_model.RegistrantProfileRealNameVerificationResponse({}));
   }
 
   /**
@@ -26684,8 +3640,8 @@ export default class Client extends OpenApi {
    * @param request - RegistrantProfileRealNameVerificationRequest
    * @returns RegistrantProfileRealNameVerificationResponse
    */
-  async registrantProfileRealNameVerification(request: RegistrantProfileRealNameVerificationRequest): Promise<RegistrantProfileRealNameVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async registrantProfileRealNameVerification(request: $_model.RegistrantProfileRealNameVerificationRequest): Promise<$_model.RegistrantProfileRealNameVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.registrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
@@ -26696,25 +3652,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResendEmailVerificationResponse
    */
-  async resendEmailVerificationWithOptions(request: ResendEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ResendEmailVerificationResponse> {
-    Util.validateModel(request);
+  async resendEmailVerificationWithOptions(request: $_model.ResendEmailVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResendEmailVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResendEmailVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26725,7 +3681,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResendEmailVerificationResponse>(await this.callApi(params, req, runtime), new ResendEmailVerificationResponse({}));
+    return $dara.cast<$_model.ResendEmailVerificationResponse>(await this.callApi(params, req, runtime), new $_model.ResendEmailVerificationResponse({}));
   }
 
   /**
@@ -26734,8 +3690,8 @@ export default class Client extends OpenApi {
    * @param request - ResendEmailVerificationRequest
    * @returns ResendEmailVerificationResponse
    */
-  async resendEmailVerification(request: ResendEmailVerificationRequest): Promise<ResendEmailVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async resendEmailVerification(request: $_model.ResendEmailVerificationRequest): Promise<$_model.ResendEmailVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.resendEmailVerificationWithOptions(request, runtime);
   }
 
@@ -26746,25 +3702,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetQualificationVerificationResponse
    */
-  async resetQualificationVerificationWithOptions(request: ResetQualificationVerificationRequest, runtime: $Util.RuntimeOptions): Promise<ResetQualificationVerificationResponse> {
-    Util.validateModel(request);
+  async resetQualificationVerificationWithOptions(request: $_model.ResetQualificationVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetQualificationVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResetQualificationVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26775,7 +3731,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResetQualificationVerificationResponse>(await this.callApi(params, req, runtime), new ResetQualificationVerificationResponse({}));
+    return $dara.cast<$_model.ResetQualificationVerificationResponse>(await this.callApi(params, req, runtime), new $_model.ResetQualificationVerificationResponse({}));
   }
 
   /**
@@ -26784,8 +3740,8 @@ export default class Client extends OpenApi {
    * @param request - ResetQualificationVerificationRequest
    * @returns ResetQualificationVerificationResponse
    */
-  async resetQualificationVerification(request: ResetQualificationVerificationRequest): Promise<ResetQualificationVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async resetQualificationVerification(request: $_model.ResetQualificationVerificationRequest): Promise<$_model.ResetQualificationVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.resetQualificationVerificationWithOptions(request, runtime);
   }
 
@@ -26796,29 +3752,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchDomainRemarkResponse
    */
-  async saveBatchDomainRemarkWithOptions(request: SaveBatchDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchDomainRemarkResponse> {
-    Util.validateModel(request);
+  async saveBatchDomainRemarkWithOptions(request: $_model.SaveBatchDomainRemarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchDomainRemarkResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceIds)) {
+    if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchDomainRemark",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26829,7 +3785,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchDomainRemarkResponse>(await this.callApi(params, req, runtime), new SaveBatchDomainRemarkResponse({}));
+    return $dara.cast<$_model.SaveBatchDomainRemarkResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchDomainRemarkResponse({}));
   }
 
   /**
@@ -26838,8 +3794,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchDomainRemarkRequest
    * @returns SaveBatchDomainRemarkResponse
    */
-  async saveBatchDomainRemark(request: SaveBatchDomainRemarkRequest): Promise<SaveBatchDomainRemarkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchDomainRemark(request: $_model.SaveBatchDomainRemarkRequest): Promise<$_model.SaveBatchDomainRemarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchDomainRemarkWithOptions(request, runtime);
   }
 
@@ -26850,25 +3806,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
    */
-  async saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(request: SaveBatchTaskForApplyQuickTransferOutOpenlyRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(request: $_model.SaveBatchTaskForApplyQuickTransferOutOpenlyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainNames)) {
+    if (!$dara.isNull(request.domainNames)) {
       query["DomainNames"] = request.domainNames;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForApplyQuickTransferOutOpenly",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26879,7 +3835,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForApplyQuickTransferOutOpenlyResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForApplyQuickTransferOutOpenlyResponse({}));
   }
 
   /**
@@ -26888,8 +3844,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
    * @returns SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
    */
-  async saveBatchTaskForApplyQuickTransferOutOpenly(request: SaveBatchTaskForApplyQuickTransferOutOpenlyRequest): Promise<SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForApplyQuickTransferOutOpenly(request: $_model.SaveBatchTaskForApplyQuickTransferOutOpenlyRequest): Promise<$_model.SaveBatchTaskForApplyQuickTransferOutOpenlyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(request, runtime);
   }
 
@@ -26900,41 +3856,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderActivateResponse
    */
-  async saveBatchTaskForCreatingOrderActivateWithOptions(request: SaveBatchTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForCreatingOrderActivateWithOptions(request: $_model.SaveBatchTaskForCreatingOrderActivateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForCreatingOrderActivateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.orderActivateParam)) {
+    if (!$dara.isNull(request.orderActivateParam)) {
       query["OrderActivateParam"] = request.orderActivateParam;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForCreatingOrderActivate",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -26945,7 +3901,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderActivateResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForCreatingOrderActivateResponse({}));
   }
 
   /**
@@ -26954,8 +3910,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForCreatingOrderActivateRequest
    * @returns SaveBatchTaskForCreatingOrderActivateResponse
    */
-  async saveBatchTaskForCreatingOrderActivate(request: SaveBatchTaskForCreatingOrderActivateRequest): Promise<SaveBatchTaskForCreatingOrderActivateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForCreatingOrderActivate(request: $_model.SaveBatchTaskForCreatingOrderActivateRequest): Promise<$_model.SaveBatchTaskForCreatingOrderActivateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderActivateWithOptions(request, runtime);
   }
 
@@ -26964,41 +3920,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderRedeemResponse
    */
-  async saveBatchTaskForCreatingOrderRedeemWithOptions(request: SaveBatchTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForCreatingOrderRedeemWithOptions(request: $_model.SaveBatchTaskForCreatingOrderRedeemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForCreatingOrderRedeemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.orderRedeemParam)) {
+    if (!$dara.isNull(request.orderRedeemParam)) {
       query["OrderRedeemParam"] = request.orderRedeemParam;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForCreatingOrderRedeem",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27009,15 +3965,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRedeemResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForCreatingOrderRedeemResponse({}));
   }
 
   /**
    * @param request - SaveBatchTaskForCreatingOrderRedeemRequest
    * @returns SaveBatchTaskForCreatingOrderRedeemResponse
    */
-  async saveBatchTaskForCreatingOrderRedeem(request: SaveBatchTaskForCreatingOrderRedeemRequest): Promise<SaveBatchTaskForCreatingOrderRedeemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForCreatingOrderRedeem(request: $_model.SaveBatchTaskForCreatingOrderRedeemRequest): Promise<$_model.SaveBatchTaskForCreatingOrderRedeemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderRedeemWithOptions(request, runtime);
   }
 
@@ -27028,41 +3984,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderRenewResponse
    */
-  async saveBatchTaskForCreatingOrderRenewWithOptions(request: SaveBatchTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForCreatingOrderRenewWithOptions(request: $_model.SaveBatchTaskForCreatingOrderRenewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForCreatingOrderRenewResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.orderRenewParam)) {
+    if (!$dara.isNull(request.orderRenewParam)) {
       query["OrderRenewParam"] = request.orderRenewParam;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForCreatingOrderRenew",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27073,7 +4029,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderRenewResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForCreatingOrderRenewResponse({}));
   }
 
   /**
@@ -27082,8 +4038,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForCreatingOrderRenewRequest
    * @returns SaveBatchTaskForCreatingOrderRenewResponse
    */
-  async saveBatchTaskForCreatingOrderRenew(request: SaveBatchTaskForCreatingOrderRenewRequest): Promise<SaveBatchTaskForCreatingOrderRenewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForCreatingOrderRenew(request: $_model.SaveBatchTaskForCreatingOrderRenewRequest): Promise<$_model.SaveBatchTaskForCreatingOrderRenewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderRenewWithOptions(request, runtime);
   }
 
@@ -27092,41 +4048,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForCreatingOrderTransferResponse
    */
-  async saveBatchTaskForCreatingOrderTransferWithOptions(request: SaveBatchTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForCreatingOrderTransferWithOptions(request: $_model.SaveBatchTaskForCreatingOrderTransferRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForCreatingOrderTransferResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.orderTransferParam)) {
+    if (!$dara.isNull(request.orderTransferParam)) {
       query["OrderTransferParam"] = request.orderTransferParam;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForCreatingOrderTransfer",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27137,15 +4093,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForCreatingOrderTransferResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForCreatingOrderTransferResponse({}));
   }
 
   /**
    * @param request - SaveBatchTaskForCreatingOrderTransferRequest
    * @returns SaveBatchTaskForCreatingOrderTransferResponse
    */
-  async saveBatchTaskForCreatingOrderTransfer(request: SaveBatchTaskForCreatingOrderTransferRequest): Promise<SaveBatchTaskForCreatingOrderTransferResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForCreatingOrderTransfer(request: $_model.SaveBatchTaskForCreatingOrderTransferRequest): Promise<$_model.SaveBatchTaskForCreatingOrderTransferResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForCreatingOrderTransferWithOptions(request, runtime);
   }
 
@@ -27156,29 +4112,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForDomainNameProxyServiceResponse
    */
-  async saveBatchTaskForDomainNameProxyServiceWithOptions(request: SaveBatchTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForDomainNameProxyServiceWithOptions(request: $_model.SaveBatchTaskForDomainNameProxyServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForDomainNameProxyServiceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForDomainNameProxyService",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27189,7 +4145,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForDomainNameProxyServiceResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForDomainNameProxyServiceResponse({}));
   }
 
   /**
@@ -27198,8 +4154,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForDomainNameProxyServiceRequest
    * @returns SaveBatchTaskForDomainNameProxyServiceResponse
    */
-  async saveBatchTaskForDomainNameProxyService(request: SaveBatchTaskForDomainNameProxyServiceRequest): Promise<SaveBatchTaskForDomainNameProxyServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForDomainNameProxyService(request: $_model.SaveBatchTaskForDomainNameProxyServiceRequest): Promise<$_model.SaveBatchTaskForDomainNameProxyServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForDomainNameProxyServiceWithOptions(request, runtime);
   }
 
@@ -27210,31 +4166,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForGenerateDomainCertificateResponse
    */
-  async saveBatchTaskForGenerateDomainCertificateWithOptions(tmpReq: SaveBatchTaskForGenerateDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForGenerateDomainCertificateResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SaveBatchTaskForGenerateDomainCertificateShrinkRequest({ });
+  async saveBatchTaskForGenerateDomainCertificateWithOptions(tmpReq: $_model.SaveBatchTaskForGenerateDomainCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForGenerateDomainCertificateResponse> {
+    tmpReq.validate();
+    let request = new $_model.SaveBatchTaskForGenerateDomainCertificateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.domainNames)) {
+    if (!$dara.isNull(tmpReq.domainNames)) {
       request.domainNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.domainNames, "DomainNames", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.domainNamesShrink)) {
+    if (!$dara.isNull(request.domainNamesShrink)) {
       query["DomainNames"] = request.domainNamesShrink;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForGenerateDomainCertificate",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27245,7 +4201,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForGenerateDomainCertificateResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForGenerateDomainCertificateResponse({}));
   }
 
   /**
@@ -27254,8 +4210,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForGenerateDomainCertificateRequest
    * @returns SaveBatchTaskForGenerateDomainCertificateResponse
    */
-  async saveBatchTaskForGenerateDomainCertificate(request: SaveBatchTaskForGenerateDomainCertificateRequest): Promise<SaveBatchTaskForGenerateDomainCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForGenerateDomainCertificate(request: $_model.SaveBatchTaskForGenerateDomainCertificateRequest): Promise<$_model.SaveBatchTaskForGenerateDomainCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForGenerateDomainCertificateWithOptions(request, runtime);
   }
 
@@ -27266,33 +4222,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForModifyingDomainDnsResponse
    */
-  async saveBatchTaskForModifyingDomainDnsWithOptions(request: SaveBatchTaskForModifyingDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForModifyingDomainDnsWithOptions(request: $_model.SaveBatchTaskForModifyingDomainDnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForModifyingDomainDnsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.aliyunDns)) {
+    if (!$dara.isNull(request.aliyunDns)) {
       query["AliyunDns"] = request.aliyunDns;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.domainNameServer)) {
+    if (!$dara.isNull(request.domainNameServer)) {
       query["DomainNameServer"] = request.domainNameServer;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForModifyingDomainDns",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27303,7 +4259,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForModifyingDomainDnsResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForModifyingDomainDnsResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForModifyingDomainDnsResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForModifyingDomainDnsResponse({}));
   }
 
   /**
@@ -27312,31 +4268,33 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForModifyingDomainDnsRequest
    * @returns SaveBatchTaskForModifyingDomainDnsResponse
    */
-  async saveBatchTaskForModifyingDomainDns(request: SaveBatchTaskForModifyingDomainDnsRequest): Promise<SaveBatchTaskForModifyingDomainDnsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForModifyingDomainDns(request: $_model.SaveBatchTaskForModifyingDomainDnsRequest): Promise<$_model.SaveBatchTaskForModifyingDomainDnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForModifyingDomainDnsWithOptions(request, runtime);
   }
 
   /**
+   * 提交批量预定删除抢注域名任务
+   * 
    * @param request - SaveBatchTaskForReserveDropListDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForReserveDropListDomainResponse
    */
-  async saveBatchTaskForReserveDropListDomainWithOptions(request: SaveBatchTaskForReserveDropListDomainRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForReserveDropListDomainWithOptions(request: $_model.SaveBatchTaskForReserveDropListDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForReserveDropListDomainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactTemplateId)) {
+    if (!$dara.isNull(request.contactTemplateId)) {
       query["ContactTemplateId"] = request.contactTemplateId;
     }
 
-    if (!Util.isUnset(request.domains)) {
+    if (!$dara.isNull(request.domains)) {
       query["Domains"] = request.domains;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForReserveDropListDomain",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27347,15 +4305,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForReserveDropListDomainResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForReserveDropListDomainResponse({}));
   }
 
   /**
+   * 提交批量预定删除抢注域名任务
+   * 
    * @param request - SaveBatchTaskForReserveDropListDomainRequest
    * @returns SaveBatchTaskForReserveDropListDomainResponse
    */
-  async saveBatchTaskForReserveDropListDomain(request: SaveBatchTaskForReserveDropListDomainRequest): Promise<SaveBatchTaskForReserveDropListDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForReserveDropListDomain(request: $_model.SaveBatchTaskForReserveDropListDomainRequest): Promise<$_model.SaveBatchTaskForReserveDropListDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForReserveDropListDomainWithOptions(request, runtime);
   }
 
@@ -27366,25 +4326,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
    */
-  async saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(request: SaveBatchTaskForTransferOutByAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(request: $_model.SaveBatchTaskForTransferOutByAuthorizationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.long)) {
-      query["Long"] = request.long;
-    }
-
-    if (!Util.isUnset(request.transferOutParamList)) {
+    if (!$dara.isNull(request.transferOutParamList)) {
       query["TransferOutParamList"] = request.transferOutParamList;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
-      query["UserClientIp"] = request.userClientIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForTransferOutByAuthorizationCode",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27395,7 +4347,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForTransferOutByAuthorizationCodeResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForTransferOutByAuthorizationCodeResponse({}));
   }
 
   /**
@@ -27404,8 +4356,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
    * @returns SaveBatchTaskForTransferOutByAuthorizationCodeResponse
    */
-  async saveBatchTaskForTransferOutByAuthorizationCode(request: SaveBatchTaskForTransferOutByAuthorizationCodeRequest): Promise<SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForTransferOutByAuthorizationCode(request: $_model.SaveBatchTaskForTransferOutByAuthorizationCodeRequest): Promise<$_model.SaveBatchTaskForTransferOutByAuthorizationCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(request, runtime);
   }
 
@@ -27416,29 +4368,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForTransferProhibitionLockResponse
    */
-  async saveBatchTaskForTransferProhibitionLockWithOptions(request: SaveBatchTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForTransferProhibitionLockWithOptions(request: $_model.SaveBatchTaskForTransferProhibitionLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForTransferProhibitionLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForTransferProhibitionLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27449,7 +4401,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForTransferProhibitionLockResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForTransferProhibitionLockResponse({}));
   }
 
   /**
@@ -27458,8 +4410,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForTransferProhibitionLockRequest
    * @returns SaveBatchTaskForTransferProhibitionLockResponse
    */
-  async saveBatchTaskForTransferProhibitionLock(request: SaveBatchTaskForTransferProhibitionLockRequest): Promise<SaveBatchTaskForTransferProhibitionLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForTransferProhibitionLock(request: $_model.SaveBatchTaskForTransferProhibitionLockRequest): Promise<$_model.SaveBatchTaskForTransferProhibitionLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForTransferProhibitionLockWithOptions(request, runtime);
   }
 
@@ -27468,29 +4420,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForUpdateProhibitionLockResponse
    */
-  async saveBatchTaskForUpdateProhibitionLockWithOptions(request: SaveBatchTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForUpdateProhibitionLockWithOptions(request: $_model.SaveBatchTaskForUpdateProhibitionLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForUpdateProhibitionLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForUpdateProhibitionLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27501,15 +4453,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdateProhibitionLockResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForUpdateProhibitionLockResponse({}));
   }
 
   /**
    * @param request - SaveBatchTaskForUpdateProhibitionLockRequest
    * @returns SaveBatchTaskForUpdateProhibitionLockResponse
    */
-  async saveBatchTaskForUpdateProhibitionLock(request: SaveBatchTaskForUpdateProhibitionLockRequest): Promise<SaveBatchTaskForUpdateProhibitionLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForUpdateProhibitionLock(request: $_model.SaveBatchTaskForUpdateProhibitionLockRequest): Promise<$_model.SaveBatchTaskForUpdateProhibitionLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdateProhibitionLockWithOptions(request, runtime);
   }
 
@@ -27520,101 +4472,101 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForUpdatingContactInfoByNewContactResponse
    */
-  async saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request: $_model.SaveBatchTaskForUpdatingContactInfoByNewContactRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.contactType)) {
+    if (!$dara.isNull(request.contactType)) {
       query["ContactType"] = request.contactType;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.transferOutProhibited)) {
+    if (!$dara.isNull(request.transferOutProhibited)) {
       query["TransferOutProhibited"] = request.transferOutProhibited;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForUpdatingContactInfoByNewContact",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27625,7 +4577,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByNewContactResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoByNewContactResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForUpdatingContactInfoByNewContactResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForUpdatingContactInfoByNewContactResponse({}));
   }
 
   /**
@@ -27634,8 +4586,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForUpdatingContactInfoByNewContactRequest
    * @returns SaveBatchTaskForUpdatingContactInfoByNewContactResponse
    */
-  async saveBatchTaskForUpdatingContactInfoByNewContact(request: SaveBatchTaskForUpdatingContactInfoByNewContactRequest): Promise<SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForUpdatingContactInfoByNewContact(request: $_model.SaveBatchTaskForUpdatingContactInfoByNewContactRequest): Promise<$_model.SaveBatchTaskForUpdatingContactInfoByNewContactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(request, runtime);
   }
 
@@ -27646,37 +4598,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
    */
-  async saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions(request: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest, runtime: $Util.RuntimeOptions): Promise<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
-    Util.validateModel(request);
+  async saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions(request: $_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactType)) {
+    if (!$dara.isNull(request.contactType)) {
       query["ContactType"] = request.contactType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.transferOutProhibited)) {
+    if (!$dara.isNull(request.transferOutProhibited)) {
       query["TransferOutProhibited"] = request.transferOutProhibited;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27687,7 +4639,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>(await this.callApi(params, req, runtime), new SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse({}));
+    return $dara.cast<$_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse>(await this.callApi(params, req, runtime), new $_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse({}));
   }
 
   /**
@@ -27696,8 +4648,8 @@ export default class Client extends OpenApi {
    * @param request - SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
    * @returns SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
    */
-  async saveBatchTaskForUpdatingContactInfoByRegistrantProfileId(request: SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest): Promise<SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveBatchTaskForUpdatingContactInfoByRegistrantProfileId(request: $_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest): Promise<$_model.SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions(request, runtime);
   }
 
@@ -27708,29 +4660,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveDomainGroupResponse
    */
-  async saveDomainGroupWithOptions(request: SaveDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<SaveDomainGroupResponse> {
-    Util.validateModel(request);
+  async saveDomainGroupWithOptions(request: $_model.SaveDomainGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveDomainGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.domainGroupName)) {
+    if (!$dara.isNull(request.domainGroupName)) {
       query["DomainGroupName"] = request.domainGroupName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveDomainGroup",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27741,7 +4693,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveDomainGroupResponse>(await this.callApi(params, req, runtime), new SaveDomainGroupResponse({}));
+    return $dara.cast<$_model.SaveDomainGroupResponse>(await this.callApi(params, req, runtime), new $_model.SaveDomainGroupResponse({}));
   }
 
   /**
@@ -27750,8 +4702,8 @@ export default class Client extends OpenApi {
    * @param request - SaveDomainGroupRequest
    * @returns SaveDomainGroupResponse
    */
-  async saveDomainGroup(request: SaveDomainGroupRequest): Promise<SaveDomainGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveDomainGroup(request: $_model.SaveDomainGroupRequest): Promise<$_model.SaveDomainGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveDomainGroupWithOptions(request, runtime);
   }
 
@@ -27762,101 +4714,101 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveRegistrantProfileResponse
    */
-  async saveRegistrantProfileWithOptions(request: SaveRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileResponse> {
-    Util.validateModel(request);
+  async saveRegistrantProfileWithOptions(request: $_model.SaveRegistrantProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveRegistrantProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.defaultRegistrantProfile)) {
+    if (!$dara.isNull(request.defaultRegistrantProfile)) {
       query["DefaultRegistrantProfile"] = request.defaultRegistrantProfile;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.registrantProfileType)) {
+    if (!$dara.isNull(request.registrantProfileType)) {
       query["RegistrantProfileType"] = request.registrantProfileType;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveRegistrantProfile",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -27867,7 +4819,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveRegistrantProfileResponse>(await this.callApi(params, req, runtime), new SaveRegistrantProfileResponse({}));
+    return $dara.cast<$_model.SaveRegistrantProfileResponse>(await this.callApi(params, req, runtime), new $_model.SaveRegistrantProfileResponse({}));
   }
 
   /**
@@ -27876,8 +4828,8 @@ export default class Client extends OpenApi {
    * @param request - SaveRegistrantProfileRequest
    * @returns SaveRegistrantProfileResponse
    */
-  async saveRegistrantProfile(request: SaveRegistrantProfileRequest): Promise<SaveRegistrantProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveRegistrantProfile(request: $_model.SaveRegistrantProfileRequest): Promise<$_model.SaveRegistrantProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveRegistrantProfileWithOptions(request, runtime);
   }
 
@@ -27888,109 +4840,109 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveRegistrantProfileRealNameVerificationResponse
    */
-  async saveRegistrantProfileRealNameVerificationWithOptions(request: SaveRegistrantProfileRealNameVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
-    Util.validateModel(request);
+  async saveRegistrantProfileRealNameVerificationWithOptions(request: $_model.SaveRegistrantProfileRealNameVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveRegistrantProfileRealNameVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.identityCredential)) {
+    if (!$dara.isNull(request.identityCredential)) {
       query["IdentityCredential"] = request.identityCredential;
     }
 
-    if (!Util.isUnset(request.identityCredentialNo)) {
+    if (!$dara.isNull(request.identityCredentialNo)) {
       query["IdentityCredentialNo"] = request.identityCredentialNo;
     }
 
-    if (!Util.isUnset(request.identityCredentialType)) {
+    if (!$dara.isNull(request.identityCredentialType)) {
       query["IdentityCredentialType"] = request.identityCredentialType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.registrantProfileType)) {
+    if (!$dara.isNull(request.registrantProfileType)) {
       query["RegistrantProfileType"] = request.registrantProfileType;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveRegistrantProfileRealNameVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28001,7 +4953,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new SaveRegistrantProfileRealNameVerificationResponse({}));
+    return $dara.cast<$_model.SaveRegistrantProfileRealNameVerificationResponse>(await this.callApi(params, req, runtime), new $_model.SaveRegistrantProfileRealNameVerificationResponse({}));
   }
 
   /**
@@ -28010,8 +4962,8 @@ export default class Client extends OpenApi {
    * @param request - SaveRegistrantProfileRealNameVerificationRequest
    * @returns SaveRegistrantProfileRealNameVerificationResponse
    */
-  async saveRegistrantProfileRealNameVerification(request: SaveRegistrantProfileRealNameVerificationRequest): Promise<SaveRegistrantProfileRealNameVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveRegistrantProfileRealNameVerification(request: $_model.SaveRegistrantProfileRealNameVerificationRequest): Promise<$_model.SaveRegistrantProfileRealNameVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveRegistrantProfileRealNameVerificationWithOptions(request, runtime);
   }
 
@@ -28022,41 +4974,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForAddingDSRecordResponse
    */
-  async saveSingleTaskForAddingDSRecordWithOptions(request: SaveSingleTaskForAddingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAddingDSRecordResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForAddingDSRecordWithOptions(request: $_model.SaveSingleTaskForAddingDSRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForAddingDSRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.algorithm)) {
+    if (!$dara.isNull(request.algorithm)) {
       query["Algorithm"] = request.algorithm;
     }
 
-    if (!Util.isUnset(request.digest)) {
+    if (!$dara.isNull(request.digest)) {
       query["Digest"] = request.digest;
     }
 
-    if (!Util.isUnset(request.digestType)) {
+    if (!$dara.isNull(request.digestType)) {
       query["DigestType"] = request.digestType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.keyTag)) {
+    if (!$dara.isNull(request.keyTag)) {
       query["KeyTag"] = request.keyTag;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForAddingDSRecord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28067,7 +5019,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForAddingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAddingDSRecordResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForAddingDSRecordResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForAddingDSRecordResponse({}));
   }
 
   /**
@@ -28076,8 +5028,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForAddingDSRecordRequest
    * @returns SaveSingleTaskForAddingDSRecordResponse
    */
-  async saveSingleTaskForAddingDSRecord(request: SaveSingleTaskForAddingDSRecordRequest): Promise<SaveSingleTaskForAddingDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForAddingDSRecord(request: $_model.SaveSingleTaskForAddingDSRecordRequest): Promise<$_model.SaveSingleTaskForAddingDSRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForAddingDSRecordWithOptions(request, runtime);
   }
 
@@ -28088,25 +5040,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
    */
-  async saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(request: SaveSingleTaskForApplyQuickTransferOutOpenlyRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(request: $_model.SaveSingleTaskForApplyQuickTransferOutOpenlyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForApplyQuickTransferOutOpenly",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28117,7 +5069,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForApplyQuickTransferOutOpenlyResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForApplyQuickTransferOutOpenlyResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForApplyQuickTransferOutOpenlyResponse({}));
   }
 
   /**
@@ -28126,8 +5078,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
    * @returns SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
    */
-  async saveSingleTaskForApplyQuickTransferOutOpenly(request: SaveSingleTaskForApplyQuickTransferOutOpenlyRequest): Promise<SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForApplyQuickTransferOutOpenly(request: $_model.SaveSingleTaskForApplyQuickTransferOutOpenlyRequest): Promise<$_model.SaveSingleTaskForApplyQuickTransferOutOpenlyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(request, runtime);
   }
 
@@ -28138,25 +5090,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForApprovingTransferOutResponse
    */
-  async saveSingleTaskForApprovingTransferOutWithOptions(request: SaveSingleTaskForApprovingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForApprovingTransferOutWithOptions(request: $_model.SaveSingleTaskForApprovingTransferOutRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForApprovingTransferOutResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForApprovingTransferOut",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28167,7 +5119,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForApprovingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForApprovingTransferOutResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForApprovingTransferOutResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForApprovingTransferOutResponse({}));
   }
 
   /**
@@ -28176,8 +5128,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForApprovingTransferOutRequest
    * @returns SaveSingleTaskForApprovingTransferOutResponse
    */
-  async saveSingleTaskForApprovingTransferOut(request: SaveSingleTaskForApprovingTransferOutRequest): Promise<SaveSingleTaskForApprovingTransferOutResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForApprovingTransferOut(request: $_model.SaveSingleTaskForApprovingTransferOutRequest): Promise<$_model.SaveSingleTaskForApprovingTransferOutResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForApprovingTransferOutWithOptions(request, runtime);
   }
 
@@ -28186,29 +5138,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForAssociatingEnsResponse
    */
-  async saveSingleTaskForAssociatingEnsWithOptions(request: SaveSingleTaskForAssociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForAssociatingEnsResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForAssociatingEnsWithOptions(request: $_model.SaveSingleTaskForAssociatingEnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForAssociatingEnsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForAssociatingEns",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28219,15 +5171,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForAssociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForAssociatingEnsResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForAssociatingEnsResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForAssociatingEnsResponse({}));
   }
 
   /**
    * @param request - SaveSingleTaskForAssociatingEnsRequest
    * @returns SaveSingleTaskForAssociatingEnsResponse
    */
-  async saveSingleTaskForAssociatingEns(request: SaveSingleTaskForAssociatingEnsRequest): Promise<SaveSingleTaskForAssociatingEnsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForAssociatingEns(request: $_model.SaveSingleTaskForAssociatingEnsRequest): Promise<$_model.SaveSingleTaskForAssociatingEnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForAssociatingEnsWithOptions(request, runtime);
   }
 
@@ -28236,25 +5188,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCancelingTransferInResponse
    */
-  async saveSingleTaskForCancelingTransferInWithOptions(request: SaveSingleTaskForCancelingTransferInRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferInResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCancelingTransferInWithOptions(request: $_model.SaveSingleTaskForCancelingTransferInRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCancelingTransferInResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCancelingTransferIn",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28265,15 +5217,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCancelingTransferInResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferInResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCancelingTransferInResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCancelingTransferInResponse({}));
   }
 
   /**
    * @param request - SaveSingleTaskForCancelingTransferInRequest
    * @returns SaveSingleTaskForCancelingTransferInResponse
    */
-  async saveSingleTaskForCancelingTransferIn(request: SaveSingleTaskForCancelingTransferInRequest): Promise<SaveSingleTaskForCancelingTransferInResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCancelingTransferIn(request: $_model.SaveSingleTaskForCancelingTransferInRequest): Promise<$_model.SaveSingleTaskForCancelingTransferInResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCancelingTransferInWithOptions(request, runtime);
   }
 
@@ -28284,25 +5236,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCancelingTransferOutResponse
    */
-  async saveSingleTaskForCancelingTransferOutWithOptions(request: SaveSingleTaskForCancelingTransferOutRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCancelingTransferOutWithOptions(request: $_model.SaveSingleTaskForCancelingTransferOutRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCancelingTransferOutResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCancelingTransferOut",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28313,7 +5265,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCancelingTransferOutResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCancelingTransferOutResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCancelingTransferOutResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCancelingTransferOutResponse({}));
   }
 
   /**
@@ -28322,8 +5274,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForCancelingTransferOutRequest
    * @returns SaveSingleTaskForCancelingTransferOutResponse
    */
-  async saveSingleTaskForCancelingTransferOut(request: SaveSingleTaskForCancelingTransferOutRequest): Promise<SaveSingleTaskForCancelingTransferOutResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCancelingTransferOut(request: $_model.SaveSingleTaskForCancelingTransferOutRequest): Promise<$_model.SaveSingleTaskForCancelingTransferOutResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCancelingTransferOutWithOptions(request, runtime);
   }
 
@@ -28334,33 +5286,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingDnsHostResponse
    */
-  async saveSingleTaskForCreatingDnsHostWithOptions(request: SaveSingleTaskForCreatingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCreatingDnsHostWithOptions(request: $_model.SaveSingleTaskForCreatingDnsHostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCreatingDnsHostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dnsName)) {
+    if (!$dara.isNull(request.dnsName)) {
       query["DnsName"] = request.dnsName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCreatingDnsHost",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28371,7 +5323,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCreatingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingDnsHostResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCreatingDnsHostResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCreatingDnsHostResponse({}));
   }
 
   /**
@@ -28380,8 +5332,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForCreatingDnsHostRequest
    * @returns SaveSingleTaskForCreatingDnsHostResponse
    */
-  async saveSingleTaskForCreatingDnsHost(request: SaveSingleTaskForCreatingDnsHostRequest): Promise<SaveSingleTaskForCreatingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCreatingDnsHost(request: $_model.SaveSingleTaskForCreatingDnsHostRequest): Promise<$_model.SaveSingleTaskForCreatingDnsHostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingDnsHostWithOptions(request, runtime);
   }
 
@@ -28392,145 +5344,145 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderActivateResponse
    */
-  async saveSingleTaskForCreatingOrderActivateWithOptions(request: SaveSingleTaskForCreatingOrderActivateRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCreatingOrderActivateWithOptions(request: $_model.SaveSingleTaskForCreatingOrderActivateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCreatingOrderActivateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.aliyunDns)) {
+    if (!$dara.isNull(request.aliyunDns)) {
       query["AliyunDns"] = request.aliyunDns;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.dns1)) {
+    if (!$dara.isNull(request.dns1)) {
       query["Dns1"] = request.dns1;
     }
 
-    if (!Util.isUnset(request.dns2)) {
+    if (!$dara.isNull(request.dns2)) {
       query["Dns2"] = request.dns2;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.enableDomainProxy)) {
+    if (!$dara.isNull(request.enableDomainProxy)) {
       query["EnableDomainProxy"] = request.enableDomainProxy;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.permitPremiumActivation)) {
+    if (!$dara.isNull(request.permitPremiumActivation)) {
       query["PermitPremiumActivation"] = request.permitPremiumActivation;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.subscriptionDuration)) {
+    if (!$dara.isNull(request.subscriptionDuration)) {
       query["SubscriptionDuration"] = request.subscriptionDuration;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.trademarkDomainActivation)) {
+    if (!$dara.isNull(request.trademarkDomainActivation)) {
       query["TrademarkDomainActivation"] = request.trademarkDomainActivation;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCreatingOrderActivate",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28541,7 +5493,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderActivateResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCreatingOrderActivateResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCreatingOrderActivateResponse({}));
   }
 
   /**
@@ -28550,8 +5502,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForCreatingOrderActivateRequest
    * @returns SaveSingleTaskForCreatingOrderActivateResponse
    */
-  async saveSingleTaskForCreatingOrderActivate(request: SaveSingleTaskForCreatingOrderActivateRequest): Promise<SaveSingleTaskForCreatingOrderActivateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCreatingOrderActivate(request: $_model.SaveSingleTaskForCreatingOrderActivateRequest): Promise<$_model.SaveSingleTaskForCreatingOrderActivateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderActivateWithOptions(request, runtime);
   }
 
@@ -28560,45 +5512,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderRedeemResponse
    */
-  async saveSingleTaskForCreatingOrderRedeemWithOptions(request: SaveSingleTaskForCreatingOrderRedeemRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCreatingOrderRedeemWithOptions(request: $_model.SaveSingleTaskForCreatingOrderRedeemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCreatingOrderRedeemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.currentExpirationDate)) {
+    if (!$dara.isNull(request.currentExpirationDate)) {
       query["CurrentExpirationDate"] = request.currentExpirationDate;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCreatingOrderRedeem",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28609,15 +5561,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRedeemResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCreatingOrderRedeemResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCreatingOrderRedeemResponse({}));
   }
 
   /**
    * @param request - SaveSingleTaskForCreatingOrderRedeemRequest
    * @returns SaveSingleTaskForCreatingOrderRedeemResponse
    */
-  async saveSingleTaskForCreatingOrderRedeem(request: SaveSingleTaskForCreatingOrderRedeemRequest): Promise<SaveSingleTaskForCreatingOrderRedeemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCreatingOrderRedeem(request: $_model.SaveSingleTaskForCreatingOrderRedeemRequest): Promise<$_model.SaveSingleTaskForCreatingOrderRedeemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderRedeemWithOptions(request, runtime);
   }
 
@@ -28628,49 +5580,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderRenewResponse
    */
-  async saveSingleTaskForCreatingOrderRenewWithOptions(request: SaveSingleTaskForCreatingOrderRenewRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCreatingOrderRenewWithOptions(request: $_model.SaveSingleTaskForCreatingOrderRenewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCreatingOrderRenewResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.currentExpirationDate)) {
+    if (!$dara.isNull(request.currentExpirationDate)) {
       query["CurrentExpirationDate"] = request.currentExpirationDate;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.subscriptionDuration)) {
+    if (!$dara.isNull(request.subscriptionDuration)) {
       query["SubscriptionDuration"] = request.subscriptionDuration;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCreatingOrderRenew",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28681,7 +5633,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderRenewResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCreatingOrderRenewResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCreatingOrderRenewResponse({}));
   }
 
   /**
@@ -28690,8 +5642,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForCreatingOrderRenewRequest
    * @returns SaveSingleTaskForCreatingOrderRenewResponse
    */
-  async saveSingleTaskForCreatingOrderRenew(request: SaveSingleTaskForCreatingOrderRenewRequest): Promise<SaveSingleTaskForCreatingOrderRenewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCreatingOrderRenew(request: $_model.SaveSingleTaskForCreatingOrderRenewRequest): Promise<$_model.SaveSingleTaskForCreatingOrderRenewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderRenewWithOptions(request, runtime);
   }
 
@@ -28700,53 +5652,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForCreatingOrderTransferResponse
    */
-  async saveSingleTaskForCreatingOrderTransferWithOptions(request: SaveSingleTaskForCreatingOrderTransferRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForCreatingOrderTransferWithOptions(request: $_model.SaveSingleTaskForCreatingOrderTransferRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForCreatingOrderTransferResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authorizationCode)) {
+    if (!$dara.isNull(request.authorizationCode)) {
       query["AuthorizationCode"] = request.authorizationCode;
     }
 
-    if (!Util.isUnset(request.couponNo)) {
+    if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.permitPremiumTransfer)) {
+    if (!$dara.isNull(request.permitPremiumTransfer)) {
       query["PermitPremiumTransfer"] = request.permitPremiumTransfer;
     }
 
-    if (!Util.isUnset(request.promotionNo)) {
+    if (!$dara.isNull(request.promotionNo)) {
       query["PromotionNo"] = request.promotionNo;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.useCoupon)) {
+    if (!$dara.isNull(request.useCoupon)) {
       query["UseCoupon"] = request.useCoupon;
     }
 
-    if (!Util.isUnset(request.usePromotion)) {
+    if (!$dara.isNull(request.usePromotion)) {
       query["UsePromotion"] = request.usePromotion;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForCreatingOrderTransfer",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28757,15 +5709,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForCreatingOrderTransferResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForCreatingOrderTransferResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForCreatingOrderTransferResponse({}));
   }
 
   /**
    * @param request - SaveSingleTaskForCreatingOrderTransferRequest
    * @returns SaveSingleTaskForCreatingOrderTransferResponse
    */
-  async saveSingleTaskForCreatingOrderTransfer(request: SaveSingleTaskForCreatingOrderTransferRequest): Promise<SaveSingleTaskForCreatingOrderTransferResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForCreatingOrderTransfer(request: $_model.SaveSingleTaskForCreatingOrderTransferRequest): Promise<$_model.SaveSingleTaskForCreatingOrderTransferResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForCreatingOrderTransferWithOptions(request, runtime);
   }
 
@@ -28776,29 +5728,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForDeletingDSRecordResponse
    */
-  async saveSingleTaskForDeletingDSRecordWithOptions(request: SaveSingleTaskForDeletingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForDeletingDSRecordWithOptions(request: $_model.SaveSingleTaskForDeletingDSRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForDeletingDSRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.keyTag)) {
+    if (!$dara.isNull(request.keyTag)) {
       query["KeyTag"] = request.keyTag;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForDeletingDSRecord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28809,7 +5761,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForDeletingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDSRecordResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForDeletingDSRecordResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForDeletingDSRecordResponse({}));
   }
 
   /**
@@ -28818,8 +5770,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForDeletingDSRecordRequest
    * @returns SaveSingleTaskForDeletingDSRecordResponse
    */
-  async saveSingleTaskForDeletingDSRecord(request: SaveSingleTaskForDeletingDSRecordRequest): Promise<SaveSingleTaskForDeletingDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForDeletingDSRecord(request: $_model.SaveSingleTaskForDeletingDSRecordRequest): Promise<$_model.SaveSingleTaskForDeletingDSRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForDeletingDSRecordWithOptions(request, runtime);
   }
 
@@ -28830,29 +5782,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForDeletingDnsHostResponse
    */
-  async saveSingleTaskForDeletingDnsHostWithOptions(request: SaveSingleTaskForDeletingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForDeletingDnsHostWithOptions(request: $_model.SaveSingleTaskForDeletingDnsHostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForDeletingDnsHostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dnsName)) {
+    if (!$dara.isNull(request.dnsName)) {
       query["DnsName"] = request.dnsName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForDeletingDnsHost",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28863,7 +5815,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForDeletingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDeletingDnsHostResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForDeletingDnsHostResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForDeletingDnsHostResponse({}));
   }
 
   /**
@@ -28872,8 +5824,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForDeletingDnsHostRequest
    * @returns SaveSingleTaskForDeletingDnsHostResponse
    */
-  async saveSingleTaskForDeletingDnsHost(request: SaveSingleTaskForDeletingDnsHostRequest): Promise<SaveSingleTaskForDeletingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForDeletingDnsHost(request: $_model.SaveSingleTaskForDeletingDnsHostRequest): Promise<$_model.SaveSingleTaskForDeletingDnsHostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForDeletingDnsHostWithOptions(request, runtime);
   }
 
@@ -28882,25 +5834,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForDisassociatingEnsResponse
    */
-  async saveSingleTaskForDisassociatingEnsWithOptions(request: SaveSingleTaskForDisassociatingEnsRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForDisassociatingEnsWithOptions(request: $_model.SaveSingleTaskForDisassociatingEnsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForDisassociatingEnsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForDisassociatingEns",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28911,15 +5863,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForDisassociatingEnsResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDisassociatingEnsResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForDisassociatingEnsResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForDisassociatingEnsResponse({}));
   }
 
   /**
    * @param request - SaveSingleTaskForDisassociatingEnsRequest
    * @returns SaveSingleTaskForDisassociatingEnsResponse
    */
-  async saveSingleTaskForDisassociatingEns(request: SaveSingleTaskForDisassociatingEnsRequest): Promise<SaveSingleTaskForDisassociatingEnsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForDisassociatingEns(request: $_model.SaveSingleTaskForDisassociatingEnsRequest): Promise<$_model.SaveSingleTaskForDisassociatingEnsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForDisassociatingEnsWithOptions(request, runtime);
   }
 
@@ -28930,29 +5882,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForDomainNameProxyServiceResponse
    */
-  async saveSingleTaskForDomainNameProxyServiceWithOptions(request: SaveSingleTaskForDomainNameProxyServiceRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForDomainNameProxyServiceWithOptions(request: $_model.SaveSingleTaskForDomainNameProxyServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForDomainNameProxyServiceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForDomainNameProxyService",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -28963,7 +5915,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForDomainNameProxyServiceResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForDomainNameProxyServiceResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForDomainNameProxyServiceResponse({}));
   }
 
   /**
@@ -28972,8 +5924,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForDomainNameProxyServiceRequest
    * @returns SaveSingleTaskForDomainNameProxyServiceResponse
    */
-  async saveSingleTaskForDomainNameProxyService(request: SaveSingleTaskForDomainNameProxyServiceRequest): Promise<SaveSingleTaskForDomainNameProxyServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForDomainNameProxyService(request: $_model.SaveSingleTaskForDomainNameProxyServiceRequest): Promise<$_model.SaveSingleTaskForDomainNameProxyServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForDomainNameProxyServiceWithOptions(request, runtime);
   }
 
@@ -28984,25 +5936,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForGenerateDomainCertificateResponse
    */
-  async saveSingleTaskForGenerateDomainCertificateWithOptions(request: SaveSingleTaskForGenerateDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForGenerateDomainCertificateResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForGenerateDomainCertificateWithOptions(request: $_model.SaveSingleTaskForGenerateDomainCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForGenerateDomainCertificateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForGenerateDomainCertificate",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29013,7 +5965,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForGenerateDomainCertificateResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForGenerateDomainCertificateResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForGenerateDomainCertificateResponse({}));
   }
 
   /**
@@ -29022,8 +5974,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForGenerateDomainCertificateRequest
    * @returns SaveSingleTaskForGenerateDomainCertificateResponse
    */
-  async saveSingleTaskForGenerateDomainCertificate(request: SaveSingleTaskForGenerateDomainCertificateRequest): Promise<SaveSingleTaskForGenerateDomainCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForGenerateDomainCertificate(request: $_model.SaveSingleTaskForGenerateDomainCertificateRequest): Promise<$_model.SaveSingleTaskForGenerateDomainCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForGenerateDomainCertificateWithOptions(request, runtime);
   }
 
@@ -29034,41 +5986,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForModifyingDSRecordResponse
    */
-  async saveSingleTaskForModifyingDSRecordWithOptions(request: SaveSingleTaskForModifyingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForModifyingDSRecordWithOptions(request: $_model.SaveSingleTaskForModifyingDSRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForModifyingDSRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.algorithm)) {
+    if (!$dara.isNull(request.algorithm)) {
       query["Algorithm"] = request.algorithm;
     }
 
-    if (!Util.isUnset(request.digest)) {
+    if (!$dara.isNull(request.digest)) {
       query["Digest"] = request.digest;
     }
 
-    if (!Util.isUnset(request.digestType)) {
+    if (!$dara.isNull(request.digestType)) {
       query["DigestType"] = request.digestType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.keyTag)) {
+    if (!$dara.isNull(request.keyTag)) {
       query["KeyTag"] = request.keyTag;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForModifyingDSRecord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29079,7 +6031,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForModifyingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDSRecordResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForModifyingDSRecordResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForModifyingDSRecordResponse({}));
   }
 
   /**
@@ -29088,8 +6040,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForModifyingDSRecordRequest
    * @returns SaveSingleTaskForModifyingDSRecordResponse
    */
-  async saveSingleTaskForModifyingDSRecord(request: SaveSingleTaskForModifyingDSRecordRequest): Promise<SaveSingleTaskForModifyingDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForModifyingDSRecord(request: $_model.SaveSingleTaskForModifyingDSRecordRequest): Promise<$_model.SaveSingleTaskForModifyingDSRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForModifyingDSRecordWithOptions(request, runtime);
   }
 
@@ -29100,33 +6052,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForModifyingDnsHostResponse
    */
-  async saveSingleTaskForModifyingDnsHostWithOptions(request: SaveSingleTaskForModifyingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForModifyingDnsHostWithOptions(request: $_model.SaveSingleTaskForModifyingDnsHostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForModifyingDnsHostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dnsName)) {
+    if (!$dara.isNull(request.dnsName)) {
       query["DnsName"] = request.dnsName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForModifyingDnsHost",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29137,7 +6089,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForModifyingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForModifyingDnsHostResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForModifyingDnsHostResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForModifyingDnsHostResponse({}));
   }
 
   /**
@@ -29146,8 +6098,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForModifyingDnsHostRequest
    * @returns SaveSingleTaskForModifyingDnsHostResponse
    */
-  async saveSingleTaskForModifyingDnsHost(request: SaveSingleTaskForModifyingDnsHostRequest): Promise<SaveSingleTaskForModifyingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForModifyingDnsHost(request: $_model.SaveSingleTaskForModifyingDnsHostRequest): Promise<$_model.SaveSingleTaskForModifyingDnsHostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForModifyingDnsHostWithOptions(request, runtime);
   }
 
@@ -29158,25 +6110,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
    */
-  async saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request: $_model.SaveSingleTaskForQueryingTransferAuthorizationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForQueryingTransferAuthorizationCode",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29187,7 +6139,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForQueryingTransferAuthorizationCodeResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForQueryingTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForQueryingTransferAuthorizationCodeResponse({}));
   }
 
   /**
@@ -29196,8 +6148,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
    * @returns SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
    */
-  async saveSingleTaskForQueryingTransferAuthorizationCode(request: SaveSingleTaskForQueryingTransferAuthorizationCodeRequest): Promise<SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForQueryingTransferAuthorizationCode(request: $_model.SaveSingleTaskForQueryingTransferAuthorizationCodeRequest): Promise<$_model.SaveSingleTaskForQueryingTransferAuthorizationCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(request, runtime);
   }
 
@@ -29208,29 +6160,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForReserveDropListDomainResponse
    */
-  async saveSingleTaskForReserveDropListDomainWithOptions(request: SaveSingleTaskForReserveDropListDomainRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForReserveDropListDomainResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForReserveDropListDomainWithOptions(request: $_model.SaveSingleTaskForReserveDropListDomainRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForReserveDropListDomainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.contactTemplateId)) {
+    if (!$dara.isNull(request.contactTemplateId)) {
       query["ContactTemplateId"] = request.contactTemplateId;
     }
 
-    if (!Util.isUnset(request.dns1)) {
+    if (!$dara.isNull(request.dns1)) {
       query["Dns1"] = request.dns1;
     }
 
-    if (!Util.isUnset(request.dns2)) {
+    if (!$dara.isNull(request.dns2)) {
       query["Dns2"] = request.dns2;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForReserveDropListDomain",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29241,7 +6193,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForReserveDropListDomainResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForReserveDropListDomainResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForReserveDropListDomainResponse({}));
   }
 
   /**
@@ -29250,8 +6202,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForReserveDropListDomainRequest
    * @returns SaveSingleTaskForReserveDropListDomainResponse
    */
-  async saveSingleTaskForReserveDropListDomain(request: SaveSingleTaskForReserveDropListDomainRequest): Promise<SaveSingleTaskForReserveDropListDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForReserveDropListDomain(request: $_model.SaveSingleTaskForReserveDropListDomainRequest): Promise<$_model.SaveSingleTaskForReserveDropListDomainResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForReserveDropListDomainWithOptions(request, runtime);
   }
 
@@ -29262,61 +6214,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForSaveArtExtensionResponse
    */
-  async saveSingleTaskForSaveArtExtensionWithOptions(request: SaveSingleTaskForSaveArtExtensionRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForSaveArtExtensionWithOptions(request: $_model.SaveSingleTaskForSaveArtExtensionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForSaveArtExtensionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dateOrPeriod)) {
+    if (!$dara.isNull(request.dateOrPeriod)) {
       query["DateOrPeriod"] = request.dateOrPeriod;
     }
 
-    if (!Util.isUnset(request.dimensions)) {
+    if (!$dara.isNull(request.dimensions)) {
       query["Dimensions"] = request.dimensions;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.features)) {
+    if (!$dara.isNull(request.features)) {
       query["Features"] = request.features;
     }
 
-    if (!Util.isUnset(request.inscriptionsAndMarkings)) {
+    if (!$dara.isNull(request.inscriptionsAndMarkings)) {
       query["InscriptionsAndMarkings"] = request.inscriptionsAndMarkings;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.maker)) {
+    if (!$dara.isNull(request.maker)) {
       query["Maker"] = request.maker;
     }
 
-    if (!Util.isUnset(request.materialsAndTechniques)) {
+    if (!$dara.isNull(request.materialsAndTechniques)) {
       query["MaterialsAndTechniques"] = request.materialsAndTechniques;
     }
 
-    if (!Util.isUnset(request.objectType)) {
+    if (!$dara.isNull(request.objectType)) {
       query["ObjectType"] = request.objectType;
     }
 
-    if (!Util.isUnset(request.reference)) {
+    if (!$dara.isNull(request.reference)) {
       query["Reference"] = request.reference;
     }
 
-    if (!Util.isUnset(request.subject)) {
+    if (!$dara.isNull(request.subject)) {
       query["Subject"] = request.subject;
     }
 
-    if (!Util.isUnset(request.title)) {
+    if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForSaveArtExtension",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29327,7 +6279,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForSaveArtExtensionResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSaveArtExtensionResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForSaveArtExtensionResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForSaveArtExtensionResponse({}));
   }
 
   /**
@@ -29336,8 +6288,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForSaveArtExtensionRequest
    * @returns SaveSingleTaskForSaveArtExtensionResponse
    */
-  async saveSingleTaskForSaveArtExtension(request: SaveSingleTaskForSaveArtExtensionRequest): Promise<SaveSingleTaskForSaveArtExtensionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForSaveArtExtension(request: $_model.SaveSingleTaskForSaveArtExtensionRequest): Promise<$_model.SaveSingleTaskForSaveArtExtensionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForSaveArtExtensionWithOptions(request, runtime);
   }
 
@@ -29348,25 +6300,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForSynchronizingDSRecordResponse
    */
-  async saveSingleTaskForSynchronizingDSRecordWithOptions(request: SaveSingleTaskForSynchronizingDSRecordRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForSynchronizingDSRecordWithOptions(request: $_model.SaveSingleTaskForSynchronizingDSRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForSynchronizingDSRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForSynchronizingDSRecord",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29377,7 +6329,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForSynchronizingDSRecordResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDSRecordResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForSynchronizingDSRecordResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForSynchronizingDSRecordResponse({}));
   }
 
   /**
@@ -29386,8 +6338,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForSynchronizingDSRecordRequest
    * @returns SaveSingleTaskForSynchronizingDSRecordResponse
    */
-  async saveSingleTaskForSynchronizingDSRecord(request: SaveSingleTaskForSynchronizingDSRecordRequest): Promise<SaveSingleTaskForSynchronizingDSRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForSynchronizingDSRecord(request: $_model.SaveSingleTaskForSynchronizingDSRecordRequest): Promise<$_model.SaveSingleTaskForSynchronizingDSRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForSynchronizingDSRecordWithOptions(request, runtime);
   }
 
@@ -29398,25 +6350,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForSynchronizingDnsHostResponse
    */
-  async saveSingleTaskForSynchronizingDnsHostWithOptions(request: SaveSingleTaskForSynchronizingDnsHostRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForSynchronizingDnsHostWithOptions(request: $_model.SaveSingleTaskForSynchronizingDnsHostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForSynchronizingDnsHostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForSynchronizingDnsHost",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29427,7 +6379,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForSynchronizingDnsHostResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForSynchronizingDnsHostResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForSynchronizingDnsHostResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForSynchronizingDnsHostResponse({}));
   }
 
   /**
@@ -29436,41 +6388,36 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForSynchronizingDnsHostRequest
    * @returns SaveSingleTaskForSynchronizingDnsHostResponse
    */
-  async saveSingleTaskForSynchronizingDnsHost(request: SaveSingleTaskForSynchronizingDnsHostRequest): Promise<SaveSingleTaskForSynchronizingDnsHostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForSynchronizingDnsHost(request: $_model.SaveSingleTaskForSynchronizingDnsHostRequest): Promise<$_model.SaveSingleTaskForSynchronizingDnsHostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForSynchronizingDnsHostWithOptions(request, runtime);
   }
 
   /**
-   * 基于转移码的单个转出任务提交
+   * Submit a single transfer-out task based on the transfer key of domain names.
+   * 
+   * @remarks
+   * The task ID.
    * 
    * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
    */
-  async saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(request: SaveSingleTaskForTransferOutByAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(request: $_model.SaveSingleTaskForTransferOutByAuthorizationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authorizationCode)) {
+    if (!$dara.isNull(request.authorizationCode)) {
       query["AuthorizationCode"] = request.authorizationCode;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.userClientIp)) {
-      query["UserClientIp"] = request.userClientIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForTransferOutByAuthorizationCode",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29481,17 +6428,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForTransferOutByAuthorizationCodeResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForTransferOutByAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForTransferOutByAuthorizationCodeResponse({}));
   }
 
   /**
-   * 基于转移码的单个转出任务提交
+   * Submit a single transfer-out task based on the transfer key of domain names.
+   * 
+   * @remarks
+   * The task ID.
    * 
    * @param request - SaveSingleTaskForTransferOutByAuthorizationCodeRequest
    * @returns SaveSingleTaskForTransferOutByAuthorizationCodeResponse
    */
-  async saveSingleTaskForTransferOutByAuthorizationCode(request: SaveSingleTaskForTransferOutByAuthorizationCodeRequest): Promise<SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForTransferOutByAuthorizationCode(request: $_model.SaveSingleTaskForTransferOutByAuthorizationCodeRequest): Promise<$_model.SaveSingleTaskForTransferOutByAuthorizationCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForTransferOutByAuthorizationCodeWithOptions(request, runtime);
   }
 
@@ -29502,29 +6452,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForTransferProhibitionLockResponse
    */
-  async saveSingleTaskForTransferProhibitionLockWithOptions(request: SaveSingleTaskForTransferProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForTransferProhibitionLockWithOptions(request: $_model.SaveSingleTaskForTransferProhibitionLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForTransferProhibitionLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForTransferProhibitionLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29535,7 +6485,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForTransferProhibitionLockResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForTransferProhibitionLockResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForTransferProhibitionLockResponse({}));
   }
 
   /**
@@ -29544,8 +6494,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForTransferProhibitionLockRequest
    * @returns SaveSingleTaskForTransferProhibitionLockResponse
    */
-  async saveSingleTaskForTransferProhibitionLock(request: SaveSingleTaskForTransferProhibitionLockRequest): Promise<SaveSingleTaskForTransferProhibitionLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForTransferProhibitionLock(request: $_model.SaveSingleTaskForTransferProhibitionLockRequest): Promise<$_model.SaveSingleTaskForTransferProhibitionLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForTransferProhibitionLockWithOptions(request, runtime);
   }
 
@@ -29556,29 +6506,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForUpdateProhibitionLockResponse
    */
-  async saveSingleTaskForUpdateProhibitionLockWithOptions(request: SaveSingleTaskForUpdateProhibitionLockRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForUpdateProhibitionLockWithOptions(request: $_model.SaveSingleTaskForUpdateProhibitionLockRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForUpdateProhibitionLockResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForUpdateProhibitionLock",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29589,7 +6539,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdateProhibitionLockResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForUpdateProhibitionLockResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForUpdateProhibitionLockResponse({}));
   }
 
   /**
@@ -29598,8 +6548,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForUpdateProhibitionLockRequest
    * @returns SaveSingleTaskForUpdateProhibitionLockResponse
    */
-  async saveSingleTaskForUpdateProhibitionLock(request: SaveSingleTaskForUpdateProhibitionLockRequest): Promise<SaveSingleTaskForUpdateProhibitionLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForUpdateProhibitionLock(request: $_model.SaveSingleTaskForUpdateProhibitionLockRequest): Promise<$_model.SaveSingleTaskForUpdateProhibitionLockResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForUpdateProhibitionLockWithOptions(request, runtime);
   }
 
@@ -29610,41 +6560,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveSingleTaskForUpdatingContactInfoResponse
    */
-  async saveSingleTaskForUpdatingContactInfoWithOptions(request: SaveSingleTaskForUpdatingContactInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
-    Util.validateModel(request);
+  async saveSingleTaskForUpdatingContactInfoWithOptions(request: $_model.SaveSingleTaskForUpdatingContactInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveSingleTaskForUpdatingContactInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addTransferLock)) {
+    if (!$dara.isNull(request.addTransferLock)) {
       query["AddTransferLock"] = request.addTransferLock;
     }
 
-    if (!Util.isUnset(request.contactType)) {
+    if (!$dara.isNull(request.contactType)) {
       query["ContactType"] = request.contactType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveSingleTaskForUpdatingContactInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29655,7 +6605,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveSingleTaskForUpdatingContactInfoResponse>(await this.callApi(params, req, runtime), new SaveSingleTaskForUpdatingContactInfoResponse({}));
+    return $dara.cast<$_model.SaveSingleTaskForUpdatingContactInfoResponse>(await this.callApi(params, req, runtime), new $_model.SaveSingleTaskForUpdatingContactInfoResponse({}));
   }
 
   /**
@@ -29664,8 +6614,8 @@ export default class Client extends OpenApi {
    * @param request - SaveSingleTaskForUpdatingContactInfoRequest
    * @returns SaveSingleTaskForUpdatingContactInfoResponse
    */
-  async saveSingleTaskForUpdatingContactInfo(request: SaveSingleTaskForUpdatingContactInfoRequest): Promise<SaveSingleTaskForUpdatingContactInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveSingleTaskForUpdatingContactInfo(request: $_model.SaveSingleTaskForUpdatingContactInfoRequest): Promise<$_model.SaveSingleTaskForUpdatingContactInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveSingleTaskForUpdatingContactInfoWithOptions(request, runtime);
   }
 
@@ -29676,25 +6626,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTaskForSubmittingDomainDeleteResponse
    */
-  async saveTaskForSubmittingDomainDeleteWithOptions(request: SaveTaskForSubmittingDomainDeleteRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
-    Util.validateModel(request);
+  async saveTaskForSubmittingDomainDeleteWithOptions(request: $_model.SaveTaskForSubmittingDomainDeleteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveTaskForSubmittingDomainDeleteResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveTaskForSubmittingDomainDelete",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29705,7 +6655,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveTaskForSubmittingDomainDeleteResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainDeleteResponse({}));
+    return $dara.cast<$_model.SaveTaskForSubmittingDomainDeleteResponse>(await this.callApi(params, req, runtime), new $_model.SaveTaskForSubmittingDomainDeleteResponse({}));
   }
 
   /**
@@ -29714,8 +6664,8 @@ export default class Client extends OpenApi {
    * @param request - SaveTaskForSubmittingDomainDeleteRequest
    * @returns SaveTaskForSubmittingDomainDeleteResponse
    */
-  async saveTaskForSubmittingDomainDelete(request: SaveTaskForSubmittingDomainDeleteRequest): Promise<SaveTaskForSubmittingDomainDeleteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveTaskForSubmittingDomainDelete(request: $_model.SaveTaskForSubmittingDomainDeleteRequest): Promise<$_model.SaveTaskForSubmittingDomainDeleteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainDeleteWithOptions(request, runtime);
   }
 
@@ -29726,39 +6676,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
    */
-  async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
-    Util.validateModel(request);
+  async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request: $_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.identityCredentialNo)) {
+    if (!$dara.isNull(request.identityCredentialNo)) {
       query["IdentityCredentialNo"] = request.identityCredentialNo;
     }
 
-    if (!Util.isUnset(request.identityCredentialType)) {
+    if (!$dara.isNull(request.identityCredentialType)) {
       query["IdentityCredentialType"] = request.identityCredentialType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.identityCredential)) {
+    if (!$dara.isNull(request.identityCredential)) {
       body["IdentityCredential"] = request.identityCredential;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredential",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29769,7 +6719,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse({}));
+    return $dara.cast<$_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new $_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse({}));
   }
 
   /**
@@ -29778,8 +6728,8 @@ export default class Client extends OpenApi {
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
    */
-  async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(request: SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(request: $_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest): Promise<$_model.SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(request, runtime);
   }
 
@@ -29790,33 +6740,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
    */
-  async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
-    Util.validateModel(request);
+  async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request: $_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29827,7 +6777,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse({}));
+    return $dara.cast<$_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new $_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse({}));
   }
 
   /**
@@ -29836,8 +6786,8 @@ export default class Client extends OpenApi {
    * @param request - SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
    * @returns SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
    */
-  async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(request: SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest): Promise<SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(request: $_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest): Promise<$_model.SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(request, runtime);
   }
 
@@ -29848,111 +6798,111 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
    */
-  async saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
-    Util.validateModel(request);
+  async saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request: $_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.identityCredentialNo)) {
+    if (!$dara.isNull(request.identityCredentialNo)) {
       query["IdentityCredentialNo"] = request.identityCredentialNo;
     }
 
-    if (!Util.isUnset(request.identityCredentialType)) {
+    if (!$dara.isNull(request.identityCredentialType)) {
       query["IdentityCredentialType"] = request.identityCredentialType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.transferOutProhibited)) {
+    if (!$dara.isNull(request.transferOutProhibited)) {
       query["TransferOutProhibited"] = request.transferOutProhibited;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.identityCredential)) {
+    if (!$dara.isNull(request.identityCredential)) {
       body["IdentityCredential"] = request.identityCredential;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveTaskForUpdatingRegistrantInfoByIdentityCredential",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -29963,7 +6913,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse({}));
+    return $dara.cast<$_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse>(await this.callApi(params, req, runtime), new $_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse({}));
   }
 
   /**
@@ -29972,8 +6922,8 @@ export default class Client extends OpenApi {
    * @param request - SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
    * @returns SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
    */
-  async saveTaskForUpdatingRegistrantInfoByIdentityCredential(request: SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest): Promise<SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveTaskForUpdatingRegistrantInfoByIdentityCredential(request: $_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest): Promise<$_model.SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(request, runtime);
   }
 
@@ -29984,33 +6934,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
    */
-  async saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest, runtime: $Util.RuntimeOptions): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
-    Util.validateModel(request);
+  async saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request: $_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.transferOutProhibited)) {
+    if (!$dara.isNull(request.transferOutProhibited)) {
       query["TransferOutProhibited"] = request.transferOutProhibited;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SaveTaskForUpdatingRegistrantInfoByRegistrantProfileID",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30021,7 +6971,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse({}));
+    return $dara.cast<$_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse>(await this.callApi(params, req, runtime), new $_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse({}));
   }
 
   /**
@@ -30030,8 +6980,8 @@ export default class Client extends OpenApi {
    * @param request - SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
    * @returns SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
    */
-  async saveTaskForUpdatingRegistrantInfoByRegistrantProfileID(request: SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest): Promise<SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async saveTaskForUpdatingRegistrantInfoByRegistrantProfileID(request: $_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest): Promise<$_model.SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(request, runtime);
   }
 
@@ -30045,105 +6995,105 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ScrollDomainListResponse
    */
-  async scrollDomainListWithOptions(request: ScrollDomainListRequest, runtime: $Util.RuntimeOptions): Promise<ScrollDomainListResponse> {
-    Util.validateModel(request);
+  async scrollDomainListWithOptions(request: $_model.ScrollDomainListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ScrollDomainListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.domainStatus)) {
+    if (!$dara.isNull(request.domainStatus)) {
       query["DomainStatus"] = request.domainStatus;
     }
 
-    if (!Util.isUnset(request.endExpirationDate)) {
+    if (!$dara.isNull(request.endExpirationDate)) {
       query["EndExpirationDate"] = request.endExpirationDate;
     }
 
-    if (!Util.isUnset(request.endLength)) {
+    if (!$dara.isNull(request.endLength)) {
       query["EndLength"] = request.endLength;
     }
 
-    if (!Util.isUnset(request.endRegistrationDate)) {
+    if (!$dara.isNull(request.endRegistrationDate)) {
       query["EndRegistrationDate"] = request.endRegistrationDate;
     }
 
-    if (!Util.isUnset(request.excluded)) {
+    if (!$dara.isNull(request.excluded)) {
       query["Excluded"] = request.excluded;
     }
 
-    if (!Util.isUnset(request.excludedPrefix)) {
+    if (!$dara.isNull(request.excludedPrefix)) {
       query["ExcludedPrefix"] = request.excludedPrefix;
     }
 
-    if (!Util.isUnset(request.excludedSuffix)) {
+    if (!$dara.isNull(request.excludedSuffix)) {
       query["ExcludedSuffix"] = request.excludedSuffix;
     }
 
-    if (!Util.isUnset(request.form)) {
+    if (!$dara.isNull(request.form)) {
       query["Form"] = request.form;
     }
 
-    if (!Util.isUnset(request.keyWord)) {
+    if (!$dara.isNull(request.keyWord)) {
       query["KeyWord"] = request.keyWord;
     }
 
-    if (!Util.isUnset(request.keyWordPrefix)) {
+    if (!$dara.isNull(request.keyWordPrefix)) {
       query["KeyWordPrefix"] = request.keyWordPrefix;
     }
 
-    if (!Util.isUnset(request.keyWordSuffix)) {
+    if (!$dara.isNull(request.keyWordSuffix)) {
       query["KeyWordSuffix"] = request.keyWordSuffix;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productDomainType)) {
+    if (!$dara.isNull(request.productDomainType)) {
       query["ProductDomainType"] = request.productDomainType;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.scrollId)) {
+    if (!$dara.isNull(request.scrollId)) {
       query["ScrollId"] = request.scrollId;
     }
 
-    if (!Util.isUnset(request.startExpirationDate)) {
+    if (!$dara.isNull(request.startExpirationDate)) {
       query["StartExpirationDate"] = request.startExpirationDate;
     }
 
-    if (!Util.isUnset(request.startLength)) {
+    if (!$dara.isNull(request.startLength)) {
       query["StartLength"] = request.startLength;
     }
 
-    if (!Util.isUnset(request.startRegistrationDate)) {
+    if (!$dara.isNull(request.startRegistrationDate)) {
       query["StartRegistrationDate"] = request.startRegistrationDate;
     }
 
-    if (!Util.isUnset(request.suffixs)) {
+    if (!$dara.isNull(request.suffixs)) {
       query["Suffixs"] = request.suffixs;
     }
 
-    if (!Util.isUnset(request.tradeType)) {
+    if (!$dara.isNull(request.tradeType)) {
       query["TradeType"] = request.tradeType;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ScrollDomainList",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30154,7 +7104,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ScrollDomainListResponse>(await this.callApi(params, req, runtime), new ScrollDomainListResponse({}));
+    return $dara.cast<$_model.ScrollDomainListResponse>(await this.callApi(params, req, runtime), new $_model.ScrollDomainListResponse({}));
   }
 
   /**
@@ -30166,8 +7116,8 @@ export default class Client extends OpenApi {
    * @param request - ScrollDomainListRequest
    * @returns ScrollDomainListResponse
    */
-  async scrollDomainList(request: ScrollDomainListRequest): Promise<ScrollDomainListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async scrollDomainList(request: $_model.ScrollDomainListRequest): Promise<$_model.ScrollDomainListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.scrollDomainListWithOptions(request, runtime);
   }
 
@@ -30178,21 +7128,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDefaultRegistrantProfileResponse
    */
-  async setDefaultRegistrantProfileWithOptions(request: SetDefaultRegistrantProfileRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultRegistrantProfileResponse> {
-    Util.validateModel(request);
+  async setDefaultRegistrantProfileWithOptions(request: $_model.SetDefaultRegistrantProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetDefaultRegistrantProfileResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.registrantProfileId)) {
+    if (!$dara.isNull(request.registrantProfileId)) {
       query["RegistrantProfileId"] = request.registrantProfileId;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDefaultRegistrantProfile",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30203,7 +7153,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDefaultRegistrantProfileResponse>(await this.callApi(params, req, runtime), new SetDefaultRegistrantProfileResponse({}));
+    return $dara.cast<$_model.SetDefaultRegistrantProfileResponse>(await this.callApi(params, req, runtime), new $_model.SetDefaultRegistrantProfileResponse({}));
   }
 
   /**
@@ -30212,8 +7162,8 @@ export default class Client extends OpenApi {
    * @param request - SetDefaultRegistrantProfileRequest
    * @returns SetDefaultRegistrantProfileResponse
    */
-  async setDefaultRegistrantProfile(request: SetDefaultRegistrantProfileRequest): Promise<SetDefaultRegistrantProfileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async setDefaultRegistrantProfile(request: $_model.SetDefaultRegistrantProfileRequest): Promise<$_model.SetDefaultRegistrantProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDefaultRegistrantProfileWithOptions(request, runtime);
   }
 
@@ -30224,21 +7174,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetupDomainAutoRenewResponse
    */
-  async setupDomainAutoRenewWithOptions(request: SetupDomainAutoRenewRequest, runtime: $Util.RuntimeOptions): Promise<SetupDomainAutoRenewResponse> {
-    Util.validateModel(request);
+  async setupDomainAutoRenewWithOptions(request: $_model.SetupDomainAutoRenewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetupDomainAutoRenewResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.operation)) {
+    if (!$dara.isNull(request.operation)) {
       query["Operation"] = request.operation;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetupDomainAutoRenew",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30249,7 +7199,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetupDomainAutoRenewResponse>(await this.callApi(params, req, runtime), new SetupDomainAutoRenewResponse({}));
+    return $dara.cast<$_model.SetupDomainAutoRenewResponse>(await this.callApi(params, req, runtime), new $_model.SetupDomainAutoRenewResponse({}));
   }
 
   /**
@@ -30258,8 +7208,8 @@ export default class Client extends OpenApi {
    * @param request - SetupDomainAutoRenewRequest
    * @returns SetupDomainAutoRenewResponse
    */
-  async setupDomainAutoRenew(request: SetupDomainAutoRenewRequest): Promise<SetupDomainAutoRenewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async setupDomainAutoRenew(request: $_model.SetupDomainAutoRenewRequest): Promise<$_model.SetupDomainAutoRenewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setupDomainAutoRenewWithOptions(request, runtime);
   }
 
@@ -30270,31 +7220,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDomainSpecialBizCredentialsResponse
    */
-  async submitDomainSpecialBizCredentialsWithOptions(request: SubmitDomainSpecialBizCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDomainSpecialBizCredentialsResponse> {
-    Util.validateModel(request);
+  async submitDomainSpecialBizCredentialsWithOptions(request: $_model.SubmitDomainSpecialBizCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDomainSpecialBizCredentialsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bizId)) {
+    if (!$dara.isNull(request.bizId)) {
       body["BizId"] = request.bizId;
     }
 
-    if (!Util.isUnset(request.credentials)) {
+    if (!$dara.isNull(request.credentials)) {
       body["Credentials"] = request.credentials;
     }
 
-    if (!Util.isUnset(request.extend)) {
+    if (!$dara.isNull(request.extend)) {
       body["Extend"] = request.extend;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitDomainSpecialBizCredentials",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30305,7 +7255,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitDomainSpecialBizCredentialsResponse>(await this.callApi(params, req, runtime), new SubmitDomainSpecialBizCredentialsResponse({}));
+    return $dara.cast<$_model.SubmitDomainSpecialBizCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.SubmitDomainSpecialBizCredentialsResponse({}));
   }
 
   /**
@@ -30314,8 +7264,8 @@ export default class Client extends OpenApi {
    * @param request - SubmitDomainSpecialBizCredentialsRequest
    * @returns SubmitDomainSpecialBizCredentialsResponse
    */
-  async submitDomainSpecialBizCredentials(request: SubmitDomainSpecialBizCredentialsRequest): Promise<SubmitDomainSpecialBizCredentialsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async submitDomainSpecialBizCredentials(request: $_model.SubmitDomainSpecialBizCredentialsRequest): Promise<$_model.SubmitDomainSpecialBizCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDomainSpecialBizCredentialsWithOptions(request, runtime);
   }
 
@@ -30326,29 +7276,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitEmailVerificationResponse
    */
-  async submitEmailVerificationWithOptions(request: SubmitEmailVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEmailVerificationResponse> {
-    Util.validateModel(request);
+  async submitEmailVerificationWithOptions(request: $_model.SubmitEmailVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitEmailVerificationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sendIfExist)) {
+    if (!$dara.isNull(request.sendIfExist)) {
       query["SendIfExist"] = request.sendIfExist;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitEmailVerification",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30359,7 +7309,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitEmailVerificationResponse>(await this.callApi(params, req, runtime), new SubmitEmailVerificationResponse({}));
+    return $dara.cast<$_model.SubmitEmailVerificationResponse>(await this.callApi(params, req, runtime), new $_model.SubmitEmailVerificationResponse({}));
   }
 
   /**
@@ -30368,8 +7318,8 @@ export default class Client extends OpenApi {
    * @param request - SubmitEmailVerificationRequest
    * @returns SubmitEmailVerificationResponse
    */
-  async submitEmailVerification(request: SubmitEmailVerificationRequest): Promise<SubmitEmailVerificationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async submitEmailVerification(request: $_model.SubmitEmailVerificationRequest): Promise<$_model.SubmitEmailVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitEmailVerificationWithOptions(request, runtime);
   }
 
@@ -30380,33 +7330,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitOperationAuditInfoResponse
    */
-  async submitOperationAuditInfoWithOptions(request: SubmitOperationAuditInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOperationAuditInfoResponse> {
-    Util.validateModel(request);
+  async submitOperationAuditInfoWithOptions(request: $_model.SubmitOperationAuditInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitOperationAuditInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditInfo)) {
+    if (!$dara.isNull(request.auditInfo)) {
       query["AuditInfo"] = request.auditInfo;
     }
 
-    if (!Util.isUnset(request.auditType)) {
+    if (!$dara.isNull(request.auditType)) {
       query["AuditType"] = request.auditType;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitOperationAuditInfo",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30417,7 +7367,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitOperationAuditInfoResponse>(await this.callApi(params, req, runtime), new SubmitOperationAuditInfoResponse({}));
+    return $dara.cast<$_model.SubmitOperationAuditInfoResponse>(await this.callApi(params, req, runtime), new $_model.SubmitOperationAuditInfoResponse({}));
   }
 
   /**
@@ -30426,8 +7376,8 @@ export default class Client extends OpenApi {
    * @param request - SubmitOperationAuditInfoRequest
    * @returns SubmitOperationAuditInfoResponse
    */
-  async submitOperationAuditInfo(request: SubmitOperationAuditInfoRequest): Promise<SubmitOperationAuditInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async submitOperationAuditInfo(request: $_model.SubmitOperationAuditInfoRequest): Promise<$_model.SubmitOperationAuditInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitOperationAuditInfoWithOptions(request, runtime);
   }
 
@@ -30438,33 +7388,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitOperationCredentialsResponse
    */
-  async submitOperationCredentialsWithOptions(request: SubmitOperationCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitOperationCredentialsResponse> {
-    Util.validateModel(request);
+  async submitOperationCredentialsWithOptions(request: $_model.SubmitOperationCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitOperationCredentialsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditRecordId)) {
+    if (!$dara.isNull(request.auditRecordId)) {
       query["AuditRecordId"] = request.auditRecordId;
     }
 
-    if (!Util.isUnset(request.auditType)) {
+    if (!$dara.isNull(request.auditType)) {
       query["AuditType"] = request.auditType;
     }
 
-    if (!Util.isUnset(request.credentials)) {
+    if (!$dara.isNull(request.credentials)) {
       query["Credentials"] = request.credentials;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.regType)) {
+    if (!$dara.isNull(request.regType)) {
       query["RegType"] = request.regType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SubmitOperationCredentials",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30475,7 +7425,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitOperationCredentialsResponse>(await this.callApi(params, req, runtime), new SubmitOperationCredentialsResponse({}));
+    return $dara.cast<$_model.SubmitOperationCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.SubmitOperationCredentialsResponse({}));
   }
 
   /**
@@ -30484,8 +7434,8 @@ export default class Client extends OpenApi {
    * @param request - SubmitOperationCredentialsRequest
    * @returns SubmitOperationCredentialsResponse
    */
-  async submitOperationCredentials(request: SubmitOperationCredentialsRequest): Promise<SubmitOperationCredentialsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async submitOperationCredentials(request: $_model.SubmitOperationCredentialsRequest): Promise<$_model.SubmitOperationCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.submitOperationCredentialsWithOptions(request, runtime);
   }
 
@@ -30494,25 +7444,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInCheckMailTokenResponse
    */
-  async transferInCheckMailTokenWithOptions(request: TransferInCheckMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInCheckMailTokenResponse> {
-    Util.validateModel(request);
+  async transferInCheckMailTokenWithOptions(request: $_model.TransferInCheckMailTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferInCheckMailTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferInCheckMailToken",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30523,15 +7473,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferInCheckMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInCheckMailTokenResponse({}));
+    return $dara.cast<$_model.TransferInCheckMailTokenResponse>(await this.callApi(params, req, runtime), new $_model.TransferInCheckMailTokenResponse({}));
   }
 
   /**
    * @param request - TransferInCheckMailTokenRequest
    * @returns TransferInCheckMailTokenResponse
    */
-  async transferInCheckMailToken(request: TransferInCheckMailTokenRequest): Promise<TransferInCheckMailTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async transferInCheckMailToken(request: $_model.TransferInCheckMailTokenRequest): Promise<$_model.TransferInCheckMailTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferInCheckMailTokenWithOptions(request, runtime);
   }
 
@@ -30540,29 +7490,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInReenterTransferAuthorizationCodeResponse
    */
-  async transferInReenterTransferAuthorizationCodeWithOptions(request: TransferInReenterTransferAuthorizationCodeRequest, runtime: $Util.RuntimeOptions): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
-    Util.validateModel(request);
+  async transferInReenterTransferAuthorizationCodeWithOptions(request: $_model.TransferInReenterTransferAuthorizationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferInReenterTransferAuthorizationCodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.transferAuthorizationCode)) {
+    if (!$dara.isNull(request.transferAuthorizationCode)) {
       query["TransferAuthorizationCode"] = request.transferAuthorizationCode;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferInReenterTransferAuthorizationCode",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30573,15 +7523,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferInReenterTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new TransferInReenterTransferAuthorizationCodeResponse({}));
+    return $dara.cast<$_model.TransferInReenterTransferAuthorizationCodeResponse>(await this.callApi(params, req, runtime), new $_model.TransferInReenterTransferAuthorizationCodeResponse({}));
   }
 
   /**
    * @param request - TransferInReenterTransferAuthorizationCodeRequest
    * @returns TransferInReenterTransferAuthorizationCodeResponse
    */
-  async transferInReenterTransferAuthorizationCode(request: TransferInReenterTransferAuthorizationCodeRequest): Promise<TransferInReenterTransferAuthorizationCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async transferInReenterTransferAuthorizationCode(request: $_model.TransferInReenterTransferAuthorizationCodeRequest): Promise<$_model.TransferInReenterTransferAuthorizationCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferInReenterTransferAuthorizationCodeWithOptions(request, runtime);
   }
 
@@ -30590,25 +7540,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInRefetchWhoisEmailResponse
    */
-  async transferInRefetchWhoisEmailWithOptions(request: TransferInRefetchWhoisEmailRequest, runtime: $Util.RuntimeOptions): Promise<TransferInRefetchWhoisEmailResponse> {
-    Util.validateModel(request);
+  async transferInRefetchWhoisEmailWithOptions(request: $_model.TransferInRefetchWhoisEmailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferInRefetchWhoisEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferInRefetchWhoisEmail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30619,15 +7569,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferInRefetchWhoisEmailResponse>(await this.callApi(params, req, runtime), new TransferInRefetchWhoisEmailResponse({}));
+    return $dara.cast<$_model.TransferInRefetchWhoisEmailResponse>(await this.callApi(params, req, runtime), new $_model.TransferInRefetchWhoisEmailResponse({}));
   }
 
   /**
    * @param request - TransferInRefetchWhoisEmailRequest
    * @returns TransferInRefetchWhoisEmailResponse
    */
-  async transferInRefetchWhoisEmail(request: TransferInRefetchWhoisEmailRequest): Promise<TransferInRefetchWhoisEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async transferInRefetchWhoisEmail(request: $_model.TransferInRefetchWhoisEmailRequest): Promise<$_model.TransferInRefetchWhoisEmailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferInRefetchWhoisEmailWithOptions(request, runtime);
   }
 
@@ -30636,25 +7586,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferInResendMailTokenResponse
    */
-  async transferInResendMailTokenWithOptions(request: TransferInResendMailTokenRequest, runtime: $Util.RuntimeOptions): Promise<TransferInResendMailTokenResponse> {
-    Util.validateModel(request);
+  async transferInResendMailTokenWithOptions(request: $_model.TransferInResendMailTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferInResendMailTokenResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferInResendMailToken",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30665,15 +7615,15 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferInResendMailTokenResponse>(await this.callApi(params, req, runtime), new TransferInResendMailTokenResponse({}));
+    return $dara.cast<$_model.TransferInResendMailTokenResponse>(await this.callApi(params, req, runtime), new $_model.TransferInResendMailTokenResponse({}));
   }
 
   /**
    * @param request - TransferInResendMailTokenRequest
    * @returns TransferInResendMailTokenResponse
    */
-  async transferInResendMailToken(request: TransferInResendMailTokenRequest): Promise<TransferInResendMailTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async transferInResendMailToken(request: $_model.TransferInResendMailTokenRequest): Promise<$_model.TransferInResendMailTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferInResendMailTokenWithOptions(request, runtime);
   }
 
@@ -30684,43 +7634,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDomainToDomainGroupResponse
    */
-  async updateDomainToDomainGroupWithOptions(request: UpdateDomainToDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainToDomainGroupResponse> {
-    Util.validateModel(request);
+  async updateDomainToDomainGroupWithOptions(request: $_model.UpdateDomainToDomainGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDomainToDomainGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dataSource)) {
+    if (!$dara.isNull(request.dataSource)) {
       query["DataSource"] = request.dataSource;
     }
 
-    if (!Util.isUnset(request.domainGroupId)) {
+    if (!$dara.isNull(request.domainGroupId)) {
       query["DomainGroupId"] = request.domainGroupId;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.replace)) {
+    if (!$dara.isNull(request.replace)) {
       query["Replace"] = request.replace;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.fileToUpload)) {
+    if (!$dara.isNull(request.fileToUpload)) {
       body["FileToUpload"] = request.fileToUpload;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDomainToDomainGroup",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30731,7 +7681,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDomainToDomainGroupResponse>(await this.callApi(params, req, runtime), new UpdateDomainToDomainGroupResponse({}));
+    return $dara.cast<$_model.UpdateDomainToDomainGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDomainToDomainGroupResponse({}));
   }
 
   /**
@@ -30740,8 +7690,8 @@ export default class Client extends OpenApi {
    * @param request - UpdateDomainToDomainGroupRequest
    * @returns UpdateDomainToDomainGroupResponse
    */
-  async updateDomainToDomainGroup(request: UpdateDomainToDomainGroupRequest): Promise<UpdateDomainToDomainGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateDomainToDomainGroup(request: $_model.UpdateDomainToDomainGroupRequest): Promise<$_model.UpdateDomainToDomainGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDomainToDomainGroupWithOptions(request, runtime);
   }
 
@@ -30752,93 +7702,93 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyContactFieldResponse
    */
-  async verifyContactFieldWithOptions(request: VerifyContactFieldRequest, runtime: $Util.RuntimeOptions): Promise<VerifyContactFieldResponse> {
-    Util.validateModel(request);
+  async verifyContactFieldWithOptions(request: $_model.VerifyContactFieldRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyContactFieldResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.address)) {
+    if (!$dara.isNull(request.address)) {
       query["Address"] = request.address;
     }
 
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.country)) {
+    if (!$dara.isNull(request.country)) {
       query["Country"] = request.country;
     }
 
-    if (!Util.isUnset(request.domainName)) {
+    if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
     }
 
-    if (!Util.isUnset(request.email)) {
+    if (!$dara.isNull(request.email)) {
       query["Email"] = request.email;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.postalCode)) {
+    if (!$dara.isNull(request.postalCode)) {
       query["PostalCode"] = request.postalCode;
     }
 
-    if (!Util.isUnset(request.province)) {
+    if (!$dara.isNull(request.province)) {
       query["Province"] = request.province;
     }
 
-    if (!Util.isUnset(request.registrantName)) {
+    if (!$dara.isNull(request.registrantName)) {
       query["RegistrantName"] = request.registrantName;
     }
 
-    if (!Util.isUnset(request.registrantOrganization)) {
+    if (!$dara.isNull(request.registrantOrganization)) {
       query["RegistrantOrganization"] = request.registrantOrganization;
     }
 
-    if (!Util.isUnset(request.registrantType)) {
+    if (!$dara.isNull(request.registrantType)) {
       query["RegistrantType"] = request.registrantType;
     }
 
-    if (!Util.isUnset(request.telArea)) {
+    if (!$dara.isNull(request.telArea)) {
       query["TelArea"] = request.telArea;
     }
 
-    if (!Util.isUnset(request.telExt)) {
+    if (!$dara.isNull(request.telExt)) {
       query["TelExt"] = request.telExt;
     }
 
-    if (!Util.isUnset(request.telephone)) {
+    if (!$dara.isNull(request.telephone)) {
       query["Telephone"] = request.telephone;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    if (!Util.isUnset(request.zhAddress)) {
+    if (!$dara.isNull(request.zhAddress)) {
       query["ZhAddress"] = request.zhAddress;
     }
 
-    if (!Util.isUnset(request.zhCity)) {
+    if (!$dara.isNull(request.zhCity)) {
       query["ZhCity"] = request.zhCity;
     }
 
-    if (!Util.isUnset(request.zhProvince)) {
+    if (!$dara.isNull(request.zhProvince)) {
       query["ZhProvince"] = request.zhProvince;
     }
 
-    if (!Util.isUnset(request.zhRegistrantName)) {
+    if (!$dara.isNull(request.zhRegistrantName)) {
       query["ZhRegistrantName"] = request.zhRegistrantName;
     }
 
-    if (!Util.isUnset(request.zhRegistrantOrganization)) {
+    if (!$dara.isNull(request.zhRegistrantOrganization)) {
       query["ZhRegistrantOrganization"] = request.zhRegistrantOrganization;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifyContactField",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30849,7 +7799,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyContactFieldResponse>(await this.callApi(params, req, runtime), new VerifyContactFieldResponse({}));
+    return $dara.cast<$_model.VerifyContactFieldResponse>(await this.callApi(params, req, runtime), new $_model.VerifyContactFieldResponse({}));
   }
 
   /**
@@ -30858,8 +7808,8 @@ export default class Client extends OpenApi {
    * @param request - VerifyContactFieldRequest
    * @returns VerifyContactFieldResponse
    */
-  async verifyContactField(request: VerifyContactFieldRequest): Promise<VerifyContactFieldResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async verifyContactField(request: $_model.VerifyContactFieldRequest): Promise<$_model.VerifyContactFieldResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.verifyContactFieldWithOptions(request, runtime);
   }
 
@@ -30870,25 +7820,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyEmailResponse
    */
-  async verifyEmailWithOptions(request: VerifyEmailRequest, runtime: $Util.RuntimeOptions): Promise<VerifyEmailResponse> {
-    Util.validateModel(request);
+  async verifyEmailWithOptions(request: $_model.VerifyEmailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyEmailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    if (!Util.isUnset(request.userClientIp)) {
+    if (!$dara.isNull(request.userClientIp)) {
       query["UserClientIp"] = request.userClientIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifyEmail",
       version: "2018-01-29",
       protocol: "HTTPS",
@@ -30899,7 +7849,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyEmailResponse>(await this.callApi(params, req, runtime), new VerifyEmailResponse({}));
+    return $dara.cast<$_model.VerifyEmailResponse>(await this.callApi(params, req, runtime), new $_model.VerifyEmailResponse({}));
   }
 
   /**
@@ -30908,8 +7858,8 @@ export default class Client extends OpenApi {
    * @param request - VerifyEmailRequest
    * @returns VerifyEmailResponse
    */
-  async verifyEmail(request: VerifyEmailRequest): Promise<VerifyEmailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async verifyEmail(request: $_model.VerifyEmailRequest): Promise<$_model.VerifyEmailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.verifyEmailWithOptions(request, runtime);
   }
 
