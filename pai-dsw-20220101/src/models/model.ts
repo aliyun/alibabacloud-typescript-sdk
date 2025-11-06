@@ -75,6 +75,7 @@ export { DynamicMount } from './DynamicMount';
 export { DynamicMountPoint } from './DynamicMountPoint';
 export { ForwardInfo } from './ForwardInfo';
 export { ForwardInfoResponse } from './ForwardInfoResponse';
+export { ServiceConfig } from './ServiceConfig';
 export { CreateDiagnosisRequest } from './CreateDiagnosisRequest';
 export { CreateDiagnosisResponseBody } from './CreateDiagnosisResponseBody';
 export { CreateDiagnosisResponse } from './CreateDiagnosisResponse';

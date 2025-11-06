@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { CredentialConfig } from "./CredentialConfig";
 import { DynamicMount } from "./DynamicMount";
+import { ServiceConfig } from "./ServiceConfig";
 import { BandwidthLimit } from "./BandwidthLimit";
 import { ForwardInfoResponse } from "./ForwardInfoResponse";
 
@@ -765,6 +766,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
    * The forward information.
    */
   forwardInfos?: ForwardInfoResponse[];
+  ip?: string;
   /**
    * @remarks
    * The security group ID.
@@ -795,6 +797,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
       defaultRoute: 'DefaultRoute',
       extendedCIDRs: 'ExtendedCIDRs',
       forwardInfos: 'ForwardInfos',
+      ip: 'Ip',
       securityGroupId: 'SecurityGroupId',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -807,6 +810,7 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $dara.Model {
       defaultRoute: 'string',
       extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
       forwardInfos: { 'type': 'array', 'itemType': ForwardInfoResponse },
+      ip: 'string',
       securityGroupId: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -1092,6 +1096,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * resource_group
    */
   resourceName?: string;
+  serviceConfig?: ServiceConfig;
   /**
    * @remarks
    * The instance status.
@@ -1203,6 +1208,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      serviceConfig: 'ServiceConfig',
       status: 'Status',
       tags: 'Tags',
       terminalUrl: 'TerminalUrl',
@@ -1253,6 +1259,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       requestedResource: ListInstancesResponseBodyInstancesRequestedResource,
       resourceId: 'string',
       resourceName: 'string',
+      serviceConfig: ServiceConfig,
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesTags },
       terminalUrl: 'string',
@@ -1302,6 +1309,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
+    }
+    if(this.serviceConfig && typeof (this.serviceConfig as any).validate === 'function') {
+      (this.serviceConfig as any).validate();
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
