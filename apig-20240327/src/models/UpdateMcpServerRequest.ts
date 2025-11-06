@@ -137,6 +137,7 @@ export class UpdateMcpServerRequestBackendConfig extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   assembledSources?: UpdateMcpServerRequestAssembledSources[];
   backendConfig?: UpdateMcpServerRequestBackendConfig;
+  createFromType?: string;
   description?: string;
   domainIds?: string[];
   /**
@@ -170,6 +171,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
     return {
       assembledSources: 'assembledSources',
       backendConfig: 'backendConfig',
+      createFromType: 'createFromType',
       description: 'description',
       domainIds: 'domainIds',
       exposedUriPath: 'exposedUriPath',
@@ -184,6 +186,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
     return {
       assembledSources: { 'type': 'array', 'itemType': UpdateMcpServerRequestAssembledSources },
       backendConfig: UpdateMcpServerRequestBackendConfig,
+      createFromType: 'string',
       description: 'string',
       domainIds: { 'type': 'array', 'itemType': 'string' },
       exposedUriPath: 'string',

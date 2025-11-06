@@ -930,6 +930,10 @@ export default class Client extends OpenApi {
       body["backendConfig"] = request.backendConfig;
     }
 
+    if (!$dara.isNull(request.createFromType)) {
+      body["createFromType"] = request.createFromType;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
@@ -4691,6 +4695,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.backendConfig)) {
       body["backendConfig"] = request.backendConfig;
+    }
+
+    if (!$dara.isNull(request.createFromType)) {
+      body["createFromType"] = request.createFromType;
     }
 
     if (!$dara.isNull(request.description)) {

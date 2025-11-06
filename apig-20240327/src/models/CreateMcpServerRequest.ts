@@ -137,6 +137,7 @@ export class CreateMcpServerRequestBackendConfig extends $dara.Model {
 export class CreateMcpServerRequest extends $dara.Model {
   assembledSources?: CreateMcpServerRequestAssembledSources[];
   backendConfig?: CreateMcpServerRequestBackendConfig;
+  createFromType?: string;
   /**
    * @example
    * mcp tool fetch time
@@ -187,6 +188,7 @@ export class CreateMcpServerRequest extends $dara.Model {
     return {
       assembledSources: 'assembledSources',
       backendConfig: 'backendConfig',
+      createFromType: 'createFromType',
       description: 'description',
       domainIds: 'domainIds',
       exposedUriPath: 'exposedUriPath',
@@ -203,6 +205,7 @@ export class CreateMcpServerRequest extends $dara.Model {
     return {
       assembledSources: { 'type': 'array', 'itemType': CreateMcpServerRequestAssembledSources },
       backendConfig: CreateMcpServerRequestBackendConfig,
+      createFromType: 'string',
       description: 'string',
       domainIds: { 'type': 'array', 'itemType': 'string' },
       exposedUriPath: 'string',
