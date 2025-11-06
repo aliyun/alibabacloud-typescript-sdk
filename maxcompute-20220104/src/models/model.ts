@@ -273,6 +273,9 @@ export { DeleteMmsDataSourceResponseBody } from './DeleteMmsDataSourceResponseBo
 export { DeleteMmsDataSourceResponse } from './DeleteMmsDataSourceResponse';
 export { DeleteMmsJobResponseBody } from './DeleteMmsJobResponseBody';
 export { DeleteMmsJobResponse } from './DeleteMmsJobResponse';
+export { DeleteProjectRequest } from './DeleteProjectRequest';
+export { DeleteProjectResponseBody } from './DeleteProjectResponseBody';
+export { DeleteProjectResponse } from './DeleteProjectResponse';
 export { DeleteQuotaPlanRequest } from './DeleteQuotaPlanRequest';
 export { DeleteQuotaPlanResponseBody } from './DeleteQuotaPlanResponseBody';
 export { DeleteQuotaPlanResponse } from './DeleteQuotaPlanResponse';

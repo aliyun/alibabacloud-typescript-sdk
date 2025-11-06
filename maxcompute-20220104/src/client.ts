@@ -688,6 +688,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a MaxCompute project.
+   * 
+   * @param request - DeleteProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
+   */
+  async deleteProjectWithOptions(projectName: string, request: $_model.DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isLogical)) {
+      query["isLogical"] = request.isLogical;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProject",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/projects/${$dara.URL.percentEncode(projectName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectResponse({}));
+  }
+
+  /**
+   * Deletes a MaxCompute project.
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
+   */
+  async deleteProject(projectName: string, request: $_model.DeleteProjectRequest): Promise<$_model.DeleteProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteProjectWithOptions(projectName, request, headers, runtime);
+  }
+
+  /**
    * Deletes a quota plan.
    * 
    * @param request - DeleteQuotaPlanRequest
