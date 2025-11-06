@@ -87,6 +87,7 @@ export class ListCheckItemWarningMachineResponseBodyListWarningRiskList extends 
 }
 
 export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
+  assetType?: string;
   /**
    * @remarks
    * The edition of Security Center that is authorized to protect the asset. Valid values:
@@ -278,6 +279,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
   warningRiskList?: ListCheckItemWarningMachineResponseBodyListWarningRiskList[];
   static names(): { [key: string]: string } {
     return {
+      assetType: 'AssetType',
       authVersion: 'AuthVersion',
       bind: 'Bind',
       containerId: 'ContainerId',
@@ -304,6 +306,7 @@ export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      assetType: 'string',
       authVersion: 'number',
       bind: 'boolean',
       containerId: 'string',

@@ -13,6 +13,11 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
    */
   eventId?: number;
   /**
+   * @example
+   * default
+   */
+  eventSource?: string;
+  /**
    * @remarks
    * The language type for request and response, default is **zh**. Values:
    * - **zh**: Chinese
@@ -25,6 +30,7 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       eventId: 'EventId',
+      eventSource: 'EventSource',
       lang: 'Lang',
     };
   }
@@ -32,6 +38,7 @@ export class GetAttackPathEventDetailRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       eventId: 'number',
+      eventSource: 'string',
       lang: 'string',
     };
   }

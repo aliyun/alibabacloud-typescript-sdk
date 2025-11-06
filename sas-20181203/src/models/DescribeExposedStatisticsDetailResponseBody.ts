@@ -130,6 +130,11 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
    */
   exposureTypeInstanceName?: string;
   /**
+   * @example
+   * 80
+   */
+  forwardPort?: string;
+  /**
    * @remarks
    * The region ID of the asset.
    * 
@@ -146,6 +151,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
       exposureType: 'ExposureType',
       exposureTypeId: 'ExposureTypeId',
       exposureTypeInstanceName: 'ExposureTypeInstanceName',
+      forwardPort: 'ForwardPort',
       regionId: 'RegionId',
     };
   }
@@ -159,6 +165,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
       exposureType: 'string',
       exposureTypeId: 'string',
       exposureTypeInstanceName: 'string',
+      forwardPort: 'string',
       regionId: 'string',
     };
   }

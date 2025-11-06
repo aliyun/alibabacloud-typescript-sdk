@@ -13906,6 +13906,10 @@ export default class Client extends OpenApi {
   async describeExposedStatisticsDetailWithOptions(request: $_model.DescribeExposedStatisticsDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExposedStatisticsDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -13928,6 +13932,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.statisticsTypeInstanceValue)) {
       query["StatisticsTypeInstanceValue"] = request.statisticsTypeInstanceValue;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -26849,6 +26857,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.eventId)) {
       query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventSource)) {
+      query["EventSource"] = request.eventSource;
     }
 
     if (!$dara.isNull(request.lang)) {

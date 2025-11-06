@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   /**
+   * @example
+   * {}
+   */
+  criteria?: string;
+  /**
    * @remarks
    * The number of the page to return.
    * 
@@ -65,25 +70,34 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
    * lb-2ze4rso39h4nczcqs****
    */
   statisticsTypeInstanceValue?: string;
+  /**
+   * @example
+   * c9107c04-942f-40c1-981a-f1c1***
+   */
+  uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      criteria: 'Criteria',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       statisticsType: 'StatisticsType',
       statisticsTypeGatewayType: 'StatisticsTypeGatewayType',
       statisticsTypeInstanceValue: 'StatisticsTypeInstanceValue',
+      uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      criteria: 'string',
       currentPage: 'number',
       pageSize: 'number',
       resourceDirectoryAccountId: 'number',
       statisticsType: 'string',
       statisticsTypeGatewayType: 'string',
       statisticsTypeInstanceValue: 'string',
+      uuid: 'string',
     };
   }
 

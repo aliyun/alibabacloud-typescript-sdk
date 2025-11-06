@@ -176,6 +176,11 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventEdgeLis
 
 export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList extends $dara.Model {
   /**
+   * @example
+   * 1
+   */
+  aiAssetFlag?: number;
+  /**
    * @remarks
    * Node element type.
    * 
@@ -227,6 +232,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
   sensitiveAssetFlag?: number;
   static names(): { [key: string]: string } {
     return {
+      aiAssetFlag: 'AiAssetFlag',
       elementType: 'ElementType',
       nodeDetail: 'NodeDetail',
       nodeName: 'NodeName',
@@ -238,6 +244,7 @@ export class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeLis
 
   static types(): { [key: string]: any } {
     return {
+      aiAssetFlag: 'number',
       elementType: 'string',
       nodeDetail: 'string',
       nodeName: 'string',
