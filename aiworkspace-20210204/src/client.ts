@@ -1057,6 +1057,93 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建镜像构建任务
+   * 
+   * @param request - CreateImageBuildRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageBuildResponse
+   */
+  async createImageBuildWithOptions(request: $_model.CreateImageBuildRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageBuildResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.buildConfig)) {
+      body["BuildConfig"] = request.buildConfig;
+    }
+
+    if (!$dara.isNull(request.image)) {
+      body["Image"] = request.image;
+    }
+
+    if (!$dara.isNull(request.imageBuildJobName)) {
+      body["ImageBuildJobName"] = request.imageBuildJobName;
+    }
+
+    if (!$dara.isNull(request.overwriteImageTag)) {
+      body["OverwriteImageTag"] = request.overwriteImageTag;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resource)) {
+      body["Resource"] = request.resource;
+    }
+
+    if (!$dara.isNull(request.targetRegistry)) {
+      body["TargetRegistry"] = request.targetRegistry;
+    }
+
+    if (!$dara.isNull(request.userVpc)) {
+      body["UserVpc"] = request.userVpc;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImageBuild",
+      version: "2021-02-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/imagebuilds`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateImageBuildResponse>(await this.callApi(params, req, runtime), new $_model.CreateImageBuildResponse({}));
+  }
+
+  /**
+   * 创建镜像构建任务
+   * 
+   * @param request - CreateImageBuildRequest
+   * @returns CreateImageBuildResponse
+   */
+  async createImageBuild(request: $_model.CreateImageBuildRequest): Promise<$_model.CreateImageBuildResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createImageBuildWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Adds a user to a workspace as a member. You can add multiple users as members.
    * 
    * @param request - CreateMemberRequest
