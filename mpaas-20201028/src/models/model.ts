@@ -37,6 +37,8 @@ export { DeleteMcubeMiniAppResponseBodyDeleteMiniResult } from './DeleteMcubeMin
 export { DeleteMcubeNebulaAppResponseBodyDeleteMcubeNebulaAppResult } from './DeleteMcubeNebulaAppResponseBody';
 export { DeleteMcubeUpgradeResourceResponseBodyDeleteResult } from './DeleteMcubeUpgradeResourceResponseBody';
 export { DeleteMcubeWhitelistResponseBodyDeleteWhitelistResult } from './DeleteMcubeWhitelistResponseBody';
+export { DeleteMdsCubeTemplateResponseBodyResultContentData } from './DeleteMdsCubeTemplateResponseBody';
+export { DeleteMdsCubeTemplateResponseBodyResultContent } from './DeleteMdsCubeTemplateResponseBody';
 export { DeleteMdsWhitelistContentResponseBodyResultContentData } from './DeleteMdsWhitelistContentResponseBody';
 export { DeleteMdsWhitelistContentResponseBodyResultContent } from './DeleteMdsWhitelistContentResponseBody';
 export { ExistMcubeRsaKeyResponseBodyCheckRsaKeyResult } from './ExistMcubeRsaKeyResponseBody';
@@ -328,6 +330,9 @@ export { DeleteMcubeUpgradeResourceResponse } from './DeleteMcubeUpgradeResource
 export { DeleteMcubeWhitelistRequest } from './DeleteMcubeWhitelistRequest';
 export { DeleteMcubeWhitelistResponseBody } from './DeleteMcubeWhitelistResponseBody';
 export { DeleteMcubeWhitelistResponse } from './DeleteMcubeWhitelistResponse';
+export { DeleteMdsCubeTemplateRequest } from './DeleteMdsCubeTemplateRequest';
+export { DeleteMdsCubeTemplateResponseBody } from './DeleteMdsCubeTemplateResponseBody';
+export { DeleteMdsCubeTemplateResponse } from './DeleteMdsCubeTemplateResponse';
 export { DeleteMdsWhitelistContentRequest } from './DeleteMdsWhitelistContentRequest';
 export { DeleteMdsWhitelistContentResponseBody } from './DeleteMdsWhitelistContentResponseBody';
 export { DeleteMdsWhitelistContentResponse } from './DeleteMdsWhitelistContentResponse';

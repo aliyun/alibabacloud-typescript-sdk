@@ -2546,6 +2546,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeleteMdsCubeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMdsCubeTemplateResponse
+   */
+  async deleteMdsCubeTemplateWithOptions(request: $_model.DeleteMdsCubeTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMdsCubeTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMdsCubeTemplate",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMdsCubeTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMdsCubeTemplateResponse({}));
+  }
+
+  /**
+   * @param request - DeleteMdsCubeTemplateRequest
+   * @returns DeleteMdsCubeTemplateResponse
+   */
+  async deleteMdsCubeTemplate(request: $_model.DeleteMdsCubeTemplateRequest): Promise<$_model.DeleteMdsCubeTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMdsCubeTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteMdsWhitelistContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMdsWhitelistContentResponse
