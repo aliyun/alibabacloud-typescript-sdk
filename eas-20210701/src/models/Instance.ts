@@ -8,6 +8,7 @@ export class Instance extends $dara.Model {
    * 0.444
    */
   currentAmount?: number;
+  detached?: boolean;
   /**
    * @example
    * 192.168.1.100
@@ -29,6 +30,7 @@ export class Instance extends $dara.Model {
    */
   instanceType?: string;
   isLatest?: boolean;
+  isReplica?: boolean;
   /**
    * @example
    * false
@@ -48,6 +50,7 @@ export class Instance extends $dara.Model {
   originalAmount?: number;
   readyProcesses?: number;
   reason?: string;
+  replicaName?: string;
   /**
    * @example
    * PublicResource
@@ -84,6 +87,7 @@ export class Instance extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       currentAmount: 'CurrentAmount',
+      detached: 'Detached',
       externalIP: 'ExternalIP',
       externalInstancePort: 'ExternalInstancePort',
       hostIP: 'HostIP',
@@ -93,6 +97,7 @@ export class Instance extends $dara.Model {
       instancePort: 'InstancePort',
       instanceType: 'InstanceType',
       isLatest: 'IsLatest',
+      isReplica: 'IsReplica',
       isSpot: 'IsSpot',
       isolated: 'Isolated',
       lastState: 'LastState',
@@ -100,6 +105,7 @@ export class Instance extends $dara.Model {
       originalAmount: 'OriginalAmount',
       readyProcesses: 'ReadyProcesses',
       reason: 'Reason',
+      replicaName: 'ReplicaName',
       resourceType: 'ResourceType',
       restartCount: 'RestartCount',
       role: 'Role',
@@ -116,6 +122,7 @@ export class Instance extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       currentAmount: 'number',
+      detached: 'boolean',
       externalIP: 'string',
       externalInstancePort: 'number',
       hostIP: 'string',
@@ -125,6 +132,7 @@ export class Instance extends $dara.Model {
       instancePort: 'number',
       instanceType: 'string',
       isLatest: 'boolean',
+      isReplica: 'boolean',
       isSpot: 'boolean',
       isolated: 'boolean',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
@@ -132,6 +140,7 @@ export class Instance extends $dara.Model {
       originalAmount: 'number',
       readyProcesses: 'number',
       reason: 'string',
+      replicaName: 'string',
       resourceType: 'string',
       restartCount: 'number',
       role: 'string',

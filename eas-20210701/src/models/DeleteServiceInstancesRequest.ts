@@ -15,12 +15,11 @@ export class DeleteServiceInstancesRequest extends $dara.Model {
    * @remarks
    * The instances that you want to restart. Separate multiple instance names with commas (,). For more information about how to query the instance name, see [ListServiceInstances](https://help.aliyun.com/document_detail/412108.html).
    * 
-   * This parameter is required.
-   * 
    * @example
    * foo-rdsbxxxx,foo-rdsaxxxx
    */
   instanceList?: string;
+  isReplica?: boolean;
   /**
    * @remarks
    * Specifies whether to restart only the container process without recreating the instance. Default value: false. Valid values: true and false.
@@ -33,6 +32,7 @@ export class DeleteServiceInstancesRequest extends $dara.Model {
     return {
       container: 'Container',
       instanceList: 'InstanceList',
+      isReplica: 'IsReplica',
       softRestart: 'SoftRestart',
     };
   }
@@ -41,6 +41,7 @@ export class DeleteServiceInstancesRequest extends $dara.Model {
     return {
       container: 'string',
       instanceList: 'string',
+      isReplica: 'boolean',
       softRestart: 'boolean',
     };
   }

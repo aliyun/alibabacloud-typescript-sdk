@@ -59,6 +59,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
    * false
    */
   isSpot?: boolean;
+  listReplica?: boolean;
   memberType?: string;
   /**
    * @remarks
@@ -110,6 +111,7 @@ export class ListServiceInstancesRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  replicaName?: string;
   /**
    * @remarks
    * The type of the resource group to which the instance belongs.
@@ -231,10 +233,12 @@ export class ListServiceInstancesRequest extends $dara.Model {
       instanceStatus: 'InstanceStatus',
       instanceType: 'InstanceType',
       isSpot: 'IsSpot',
+      listReplica: 'ListReplica',
       memberType: 'MemberType',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      replicaName: 'ReplicaName',
       resourceType: 'ResourceType',
       role: 'Role',
       sort: 'Sort',
@@ -250,10 +254,12 @@ export class ListServiceInstancesRequest extends $dara.Model {
       instanceStatus: 'string',
       instanceType: 'string',
       isSpot: 'boolean',
+      listReplica: 'boolean',
       memberType: 'string',
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      replicaName: 'string',
       resourceType: 'string',
       role: 'string',
       sort: 'string',

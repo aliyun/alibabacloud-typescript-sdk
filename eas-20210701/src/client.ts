@@ -355,6 +355,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建故障注入任务
+   * 
+   * @param request - CreateFaultInjectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFaultInjectionResponse
+   */
+  async createFaultInjectionWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.CreateFaultInjectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFaultInjectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.faultArgs)) {
+      body["FaultArgs"] = request.faultArgs;
+    }
+
+    if (!$dara.isNull(request.faultType)) {
+      body["FaultType"] = request.faultType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFaultInjection",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/faults`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFaultInjectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateFaultInjectionResponse({}));
+  }
+
+  /**
+   * 创建故障注入任务
+   * 
+   * @param request - CreateFaultInjectionRequest
+   * @returns CreateFaultInjectionResponse
+   */
+  async createFaultInjection(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.CreateFaultInjectionRequest): Promise<$_model.CreateFaultInjectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
+  }
+
+  /**
    * Creates a gateway.
    * 
    * @param request - CreateGatewayRequest
@@ -1119,6 +1168,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除故障注入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaultInjectionResponse
+   */
+  async deleteFaultInjectionWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaultInjectionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFaultInjection",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/faults/${$dara.URL.percentEncode(FaultType)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFaultInjectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaultInjectionResponse({}));
+  }
+
+  /**
+   * 删除故障注入任务
+   * @returns DeleteFaultInjectionResponse
+   */
+  async deleteFaultInjection(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string): Promise<$_model.DeleteFaultInjectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, headers, runtime);
+  }
+
+  /**
    * Deletes a private gateway.
    * 
    * @param headers - map
@@ -1604,6 +1688,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
+    }
+
+    if (!$dara.isNull(request.isReplica)) {
+      query["IsReplica"] = request.isReplica;
     }
 
     if (!$dara.isNull(request.softRestart)) {
@@ -3518,6 +3606,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取故障注入信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceFaultInjectionInfoResponse
+   */
+  async listServiceInstanceFaultInjectionInfoWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceInstanceFaultInjectionInfo",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/faults`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListServiceInstanceFaultInjectionInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListServiceInstanceFaultInjectionInfoResponse({}));
+  }
+
+  /**
+   * 获取故障注入信息
+   * @returns ListServiceInstanceFaultInjectionInfoResponse
+   */
+  async listServiceInstanceFaultInjectionInfo(ClusterId: string, ServiceName: string, InstanceName: string): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+  }
+
+  /**
    * Queries instances of a service.
    * 
    * @param request - ListServiceInstancesRequest
@@ -3556,6 +3679,10 @@ export default class Client extends OpenApi {
       query["IsSpot"] = request.isSpot;
     }
 
+    if (!$dara.isNull(request.listReplica)) {
+      query["ListReplica"] = request.listReplica;
+    }
+
     if (!$dara.isNull(request.memberType)) {
       query["MemberType"] = request.memberType;
     }
@@ -3570,6 +3697,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.replicaName)) {
+      query["ReplicaName"] = request.replicaName;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -4780,7 +4911,16 @@ export default class Client extends OpenApi {
    */
   async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceInstanceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.isReplica)) {
+      query["IsReplica"] = request.isReplica;
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detach)) {
+      body["Detach"] = request.detach;
+    }
+
     if (!$dara.isNull(request.hibernate)) {
       body["Hibernate"] = request.hibernate;
     }
@@ -4791,6 +4931,7 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

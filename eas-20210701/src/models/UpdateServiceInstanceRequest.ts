@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateServiceInstanceRequest extends $dara.Model {
+  isReplica?: boolean;
+  detach?: boolean;
   hibernate?: boolean;
   /**
    * @remarks
@@ -17,6 +19,8 @@ export class UpdateServiceInstanceRequest extends $dara.Model {
   isolate?: boolean;
   static names(): { [key: string]: string } {
     return {
+      isReplica: 'IsReplica',
+      detach: 'Detach',
       hibernate: 'Hibernate',
       isolate: 'Isolate',
     };
@@ -24,6 +28,8 @@ export class UpdateServiceInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      isReplica: 'boolean',
+      detach: 'boolean',
       hibernate: 'boolean',
       isolate: 'boolean',
     };
