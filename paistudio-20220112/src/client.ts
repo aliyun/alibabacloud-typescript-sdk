@@ -253,6 +253,10 @@ export default class Client extends OpenApi {
       body["AllocateStrategy"] = request.allocateStrategy;
     }
 
+    if (!$dara.isNull(request.clusterSpec)) {
+      body["ClusterSpec"] = request.clusterSpec;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
@@ -1763,6 +1767,10 @@ export default class Client extends OpenApi {
       query["Verbose"] = request.verbose;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -1921,6 +1929,10 @@ export default class Client extends OpenApi {
   async listQuotasWithOptions(request: $_model.ListQuotasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListQuotasResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
     if (!$dara.isNull(request.hasResource)) {
       query["HasResource"] = request.hasResource;
     }

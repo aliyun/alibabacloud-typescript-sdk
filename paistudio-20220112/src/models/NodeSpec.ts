@@ -10,6 +10,7 @@ export class NodeSpec extends $dara.Model {
    * 10
    */
   count?: number;
+  hyperType?: string;
   /**
    * @example
    * ecs.g6.4xlarge
@@ -19,6 +20,7 @@ export class NodeSpec extends $dara.Model {
     return {
       bindingPolicy: 'BindingPolicy',
       count: 'Count',
+      hyperType: 'HyperType',
       type: 'Type',
     };
   }
@@ -27,6 +29,7 @@ export class NodeSpec extends $dara.Model {
     return {
       bindingPolicy: BindingPolicy,
       count: 'number',
+      hyperType: 'string',
       type: 'string',
     };
   }

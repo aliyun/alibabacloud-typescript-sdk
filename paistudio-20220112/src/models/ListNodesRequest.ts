@@ -90,6 +90,7 @@ export class ListNodesRequest extends $dara.Model {
    * false
    */
   verbose?: boolean;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
@@ -115,6 +116,7 @@ export class ListNodesRequest extends $dara.Model {
       resourceGroupIds: 'ResourceGroupIds',
       sortBy: 'SortBy',
       verbose: 'Verbose',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -143,6 +145,7 @@ export class ListNodesRequest extends $dara.Model {
       resourceGroupIds: 'string',
       sortBy: 'string',
       verbose: 'boolean',
+      workspaceId: 'string',
     };
   }
 

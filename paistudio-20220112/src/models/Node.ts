@@ -14,6 +14,8 @@ export class Node extends $dara.Model {
   CPU?: string;
   creatorId?: string;
   descendantQuotaWorkloadNum?: number;
+  diskCapacity?: number;
+  diskPL?: string;
   GPU?: string;
   GPUMemory?: string;
   GPUType?: string;
@@ -55,6 +57,8 @@ export class Node extends $dara.Model {
       CPU: 'CPU',
       creatorId: 'CreatorId',
       descendantQuotaWorkloadNum: 'DescendantQuotaWorkloadNum',
+      diskCapacity: 'DiskCapacity',
+      diskPL: 'DiskPL',
       GPU: 'GPU',
       GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
@@ -99,6 +103,8 @@ export class Node extends $dara.Model {
       CPU: 'string',
       creatorId: 'string',
       descendantQuotaWorkloadNum: 'number',
+      diskCapacity: 'number',
+      diskPL: 'string',
       GPU: 'string',
       GPUMemory: 'string',
       GPUType: 'string',

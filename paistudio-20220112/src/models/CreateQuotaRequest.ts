@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ClusterSpec } from "./ClusterSpec";
 import { Label } from "./Label";
 import { ResourceSpec } from "./ResourceSpec";
 import { QuotaConfig } from "./QuotaConfig";
@@ -11,6 +12,7 @@ export class CreateQuotaRequest extends $dara.Model {
    * ByNodeSpecs
    */
   allocateStrategy?: string;
+  clusterSpec?: ClusterSpec;
   /**
    * @example
    * this is a test quota
@@ -46,6 +48,7 @@ export class CreateQuotaRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allocateStrategy: 'AllocateStrategy',
+      clusterSpec: 'ClusterSpec',
       description: 'Description',
       labels: 'Labels',
       min: 'Min',
@@ -61,6 +64,7 @@ export class CreateQuotaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allocateStrategy: 'string',
+      clusterSpec: ClusterSpec,
       description: 'string',
       labels: { 'type': 'array', 'itemType': Label },
       min: ResourceSpec,
@@ -74,6 +78,9 @@ export class CreateQuotaRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.clusterSpec && typeof (this.clusterSpec as any).validate === 'function') {
+      (this.clusterSpec as any).validate();
+    }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);
     }

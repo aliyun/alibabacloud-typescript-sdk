@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { Label } from "./Label";
 import { ResourceSpec } from "./ResourceSpec";
+import { QuotaCluster } from "./QuotaCluster";
 import { QuotaConfig } from "./QuotaConfig";
 import { QuotaDetails } from "./QuotaDetails";
 import { QuotaIdName } from "./QuotaIdName";
@@ -52,6 +53,7 @@ export class GetQuotaResponseBody extends $dara.Model {
    * PaiStrategyIntelligent
    */
   queueStrategy?: string;
+  quotaCluster?: QuotaCluster;
   quotaConfig?: QuotaConfig;
   quotaDetails?: QuotaDetails;
   /**
@@ -113,6 +115,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       min: 'Min',
       parentQuotaId: 'ParentQuotaId',
       queueStrategy: 'QueueStrategy',
+      quotaCluster: 'QuotaCluster',
       quotaConfig: 'QuotaConfig',
       quotaDetails: 'QuotaDetails',
       quotaId: 'QuotaId',
@@ -142,6 +145,7 @@ export class GetQuotaResponseBody extends $dara.Model {
       min: ResourceSpec,
       parentQuotaId: 'string',
       queueStrategy: 'string',
+      quotaCluster: QuotaCluster,
       quotaConfig: QuotaConfig,
       quotaDetails: QuotaDetails,
       quotaId: 'string',
@@ -167,6 +171,9 @@ export class GetQuotaResponseBody extends $dara.Model {
     }
     if(this.min && typeof (this.min as any).validate === 'function') {
       (this.min as any).validate();
+    }
+    if(this.quotaCluster && typeof (this.quotaCluster as any).validate === 'function') {
+      (this.quotaCluster as any).validate();
     }
     if(this.quotaConfig && typeof (this.quotaConfig as any).validate === 'function') {
       (this.quotaConfig as any).validate();
