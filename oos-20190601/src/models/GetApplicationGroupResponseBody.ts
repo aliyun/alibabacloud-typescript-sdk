@@ -70,6 +70,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
   description?: string;
   errorDetail?: string;
   errorType?: string;
+  executionId?: string;
   /**
    * @remarks
    * The tag key.
@@ -147,6 +148,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       description: 'Description',
       errorDetail: 'ErrorDetail',
       errorType: 'ErrorType',
+      executionId: 'ExecutionId',
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
       name: 'Name',
@@ -171,6 +173,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       description: 'string',
       errorDetail: 'string',
       errorType: 'string',
+      executionId: 'string',
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',

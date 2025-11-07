@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancePackageStatesResponseBodyPackageStates extends $dara.Model {
+  configurationInfo?: string;
   /**
    * @remarks
    * Description
@@ -77,6 +78,7 @@ export class ListInstancePackageStatesResponseBodyPackageStates extends $dara.Mo
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      configurationInfo: 'ConfigurationInfo',
       description: 'Description',
       parameters: 'Parameters',
       publisher: 'Publisher',
@@ -91,6 +93,7 @@ export class ListInstancePackageStatesResponseBodyPackageStates extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      configurationInfo: 'string',
       description: 'string',
       parameters: 'string',
       publisher: 'string',

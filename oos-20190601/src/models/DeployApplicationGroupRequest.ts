@@ -41,12 +41,14 @@ export class DeployApplicationGroupRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  revisionId?: string;
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
       deployParameters: 'DeployParameters',
       name: 'Name',
       regionId: 'RegionId',
+      revisionId: 'RevisionId',
     };
   }
 
@@ -56,6 +58,7 @@ export class DeployApplicationGroupRequest extends $dara.Model {
       deployParameters: 'string',
       name: 'string',
       regionId: 'string',
+      revisionId: 'string',
     };
   }
 

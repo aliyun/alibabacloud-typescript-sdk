@@ -59,6 +59,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
    * Public
    */
   shareType?: string;
+  sharedAccounts?: string;
   /**
    * @remarks
    * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
@@ -140,6 +141,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
       hash: 'Hash',
       resourceGroupId: 'ResourceGroupId',
       shareType: 'ShareType',
+      sharedAccounts: 'SharedAccounts',
       tags: 'Tags',
       templateFormat: 'TemplateFormat',
       templateId: 'TemplateId',
@@ -161,6 +163,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
       hash: 'string',
       resourceGroupId: 'string',
       shareType: 'string',
+      sharedAccounts: 'string',
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       templateFormat: 'string',
       templateId: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateInstancePackageStateShrinkRequest extends $dara.Model {
+  configurationInfo?: string;
   /**
    * @remarks
    * The operation type.
@@ -64,6 +65,7 @@ export class UpdateInstancePackageStateShrinkRequest extends $dara.Model {
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      configurationInfo: 'ConfigurationInfo',
       configureAction: 'ConfigureAction',
       instanceId: 'InstanceId',
       parametersShrink: 'Parameters',
@@ -75,6 +77,7 @@ export class UpdateInstancePackageStateShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      configurationInfo: 'string',
       configureAction: 'string',
       instanceId: 'string',
       parametersShrink: 'string',

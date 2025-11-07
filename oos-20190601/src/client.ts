@@ -200,6 +200,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检测仓库中文件是否存在
+   * 
+   * @param request - CheckGitRepoFileExistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckGitRepoFileExistsResponse
+   */
+  async checkGitRepoFileExistsWithOptions(request: $_model.CheckGitRepoFileExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckGitRepoFileExistsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckGitRepoFileExists",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckGitRepoFileExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckGitRepoFileExistsResponse({}));
+  }
+
+  /**
+   * 检测仓库中文件是否存在
+   * 
+   * @param request - CheckGitRepoFileExistsRequest
+   * @returns CheckGitRepoFileExistsResponse
+   */
+  async checkGitRepoFileExists(request: $_model.CheckGitRepoFileExistsRequest): Promise<$_model.CheckGitRepoFileExistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkGitRepoFileExistsWithOptions(request, runtime);
+  }
+
+  /**
+   * 检测仓库是否存在
+   * 
+   * @param request - CheckGitRepositoryExistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckGitRepositoryExistsResponse
+   */
+  async checkGitRepositoryExistsWithOptions(request: $_model.CheckGitRepositoryExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckGitRepositoryExistsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckGitRepositoryExists",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckGitRepositoryExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckGitRepositoryExistsResponse({}));
+  }
+
+  /**
+   * 检测仓库是否存在
+   * 
+   * @param request - CheckGitRepositoryExistsRequest
+   * @returns CheckGitRepositoryExistsResponse
+   */
+  async checkGitRepositoryExists(request: $_model.CheckGitRepositoryExistsRequest): Promise<$_model.CheckGitRepositoryExistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkGitRepositoryExistsWithOptions(request, runtime);
+  }
+
+  /**
    * Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
    * 
    * @param request - ContinueDeployApplicationGroupRequest
@@ -409,6 +549,88 @@ export default class Client extends OpenApi {
   async createApplicationGroup(request: $_model.CreateApplicationGroupRequest): Promise<$_model.CreateApplicationGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createApplicationGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建仓库
+   * 
+   * @param request - CreateGitRepositoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGitRepositoryResponse
+   */
+  async createGitRepositoryWithOptions(request: $_model.CreateGitRepositoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGitRepositoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.isPrivate)) {
+      query["IsPrivate"] = request.isPrivate;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sourceRepoBranch)) {
+      query["SourceRepoBranch"] = request.sourceRepoBranch;
+    }
+
+    if (!$dara.isNull(request.sourceRepoName)) {
+      query["SourceRepoName"] = request.sourceRepoName;
+    }
+
+    if (!$dara.isNull(request.sourceRepoOwner)) {
+      query["SourceRepoOwner"] = request.sourceRepoOwner;
+    }
+
+    if (!$dara.isNull(request.targetRepoName)) {
+      query["TargetRepoName"] = request.targetRepoName;
+    }
+
+    if (!$dara.isNull(request.targetRepoOwner)) {
+      query["TargetRepoOwner"] = request.targetRepoOwner;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGitRepository",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGitRepositoryResponse>(await this.callApi(params, req, runtime), new $_model.CreateGitRepositoryResponse({}));
+  }
+
+  /**
+   * 创建仓库
+   * 
+   * @param request - CreateGitRepositoryRequest
+   * @returns CreateGitRepositoryResponse
+   */
+  async createGitRepository(request: $_model.CreateGitRepositoryRequest): Promise<$_model.CreateGitRepositoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGitRepositoryWithOptions(request, runtime);
   }
 
   /**
@@ -1461,6 +1683,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.revisionId)) {
+      query["RevisionId"] = request.revisionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1857,6 +2083,134 @@ export default class Client extends OpenApi {
   async getExecutionTemplate(request: $_model.GetExecutionTemplateRequest): Promise<$_model.GetExecutionTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getExecutionTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Git分支详情
+   * 
+   * @param request - GetGitBranchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGitBranchResponse
+   */
+  async getGitBranchWithOptions(request: $_model.GetGitBranchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGitBranchResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGitBranch",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGitBranchResponse>(await this.callApi(params, req, runtime), new $_model.GetGitBranchResponse({}));
+  }
+
+  /**
+   * 查询Git分支详情
+   * 
+   * @param request - GetGitBranchRequest
+   * @returns GetGitBranchResponse
+   */
+  async getGitBranch(request: $_model.GetGitBranchRequest): Promise<$_model.GetGitBranchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGitBranchWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Git仓库详情
+   * 
+   * @param request - GetGitRepositoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGitRepositoryResponse
+   */
+  async getGitRepositoryWithOptions(request: $_model.GetGitRepositoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGitRepositoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGitRepository",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGitRepositoryResponse>(await this.callApi(params, req, runtime), new $_model.GetGitRepositoryResponse({}));
+  }
+
+  /**
+   * 查询Git仓库详情
+   * 
+   * @param request - GetGitRepositoryRequest
+   * @returns GetGitRepositoryResponse
+   */
+  async getGitRepository(request: $_model.GetGitRepositoryRequest): Promise<$_model.GetGitRepositoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGitRepositoryWithOptions(request, runtime);
   }
 
   /**
@@ -2935,6 +3289,328 @@ export default class Client extends OpenApi {
   async listExecutions(request: $_model.ListExecutionsRequest): Promise<$_model.ListExecutionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listExecutionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取当前阿里云用户已授权在应用管理的托管平台账户
+   * 
+   * @param request - ListGitAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitAccountsResponse
+   */
+  async listGitAccountsWithOptions(request: $_model.ListGitAccountsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitAccountsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGitAccounts",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGitAccountsResponse>(await this.callApi(params, req, runtime), new $_model.ListGitAccountsResponse({}));
+  }
+
+  /**
+   * 获取当前阿里云用户已授权在应用管理的托管平台账户
+   * 
+   * @param request - ListGitAccountsRequest
+   * @returns ListGitAccountsResponse
+   */
+  async listGitAccounts(request: $_model.ListGitAccountsRequest): Promise<$_model.ListGitAccountsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGitAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定Git仓库的所有分支
+   * 
+   * @param request - ListGitBranchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitBranchesResponse
+   */
+  async listGitBranchesWithOptions(request: $_model.ListGitBranchesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitBranchesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGitBranches",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGitBranchesResponse>(await this.callApi(params, req, runtime), new $_model.ListGitBranchesResponse({}));
+  }
+
+  /**
+   * 获取指定Git仓库的所有分支
+   * 
+   * @param request - ListGitBranchesRequest
+   * @returns ListGitBranchesResponse
+   */
+  async listGitBranches(request: $_model.ListGitBranchesRequest): Promise<$_model.ListGitBranchesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGitBranchesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取已授权用户的组织
+   * 
+   * @param request - ListGitOrganizationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitOrganizationsResponse
+   */
+  async listGitOrganizationsWithOptions(request: $_model.ListGitOrganizationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitOrganizationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGitOrganizations",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGitOrganizationsResponse>(await this.callApi(params, req, runtime), new $_model.ListGitOrganizationsResponse({}));
+  }
+
+  /**
+   * 获取已授权用户的组织
+   * 
+   * @param request - ListGitOrganizationsRequest
+   * @returns ListGitOrganizationsResponse
+   */
+  async listGitOrganizations(request: $_model.ListGitOrganizationsRequest): Promise<$_model.ListGitOrganizationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGitOrganizationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Git仓库列表
+   * 
+   * @param request - ListGitRepositoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitRepositoriesResponse
+   */
+  async listGitRepositoriesWithOptions(request: $_model.ListGitRepositoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitRepositoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.orgName)) {
+      query["OrgName"] = request.orgName;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGitRepositories",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGitRepositoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListGitRepositoriesResponse({}));
+  }
+
+  /**
+   * 查询Git仓库列表
+   * 
+   * @param request - ListGitRepositoriesRequest
+   * @returns ListGitRepositoriesResponse
+   */
+  async listGitRepositories(request: $_model.ListGitRepositoriesRequest): Promise<$_model.ListGitRepositoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGitRepositoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取仓库文件与目录信息
+   * 
+   * @param request - ListGitRepositoryContentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitRepositoryContentsResponse
+   */
+  async listGitRepositoryContentsWithOptions(request: $_model.ListGitRepositoryContentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGitRepositoryContentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!$dara.isNull(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGitRepositoryContents",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGitRepositoryContentsResponse>(await this.callApi(params, req, runtime), new $_model.ListGitRepositoryContentsResponse({}));
+  }
+
+  /**
+   * 获取仓库文件与目录信息
+   * 
+   * @param request - ListGitRepositoryContentsRequest
+   * @returns ListGitRepositoryContentsResponse
+   */
+  async listGitRepositoryContents(request: $_model.ListGitRepositoryContentsRequest): Promise<$_model.ListGitRepositoryContentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGitRepositoryContentsWithOptions(request, runtime);
   }
 
   /**
@@ -5001,6 +5677,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.configurationInfo)) {
+      query["ConfigurationInfo"] = request.configurationInfo;
+    }
+
     if (!$dara.isNull(request.configureAction)) {
       query["ConfigureAction"] = request.configureAction;
     }

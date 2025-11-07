@@ -54,6 +54,7 @@ export class ListApplicationGroupsResponseBodyApplicationGroups extends $dara.Mo
   description?: string;
   errorDetail?: string;
   errorType?: string;
+  executionId?: string;
   /**
    * @remarks
    * The tag key.
@@ -113,6 +114,7 @@ export class ListApplicationGroupsResponseBodyApplicationGroups extends $dara.Mo
       description: 'Description',
       errorDetail: 'ErrorDetail',
       errorType: 'ErrorType',
+      executionId: 'ExecutionId',
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
       name: 'Name',
@@ -133,6 +135,7 @@ export class ListApplicationGroupsResponseBodyApplicationGroups extends $dara.Mo
       description: 'string',
       errorDetail: 'string',
       errorType: 'string',
+      executionId: 'string',
       importTagKey: 'string',
       importTagValue: 'string',
       name: 'string',
