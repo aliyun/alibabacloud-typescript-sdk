@@ -114,6 +114,7 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
    *       }
    */
   header?: any;
+  ipVersionPolicy?: string;
   /**
    * @remarks
    * The name of the origin, which must be unique within an origin address.
@@ -148,6 +149,7 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
       authConf: 'AuthConf',
       enabled: 'Enabled',
       header: 'Header',
+      ipVersionPolicy: 'IpVersionPolicy',
       name: 'Name',
       type: 'Type',
       weight: 'Weight',
@@ -160,6 +162,7 @@ export class CreateOriginPoolRequestOrigins extends $dara.Model {
       authConf: CreateOriginPoolRequestOriginsAuthConf,
       enabled: 'boolean',
       header: 'any',
+      ipVersionPolicy: 'string',
       name: 'string',
       type: 'string',
       weight: 'number',

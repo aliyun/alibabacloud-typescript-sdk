@@ -122,6 +122,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
    * 99750209487****
    */
   id?: number;
+  ipVersionPolicy?: string;
   /**
    * @remarks
    * The name of the origin.
@@ -157,6 +158,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
       enabled: 'Enabled',
       header: 'Header',
       id: 'Id',
+      ipVersionPolicy: 'IpVersionPolicy',
       name: 'Name',
       type: 'Type',
       weight: 'Weight',
@@ -170,6 +172,7 @@ export class GetOriginPoolResponseBodyOrigins extends $dara.Model {
       enabled: 'boolean',
       header: 'any',
       id: 'number',
+      ipVersionPolicy: 'string',
       name: 'string',
       type: 'string',
       weight: 'number',

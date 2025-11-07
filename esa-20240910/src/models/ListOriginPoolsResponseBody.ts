@@ -122,6 +122,7 @@ export class ListOriginPoolsResponseBodyOriginPoolsOrigins extends $dara.Model {
    * 997502094872132
    */
   id?: number;
+  ipVersionPolicy?: string;
   /**
    * @remarks
    * Origin name.
@@ -156,6 +157,7 @@ export class ListOriginPoolsResponseBodyOriginPoolsOrigins extends $dara.Model {
       enabled: 'Enabled',
       header: 'Header',
       id: 'Id',
+      ipVersionPolicy: 'IpVersionPolicy',
       name: 'Name',
       type: 'Type',
       weight: 'Weight',
@@ -169,6 +171,7 @@ export class ListOriginPoolsResponseBodyOriginPoolsOrigins extends $dara.Model {
       enabled: 'boolean',
       header: 'any',
       id: 'number',
+      ipVersionPolicy: 'string',
       name: 'string',
       type: 'string',
       weight: 'number',

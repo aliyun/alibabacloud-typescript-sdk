@@ -114,6 +114,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
    *       }
    */
   header?: any;
+  ipVersionPolicy?: string;
   /**
    * @remarks
    * The name of the origin, which must be unique under one origin pool.
@@ -148,6 +149,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
       authConf: 'AuthConf',
       enabled: 'Enabled',
       header: 'Header',
+      ipVersionPolicy: 'IpVersionPolicy',
       name: 'Name',
       type: 'Type',
       weight: 'Weight',
@@ -160,6 +162,7 @@ export class UpdateOriginPoolRequestOrigins extends $dara.Model {
       authConf: UpdateOriginPoolRequestOriginsAuthConf,
       enabled: 'boolean',
       header: 'any',
+      ipVersionPolicy: 'string',
       name: 'string',
       type: 'string',
       weight: 'number',
