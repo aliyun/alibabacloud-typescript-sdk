@@ -1,6 +1,8 @@
 export { ActiveInteractionCreateResponseBodyData } from './ActiveInteractionCreateResponseBody';
 export { DeviceRegisterResponseBodyData } from './DeviceRegisterResponseBody';
 export { GetTokenResponseBodyData } from './GetTokenResponseBody';
+export { ModelTypeDetermineRequestHistory } from './ModelTypeDetermineRequest';
+export { ModelTypeDetermineResponseBodyData } from './ModelTypeDetermineResponseBody';
 export { ActiveInteractionCreateRequest } from './ActiveInteractionCreateRequest';
 export { ActiveInteractionCreateResponseBody } from './ActiveInteractionCreateResponseBody';
 export { ActiveInteractionCreateResponse } from './ActiveInteractionCreateResponse';
@@ -10,3 +12,7 @@ export { DeviceRegisterResponse } from './DeviceRegisterResponse';
 export { GetTokenRequest } from './GetTokenRequest';
 export { GetTokenResponseBody } from './GetTokenResponseBody';
 export { GetTokenResponse } from './GetTokenResponse';
+export { ModelTypeDetermineRequest } from './ModelTypeDetermineRequest';
+export { ModelTypeDetermineShrinkRequest } from './ModelTypeDetermineShrinkRequest';
+export { ModelTypeDetermineResponseBody } from './ModelTypeDetermineResponseBody';
+export { ModelTypeDetermineResponse } from './ModelTypeDetermineResponse';

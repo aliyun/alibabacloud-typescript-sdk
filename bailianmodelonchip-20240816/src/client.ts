@@ -200,4 +200,59 @@ export default class Client extends OpenApi {
     return await this.getTokenWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 模型类型识别
+   * 
+   * @param tmpReq - ModelTypeDetermineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelTypeDetermineResponse
+   */
+  async modelTypeDetermineWithOptions(tmpReq: $_model.ModelTypeDetermineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelTypeDetermineResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModelTypeDetermineShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.history)) {
+      request.historyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.history, "history", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.historyShrink)) {
+      body["history"] = request.historyShrink;
+    }
+
+    if (!$dara.isNull(request.inputText)) {
+      body["inputText"] = request.inputText;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelTypeDetermine",
+      version: "2024-08-16",
+      protocol: "HTTPS",
+      pathname: `/open/api/v1/model/type/determine`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelTypeDetermineResponse>(await this.callApi(params, req, runtime), new $_model.ModelTypeDetermineResponse({}));
+  }
+
+  /**
+   * 模型类型识别
+   * 
+   * @param request - ModelTypeDetermineRequest
+   * @returns ModelTypeDetermineResponse
+   */
+  async modelTypeDetermine(request: $_model.ModelTypeDetermineRequest): Promise<$_model.ModelTypeDetermineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelTypeDetermineWithOptions(request, headers, runtime);
+  }
+
 }
