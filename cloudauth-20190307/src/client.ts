@@ -16,41 +16,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("cloudauth", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -643,12 +689,86 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       contrastFaceVerifyReq.faceContrastFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let contrastFaceVerifyResp = await this.contrastFaceVerifyWithOptions(contrastFaceVerifyReq, runtime);
     return contrastFaceVerifyResp;
+  }
+
+  /**
+   * Create a financial-grade authentication scenario
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateAntCloudAuthSceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAntCloudAuthSceneResponse
+   */
+  async createAntCloudAuthSceneWithOptions(request: $_model.CreateAntCloudAuthSceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAntCloudAuthSceneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bindMiniProgram)) {
+      query["BindMiniProgram"] = request.bindMiniProgram;
+    }
+
+    if (!$dara.isNull(request.checkFileBody)) {
+      query["CheckFileBody"] = request.checkFileBody;
+    }
+
+    if (!$dara.isNull(request.checkFileName)) {
+      query["CheckFileName"] = request.checkFileName;
+    }
+
+    if (!$dara.isNull(request.miniProgramName)) {
+      query["MiniProgramName"] = request.miniProgramName;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.sceneName)) {
+      query["SceneName"] = request.sceneName;
+    }
+
+    if (!$dara.isNull(request.storeImage)) {
+      query["StoreImage"] = request.storeImage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAntCloudAuthScene",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAntCloudAuthSceneResponse>(await this.callApi(params, req, runtime), new $_model.CreateAntCloudAuthSceneResponse({}));
+  }
+
+  /**
+   * Create a financial-grade authentication scenario
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateAntCloudAuthSceneRequest
+   * @returns CreateAntCloudAuthSceneResponse
+   */
+  async createAntCloudAuthScene(request: $_model.CreateAntCloudAuthSceneRequest): Promise<$_model.CreateAntCloudAuthSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAntCloudAuthSceneWithOptions(request, runtime);
   }
 
   /**
@@ -711,6 +831,124 @@ export default class Client extends OpenApi {
   async createAuthKey(request: $_model.CreateAuthKeyRequest): Promise<$_model.CreateAuthKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAuthKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Create Cloud Scene
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateCloudauthstSceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudauthstSceneResponse
+   */
+  async createCloudauthstSceneWithOptions(request: $_model.CreateCloudauthstSceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudauthstSceneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneName)) {
+      query["SceneName"] = request.sceneName;
+    }
+
+    if (!$dara.isNull(request.storeImage)) {
+      query["StoreImage"] = request.storeImage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudauthstScene",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudauthstSceneResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudauthstSceneResponse({}));
+  }
+
+  /**
+   * Create Cloud Scene
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateCloudauthstSceneRequest
+   * @returns CreateCloudauthstSceneResponse
+   */
+  async createCloudauthstScene(request: $_model.CreateCloudauthstSceneRequest): Promise<$_model.CreateCloudauthstSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudauthstSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * Create Scene Configuration
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST.
+   * Request Address: cloudauth.aliyuncs.com.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateSceneConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSceneConfigResponse
+   */
+  async createSceneConfigWithOptions(request: $_model.CreateSceneConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSceneConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["sceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSceneConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSceneConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateSceneConfigResponse({}));
+  }
+
+  /**
+   * Create Scene Configuration
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST.
+   * Request Address: cloudauth.aliyuncs.com.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - CreateSceneConfigRequest
+   * @returns CreateSceneConfigResponse
+   */
+  async createSceneConfig(request: $_model.CreateSceneConfigRequest): Promise<$_model.CreateSceneConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSceneConfigWithOptions(request, runtime);
   }
 
   /**
@@ -779,6 +1017,82 @@ export default class Client extends OpenApi {
   async createVerifySetting(request: $_model.CreateVerifySettingRequest): Promise<$_model.CreateVerifySettingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createVerifySettingWithOptions(request, runtime);
+  }
+
+  /**
+   * Create Whitelist
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * 
+   * @param request - CreateWhitelistSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWhitelistSettingResponse
+   */
+  async createWhitelistSettingWithOptions(request: $_model.CreateWhitelistSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWhitelistSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!$dara.isNull(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!$dara.isNull(request.validDay)) {
+      query["ValidDay"] = request.validDay;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWhitelistSettingResponse>(await this.callApi(params, req, runtime), new $_model.CreateWhitelistSettingResponse({}));
+  }
+
+  /**
+   * Create Whitelist
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST.
+   * 
+   * @param request - CreateWhitelistSettingRequest
+   * @returns CreateWhitelistSettingResponse
+   */
+  async createWhitelistSetting(request: $_model.CreateWhitelistSettingRequest): Promise<$_model.CreateWhitelistSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWhitelistSettingWithOptions(request, runtime);
   }
 
   /**
@@ -929,7 +1243,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       credentialProductVerifyV2Req.imageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1229,7 +1543,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       credentialVerifyV2Req.imageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1306,6 +1620,344 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete All Custom Flow Control Strategies
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DeleteAllCustomizeFlowStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAllCustomizeFlowStrategyResponse
+   */
+  async deleteAllCustomizeFlowStrategyWithOptions(request: $_model.DeleteAllCustomizeFlowStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAllCustomizeFlowStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAllCustomizeFlowStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAllCustomizeFlowStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAllCustomizeFlowStrategyResponse({}));
+  }
+
+  /**
+   * Delete All Custom Flow Control Strategies
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DeleteAllCustomizeFlowStrategyRequest
+   * @returns DeleteAllCustomizeFlowStrategyResponse
+   */
+  async deleteAllCustomizeFlowStrategy(request: $_model.DeleteAllCustomizeFlowStrategyRequest): Promise<$_model.DeleteAllCustomizeFlowStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAllCustomizeFlowStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Watermark Scene
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DeleteAntCloudAuthSceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAntCloudAuthSceneResponse
+   */
+  async deleteAntCloudAuthSceneWithOptions(request: $_model.DeleteAntCloudAuthSceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAntCloudAuthSceneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAntCloudAuthScene",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAntCloudAuthSceneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAntCloudAuthSceneResponse({}));
+  }
+
+  /**
+   * Delete Watermark Scene
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DeleteAntCloudAuthSceneRequest
+   * @returns DeleteAntCloudAuthSceneResponse
+   */
+  async deleteAntCloudAuthScene(request: $_model.DeleteAntCloudAuthSceneRequest): Promise<$_model.DeleteAntCloudAuthSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAntCloudAuthSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Black and White List Policy
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DeleteBlackListStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBlackListStrategyResponse
+   */
+  async deleteBlackListStrategyWithOptions(request: $_model.DeleteBlackListStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBlackListStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.productName)) {
+      query["ProductName"] = request.productName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBlackListStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBlackListStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBlackListStrategyResponse({}));
+  }
+
+  /**
+   * Delete Black and White List Policy
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DeleteBlackListStrategyRequest
+   * @returns DeleteBlackListStrategyResponse
+   */
+  async deleteBlackListStrategy(request: $_model.DeleteBlackListStrategyRequest): Promise<$_model.DeleteBlackListStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBlackListStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Cloud Scene
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DeleteCloudauthstSceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudauthstSceneResponse
+   */
+  async deleteCloudauthstSceneWithOptions(request: $_model.DeleteCloudauthstSceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudauthstSceneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudauthstScene",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudauthstSceneResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudauthstSceneResponse({}));
+  }
+
+  /**
+   * Delete Cloud Scene
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DeleteCloudauthstSceneRequest
+   * @returns DeleteCloudauthstSceneResponse
+   */
+  async deleteCloudauthstScene(request: $_model.DeleteCloudauthstSceneRequest): Promise<$_model.DeleteCloudauthstSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudauthstSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Security Control Strategy
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST.
+   * Request URL: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DeleteControlStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteControlStrategyResponse
+   */
+  async deleteControlStrategyWithOptions(request: $_model.DeleteControlStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteControlStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteControlStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteControlStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteControlStrategyResponse({}));
+  }
+
+  /**
+   * Delete Security Control Strategy
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST.
+   * Request URL: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DeleteControlStrategyRequest
+   * @returns DeleteControlStrategyResponse
+   */
+  async deleteControlStrategy(request: $_model.DeleteControlStrategyRequest): Promise<$_model.DeleteControlStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteControlStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Customized Flow Control Strategy
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DeleteCustomizeFlowStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomizeFlowStrategyResponse
+   */
+  async deleteCustomizeFlowStrategyWithOptions(request: $_model.DeleteCustomizeFlowStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomizeFlowStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomizeFlowStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomizeFlowStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomizeFlowStrategyResponse({}));
+  }
+
+  /**
+   * Delete Customized Flow Control Strategy
+   * 
+   * @remarks
+   * Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DeleteCustomizeFlowStrategyRequest
+   * @returns DeleteCustomizeFlowStrategyResponse
+   */
+  async deleteCustomizeFlowStrategy(request: $_model.DeleteCustomizeFlowStrategyRequest): Promise<$_model.DeleteCustomizeFlowStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomizeFlowStrategyWithOptions(request, runtime);
+  }
+
+  /**
    * Financial Level Sensitive Data Deletion Interface
    * 
    * @remarks
@@ -1358,6 +2010,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete Scene Configuration
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Request URL: cloudauth.aliyuncs.com.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DeleteSceneConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSceneConfigResponse
+   */
+  async deleteSceneConfigWithOptions(request: $_model.DeleteSceneConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSceneConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sceneConfigId)) {
+      body["sceneConfigId"] = request.sceneConfigId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSceneConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSceneConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSceneConfigResponse({}));
+  }
+
+  /**
+   * Delete Scene Configuration
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Request URL: cloudauth.aliyuncs.com.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DeleteSceneConfigRequest
+   * @returns DeleteSceneConfigResponse
+   */
+  async deleteSceneConfig(request: $_model.DeleteSceneConfigRequest): Promise<$_model.DeleteSceneConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSceneConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete Whitelist Configuration
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DeleteWhitelistSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWhitelistSettingResponse
+   */
+  async deleteWhitelistSettingWithOptions(request: $_model.DeleteWhitelistSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWhitelistSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWhitelistSettingResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWhitelistSettingResponse({}));
+  }
+
+  /**
+   * Delete Whitelist Configuration
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DeleteWhitelistSettingRequest
+   * @returns DeleteWhitelistSettingResponse
+   */
+  async deleteWhitelistSetting(request: $_model.DeleteWhitelistSettingRequest): Promise<$_model.DeleteWhitelistSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWhitelistSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the User Status of Ant Blockchain
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DescribeAntAndCloudAuthUserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAntAndCloudAuthUserStatusResponse
+   */
+  async describeAntAndCloudAuthUserStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAntAndCloudAuthUserStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAntAndCloudAuthUserStatus",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAntAndCloudAuthUserStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAntAndCloudAuthUserStatusResponse({}));
+  }
+
+  /**
+   * Query the User Status of Ant Blockchain
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * @returns DescribeAntAndCloudAuthUserStatusResponse
+   */
+  async describeAntAndCloudAuthUserStatus(): Promise<$_model.DescribeAntAndCloudAuthUserStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAntAndCloudAuthUserStatusWithOptions(runtime);
+  }
+
+  /**
    * Obtain Authentication Results from Image Element Verification
    * 
    * @remarks
@@ -1403,6 +2207,56 @@ export default class Client extends OpenApi {
   async describeCardVerify(request: $_model.DescribeCardVerifyRequest): Promise<$_model.DescribeCardVerifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCardVerifyWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Dashboard Data
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DescribeCloudauthstSceneListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudauthstSceneListResponse
+   */
+  async describeCloudauthstSceneListWithOptions(request: $_model.DescribeCloudauthstSceneListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudauthstSceneListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudauthstSceneList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCloudauthstSceneListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudauthstSceneListResponse({}));
+  }
+
+  /**
+   * Query Dashboard Data
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+   * 
+   * @param request - DescribeCloudauthstSceneListRequest
+   * @returns DescribeCloudauthstSceneListResponse
+   */
+  async describeCloudauthstSceneList(request: $_model.DescribeCloudauthstSceneListRequest): Promise<$_model.DescribeCloudauthstSceneListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudauthstSceneListWithOptions(request, runtime);
   }
 
   /**
@@ -1590,6 +2444,556 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询任务导出记录
+   * 
+   * @param request - DescribeInfoCheckExportRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInfoCheckExportRecordResponse
+   */
+  async describeInfoCheckExportRecordWithOptions(request: $_model.DescribeInfoCheckExportRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInfoCheckExportRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInfoCheckExportRecord",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInfoCheckExportRecordResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInfoCheckExportRecordResponse({}));
+  }
+
+  /**
+   * 查询任务导出记录
+   * 
+   * @param request - DescribeInfoCheckExportRecordRequest
+   * @returns DescribeInfoCheckExportRecordResponse
+   */
+  async describeInfoCheckExportRecord(request: $_model.DescribeInfoCheckExportRecordRequest): Promise<$_model.DescribeInfoCheckExportRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInfoCheckExportRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the cloud scenario authentication records of a specific region
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DescribeListAntCloudAuthScenesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeListAntCloudAuthScenesResponse
+   */
+  async describeListAntCloudAuthScenesWithOptions(request: $_model.DescribeListAntCloudAuthScenesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeListAntCloudAuthScenesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeListAntCloudAuthScenes",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeListAntCloudAuthScenesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeListAntCloudAuthScenesResponse({}));
+  }
+
+  /**
+   * Query the cloud scenario authentication records of a specific region
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+   * 
+   * @param request - DescribeListAntCloudAuthScenesRequest
+   * @returns DescribeListAntCloudAuthScenesResponse
+   */
+  async describeListAntCloudAuthScenes(request: $_model.DescribeListAntCloudAuthScenesRequest): Promise<$_model.DescribeListAntCloudAuthScenesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeListAntCloudAuthScenesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Face Verification Data
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeListFaceVerifyDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeListFaceVerifyDataResponse
+   */
+  async describeListFaceVerifyDataWithOptions(request: $_model.DescribeListFaceVerifyDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeListFaceVerifyDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gmtEnd)) {
+      query["GmtEnd"] = request.gmtEnd;
+    }
+
+    if (!$dara.isNull(request.gmtStart)) {
+      query["GmtStart"] = request.gmtStart;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeListFaceVerifyData",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeListFaceVerifyDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeListFaceVerifyDataResponse({}));
+  }
+
+  /**
+   * Query Face Verification Data
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeListFaceVerifyDataRequest
+   * @returns DescribeListFaceVerifyDataResponse
+   */
+  async describeListFaceVerifyData(request: $_model.DescribeListFaceVerifyDataRequest): Promise<$_model.DescribeListFaceVerifyDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeListFaceVerifyDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Face Verification Information
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeListFaceVerifyInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeListFaceVerifyInfosResponse
+   */
+  async describeListFaceVerifyInfosWithOptions(request: $_model.DescribeListFaceVerifyInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeListFaceVerifyInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!$dara.isNull(request.gmtEnd)) {
+      query["GmtEnd"] = request.gmtEnd;
+    }
+
+    if (!$dara.isNull(request.gmtStart)) {
+      query["GmtStart"] = request.gmtStart;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeListFaceVerifyInfos",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeListFaceVerifyInfosResponse>(await this.callApi(params, req, runtime), new $_model.DescribeListFaceVerifyInfosResponse({}));
+  }
+
+  /**
+   * Get Face Verification Information
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeListFaceVerifyInfosRequest
+   * @returns DescribeListFaceVerifyInfosResponse
+   */
+  async describeListFaceVerifyInfos(request: $_model.DescribeListFaceVerifyInfosRequest): Promise<$_model.DescribeListFaceVerifyInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeListFaceVerifyInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询页面元数据
+   * 
+   * @param request - DescribeMetaSearchPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetaSearchPageListResponse
+   */
+  async describeMetaSearchPageListWithOptions(request: $_model.DescribeMetaSearchPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetaSearchPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.bankCard)) {
+      query["BankCard"] = request.bankCard;
+    }
+
+    if (!$dara.isNull(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.identifyNum)) {
+      query["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!$dara.isNull(request.ispName)) {
+      query["IspName"] = request.ispName;
+    }
+
+    if (!$dara.isNull(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.reqId)) {
+      query["ReqId"] = request.reqId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.subCode)) {
+      query["SubCode"] = request.subCode;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!$dara.isNull(request.vehicleNum)) {
+      query["VehicleNum"] = request.vehicleNum;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetaSearchPageList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetaSearchPageListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetaSearchPageListResponse({}));
+  }
+
+  /**
+   * 查询页面元数据
+   * 
+   * @param request - DescribeMetaSearchPageListRequest
+   * @returns DescribeMetaSearchPageListResponse
+   */
+  async describeMetaSearchPageList(request: $_model.DescribeMetaSearchPageListRequest): Promise<$_model.DescribeMetaSearchPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetaSearchPageListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询认证统计信息
+   * 
+   * @param request - DescribeMetaStatisticsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetaStatisticsListResponse
+   */
+  async describeMetaStatisticsListWithOptions(request: $_model.DescribeMetaStatisticsListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetaStatisticsListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetaStatisticsList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetaStatisticsListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetaStatisticsListResponse({}));
+  }
+
+  /**
+   * 查询认证统计信息
+   * 
+   * @param request - DescribeMetaStatisticsListRequest
+   * @returns DescribeMetaStatisticsListResponse
+   */
+  async describeMetaStatisticsList(request: $_model.DescribeMetaStatisticsListRequest): Promise<$_model.DescribeMetaStatisticsListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetaStatisticsListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询认证统计页面
+   * 
+   * @param request - DescribeMetaStatisticsPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetaStatisticsPageListResponse
+   */
+  async describeMetaStatisticsPageListWithOptions(request: $_model.DescribeMetaStatisticsPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetaStatisticsPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetaStatisticsPageList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetaStatisticsPageListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetaStatisticsPageListResponse({}));
+  }
+
+  /**
+   * 查询认证统计页面
+   * 
+   * @param request - DescribeMetaStatisticsPageListRequest
+   * @returns DescribeMetaStatisticsPageListResponse
+   */
+  async describeMetaStatisticsPageList(request: $_model.DescribeMetaStatisticsPageListRequest): Promise<$_model.DescribeMetaStatisticsPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetaStatisticsPageListWithOptions(request, runtime);
+  }
+
+  /**
+   * Query OSS status
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeOssStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssStatusResponse
+   */
+  async describeOssStatusWithOptions(request: $_model.DescribeOssStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOssStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOssStatus",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOssStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOssStatusResponse({}));
+  }
+
+  /**
+   * Query OSS status
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeOssStatusRequest
+   * @returns DescribeOssStatusResponse
+   */
+  async describeOssStatus(request: $_model.DescribeOssStatusRequest): Promise<$_model.DescribeOssStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOssStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Get OSS Activation Status
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeOssStatusV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssStatusV2Response
+   */
+  async describeOssStatusV2WithOptions(request: $_model.DescribeOssStatusV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOssStatusV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOssStatusV2",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOssStatusV2Response>(await this.callApi(params, req, runtime), new $_model.DescribeOssStatusV2Response({}));
+  }
+
+  /**
+   * Get OSS Activation Status
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeOssStatusV2Request
+   * @returns DescribeOssStatusV2Response
+   */
+  async describeOssStatusV2(request: $_model.DescribeOssStatusV2Request): Promise<$_model.DescribeOssStatusV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOssStatusV2WithOptions(request, runtime);
+  }
+
+  /**
    * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
    * 
    * @param request - DescribeOssUploadTokenRequest
@@ -1684,6 +3088,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query Page Settings
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DescribePageSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePageSettingResponse
+   */
+  async describePageSettingWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribePageSettingResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePageSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePageSettingResponse>(await this.callApi(params, req, runtime), new $_model.DescribePageSettingResponse({}));
+  }
+
+  /**
+   * Query Page Settings
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * @returns DescribePageSettingResponse
+   */
+  async describePageSetting(): Promise<$_model.DescribePageSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePageSettingWithOptions(runtime);
+  }
+
+  /**
+   * Get Product Code
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS GET/POST methods.
+   * 
+   * @param request - DescribeProductCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProductCodeResponse
+   */
+  async describeProductCodeWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeProductCodeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeProductCode",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeProductCodeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeProductCodeResponse({}));
+  }
+
+  /**
+   * Get Product Code
+   * 
+   * @remarks
+   * Request Method: Supports sending requests via HTTPS GET/POST methods.
+   * @returns DescribeProductCodeResponse
+   */
+  async describeProductCode(): Promise<$_model.DescribeProductCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeProductCodeWithOptions(runtime);
+  }
+
+  /**
    * Enhanced Real Person Authentication Call Statistics Pagination Query Interface
    * 
    * @param request - DescribeSmartStatisticsPageListRequest
@@ -1743,6 +3223,394 @@ export default class Client extends OpenApi {
   async describeSmartStatisticsPageList(request: $_model.DescribeSmartStatisticsPageListRequest): Promise<$_model.DescribeSmartStatisticsPageListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSmartStatisticsPageListWithOptions(request, runtime);
+  }
+
+  /**
+   * Get Verification Device Statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyDeviceRiskStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyDeviceRiskStatisticsResponse
+   */
+  async describeVerifyDeviceRiskStatisticsWithOptions(request: $_model.DescribeVerifyDeviceRiskStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyDeviceRiskStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyDeviceRiskStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyDeviceRiskStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyDeviceRiskStatisticsResponse({}));
+  }
+
+  /**
+   * Get Verification Device Statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyDeviceRiskStatisticsRequest
+   * @returns DescribeVerifyDeviceRiskStatisticsResponse
+   */
+  async describeVerifyDeviceRiskStatistics(request: $_model.DescribeVerifyDeviceRiskStatisticsRequest): Promise<$_model.DescribeVerifyDeviceRiskStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyDeviceRiskStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Overview of authentication request statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyFailStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyFailStatisticsResponse
+   */
+  async describeVerifyFailStatisticsWithOptions(request: $_model.DescribeVerifyFailStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyFailStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ageGt)) {
+      query["AgeGt"] = request.ageGt;
+    }
+
+    if (!$dara.isNull(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.deviceType)) {
+      query["DeviceType"] = request.deviceType;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyFailStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyFailStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyFailStatisticsResponse({}));
+  }
+
+  /**
+   * Overview of authentication request statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyFailStatisticsRequest
+   * @returns DescribeVerifyFailStatisticsResponse
+   */
+  async describeVerifyFailStatistics(request: $_model.DescribeVerifyFailStatisticsRequest): Promise<$_model.DescribeVerifyFailStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyFailStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Statistics on Device Face Comparison
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasDeviceModelStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyPersonasDeviceModelStatisticsResponse
+   */
+  async describeVerifyPersonasDeviceModelStatisticsWithOptions(request: $_model.DescribeVerifyPersonasDeviceModelStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyPersonasDeviceModelStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyPersonasDeviceModelStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyPersonasDeviceModelStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyPersonasDeviceModelStatisticsResponse({}));
+  }
+
+  /**
+   * Query Statistics on Device Face Comparison
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasDeviceModelStatisticsRequest
+   * @returns DescribeVerifyPersonasDeviceModelStatisticsResponse
+   */
+  async describeVerifyPersonasDeviceModelStatistics(request: $_model.DescribeVerifyPersonasDeviceModelStatisticsRequest): Promise<$_model.DescribeVerifyPersonasDeviceModelStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyPersonasDeviceModelStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Authentication Personnel Statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasOsStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyPersonasOsStatisticsResponse
+   */
+  async describeVerifyPersonasOsStatisticsWithOptions(request: $_model.DescribeVerifyPersonasOsStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyPersonasOsStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyPersonasOsStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyPersonasOsStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyPersonasOsStatisticsResponse({}));
+  }
+
+  /**
+   * Query Authentication Personnel Statistics
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasOsStatisticsRequest
+   * @returns DescribeVerifyPersonasOsStatisticsResponse
+   */
+  async describeVerifyPersonasOsStatistics(request: $_model.DescribeVerifyPersonasOsStatisticsRequest): Promise<$_model.DescribeVerifyPersonasOsStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyPersonasOsStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtain statistical information on the location of authenticated individuals
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasProvinceStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyPersonasProvinceStatisticsResponse
+   */
+  async describeVerifyPersonasProvinceStatisticsWithOptions(request: $_model.DescribeVerifyPersonasProvinceStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyPersonasProvinceStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyPersonasProvinceStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyPersonasProvinceStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyPersonasProvinceStatisticsResponse({}));
+  }
+
+  /**
+   * Obtain statistical information on the location of authenticated individuals
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasProvinceStatisticsRequest
+   * @returns DescribeVerifyPersonasProvinceStatisticsResponse
+   */
+  async describeVerifyPersonasProvinceStatistics(request: $_model.DescribeVerifyPersonasProvinceStatisticsRequest): Promise<$_model.DescribeVerifyPersonasProvinceStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyPersonasProvinceStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query gender statistics of authentication
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasSexStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyPersonasSexStatisticsResponse
+   */
+  async describeVerifyPersonasSexStatisticsWithOptions(request: $_model.DescribeVerifyPersonasSexStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyPersonasSexStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyPersonasSexStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyPersonasSexStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyPersonasSexStatisticsResponse({}));
+  }
+
+  /**
+   * Query gender statistics of authentication
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifyPersonasSexStatisticsRequest
+   * @returns DescribeVerifyPersonasSexStatisticsResponse
+   */
+  async describeVerifyPersonasSexStatistics(request: $_model.DescribeVerifyPersonasSexStatisticsRequest): Promise<$_model.DescribeVerifyPersonasSexStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyPersonasSexStatisticsWithOptions(request, runtime);
   }
 
   /**
@@ -1853,6 +3721,186 @@ export default class Client extends OpenApi {
   async describeVerifySDK(request: $_model.DescribeVerifySDKRequest): Promise<$_model.DescribeVerifySDKResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVerifySDKWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the list of authentication schemes
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifySearchPageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifySearchPageListResponse
+   */
+  async describeVerifySearchPageListWithOptions(request: $_model.DescribeVerifySearchPageListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifySearchPageListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!$dara.isNull(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.hasDeviceRisk)) {
+      query["HasDeviceRisk"] = request.hasDeviceRisk;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.outerOrderNo)) {
+      query["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.passed)) {
+      query["Passed"] = request.passed;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.root)) {
+      query["Root"] = request.root;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.simulator)) {
+      query["Simulator"] = request.simulator;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.subCode)) {
+      query["SubCode"] = request.subCode;
+    }
+
+    if (!$dara.isNull(request.subCodes)) {
+      query["SubCodes"] = request.subCodes;
+    }
+
+    if (!$dara.isNull(request.virtualVideo)) {
+      query["VirtualVideo"] = request.virtualVideo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifySearchPageList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifySearchPageListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifySearchPageListResponse({}));
+  }
+
+  /**
+   * Query the list of authentication schemes
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * 
+   * @param request - DescribeVerifySearchPageListRequest
+   * @returns DescribeVerifySearchPageListResponse
+   */
+  async describeVerifySearchPageList(request: $_model.DescribeVerifySearchPageListRequest): Promise<$_model.DescribeVerifySearchPageListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifySearchPageListWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Authentication Statistics
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeVerifyStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVerifyStatisticsResponse
+   */
+  async describeVerifyStatisticsWithOptions(request: $_model.DescribeVerifyStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVerifyStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ageGt)) {
+      query["AgeGt"] = request.ageGt;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVerifyStatistics",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVerifyStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVerifyStatisticsResponse({}));
+  }
+
+  /**
+   * Query Authentication Statistics
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests using HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - DescribeVerifyStatisticsRequest
+   * @returns DescribeVerifyStatisticsResponse
+   */
+  async describeVerifyStatistics(request: $_model.DescribeVerifyStatisticsRequest): Promise<$_model.DescribeVerifyStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVerifyStatisticsWithOptions(request, runtime);
   }
 
   /**
@@ -1978,6 +4026,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Whitelist Collection Get Whitelist Collection
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DescribeWhitelistSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWhitelistSettingResponse
+   */
+  async describeWhitelistSettingWithOptions(request: $_model.DescribeWhitelistSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWhitelistSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.certNo)) {
+      query["CertNo"] = request.certNo;
+    }
+
+    if (!$dara.isNull(request.certifyId)) {
+      query["CertifyId"] = request.certifyId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.serviceCode)) {
+      query["ServiceCode"] = request.serviceCode;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.validEndDate)) {
+      query["ValidEndDate"] = request.validEndDate;
+    }
+
+    if (!$dara.isNull(request.validStartDate)) {
+      query["ValidStartDate"] = request.validStartDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWhitelistSettingResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWhitelistSettingResponse({}));
+  }
+
+  /**
+   * Get Whitelist Collection Get Whitelist Collection
+   * 
+   * @remarks
+   * Request Method: Only supports sending requests via HTTPS POST method.
+   * 
+   * @param request - DescribeWhitelistSettingRequest
+   * @returns DescribeWhitelistSettingResponse
+   */
+  async describeWhitelistSetting(request: $_model.DescribeWhitelistSettingRequest): Promise<$_model.DescribeWhitelistSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeWhitelistSettingWithOptions(request, runtime);
+  }
+
+  /**
    * Detect Validity Attributes in Face Photos
    * 
    * @remarks
@@ -2045,6 +4181,64 @@ export default class Client extends OpenApi {
   async detectFaceAttributes(request: $_model.DetectFaceAttributesRequest): Promise<$_model.DetectFaceAttributesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detectFaceAttributesWithOptions(request, runtime);
+  }
+
+  /**
+   * Real-person Authentication Record Download
+   * 
+   * @remarks
+   * Obtain the download link for statistical call data files under the product plan based on query conditions.
+   * - Method: HTTPS POST
+   * - Service Address: cloudauth.aliyuncs.com
+   * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - DownloadVerifyRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadVerifyRecordsResponse
+   */
+  async downloadVerifyRecordsWithOptions(request: $_model.DownloadVerifyRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadVerifyRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizParam)) {
+      query["BizParam"] = request.bizParam;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadVerifyRecords",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadVerifyRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DownloadVerifyRecordsResponse({}));
+  }
+
+  /**
+   * Real-person Authentication Record Download
+   * 
+   * @remarks
+   * Obtain the download link for statistical call data files under the product plan based on query conditions.
+   * - Method: HTTPS POST
+   * - Service Address: cloudauth.aliyuncs.com
+   * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - DownloadVerifyRecordsRequest
+   * @returns DownloadVerifyRecordsResponse
+   */
+  async downloadVerifyRecords(request: $_model.DownloadVerifyRecordsRequest): Promise<$_model.DownloadVerifyRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadVerifyRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -2353,7 +4547,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       id2MetaVerifyWithOCRReq.certFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2376,7 +4570,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       id2MetaVerifyWithOCRReq.certNationalFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2530,12 +4724,181 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       id3MetaVerifyReq.faceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let id3MetaVerifyResp = await this.id3MetaVerifyWithOptions(id3MetaVerifyReq, runtime);
     return id3MetaVerifyResp;
+  }
+
+  /**
+   * Identity Three Elements Image Verification
+   * 
+   * @remarks
+   * Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+   * 
+   * @param request - Id3MetaVerifyWithOCRRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id3MetaVerifyWithOCRResponse
+   */
+  async id3MetaVerifyWithOCRWithOptions(request: $_model.Id3MetaVerifyWithOCRRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyWithOCRResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.certFile)) {
+      body["CertFile"] = request.certFile;
+    }
+
+    if (!$dara.isNull(request.certNationalFile)) {
+      body["CertNationalFile"] = request.certNationalFile;
+    }
+
+    if (!$dara.isNull(request.certNationalUrl)) {
+      body["CertNationalUrl"] = request.certNationalUrl;
+    }
+
+    if (!$dara.isNull(request.certUrl)) {
+      body["CertUrl"] = request.certUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Id3MetaVerifyWithOCR",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.Id3MetaVerifyWithOCRResponse>(await this.callApi(params, req, runtime), new $_model.Id3MetaVerifyWithOCRResponse({}));
+  }
+
+  /**
+   * Identity Three Elements Image Verification
+   * 
+   * @remarks
+   * Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+   * 
+   * @param request - Id3MetaVerifyWithOCRRequest
+   * @returns Id3MetaVerifyWithOCRResponse
+   */
+  async id3MetaVerifyWithOCR(request: $_model.Id3MetaVerifyWithOCRRequest): Promise<$_model.Id3MetaVerifyWithOCRResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.id3MetaVerifyWithOCRWithOptions(request, runtime);
+  }
+
+  async id3MetaVerifyWithOCRAdvance(request: $_model.Id3MetaVerifyWithOCRAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.Id3MetaVerifyWithOCRResponse> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let id3MetaVerifyWithOCRReq = new $_model.Id3MetaVerifyWithOCRRequest({ });
+    OpenApiUtil.convert(request, id3MetaVerifyWithOCRReq);
+    if (!$dara.isNull(request.certFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.certFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      id3MetaVerifyWithOCRReq.certFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    if (!$dara.isNull(request.certNationalFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.certNationalFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      id3MetaVerifyWithOCRReq.certNationalFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let id3MetaVerifyWithOCRResp = await this.id3MetaVerifyWithOCRWithOptions(id3MetaVerifyWithOCRReq, runtime);
+    return id3MetaVerifyWithOCRResp;
   }
 
   /**
@@ -2698,6 +5061,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.faceGuardOutput)) {
       query["FaceGuardOutput"] = request.faceGuardOutput;
+    }
+
+    if (!$dara.isNull(request.h5DegradeConfirmBtn)) {
+      query["H5DegradeConfirmBtn"] = request.h5DegradeConfirmBtn;
     }
 
     if (!$dara.isNull(request.ip)) {
@@ -3445,6 +5812,192 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modify Black and White List Policy
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - Interface Description: Add or modify blacklist rule.
+   * 
+   * @param tmpReq - ModifyBlackListStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBlackListStrategyResponse
+   */
+  async modifyBlackListStrategyWithOptions(tmpReq: $_model.ModifyBlackListStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBlackListStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyBlackListStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.blackListStrategy)) {
+      request.blackListStrategyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.blackListStrategy, "BlackListStrategy", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.blackListStrategyShrink)) {
+      query["BlackListStrategy"] = request.blackListStrategyShrink;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBlackListStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBlackListStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBlackListStrategyResponse({}));
+  }
+
+  /**
+   * Modify Black and White List Policy
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com.
+   * - Request Method: HTTPS POST and GET.
+   * - Interface Description: Add or modify blacklist rule.
+   * 
+   * @param request - ModifyBlackListStrategyRequest
+   * @returns ModifyBlackListStrategyResponse
+   */
+  async modifyBlackListStrategy(request: $_model.ModifyBlackListStrategyRequest): Promise<$_model.ModifyBlackListStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBlackListStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify Security Control Strategy
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST method.
+   * - Request Address: cloudauth.aliyuncs.com.
+   * 
+   * @param tmpReq - ModifyControlStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyControlStrategyResponse
+   */
+  async modifyControlStrategyWithOptions(tmpReq: $_model.ModifyControlStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyControlStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyControlStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.controlStrategyList)) {
+      request.controlStrategyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.controlStrategyList, "ControlStrategyList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.controlStrategyListShrink)) {
+      query["ControlStrategyList"] = request.controlStrategyListShrink;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyControlStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyControlStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyControlStrategyResponse({}));
+  }
+
+  /**
+   * Modify Security Control Strategy
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST method.
+   * - Request Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - ModifyControlStrategyRequest
+   * @returns ModifyControlStrategyResponse
+   */
+  async modifyControlStrategy(request: $_model.ModifyControlStrategyRequest): Promise<$_model.ModifyControlStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyControlStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Information Verification Security Management
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param tmpReq - ModifyCustomizeFlowStrategyListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCustomizeFlowStrategyListResponse
+   */
+  async modifyCustomizeFlowStrategyListWithOptions(tmpReq: $_model.ModifyCustomizeFlowStrategyListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCustomizeFlowStrategyListResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyCustomizeFlowStrategyListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.strategyObject)) {
+      request.strategyObjectShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.strategyObject, "StrategyObject", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.strategyObjectShrink)) {
+      query["StrategyObject"] = request.strategyObjectShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCustomizeFlowStrategyList",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCustomizeFlowStrategyListResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCustomizeFlowStrategyListResponse({}));
+  }
+
+  /**
+   * Information Verification Security Management
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Service Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - ModifyCustomizeFlowStrategyListRequest
+   * @returns ModifyCustomizeFlowStrategyListResponse
+   */
+  async modifyCustomizeFlowStrategyList(request: $_model.ModifyCustomizeFlowStrategyListRequest): Promise<$_model.ModifyCustomizeFlowStrategyListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCustomizeFlowStrategyListWithOptions(request, runtime);
+  }
+
+  /**
    * Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
    * 
    * @remarks
@@ -3583,6 +6136,406 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query Blacklist and Whitelist Policies
+   * 
+   * @remarks
+   * - Request URL: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+   * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+   * 
+   * @param request - QueryBlackListStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryBlackListStrategyResponse
+   */
+  async queryBlackListStrategyWithOptions(request: $_model.QueryBlackListStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryBlackListStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryBlackListStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryBlackListStrategyResponse>(await this.callApi(params, req, runtime), new $_model.QueryBlackListStrategyResponse({}));
+  }
+
+  /**
+   * Query Blacklist and Whitelist Policies
+   * 
+   * @remarks
+   * - Request URL: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+   * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+   * 
+   * @param request - QueryBlackListStrategyRequest
+   * @returns QueryBlackListStrategyResponse
+   */
+  async queryBlackListStrategy(request: $_model.QueryBlackListStrategyRequest): Promise<$_model.QueryBlackListStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryBlackListStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Security Control Strategy
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Request Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - QueryControlStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryControlStrategyResponse
+   */
+  async queryControlStrategyWithOptions(request: $_model.QueryControlStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryControlStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryControlStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryControlStrategyResponse>(await this.callApi(params, req, runtime), new $_model.QueryControlStrategyResponse({}));
+  }
+
+  /**
+   * Query Security Control Strategy
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST and GET methods.
+   * - Request Address: cloudauth.aliyuncs.com.
+   * 
+   * @param request - QueryControlStrategyRequest
+   * @returns QueryControlStrategyResponse
+   */
+  async queryControlStrategy(request: $_model.QueryControlStrategyRequest): Promise<$_model.QueryControlStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryControlStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Custom Flow Control Strategy
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+   * 
+   * @param request - QueryCustomizeFlowStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCustomizeFlowStrategyResponse
+   */
+  async queryCustomizeFlowStrategyWithOptions(request: $_model.QueryCustomizeFlowStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCustomizeFlowStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCustomizeFlowStrategy",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCustomizeFlowStrategyResponse>(await this.callApi(params, req, runtime), new $_model.QueryCustomizeFlowStrategyResponse({}));
+  }
+
+  /**
+   * Query Custom Flow Control Strategy
+   * 
+   * @remarks
+   * - Service Address: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+   * 
+   * @param request - QueryCustomizeFlowStrategyRequest
+   * @returns QueryCustomizeFlowStrategyResponse
+   */
+  async queryCustomizeFlowStrategy(request: $_model.QueryCustomizeFlowStrategyRequest): Promise<$_model.QueryCustomizeFlowStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCustomizeFlowStrategyWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Scene Configuration
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - QuerySceneConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySceneConfigsResponse
+   */
+  async querySceneConfigsWithOptions(request: $_model.QuerySceneConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySceneConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySceneConfigs",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySceneConfigsResponse>(await this.callApi(params, req, runtime), new $_model.QuerySceneConfigsResponse({}));
+  }
+
+  /**
+   * Query Scene Configuration
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST and GET.
+   * 
+   * @param request - QuerySceneConfigsRequest
+   * @returns QuerySceneConfigsResponse
+   */
+  async querySceneConfigs(request: $_model.QuerySceneConfigsRequest): Promise<$_model.QuerySceneConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySceneConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Real-Person Download Task
+   * 
+   * @remarks
+   * Obtain the download link for statistical call data files under the product plan based on query conditions.
+   * - Method: HTTPS POST
+   * - Service Address: cloudauth.aliyuncs.com
+   * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - QueryVerifyDownloadTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVerifyDownloadTaskResponse
+   */
+  async queryVerifyDownloadTaskWithOptions(request: $_model.QueryVerifyDownloadTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVerifyDownloadTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVerifyDownloadTask",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVerifyDownloadTaskResponse>(await this.callApi(params, req, runtime), new $_model.QueryVerifyDownloadTaskResponse({}));
+  }
+
+  /**
+   * Query Real-Person Download Task
+   * 
+   * @remarks
+   * Obtain the download link for statistical call data files under the product plan based on query conditions.
+   * - Method: HTTPS POST
+   * - Service Address: cloudauth.aliyuncs.com
+   * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - QueryVerifyDownloadTaskRequest
+   * @returns QueryVerifyDownloadTaskResponse
+   */
+  async queryVerifyDownloadTask(request: $_model.QueryVerifyDownloadTaskRequest): Promise<$_model.QueryVerifyDownloadTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVerifyDownloadTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Flow Package
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com
+   * - Request method: HTTPS POST and GET.
+   * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+   * 
+   * @param request - QueryVerifyFlowPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVerifyFlowPackageResponse
+   */
+  async queryVerifyFlowPackageWithOptions(request: $_model.QueryVerifyFlowPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVerifyFlowPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVerifyFlowPackage",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVerifyFlowPackageResponse>(await this.callApi(params, req, runtime), new $_model.QueryVerifyFlowPackageResponse({}));
+  }
+
+  /**
+   * Query Flow Package
+   * 
+   * @remarks
+   * - Service address: cloudauth.aliyuncs.com
+   * - Request method: HTTPS POST and GET.
+   * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+   * 
+   * @param request - QueryVerifyFlowPackageRequest
+   * @returns QueryVerifyFlowPackageResponse
+   */
+  async queryVerifyFlowPackage(request: $_model.QueryVerifyFlowPackageRequest): Promise<$_model.QueryVerifyFlowPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVerifyFlowPackageWithOptions(request, runtime);
+  }
+
+  /**
+   * Call Volume Statistics
+   * 
+   * @remarks
+   * - Request URL: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - QueryVerifyInvokeSatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVerifyInvokeSatisticResponse
+   */
+  async queryVerifyInvokeSatisticWithOptions(request: $_model.QueryVerifyInvokeSatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVerifyInvokeSatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productProgramList)) {
+      query["ProductProgramList"] = request.productProgramList;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.sceneIdList)) {
+      query["SceneIdList"] = request.sceneIdList;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statisticsType)) {
+      query["StatisticsType"] = request.statisticsType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVerifyInvokeSatistic",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVerifyInvokeSatisticResponse>(await this.callApi(params, req, runtime), new $_model.QueryVerifyInvokeSatisticResponse({}));
+  }
+
+  /**
+   * Call Volume Statistics
+   * 
+   * @remarks
+   * - Request URL: cloudauth.aliyuncs.com
+   * - Request Method: HTTPS POST and GET.
+   * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+   * 
+   * @param request - QueryVerifyInvokeSatisticRequest
+   * @returns QueryVerifyInvokeSatisticResponse
+   */
+  async queryVerifyInvokeSatistic(request: $_model.QueryVerifyInvokeSatisticRequest): Promise<$_model.QueryVerifyInvokeSatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVerifyInvokeSatisticWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Real Person Whitelist
    * 
    * @param tmpReq - RemoveWhiteListSettingRequest
@@ -3632,6 +6585,148 @@ export default class Client extends OpenApi {
   async removeWhiteListSetting(request: $_model.RemoveWhiteListSettingRequest): Promise<$_model.RemoveWhiteListSettingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeWhiteListSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Ant Blockchain Transaction Scenario
+   * 
+   * @remarks
+   * Update the information of a financial-level authentication scenario based on the scenario ID.
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST.
+   * 
+   * @param request - UpdateAntCloudAuthSceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAntCloudAuthSceneResponse
+   */
+  async updateAntCloudAuthSceneWithOptions(request: $_model.UpdateAntCloudAuthSceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAntCloudAuthSceneResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bindMiniProgram)) {
+      query["BindMiniProgram"] = request.bindMiniProgram;
+    }
+
+    if (!$dara.isNull(request.checkFileBody)) {
+      query["CheckFileBody"] = request.checkFileBody;
+    }
+
+    if (!$dara.isNull(request.checkFileName)) {
+      query["CheckFileName"] = request.checkFileName;
+    }
+
+    if (!$dara.isNull(request.miniProgramName)) {
+      query["MiniProgramName"] = request.miniProgramName;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!$dara.isNull(request.sceneName)) {
+      query["SceneName"] = request.sceneName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.storeImage)) {
+      query["StoreImage"] = request.storeImage;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAntCloudAuthScene",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAntCloudAuthSceneResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAntCloudAuthSceneResponse({}));
+  }
+
+  /**
+   * Update Ant Blockchain Transaction Scenario
+   * 
+   * @remarks
+   * Update the information of a financial-level authentication scenario based on the scenario ID.
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST.
+   * 
+   * @param request - UpdateAntCloudAuthSceneRequest
+   * @returns UpdateAntCloudAuthSceneResponse
+   */
+  async updateAntCloudAuthScene(request: $_model.UpdateAntCloudAuthSceneRequest): Promise<$_model.UpdateAntCloudAuthSceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAntCloudAuthSceneWithOptions(request, runtime);
+  }
+
+  /**
+   * Update Scene Configuration
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST.
+   * - Request URL: cloudauth.aliyuncs.com.
+   * 
+   * @param request - UpdateSceneConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSceneConfigResponse
+   */
+  async updateSceneConfigWithOptions(request: $_model.UpdateSceneConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSceneConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.sceneId)) {
+      body["sceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSceneConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSceneConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSceneConfigResponse({}));
+  }
+
+  /**
+   * Update Scene Configuration
+   * 
+   * @remarks
+   * - Request Method: Supports sending requests via HTTPS POST.
+   * - Request URL: cloudauth.aliyuncs.com.
+   * 
+   * @param request - UpdateSceneConfigRequest
+   * @returns UpdateSceneConfigResponse
+   */
+  async updateSceneConfig(request: $_model.UpdateSceneConfigRequest): Promise<$_model.UpdateSceneConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSceneConfigWithOptions(request, runtime);
   }
 
   /**

@@ -193,6 +193,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
    * DeviceRisk
    */
   faceGuardOutput?: string;
+  h5DegradeConfirmBtn?: string;
   /**
    * @remarks
    * User\\"s IP address.
@@ -467,6 +468,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       faceContrastPicture: 'FaceContrastPicture',
       faceContrastPictureUrl: 'FaceContrastPictureUrl',
       faceGuardOutput: 'FaceGuardOutput',
+      h5DegradeConfirmBtn: 'H5DegradeConfirmBtn',
       ip: 'Ip',
       metaInfo: 'MetaInfo',
       mobile: 'Mobile',
@@ -510,6 +512,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       faceContrastPicture: 'string',
       faceContrastPictureUrl: 'string',
       faceGuardOutput: 'string',
+      h5DegradeConfirmBtn: 'string',
       ip: 'string',
       metaInfo: 'string',
       mobile: 'string',
