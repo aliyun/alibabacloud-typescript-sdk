@@ -692,7 +692,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInternetTupleResponse
    */
-  // Deprecated
   async getInternetTupleWithOptions(tmpReq: $_model.GetInternetTupleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInternetTupleResponse> {
     tmpReq.validate();
     let request = new $_model.GetInternetTupleShrinkRequest({ });
@@ -834,7 +833,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNatTopNResponse
    */
-  // Deprecated
   async getNatTopNWithOptions(request: $_model.GetNatTopNRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNatTopNResponse> {
     request.validate();
     let query = { };
@@ -1138,7 +1136,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTransitRouterFlowTopNResponse
    */
-  // Deprecated
   async getTransitRouterFlowTopNWithOptions(tmpReq: $_model.GetTransitRouterFlowTopNRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTransitRouterFlowTopNResponse> {
     tmpReq.validate();
     let request = new $_model.GetTransitRouterFlowTopNShrinkRequest({ });
@@ -1260,7 +1257,6 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVbrFlowTopNResponse
    */
-  // Deprecated
   async getVbrFlowTopNWithOptions(tmpReq: $_model.GetVbrFlowTopNRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVbrFlowTopNResponse> {
     tmpReq.validate();
     let request = new $_model.GetVbrFlowTopNShrinkRequest({ });
