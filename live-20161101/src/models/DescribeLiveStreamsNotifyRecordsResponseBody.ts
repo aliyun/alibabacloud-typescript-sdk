@@ -35,6 +35,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
    * {\\"action\\":\\"publish_done\\",\\"app\\":\\"push.example1.com\\"}
    */
   notifyContent?: string;
+  notifyHeader?: string;
   notifyResponse?: string;
   /**
    * @remarks
@@ -88,6 +89,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
       description: 'Description',
       domainName: 'DomainName',
       notifyContent: 'NotifyContent',
+      notifyHeader: 'NotifyHeader',
       notifyResponse: 'NotifyResponse',
       notifyResult: 'NotifyResult',
       notifyTime: 'NotifyTime',
@@ -103,6 +105,7 @@ export class DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveSt
       description: 'string',
       domainName: 'string',
       notifyContent: 'string',
+      notifyHeader: 'string',
       notifyResponse: 'string',
       notifyResult: 'string',
       notifyTime: 'string',
