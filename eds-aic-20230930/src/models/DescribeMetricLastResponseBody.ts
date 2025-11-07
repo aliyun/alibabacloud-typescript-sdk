@@ -8,6 +8,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
    * 99.52
    */
   average?: number;
+  gpuId?: string;
   /**
    * @example
    * 100
@@ -26,6 +27,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   static names(): { [key: string]: string } {
     return {
       average: 'Average',
+      gpuId: 'GpuId',
       maximum: 'Maximum',
       minimum: 'Minimum',
       timestamp: 'Timestamp',
@@ -35,6 +37,7 @@ export class DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPo
   static types(): { [key: string]: any } {
     return {
       average: 'number',
+      gpuId: 'string',
       maximum: 'number',
       minimum: 'number',
       timestamp: 'number',
