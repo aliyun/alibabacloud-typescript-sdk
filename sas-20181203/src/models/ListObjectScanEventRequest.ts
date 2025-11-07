@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListObjectScanEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Batch operation type. Valid values:
+   * - **sha256**: Same file content
+   * - **eventName**: Same alert type
+   * 
+   * @example
+   * sha256
+   */
   batchType?: string;
   /**
    * @remarks
@@ -22,6 +31,13 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Event ID.
+   * 
+   * @example
+   * 8925****
+   */
   eventId?: number;
   /**
    * @remarks
@@ -99,6 +115,18 @@ export class ListObjectScanEventRequest extends $dara.Model {
    * OSS
    */
   source?: string;
+  /**
+   * @remarks
+   * Event status. The values are as follows:
+   * - **0**: Unprocessed 
+   * - **1**: I have processed manually 
+   * - **2**: Whitelisted 
+   * - **3**: Ignored 
+   * - **4**: Access denied
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   /**
    * @remarks

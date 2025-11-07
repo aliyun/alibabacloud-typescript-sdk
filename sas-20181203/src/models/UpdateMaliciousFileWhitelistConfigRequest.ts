@@ -47,6 +47,13 @@ export class UpdateMaliciousFileWhitelistConfigRequest extends $dara.Model {
    * strEqual
    */
   operator?: string;
+  /**
+   * @remarks
+   * Remark.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   /**
    * @remarks

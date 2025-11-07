@@ -97,6 +97,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * true
    */
   displaySandboxResult?: string;
+  /**
+   * @remarks
+   * Error message.
+   * 
+   * @example
+   * connect timed out
+   */
   errorMsg?: string;
   /**
    * @remarks
@@ -149,6 +156,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 1694576692000
    */
   lastTime?: number;
+  /**
+   * @remarks
+   * Information on whitelisting rule hits.
+   * 
+   * @example
+   * <strong></strong>&nbsp&nbspmd5&nbsp&nbsp contains &nbsp&nbsp23&nbsp&nbsp
+   */
   matchedWhiteListRuleI18nStr?: string;
   /**
    * @remarks
@@ -158,6 +172,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 5b394b54ca632fe51c4ab4a6dbaf****
    */
   md5?: string;
+  /**
+   * @remarks
+   * Alarm handling result
+   * 
+   * @example
+   * fail
+   */
   operateResult?: string;
   /**
    * @remarks
@@ -167,6 +188,13 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * 1/2023/07/21/10/18/16899059356518bcf6c64-a04e-492d-a421-4ae8b888****
    */
   ossKey?: string;
+  /**
+   * @remarks
+   * Remark.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   /**
    * @remarks
@@ -207,6 +235,18 @@ export class ListObjectScanEventResponseBodyData extends $dara.Model {
    * OSS
    */
   source?: string;
+  /**
+   * @remarks
+   * Event status. Valid values::
+   * - **0**: Unprocessed 
+   * - **1**: Processed manually 
+   * - **2**: Whitelisted 
+   * - **3**: Ignored 
+   * - **4**: Access denied
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {

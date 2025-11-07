@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search condition for components.
+   * 
    * @example
    * {}
    */
@@ -71,6 +74,9 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
    */
   statisticsTypeInstanceValue?: string;
   /**
+   * @remarks
+   * The UUID of the server.
+   * 
    * @example
    * c9107c04-942f-40c1-981a-f1c1***
    */

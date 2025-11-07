@@ -21,6 +21,15 @@ export class ListMaliciousFileWhitelistConfigsRequest extends $dara.Model {
    * ALL
    */
   eventName?: string;
+  /**
+   * @remarks
+   * Event ID. <notice>Field is deprecated.</notice>
+   * 
+   * @example
+   * 123
+   * 
+   * @deprecated
+   */
   idList?: number;
   /**
    * @remarks

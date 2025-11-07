@@ -73,6 +73,13 @@ export class ListMaliciousFileWhitelistConfigsResponseBodyList extends $dara.Mod
    * strEqual
    */
   operator?: string;
+  /**
+   * @remarks
+   * Remark
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   /**
    * @remarks

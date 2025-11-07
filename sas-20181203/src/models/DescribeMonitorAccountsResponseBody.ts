@@ -3,10 +3,52 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitorAccountsResponseBodyAccountIdInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member.
+   * 
+   * @example
+   * 119593010538****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * The time when it was added to the control list, in timestamp format with second precision.
+   * 
+   * @example
+   * 1760520684000
+   */
   addTime?: number;
+  /**
+   * @remarks
+   * The account ID of the operator.
+   * 
+   * @example
+   * 106635707417****
+   */
   operatorUid?: string;
+  /**
+   * @remarks
+   * Basic service switch. Values: 
+   * - **0**: Off 
+   * - **1**: On
+   * 
+   * @example
+   * 1
+   */
   postBasicService?: number;
+  /**
+   * @remarks
+   * The purchased version of Cloud Security Center. Values:
+   * - **0** or **1**: Free Edition 
+   * - **2** or **3**: Enterprise Edition
+   *  - **5**: Advanced Edition 
+   * - **6**: Anti-Virus Edition 
+   * - **7**: Flagship Edition
+   * 
+   * @example
+   * 7
+   */
   sasVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +80,10 @@ export class DescribeMonitorAccountsResponseBodyAccountIdInfos extends $dara.Mod
 }
 
 export class DescribeMonitorAccountsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of member account information.
+   */
   accountIdInfos?: DescribeMonitorAccountsResponseBodyAccountIdInfos[];
   /**
    * @remarks

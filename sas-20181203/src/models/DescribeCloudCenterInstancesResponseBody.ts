@@ -354,6 +354,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
    * 1024
    */
   mem?: number;
+  namespace?: string;
   /**
    * @remarks
    * The operating system of the asset.
@@ -645,6 +646,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       lastLoginTimestamp: 'LastLoginTimestamp',
       macListString: 'MacListString',
       mem: 'Mem',
+      namespace: 'Namespace',
       os: 'Os',
       osName: 'OsName',
       podCount: 'PodCount',
@@ -708,6 +710,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
       lastLoginTimestamp: 'number',
       macListString: 'string',
       mem: 'number',
+      namespace: 'string',
       os: 'string',
       osName: 'string',
       podCount: 'number',

@@ -130,6 +130,9 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
    */
   exposureTypeInstanceName?: string;
   /**
+   * @remarks
+   * The listener port that is used to redirect HTTP requests.
+   * 
    * @example
    * 80
    */

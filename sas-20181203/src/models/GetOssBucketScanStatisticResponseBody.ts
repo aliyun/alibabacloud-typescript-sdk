@@ -43,8 +43,29 @@ export class GetOssBucketScanStatisticResponseBodyData extends $dara.Model {
    * 1
    */
   noScanBucket?: number;
+  /**
+   * @remarks
+   * Postpaid usage count.
+   * 
+   * @example
+   * 1000
+   */
   postPayInvokeCount?: number;
+  /**
+   * @remarks
+   * Prepaid authorized count.
+   * 
+   * @example
+   * 10000
+   */
   prePayAuthCount?: number;
+  /**
+   * @remarks
+   * Prepaid usage count.
+   * 
+   * @example
+   * 100
+   */
   prePayInvokeCount?: number;
   /**
    * @remarks
