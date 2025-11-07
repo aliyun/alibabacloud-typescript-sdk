@@ -143,6 +143,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
    * vsm
    */
   tenantIsolationType?: string;
+  tpsEnabled?: number;
   /**
    * @remarks
    * The ID of the vSwitch that is configured for the HSM.
@@ -202,6 +203,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       remark: 'Remark',
       status: 'Status',
       tenantIsolationType: 'TenantIsolationType',
+      tpsEnabled: 'TpsEnabled',
       vSwitchId: 'VSwitchId',
       vendor: 'Vendor',
       vpcId: 'VpcId',
@@ -229,6 +231,7 @@ export class GetInstanceResponseBodyInstance extends $dara.Model {
       remark: 'string',
       status: 'string',
       tenantIsolationType: 'string',
+      tpsEnabled: 'number',
       vSwitchId: 'string',
       vendor: 'string',
       vpcId: 'string',
