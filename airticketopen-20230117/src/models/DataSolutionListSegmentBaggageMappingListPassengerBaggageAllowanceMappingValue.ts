@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue extends $dara.Model {
   /**
    * @remarks
-   * checked baggage quantity
+   * Number of checked baggage pieces
    * 
    * @example
    * 22
@@ -13,7 +13,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   baggageAmount?: number;
   /**
    * @remarks
-   * checked baggage weight
+   * Weight of checked baggage
    * 
    * @example
    * 2
@@ -21,15 +21,15 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   baggageWeight?: number;
   /**
    * @remarks
-   * checked baggage weight unit
+   * Unit of checked baggage weight (KG)
    * 
    * @example
-   * kg
+   * KG
    */
   baggageWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight is for all baggages
+   * Whether the weight applies to all checked baggage
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   isAllWeight?: boolean;
   /**
    * @remarks
-   * carry-on baggage quantity
+   * Number of carry-on baggage pieces
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   carryOnAmount?: number;
   /**
    * @remarks
-   * carry-on baggage weight
+   * Weight of carry-on baggage
    * 
    * @example
    * 2
@@ -53,56 +53,80 @@ export class DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceM
   carryOnWeight?: number;
   /**
    * @remarks
-   * carry-on baggage weight unit
+   * Carry-on luggage weight unit KG
    * 
    * @example
-   * kg
+   * KG
    */
   carryOnWeightUnit?: string;
   /**
    * @remarks
-   * Whether the weight is for all baggages
+   * Whether it is the total carry-on luggage weight
    * 
    * @example
    * true
    */
   isAllCarryOnWeight?: boolean;
   /**
+   * @remarks
+   * Carry-on luggage length (unit: centimeters)
+   * 
    * @example
    * 55
    */
   carryLength?: number;
   /**
+   * @remarks
+   * Carry-on luggage width (unit: centimeters)
+   * 
    * @example
    * 40
    */
   carryWidth?: number;
   /**
+   * @remarks
+   * Carry-on luggage height (unit: centimeters)
+   * 
    * @example
    * 20
    */
   carryHeight?: number;
   /**
+   * @remarks
+   * Sum of three sides of the Carry-on luggage (unit: centimeters)
+   * 
    * @example
    * 115
    */
   carrySumOfLengthWidthHeight?: number;
   /**
+   * @remarks
+   * Check-in luggage length (unit: centimeters)
+   * 
    * @example
    * 60
    */
   length?: number;
   /**
+   * @remarks
+   * Check-in luggage width (unit: centimeters)
+   * 
    * @example
    * 40
    */
   width?: number;
   /**
+   * @remarks
+   * Check-in luggage height (unit: centimeters)
+   * 
    * @example
    * 60
    */
   height?: number;
   /**
+   * @remarks
+   * Sum of three sides of the Check-in luggage (unit: centimeters)
+   * 
    * @example
    * 200
    */

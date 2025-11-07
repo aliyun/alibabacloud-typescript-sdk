@@ -6,7 +6,7 @@ export class EnrichHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access token
+   * access_token
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class EnrichHeaders extends $dara.Model {
   xAcsAirticketAccessToken?: string;
   /**
    * @remarks
-   * language code, defaults to the buyer\\"s account configuration
+   * Multi-language, default is based on the buyer\\"s account configuration
    * 
    * @example
    * en_US
