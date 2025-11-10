@@ -36,6 +36,11 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
    */
   maxReceiveTps?: number;
   /**
+   * @example
+   * LITE_SELECTIVE
+   */
+  messageModel?: string;
+  /**
    * @remarks
    * The region ID to which the instance belongs.
    * 
@@ -60,6 +65,11 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
    */
   status?: string;
   /**
+   * @example
+   * test1
+   */
+  topicName?: string;
+  /**
    * @remarks
    * Last update time of the consumer group.
    * 
@@ -73,9 +83,11 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
       createTime: 'createTime',
       instanceId: 'instanceId',
       maxReceiveTps: 'maxReceiveTps',
+      messageModel: 'messageModel',
       regionId: 'regionId',
       remark: 'remark',
       status: 'status',
+      topicName: 'topicName',
       updateTime: 'updateTime',
     };
   }
@@ -86,9 +98,11 @@ export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
       createTime: 'string',
       instanceId: 'string',
       maxReceiveTps: 'number',
+      messageModel: 'string',
       regionId: 'string',
       remark: 'string',
       status: 'string',
+      topicName: 'string',
       updateTime: 'string',
     };
   }

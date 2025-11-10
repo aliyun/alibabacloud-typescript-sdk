@@ -14,6 +14,11 @@ export class ListTracesRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * The message ID.
    * 
@@ -82,6 +87,7 @@ export class ListTracesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
+      liteTopicName: 'liteTopicName',
       messageId: 'messageId',
       messageKey: 'messageKey',
       pageNumber: 'pageNumber',
@@ -94,6 +100,7 @@ export class ListTracesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      liteTopicName: 'string',
       messageId: 'string',
       messageKey: 'string',
       pageNumber: 'number',

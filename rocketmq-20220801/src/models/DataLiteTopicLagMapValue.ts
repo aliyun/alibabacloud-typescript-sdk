@@ -2,31 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetConsumerGroupLagRequest extends $dara.Model {
+export class DataLiteTopicLagMapValue extends $dara.Model {
   /**
    * @example
-   * abc
+   * 300
    */
-  liteTopicName?: string;
+  readyCount?: number;
   /**
-   * @remarks
-   * The topic name.
-   * 
    * @example
-   * normal-topic-1
+   * 30
    */
-  topicName?: string;
+  deliveryDuration?: number;
   static names(): { [key: string]: string } {
     return {
-      liteTopicName: 'liteTopicName',
-      topicName: 'topicName',
+      readyCount: 'readyCount',
+      deliveryDuration: 'deliveryDuration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      liteTopicName: 'string',
-      topicName: 'string',
+      readyCount: 'number',
+      deliveryDuration: 'number',
     };
   }
 

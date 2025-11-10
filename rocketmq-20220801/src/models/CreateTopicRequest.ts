@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTopicRequest extends $dara.Model {
   /**
+   * @example
+   * 20
+   */
+  liteTopicExpiration?: number;
+  /**
    * @remarks
    * The maximum TPS for message sending.
    * 
@@ -40,6 +45,7 @@ export class CreateTopicRequest extends $dara.Model {
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      liteTopicExpiration: 'liteTopicExpiration',
       maxSendTps: 'maxSendTps',
       messageType: 'messageType',
       remark: 'remark',
@@ -48,6 +54,7 @@ export class CreateTopicRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      liteTopicExpiration: 'number',
       maxSendTps: 'number',
       messageType: 'string',
       remark: 'string',

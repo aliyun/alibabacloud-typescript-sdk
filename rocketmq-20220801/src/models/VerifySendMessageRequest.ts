@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class VerifySendMessageRequest extends $dara.Model {
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * The message body.
    * 
@@ -29,6 +34,7 @@ export class VerifySendMessageRequest extends $dara.Model {
   messageTag?: string;
   static names(): { [key: string]: string } {
     return {
+      liteTopicName: 'liteTopicName',
       message: 'message',
       messageKey: 'messageKey',
       messageTag: 'messageTag',
@@ -37,6 +43,7 @@ export class VerifySendMessageRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      liteTopicName: 'string',
       message: 'string',
       messageKey: 'string',
       messageTag: 'string',

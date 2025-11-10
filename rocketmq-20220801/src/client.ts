@@ -161,8 +161,16 @@ export default class Client extends OpenApi {
       body["maxReceiveTps"] = request.maxReceiveTps;
     }
 
+    if (!$dara.isNull(request.messageModel)) {
+      body["messageModel"] = request.messageModel;
+    }
+
     if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      body["topicName"] = request.topicName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -546,6 +554,10 @@ export default class Client extends OpenApi {
   async createTopicWithOptions(instanceId: string, topicName: string, request: $_model.CreateTopicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTopicResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.liteTopicExpiration)) {
+      body["liteTopicExpiration"] = request.liteTopicExpiration;
+    }
+
     if (!$dara.isNull(request.maxSendTps)) {
       body["maxSendTps"] = request.maxSendTps;
     }
@@ -1076,6 +1088,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询topic可重置时间范围
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumeTimespanResponse
+   */
+  async getConsumeTimespanWithOptions(instanceId: string, consumerGroupId: string, topicName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumeTimespanResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumeTimespan",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/consumeTimespan/${$dara.URL.percentEncode(topicName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumeTimespanResponse>(await this.callApi(params, req, runtime), new $_model.GetConsumeTimespanResponse({}));
+  }
+
+  /**
+   * 查询topic可重置时间范围
+   * @returns GetConsumeTimespanResponse
+   */
+  async getConsumeTimespan(instanceId: string, consumerGroupId: string, topicName: string): Promise<$_model.GetConsumeTimespanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumeTimespanWithOptions(instanceId, consumerGroupId, topicName, headers, runtime);
+  }
+
+  /**
    * Queries the details of a specified consumer group.
    * 
    * @remarks
@@ -1127,6 +1174,10 @@ export default class Client extends OpenApi {
   async getConsumerGroupLagWithOptions(instanceId: string, consumerGroupId: string, request: $_model.GetConsumerGroupLagRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumerGroupLagResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.liteTopicName)) {
+      query["liteTopicName"] = request.liteTopicName;
+    }
+
     if (!$dara.isNull(request.topicName)) {
       query["topicName"] = request.topicName;
     }
@@ -1654,13 +1705,25 @@ export default class Client extends OpenApi {
   /**
    * 查询消费者客户端连接信息
    * 
+   * @param request - ListConsumerConnectionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConsumerConnectionsResponse
    */
-  async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerConnectionsResponse> {
+  async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, request: $_model.ListConsumerConnectionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerConnectionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.liteTopicName)) {
+      query["liteTopicName"] = request.liteTopicName;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["topicName"] = request.topicName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "ListConsumerConnections",
@@ -1678,12 +1741,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询消费者客户端连接信息
+   * 
+   * @param request - ListConsumerConnectionsRequest
    * @returns ListConsumerConnectionsResponse
    */
-  async listConsumerConnections(instanceId: string, consumerGroupId: string): Promise<$_model.ListConsumerConnectionsResponse> {
+  async listConsumerConnections(instanceId: string, consumerGroupId: string, request: $_model.ListConsumerConnectionsRequest): Promise<$_model.ListConsumerConnectionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listConsumerConnectionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+    return await this.listConsumerConnectionsWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
 
   /**
@@ -2224,6 +2289,10 @@ export default class Client extends OpenApi {
       query["endTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.liteTopicName)) {
+      query["liteTopicName"] = request.liteTopicName;
+    }
+
     if (!$dara.isNull(request.messageId)) {
       query["messageId"] = request.messageId;
     }
@@ -2386,6 +2455,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMigrationOperationsWithOptions(migrationId, stageType, request, headers, runtime);
+  }
+
+  /**
+   * 查询迁移列表
+   * 
+   * @param request - ListMigrationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMigrationsResponse
+   */
+  async listMigrationsWithOptions(request: $_model.ListMigrationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.migrationType)) {
+      query["migrationType"] = request.migrationType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMigrations",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/migrations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMigrationsResponse>(await this.callApi(params, req, runtime), new $_model.ListMigrationsResponse({}));
+  }
+
+  /**
+   * 查询迁移列表
+   * 
+   * @param request - ListMigrationsRequest
+   * @returns ListMigrationsResponse
+   */
+  async listMigrations(request: $_model.ListMigrationsRequest): Promise<$_model.ListMigrationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMigrationsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2599,6 +2729,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.liteTopicName)) {
+      query["liteTopicName"] = request.liteTopicName;
     }
 
     if (!$dara.isNull(request.messageId)) {
@@ -3288,6 +3422,10 @@ export default class Client extends OpenApi {
   async updateTopicWithOptions(instanceId: string, topicName: string, request: $_model.UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTopicResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.liteTopicExpiration)) {
+      body["liteTopicExpiration"] = request.liteTopicExpiration;
+    }
+
     if (!$dara.isNull(request.maxSendTps)) {
       body["maxSendTps"] = request.maxSendTps;
     }
@@ -3386,6 +3524,10 @@ export default class Client extends OpenApi {
   async verifySendMessageWithOptions(instanceId: string, topicName: string, request: $_model.VerifySendMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifySendMessageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.liteTopicName)) {
+      body["liteTopicName"] = request.liteTopicName;
+    }
+
     if (!$dara.isNull(request.message)) {
       body["message"] = request.message;
     }

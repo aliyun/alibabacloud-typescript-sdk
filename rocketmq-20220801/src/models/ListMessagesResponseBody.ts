@@ -44,6 +44,11 @@ export class ListMessagesResponseBodyDataList extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * The message group. This parameter is returned only for ordered messages.
    * 
@@ -124,6 +129,7 @@ export class ListMessagesResponseBodyDataList extends $dara.Model {
       bornHost: 'bornHost',
       bornTime: 'bornTime',
       instanceId: 'instanceId',
+      liteTopicName: 'liteTopicName',
       messageGroup: 'messageGroup',
       messageId: 'messageId',
       messageKeys: 'messageKeys',
@@ -144,6 +150,7 @@ export class ListMessagesResponseBodyDataList extends $dara.Model {
       bornHost: 'string',
       bornTime: 'string',
       instanceId: 'string',
+      liteTopicName: 'string',
       messageGroup: 'string',
       messageId: 'string',
       messageKeys: { 'type': 'array', 'itemType': 'string' },

@@ -12,6 +12,11 @@ export class ListMessagesRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * Message Id.
    * 
@@ -64,6 +69,7 @@ export class ListMessagesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'endTime',
+      liteTopicName: 'liteTopicName',
       messageId: 'messageId',
       messageKey: 'messageKey',
       pageNumber: 'pageNumber',
@@ -76,6 +82,7 @@ export class ListMessagesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      liteTopicName: 'string',
       messageId: 'string',
       messageKey: 'string',
       pageNumber: 'number',

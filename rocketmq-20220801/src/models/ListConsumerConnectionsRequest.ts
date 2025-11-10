@@ -2,18 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetConsumerGroupLagRequest extends $dara.Model {
+export class ListConsumerConnectionsRequest extends $dara.Model {
   /**
    * @example
    * abc
    */
   liteTopicName?: string;
   /**
-   * @remarks
-   * The topic name.
-   * 
    * @example
-   * normal-topic-1
+   * test1
    */
   topicName?: string;
   static names(): { [key: string]: string } {

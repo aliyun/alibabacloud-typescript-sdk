@@ -106,6 +106,11 @@ export class CreateConsumerGroupRequest extends $dara.Model {
    */
   maxReceiveTps?: number;
   /**
+   * @example
+   * CLUSTERING
+   */
+  messageModel?: string;
+  /**
    * @remarks
    * The description of the consumer group.
    * 
@@ -113,12 +118,19 @@ export class CreateConsumerGroupRequest extends $dara.Model {
    * This is the remark for test.
    */
   remark?: string;
+  /**
+   * @example
+   * test1
+   */
+  topicName?: string;
   static names(): { [key: string]: string } {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
       maxReceiveTps: 'maxReceiveTps',
+      messageModel: 'messageModel',
       remark: 'remark',
+      topicName: 'topicName',
     };
   }
 
@@ -127,7 +139,9 @@ export class CreateConsumerGroupRequest extends $dara.Model {
       consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
       maxReceiveTps: 'number',
+      messageModel: 'string',
       remark: 'string',
+      topicName: 'string',
     };
   }
 

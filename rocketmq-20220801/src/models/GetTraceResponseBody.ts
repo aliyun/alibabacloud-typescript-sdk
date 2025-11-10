@@ -396,6 +396,11 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * Message grpup.
    * 
@@ -483,6 +488,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
       bornHost: 'bornHost',
       bornTime: 'bornTime',
       instanceId: 'instanceId',
+      liteTopicName: 'liteTopicName',
       messageGroup: 'messageGroup',
       messageId: 'messageId',
       messageKeys: 'messageKeys',
@@ -503,6 +509,7 @@ export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
       bornHost: 'string',
       bornTime: 'string',
       instanceId: 'string',
+      liteTopicName: 'string',
       messageGroup: 'string',
       messageId: 'string',
       messageKeys: { 'type': 'array', 'itemType': 'string' },

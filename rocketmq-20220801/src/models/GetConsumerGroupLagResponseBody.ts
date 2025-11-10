@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataLiteTopicLagMapValue } from "./DataLiteTopicLagMapValue";
 import { DataTopicLagMapValue } from "./DataTopicLagMapValue";
 
 
@@ -80,6 +81,7 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  liteTopicLagMap?: { [key: string]: DataLiteTopicLagMapValue };
   /**
    * @remarks
    * Region ID
@@ -94,6 +96,11 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
    */
   topicLagMap?: { [key: string]: DataTopicLagMapValue };
   /**
+   * @example
+   * test1
+   */
+  topicName?: string;
+  /**
    * @remarks
    * Total lag count
    */
@@ -102,8 +109,10 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
     return {
       consumerGroupId: 'consumerGroupId',
       instanceId: 'instanceId',
+      liteTopicLagMap: 'liteTopicLagMap',
       regionId: 'regionId',
       topicLagMap: 'topicLagMap',
+      topicName: 'topicName',
       totalLag: 'totalLag',
     };
   }
@@ -112,13 +121,18 @@ export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
     return {
       consumerGroupId: 'string',
       instanceId: 'string',
+      liteTopicLagMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataLiteTopicLagMapValue },
       regionId: 'string',
       topicLagMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataTopicLagMapValue },
+      topicName: 'string',
       totalLag: GetConsumerGroupLagResponseBodyDataTotalLag,
     };
   }
 
   validate() {
+    if(this.liteTopicLagMap) {
+      $dara.Model.validateMap(this.liteTopicLagMap);
+    }
     if(this.topicLagMap) {
       $dara.Model.validateMap(this.topicLagMap);
     }

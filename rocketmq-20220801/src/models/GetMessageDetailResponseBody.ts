@@ -44,6 +44,11 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * abc
+   */
+  liteTopicName?: string;
+  /**
    * @remarks
    * The sharding key. This parameter is returned only for ordered messages.
    * 
@@ -129,6 +134,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
       bornHost: 'bornHost',
       bornTime: 'bornTime',
       instanceId: 'instanceId',
+      liteTopicName: 'liteTopicName',
       messageGroup: 'messageGroup',
       messageId: 'messageId',
       messageKeys: 'messageKeys',
@@ -150,6 +156,7 @@ export class GetMessageDetailResponseBodyData extends $dara.Model {
       bornHost: 'string',
       bornTime: 'string',
       instanceId: 'string',
+      liteTopicName: 'string',
       messageGroup: 'string',
       messageId: 'string',
       messageKeys: { 'type': 'array', 'itemType': 'string' },

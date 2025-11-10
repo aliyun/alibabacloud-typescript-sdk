@@ -20,6 +20,11 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 20
+   */
+  liteTopicExpiration?: number;
+  /**
    * @remarks
    * The maximum TPS for message sending.
    * 
@@ -91,6 +96,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
     return {
       createTime: 'createTime',
       instanceId: 'instanceId',
+      liteTopicExpiration: 'liteTopicExpiration',
       maxSendTps: 'maxSendTps',
       messageType: 'messageType',
       regionId: 'regionId',
@@ -105,6 +111,7 @@ export class ListTopicsResponseBodyDataList extends $dara.Model {
     return {
       createTime: 'string',
       instanceId: 'string',
+      liteTopicExpiration: 'number',
       maxSendTps: 'number',
       messageType: 'string',
       regionId: 'string',
