@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetServiceInstanceResponseBodyGrantedPermission extends $dara.Model {
+  operationEndTime?: string;
+  policyNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationEndTime: 'OperationEndTime',
+      policyNames: 'PolicyNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationEndTime: 'string',
+      policyNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs extends $dara.Model {
   /**
    * @remarks
@@ -697,6 +723,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
    * https://g.console.aliyun.com/d/xxxxxxxx-cn-mariadb/mysql-xxxxxx-xxxxxxxx-and-dashboard?orgId=355401&refresh=10s
    */
   grafanaDashBoardUrl?: string;
+  grantedPermission?: GetServiceInstanceResponseBodyGrantedPermission;
   /**
    * @remarks
    * Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
@@ -795,6 +822,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
    * Subscription
    */
   payType?: string;
+  policyNames?: string;
   /**
    * @remarks
    * The package name.
@@ -946,6 +974,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       enableUserPrometheus: 'EnableUserPrometheus',
       endTime: 'EndTime',
       grafanaDashBoardUrl: 'GrafanaDashBoardUrl',
+      grantedPermission: 'GrantedPermission',
       isOperated: 'IsOperated',
       licenseEndTime: 'LicenseEndTime',
       marketInstanceId: 'MarketInstanceId',
@@ -957,6 +986,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       outputs: 'Outputs',
       parameters: 'Parameters',
       payType: 'PayType',
+      policyNames: 'PolicyNames',
       predefinedParameterName: 'PredefinedParameterName',
       progress: 'Progress',
       requestId: 'RequestId',
@@ -986,6 +1016,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       enableUserPrometheus: 'boolean',
       endTime: 'string',
       grafanaDashBoardUrl: 'string',
+      grantedPermission: GetServiceInstanceResponseBodyGrantedPermission,
       isOperated: 'boolean',
       licenseEndTime: 'string',
       marketInstanceId: 'string',
@@ -997,6 +1028,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
       outputs: 'string',
       parameters: 'string',
       payType: 'string',
+      policyNames: 'string',
       predefinedParameterName: 'string',
       progress: 'number',
       requestId: 'string',
@@ -1018,6 +1050,9 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.grantedPermission && typeof (this.grantedPermission as any).validate === 'function') {
+      (this.grantedPermission as any).validate();
+    }
     if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
       (this.networkConfig as any).validate();
     }

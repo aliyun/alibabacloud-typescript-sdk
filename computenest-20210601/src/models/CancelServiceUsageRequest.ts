@@ -21,6 +21,7 @@ export class CancelServiceUsageRequest extends $dara.Model {
    * true
    */
   needDelete?: boolean;
+  regionId?: string;
   /**
    * @remarks
    * The service ID.
@@ -35,6 +36,7 @@ export class CancelServiceUsageRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       needDelete: 'NeedDelete',
+      regionId: 'RegionId',
       serviceId: 'ServiceId',
     };
   }
@@ -43,6 +45,7 @@ export class CancelServiceUsageRequest extends $dara.Model {
     return {
       clientToken: 'string',
       needDelete: 'boolean',
+      regionId: 'string',
       serviceId: 'string',
     };
   }

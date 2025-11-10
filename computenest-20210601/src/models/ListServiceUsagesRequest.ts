@@ -69,11 +69,13 @@ export class ListServiceUsagesRequest extends $dara.Model {
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
    */
   nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
@@ -82,6 +84,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
       filter: { 'type': 'array', 'itemType': ListServiceUsagesRequestFilter },
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
     };
   }
 

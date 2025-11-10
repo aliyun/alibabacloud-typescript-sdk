@@ -47,6 +47,10 @@ export default class Client extends OpenApi {
       query["NeedDelete"] = request.needDelete;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -517,6 +521,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.serviceId)) {
@@ -1925,6 +1933,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2577,6 +2589,10 @@ export default class Client extends OpenApi {
       query["EnableOperation"] = request.enableOperation;
     }
 
+    if (!$dara.isNull(request.grantedPermission)) {
+      query["GrantedPermission"] = request.grantedPermission;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -2715,6 +2731,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.serviceId)) {

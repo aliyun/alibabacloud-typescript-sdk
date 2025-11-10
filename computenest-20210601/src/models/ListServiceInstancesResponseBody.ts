@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListServiceInstancesResponseBodyServiceInstancesGrantedPermission extends $dara.Model {
+  operationEndTime?: string;
+  policyNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationEndTime: 'OperationEndTime',
+      policyNames: 'PolicyNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationEndTime: 'string',
+      policyNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesResponseBodyServiceInstancesServiceCommodity extends $dara.Model {
   /**
    * @remarks
@@ -327,6 +353,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * 2022-01-01T12:00:00
    */
   endTime?: string;
+  grantedPermission?: ListServiceInstancesResponseBodyServiceInstancesGrantedPermission;
   /**
    * @remarks
    * The ID of the Alibaba Cloud Marketplace instance.
@@ -404,6 +431,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * Subscription
    */
   payType?: string;
+  policyNames?: string;
   /**
    * @remarks
    * The deployment progress of the service instance, in percentage.
@@ -522,6 +550,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       createTime: 'CreateTime',
       enableInstanceOps: 'EnableInstanceOps',
       endTime: 'EndTime',
+      grantedPermission: 'GrantedPermission',
       marketInstanceId: 'MarketInstanceId',
       name: 'Name',
       operatedServiceInstanceId: 'OperatedServiceInstanceId',
@@ -531,6 +560,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       outputs: 'Outputs',
       parameters: 'Parameters',
       payType: 'PayType',
+      policyNames: 'PolicyNames',
       progress: 'Progress',
       resourceGroupId: 'ResourceGroupId',
       resources: 'Resources',
@@ -553,6 +583,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       createTime: 'string',
       enableInstanceOps: 'boolean',
       endTime: 'string',
+      grantedPermission: ListServiceInstancesResponseBodyServiceInstancesGrantedPermission,
       marketInstanceId: 'string',
       name: 'string',
       operatedServiceInstanceId: 'string',
@@ -562,6 +593,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       outputs: 'string',
       parameters: 'string',
       payType: 'string',
+      policyNames: 'string',
       progress: 'number',
       resourceGroupId: 'string',
       resources: 'string',
@@ -579,6 +611,9 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   }
 
   validate() {
+    if(this.grantedPermission && typeof (this.grantedPermission as any).validate === 'function') {
+      (this.grantedPermission as any).validate();
+    }
     if(this.service && typeof (this.service as any).validate === 'function') {
       (this.service as any).validate();
     }

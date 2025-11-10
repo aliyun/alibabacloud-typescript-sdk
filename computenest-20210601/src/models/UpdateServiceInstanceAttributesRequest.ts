@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateServiceInstanceAttributesRequestGrantedPermission extends $dara.Model {
+  operationEndTime?: string;
+  policyNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationEndTime: 'OperationEndTime',
+      policyNames: 'PolicyNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationEndTime: 'string',
+      policyNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +37,7 @@ export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
    * true
    */
   enableOperation?: boolean;
+  grantedPermission?: UpdateServiceInstanceAttributesRequestGrantedPermission;
   /**
    * @remarks
    * The region ID.
@@ -36,6 +63,7 @@ export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enableOperation: 'EnableOperation',
+      grantedPermission: 'GrantedPermission',
       regionId: 'RegionId',
       serviceInstanceId: 'ServiceInstanceId',
     };
@@ -44,12 +72,16 @@ export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enableOperation: 'boolean',
+      grantedPermission: UpdateServiceInstanceAttributesRequestGrantedPermission,
       regionId: 'string',
       serviceInstanceId: 'string',
     };
   }
 
   validate() {
+    if(this.grantedPermission && typeof (this.grantedPermission as any).validate === 'function') {
+      (this.grantedPermission as any).validate();
+    }
     super.validate();
   }
 

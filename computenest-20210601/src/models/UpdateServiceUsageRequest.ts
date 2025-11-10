@@ -11,6 +11,7 @@ export class UpdateServiceUsageRequest extends $dara.Model {
    * AAAAAYChudnQUoBH+mGWFpb6oP0=
    */
   clientToken?: string;
+  regionId?: string;
   /**
    * @remarks
    * The service ID.
@@ -29,6 +30,7 @@ export class UpdateServiceUsageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      regionId: 'RegionId',
       serviceId: 'ServiceId',
       userInformation: 'UserInformation',
     };
@@ -37,6 +39,7 @@ export class UpdateServiceUsageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      regionId: 'string',
       serviceId: 'string',
       userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
