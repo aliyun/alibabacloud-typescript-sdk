@@ -152,6 +152,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
    * The path of the member in the resource directory.
    */
   resourceDirectoryPath?: string;
+  secureMobilePhone?: string;
   /**
    * @remarks
    * The status of the member. Valid values:
@@ -199,6 +200,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
       modifyTime: 'ModifyTime',
       resourceDirectoryId: 'ResourceDirectoryId',
       resourceDirectoryPath: 'ResourceDirectoryPath',
+      secureMobilePhone: 'SecureMobilePhone',
       status: 'Status',
       tags: 'Tags',
       type: 'Type',
@@ -220,6 +222,7 @@ export class GetAccountResponseBodyAccount extends $dara.Model {
       modifyTime: 'string',
       resourceDirectoryId: 'string',
       resourceDirectoryPath: 'string',
+      secureMobilePhone: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetAccountResponseBodyAccountTags },
       type: 'string',
