@@ -71,6 +71,7 @@ export class DescribeImageRepoListRequest extends $dara.Model {
    * libssh2
    */
   repoNamespace?: string;
+  selected?: number;
   /**
    * @remarks
    * The condition by which the feature is applied. Valid values:
@@ -104,6 +105,7 @@ export class DescribeImageRepoListRequest extends $dara.Model {
       pageSize: 'PageSize',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
+      selected: 'Selected',
       targetType: 'TargetType',
       type: 'Type',
     };
@@ -118,6 +120,7 @@ export class DescribeImageRepoListRequest extends $dara.Model {
       pageSize: 'number',
       repoName: 'string',
       repoNamespace: 'string',
+      selected: 'number',
       targetType: 'string',
       type: 'string',
     };

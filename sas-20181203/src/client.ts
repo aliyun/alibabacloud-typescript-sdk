@@ -16510,6 +16510,10 @@ export default class Client extends OpenApi {
       query["RepoNamespace"] = request.repoNamespace;
     }
 
+    if (!$dara.isNull(request.selected)) {
+      query["Selected"] = request.selected;
+    }
+
     if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }

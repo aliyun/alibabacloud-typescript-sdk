@@ -14,6 +14,7 @@ export class DescribeImageRepoListResponseBodyImageRepoList extends $dara.Model 
    * add
    */
   flag?: string;
+  imageCount?: number;
   /**
    * @remarks
    * The name of the image repository.
@@ -33,6 +34,7 @@ export class DescribeImageRepoListResponseBodyImageRepoList extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       flag: 'Flag',
+      imageCount: 'ImageCount',
       repoName: 'RepoName',
       repoNamespace: 'RepoNamespace',
     };
@@ -41,6 +43,7 @@ export class DescribeImageRepoListResponseBodyImageRepoList extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       flag: 'string',
+      imageCount: 'number',
       repoName: 'string',
       repoNamespace: 'string',
     };
