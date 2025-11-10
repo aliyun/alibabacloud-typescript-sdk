@@ -1,1215 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class GetErrorCodeSolutionsResponseBodySolutions extends $dara.Model {
-  content?: string;
-  /**
-   * @example
-   * 0017-00000502
-   */
-  errorCode?: string;
-  errorMessage?: string;
-  product?: string;
-  productName?: string;
-  /**
-   * @example
-   * 0017-00000502
-   */
-  solutionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      product: 'product',
-      productName: 'productName',
-      solutionId: 'solutionId',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      product: 'string',
-      productName: 'string',
-      solutionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoAuthenticationInfo extends $dara.Model {
-  authenticationType?: string;
-  /**
-   * @example
-   * HMAC-SHA256
-   */
-  signatureMethod?: string;
-  signatureVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationType: 'authenticationType',
-      signatureMethod: 'signatureMethod',
-      signatureVersion: 'signatureVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationType: 'string',
-      signatureMethod: 'string',
-      signatureVersion: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends $dara.Model {
-  authAction?: string;
-  authPrincipalDisplayName?: string;
-  authPrincipalOwnerId?: string;
-  authPrincipalType?: string;
-  encodedDiagnosticMessage?: string;
-  noPermissionType?: string;
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authAction: 'authAction',
-      authPrincipalDisplayName: 'authPrincipalDisplayName',
-      authPrincipalOwnerId: 'authPrincipalOwnerId',
-      authPrincipalType: 'authPrincipalType',
-      encodedDiagnosticMessage: 'encodedDiagnosticMessage',
-      noPermissionType: 'noPermissionType',
-      policyType: 'policyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
-      authPrincipalType: 'string',
-      encodedDiagnosticMessage: 'string',
-      noPermissionType: 'string',
-      policyType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoBasicInfoApiDoc extends $dara.Model {
-  alibabacloudSite?: string;
-  aliyunSite?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alibabacloudSite: 'alibabacloudSite',
-      aliyunSite: 'aliyunSite',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alibabacloudSite: 'string',
-      aliyunSite: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoBasicInfoProductName extends $dara.Model {
-  cnName?: string;
-  enName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cnName: 'cnName',
-      enName: 'enName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cnName: 'string',
-      enName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
-  accessDeniedDetail?: GetOwnRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail;
-  api?: string;
-  apiDoc?: GetOwnRequestLogResponseBodyLogInfoBasicInfoApiDoc;
-  apiStyle?: string;
-  apiVersion?: string;
-  endpoint?: string;
-  errorCode?: string;
-  errorMessage?: string;
-  gatewayProcessTime?: string;
-  httpMethod?: string;
-  httpStatusCode?: string;
-  logRequestId?: string;
-  product?: string;
-  productName?: GetOwnRequestLogResponseBodyLogInfoBasicInfoProductName;
-  regionId?: string;
-  requestDuration?: string;
-  sdkRequestTime?: string;
-  throttlingResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      api: 'api',
-      apiDoc: 'apiDoc',
-      apiStyle: 'apiStyle',
-      apiVersion: 'apiVersion',
-      endpoint: 'endpoint',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      gatewayProcessTime: 'gatewayProcessTime',
-      httpMethod: 'httpMethod',
-      httpStatusCode: 'httpStatusCode',
-      logRequestId: 'logRequestId',
-      product: 'product',
-      productName: 'productName',
-      regionId: 'regionId',
-      requestDuration: 'requestDuration',
-      sdkRequestTime: 'sdkRequestTime',
-      throttlingResult: 'throttlingResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: GetOwnRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail,
-      api: 'string',
-      apiDoc: GetOwnRequestLogResponseBodyLogInfoBasicInfoApiDoc,
-      apiStyle: 'string',
-      apiVersion: 'string',
-      endpoint: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      gatewayProcessTime: 'string',
-      httpMethod: 'string',
-      httpStatusCode: 'string',
-      logRequestId: 'string',
-      product: 'string',
-      productName: GetOwnRequestLogResponseBodyLogInfoBasicInfoProductName,
-      regionId: 'string',
-      requestDuration: 'string',
-      sdkRequestTime: 'string',
-      throttlingResult: 'string',
-    };
-  }
-
-  validate() {
-    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
-      (this.accessDeniedDetail as any).validate();
-    }
-    if(this.apiDoc && typeof (this.apiDoc as any).validate === 'function') {
-      (this.apiDoc as any).validate();
-    }
-    if(this.productName && typeof (this.productName as any).validate === 'function') {
-      (this.productName as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoCallerInfo extends $dara.Model {
-  callerAccountId?: string;
-  callerIp?: string;
-  callerType?: string;
-  masterAccountId?: string;
-  userAgent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callerAccountId: 'callerAccountId',
-      callerIp: 'callerIp',
-      callerType: 'callerType',
-      masterAccountId: 'masterAccountId',
-      userAgent: 'userAgent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callerAccountId: 'string',
-      callerIp: 'string',
-      callerType: 'string',
-      masterAccountId: 'string',
-      userAgent: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoParameters extends $dara.Model {
-  name?: string;
-  required?: boolean;
-  type?: string;
-  value?: any;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      required: 'required',
-      type: 'type',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      required: 'boolean',
-      type: 'string',
-      value: 'any',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfoResponses extends $dara.Model {
-  responseBody?: string;
-  responseBodyFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      responseBody: 'responseBody',
-      responseBodyFormat: 'responseBodyFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      responseBody: 'string',
-      responseBodyFormat: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBodyLogInfo extends $dara.Model {
-  authenticationInfo?: GetOwnRequestLogResponseBodyLogInfoAuthenticationInfo;
-  basicInfo?: GetOwnRequestLogResponseBodyLogInfoBasicInfo;
-  callerInfo?: GetOwnRequestLogResponseBodyLogInfoCallerInfo;
-  parameters?: GetOwnRequestLogResponseBodyLogInfoParameters[];
-  responses?: GetOwnRequestLogResponseBodyLogInfoResponses;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationInfo: 'authenticationInfo',
-      basicInfo: 'basicInfo',
-      callerInfo: 'callerInfo',
-      parameters: 'parameters',
-      responses: 'responses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationInfo: GetOwnRequestLogResponseBodyLogInfoAuthenticationInfo,
-      basicInfo: GetOwnRequestLogResponseBodyLogInfoBasicInfo,
-      callerInfo: GetOwnRequestLogResponseBodyLogInfoCallerInfo,
-      parameters: { 'type': 'array', 'itemType': GetOwnRequestLogResponseBodyLogInfoParameters },
-      responses: GetOwnRequestLogResponseBodyLogInfoResponses,
-    };
-  }
-
-  validate() {
-    if(this.authenticationInfo && typeof (this.authenticationInfo as any).validate === 'function') {
-      (this.authenticationInfo as any).validate();
-    }
-    if(this.basicInfo && typeof (this.basicInfo as any).validate === 'function') {
-      (this.basicInfo as any).validate();
-    }
-    if(this.callerInfo && typeof (this.callerInfo as any).validate === 'function') {
-      (this.callerInfo as any).validate();
-    }
-    if(Array.isArray(this.parameters)) {
-      $dara.Model.validateArray(this.parameters);
-    }
-    if(this.responses && typeof (this.responses as any).validate === 'function') {
-      (this.responses as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoAuthenticationInfo extends $dara.Model {
-  /**
-   * @example
-   * AK
-   */
-  authenticationType?: string;
-  /**
-   * @example
-   * HMAC-SHA256
-   */
-  signatureMethod?: string;
-  /**
-   * @example
-   * unknown
-   */
-  signatureVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationType: 'authenticationType',
-      signatureMethod: 'signatureMethod',
-      signatureVersion: 'signatureVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationType: 'string',
-      signatureMethod: 'string',
-      signatureVersion: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail extends $dara.Model {
-  /**
-   * @example
-   * openapiexplorer:GetRequestLog
-   */
-  authAction?: string;
-  /**
-   * @example
-   * 205618123456123456
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @example
-   * 1001234561234567
-   */
-  authPrincipalOwnerId?: string;
-  /**
-   * @example
-   * SubUser
-   */
-  authPrincipalType?: string;
-  /**
-   * @example
-   * -
-   */
-  encodedDiagnosticMessage?: string;
-  /**
-   * @example
-   * ImplicitDeny
-   */
-  noPermissionType?: string;
-  /**
-   * @example
-   * AccountLevelIdentityBasedPolicy
-   */
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authAction: 'authAction',
-      authPrincipalDisplayName: 'authPrincipalDisplayName',
-      authPrincipalOwnerId: 'authPrincipalOwnerId',
-      authPrincipalType: 'authPrincipalType',
-      encodedDiagnosticMessage: 'encodedDiagnosticMessage',
-      noPermissionType: 'noPermissionType',
-      policyType: 'policyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
-      authPrincipalType: 'string',
-      encodedDiagnosticMessage: 'string',
-      noPermissionType: 'string',
-      policyType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoBasicInfoApiDoc extends $dara.Model {
-  /**
-   * @example
-   * https://api.alibabacloud.com/document/Ecs/2014-05-26/RunInstances
-   */
-  alibabacloudSite?: string;
-  /**
-   * @example
-   * https://api.aliyun.com/document/Ecs/2014-05-26/RunInstances
-   */
-  aliyunSite?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alibabacloudSite: 'alibabacloudSite',
-      aliyunSite: 'aliyunSite',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alibabacloudSite: 'string',
-      aliyunSite: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoBasicInfoProductName extends $dara.Model {
-  cnName?: string;
-  /**
-   * @example
-   * Elastic Compute Service
-   */
-  enName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cnName: 'cnName',
-      enName: 'enName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cnName: 'string',
-      enName: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoBasicInfo extends $dara.Model {
-  accessDeniedDetail?: GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail;
-  /**
-   * @example
-   * RunInstances
-   */
-  api?: string;
-  apiDoc?: GetRequestLogResponseBodyLogInfoBasicInfoApiDoc;
-  /**
-   * @example
-   * roa
-   */
-  apiStyle?: string;
-  /**
-   * @example
-   * 2024-11-30
-   */
-  apiVersion?: string;
-  /**
-   * @example
-   * ecs.cn-hangzhou.aliyuncs.com
-   */
-  endpoint?: string;
-  /**
-   * @example
-   * IncorrectStatus.TransitRouter
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * The resource is not in a valid state for the operation.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * 2025-01-21T07:43:06Z
-   */
-  gatewayProcessTime?: string;
-  /**
-   * @example
-   * GET
-   */
-  httpMethod?: string;
-  /**
-   * @example
-   * 404
-   */
-  httpStatusCode?: string;
-  /**
-   * @example
-   * 123E4567-E89B-12D3-A456-426614174000
-   */
-  logRequestId?: string;
-  /**
-   * @example
-   * Ecs
-   */
-  product?: string;
-  productName?: GetRequestLogResponseBodyLogInfoBasicInfoProductName;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 188
-   */
-  requestDuration?: string;
-  /**
-   * @example
-   * 2025-01-21T07:43:06Z
-   */
-  sdkRequestTime?: string;
-  /**
-   * @example
-   * FC.PASS
-   */
-  throttlingResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      api: 'api',
-      apiDoc: 'apiDoc',
-      apiStyle: 'apiStyle',
-      apiVersion: 'apiVersion',
-      endpoint: 'endpoint',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      gatewayProcessTime: 'gatewayProcessTime',
-      httpMethod: 'httpMethod',
-      httpStatusCode: 'httpStatusCode',
-      logRequestId: 'logRequestId',
-      product: 'product',
-      productName: 'productName',
-      regionId: 'regionId',
-      requestDuration: 'requestDuration',
-      sdkRequestTime: 'sdkRequestTime',
-      throttlingResult: 'throttlingResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: GetRequestLogResponseBodyLogInfoBasicInfoAccessDeniedDetail,
-      api: 'string',
-      apiDoc: GetRequestLogResponseBodyLogInfoBasicInfoApiDoc,
-      apiStyle: 'string',
-      apiVersion: 'string',
-      endpoint: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      gatewayProcessTime: 'string',
-      httpMethod: 'string',
-      httpStatusCode: 'string',
-      logRequestId: 'string',
-      product: 'string',
-      productName: GetRequestLogResponseBodyLogInfoBasicInfoProductName,
-      regionId: 'string',
-      requestDuration: 'string',
-      sdkRequestTime: 'string',
-      throttlingResult: 'string',
-    };
-  }
-
-  validate() {
-    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
-      (this.accessDeniedDetail as any).validate();
-    }
-    if(this.apiDoc && typeof (this.apiDoc as any).validate === 'function') {
-      (this.apiDoc as any).validate();
-    }
-    if(this.productName && typeof (this.productName as any).validate === 'function') {
-      (this.productName as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoCallerInfo extends $dara.Model {
-  /**
-   * @example
-   * 241009849925897811
-   */
-  callerAccountId?: string;
-  /**
-   * @example
-   * 100.68.xxx.xxx
-   */
-  callerIp?: string;
-  /**
-   * @example
-   * sub
-   */
-  callerType?: string;
-  /**
-   * @example
-   * 1973374733454118
-   */
-  masterAccountId?: string;
-  /**
-   * @example
-   * AlibabaCloud API Workbench
-   */
-  userAgent?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callerAccountId: 'callerAccountId',
-      callerIp: 'callerIp',
-      callerType: 'callerType',
-      masterAccountId: 'masterAccountId',
-      userAgent: 'userAgent',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callerAccountId: 'string',
-      callerIp: 'string',
-      callerType: 'string',
-      masterAccountId: 'string',
-      userAgent: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoParameters extends $dara.Model {
-  /**
-   * @example
-   * InstanceType
-   */
-  name?: string;
-  /**
-   * @example
-   * false
-   */
-  required?: boolean;
-  /**
-   * @example
-   * string
-   */
-  type?: string;
-  /**
-   * @example
-   * ecs.g6.large
-   */
-  value?: any;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      required: 'required',
-      type: 'type',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      required: 'boolean',
-      type: 'string',
-      value: 'any',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfoResponses extends $dara.Model {
-  /**
-   * @example
-   * -
-   */
-  responseBody?: string;
-  /**
-   * @example
-   * JSON
-   */
-  responseBodyFormat?: string;
-  static names(): { [key: string]: string } {
-    return {
-      responseBody: 'responseBody',
-      responseBodyFormat: 'responseBodyFormat',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      responseBody: 'string',
-      responseBodyFormat: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBodyLogInfo extends $dara.Model {
-  authenticationInfo?: GetRequestLogResponseBodyLogInfoAuthenticationInfo;
-  basicInfo?: GetRequestLogResponseBodyLogInfoBasicInfo;
-  callerInfo?: GetRequestLogResponseBodyLogInfoCallerInfo;
-  parameters?: GetRequestLogResponseBodyLogInfoParameters[];
-  responses?: GetRequestLogResponseBodyLogInfoResponses;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationInfo: 'authenticationInfo',
-      basicInfo: 'basicInfo',
-      callerInfo: 'callerInfo',
-      parameters: 'parameters',
-      responses: 'responses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationInfo: GetRequestLogResponseBodyLogInfoAuthenticationInfo,
-      basicInfo: GetRequestLogResponseBodyLogInfoBasicInfo,
-      callerInfo: GetRequestLogResponseBodyLogInfoCallerInfo,
-      parameters: { 'type': 'array', 'itemType': GetRequestLogResponseBodyLogInfoParameters },
-      responses: GetRequestLogResponseBodyLogInfoResponses,
-    };
-  }
-
-  validate() {
-    if(this.authenticationInfo && typeof (this.authenticationInfo as any).validate === 'function') {
-      (this.authenticationInfo as any).validate();
-    }
-    if(this.basicInfo && typeof (this.basicInfo as any).validate === 'function') {
-      (this.basicInfo as any).validate();
-    }
-    if(this.callerInfo && typeof (this.callerInfo as any).validate === 'function') {
-      (this.callerInfo as any).validate();
-    }
-    if(Array.isArray(this.parameters)) {
-      $dara.Model.validateArray(this.parameters);
-    }
-    if(this.responses && typeof (this.responses as any).validate === 'function') {
-      (this.responses as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErrorCodeSolutionsRequest extends $dara.Model {
-  acceptLanguage?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234-56789012
-   */
-  errorCode?: string;
-  /**
-   * @example
-   * An error occurred while processing your request.
-   */
-  errorMessage?: string;
-  /**
-   * @example
-   * oss
-   */
-  product?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'acceptLanguage',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      product: 'product',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      product: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErrorCodeSolutionsResponseBody extends $dara.Model {
-  requestId?: string;
-  solutions?: GetErrorCodeSolutionsResponseBodySolutions[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-      solutions: 'solutions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      solutions: { 'type': 'array', 'itemType': GetErrorCodeSolutionsResponseBodySolutions },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.solutions)) {
-      $dara.Model.validateArray(this.solutions);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErrorCodeSolutionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErrorCodeSolutionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErrorCodeSolutionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123E4567-E89B-12D3-A456-426614174000
-   */
-  logRequestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logRequestId: 'logRequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logRequestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponseBody extends $dara.Model {
-  logInfo?: GetOwnRequestLogResponseBodyLogInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logInfo: 'logInfo',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logInfo: GetOwnRequestLogResponseBodyLogInfo,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.logInfo && typeof (this.logInfo as any).validate === 'function') {
-      (this.logInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOwnRequestLogResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetOwnRequestLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetOwnRequestLogResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123E4567-E89B-12D3-A456-426614174000
-   */
-  logRequestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logRequestId: 'logRequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logRequestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponseBody extends $dara.Model {
-  logInfo?: GetRequestLogResponseBodyLogInfo;
-  /**
-   * @example
-   * 9BFC4AC1-6BE4-5405-BDEC-CA288D404812
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logInfo: 'logInfo',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logInfo: GetRequestLogResponseBodyLogInfo,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.logInfo && typeof (this.logInfo as any).validate === 'function') {
-      (this.logInfo as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRequestLogResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRequestLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRequestLogResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -1234,22 +30,373 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据提供的错误码获取对应的解决方案
+   * 验证 Terraform HCL 语法
+   * 
+   * @param request - ApiMcpServerValidateHclRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApiMcpServerValidateHclResponse
+   */
+  async apiMcpServerValidateHclWithOptions(request: $_model.ApiMcpServerValidateHclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ApiMcpServerValidateHclResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      body["code"] = request.code;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApiMcpServerValidateHcl",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/terraform/validate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApiMcpServerValidateHclResponse>(await this.callApi(params, req, runtime), new $_model.ApiMcpServerValidateHclResponse({}));
+  }
+
+  /**
+   * 验证 Terraform HCL 语法
+   * 
+   * @param request - ApiMcpServerValidateHclRequest
+   * @returns ApiMcpServerValidateHclResponse
+   */
+  async apiMcpServerValidateHcl(request: $_model.ApiMcpServerValidateHclRequest): Promise<$_model.ApiMcpServerValidateHclResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.apiMcpServerValidateHclWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建ApiMcpServer
+   * 
+   * @param request - CreateApiMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiMcpServerResponse
+   */
+  async createApiMcpServerWithOptions(request: $_model.CreateApiMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApiMcpServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.additionalApiDescriptions)) {
+      body["additionalApiDescriptions"] = request.additionalApiDescriptions;
+    }
+
+    if (!$dara.isNull(request.apis)) {
+      body["apis"] = request.apis;
+    }
+
+    if (!$dara.isNull(request.assumeRoleExtraPolicy)) {
+      body["assumeRoleExtraPolicy"] = request.assumeRoleExtraPolicy;
+    }
+
+    if (!$dara.isNull(request.assumeRoleName)) {
+      body["assumeRoleName"] = request.assumeRoleName;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableAssumeRole)) {
+      body["enableAssumeRole"] = request.enableAssumeRole;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.oauthClientId)) {
+      body["oauthClientId"] = request.oauthClientId;
+    }
+
+    if (!$dara.isNull(request.prompts)) {
+      body["prompts"] = request.prompts;
+    }
+
+    if (!$dara.isNull(request.systemTools)) {
+      body["systemTools"] = request.systemTools;
+    }
+
+    if (!$dara.isNull(request.terraformTools)) {
+      body["terraformTools"] = request.terraformTools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApiMcpServer",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/apimcpserver`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApiMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateApiMcpServerResponse({}));
+  }
+
+  /**
+   * 创建ApiMcpServer
+   * 
+   * @param request - CreateApiMcpServerRequest
+   * @returns CreateApiMcpServerResponse
+   */
+  async createApiMcpServer(request: $_model.CreateApiMcpServerRequest): Promise<$_model.CreateApiMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createApiMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除ApiMcpServer
+   * 
+   * @param request - DeleteApiMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApiMcpServerResponse
+   */
+  async deleteApiMcpServerWithOptions(request: $_model.DeleteApiMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiMcpServerResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApiMcpServer",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/apimcpserver`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApiMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApiMcpServerResponse({}));
+  }
+
+  /**
+   * 删除ApiMcpServer
+   * 
+   * @param request - DeleteApiMcpServerRequest
+   * @returns DeleteApiMcpServerResponse
+   */
+  async deleteApiMcpServer(request: $_model.DeleteApiMcpServerRequest): Promise<$_model.DeleteApiMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteApiMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 动态生成Aliyun CLI命令
+   * 
+   * @param tmpReq - GenerateCLICommandRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateCLICommandResponse
+   */
+  async generateCLICommandWithOptions(tmpReq: $_model.GenerateCLICommandRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCLICommandResponse> {
+    tmpReq.validate();
+    let request = new $_model.GenerateCLICommandShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apiParams)) {
+      request.apiParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiParams, "apiParams", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.api)) {
+      body["api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.apiParamsShrink)) {
+      body["apiParams"] = request.apiParamsShrink;
+    }
+
+    if (!$dara.isNull(request.apiVersion)) {
+      body["apiVersion"] = request.apiVersion;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      body["product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateCLICommand",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/api/cli/makeCode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateCLICommandResponse>(await this.callApi(params, req, runtime), new $_model.GenerateCLICommandResponse({}));
+  }
+
+  /**
+   * 动态生成Aliyun CLI命令
+   * 
+   * @param request - GenerateCLICommandRequest
+   * @returns GenerateCLICommandResponse
+   */
+  async generateCLICommand(request: $_model.GenerateCLICommandRequest): Promise<$_model.GenerateCLICommandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateCLICommandWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取产品相关接口的开放元数据
+   * 
+   * @param request - GetApiDefinitionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiDefinitionResponse
+   */
+  async getApiDefinitionWithOptions(request: $_model.GetApiDefinitionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiDefinitionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.api)) {
+      query["api"] = request.api;
+    }
+
+    if (!$dara.isNull(request.apiVersion)) {
+      query["apiVersion"] = request.apiVersion;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["product"] = request.product;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiDefinition",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/api/definition`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.GetApiDefinitionResponse({}));
+  }
+
+  /**
+   * 获取产品相关接口的开放元数据
+   * 
+   * @param request - GetApiDefinitionRequest
+   * @returns GetApiDefinitionResponse
+   */
+  async getApiDefinition(request: $_model.GetApiDefinitionRequest): Promise<$_model.GetApiDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApiDefinitionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询 ApiMcpServer
+   * 
+   * @param request - GetApiMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiMcpServerResponse
+   */
+  async getApiMcpServerWithOptions(request: $_model.GetApiMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiMcpServerResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiMcpServer",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/apimcpserver`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.GetApiMcpServerResponse({}));
+  }
+
+  /**
+   * 查询 ApiMcpServer
+   * 
+   * @param request - GetApiMcpServerRequest
+   * @returns GetApiMcpServerResponse
+   */
+  async getApiMcpServer(request: $_model.GetApiMcpServerRequest): Promise<$_model.GetApiMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApiMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries an error solution by error code.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口支持通过POST或GET方法调用。
-   * - `Accept-Language`请求头必须设置为`zh-CN`或`en-US`之一，用于指定返回结果的语言类型。
-   * - 错误码格式需符合特定规则，特别是针对OSS的错误码应遵循正则表达式`[0-9]{4}-[0-9]{8}`。
-   * - 当前实现中未使用`maxResults`和`nextToken`参数。
-   * - 如果请求失败，将根据不同的错误情况返回相应的错误代码及描述信息。
+   * You can call this API operation to query public information instead of special information, such as the account ownership. Permissions on this API operation cannot be granted to other members.
    * 
    * @param request - GetErrorCodeSolutionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetErrorCodeSolutionsResponse
    */
-  async getErrorCodeSolutionsWithOptions(request: GetErrorCodeSolutionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetErrorCodeSolutionsResponse> {
+  async getErrorCodeSolutionsWithOptions(request: $_model.GetErrorCodeSolutionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetErrorCodeSolutionsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.acceptLanguage)) {
@@ -1283,50 +430,36 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetErrorCodeSolutionsResponse>(await this.callApi(params, req, runtime), new GetErrorCodeSolutionsResponse({}));
-    } else {
-      return $dara.cast<GetErrorCodeSolutionsResponse>(await this.execute(params, req, runtime), new GetErrorCodeSolutionsResponse({}));
-    }
-
+    return $dara.cast<$_model.GetErrorCodeSolutionsResponse>(await this.callApi(params, req, runtime), new $_model.GetErrorCodeSolutionsResponse({}));
   }
 
   /**
-   * 根据提供的错误码获取对应的解决方案
+   * Queries an error solution by error code.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口支持通过POST或GET方法调用。
-   * - `Accept-Language`请求头必须设置为`zh-CN`或`en-US`之一，用于指定返回结果的语言类型。
-   * - 错误码格式需符合特定规则，特别是针对OSS的错误码应遵循正则表达式`[0-9]{4}-[0-9]{8}`。
-   * - 当前实现中未使用`maxResults`和`nextToken`参数。
-   * - 如果请求失败，将根据不同的错误情况返回相应的错误代码及描述信息。
+   * You can call this API operation to query public information instead of special information, such as the account ownership. Permissions on this API operation cannot be granted to other members.
    * 
    * @param request - GetErrorCodeSolutionsRequest
    * @returns GetErrorCodeSolutionsResponse
    */
-  async getErrorCodeSolutions(request: GetErrorCodeSolutionsRequest): Promise<GetErrorCodeSolutionsResponse> {
+  async getErrorCodeSolutions(request: $_model.GetErrorCodeSolutionsRequest): Promise<$_model.GetErrorCodeSolutionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getErrorCodeSolutionsWithOptions(request, headers, runtime);
   }
 
   /**
-   * 通过API RequestId 查询当前账号调用OpenAPI的日志详情，用于故障排查。
+   * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-   * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-   * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-   * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+   * Permissions on this API cannot be granted to other members.
    * 
    * @param request - GetOwnRequestLogRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOwnRequestLogResponse
    */
-  async getOwnRequestLogWithOptions(request: GetOwnRequestLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetOwnRequestLogResponse> {
+  async getOwnRequestLogWithOptions(request: $_model.GetOwnRequestLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetOwnRequestLogResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.logRequestId)) {
@@ -1348,49 +481,81 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetOwnRequestLogResponse>(await this.callApi(params, req, runtime), new GetOwnRequestLogResponse({}));
-    } else {
-      return $dara.cast<GetOwnRequestLogResponse>(await this.execute(params, req, runtime), new GetOwnRequestLogResponse({}));
-    }
-
+    return $dara.cast<$_model.GetOwnRequestLogResponse>(await this.callApi(params, req, runtime), new $_model.GetOwnRequestLogResponse({}));
   }
 
   /**
-   * 通过API RequestId 查询当前账号调用OpenAPI的日志详情，用于故障排查。
+   * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-   * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-   * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-   * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+   * Permissions on this API cannot be granted to other members.
    * 
    * @param request - GetOwnRequestLogRequest
    * @returns GetOwnRequestLogResponse
    */
-  async getOwnRequestLog(request: GetOwnRequestLogRequest): Promise<GetOwnRequestLogResponse> {
+  async getOwnRequestLog(request: $_model.GetOwnRequestLogRequest): Promise<$_model.GetOwnRequestLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getOwnRequestLogWithOptions(request, headers, runtime);
   }
 
   /**
-   * 通过API请求ID查询特定请求的日志详情，用于故障排查。
+   * 获取产品的接入点信息
+   * 
+   * @param request - GetProductEndpointsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProductEndpointsResponse
+   */
+  async getProductEndpointsWithOptions(request: $_model.GetProductEndpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProductEndpointsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.product)) {
+      query["product"] = request.product;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProductEndpoints",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/product/endpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProductEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.GetProductEndpointsResponse({}));
+  }
+
+  /**
+   * 获取产品的接入点信息
+   * 
+   * @param request - GetProductEndpointsRequest
+   * @returns GetProductEndpointsResponse
+   */
+  async getProductEndpoints(request: $_model.GetProductEndpointsRequest): Promise<$_model.GetProductEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProductEndpointsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-   * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-   * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-   * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+   * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
    * 
    * @param request - GetRequestLogRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRequestLogResponse
    */
-  async getRequestLogWithOptions(request: GetRequestLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetRequestLogResponse> {
+  async getRequestLogWithOptions(request: $_model.GetRequestLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRequestLogResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.logRequestId)) {
@@ -1412,31 +577,304 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetRequestLogResponse>(await this.callApi(params, req, runtime), new GetRequestLogResponse({}));
-    } else {
-      return $dara.cast<GetRequestLogResponse>(await this.execute(params, req, runtime), new GetRequestLogResponse({}));
-    }
-
+    return $dara.cast<$_model.GetRequestLogResponse>(await this.callApi(params, req, runtime), new $_model.GetRequestLogResponse({}));
   }
 
   /**
-   * 通过API请求ID查询特定请求的日志详情，用于故障排查。
+   * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * ## 请求说明
-   * - 本接口主要用于帮助用户通过提供具体的`apiRequestId`来获取相关API请求的详细日志信息。
-   * - `apiRequestId`必须是大写形式的UUID，并且应确保该ID确实来自于您之前对某个OpenAPI的实际调用。
-   * - 如果提供的`apiRequestId`无效或者没有找到对应的日志记录，系统将返回相应的错误提示。
-   * - 在使用此接口时，请注意检查您的网络环境以及权限设置，以保证能够顺利访问到所需资源。
+   * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
    * 
    * @param request - GetRequestLogRequest
    * @returns GetRequestLogResponse
    */
-  async getRequestLog(request: GetRequestLogRequest): Promise<GetRequestLogResponse> {
+  async getRequestLog(request: $_model.GetRequestLogRequest): Promise<$_model.GetRequestLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRequestLogWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取产品的开放元数据
+   * 
+   * @param request - ListApiDefinitionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiDefinitionsResponse
+   */
+  async listApiDefinitionsWithOptions(request: $_model.ListApiDefinitionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiDefinitionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiVersion)) {
+      query["apiVersion"] = request.apiVersion;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["product"] = request.product;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiDefinitions",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/api/definitions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiDefinitionsResponse>(await this.callApi(params, req, runtime), new $_model.ListApiDefinitionsResponse({}));
+  }
+
+  /**
+   * 获取产品的开放元数据
+   * 
+   * @param request - ListApiDefinitionsRequest
+   * @returns ListApiDefinitionsResponse
+   */
+  async listApiDefinitions(request: $_model.ListApiDefinitionsRequest): Promise<$_model.ListApiDefinitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiDefinitionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询系统工具列表
+   * 
+   * @param request - ListApiMcpServerSystemToolsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiMcpServerSystemToolsResponse
+   */
+  async listApiMcpServerSystemToolsWithOptions(request: $_model.ListApiMcpServerSystemToolsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiMcpServerSystemToolsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["skip"] = request.skip;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiMcpServerSystemTools",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/mcpSystemTools`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiMcpServerSystemToolsResponse>(await this.callApi(params, req, runtime), new $_model.ListApiMcpServerSystemToolsResponse({}));
+  }
+
+  /**
+   * 查询系统工具列表
+   * 
+   * @param request - ListApiMcpServerSystemToolsRequest
+   * @returns ListApiMcpServerSystemToolsResponse
+   */
+  async listApiMcpServerSystemTools(request: $_model.ListApiMcpServerSystemToolsRequest): Promise<$_model.ListApiMcpServerSystemToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiMcpServerSystemToolsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出资源ApiMcpServer
+   * 
+   * @param request - ListApiMcpServersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiMcpServersResponse
+   */
+  async listApiMcpServersWithOptions(request: $_model.ListApiMcpServersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiMcpServersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createTime)) {
+      query["createTime"] = request.createTime;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.updateTime)) {
+      query["updateTime"] = request.updateTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiMcpServers",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/apimcpservers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiMcpServersResponse>(await this.callApi(params, req, runtime), new $_model.ListApiMcpServersResponse({}));
+  }
+
+  /**
+   * 列出资源ApiMcpServer
+   * 
+   * @param request - ListApiMcpServersRequest
+   * @returns ListApiMcpServersResponse
+   */
+  async listApiMcpServers(request: $_model.ListApiMcpServersRequest): Promise<$_model.ListApiMcpServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiMcpServersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新UpdateApiMcpServer
+   * 
+   * @param request - UpdateApiMcpServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiMcpServerResponse
+   */
+  async updateApiMcpServerWithOptions(request: $_model.UpdateApiMcpServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiMcpServerResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.additionalApiDescriptions)) {
+      body["additionalApiDescriptions"] = request.additionalApiDescriptions;
+    }
+
+    if (!$dara.isNull(request.apis)) {
+      body["apis"] = request.apis;
+    }
+
+    if (!$dara.isNull(request.assumeRoleExtraPolicy)) {
+      body["assumeRoleExtraPolicy"] = request.assumeRoleExtraPolicy;
+    }
+
+    if (!$dara.isNull(request.assumeRoleName)) {
+      body["assumeRoleName"] = request.assumeRoleName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableAssumeRole)) {
+      body["enableAssumeRole"] = request.enableAssumeRole;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.oauthClientId)) {
+      body["oauthClientId"] = request.oauthClientId;
+    }
+
+    if (!$dara.isNull(request.prompts)) {
+      body["prompts"] = request.prompts;
+    }
+
+    if (!$dara.isNull(request.systemTools)) {
+      body["systemTools"] = request.systemTools;
+    }
+
+    if (!$dara.isNull(request.terraformTools)) {
+      body["terraformTools"] = request.terraformTools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApiMcpServer",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/apimcpserver`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApiMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApiMcpServerResponse({}));
+  }
+
+  /**
+   * 更新UpdateApiMcpServer
+   * 
+   * @param request - UpdateApiMcpServerRequest
+   * @returns UpdateApiMcpServerResponse
+   */
+  async updateApiMcpServer(request: $_model.UpdateApiMcpServerRequest): Promise<$_model.UpdateApiMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApiMcpServerWithOptions(request, headers, runtime);
   }
 
 }
