@@ -45,7 +45,7 @@ export class ListIntegrationPoliciesRequestTag extends $dara.Model {
 export class ListIntegrationPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon Name.
+   * Addon name.
    * 
    * @example
    * cs-default
@@ -53,7 +53,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * Bound Resource ID.
+   * Bound resource ID
    * 
    * @example
    * 622d27c2e87d49debceeebc7c642610e
@@ -61,7 +61,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   bindResourceId?: string;
   /**
    * @remarks
-   * Filter for entity IDs, separated by commas.
+   * Filter for entity IDs, separated by commas
    * 
    * @example
    * eg-1,eg-2,eg-3
@@ -69,7 +69,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   entityGroupIds?: string;
   /**
    * @remarks
-   * Used for Region query, separated by commas.
+   * Used for Region query, separated by commas
    * 
    * @example
    * cn-beijing,cn-hangzhou
@@ -77,7 +77,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * Maximum number of results to return, default is 30, with a maximum of 100.
+   * Maximum number of results to return. Default is 30, with a maximum of 100.
    * 
    * @example
    * 30
@@ -85,7 +85,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Used to return more results. This parameter is not required for the first query; for subsequent queries, use the Token obtained from the previous response.
+   * Used to return more results. This parameter is not required for the first query. For subsequent queries, use the Token obtained from the response.
    * 
    * @example
    * mvnX6zqg3P
@@ -101,7 +101,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * Rule Name.
+   * Rule name.
    * 
    * @example
    * prod-database
@@ -109,7 +109,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * Policy Type
+   * Policy type
    * 
    * @example
    * CS
@@ -125,7 +125,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * Used for general queries.
+   * Used for general queries
    * 
    * @example
    * test
@@ -133,7 +133,7 @@ export class ListIntegrationPoliciesRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Resource Group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-xxxxx

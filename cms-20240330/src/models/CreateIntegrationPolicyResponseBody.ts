@@ -95,7 +95,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
 export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether it was created.
+   * Whether it is created.
    * 
    * @example
    * true

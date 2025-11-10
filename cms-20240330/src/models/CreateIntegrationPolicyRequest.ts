@@ -21,7 +21,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Whether to disable unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
+   * Whether to disable the unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
    * 
    * @example
    * ture
@@ -35,10 +35,17 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
    * eg-b79f65d11fb94e779867cf937c3a3002
    */
   entityGroupId?: string;
+  /**
+   * @remarks
+   * User ID to which the cluster belongs.
+   * 
+   * @example
+   * 12xxxx
+   */
   entityUserId?: string;
   /**
    * @remarks
-   * VPC (Virtual Private Cloud) ID.
+   * VPC ID.
    * 
    * @example
    * vpc-bp18fgg3ffxa9czna40xt

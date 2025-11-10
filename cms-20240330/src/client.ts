@@ -1056,6 +1056,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除Umodel配置信息
+   * 
+   * @param request - DeleteUmodelCommonSchemaRefRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUmodelCommonSchemaRefResponse
+   */
+  async deleteUmodelCommonSchemaRefWithOptions(workspace: string, request: $_model.DeleteUmodelCommonSchemaRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUmodelCommonSchemaRefResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.group)) {
+      query["group"] = request.group;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUmodelCommonSchemaRef",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/umodel/common-schema-ref`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUmodelCommonSchemaRefResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUmodelCommonSchemaRefResponse({}));
+  }
+
+  /**
+   * 删除Umodel配置信息
+   * 
+   * @param request - DeleteUmodelCommonSchemaRefRequest
+   * @returns DeleteUmodelCommonSchemaRefResponse
+   */
+  async deleteUmodelCommonSchemaRef(workspace: string, request: $_model.DeleteUmodelCommonSchemaRefRequest): Promise<$_model.DeleteUmodelCommonSchemaRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * Delete Umodel Elements
    * 
    * @remarks
@@ -1573,6 +1618,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取Umodel配置信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUmodelCommonSchemaRefResponse
+   */
+  async getUmodelCommonSchemaRefWithOptions(workspace: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUmodelCommonSchemaRef",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/umodel/common-schema-ref`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUmodelCommonSchemaRefResponse>(await this.callApi(params, req, runtime), new $_model.GetUmodelCommonSchemaRefResponse({}));
+  }
+
+  /**
+   * 获取Umodel配置信息
+   * @returns GetUmodelCommonSchemaRefResponse
+   */
+  async getUmodelCommonSchemaRef(workspace: string): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getUmodelCommonSchemaRefWithOptions(workspace, headers, runtime);
+  }
+
+  /**
    * Retrieve associated Umodel graph data
    * 
    * @remarks
@@ -1869,7 +1949,7 @@ export default class Client extends OpenApi {
    * Query Access Center Policy List Information
    * 
    * @remarks
-   * Query Integration List
+   * Query integration list
    * 
    * @param tmpReq - ListIntegrationPoliciesRequest
    * @param headers - map
@@ -1963,7 +2043,7 @@ export default class Client extends OpenApi {
    * Query Access Center Policy List Information
    * 
    * @remarks
-   * Query Integration List
+   * Query integration list
    * 
    * @param request - ListIntegrationPoliciesRequest
    * @returns ListIntegrationPoliciesResponse
@@ -2934,6 +3014,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新订阅
+   * 
+   * @param request - UpdateNotifyStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNotifyStrategyResponse
+   */
+  async updateNotifyStrategyWithOptions(notifyStrategyId: string, request: $_model.UpdateNotifyStrategyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNotifyStrategyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNotifyStrategy",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/notifyStrategies/${$dara.URL.percentEncode(notifyStrategyId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNotifyStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNotifyStrategyResponse({}));
+  }
+
+  /**
+   * 更新订阅
+   * 
+   * @param request - UpdateNotifyStrategyRequest
+   * @returns UpdateNotifyStrategyResponse
+   */
+  async updateNotifyStrategy(notifyStrategyId: string, request: $_model.UpdateNotifyStrategyRequest): Promise<$_model.UpdateNotifyStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateNotifyStrategyWithOptions(notifyStrategyId, request, headers, runtime);
+  }
+
+  /**
    * Update Prometheus instance information
    * 
    * @remarks
@@ -3157,6 +3283,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新订阅
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscriptionWithOptions(subscriptionId: string, request: $_model.UpdateSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSubscriptionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSubscription",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/subscriptions/${$dara.URL.percentEncode(subscriptionId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSubscriptionResponse({}));
+  }
+
+  /**
+   * 更新订阅
+   * 
+   * @param request - UpdateSubscriptionRequest
+   * @returns UpdateSubscriptionResponse
+   */
+  async updateSubscription(subscriptionId: string, request: $_model.UpdateSubscriptionRequest): Promise<$_model.UpdateSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+  }
+
+  /**
    * Update Umodel configuration information
    * 
    * @remarks
@@ -3205,6 +3377,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateUmodelWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * 更新Umodel配置信息
+   * 
+   * @param request - UpsertUmodelCommonSchemaRefRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertUmodelCommonSchemaRefResponse
+   */
+  async upsertUmodelCommonSchemaRefWithOptions(workspace: string, request: $_model.UpsertUmodelCommonSchemaRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertUmodelCommonSchemaRefResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.group)) {
+      query["group"] = request.group;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertUmodelCommonSchemaRef",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/umodel/common-schema-ref`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertUmodelCommonSchemaRefResponse>(await this.callApi(params, req, runtime), new $_model.UpsertUmodelCommonSchemaRefResponse({}));
+  }
+
+  /**
+   * 更新Umodel配置信息
+   * 
+   * @param request - UpsertUmodelCommonSchemaRefRequest
+   * @returns UpsertUmodelCommonSchemaRefResponse
+   */
+  async upsertUmodelCommonSchemaRef(workspace: string, request: $_model.UpsertUmodelCommonSchemaRefRequest): Promise<$_model.UpsertUmodelCommonSchemaRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upsertUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
   }
 
   /**

@@ -73,7 +73,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAn
   op?: string;
   /**
    * @remarks
-   * Tag key
+   * Tag key.
    * 
    * @example
    * key
@@ -123,7 +123,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
   fieldKey?: string;
   /**
    * @remarks
-   * Field content, multiple values separated by commas.
+   * Field content, multiple values separated by English commas.
    */
   fieldValues?: string[];
   /**
@@ -335,7 +335,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules e
   labels?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels[];
   /**
    * @remarks
-   * List of region IDs
+   * List of region IDs.
    */
   regionIds?: string[];
   /**
@@ -444,7 +444,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   entityRules?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules;
   /**
    * @remarks
-   * Search keyword, supports document library name and description
+   * Search keywords, supporting document library name and description
    * 
    * @example
    * 哈弗
@@ -650,7 +650,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   bindResource?: ListIntegrationPoliciesResponseBodyPoliciesBindResource;
   /**
    * @remarks
-   * Cs Umodel Status
+   * Container environment umodel installation status.
    * 
    * @example
    * true
@@ -661,6 +661,13 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
    * Entity group
    */
   entityGroup?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroup;
+  /**
+   * @remarks
+   * Billing type.
+   * 
+   * @example
+   * CS_Pro
+   */
   feePackage?: string;
   /**
    * @remarks
@@ -810,7 +817,7 @@ export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Pagination Token
+   * Pagination token
    * 
    * @example
    * 44ANBjKZmQeKnaB1fXRq06w7sFYK3MUcCALMD9qQbmEiE
