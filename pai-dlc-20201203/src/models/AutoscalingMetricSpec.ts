@@ -2,24 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetDashboardResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The Dashboard URL
-   * 
-   * @example
-   * https://dlcj1jzm1p01saqw-spark.pre-dsw-gateway-cn-hangzhou.data.aliyun.com
-   */
-  url?: string;
+export class AutoscalingMetricSpec extends $dara.Model {
+  metricName?: string;
+  targetValue?: number;
   static names(): { [key: string]: string } {
     return {
-      url: 'url',
+      metricName: 'MetricName',
+      targetValue: 'TargetValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
+      metricName: 'string',
+      targetValue: 'number',
     };
   }
 

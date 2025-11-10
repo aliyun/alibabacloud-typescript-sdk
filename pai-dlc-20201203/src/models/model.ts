@@ -20,6 +20,7 @@ export { AliyunAccounts } from './AliyunAccounts';
 export { AssignNodeSpec } from './AssignNodeSpec';
 export { AssumeUserInfo } from './AssumeUserInfo';
 export { AutoScalingSpec } from './AutoScalingSpec';
+export { AutoscalingMetricSpec } from './AutoscalingMetricSpec';
 export { CodeSourceItem } from './CodeSourceItem';
 export { ContainerSpec } from './ContainerSpec';
 export { CredentialConfig } from './CredentialConfig';

@@ -407,7 +407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Dashboard 链接
+   * Gets the DLC task\\"s Dashboard URL, if one exists.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
    * 
    * @param request - GetDashboardRequest
    * @param headers - map
@@ -444,7 +447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Dashboard 链接
+   * Gets the DLC task\\"s Dashboard URL, if one exists.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
    * 
    * @param request - GetDashboardRequest
    * @returns GetDashboardResponse
@@ -1564,6 +1570,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.jobSpecs)) {
+      body["JobSpecs"] = request.jobSpecs;
     }
 
     if (!$dara.isNull(request.priority)) {

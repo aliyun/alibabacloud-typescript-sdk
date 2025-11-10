@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { JobSpec } from "./JobSpec";
 
 
 export class UpdateJobRequest extends $dara.Model {
@@ -14,6 +15,7 @@ export class UpdateJobRequest extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  jobSpecs?: JobSpec[];
   /**
    * @remarks
    * The job priority. Valid values: 1 to 9.
@@ -28,6 +30,7 @@ export class UpdateJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      jobSpecs: 'JobSpecs',
       priority: 'Priority',
     };
   }
@@ -35,11 +38,15 @@ export class UpdateJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       priority: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.jobSpecs)) {
+      $dara.Model.validateArray(this.jobSpecs);
+    }
     super.validate();
   }
 

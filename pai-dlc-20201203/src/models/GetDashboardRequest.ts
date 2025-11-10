@@ -4,11 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDashboardRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the link is a sharing link. If yes, a token is required.
+   * 
+   * Enumerated values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   isShared?: boolean;
   /**
+   * @remarks
+   * The token obtained from GetToken
+   * 
    * @example
    * some_token_value
    */
