@@ -121,6 +121,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
    * 10000003071
    */
   solutionId?: number;
+  tagIdList?: number[];
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
@@ -130,6 +131,7 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
       perspectiveCodes: 'PerspectiveCodes',
       plainText: 'PlainText',
       solutionId: 'SolutionId',
+      tagIdList: 'TagIdList',
     };
   }
 
@@ -142,12 +144,16 @@ export class DescribeFaqResponseBodySolutions extends $dara.Model {
       perspectiveCodes: { 'type': 'array', 'itemType': 'string' },
       plainText: 'string',
       solutionId: 'number',
+      tagIdList: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
     if(Array.isArray(this.perspectiveCodes)) {
       $dara.Model.validateArray(this.perspectiveCodes);
+    }
+    if(Array.isArray(this.tagIdList)) {
+      $dara.Model.validateArray(this.tagIdList);
     }
     super.validate();
   }
