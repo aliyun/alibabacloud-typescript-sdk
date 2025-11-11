@@ -244,6 +244,7 @@ export { ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatist
 export { ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponseBodySynchronizationJobsResult } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponseBodySynchronizationJobs } from './ListSynchronizationJobsResponseBody';
+export { ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings } from './ListUserAuthnSourceMappingsResponseBody';
 export { ListUsersResponseBodyUsers } from './ListUsersResponseBody';
 export { ListUsersForApplicationResponseBodyUsers } from './ListUsersForApplicationResponseBody';
 export { ListUsersForGroupResponseBodyUsers } from './ListUsersForGroupResponseBody';
@@ -307,6 +308,9 @@ export { AuthorizeApplicationToOrganizationalUnitsResponse } from './AuthorizeAp
 export { AuthorizeApplicationToUsersRequest } from './AuthorizeApplicationToUsersRequest';
 export { AuthorizeApplicationToUsersResponseBody } from './AuthorizeApplicationToUsersResponseBody';
 export { AuthorizeApplicationToUsersResponse } from './AuthorizeApplicationToUsersResponse';
+export { BindUserAuthnSourceMappingRequest } from './BindUserAuthnSourceMappingRequest';
+export { BindUserAuthnSourceMappingResponseBody } from './BindUserAuthnSourceMappingResponseBody';
+export { BindUserAuthnSourceMappingResponse } from './BindUserAuthnSourceMappingResponse';
 export { CreateApplicationRequest } from './CreateApplicationRequest';
 export { CreateApplicationResponseBody } from './CreateApplicationResponseBody';
 export { CreateApplicationResponse } from './CreateApplicationResponse';
@@ -718,6 +722,9 @@ export { ListRegionsResponse } from './ListRegionsResponse';
 export { ListSynchronizationJobsRequest } from './ListSynchronizationJobsRequest';
 export { ListSynchronizationJobsResponseBody } from './ListSynchronizationJobsResponseBody';
 export { ListSynchronizationJobsResponse } from './ListSynchronizationJobsResponse';
+export { ListUserAuthnSourceMappingsRequest } from './ListUserAuthnSourceMappingsRequest';
+export { ListUserAuthnSourceMappingsResponseBody } from './ListUserAuthnSourceMappingsResponseBody';
+export { ListUserAuthnSourceMappingsResponse } from './ListUserAuthnSourceMappingsResponse';
 export { ListUsersRequest } from './ListUsersRequest';
 export { ListUsersResponseBody } from './ListUsersResponseBody';
 export { ListUsersResponse } from './ListUsersResponse';
@@ -799,6 +806,9 @@ export { SetPasswordInitializationConfigurationResponse } from './SetPasswordIni
 export { SetUserPrimaryOrganizationalUnitRequest } from './SetUserPrimaryOrganizationalUnitRequest';
 export { SetUserPrimaryOrganizationalUnitResponseBody } from './SetUserPrimaryOrganizationalUnitResponseBody';
 export { SetUserPrimaryOrganizationalUnitResponse } from './SetUserPrimaryOrganizationalUnitResponse';
+export { UnbindUserAuthnSourceMappingRequest } from './UnbindUserAuthnSourceMappingRequest';
+export { UnbindUserAuthnSourceMappingResponseBody } from './UnbindUserAuthnSourceMappingResponseBody';
+export { UnbindUserAuthnSourceMappingResponse } from './UnbindUserAuthnSourceMappingResponse';
 export { UnlockUserRequest } from './UnlockUserRequest';
 export { UnlockUserResponseBody } from './UnlockUserResponseBody';
 export { UnlockUserResponse } from './UnlockUserResponse';

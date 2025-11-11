@@ -384,6 +384,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定三方登录账户
+   * 
+   * @param request - BindUserAuthnSourceMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindUserAuthnSourceMappingResponse
+   */
+  async bindUserAuthnSourceMappingWithOptions(request: $_model.BindUserAuthnSourceMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindUserAuthnSourceMappingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userExternalId)) {
+      query["UserExternalId"] = request.userExternalId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindUserAuthnSourceMapping",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindUserAuthnSourceMappingResponse>(await this.callApi(params, req, runtime), new $_model.BindUserAuthnSourceMappingResponse({}));
+  }
+
+  /**
+   * 绑定三方登录账户
+   * 
+   * @param request - BindUserAuthnSourceMappingRequest
+   * @returns BindUserAuthnSourceMappingResponse
+   */
+  async bindUserAuthnSourceMapping(request: $_model.BindUserAuthnSourceMappingRequest): Promise<$_model.BindUserAuthnSourceMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bindUserAuthnSourceMappingWithOptions(request, runtime);
+  }
+
+  /**
    * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
    * 
    * @remarks
@@ -7432,6 +7486,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询三方登录账户绑定关系
+   * 
+   * @param request - ListUserAuthnSourceMappingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserAuthnSourceMappingsResponse
+   */
+  async listUserAuthnSourceMappingsWithOptions(request: $_model.ListUserAuthnSourceMappingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserAuthnSourceMappingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    if (!$dara.isNull(request.userExternalId)) {
+      query["UserExternalId"] = request.userExternalId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserAuthnSourceMappings",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserAuthnSourceMappingsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserAuthnSourceMappingsResponse({}));
+  }
+
+  /**
+   * 查询三方登录账户绑定关系
+   * 
+   * @param request - ListUserAuthnSourceMappingsRequest
+   * @returns ListUserAuthnSourceMappingsResponse
+   */
+  async listUserAuthnSourceMappings(request: $_model.ListUserAuthnSourceMappingsRequest): Promise<$_model.ListUserAuthnSourceMappingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserAuthnSourceMappingsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
    * 
    * @param request - ListUsersRequest
@@ -8953,6 +9073,60 @@ export default class Client extends OpenApi {
   async setUserPrimaryOrganizationalUnit(request: $_model.SetUserPrimaryOrganizationalUnitRequest): Promise<$_model.SetUserPrimaryOrganizationalUnitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑三方登录账户
+   * 
+   * @param request - UnbindUserAuthnSourceMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindUserAuthnSourceMappingResponse
+   */
+  async unbindUserAuthnSourceMappingWithOptions(request: $_model.UnbindUserAuthnSourceMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindUserAuthnSourceMappingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.userExternalId)) {
+      query["UserExternalId"] = request.userExternalId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindUserAuthnSourceMapping",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindUserAuthnSourceMappingResponse>(await this.callApi(params, req, runtime), new $_model.UnbindUserAuthnSourceMappingResponse({}));
+  }
+
+  /**
+   * 解绑三方登录账户
+   * 
+   * @param request - UnbindUserAuthnSourceMappingRequest
+   * @returns UnbindUserAuthnSourceMappingResponse
+   */
+  async unbindUserAuthnSourceMapping(request: $_model.UnbindUserAuthnSourceMappingRequest): Promise<$_model.UnbindUserAuthnSourceMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindUserAuthnSourceMappingWithOptions(request, runtime);
   }
 
   /**
