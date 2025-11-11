@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteAuditNoteRequest extends $dara.Model {
+  noteId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -13,12 +14,14 @@ export class DeleteAuditNoteRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      noteId: 'NoteId',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      noteId: 'string',
       workspaceId: 'string',
     };
   }

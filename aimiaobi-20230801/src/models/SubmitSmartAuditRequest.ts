@@ -56,7 +56,9 @@ export class SubmitSmartAuditRequestImageUrls extends $dara.Model {
 
 export class SubmitSmartAuditRequest extends $dara.Model {
   imageUrlList?: SubmitSmartAuditRequestImageUrlList[];
+  noteId?: string;
   subCodes?: string[];
+  termsName?: string;
   text?: string;
   /**
    * @example
@@ -67,7 +69,9 @@ export class SubmitSmartAuditRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       imageUrlList: 'ImageUrlList',
+      noteId: 'NoteId',
       subCodes: 'SubCodes',
+      termsName: 'TermsName',
       text: 'Text',
       workspaceId: 'WorkspaceId',
       imageUrls: 'imageUrls',
@@ -77,7 +81,9 @@ export class SubmitSmartAuditRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       imageUrlList: { 'type': 'array', 'itemType': SubmitSmartAuditRequestImageUrlList },
+      noteId: 'string',
       subCodes: { 'type': 'array', 'itemType': 'string' },
+      termsName: 'string',
       text: 'string',
       workspaceId: 'string',
       imageUrls: { 'type': 'array', 'itemType': SubmitSmartAuditRequestImageUrls },

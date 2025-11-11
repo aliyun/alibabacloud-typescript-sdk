@@ -24,6 +24,7 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
    * 龙行龘龘出自四库本《玉篇》23龙部第8字，文字释义为群龙腾飞的样子，昂扬而热烈。
    */
   termsDesc?: string;
+  termsName?: string;
   static names(): { [key: string]: string } {
     return {
       exceptionWord: 'ExceptionWord',
@@ -31,6 +32,7 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
       keyword: 'Keyword',
       suggestWord: 'SuggestWord',
       termsDesc: 'TermsDesc',
+      termsName: 'TermsName',
     };
   }
 
@@ -41,6 +43,7 @@ export class ListAuditTermsResponseBodyData extends $dara.Model {
       keyword: 'string',
       suggestWord: 'string',
       termsDesc: 'string',
+      termsName: 'string',
     };
   }
 

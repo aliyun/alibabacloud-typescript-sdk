@@ -11,6 +11,7 @@ export class SubmitAuditNoteRequest extends $dara.Model {
    * oss://default/your/file/key
    */
   fileKey?: string;
+  noteId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +23,7 @@ export class SubmitAuditNoteRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileKey: 'FileKey',
+      noteId: 'NoteId',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -29,6 +31,7 @@ export class SubmitAuditNoteRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileKey: 'string',
+      noteId: 'string',
       workspaceId: 'string',
     };
   }

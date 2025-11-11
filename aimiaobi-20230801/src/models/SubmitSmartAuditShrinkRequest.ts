@@ -4,7 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitSmartAuditShrinkRequest extends $dara.Model {
   imageUrlListShrink?: string;
+  noteId?: string;
   subCodesShrink?: string;
+  termsName?: string;
   text?: string;
   /**
    * @example
@@ -15,7 +17,9 @@ export class SubmitSmartAuditShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       imageUrlListShrink: 'ImageUrlList',
+      noteId: 'NoteId',
       subCodesShrink: 'SubCodes',
+      termsName: 'TermsName',
       text: 'Text',
       workspaceId: 'WorkspaceId',
       imageUrlsShrink: 'imageUrls',
@@ -25,7 +29,9 @@ export class SubmitSmartAuditShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       imageUrlListShrink: 'string',
+      noteId: 'string',
       subCodesShrink: 'string',
+      termsName: 'string',
       text: 'string',
       workspaceId: 'string',
       imageUrlsShrink: 'string',

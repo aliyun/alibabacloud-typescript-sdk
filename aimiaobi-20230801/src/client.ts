@@ -61,6 +61,10 @@ export default class Client extends OpenApi {
       body["TermsDesc"] = request.termsDesc;
     }
 
+    if (!$dara.isNull(request.termsName)) {
+      body["TermsName"] = request.termsName;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -977,6 +981,10 @@ export default class Client extends OpenApi {
   async deleteAuditNoteWithOptions(request: $_model.DeleteAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAuditNoteResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -1671,6 +1679,10 @@ export default class Client extends OpenApi {
   async downloadAuditNoteWithOptions(request: $_model.DownloadAuditNoteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadAuditNoteResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -2891,6 +2903,10 @@ export default class Client extends OpenApi {
   async getAvailableAuditNotesWithOptions(request: $_model.GetAvailableAuditNotesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAvailableAuditNotesResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -4851,6 +4867,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.termsName)) {
+      body["TermsName"] = request.termsName;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -11995,6 +12015,10 @@ export default class Client extends OpenApi {
       body["FileKey"] = request.fileKey;
     }
 
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -12525,6 +12549,10 @@ export default class Client extends OpenApi {
   async submitExportTermsTaskWithOptions(request: $_model.SubmitExportTermsTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitExportTermsTaskResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.termsName)) {
+      body["TermsName"] = request.termsName;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -12617,6 +12645,10 @@ export default class Client extends OpenApi {
       body["FileKey"] = request.fileKey;
     }
 
+    if (!$dara.isNull(request.termsName)) {
+      body["TermsName"] = request.termsName;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -12677,8 +12709,16 @@ export default class Client extends OpenApi {
       body["ImageUrlList"] = request.imageUrlListShrink;
     }
 
+    if (!$dara.isNull(request.noteId)) {
+      body["NoteId"] = request.noteId;
+    }
+
     if (!$dara.isNull(request.subCodesShrink)) {
       body["SubCodes"] = request.subCodesShrink;
+    }
+
+    if (!$dara.isNull(request.termsName)) {
+      body["TermsName"] = request.termsName;
     }
 
     if (!$dara.isNull(request.text)) {

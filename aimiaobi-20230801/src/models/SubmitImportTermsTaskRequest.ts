@@ -11,6 +11,7 @@ export class SubmitImportTermsTaskRequest extends $dara.Model {
    * oss://default/oss-bucket-name/aimiaobi/2021/07/01/1625126400000/1.docx
    */
   fileKey?: string;
+  termsName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +23,7 @@ export class SubmitImportTermsTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       fileKey: 'FileKey',
+      termsName: 'TermsName',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -29,6 +31,7 @@ export class SubmitImportTermsTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       fileKey: 'string',
+      termsName: 'string',
       workspaceId: 'string',
     };
   }

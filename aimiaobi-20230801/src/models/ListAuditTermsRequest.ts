@@ -13,6 +13,7 @@ export class ListAuditTermsRequest extends $dara.Model {
    * XXXX
    */
   nextToken?: string;
+  termsName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25,6 +26,7 @@ export class ListAuditTermsRequest extends $dara.Model {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      termsName: 'TermsName',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -33,6 +35,7 @@ export class ListAuditTermsRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      termsName: 'string',
       workspaceId: 'string',
     };
   }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DownloadAuditNoteRequest extends $dara.Model {
+  noteId?: string;
   /**
    * @example
    * xxx_Default_1241541251241
@@ -18,6 +19,7 @@ export class DownloadAuditNoteRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      noteId: 'NoteId',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
@@ -25,6 +27,7 @@ export class DownloadAuditNoteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      noteId: 'string',
       taskId: 'string',
       workspaceId: 'string',
     };
