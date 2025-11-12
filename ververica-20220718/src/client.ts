@@ -2338,6 +2338,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取上传文件URL
+   * 
+   * @param request - GetPreSignedUrlForPutObjectRequest
+   * @param headers - GetPreSignedUrlForPutObjectHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPreSignedUrlForPutObjectResponse
+   */
+  async getPreSignedUrlForPutObjectWithOptions(namespace: string, request: $_model.GetPreSignedUrlForPutObjectRequest, headers: $_model.GetPreSignedUrlForPutObjectHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetPreSignedUrlForPutObjectResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPreSignedUrlForPutObject",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/artifacts/v2/namespaces/${$dara.URL.percentEncode(namespace)}/getPreSignedUrlForPutObject`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPreSignedUrlForPutObjectResponse>(await this.callApi(params, req, runtime), new $_model.GetPreSignedUrlForPutObjectResponse({}));
+  }
+
+  /**
+   * 获取上传文件URL
+   * 
+   * @param request - GetPreSignedUrlForPutObjectRequest
+   * @returns GetPreSignedUrlForPutObjectResponse
+   */
+  async getPreSignedUrlForPutObject(namespace: string, request: $_model.GetPreSignedUrlForPutObjectRequest): Promise<$_model.GetPreSignedUrlForPutObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetPreSignedUrlForPutObjectHeaders({ });
+    return await this.getPreSignedUrlForPutObjectWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
    * Queries details of a savepoint and checkpoint.
    * 
    * @param headers - GetSavepointHeaders
