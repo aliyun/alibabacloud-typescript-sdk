@@ -3,6 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSiteMonitorListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Task network type. Valid values:
+   * 
+   * - PC: Cable Network
+   * 
+   * - MOBILE: Mobile Cellular Network
+   * 
+   * - FC: Alibaba Cloud VPC Network
+   * 
+   * @example
+   * PC
+   */
   agentGroup?: string;
   /**
    * @remarks

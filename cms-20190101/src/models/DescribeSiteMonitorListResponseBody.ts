@@ -539,6 +539,9 @@ export class DescribeSiteMonitorListResponseBodySiteMonitorsSiteMonitor extends 
   /**
    * @remarks
    * The name of the site monitoring task.
+   * 
+   * @example
+   * 域名检测_example.com.cn
    */
   taskName?: string;
   /**
