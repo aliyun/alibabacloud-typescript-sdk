@@ -1008,6 +1008,10 @@ export default class Client extends OpenApi {
       query["Verbose"] = request.verbose;
     }
 
+    if (!$dara.isNull(request.withNodeMeta)) {
+      query["WithNodeMeta"] = request.withNodeMeta;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

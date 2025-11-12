@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetQuotaRequest extends $dara.Model {
   verbose?: boolean;
+  withNodeMeta?: boolean;
   static names(): { [key: string]: string } {
     return {
       verbose: 'Verbose',
+      withNodeMeta: 'WithNodeMeta',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       verbose: 'boolean',
+      withNodeMeta: 'boolean',
     };
   }
 

@@ -64,6 +64,7 @@ export { ACS } from './Acs';
 export { Action } from './Action';
 export { AlgorithmSpec } from './AlgorithmSpec';
 export { AllocateStrategySpec } from './AllocateStrategySpec';
+export { AssignNodeSpec } from './AssignNodeSpec';
 export { BindingPolicy } from './BindingPolicy';
 export { CacheInfo } from './CacheInfo';
 export { CacheService } from './CacheService';
