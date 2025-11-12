@@ -74,12 +74,19 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
   machineType?: string;
   /**
    * @example
+   * Using
+   */
+  operatingState?: string;
+  /**
+   * @example
    * rg-acfmwaateahzoii
    */
   resourceGroupId?: string;
   /**
    * @example
    * Using
+   * 
+   * @deprecated
    */
   status?: string;
   tags?: ListFreeHyperNodesResponseBodyHyperNodesTags[];
@@ -97,6 +104,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
       hpnZone: 'HpnZone',
       hyperNodeId: 'HyperNodeId',
       machineType: 'MachineType',
+      operatingState: 'OperatingState',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       tags: 'Tags',
@@ -113,6 +121,7 @@ export class ListFreeHyperNodesResponseBodyHyperNodes extends $dara.Model {
       hpnZone: 'string',
       hyperNodeId: 'string',
       machineType: 'string',
+      operatingState: 'string',
       resourceGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListFreeHyperNodesResponseBodyHyperNodesTags },

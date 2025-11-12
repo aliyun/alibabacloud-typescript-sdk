@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetHyperNodeRequest extends $dara.Model {
+export class DeleteHyperNodeResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * e01-cn-zvp2tgykr08
+   * 041724FC-2BD7-58B1-863B-B42022D4B351
    */
-  hyperNodeId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      hyperNodeId: 'HyperNodeId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      hyperNodeId: 'string',
+      requestId: 'string',
     };
   }
 

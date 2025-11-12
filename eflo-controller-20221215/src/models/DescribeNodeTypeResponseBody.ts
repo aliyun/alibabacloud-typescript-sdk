@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNodeTypeResponseBody extends $dara.Model {
+  diskQuantity?: number;
   /**
    * @example
    * 63
@@ -30,6 +31,7 @@ export class DescribeNodeTypeResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      diskQuantity: 'DiskQuantity',
       eniHighDenseQuantity: 'EniHighDenseQuantity',
       eniIpv6AddressQuantity: 'EniIpv6AddressQuantity',
       eniPrivateIpAddressQuantity: 'EniPrivateIpAddressQuantity',
@@ -40,6 +42,7 @@ export class DescribeNodeTypeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      diskQuantity: 'number',
       eniHighDenseQuantity: 'number',
       eniIpv6AddressQuantity: 'number',
       eniPrivateIpAddressQuantity: 'number',

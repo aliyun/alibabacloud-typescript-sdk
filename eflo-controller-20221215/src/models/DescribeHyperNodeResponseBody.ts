@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetHyperNodeResponseBodyNodesDisks extends $dara.Model {
+export class DescribeHyperNodeResponseBodyNodesDisks extends $dara.Model {
   /**
    * @example
    * DOWNLINK_PACKET
@@ -57,7 +57,7 @@ export class GetHyperNodeResponseBodyNodesDisks extends $dara.Model {
   }
 }
 
-export class GetHyperNodeResponseBodyNodesNetworks extends $dara.Model {
+export class DescribeHyperNodeResponseBodyNodesNetworks extends $dara.Model {
   /**
    * @example
    * bond0
@@ -65,7 +65,7 @@ export class GetHyperNodeResponseBodyNodesNetworks extends $dara.Model {
   bondName?: string;
   /**
    * @example
-   * 172.17.231.113
+   * 192.168.22.2
    */
   ip?: string;
   static names(): { [key: string]: string } {
@@ -91,11 +91,11 @@ export class GetHyperNodeResponseBodyNodesNetworks extends $dara.Model {
   }
 }
 
-export class GetHyperNodeResponseBodyNodes extends $dara.Model {
-  disks?: GetHyperNodeResponseBodyNodesDisks[];
+export class DescribeHyperNodeResponseBodyNodes extends $dara.Model {
+  disks?: DescribeHyperNodeResponseBodyNodesDisks[];
   /**
    * @example
-   * alywlcb-lingjun-gpu-0025
+   * 457db5ca-241d-11ed-9fd7-acde48001122
    */
   hostname?: string;
   /**
@@ -105,10 +105,10 @@ export class GetHyperNodeResponseBodyNodes extends $dara.Model {
   imageId?: string;
   /**
    * @example
-   * Alinux3_x86_5.10.134-16.3_NV_RunC_D3_E3C7_570.133.20_V1.0_250428
+   * Alinux3_x86_gu8xf_P_Host_D3_C7E3_550.127_Legacy_N_241230
    */
   imageName?: string;
-  networks?: GetHyperNodeResponseBodyNodesNetworks;
+  networks?: DescribeHyperNodeResponseBodyNodesNetworks;
   /**
    * @example
    * e01-cn-zvp2tgykr0b
@@ -116,14 +116,21 @@ export class GetHyperNodeResponseBodyNodes extends $dara.Model {
   nodeId?: string;
   /**
    * @example
+   * Using
+   */
+  operatingState?: string;
+  /**
+   * @example
    * InProgress
+   * 
+   * @deprecated
    */
   status?: string;
   /**
    * @example
    * #!/bin/bash
    * uptime
-   * echo "aaaaaaa" >> /tmp/ttttt20250110141010.sh
+   * echo "aaaaaaa" >> /tmp/ttttttest.sh
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -134,6 +141,7 @@ export class GetHyperNodeResponseBodyNodes extends $dara.Model {
       imageName: 'ImageName',
       networks: 'Networks',
       nodeId: 'NodeId',
+      operatingState: 'OperatingState',
       status: 'Status',
       userData: 'UserData',
     };
@@ -141,12 +149,13 @@ export class GetHyperNodeResponseBodyNodes extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      disks: { 'type': 'array', 'itemType': GetHyperNodeResponseBodyNodesDisks },
+      disks: { 'type': 'array', 'itemType': DescribeHyperNodeResponseBodyNodesDisks },
       hostname: 'string',
       imageId: 'string',
       imageName: 'string',
-      networks: GetHyperNodeResponseBodyNodesNetworks,
+      networks: DescribeHyperNodeResponseBodyNodesNetworks,
       nodeId: 'string',
+      operatingState: 'string',
       status: 'string',
       userData: 'string',
     };
@@ -167,10 +176,10 @@ export class GetHyperNodeResponseBodyNodes extends $dara.Model {
   }
 }
 
-export class GetHyperNodeResponseBody extends $dara.Model {
+export class DescribeHyperNodeResponseBody extends $dara.Model {
   /**
    * @example
-   * i112138561737531371671
+   * i119982311660892626523
    */
   clusterId?: string;
   /**
@@ -185,7 +194,7 @@ export class GetHyperNodeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @example
-   * 2026-05-14T00:00:00
+   * 2125-06-24T16:52:44.318000
    */
   expireTime?: string;
   /**
@@ -210,7 +219,7 @@ export class GetHyperNodeResponseBody extends $dara.Model {
   hyperNodeId?: string;
   /**
    * @example
-   * efg2.C48cNHmcn
+   * efg1.nvga1
    */
   machineType?: string;
   /**
@@ -220,23 +229,30 @@ export class GetHyperNodeResponseBody extends $dara.Model {
   nodeGroupId?: string;
   /**
    * @example
-   * emr-default
+   * lisan-nodegroup
    */
   nodeGroupName?: string;
-  nodes?: GetHyperNodeResponseBodyNodes[];
+  nodes?: DescribeHyperNodeResponseBodyNodes[];
   /**
    * @example
-   * 2FE2B22C-CF9D-59DE-BF63-DC9B9B33A9D1
+   * Using
+   */
+  operatingState?: string;
+  /**
+   * @example
+   * D6058705-1C45-35C9-9461-02504897D4D0
    */
   requestId?: string;
   /**
    * @example
-   * rg-acfmwfm33rlt6zi
+   * rg-acfmxno4vh5****
    */
   resourceGroupId?: string;
   /**
    * @example
-   * Using
+   * Operating
+   * 
+   * @deprecated
    */
   status?: string;
   /**
@@ -258,6 +274,7 @@ export class GetHyperNodeResponseBody extends $dara.Model {
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
       nodes: 'Nodes',
+      operatingState: 'OperatingState',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
@@ -278,7 +295,8 @@ export class GetHyperNodeResponseBody extends $dara.Model {
       machineType: 'string',
       nodeGroupId: 'string',
       nodeGroupName: 'string',
-      nodes: { 'type': 'array', 'itemType': GetHyperNodeResponseBodyNodes },
+      nodes: { 'type': 'array', 'itemType': DescribeHyperNodeResponseBodyNodes },
+      operatingState: 'string',
       requestId: 'string',
       resourceGroupId: 'string',
       status: 'string',

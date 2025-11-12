@@ -89,7 +89,14 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
   nodeGroupName?: string;
   /**
    * @example
+   * Using
+   */
+  operatingState?: string;
+  /**
+   * @example
    * Extending
+   * 
+   * @deprecated
    */
   status?: string;
   tags?: ListClusterHyperNodesResponseBodyHyperNodesTags[];
@@ -125,6 +132,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
       machineType: 'MachineType',
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
+      operatingState: 'OperatingState',
       status: 'Status',
       tags: 'Tags',
       taskId: 'TaskId',
@@ -146,6 +154,7 @@ export class ListClusterHyperNodesResponseBodyHyperNodes extends $dara.Model {
       machineType: 'string',
       nodeGroupId: 'string',
       nodeGroupName: 'string',
+      operatingState: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListClusterHyperNodesResponseBodyHyperNodesTags },
       taskId: 'string',
