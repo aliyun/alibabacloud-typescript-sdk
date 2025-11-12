@@ -325,7 +325,27 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
    */
   endTime?: number;
   multimodalSearchTypes?: string[];
+  /**
+   * @example
+   * 0.6
+   */
+  searchAudioMinScore?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  searchImageMinScore?: number;
   searchSources?: RunSearchGenerationRequestChatConfigSearchParamSearchSources[];
+  /**
+   * @example
+   * 0.6
+   */
+  searchTextMinScore?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  searchVideoMinScore?: number;
   /**
    * @example
    * 1725983999999
@@ -335,7 +355,11 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
     return {
       endTime: 'EndTime',
       multimodalSearchTypes: 'MultimodalSearchTypes',
+      searchAudioMinScore: 'SearchAudioMinScore',
+      searchImageMinScore: 'SearchImageMinScore',
       searchSources: 'SearchSources',
+      searchTextMinScore: 'SearchTextMinScore',
+      searchVideoMinScore: 'SearchVideoMinScore',
       startTime: 'StartTime',
     };
   }
@@ -344,7 +368,11 @@ export class RunSearchGenerationRequestChatConfigSearchParam extends $dara.Model
     return {
       endTime: 'number',
       multimodalSearchTypes: { 'type': 'array', 'itemType': 'string' },
+      searchAudioMinScore: 'number',
+      searchImageMinScore: 'number',
       searchSources: { 'type': 'array', 'itemType': RunSearchGenerationRequestChatConfigSearchParamSearchSources },
+      searchTextMinScore: 'number',
+      searchVideoMinScore: 'number',
       startTime: 'number',
     };
   }
@@ -377,6 +405,16 @@ export class RunSearchGenerationRequestChatConfig extends $dara.Model {
    * copilotPrecise
    */
   generateTechnology?: string;
+  /**
+   * @example
+   * # 角色 你是一个专业的文章检索和问答机器人，擅长文章检索和回答用户问题。  # 任务目标 请你根据检索到的相关文章，回答或表述用户问题“{query}”。  # 任务限制 - 如果用户问题中提到具体日期，请考虑知识日期做筛选。 - 生成内容结构条理。 - 生成内容尽量精简。 - 控制在30字以内 - 不要使用其他数据，不要杜撰。 - 如果不能回答用户问题，请输出对应语言的拒识文案:   - 中文：\"根据已知信息无法回答。\"   - 英文：\"Unable to answer based on the known information.\"  # 输入数据 ## 检索到的相关文章 {content}
+   */
+  modelCustomPromptTemplate?: string;
+  /**
+   * @example
+   * # 角色 你是一个专业的文章检索和问答机器人，擅长文章检索和回答用户问题。   # 任务目标 请你根据检索到的相关文章和图片，回答或表述用户问题“{query}”。  # 任务限制  - 如果用户问题中提到具体日期，请考虑知识日期做筛选。  - 生成内容结构条理。  - 生成内容尽量精简。  - 控制在30字以内。 - 如果图片内容可以回答，可以忽略文章内容。 - 不要使用其他数据，不要杜撰。  - 如果不能回答用户问题，请输出对应语言的拒识文案:    	- 中文：\"根据已知信息无法回答。\"    	- 英文：\"Unable to answer based on the known information.\"    # 输入数据  ## 检索到的相关文章  {content}
+   */
+  modelCustomVlPromptTemplate?: string;
   searchModels?: string[];
   searchParam?: RunSearchGenerationRequestChatConfigSearchParam;
   static names(): { [key: string]: string } {
@@ -385,6 +423,8 @@ export class RunSearchGenerationRequestChatConfig extends $dara.Model {
       excludeGenerateOptions: 'ExcludeGenerateOptions',
       generateLevel: 'GenerateLevel',
       generateTechnology: 'GenerateTechnology',
+      modelCustomPromptTemplate: 'ModelCustomPromptTemplate',
+      modelCustomVlPromptTemplate: 'ModelCustomVlPromptTemplate',
       searchModels: 'SearchModels',
       searchParam: 'SearchParam',
     };
@@ -396,6 +436,8 @@ export class RunSearchGenerationRequestChatConfig extends $dara.Model {
       excludeGenerateOptions: { 'type': 'array', 'itemType': 'string' },
       generateLevel: 'string',
       generateTechnology: 'string',
+      modelCustomPromptTemplate: 'string',
+      modelCustomVlPromptTemplate: 'string',
       searchModels: { 'type': 'array', 'itemType': 'string' },
       searchParam: RunSearchGenerationRequestChatConfigSearchParam,
     };
