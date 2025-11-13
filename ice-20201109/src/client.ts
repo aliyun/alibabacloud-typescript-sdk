@@ -88,6 +88,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 激活AI实时互动授权信息
+   * 
+   * @param request - ActiveAiRtcLicenseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveAiRtcLicenseResponse
+   */
+  async activeAiRtcLicenseWithOptions(request: $_model.ActiveAiRtcLicenseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActiveAiRtcLicenseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.licenseItemId)) {
+      query["LicenseItemId"] = request.licenseItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActiveAiRtcLicense",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActiveAiRtcLicenseResponse>(await this.callApi(params, req, runtime), new $_model.ActiveAiRtcLicenseResponse({}));
+  }
+
+  /**
+   * 激活AI实时互动授权信息
+   * 
+   * @param request - ActiveAiRtcLicenseRequest
+   * @returns ActiveAiRtcLicenseResponse
+   */
+  async activeAiRtcLicense(request: $_model.ActiveAiRtcLicenseRequest): Promise<$_model.ActiveAiRtcLicenseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.activeAiRtcLicenseWithOptions(request, runtime);
+  }
+
+  /**
    * Adds an ad insertion configuration.
    * 
    * @param request - AddAdInsertionRequest
@@ -6165,8 +6215,16 @@ export default class Client extends OpenApi {
       query["CalledNumber"] = request.calledNumber;
     }
 
+    if (!$dara.isNull(request.errorPrompt)) {
+      query["ErrorPrompt"] = request.errorPrompt;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.transferPrompt)) {
+      query["TransferPrompt"] = request.transferPrompt;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6459,6 +6517,130 @@ export default class Client extends OpenApi {
   async getAdInsertion(request: $_model.GetAdInsertionRequest): Promise<$_model.GetAdInsertionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAdInsertionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取AI实时互动授权码列表
+   * 
+   * @param request - GetAiRtcAuthCodeListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiRtcAuthCodeListResponse
+   */
+  async getAiRtcAuthCodeListWithOptions(request: $_model.GetAiRtcAuthCodeListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiRtcAuthCodeListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.licenseItemId)) {
+      query["LicenseItemId"] = request.licenseItemId;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["NeedTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiRtcAuthCodeList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiRtcAuthCodeListResponse>(await this.callApi(params, req, runtime), new $_model.GetAiRtcAuthCodeListResponse({}));
+  }
+
+  /**
+   * 获取AI实时互动授权码列表
+   * 
+   * @param request - GetAiRtcAuthCodeListRequest
+   * @returns GetAiRtcAuthCodeListResponse
+   */
+  async getAiRtcAuthCodeList(request: $_model.GetAiRtcAuthCodeListRequest): Promise<$_model.GetAiRtcAuthCodeListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiRtcAuthCodeListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取AI实时互动授权批次列表
+   * 
+   * @param request - GetAiRtcLicenseInfoListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiRtcLicenseInfoListResponse
+   */
+  async getAiRtcLicenseInfoListWithOptions(request: $_model.GetAiRtcLicenseInfoListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiRtcLicenseInfoListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.licenseItemId)) {
+      query["LicenseItemId"] = request.licenseItemId;
+    }
+
+    if (!$dara.isNull(request.needTotalCount)) {
+      query["NeedTotalCount"] = request.needTotalCount;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiRtcLicenseInfoList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiRtcLicenseInfoListResponse>(await this.callApi(params, req, runtime), new $_model.GetAiRtcLicenseInfoListResponse({}));
+  }
+
+  /**
+   * 获取AI实时互动授权批次列表
+   * 
+   * @param request - GetAiRtcLicenseInfoListRequest
+   * @returns GetAiRtcLicenseInfoListResponse
+   */
+  async getAiRtcLicenseInfoList(request: $_model.GetAiRtcLicenseInfoListRequest): Promise<$_model.GetAiRtcLicenseInfoListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAiRtcLicenseInfoListWithOptions(request, runtime);
   }
 
   /**
@@ -18240,6 +18422,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交场景化批量合成任务
+   * 
+   * @param request - SubmitSceneBatchEditingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSceneBatchEditingJobResponse
+   */
+  async submitSceneBatchEditingJobWithOptions(request: $_model.SubmitSceneBatchEditingJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSceneBatchEditingJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSceneBatchEditingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSceneBatchEditingJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSceneBatchEditingJobResponse({}));
+  }
+
+  /**
+   * 提交场景化批量合成任务
+   * 
+   * @param request - SubmitSceneBatchEditingJobRequest
+   * @returns SubmitSceneBatchEditingJobResponse
+   */
+  async submitSceneBatchEditingJob(request: $_model.SubmitSceneBatchEditingJobRequest): Promise<$_model.SubmitSceneBatchEditingJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSceneBatchEditingJobWithOptions(request, runtime);
+  }
+
+  /**
    * Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
    * 
    * @remarks
@@ -18305,6 +18537,70 @@ export default class Client extends OpenApi {
   async submitSceneMediaSelectionJob(request: $_model.SubmitSceneMediaSelectionJobRequest): Promise<$_model.SubmitSceneMediaSelectionJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitSceneMediaSelectionJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交场景化时间线编排任务
+   * 
+   * @param request - SubmitSceneTimelineOrganizationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSceneTimelineOrganizationJobResponse
+   */
+  async submitSceneTimelineOrganizationJobWithOptions(request: $_model.SubmitSceneTimelineOrganizationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSceneTimelineOrganizationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!$dara.isNull(request.mediaSelectResult)) {
+      query["MediaSelectResult"] = request.mediaSelectResult;
+    }
+
+    if (!$dara.isNull(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.editingConfig)) {
+      body["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!$dara.isNull(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSceneTimelineOrganizationJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSceneTimelineOrganizationJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSceneTimelineOrganizationJobResponse({}));
+  }
+
+  /**
+   * 提交场景化时间线编排任务
+   * 
+   * @param request - SubmitSceneTimelineOrganizationJobRequest
+   * @returns SubmitSceneTimelineOrganizationJobResponse
+   */
+  async submitSceneTimelineOrganizationJob(request: $_model.SubmitSceneTimelineOrganizationJobRequest): Promise<$_model.SubmitSceneTimelineOrganizationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSceneTimelineOrganizationJobWithOptions(request, runtime);
   }
 
   /**
