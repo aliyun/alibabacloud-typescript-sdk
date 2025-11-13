@@ -16,6 +16,7 @@ export { DescribeDBClusterStorageLimitationResponseBodyData } from './DescribeDb
 export { DescribeDBInstanceAttributeResponseBodyDBClusterList } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyMultiZone } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyTags } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyVirtualClusterList } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList } from './DescribeDbinstanceNetInfoResponseBody';
 export { DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos } from './DescribeDbinstanceNetInfoResponseBody';
 export { DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList } from './DescribeDbinstanceNetInfoResponseBody';

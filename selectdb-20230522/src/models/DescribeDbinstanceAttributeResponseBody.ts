@@ -322,6 +322,50 @@ export class DescribeDBInstanceAttributeResponseBodyTags extends $dara.Model {
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyVirtualClusterList extends $dara.Model {
+  activeClusterId?: string;
+  activeClusterName?: string;
+  createdTime?: string;
+  dbClusterId?: string;
+  dbClusterName?: string;
+  standbyClusterId?: string;
+  standbyClusterName?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeClusterId: 'ActiveClusterId',
+      activeClusterName: 'ActiveClusterName',
+      createdTime: 'CreatedTime',
+      dbClusterId: 'DbClusterId',
+      dbClusterName: 'DbClusterName',
+      standbyClusterId: 'StandbyClusterId',
+      standbyClusterName: 'StandbyClusterName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeClusterId: 'string',
+      activeClusterName: 'string',
+      createdTime: 'string',
+      dbClusterId: 'string',
+      dbClusterName: 'string',
+      standbyClusterId: 'string',
+      standbyClusterName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -541,6 +585,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * vsw-bp18iztwqrs8qj2nc6nyu
    */
   vSwitchId?: string;
+  virtualClusterList?: DescribeDBInstanceAttributeResponseBodyVirtualClusterList[];
   /**
    * @remarks
    * The VPC ID.
@@ -588,6 +633,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       subDomain: 'SubDomain',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      virtualClusterList: 'VirtualClusterList',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -624,6 +670,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       subDomain: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyTags },
       vSwitchId: 'string',
+      virtualClusterList: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyVirtualClusterList },
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -641,6 +688,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.virtualClusterList)) {
+      $dara.Model.validateArray(this.virtualClusterList);
     }
     super.validate();
   }
