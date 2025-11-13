@@ -72,6 +72,16 @@ export class CreateCampaignRequest extends $dara.Model {
   endTime?: string;
   executingUntilTimeout?: boolean;
   /**
+   * @example
+   * {"applicationId":"08e6b63a-****-****-****-689a288cdbb5","templateId":"325"}
+   */
+  flashSmsParameters?: string;
+  /**
+   * @example
+   * 0d368091-2c70-4d26-979a-6997ddc9c34f
+   */
+  instGroupId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -103,6 +113,7 @@ export class CreateCampaignRequest extends $dara.Model {
    * test-campaign
    */
   name?: string;
+  numberList?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -145,10 +156,13 @@ export class CreateCampaignRequest extends $dara.Model {
       contactFlowId: 'ContactFlowId',
       endTime: 'EndTime',
       executingUntilTimeout: 'ExecutingUntilTimeout',
+      flashSmsParameters: 'FlashSmsParameters',
+      instGroupId: 'InstGroupId',
       instanceId: 'InstanceId',
       maxAttemptCount: 'MaxAttemptCount',
       minAttemptInterval: 'MinAttemptInterval',
       name: 'Name',
+      numberList: 'NumberList',
       queueId: 'QueueId',
       simulation: 'Simulation',
       simulationParameters: 'SimulationParameters',
@@ -166,10 +180,13 @@ export class CreateCampaignRequest extends $dara.Model {
       contactFlowId: 'string',
       endTime: 'string',
       executingUntilTimeout: 'boolean',
+      flashSmsParameters: 'string',
+      instGroupId: 'string',
       instanceId: 'string',
       maxAttemptCount: 'number',
       minAttemptInterval: 'number',
       name: 'string',
+      numberList: { 'type': 'array', 'itemType': 'string' },
       queueId: 'string',
       simulation: 'boolean',
       simulationParameters: 'string',
@@ -182,6 +199,9 @@ export class CreateCampaignRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.caseList)) {
       $dara.Model.validateArray(this.caseList);
+    }
+    if(Array.isArray(this.numberList)) {
+      $dara.Model.validateArray(this.numberList);
     }
     super.validate();
   }

@@ -5,6 +5,7 @@ export { AnswerCallResponseBodyDataCallContext } from './AnswerCallResponseBody'
 export { AnswerCallResponseBodyDataUserContext } from './AnswerCallResponseBody';
 export { AnswerCallResponseBodyData } from './AnswerCallResponseBody';
 export { AppendCasesRequestBody } from './AppendCasesRequest';
+export { AppendCasesResponseBodyData } from './AppendCasesResponseBody';
 export { BargeInCallResponseBodyDataCallContextChannelContexts } from './BargeInCallResponseBody';
 export { BargeInCallResponseBodyDataCallContext } from './BargeInCallResponseBody';
 export { BargeInCallResponseBodyDataUserContext } from './BargeInCallResponseBody';
@@ -77,6 +78,7 @@ export { GetHistoricalInstanceReportResponseBodyDataOutbound } from './GetHistor
 export { GetHistoricalInstanceReportResponseBodyDataOverall } from './GetHistoricalInstanceReportResponseBody';
 export { GetHistoricalInstanceReportResponseBodyData } from './GetHistoricalInstanceReportResponseBody';
 export { GetInstanceResponseBodyDataAdminList } from './GetInstanceResponseBody';
+export { GetInstanceResponseBodyDataChatbotBusinessUnit } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyDataNumberListSkillGroups } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyDataNumberList } from './GetInstanceResponseBody';
 export { GetInstanceResponseBodyData } from './GetInstanceResponseBody';

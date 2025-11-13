@@ -1677,6 +1677,10 @@ export default class Client extends OpenApi {
       request.caseListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseList, "CaseList", "json");
     }
 
+    if (!$dara.isNull(tmpReq.numberList)) {
+      request.numberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numberList, "NumberList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.callableTime)) {
       query["CallableTime"] = request.callableTime;
@@ -1702,6 +1706,14 @@ export default class Client extends OpenApi {
       query["ExecutingUntilTimeout"] = request.executingUntilTimeout;
     }
 
+    if (!$dara.isNull(request.flashSmsParameters)) {
+      query["FlashSmsParameters"] = request.flashSmsParameters;
+    }
+
+    if (!$dara.isNull(request.instGroupId)) {
+      query["InstGroupId"] = request.instGroupId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -1716,6 +1728,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.numberListShrink)) {
+      query["NumberList"] = request.numberListShrink;
     }
 
     if (!$dara.isNull(request.queueId)) {
@@ -1922,6 +1938,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例
+   * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
@@ -1967,6 +1985,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例
+   * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
    */
@@ -4053,6 +4073,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例信息
+   * 
    * @param request - GetInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
@@ -4082,6 +4104,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例信息
+   * 
    * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
    */
@@ -7423,6 +7447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组汇总报表
+   * 
    * @param request - ListHistoricalSkillGroupReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHistoricalSkillGroupReportResponse
@@ -7478,6 +7504,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组汇总报表
+   * 
    * @param request - ListHistoricalSkillGroupReportRequest
    * @returns ListHistoricalSkillGroupReportResponse
    */

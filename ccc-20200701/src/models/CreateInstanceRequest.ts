@@ -26,9 +26,6 @@ export class CreateInstanceRequest extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * ["0830011xxxx", "0830312xxxx"]
    */

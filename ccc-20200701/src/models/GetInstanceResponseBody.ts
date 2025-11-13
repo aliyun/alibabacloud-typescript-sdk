@@ -88,6 +88,32 @@ export class GetInstanceResponseBodyDataAdminList extends $dara.Model {
   }
 }
 
+export class GetInstanceResponseBodyDataChatbotBusinessUnit extends $dara.Model {
+  unitId?: number;
+  unitKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      unitId: 'UnitId',
+      unitKey: 'UnitKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      unitId: 'number',
+      unitKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyDataNumberListSkillGroups extends $dara.Model {
   description?: string;
   displayName?: string;
@@ -225,11 +251,13 @@ export class GetInstanceResponseBodyDataNumberList extends $dara.Model {
 
 export class GetInstanceResponseBodyData extends $dara.Model {
   adminList?: GetInstanceResponseBodyDataAdminList[];
+  agentType?: string;
   /**
    * @example
    * 157123456789****
    */
   aliyunUid?: string;
+  chatbotBusinessUnit?: GetInstanceResponseBodyDataChatbotBusinessUnit;
   /**
    * @example
    * https://ccc-v2.aliyun.com/#/workbench/ccc-test
@@ -256,7 +284,9 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       adminList: 'AdminList',
+      agentType: 'AgentType',
       aliyunUid: 'AliyunUid',
+      chatbotBusinessUnit: 'ChatbotBusinessUnit',
       consoleUrl: 'ConsoleUrl',
       description: 'Description',
       domainName: 'DomainName',
@@ -270,7 +300,9 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       adminList: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataAdminList },
+      agentType: 'string',
       aliyunUid: 'string',
+      chatbotBusinessUnit: GetInstanceResponseBodyDataChatbotBusinessUnit,
       consoleUrl: 'string',
       description: 'string',
       domainName: 'string',
@@ -284,6 +316,9 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.adminList)) {
       $dara.Model.validateArray(this.adminList);
+    }
+    if(this.chatbotBusinessUnit && typeof (this.chatbotBusinessUnit as any).validate === 'function') {
+      (this.chatbotBusinessUnit as any).validate();
     }
     if(Array.isArray(this.numberList)) {
       $dara.Model.validateArray(this.numberList);
