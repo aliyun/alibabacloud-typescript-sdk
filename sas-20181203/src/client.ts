@@ -2905,6 +2905,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * User creates a custom check item
+   * 
+   * @param tmpReq - CreateCheckItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCheckItemResponse
+   */
+  async createCheckItemWithOptions(tmpReq: $_model.CreateCheckItemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCheckItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCheckItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assistInfo)) {
+      request.assistInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assistInfo, "AssistInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.description)) {
+      request.descriptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.description, "Description", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.solution)) {
+      request.solutionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.solution, "Solution", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assistInfoShrink)) {
+      query["AssistInfo"] = request.assistInfoShrink;
+    }
+
+    if (!$dara.isNull(request.checkRule)) {
+      query["CheckRule"] = request.checkRule;
+    }
+
+    if (!$dara.isNull(request.checkShowName)) {
+      query["CheckShowName"] = request.checkShowName;
+    }
+
+    if (!$dara.isNull(request.descriptionShrink)) {
+      query["Description"] = request.descriptionShrink;
+    }
+
+    if (!$dara.isNull(request.instanceSubType)) {
+      query["InstanceSubType"] = request.instanceSubType;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.sectionIds)) {
+      query["SectionIds"] = request.sectionIds;
+    }
+
+    if (!$dara.isNull(request.solutionShrink)) {
+      query["Solution"] = request.solutionShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCheckItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCheckItemResponse>(await this.callApi(params, req, runtime), new $_model.CreateCheckItemResponse({}));
+  }
+
+  /**
+   * User creates a custom check item
+   * 
+   * @param request - CreateCheckItemRequest
+   * @returns CreateCheckItemResponse
+   */
+  async createCheckItem(request: $_model.CreateCheckItemRequest): Promise<$_model.CreateCheckItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCheckItemWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a container scan task.
    * 
    * @param request - CreateContainerScanTaskRequest
@@ -6089,6 +6189,48 @@ export default class Client extends OpenApi {
   async deleteBinarySecurityPolicy(request: $_model.DeleteBinarySecurityPolicyRequest): Promise<$_model.DeleteBinarySecurityPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBinarySecurityPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete custom check item for Situation Awareness
+   * 
+   * @param request - DeleteCheckItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCheckItemResponse
+   */
+  async deleteCheckItemWithOptions(request: $_model.DeleteCheckItemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCheckItemResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.checkIds)) {
+      query["CheckIds"] = request.checkIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCheckItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCheckItemResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCheckItemResponse({}));
+  }
+
+  /**
+   * Delete custom check item for Situation Awareness
+   * 
+   * @param request - DeleteCheckItemRequest
+   * @returns DeleteCheckItemResponse
+   */
+  async deleteCheckItem(request: $_model.DeleteCheckItemRequest): Promise<$_model.DeleteCheckItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCheckItemWithOptions(request, runtime);
   }
 
   /**
@@ -11331,6 +11473,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询集群扫描组件状态
+   * 
+   * @param request - DescribeClusterScannerListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterScannerListResponse
+   */
+  async describeClusterScannerListWithOptions(request: $_model.DescribeClusterScannerListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterScannerListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterIdList)) {
+      query["ClusterIdList"] = request.clusterIdList;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterScannerList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterScannerListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterScannerListResponse({}));
+  }
+
+  /**
+   * 查询集群扫描组件状态
+   * 
+   * @param request - DescribeClusterScannerListRequest
+   * @returns DescribeClusterScannerListResponse
+   */
+  async describeClusterScannerList(request: $_model.DescribeClusterScannerListRequest): Promise<$_model.DescribeClusterScannerListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterScannerListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the statistics of vulnerabilities that are detected on a cluster.
    * 
    * @param request - DescribeClusterVulStatisticsRequest
@@ -12476,6 +12668,48 @@ export default class Client extends OpenApi {
   async describeCustomizeReportList(request: $_model.DescribeCustomizeReportListRequest): Promise<$_model.DescribeCustomizeReportListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCustomizeReportListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看自定义弱口令上传结果
+   * 
+   * @param request - DescribeCustomizedDictRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomizedDictResponse
+   */
+  async describeCustomizedDictWithOptions(request: $_model.DescribeCustomizedDictRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCustomizedDictResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCustomizedDict",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCustomizedDictResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCustomizedDictResponse({}));
+  }
+
+  /**
+   * 查看自定义弱口令上传结果
+   * 
+   * @param request - DescribeCustomizedDictRequest
+   * @returns DescribeCustomizedDictResponse
+   */
+  async describeCustomizedDict(request: $_model.DescribeCustomizedDictRequest): Promise<$_model.DescribeCustomizedDictResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCustomizedDictWithOptions(request, runtime);
   }
 
   /**
@@ -26158,6 +26392,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成K8s集群扫描接入配置
+   * 
+   * @param request - GenerateClusterScannerWebhookYamlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateClusterScannerWebhookYamlResponse
+   */
+  async generateClusterScannerWebhookYamlWithOptions(request: $_model.GenerateClusterScannerWebhookYamlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateClusterScannerWebhookYamlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.webhookOpen)) {
+      query["WebhookOpen"] = request.webhookOpen;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateClusterScannerWebhookYaml",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateClusterScannerWebhookYamlResponse>(await this.callApi(params, req, runtime), new $_model.GenerateClusterScannerWebhookYamlResponse({}));
+  }
+
+  /**
+   * 生成K8s集群扫描接入配置
+   * 
+   * @param request - GenerateClusterScannerWebhookYamlRequest
+   * @returns GenerateClusterScannerWebhookYamlResponse
+   */
+  async generateClusterScannerWebhookYaml(request: $_model.GenerateClusterScannerWebhookYamlRequest): Promise<$_model.GenerateClusterScannerWebhookYamlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateClusterScannerWebhookYamlWithOptions(request, runtime);
+  }
+
+  /**
    * Generates a custom dictionary of weak passwords for the baseline check feature.
    * 
    * @param request - GenerateDynamicDictRequest
@@ -26539,6 +26819,48 @@ export default class Client extends OpenApi {
   async getAgentlessTaskCount(request: $_model.GetAgentlessTaskCountRequest): Promise<$_model.GetAgentlessTaskCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentlessTaskCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the estimated volume for agentless detection.
+   * 
+   * @param request - GetAgentlessTaskUsedSizeEstimateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentlessTaskUsedSizeEstimateResponse
+   */
+  async getAgentlessTaskUsedSizeEstimateWithOptions(request: $_model.GetAgentlessTaskUsedSizeEstimateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentlessTaskUsedSizeEstimateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetSelectionType)) {
+      query["AssetSelectionType"] = request.assetSelectionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentlessTaskUsedSizeEstimate",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentlessTaskUsedSizeEstimateResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentlessTaskUsedSizeEstimateResponse({}));
+  }
+
+  /**
+   * Query the estimated volume for agentless detection.
+   * 
+   * @param request - GetAgentlessTaskUsedSizeEstimateRequest
+   * @returns GetAgentlessTaskUsedSizeEstimateResponse
+   */
+  async getAgentlessTaskUsedSizeEstimate(request: $_model.GetAgentlessTaskUsedSizeEstimateRequest): Promise<$_model.GetAgentlessTaskUsedSizeEstimateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentlessTaskUsedSizeEstimateWithOptions(request, runtime);
   }
 
   /**
@@ -28037,6 +28359,48 @@ export default class Client extends OpenApi {
   async getClusterRuleSummary(request: $_model.GetClusterRuleSummaryRequest): Promise<$_model.GetClusterRuleSummaryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getClusterRuleSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询K8s集群扫描接入配置
+   * 
+   * @param request - GetClusterScannerYamlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterScannerYamlResponse
+   */
+  async getClusterScannerYamlWithOptions(request: $_model.GetClusterScannerYamlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClusterScannerYamlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClusterScannerYaml",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClusterScannerYamlResponse>(await this.callApi(params, req, runtime), new $_model.GetClusterScannerYamlResponse({}));
+  }
+
+  /**
+   * 查询K8s集群扫描接入配置
+   * 
+   * @param request - GetClusterScannerYamlRequest
+   * @returns GetClusterScannerYamlResponse
+   */
+  async getClusterScannerYaml(request: $_model.GetClusterScannerYamlRequest): Promise<$_model.GetClusterScannerYamlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClusterScannerYamlWithOptions(request, runtime);
   }
 
   /**
@@ -31504,6 +31868,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量处理恶意样本告警。
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - HandleSimilarMaliciousFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HandleSimilarMaliciousFilesResponse
+   */
+  async handleSimilarMaliciousFilesWithOptions(request: $_model.HandleSimilarMaliciousFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.HandleSimilarMaliciousFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
+    }
+
+    if (!$dara.isNull(request.scenario)) {
+      query["Scenario"] = request.scenario;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HandleSimilarMaliciousFiles",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HandleSimilarMaliciousFilesResponse>(await this.callApi(params, req, runtime), new $_model.HandleSimilarMaliciousFilesResponse({}));
+  }
+
+  /**
+   * 批量处理恶意样本告警。
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - HandleSimilarMaliciousFilesRequest
+   * @returns HandleSimilarMaliciousFilesResponse
+   */
+  async handleSimilarMaliciousFiles(request: $_model.HandleSimilarMaliciousFilesRequest): Promise<$_model.HandleSimilarMaliciousFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.handleSimilarMaliciousFilesWithOptions(request, runtime);
+  }
+
+  /**
    * Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
    * 
    * @param request - HandleSimilarSecurityEventsRequest
@@ -33622,6 +34050,82 @@ export default class Client extends OpenApi {
   async listCheckItemWarningSummary(request: $_model.ListCheckItemWarningSummaryRequest): Promise<$_model.ListCheckItemWarningSummaryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCheckItemWarningSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * List custom check items for situational awareness
+   * 
+   * @param request - ListCheckItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCheckItemsResponse
+   */
+  async listCheckItemsWithOptions(request: $_model.ListCheckItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCheckItemsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCheckItems",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCheckItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListCheckItemsResponse({}));
+  }
+
+  /**
+   * List custom check items for situational awareness
+   * 
+   * @param request - ListCheckItemsRequest
+   * @returns ListCheckItemsResponse
+   */
+  async listCheckItems(request: $_model.ListCheckItemsRequest): Promise<$_model.ListCheckItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCheckItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * List User Policies
+   * 
+   * @param request - ListCheckPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCheckPoliciesResponse
+   */
+  async listCheckPoliciesWithOptions(request: $_model.ListCheckPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCheckPoliciesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCheckPolicies",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCheckPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListCheckPoliciesResponse({}));
+  }
+
+  /**
+   * List User Policies
+   * 
+   * @param request - ListCheckPoliciesRequest
+   * @returns ListCheckPoliciesResponse
+   */
+  async listCheckPolicies(request: $_model.ListCheckPoliciesRequest): Promise<$_model.ListCheckPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCheckPoliciesWithOptions(request, runtime);
   }
 
   /**
@@ -37486,6 +37990,64 @@ export default class Client extends OpenApi {
   async listUnfinishedOnceTask(request: $_model.ListUnfinishedOnceTaskRequest): Promise<$_model.ListUnfinishedOnceTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUnfinishedOnceTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * List Database Backup Records
+   * 
+   * @param request - ListUniBackupRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUniBackupRecordResponse
+   */
+  async listUniBackupRecordWithOptions(request: $_model.ListUniBackupRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUniBackupRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupRegionId)) {
+      query["BackupRegionId"] = request.backupRegionId;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.machineRemark)) {
+      query["MachineRemark"] = request.machineRemark;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUniBackupRecord",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUniBackupRecordResponse>(await this.callApi(params, req, runtime), new $_model.ListUniBackupRecordResponse({}));
+  }
+
+  /**
+   * List Database Backup Records
+   * 
+   * @param request - ListUniBackupRecordRequest
+   * @returns ListUniBackupRecordResponse
+   */
+  async listUniBackupRecord(request: $_model.ListUniBackupRecordRequest): Promise<$_model.ListUniBackupRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUniBackupRecordWithOptions(request, runtime);
   }
 
   /**
@@ -46483,6 +47045,110 @@ export default class Client extends OpenApi {
   async updateBaselineCheckWhiteRecord(request: $_model.UpdateBaselineCheckWhiteRecordRequest): Promise<$_model.UpdateBaselineCheckWhiteRecordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBaselineCheckWhiteRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * User creates a custom check item
+   * 
+   * @param tmpReq - UpdateCheckItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCheckItemResponse
+   */
+  async updateCheckItemWithOptions(tmpReq: $_model.UpdateCheckItemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCheckItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCheckItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assistInfo)) {
+      request.assistInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assistInfo, "AssistInfo", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.description)) {
+      request.descriptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.description, "Description", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.solution)) {
+      request.solutionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.solution, "Solution", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assistInfoShrink)) {
+      query["AssistInfo"] = request.assistInfoShrink;
+    }
+
+    if (!$dara.isNull(request.checkId)) {
+      query["CheckId"] = request.checkId;
+    }
+
+    if (!$dara.isNull(request.checkRule)) {
+      query["CheckRule"] = request.checkRule;
+    }
+
+    if (!$dara.isNull(request.checkShowName)) {
+      query["CheckShowName"] = request.checkShowName;
+    }
+
+    if (!$dara.isNull(request.descriptionShrink)) {
+      query["Description"] = request.descriptionShrink;
+    }
+
+    if (!$dara.isNull(request.instanceSubType)) {
+      query["InstanceSubType"] = request.instanceSubType;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.sectionIds)) {
+      query["SectionIds"] = request.sectionIds;
+    }
+
+    if (!$dara.isNull(request.solutionShrink)) {
+      query["Solution"] = request.solutionShrink;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCheckItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCheckItemResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCheckItemResponse({}));
+  }
+
+  /**
+   * User creates a custom check item
+   * 
+   * @param request - UpdateCheckItemRequest
+   * @returns UpdateCheckItemResponse
+   */
+  async updateCheckItem(request: $_model.UpdateCheckItemRequest): Promise<$_model.UpdateCheckItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCheckItemWithOptions(request, runtime);
   }
 
   /**

@@ -72,6 +72,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 30
    */
   assetLevel?: number;
+  canTryPostPaidPackage?: number;
   /**
    * @remarks
    * The purchased quota for configuration assessment. Unit: times/month.
@@ -442,6 +443,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       appWhiteList: 'AppWhiteList',
       appWhiteListAuthCount: 'AppWhiteListAuthCount',
       assetLevel: 'AssetLevel',
+      canTryPostPaidPackage: 'CanTryPostPaidPackage',
       cspmCapacity: 'CspmCapacity',
       highestVersion: 'HighestVersion',
       honeypotCapacity: 'HoneypotCapacity',
@@ -492,6 +494,7 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
       appWhiteList: 'number',
       appWhiteListAuthCount: 'number',
       assetLevel: 'number',
+      canTryPostPaidPackage: 'number',
       cspmCapacity: 'number',
       highestVersion: 'number',
       honeypotCapacity: 'number',

@@ -153,6 +153,9 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
    * *   **5**: Operation on Registry
    * *   **6**: Dynamic-link Library Loading
    * *   **7**: File Renaming
+   * *   **8**: Network domain name
+   * *   **9**: Network ip
+   * *   **10**: File Path
    * 
    * This parameter is required.
    * 

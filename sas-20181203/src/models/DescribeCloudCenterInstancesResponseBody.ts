@@ -354,6 +354,13 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $dara.Mod
    * 1024
    */
   mem?: number;
+  /**
+   * @remarks
+   * The namespace.
+   * 
+   * @example
+   * crm-test
+   */
   namespace?: string;
   /**
    * @remarks

@@ -71,6 +71,16 @@ export class DescribeImageRepoListRequest extends $dara.Model {
    * libssh2
    */
   repoNamespace?: string;
+  /**
+   * @remarks
+   * Whether it is selected. Values:
+   * 
+   * *   **0**: NO
+   * *   **1**: YES
+   * 
+   * @example
+   * 1
+   */
   selected?: number;
   /**
    * @remarks

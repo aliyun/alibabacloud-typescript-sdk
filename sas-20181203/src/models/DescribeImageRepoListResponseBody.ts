@@ -14,6 +14,13 @@ export class DescribeImageRepoListResponseBodyImageRepoList extends $dara.Model 
    * add
    */
   flag?: string;
+  /**
+   * @remarks
+   * Number of images.
+   * 
+   * @example
+   * 1
+   */
   imageCount?: number;
   /**
    * @remarks
