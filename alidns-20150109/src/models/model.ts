@@ -302,6 +302,13 @@ export { UpdateDnsGtmMonitorRequestIspCityNode } from './UpdateDnsGtmMonitorRequ
 export { UpdateGtmAddressPoolRequestAddr } from './UpdateGtmAddressPoolRequest';
 export { UpdateGtmMonitorRequestIspCityNode } from './UpdateGtmMonitorRequest';
 export { UpdateRecursionZoneEffectiveScopeRequestEffectiveScopes } from './UpdateRecursionZoneEffectiveScopeRequest';
+export { UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail } from './UpdateRspDomainServerHoldStatusOteResponseBody';
+export { UpdateRspDomainServerHoldStatusOteResponseBodyData } from './UpdateRspDomainServerHoldStatusOteResponseBody';
+export { UpdateRspDomainStatusOteRequestAddStatusList } from './UpdateRspDomainStatusOteRequest';
+export { UpdateRspDomainStatusOteRequestDeleteStatusList } from './UpdateRspDomainStatusOteRequest';
+export { UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail } from './UpdateRspDomainStatusOteResponseBody';
+export { UpdateRspDomainStatusOteResponseBodyDataStatusList } from './UpdateRspDomainStatusOteResponseBody';
+export { UpdateRspDomainStatusOteResponseBodyData } from './UpdateRspDomainStatusOteResponseBody';
 export { AddCustomLineRequest } from './AddCustomLineRequest';
 export { AddCustomLineResponseBody } from './AddCustomLineResponseBody';
 export { AddCustomLineResponse } from './AddCustomLineResponse';
@@ -989,6 +996,12 @@ export { UpdateRecursionZoneProxyPatternResponse } from './UpdateRecursionZonePr
 export { UpdateRecursionZoneRemarkRequest } from './UpdateRecursionZoneRemarkRequest';
 export { UpdateRecursionZoneRemarkResponseBody } from './UpdateRecursionZoneRemarkResponseBody';
 export { UpdateRecursionZoneRemarkResponse } from './UpdateRecursionZoneRemarkResponse';
+export { UpdateRspDomainServerHoldStatusOteRequest } from './UpdateRspDomainServerHoldStatusOteRequest';
+export { UpdateRspDomainServerHoldStatusOteResponseBody } from './UpdateRspDomainServerHoldStatusOteResponseBody';
+export { UpdateRspDomainServerHoldStatusOteResponse } from './UpdateRspDomainServerHoldStatusOteResponse';
+export { UpdateRspDomainStatusOteRequest } from './UpdateRspDomainStatusOteRequest';
+export { UpdateRspDomainStatusOteResponseBody } from './UpdateRspDomainStatusOteResponseBody';
+export { UpdateRspDomainStatusOteResponse } from './UpdateRspDomainStatusOteResponse';
 export { ValidateDnsGtmCnameRrCanUseRequest } from './ValidateDnsGtmCnameRrCanUseRequest';
 export { ValidateDnsGtmCnameRrCanUseResponseBody } from './ValidateDnsGtmCnameRrCanUseResponseBody';
 export { ValidateDnsGtmCnameRrCanUseResponse } from './ValidateDnsGtmCnameRrCanUseResponse';

@@ -13169,6 +13169,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于更新域名的状态属性
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainServerHoldStatusOteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRspDomainServerHoldStatusOteResponse
+   */
+  async updateRspDomainServerHoldStatusOteWithOptions(request: $_model.UpdateRspDomainServerHoldStatusOteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRspDomainServerHoldStatusOteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!$dara.isNull(request.operatorType)) {
+      query["OperatorType"] = request.operatorType;
+    }
+
+    if (!$dara.isNull(request.serverHoldStatus)) {
+      query["ServerHoldStatus"] = request.serverHoldStatus;
+    }
+
+    if (!$dara.isNull(request.statusMsg)) {
+      query["StatusMsg"] = request.statusMsg;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRspDomainServerHoldStatusOte",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRspDomainServerHoldStatusOteResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRspDomainServerHoldStatusOteResponse({}));
+  }
+
+  /**
+   * 用于更新域名的状态属性
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainServerHoldStatusOteRequest
+   * @returns UpdateRspDomainServerHoldStatusOteResponse
+   */
+  async updateRspDomainServerHoldStatusOte(request: $_model.UpdateRspDomainServerHoldStatusOteRequest): Promise<$_model.UpdateRspDomainServerHoldStatusOteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRspDomainServerHoldStatusOteWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于更新域名的状态属性
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainStatusOteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRspDomainStatusOteResponse
+   */
+  async updateRspDomainStatusOteWithOptions(request: $_model.UpdateRspDomainStatusOteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRspDomainStatusOteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addStatusList)) {
+      query["AddStatusList"] = request.addStatusList;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deleteStatusList)) {
+      query["DeleteStatusList"] = request.deleteStatusList;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!$dara.isNull(request.operatorType)) {
+      query["OperatorType"] = request.operatorType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRspDomainStatusOte",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateRspDomainStatusOteResponse>(await this.callApi(params, req, runtime), new $_model.UpdateRspDomainStatusOteResponse({}));
+  }
+
+  /**
+   * 用于更新域名的状态属性
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+   * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+   * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+   * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+   * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+   * 
+   * @param request - UpdateRspDomainStatusOteRequest
+   * @returns UpdateRspDomainStatusOteResponse
+   */
+  async updateRspDomainStatusOte(request: $_model.UpdateRspDomainStatusOteRequest): Promise<$_model.UpdateRspDomainStatusOteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRspDomainStatusOteWithOptions(request, runtime);
+  }
+
+  /**
    * 检查实例主机名是否可添加
    * 
    * @param request - ValidateDnsGtmCnameRrCanUseRequest
