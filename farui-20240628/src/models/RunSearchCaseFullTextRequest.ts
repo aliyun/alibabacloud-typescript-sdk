@@ -1,9 +1,122 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunSearchCaseFullTextRequestFilterCondition } from "./RunSearchCaseFullTextRequestFilterCondition";
-import { RunSearchCaseFullTextRequestPageParam } from "./RunSearchCaseFullTextRequestPageParam";
-import { RunSearchCaseFullTextRequestThread } from "./RunSearchCaseFullTextRequestThread";
 
+
+export class RunSearchCaseFullTextRequestFilterCondition extends $dara.Model {
+  caseNo?: string;
+  caseTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseNo: 'caseNo',
+      caseTitle: 'caseTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseNo: 'string',
+      caseTitle: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestPageParam extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestThreadMessages extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestThread extends $dara.Model {
+  messages?: RunSearchCaseFullTextRequestThreadMessages[];
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'messages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': RunSearchCaseFullTextRequestThreadMessages },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunSearchCaseFullTextRequest extends $dara.Model {
   /**

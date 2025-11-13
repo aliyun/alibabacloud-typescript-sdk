@@ -9,6 +9,7 @@ export class CreateTextFileAdvanceRequest extends $dara.Model {
    * e9a93201-7e96-4dc1-9678-2832fc132d08
    */
   clientToken?: string;
+  contractId?: string;
   /**
    * @example
    * 1714476549
@@ -19,6 +20,7 @@ export class CreateTextFileAdvanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      contractId: 'ContractId',
       createTime: 'CreateTime',
       textFileName: 'TextFileName',
       textFileUrlObject: 'TextFileUrl',
@@ -28,6 +30,7 @@ export class CreateTextFileAdvanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      contractId: 'string',
       createTime: 'string',
       textFileName: 'string',
       textFileUrlObject: 'Readable',
