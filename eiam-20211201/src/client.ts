@@ -6805,6 +6805,10 @@ export default class Client extends OpenApi {
   async listIdentityProvidersWithOptions(request: $_model.ListIdentityProvidersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIdentityProvidersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

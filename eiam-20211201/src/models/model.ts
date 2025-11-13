@@ -28,6 +28,7 @@ export { CreateIdentityProviderRequestOidcConfig } from './CreateIdentityProvide
 export { CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPullConfig } from './CreateIdentityProviderRequest';
+export { CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPushConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestWeComConfig } from './CreateIdentityProviderRequest';

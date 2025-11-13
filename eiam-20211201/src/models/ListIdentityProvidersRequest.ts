@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIdentityProvidersRequest extends $dara.Model {
   /**
+   * @example
+   * pull
+   */
+  direction?: string;
+  /**
    * @remarks
    * The instance ID.
    * 
@@ -31,6 +36,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      direction: 'Direction',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -39,6 +45,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      direction: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

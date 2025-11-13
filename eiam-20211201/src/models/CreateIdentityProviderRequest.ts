@@ -490,6 +490,16 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
    */
   organizationUnitObjectClass?: string;
   /**
+   * @example
+   * ou
+   */
+  organizationalUnitRdn?: string;
+  /**
+   * @example
+   * enabled
+   */
+  passwordSyncStatus?: string;
+  /**
    * @remarks
    * Whether startTLS is enabled. Value range:
    * - Disabled: disabled
@@ -524,6 +534,11 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
    * (|(cn=test)(mail=test@test.com))
    */
   userObjectClassCustomFilter?: string;
+  /**
+   * @example
+   * cn
+   */
+  userRdn?: string;
   static names(): { [key: string]: string } {
     return {
       administratorPassword: 'AdministratorPassword',
@@ -537,10 +552,13 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
       ldapServerHost: 'LdapServerHost',
       ldapServerPort: 'LdapServerPort',
       organizationUnitObjectClass: 'OrganizationUnitObjectClass',
+      organizationalUnitRdn: 'OrganizationalUnitRdn',
+      passwordSyncStatus: 'PasswordSyncStatus',
       startTlsStatus: 'StartTlsStatus',
       userLoginIdentifier: 'UserLoginIdentifier',
       userObjectClass: 'UserObjectClass',
       userObjectClassCustomFilter: 'UserObjectClassCustomFilter',
+      userRdn: 'UserRdn',
     };
   }
 
@@ -557,10 +575,13 @@ export class CreateIdentityProviderRequestLdapConfig extends $dara.Model {
       ldapServerHost: 'string',
       ldapServerPort: 'number',
       organizationUnitObjectClass: 'string',
+      organizationalUnitRdn: 'string',
+      passwordSyncStatus: 'string',
       startTlsStatus: 'string',
       userLoginIdentifier: 'string',
       userObjectClass: 'string',
       userObjectClassCustomFilter: 'string',
+      userRdn: 'string',
     };
   }
 
@@ -958,6 +979,46 @@ export class CreateIdentityProviderRequestUdPullConfig extends $dara.Model {
   }
 }
 
+export class CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig extends $dara.Model {
+  /**
+   * @example
+   * 0 45 1 * * ?
+   */
+  periodicSyncCron?: string;
+  periodicSyncTimes?: number[];
+  /**
+   * @example
+   * cron
+   */
+  periodicSyncType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      periodicSyncCron: 'PeriodicSyncCron',
+      periodicSyncTimes: 'PeriodicSyncTimes',
+      periodicSyncType: 'PeriodicSyncType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      periodicSyncCron: 'string',
+      periodicSyncTimes: { 'type': 'array', 'itemType': 'number' },
+      periodicSyncType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.periodicSyncTimes)) {
+      $dara.Model.validateArray(this.periodicSyncTimes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs extends $dara.Model {
   /**
    * @remarks
@@ -1007,6 +1068,7 @@ export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
    * disabled
    */
   incrementalCallbackStatus?: string;
+  periodicSyncConfig?: CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig;
   /**
    * @remarks
    * Periodic check status. This field is currently not in use, please ignore it.
@@ -1023,6 +1085,7 @@ export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      periodicSyncConfig: 'PeriodicSyncConfig',
       periodicSyncStatus: 'PeriodicSyncStatus',
       udSyncScopeConfigs: 'UdSyncScopeConfigs',
     };
@@ -1031,12 +1094,16 @@ export class CreateIdentityProviderRequestUdPushConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       incrementalCallbackStatus: 'string',
+      periodicSyncConfig: CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig,
       periodicSyncStatus: 'string',
       udSyncScopeConfigs: { 'type': 'array', 'itemType': CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs },
     };
   }
 
   validate() {
+    if(this.periodicSyncConfig && typeof (this.periodicSyncConfig as any).validate === 'function') {
+      (this.periodicSyncConfig as any).validate();
+    }
     if(Array.isArray(this.udSyncScopeConfigs)) {
       $dara.Model.validateArray(this.udSyncScopeConfigs);
     }
