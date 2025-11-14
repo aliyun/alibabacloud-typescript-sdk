@@ -264,6 +264,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
    * 8080
    */
   port?: string;
+  portDescription?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -271,6 +272,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
       IP: 'IP',
       netType: 'NetType',
       port: 'Port',
+      portDescription: 'PortDescription',
     };
   }
 
@@ -281,6 +283,7 @@ export class DescribeApplicationAttributeResponseBodyEndpoints extends $dara.Mod
       IP: 'string',
       netType: 'string',
       port: 'string',
+      portDescription: 'string',
     };
   }
 
