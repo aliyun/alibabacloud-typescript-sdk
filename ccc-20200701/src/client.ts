@@ -9675,6 +9675,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改活动外呼号码
+   * 
+   * @param tmpReq - ModifyCampaignNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCampaignNumbersResponse
+   */
+  async modifyCampaignNumbersWithOptions(tmpReq: $_model.ModifyCampaignNumbersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCampaignNumbersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyCampaignNumbersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.numberList)) {
+      request.numberListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numberList, "NumberList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!$dara.isNull(request.instGroupId)) {
+      query["InstGroupId"] = request.instGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.numberListShrink)) {
+      query["NumberList"] = request.numberListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCampaignNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCampaignNumbersResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCampaignNumbersResponse({}));
+  }
+
+  /**
+   * 修改活动外呼号码
+   * 
+   * @param request - ModifyCampaignNumbersRequest
+   * @returns ModifyCampaignNumbersResponse
+   */
+  async modifyCampaignNumbers(request: $_model.ModifyCampaignNumbersRequest): Promise<$_model.ModifyCampaignNumbersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCampaignNumbersWithOptions(request, runtime);
+  }
+
+  /**
    * 编辑呼入控制号码
    * 
    * @param request - ModifyCustomCallTaggingRequest
