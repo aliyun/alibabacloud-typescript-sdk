@@ -35,6 +35,7 @@ export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus
    */
   instanceId?: string;
   loongCollectorStatus?: string;
+  loongCollectorVersion?: string;
   /**
    * @remarks
    * Indicates whether the SysAK monitoring feature is enabled.`` Valid values:
@@ -117,6 +118,7 @@ export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus
       autoInstall: 'AutoInstall',
       instanceId: 'InstanceId',
       loongCollectorStatus: 'LoongCollectorStatus',
+      loongCollectorVersion: 'LoongCollectorVersion',
       osMonitorConfig: 'OsMonitorConfig',
       osMonitorErrorCode: 'OsMonitorErrorCode',
       osMonitorErrorDetail: 'OsMonitorErrorDetail',
@@ -132,6 +134,7 @@ export class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus
       autoInstall: 'boolean',
       instanceId: 'string',
       loongCollectorStatus: 'string',
+      loongCollectorVersion: 'string',
       osMonitorConfig: 'string',
       osMonitorErrorCode: 'string',
       osMonitorErrorDetail: 'string',
