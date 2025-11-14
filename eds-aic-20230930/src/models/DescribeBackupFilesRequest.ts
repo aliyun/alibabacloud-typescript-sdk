@@ -96,6 +96,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
    * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
    */
   nextToken?: string;
+  saleMode?: string;
   /**
    * @remarks
    * The beginning of the period for querying generated backup files.
@@ -122,6 +123,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
       instanceGroupId: 'InstanceGroupId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      saleMode: 'SaleMode',
       startTime: 'StartTime',
       statusList: 'StatusList',
     };
@@ -140,6 +142,7 @@ export class DescribeBackupFilesRequest extends $dara.Model {
       instanceGroupId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      saleMode: 'string',
       startTime: 'string',
       statusList: { 'type': 'array', 'itemType': 'string' },
     };

@@ -1870,6 +1870,10 @@ export default class Client extends OpenApi {
       query["NextToken"] = request.nextToken;
     }
 
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
