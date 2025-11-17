@@ -24,6 +24,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
    * 10900
    */
   originalPrice?: number;
+  savingPlanDiscountPrice?: number;
   /**
    * @example
    * 292.2
@@ -36,6 +37,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
       moduleName: 'ModuleName',
       moduleValue: 'ModuleValue',
       originalPrice: 'OriginalPrice',
+      savingPlanDiscountPrice: 'SavingPlanDiscountPrice',
       tradePrice: 'TradePrice',
     };
   }
@@ -47,6 +49,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
       moduleName: 'string',
       moduleValue: 'string',
       originalPrice: 'number',
+      savingPlanDiscountPrice: 'number',
       tradePrice: 'number',
     };
   }
@@ -76,6 +79,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
    * DurationPackage
    */
   resourceType?: string;
+  savingPlanRecommendPrice?: number;
   /**
    * @example
    * 80.00
@@ -86,6 +90,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
       discountPrice: 'DiscountPrice',
       originalPrice: 'OriginalPrice',
       resourceType: 'ResourceType',
+      savingPlanRecommendPrice: 'SavingPlanRecommendPrice',
       tradePrice: 'TradePrice',
     };
   }
@@ -95,6 +100,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
       discountPrice: 'number',
       originalPrice: 'number',
       resourceType: 'string',
+      savingPlanRecommendPrice: 'number',
       tradePrice: 'number',
     };
   }

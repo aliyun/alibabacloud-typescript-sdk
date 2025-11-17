@@ -65,6 +65,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
    * DurationPackage
    */
   resourceType?: string;
+  savingPlanPeriod?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -75,6 +76,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
       promotionId: 'PromotionId',
       resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
+      savingPlanPeriod: 'SavingPlanPeriod',
     };
   }
 
@@ -88,6 +90,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
       promotionId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
+      savingPlanPeriod: 'string',
     };
   }
 
