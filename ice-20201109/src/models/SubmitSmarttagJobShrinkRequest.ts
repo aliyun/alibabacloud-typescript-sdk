@@ -58,6 +58,7 @@ export class SubmitSmarttagJobShrinkRequest extends $dara.Model {
    * The scheduling configurations.
    */
   scheduleConfigShrink?: string;
+  templateConfig?: string;
   /**
    * @remarks
    * The ID of the template that specifies the analysis algorithms. For more information about template operations, see [Configure templates](https://help.aliyun.com/document_detail/445702.html).
@@ -91,6 +92,7 @@ export class SubmitSmarttagJobShrinkRequest extends $dara.Model {
       notifyUrl: 'NotifyUrl',
       params: 'Params',
       scheduleConfigShrink: 'ScheduleConfig',
+      templateConfig: 'TemplateConfig',
       templateId: 'TemplateId',
       title: 'Title',
       userData: 'UserData',
@@ -106,6 +108,7 @@ export class SubmitSmarttagJobShrinkRequest extends $dara.Model {
       notifyUrl: 'string',
       params: 'string',
       scheduleConfigShrink: 'string',
+      templateConfig: 'string',
       templateId: 'string',
       title: 'string',
       userData: 'string',

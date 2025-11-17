@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model {
+  entityId?: string;
   /**
    * @remarks
    * The URL of the image sample.
@@ -11,6 +12,7 @@ export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model
    * https://example.com/sample.png
    */
   imageUrl?: string;
+  libId?: string;
   /**
    * @remarks
    * The sample ID.
@@ -21,14 +23,18 @@ export class ListRecognitionSamplesResponseBodySamplesSample extends $dara.Model
   sampleId?: string;
   static names(): { [key: string]: string } {
     return {
+      entityId: 'EntityId',
       imageUrl: 'ImageUrl',
+      libId: 'LibId',
       sampleId: 'SampleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      entityId: 'string',
       imageUrl: 'string',
+      libId: 'string',
       sampleId: 'string',
     };
   }

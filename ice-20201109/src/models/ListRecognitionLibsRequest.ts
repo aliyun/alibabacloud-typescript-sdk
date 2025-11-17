@@ -19,6 +19,7 @@ export class ListRecognitionLibsRequest extends $dara.Model {
    * landmark
    */
   algorithm?: string;
+  libId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -46,6 +47,7 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
+      libId: 'LibId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -58,6 +60,7 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       algorithm: 'string',
+      libId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',

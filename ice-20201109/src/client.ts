@@ -12399,6 +12399,10 @@ export default class Client extends OpenApi {
       query["Algorithm"] = request.algorithm;
     }
 
+    if (!$dara.isNull(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -12471,6 +12475,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.entityId)) {
       query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.entityName)) {
+      query["EntityName"] = request.entityName;
     }
 
     if (!$dara.isNull(request.libId)) {
@@ -18770,6 +18778,10 @@ export default class Client extends OpenApi {
       query["ScheduleConfig"] = request.scheduleConfigShrink;
     }
 
+    if (!$dara.isNull(request.templateConfig)) {
+      query["TemplateConfig"] = request.templateConfig;
+    }
+
     if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -19453,6 +19465,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.params)) {
       query["Params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.templateConfig)) {
+      query["TemplateConfig"] = request.templateConfig;
     }
 
     if (!$dara.isNull(request.templateId)) {

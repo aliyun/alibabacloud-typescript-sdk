@@ -76,6 +76,7 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
    * }
    */
   params?: string;
+  templateConfig?: string;
   /**
    * @remarks
    * The ID of the template that specifies the analysis algorithms to be used. For details, see [CreateCustomTemplate](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-createcustomtemplate?spm=a2c4g.11186623.help-menu-193643.d_5_0_3_3_0_0.17b66afamjKySv) and [smart tagging template](https://help.aliyun.com/zh/ims/user-guide/smart-tagging-template?spm=a2c4g.11186623.0.i15).
@@ -104,6 +105,7 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
     return {
       input: 'Input',
       params: 'Params',
+      templateConfig: 'TemplateConfig',
       templateId: 'TemplateId',
       title: 'Title',
       userData: 'UserData',
@@ -114,6 +116,7 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
     return {
       input: SubmitVideoCognitionJobRequestInput,
       params: 'string',
+      templateConfig: 'string',
       templateId: 'string',
       title: 'string',
       userData: 'string',

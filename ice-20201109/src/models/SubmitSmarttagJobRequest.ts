@@ -146,6 +146,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
    * The scheduling configurations.
    */
   scheduleConfig?: SubmitSmarttagJobRequestScheduleConfig;
+  templateConfig?: string;
   /**
    * @remarks
    * The ID of the template that specifies the analysis algorithms. For more information about template operations, see [Configure templates](https://help.aliyun.com/document_detail/445702.html).
@@ -179,6 +180,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
       notifyUrl: 'NotifyUrl',
       params: 'Params',
       scheduleConfig: 'ScheduleConfig',
+      templateConfig: 'TemplateConfig',
       templateId: 'TemplateId',
       title: 'Title',
       userData: 'UserData',
@@ -194,6 +196,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
       notifyUrl: 'string',
       params: 'string',
       scheduleConfig: SubmitSmarttagJobRequestScheduleConfig,
+      templateConfig: 'string',
       templateId: 'string',
       title: 'string',
       userData: 'string',

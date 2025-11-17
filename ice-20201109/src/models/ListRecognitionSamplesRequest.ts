@@ -28,6 +28,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
    * e6b985c05174412dbc77c92496b7373b
    */
   entityId?: string;
+  entityName?: string;
   /**
    * @remarks
    * The ID of the recognition library.
@@ -66,6 +67,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
     return {
       algorithm: 'Algorithm',
       entityId: 'EntityId',
+      entityName: 'EntityName',
       libId: 'LibId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -80,6 +82,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
     return {
       algorithm: 'string',
       entityId: 'string',
+      entityName: 'string',
       libId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
