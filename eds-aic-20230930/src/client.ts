@@ -2324,6 +2324,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指定监控项的监控数据
+   * 
+   * @param request - DescribeMetricListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricListResponse
+   */
+  async describeMetricListWithOptions(request: $_model.DescribeMetricListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.length)) {
+      body["Length"] = request.length;
+    }
+
+    if (!$dara.isNull(request.metricNames)) {
+      body["MetricNames"] = request.metricNames;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.processInfos)) {
+      body["ProcessInfos"] = request.processInfos;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetricList",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetricListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetricListResponse({}));
+  }
+
+  /**
+   * 查询指定监控项的监控数据
+   * 
+   * @param request - DescribeMetricListRequest
+   * @returns DescribeMetricListResponse
+   */
+  async describeMetricList(request: $_model.DescribeMetricListRequest): Promise<$_model.DescribeMetricListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetricListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定监控项的最新监控数据
+   * 
+   * @param request - DescribeMetricTopRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricTopResponse
+   */
+  async describeMetricTopWithOptions(request: $_model.DescribeMetricTopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricTopResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.androidInstanceIds)) {
+      body["AndroidInstanceIds"] = request.androidInstanceIds;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.length)) {
+      body["Length"] = request.length;
+    }
+
+    if (!$dara.isNull(request.metricNames)) {
+      body["MetricNames"] = request.metricNames;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetricTop",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetricTopResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetricTopResponse({}));
+  }
+
+  /**
+   * 查询指定监控项的最新监控数据
+   * 
+   * @param request - DescribeMetricTopRequest
+   * @returns DescribeMetricTopResponse
+   */
+  async describeMetricTop(request: $_model.DescribeMetricTopRequest): Promise<$_model.DescribeMetricTopResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMetricTopWithOptions(request, runtime);
+  }
+
+  /**
    * Query available regions.
    * 
    * @param request - DescribeRegionsRequest
@@ -3337,6 +3481,72 @@ export default class Client extends OpenApi {
   async instanceHealer(request: $_model.InstanceHealerRequest): Promise<$_model.InstanceHealerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.instanceHealerWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询ADB端口连接信息
+   * 
+   * @param request - ListInstanceAdbAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceAdbAttributesResponse
+   */
+  async listInstanceAdbAttributesWithOptions(request: $_model.ListInstanceAdbAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceAdbAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.externalIp)) {
+      query["ExternalIp"] = request.externalIp;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.internalIp)) {
+      query["InternalIp"] = request.internalIp;
+    }
+
+    if (!$dara.isNull(request.internalPort)) {
+      query["InternalPort"] = request.internalPort;
+    }
+
+    if (!$dara.isNull(request.ipProtocol)) {
+      query["IpProtocol"] = request.ipProtocol;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceAdbAttributes",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceAdbAttributesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceAdbAttributesResponse({}));
+  }
+
+  /**
+   * 查询ADB端口连接信息
+   * 
+   * @param request - ListInstanceAdbAttributesRequest
+   * @returns ListInstanceAdbAttributesResponse
+   */
+  async listInstanceAdbAttributes(request: $_model.ListInstanceAdbAttributesRequest): Promise<$_model.ListInstanceAdbAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceAdbAttributesWithOptions(request, runtime);
   }
 
   /**
@@ -4636,6 +4846,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启实例ADB端口并创建端口转发条目
+   * 
+   * @param request - StartInstanceAdbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartInstanceAdbResponse
+   */
+  async startInstanceAdbWithOptions(request: $_model.StartInstanceAdbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartInstanceAdbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartInstanceAdb",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartInstanceAdbResponse>(await this.callApi(params, req, runtime), new $_model.StartInstanceAdbResponse({}));
+  }
+
+  /**
+   * 开启实例ADB端口并创建端口转发条目
+   * 
+   * @param request - StartInstanceAdbRequest
+   * @returns StartInstanceAdbResponse
+   */
+  async startInstanceAdb(request: $_model.StartInstanceAdbRequest): Promise<$_model.StartInstanceAdbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startInstanceAdbWithOptions(request, runtime);
+  }
+
+  /**
    * Stops a cloud phone instance.
    * 
    * @remarks
@@ -4689,6 +4941,48 @@ export default class Client extends OpenApi {
   async stopAndroidInstance(request: $_model.StopAndroidInstanceRequest): Promise<$_model.StopAndroidInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopAndroidInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止实例ADB端口并删除端口转发条目
+   * 
+   * @param request - StopInstanceAdbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopInstanceAdbResponse
+   */
+  async stopInstanceAdbWithOptions(request: $_model.StopInstanceAdbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstanceAdbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopInstanceAdb",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopInstanceAdbResponse>(await this.callApi(params, req, runtime), new $_model.StopInstanceAdbResponse({}));
+  }
+
+  /**
+   * 停止实例ADB端口并删除端口转发条目
+   * 
+   * @param request - StopInstanceAdbRequest
+   * @returns StopInstanceAdbResponse
+   */
+  async stopInstanceAdb(request: $_model.StopInstanceAdbRequest): Promise<$_model.StopInstanceAdbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopInstanceAdbWithOptions(request, runtime);
   }
 
   /**
