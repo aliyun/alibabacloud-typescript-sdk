@@ -57,6 +57,7 @@ export { ModelConfig } from './ModelConfig';
 export { NodeMetric } from './NodeMetric';
 export { PodItem } from './PodItem';
 export { PodMetric } from './PodMetric';
+export { PodNetworkInterface } from './PodNetworkInterface';
 export { Quota } from './Quota';
 export { QuotaConfig } from './QuotaConfig';
 export { QuotaDetail } from './QuotaDetail';

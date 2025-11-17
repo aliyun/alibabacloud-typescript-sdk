@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { PodNetworkInterface } from "./PodNetworkInterface";
 
 
 export class PodItem extends $dara.Model {
@@ -31,6 +32,7 @@ export class PodItem extends $dara.Model {
    */
   podId?: string;
   podIp?: string;
+  podIps?: PodNetworkInterface[];
   /**
    * @example
    * fe846462-af2c-4521-bd6f-96787a57591d
@@ -57,6 +59,7 @@ export class PodItem extends $dara.Model {
       nodeName: 'NodeName',
       podId: 'PodId',
       podIp: 'PodIp',
+      podIps: 'PodIps',
       podUid: 'PodUid',
       status: 'Status',
       subStatus: 'SubStatus',
@@ -74,6 +77,7 @@ export class PodItem extends $dara.Model {
       nodeName: 'string',
       podId: 'string',
       podIp: 'string',
+      podIps: { 'type': 'array', 'itemType': PodNetworkInterface },
       podUid: 'string',
       status: 'string',
       subStatus: 'string',
@@ -84,6 +88,9 @@ export class PodItem extends $dara.Model {
   validate() {
     if(Array.isArray(this.historyPods)) {
       $dara.Model.validateArray(this.historyPods);
+    }
+    if(Array.isArray(this.podIps)) {
+      $dara.Model.validateArray(this.podIps);
     }
     super.validate();
   }
