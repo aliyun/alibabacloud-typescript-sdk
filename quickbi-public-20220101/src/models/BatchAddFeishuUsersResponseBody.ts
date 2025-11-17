@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * ACCOUNT_EXIST
    */
   code?: string;
+  /**
+   * @remarks
+   * Description of the error code.
+   * 
+   * @example
+   * TEST
+   */
   codeDesc?: string;
   /**
+   * @remarks
+   * Incorrect input value.
+   * 
    * @example
    * 20
    */
@@ -40,6 +53,10 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
 }
 
 export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Model {
+  /**
+   * @remarks
+   * Reasons for errors.
+   */
   failInfos?: BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -67,12 +84,22 @@ export class BatchAddFeishuUsersResponseBodyResultFailResults extends $dara.Mode
 
 export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * Number of failed validations.
+   * 
    * @example
    * 10
    */
   failCount?: number;
+  /**
+   * @remarks
+   * Details of the failures.
+   */
   failResults?: BatchAddFeishuUsersResponseBodyResultFailResults[];
   /**
+   * @remarks
+   * Count of successes.
+   * 
    * @example
    * 1
    */
@@ -107,16 +134,31 @@ export class BatchAddFeishuUsersResponseBodyResult extends $dara.Model {
 
 export class BatchAddFeishuUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Result of adding members to the user group. Possible values:
+   * 
+   * - true: Addition successful
+   * - false: Addition failed
+   * 
    * @example
    * True
    */
   result?: BatchAddFeishuUsersResponseBodyResult;
   /**
+   * @remarks
+   * Whether the request was successful. Possible values:
+   * 
+   * - true: Request successful
+   * - false: Request failed
+   * 
    * @example
    * True
    */

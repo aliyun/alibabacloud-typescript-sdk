@@ -648,7 +648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加飞书用户。
+   * Batch add Feishu users.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -697,7 +697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加飞书用户。
+   * Batch add Feishu users.
    * 
    * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
    * 
@@ -1354,6 +1354,76 @@ export default class Client extends OpenApi {
   async createUserGroup(request: $_model.CreateUserGroupRequest): Promise<$_model.CreateUserGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspaceWithOptions(request: $_model.CreateWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowPublish)) {
+      query["AllowPublish"] = request.allowPublish;
+    }
+
+    if (!$dara.isNull(request.allowShare)) {
+      query["AllowShare"] = request.allowShare;
+    }
+
+    if (!$dara.isNull(request.allowViewAll)) {
+      query["AllowViewAll"] = request.allowViewAll;
+    }
+
+    if (!$dara.isNull(request.defaultShareToAll)) {
+      query["DefaultShareToAll"] = request.defaultShareToAll;
+    }
+
+    if (!$dara.isNull(request.onlyAdminCreateDatasource)) {
+      query["OnlyAdminCreateDatasource"] = request.onlyAdminCreateDatasource;
+    }
+
+    if (!$dara.isNull(request.useComment)) {
+      query["UseComment"] = request.useComment;
+    }
+
+    if (!$dara.isNull(request.workspaceDescription)) {
+      query["WorkspaceDescription"] = request.workspaceDescription;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspace",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建工作空间
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspace(request: $_model.CreateWorkspaceRequest): Promise<$_model.CreateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -2151,6 +2221,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取空间下加速引擎管控页任务信息。
+   * 
+   * @param request - ListAccelerationOfWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccelerationOfWorkspaceResponse
+   */
+  async listAccelerationOfWorkspaceWithOptions(request: $_model.ListAccelerationOfWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAccelerationOfWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creatorId)) {
+      query["CreatorId"] = request.creatorId;
+    }
+
+    if (!$dara.isNull(request.cubeName)) {
+      query["CubeName"] = request.cubeName;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAccelerationOfWorkspace",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAccelerationOfWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.ListAccelerationOfWorkspaceResponse({}));
+  }
+
+  /**
+   * 获取空间下加速引擎管控页任务信息。
+   * 
+   * @param request - ListAccelerationOfWorkspaceRequest
+   * @returns ListAccelerationOfWorkspaceResponse
+   */
+  async listAccelerationOfWorkspace(request: $_model.ListAccelerationOfWorkspaceRequest): Promise<$_model.ListAccelerationOfWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAccelerationOfWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries API data sources.
    * 
    * @remarks
@@ -2253,7 +2381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the work.
+   * Retrieve the list of works that a user has favorited.
    * 
    * @param request - ListCollectionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2284,7 +2412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the work.
+   * Retrieve the list of works that a user has favorited.
    * 
    * @param request - ListCollectionsRequest
    * @returns ListCollectionsResponse
@@ -3125,6 +3253,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量编辑仪表板的小Q问数状态
+   * 
+   * @param request - ModifyDashboardNl2sqlStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDashboardNl2sqlStatusResponse
+   */
+  async modifyDashboardNl2sqlStatusWithOptions(request: $_model.ModifyDashboardNl2sqlStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDashboardNl2sqlStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dashboardIds)) {
+      query["DashboardIds"] = request.dashboardIds;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDashboardNl2sqlStatus",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDashboardNl2sqlStatusResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDashboardNl2sqlStatusResponse({}));
+  }
+
+  /**
+   * 批量编辑仪表板的小Q问数状态
+   * 
+   * @param request - ModifyDashboardNl2sqlStatusRequest
+   * @returns ModifyDashboardNl2sqlStatusResponse
+   */
+  async modifyDashboardNl2sqlStatus(request: $_model.ModifyDashboardNl2sqlStatusRequest): Promise<$_model.ModifyDashboardNl2sqlStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDashboardNl2sqlStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定数据集的加速任务运行日志
+   * 
+   * @param request - QueryAccelerationLogByCubeIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAccelerationLogByCubeIdResponse
+   */
+  async queryAccelerationLogByCubeIdWithOptions(request: $_model.QueryAccelerationLogByCubeIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAccelerationLogByCubeIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAccelerationLogByCubeId",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAccelerationLogByCubeIdResponse>(await this.callApi(params, req, runtime), new $_model.QueryAccelerationLogByCubeIdResponse({}));
+  }
+
+  /**
+   * 获取指定数据集的加速任务运行日志
+   * 
+   * @param request - QueryAccelerationLogByCubeIdRequest
+   * @returns QueryAccelerationLogByCubeIdResponse
+   */
+  async queryAccelerationLogByCubeId(request: $_model.QueryAccelerationLogByCubeIdRequest): Promise<$_model.QueryAccelerationLogByCubeIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAccelerationLogByCubeIdWithOptions(request, runtime);
+  }
+
+  /**
    * Get approval flow information based on the approver.
    * 
    * @param request - QueryApprovalInfoRequest
@@ -3465,7 +3697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询仪表板的问数资源信息
+   * Query Dashboard\\"s Question Resource Information
    * 
    * @param request - QueryDashboardNl2sqlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3500,7 +3732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询仪表板的问数资源信息
+   * Query Dashboard\\"s Question Resource Information
    * 
    * @param request - QueryDashboardNl2sqlRequest
    * @returns QueryDashboardNl2sqlResponse
@@ -3950,7 +4182,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定数据集的行级权限开关状态。
+   * Get the row-level permission switch status for a specified dataset.
+   * 
+   * @remarks
+   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3981,7 +4216,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定数据集的行级权限开关状态。
+   * Get the row-level permission switch status for a specified dataset.
+   * 
+   * @remarks
+   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - QueryDatasetSwitchInfoRequest
    * @returns QueryDatasetSwitchInfoResponse
@@ -4066,7 +4304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过数据集ID查询最近一次加速任务
+   * Query the Most Recent Acceleration Task by Dataset ID
    * 
    * @param request - QueryLastAccelerationEngineJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4097,7 +4335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过数据集ID查询最近一次加速任务
+   * Query the Most Recent Acceleration Task by Dataset ID
    * 
    * @param request - QueryLastAccelerationEngineJobRequest
    * @returns QueryLastAccelerationEngineJobResponse
@@ -5307,7 +5545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置行列权限的额外配置
+   * Set extra configuration for row and column permissions.
+   * 
+   * @remarks
+   * > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - SetDataLevelPermissionExtraConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5346,7 +5587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置行列权限的额外配置
+   * Set extra configuration for row and column permissions.
+   * 
+   * @remarks
+   * > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - SetDataLevelPermissionExtraConfigRequest
    * @returns SetDataLevelPermissionExtraConfigResponse
@@ -5357,7 +5601,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置单条数据集行列权限配置信息（新增和更新）
+   * Set single dataset row and column permission configuration information (addition and update)
+   * 
+   * @remarks
+   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - SetDataLevelPermissionRuleConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5388,7 +5635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置单条数据集行列权限配置信息（新增和更新）
+   * Set single dataset row and column permission configuration information (addition and update)
+   * 
+   * @remarks
+   * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
    * 
    * @param request - SetDataLevelPermissionRuleConfigRequest
    * @returns SetDataLevelPermissionRuleConfigResponse
@@ -5577,6 +5827,10 @@ export default class Client extends OpenApi {
       query["CubeId"] = request.cubeId;
     }
 
+    if (!$dara.isNull(request.multipleCubeIds)) {
+      query["MultipleCubeIds"] = request.multipleCubeIds;
+    }
+
     if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -5739,7 +5993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据源配置
+   * Modify Data Source Configuration
    * 
    * @param request - UpdateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5770,7 +6024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改数据源配置
+   * Modify Data Source Configuration
    * 
    * @param request - UpdateDataSourceRequest
    * @returns UpdateDataSourceResponse

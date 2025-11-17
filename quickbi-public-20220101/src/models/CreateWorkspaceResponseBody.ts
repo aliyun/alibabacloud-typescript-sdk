@@ -2,33 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateDataSourceResponseBody extends $dara.Model {
+export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
-   * D787E1A***********5DF8D885
+   * 685072****************4e79e718f
    */
   requestId?: string;
   /**
-   * @remarks
-   * Result of the API call. Possible values:
-   * 
-   * - true: Request successful
-   * - false: Request failed
-   * 
    * @example
-   * true
+   * 12423twfasva********
    */
-  result?: boolean;
+  result?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful. Possible values:
-   * 
-   * - true: Request successful
-   * - false: Request failed
-   * 
    * @example
    * true
    */
@@ -44,7 +29,7 @@ export class UpdateDataSourceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
+      result: 'string',
       success: 'boolean',
     };
   }

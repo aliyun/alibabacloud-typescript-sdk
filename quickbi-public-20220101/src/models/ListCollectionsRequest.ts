@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCollectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
+   * User ID. This refers to the UserID in Quick BI, not the Alibaba Cloud UID.
    * 
    * This parameter is required.
    * 

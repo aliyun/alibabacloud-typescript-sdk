@@ -2,54 +2,58 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SmartqQueryAbilityRequest extends $dara.Model {
+export class QueryAccelerationLogByCubeIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * This parameter is required.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
    */
   cubeId?: string;
   /**
-   * @example
-   * 123124
-   */
-  multipleCubeIds?: string;
-  /**
    * @remarks
-   * User ID.
-   * >Notice: If this field is not filled, the data will be queried by default as the organization owner.
-   * 
-   * @example
-   * 7c7223ae-****-3c744528014b
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * Question text.
-   * 
    * This parameter is required.
    * 
    * @example
-   * This year\\"s sales data
+   * 2025-05-15 00:00:00
    */
-  userQuestion?: string;
+  endDate?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2025-04-15 00:00:00
+   */
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       cubeId: 'CubeId',
-      multipleCubeIds: 'MultipleCubeIds',
-      userId: 'UserId',
-      userQuestion: 'UserQuestion',
+      endDate: 'EndDate',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       cubeId: 'string',
-      multipleCubeIds: 'string',
-      userId: 'string',
-      userQuestion: 'string',
+      endDate: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      startDate: 'string',
     };
   }
 

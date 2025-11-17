@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLastAccelerationEngineJobRequest extends $dara.Model {
   /**
    * @remarks
+   * Dataset ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -102,6 +102,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
    * true
    */
   conclusionText?: string;
+  dataList?: string[];
   /**
    * @remarks
    * Visualized logical SQL.
@@ -124,6 +125,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
     return {
       chartType: 'ChartType',
       conclusionText: 'ConclusionText',
+      dataList: 'DataList',
       logicSql: 'LogicSql',
       metaType: 'MetaType',
       values: 'Values',
@@ -134,6 +136,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
     return {
       chartType: 'string',
       conclusionText: 'string',
+      dataList: { 'type': 'array', 'itemType': 'string' },
       logicSql: 'string',
       metaType: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultMetaType },
       values: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultValues },
@@ -141,6 +144,9 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
     if(Array.isArray(this.metaType)) {
       $dara.Model.validateArray(this.metaType);
     }

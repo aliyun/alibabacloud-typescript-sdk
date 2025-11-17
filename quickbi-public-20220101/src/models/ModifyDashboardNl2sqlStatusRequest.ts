@@ -2,38 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryDashboardNl2sqlRequest extends $dara.Model {
+export class ModifyDashboardNl2sqlStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * User ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 3d7ebb8***********500078f4
+   * asda,sadaf
    */
-  userId?: string;
+  dashboardIds?: string;
   /**
    * @remarks
-   * Workspace ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 3d7ebb8***********500078f4
+   * 0
    */
-  workspaceId?: string;
+  status?: number;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
-      workspaceId: 'WorkspaceId',
+      dashboardIds: 'DashboardIds',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
-      workspaceId: 'string',
+      dashboardIds: 'string',
+      status: 'number',
     };
   }
 

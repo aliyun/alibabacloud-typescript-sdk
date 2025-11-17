@@ -2,37 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryDashboardNl2sqlRequest extends $dara.Model {
+export class ListAccelerationOfWorkspaceRequest extends $dara.Model {
   /**
-   * @remarks
-   * User ID.
-   * 
-   * This parameter is required.
-   * 
    * @example
-   * 3d7ebb8***********500078f4
+   * 1***************139
    */
-  userId?: string;
+  creatorId?: string;
+  /**
+   * @example
+   * test
+   */
+  cubeName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
   /**
    * @remarks
-   * Workspace ID.
-   * 
    * This parameter is required.
    * 
    * @example
-   * 3d7ebb8***********500078f4
+   * 95296e95-ca89-4c7d-8af9-dedf0ad0****
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      userId: 'UserId',
+      creatorId: 'CreatorId',
+      cubeName: 'CubeName',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      userId: 'string',
+      creatorId: 'string',
+      cubeName: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
       workspaceId: 'string',
     };
   }

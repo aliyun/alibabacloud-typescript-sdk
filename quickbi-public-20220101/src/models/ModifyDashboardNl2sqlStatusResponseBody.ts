@@ -2,33 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateDataSourceResponseBody extends $dara.Model {
+export class ModifyDashboardNl2sqlStatusResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
-   * D787E1A***********5DF8D885
+   * 46e537a5****
    */
   requestId?: string;
+  result?: string[];
   /**
-   * @remarks
-   * Result of the API call. Possible values:
-   * 
-   * - true: Request successful
-   * - false: Request failed
-   * 
-   * @example
-   * true
-   */
-  result?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Possible values:
-   * 
-   * - true: Request successful
-   * - false: Request failed
-   * 
    * @example
    * true
    */
@@ -44,12 +25,15 @@ export class UpdateDataSourceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
+      result: { 'type': 'array', 'itemType': 'string' },
       success: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
     super.validate();
   }
 
