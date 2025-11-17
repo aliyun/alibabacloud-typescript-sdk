@@ -31,6 +31,11 @@ export class ListFeatureEntitiesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @example
+   * 1
+   */
+  parentFeatureEntityId?: string;
+  /**
+   * @example
    * 3
    */
   projectId?: string;
@@ -47,6 +52,7 @@ export class ListFeatureEntitiesRequest extends $dara.Model {
       owner: 'Owner',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      parentFeatureEntityId: 'ParentFeatureEntityId',
       projectId: 'ProjectId',
       sortBy: 'SortBy',
     };
@@ -60,6 +66,7 @@ export class ListFeatureEntitiesRequest extends $dara.Model {
       owner: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      parentFeatureEntityId: 'string',
       projectId: 'string',
       sortBy: 'string',
     };

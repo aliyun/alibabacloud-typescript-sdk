@@ -197,6 +197,10 @@ export default class Client extends OpenApi {
       body["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.parentFeatureEntityId)) {
+      body["ParentFeatureEntityId"] = request.parentFeatureEntityId;
+    }
+
     if (!$dara.isNull(request.projectId)) {
       body["ProjectId"] = request.projectId;
     }
@@ -1720,6 +1724,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentFeatureEntityId)) {
+      query["ParentFeatureEntityId"] = request.parentFeatureEntityId;
     }
 
     if (!$dara.isNull(request.projectId)) {

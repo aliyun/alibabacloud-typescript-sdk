@@ -51,15 +51,27 @@ export class ListProjectFeatureViewsResponseBodyFeatureViews extends $dara.Model
   features?: ListProjectFeatureViewsResponseBodyFeatureViewsFeatures[];
   /**
    * @example
+   * item_id
+   */
+  joinId?: string;
+  /**
+   * @example
    * feature_view1
    */
   name?: string;
+  /**
+   * @example
+   * item_id
+   */
+  parentJoinId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       featureViewId: 'FeatureViewId',
       features: 'Features',
+      joinId: 'JoinId',
       name: 'Name',
+      parentJoinId: 'ParentJoinId',
       type: 'Type',
     };
   }
@@ -68,7 +80,9 @@ export class ListProjectFeatureViewsResponseBodyFeatureViews extends $dara.Model
     return {
       featureViewId: 'string',
       features: { 'type': 'array', 'itemType': ListProjectFeatureViewsResponseBodyFeatureViewsFeatures },
+      joinId: 'string',
       name: 'string',
+      parentJoinId: 'string',
       type: 'string',
     };
   }

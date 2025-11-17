@@ -25,6 +25,21 @@ export class GetFeatureEntityResponseBody extends $dara.Model {
   owner?: string;
   /**
    * @example
+   * 1
+   */
+  parentFeatureEntityId?: string;
+  /**
+   * @example
+   * user
+   */
+  parentFeatureEntityName?: string;
+  /**
+   * @example
+   * user_id
+   */
+  parentJoinId?: string;
+  /**
+   * @example
    * 3
    */
   projectId?: string;
@@ -44,6 +59,9 @@ export class GetFeatureEntityResponseBody extends $dara.Model {
       joinId: 'JoinId',
       name: 'Name',
       owner: 'Owner',
+      parentFeatureEntityId: 'ParentFeatureEntityId',
+      parentFeatureEntityName: 'ParentFeatureEntityName',
+      parentJoinId: 'ParentJoinId',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       requestId: 'RequestId',
@@ -56,6 +74,9 @@ export class GetFeatureEntityResponseBody extends $dara.Model {
       joinId: 'string',
       name: 'string',
       owner: 'string',
+      parentFeatureEntityId: 'string',
+      parentFeatureEntityName: 'string',
+      parentJoinId: 'string',
       projectId: 'string',
       projectName: 'string',
       requestId: 'string',

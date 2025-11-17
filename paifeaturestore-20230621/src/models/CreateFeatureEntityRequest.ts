@@ -20,6 +20,11 @@ export class CreateFeatureEntityRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @example
+   * 1
+   */
+  parentFeatureEntityId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -31,6 +36,7 @@ export class CreateFeatureEntityRequest extends $dara.Model {
     return {
       joinId: 'JoinId',
       name: 'Name',
+      parentFeatureEntityId: 'ParentFeatureEntityId',
       projectId: 'ProjectId',
     };
   }
@@ -39,6 +45,7 @@ export class CreateFeatureEntityRequest extends $dara.Model {
     return {
       joinId: 'string',
       name: 'string',
+      parentFeatureEntityId: 'string',
       projectId: 'string',
     };
   }
