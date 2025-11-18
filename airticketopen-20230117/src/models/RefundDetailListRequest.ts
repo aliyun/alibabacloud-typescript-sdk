@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundDetailListRequest extends $dara.Model {
   /**
    * @remarks
-   * order number returned by Book
+   * Order number
    * 
    * @example
    * 49884*****950
@@ -13,7 +13,7 @@ export class RefundDetailListRequest extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * pagination query parameters, from which page to start querying
+   * Page index
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class RefundDetailListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * pagination query parameters, how many orders to return
+   * Page size
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class RefundDetailListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * the earliest time(timestamp) of refund order creation
+   * Refund order creation start time, UTC timestamp
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class RefundDetailListRequest extends $dara.Model {
   refundCreateBeginTime?: number;
   /**
    * @remarks
-   * the latest time(timestamp) of refund order creation
+   * Refund order creation end time, UTC timestamp
    * 
    * This parameter is required.
    * 

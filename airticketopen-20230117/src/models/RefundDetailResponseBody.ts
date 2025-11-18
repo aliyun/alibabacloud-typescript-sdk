@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger extends $dara.Model {
   /**
    * @remarks
-   * credential number
+   * Document number
    * 
    * @example
    * 411***********4411
@@ -13,7 +13,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
   document?: string;
   /**
    * @remarks
-   * first name
+   * Passenger\\"s first name
    * 
    * @example
    * SAN
@@ -21,7 +21,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
   firstName?: string;
   /**
    * @remarks
-   * last name
+   * Passenger\\"s last name
    * 
    * @example
    * ZHANG
@@ -55,7 +55,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails extends $dara.Model {
   /**
    * @remarks
-   * amount of the supplementary refund for the change order
+   * Amount refunded from the Change order
    * 
    * @example
    * 30
@@ -63,7 +63,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
   changeOrderRefundFee?: number;
   /**
    * @remarks
-   * amount of the supplementary refund for the original order
+   * Amount refunded from the Ticketing order
    * 
    * @example
    * 30
@@ -71,7 +71,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
   originalOrderRefundFee?: number;
   /**
    * @remarks
-   * passenger for the refund
+   * Passenger for the refund
    */
   passenger?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundD
 export class RefundDetailResponseBodyDataMultiRefundDetails extends $dara.Model {
   /**
    * @remarks
-   * supplementary refund order number
+   * Additional refund order number
    * 
    * @example
    * 498843***6950
@@ -113,7 +113,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetails extends $dara.Model 
   multiRefundOrderNum?: number;
   /**
    * @remarks
-   * transaction number of the supplementary refund order
+   * Transaction number of the Additional Refund order
    * 
    * @example
    * 498843***6950
@@ -121,7 +121,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetails extends $dara.Model 
   multiRefundTransactionNo?: string;
   /**
    * @remarks
-   * supplementary refund details in passenger dimension
+   * Additional refund details from the passenger\\"s
    */
   passengerMultiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails[];
   static names(): { [key: string]: string } {
@@ -155,7 +155,7 @@ export class RefundDetailResponseBodyDataMultiRefundDetails extends $dara.Model 
 export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends $dara.Model {
   /**
    * @remarks
-   * credential number
+   * Document number
    * 
    * @example
    * 411***********4411
@@ -163,7 +163,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
   document?: string;
   /**
    * @remarks
-   * first name
+   * Passenger\\"s first name
    * 
    * @example
    * SAN
@@ -171,7 +171,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
   firstName?: string;
   /**
    * @remarks
-   * last name
+   * Passenger\\"s last name
    * 
    * @example
    * ZHANG
@@ -205,7 +205,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsPassenger extends
 export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends $dara.Model {
   /**
    * @remarks
-   * total price of the used flight tickets
+   * Total price of the used segments
    * 
    * @example
    * 30
@@ -213,7 +213,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   alreadyUsedTotalFee?: number;
   /**
    * @remarks
-   * amount refunded to the user after change (only available when has change order)
+   * Amount refunded to the user after a change
    * 
    * @example
    * 30
@@ -221,7 +221,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   modifyRefundToBuyerMoney?: number;
   /**
    * @remarks
-   * non-refundable change service fee
+   * Non-refundable change penalty
    * 
    * @example
    * 30
@@ -229,7 +229,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   nonRefundableChangeServiceFee?: number;
   /**
    * @remarks
-   * non-refundable upgrade fee
+   * Non-refundable fare difference
    * 
    * @example
    * 30
@@ -237,7 +237,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   nonRefundableChangeUpgradeFee?: number;
   /**
    * @remarks
-   * non-refundable tax amount, i.e., tax refund fee
+   * tax penalty
    * 
    * @example
    * 30
@@ -245,7 +245,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   nonRefundableTaxFee?: number;
   /**
    * @remarks
-   * non-refundable ticket amount, i.e., ticket refund fee
+   * fare penalty
    * 
    * @example
    * 30
@@ -253,7 +253,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
   nonRefundableTicketFee?: number;
   /**
    * @remarks
-   * amount refundable to the user from the original ticket (fare + tax - non_refundable_ticket_fee - non_refundable_tax_fee - already_used_total_fee - discount)
+   * Amount refundable to the user (ticket price + taxes - fare penalty - tax penalty - total price of used segments)
    * 
    * @example
    * 30
@@ -295,12 +295,12 @@ export class RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee extends
 export class RefundDetailResponseBodyDataPassengerRefundDetails extends $dara.Model {
   /**
    * @remarks
-   * information of the passenger applying for a refund
+   * Information of the passenger applying for a refund
    */
   passenger?: RefundDetailResponseBodyDataPassengerRefundDetailsPassenger;
   /**
    * @remarks
-   * details of the refund fee
+   * Refund fee details
    */
   refundFee?: RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee;
   static names(): { [key: string]: string } {
@@ -335,7 +335,7 @@ export class RefundDetailResponseBodyDataPassengerRefundDetails extends $dara.Mo
 export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara.Model {
   /**
    * @remarks
-   * arrival airport code
+   * Three-letter code of the arrival airport (in uppercase)
    * 
    * @example
    * MFM
@@ -343,7 +343,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalAirport?: string;
   /**
    * @remarks
-   * arrival city code
+   * Three-letter code of the arrival city (in uppercase)
    * 
    * @example
    * MFM
@@ -351,7 +351,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalCity?: string;
   /**
    * @remarks
-   * arrival terminal
+   * Arrival terminal of the flight
    * 
    * @example
    * T1
@@ -359,7 +359,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalTerminal?: string;
   /**
    * @remarks
-   * arrival time (yyyy-MM-dd HH:mm:ss)
+   * Arrival date and time in string format (yyyy-mm-dd hh:mm:ss)
    * 
    * @example
    * 2023-03-10 10:40:00
@@ -367,7 +367,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   arrivalTime?: string;
   /**
    * @remarks
-   * field deprecated
+   * Number of available seats
    * 
    * @example
    * 7
@@ -375,7 +375,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   availability?: string;
   /**
    * @remarks
-   * carbin
+   * RBD
    * 
    * @example
    * V
@@ -383,7 +383,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   cabin?: string;
   /**
    * @remarks
-   * cabin class
+   * service class ( compartment )
    * 
    * @example
    * Y
@@ -391,7 +391,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   cabinClass?: string;
   /**
    * @remarks
-   * code share or not
+   * Indicates whether it is a codeshare flight
    * 
    * @example
    * false
@@ -399,7 +399,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   codeShare?: boolean;
   /**
    * @remarks
-   * departure airport code
+   * Three-letter code of the departure airport (in uppercase)
    * 
    * @example
    * PVG
@@ -407,7 +407,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureAirport?: string;
   /**
    * @remarks
-   * departure city code
+   * Three-letter code of the departure city (in uppercase)
    * 
    * @example
    * SHA
@@ -415,7 +415,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureCity?: string;
   /**
    * @remarks
-   * departure terminal
+   * Departure terminal of the flight
    * 
    * @example
    * T2
@@ -423,7 +423,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureTerminal?: string;
   /**
    * @remarks
-   * departure time (yyyy-MM-dd HH:mm:ss)
+   * Departure date and time in string format (yyyy-mm-dd hh:mm:ss)
    * 
    * @example
    * 2023-03-10 07:55:00
@@ -431,7 +431,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   departureTime?: string;
   /**
    * @remarks
-   * equipment type
+   * Aircraft type
    * 
    * @example
    * 32Q
@@ -439,7 +439,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   equipType?: string;
   /**
    * @remarks
-   * flight time, unit: minute
+   * Flight duration in minutes
    * 
    * @example
    * 165
@@ -447,7 +447,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   flightDuration?: number;
   /**
    * @remarks
-   * marketing airline code (eg: KA)
+   * Marketing airline (e.g., HO)
    * 
    * @example
    * HO
@@ -455,7 +455,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   marketingAirline?: string;
   /**
    * @remarks
-   * marketing flight no. (eg: KA5809)
+   * Marketing flight number (e.g., HO1295)
    * 
    * @example
    * HO1295
@@ -463,7 +463,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   marketingFlightNo?: string;
   /**
    * @remarks
-   * marketing flight no. (eg: 5809)
+   * Marketing flight number (numeric part, e.g., 1295)
    * 
    * @example
    * 1295
@@ -471,7 +471,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   marketingFlightNoInt?: number;
   /**
    * @remarks
-   * operating airline code (eg: CX)
+   * Operating airline (e.g., CX)
    * 
    * @example
    * HO
@@ -479,7 +479,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   operatingAirline?: string;
   /**
    * @remarks
-   * operating flight no. (eg: CX601)
+   * Operating flight number (e.g., CX601)
    * 
    * @example
    * HO1295
@@ -487,7 +487,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   operatingFlightNo?: string;
   /**
    * @remarks
-   * segment ID: flight no.+departure airport+arrival airport+departure time(MMdd)
+   * Segment ID format: flight number + departure airport + arrival airport + departure date (MMdd)
    * 
    * @example
    * HO1295-PVG-MFM-20230310
@@ -495,7 +495,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   segmentId?: string;
   /**
    * @remarks
-   * stopover city list when stop_quantity > 0 , use “,” for seperation use
+   * List of stop cities, present when stopQuantity > 0, multiple values separated by commas
    * 
    * @example
    * SEL,HKG
@@ -503,7 +503,7 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
   stopCityList?: string;
   /**
    * @remarks
-   * number of stopover
+   * Number of stop cities
    * 
    * @example
    * 0
@@ -575,12 +575,12 @@ export class RefundDetailResponseBodyDataRefundJourneysSegmentList extends $dara
 export class RefundDetailResponseBodyDataRefundJourneys extends $dara.Model {
   /**
    * @remarks
-   * segment list info
+   * Segment information
    */
   segmentList?: RefundDetailResponseBodyDataRefundJourneysSegmentList[];
   /**
    * @remarks
-   * transfer count
+   * Number of transfers
    * 
    * @example
    * 0
@@ -615,7 +615,7 @@ export class RefundDetailResponseBodyDataRefundJourneys extends $dara.Model {
 export class RefundDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+   * Whether it contains additional refunds
    * 
    * @example
    * false
@@ -623,12 +623,12 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   containMultiRefund?: boolean;
   /**
    * @remarks
-   * supplementary refund orders
+   * List of additional refund details associated with the initial refund
    */
   multiRefundDetails?: RefundDetailResponseBodyDataMultiRefundDetails[];
   /**
    * @remarks
-   * order number that returned by Book
+   * Order number
    * 
    * @example
    * 4966***617111
@@ -636,12 +636,12 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * refund details by passenger dimension
+   * List of passenger refund details, refund information by passenger
    */
   passengerRefundDetails?: RefundDetailResponseBodyDataPassengerRefundDetails[];
   /**
    * @remarks
-   * refund completed time(timestamp)
+   * Actual refund time, UTC timestamp
    * 
    * @example
    * 1677229005000
@@ -649,7 +649,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   paySuccessUtcTime?: number;
   /**
    * @remarks
-   * URLs for refund attachments
+   * List of URLs for medical refund attachments
    * 
    * @example
    * [zzz,yyy]
@@ -657,12 +657,12 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   refundAttachmentUrls?: string[];
   /**
    * @remarks
-   * refunded journey
+   * Refund journey
    */
   refundJourneys?: RefundDetailResponseBodyDataRefundJourneys[];
   /**
    * @remarks
-   * refund order number that returned by RefundApply
+   * Refund order number
    * 
    * @example
    * 4966***617654
@@ -670,7 +670,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   refundOrderNum?: number;
   /**
    * @remarks
-   * reason for refund
+   * Reason for refund
    * 
    * @example
    * desc reason
@@ -678,17 +678,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   refundReason?: string;
   /**
    * @remarks
-   * refund type 
-   * 
-   * 2: voluntary application
-   * 
-   * 5: flight delay or cancellation, flight schedule change, etc., due to airline reasons
-   * 
-   * 6: health reasons with a certificate from a secondary class A hospital or above
-   * 
-   * 7: non-voluntary confirmed guidance
-   * 
-   * 100: non-voluntary non-confirmed guidance
+   * 2: Voluntary application; 5: Flight delay or cancellation, flight schedule change, etc., due to airline reasons; 6: Health reasons with a report from a hospital of at least secondary level A; 7: Involuntary emergency guidance; 100: Involuntary non-emergency
    * 
    * @example
    * 5
@@ -696,7 +686,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   refundType?: number;
   /**
    * @remarks
-   * reason for refund rejection
+   * Reason for refund rejection
    * 
    * @example
    * refuse reason
@@ -704,15 +694,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   refuseReason?: string;
   /**
    * @remarks
-   * refund order status
-   * 
-   * 0: refund application
-   * 
-   * 1: refund in progress
-   * 
-   * 2: refund failed
-   * 
-   * 3: refund succeeded
+   * Refund order status 0: Refund application; 1: Refund in progress; 2: Refund failed; 3: Refund successful
    * 
    * @example
    * 1
@@ -720,7 +702,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * transaction number
+   * Transaction serial number
    * 
    * @example
    * 1677229005000
@@ -728,7 +710,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
   transactionNo?: string;
   /**
    * @remarks
-   * refund order created time(timestamp)
+   * Refund order creation time, UTC timestamp
    * 
    * @example
    * 1677229002000
@@ -796,7 +778,7 @@ export class RefundDetailResponseBodyData extends $dara.Model {
 export class RefundDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * RequestId
+   * Request RequestId
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -804,7 +786,7 @@ export class RefundDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * Correctly processed return data
    */
   data?: RefundDetailResponseBodyData;
   /**
@@ -817,7 +799,7 @@ export class RefundDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * Error handling carries data
    * 
    * @example
    * null
@@ -825,7 +807,7 @@ export class RefundDetailResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * Error message
    * 
    * @example
    * null
@@ -833,7 +815,7 @@ export class RefundDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * HTTP request successful, status value is 200
    * 
    * @example
    * 200
@@ -841,7 +823,7 @@ export class RefundDetailResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Whether the request was successful
    * 
    * @example
    * true

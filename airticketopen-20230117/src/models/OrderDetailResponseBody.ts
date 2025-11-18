@@ -8,22 +8,38 @@ import { DataSolutionSegmentBaggageMappingListPassengerBaggageAllowanceMappingVa
 
 export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary extends $dara.Model {
   /**
+   * @remarks
+   * Number of luggage pieces. Values can be: 3, 2, 1, 0, -2. -2 indicates weight-based calculation.
+   * 
    * @example
    * 0
    */
   baggageAmount?: number;
   /**
+   * @remarks
+   * Luggage weight, 0-50. When isAllWeght=true, it indicates the total weight of all items.
+   * 
    * @example
    * 0
    */
   baggageWeight?: number;
   /**
+   * @remarks
+   * Unit of luggage weight
+   * 
    * @example
    * KG
    */
   baggageWeightUnit?: string;
+  /**
+   * @remarks
+   * whether all luggage weight
+   */
   isAllWeight?: boolean;
   /**
+   * @remarks
+   * Total Price
+   * 
    * @example
    * 10.0
    */
@@ -74,6 +90,10 @@ export class OrderDetailResponseBodyDataAncillaryItemDetailListAncillary extends
    * 4
    */
   ancillaryType?: number;
+  /**
+   * @remarks
+   * Ancillary Service Details
+   */
   baggageAncillary?: OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary;
   static names(): { [key: string]: string } {
     return {
@@ -1269,7 +1289,15 @@ export class OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingLi
 }
 
 export class OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Issue ticket type: 1: after payment; 2: before departure; -1: unknown
+   */
   issueTicketType?: number;
+  /**
+   * @remarks
+   * Estimated issue ticket time, unit: minutes
+   */
   issueTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1295,7 +1323,15 @@ export class OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo e
 }
 
 export class OrderDetailResponseBodyDataSolutionSolutionAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * Issue ticket time related
+   */
   issueTimeInfo?: OrderDetailResponseBodyDataSolutionSolutionAttributeIssueTimeInfo;
+  /**
+   * @remarks
+   * Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
+   */
   supplySourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1379,22 +1415,6 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
   journeyList?: OrderDetailResponseBodyDataSolutionJourneyList[];
   /**
    * @remarks
-   * product type description
-   * 
-   * @example
-   * description
-   */
-  productTypeDescription?: string;
-  /**
-   * @remarks
-   * refund coupon description
-   * 
-   * @example
-   * description
-   */
-  refundTicketCouponDescription?: string;
-  /**
-   * @remarks
    * through check-in baggage policy
    */
   segmentBaggageCheckInInfoList?: OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList[];
@@ -1408,6 +1428,10 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
    * change and refund policy
    */
   segmentRefundChangeRuleMappingList?: OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList[];
+  /**
+   * @remarks
+   * Quotation Attributes
+   */
   solutionAttribute?: OrderDetailResponseBodyDataSolutionSolutionAttribute;
   /**
    * @remarks
@@ -1426,8 +1450,6 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
       infantPrice: 'infant_price',
       infantTax: 'infant_tax',
       journeyList: 'journey_list',
-      productTypeDescription: 'product_type_description',
-      refundTicketCouponDescription: 'refund_ticket_coupon_description',
       segmentBaggageCheckInInfoList: 'segment_baggage_check_in_info_list',
       segmentBaggageMappingList: 'segment_baggage_mapping_list',
       segmentRefundChangeRuleMappingList: 'segment_refund_change_rule_mapping_list',
@@ -1445,8 +1467,6 @@ export class OrderDetailResponseBodyDataSolution extends $dara.Model {
       infantPrice: 'number',
       infantTax: 'number',
       journeyList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionJourneyList },
-      productTypeDescription: 'string',
-      refundTicketCouponDescription: 'string',
       segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentBaggageCheckInInfoList },
       segmentBaggageMappingList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentBaggageMappingList },
       segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': OrderDetailResponseBodyDataSolutionSegmentRefundChangeRuleMappingList },
@@ -1737,7 +1757,7 @@ export class OrderDetailResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * http request has been processed successfully，status code is 200
    * 
    * @example
    * 200

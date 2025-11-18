@@ -2,11 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ChangeDetailHeaders extends $dara.Model {
+export class StandardSearchHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * access token
+   * access_token
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,6 @@ export class ChangeDetailHeaders extends $dara.Model {
    */
   xAcsAirticketAccessToken?: string;
   /**
-   * @remarks
-   * Multi-language, default to buyer\\"s account configuration
-   * 
    * @example
    * en_US
    */

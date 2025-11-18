@@ -4,180 +4,113 @@ import { DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapVa
 import { DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue } from "./DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue";
 
 
-export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $dara.Model {
+export class StandardSearchResponseBodyDataSolutionListJourneyListSegmentList extends $dara.Model {
   /**
-   * @remarks
-   * arrival airport code (capitalized)
-   * 
    * @example
    * MFM
    */
   arrivalAirport?: string;
   /**
-   * @remarks
-   * arrival city code (capitalized)
-   * 
    * @example
    * MFM
    */
   arrivalCity?: string;
   /**
-   * @remarks
-   * arrival terminal
-   * 
    * @example
    * T1
    */
   arrivalTerminal?: string;
   /**
-   * @remarks
-   * arrival time in string format (yyyy-MM-dd HH:mm:ss)
-   * 
    * @example
    * 2023-03-10 10:40:00
    */
   arrivalTime?: string;
   /**
-   * @remarks
-   * available seats (for reference only)
-   * 
    * @example
    * 7
    */
   availability?: string;
   /**
-   * @remarks
-   * RBD
-   * 
    * @example
    * V
    */
   cabin?: string;
   /**
-   * @remarks
-   * cabin class
-   * 
    * @example
    * Y
    */
   cabinClass?: string;
   /**
-   * @remarks
-   * code share or not
-   * 
    * @example
    * false
    */
   codeShare?: boolean;
   /**
-   * @remarks
-   * departure airport code (capitalized)
-   * 
    * @example
    * PVG
    */
   departureAirport?: string;
   /**
-   * @remarks
-   * departure city code (capitalized)
-   * 
    * @example
    * SHA
    */
   departureCity?: string;
   /**
-   * @remarks
-   * departure terminal
-   * 
    * @example
    * T2
    */
   departureTerminal?: string;
   /**
-   * @remarks
-   * departure time in string format (yyyy-MM-dd HH:mm:ss)
-   * 
    * @example
    * 2023-03-10 07:55:00
    */
   departureTime?: string;
   /**
-   * @remarks
-   * equipment type
-   * 
    * @example
    * 32Q
    */
   equipType?: string;
   /**
-   * @remarks
-   * flight time, unit: minute
-   * 
    * @example
    * 165
    */
   flightDuration?: number;
   /**
-   * @remarks
-   * marketing airline code (ex.: KA)
-   * 
    * @example
    * HO
    */
   marketingAirline?: string;
   /**
-   * @remarks
-   * marketing airline flight no. (ex.: KA5809)
-   * 
    * @example
    * HO1295
    */
   marketingFlightNo?: string;
   /**
-   * @remarks
-   * marketing airline integer flight no. (ex.: 5809)
-   * 
    * @example
-   * 1259
+   * 1295
    */
   marketingFlightNoInt?: number;
   /**
-   * @remarks
-   * operating airline code (ex.: CX)
-   * 
    * @example
    * HO
    */
   operatingAirline?: string;
   /**
-   * @remarks
-   * operating airline flight no. (ex.: CX601)
-   * 
    * @example
    * HO1295
    */
   operatingFlightNo?: string;
   /**
-   * @remarks
-   * segment ID format: flight no.+departure airport[IATA airport code]+arrival airport[IATA airport code]+departure time(MMdd)
-   * 
    * @example
    * HO1295-PVG-MFM-20230310
    */
   segmentId?: string;
   /**
-   * @remarks
-   * stop city list
-   * when stop_quantity > 1, use “,” for seperation
-   * 
    * @example
-   * MFM,PVG
+   * SEL,HKG
    */
   stopCityList?: string;
   /**
-   * @remarks
-   * number of stops
-   * 
    * @example
    * 0
    */
@@ -245,16 +178,9 @@ export class SearchResponseBodyDataSolutionListJourneyListSegmentList extends $d
   }
 }
 
-export class SearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
+export class StandardSearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
+  segmentList?: StandardSearchResponseBodyDataSolutionListJourneyListSegmentList[];
   /**
-   * @remarks
-   * segment Info
-   */
-  segmentList?: SearchResponseBodyDataSolutionListJourneyListSegmentList[];
-  /**
-   * @remarks
-   * number of transfers
-   * 
    * @example
    * 0
    */
@@ -268,7 +194,7 @@ export class SearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      segmentList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListJourneyListSegmentList },
+      segmentList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionListJourneyListSegmentList },
       transferCount: 'number',
     };
   }
@@ -285,24 +211,12 @@ export class SearchResponseBodyDataSolutionListJourneyList extends $dara.Model {
   }
 }
 
-export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $dara.Model {
+export class StandardSearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList extends $dara.Model {
   /**
-   * @remarks
-   * through check-in baggage policy type
-   * 1. baggage through check-in between segments
-   * 2. baggage re-check-in needed between segments
-   * 3. baggage through check-in at stop city ( applies for stop flight )
-   * 4. baggage re-checkin needed at stop city ( applies for stop flight )
-   * 
    * @example
    * 1
    */
   luggageDirectInfoType?: number;
-  /**
-   * @remarks
-   * segment id list. 
-   * all the listed segment ids share the same baggage through check-in  policy
-   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -330,17 +244,8 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList ext
   }
 }
 
-export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends $dara.Model {
-  /**
-   * @remarks
-   * baggage rule mapping, key is passenger type, value is baggage allowance details
-   */
+export class StandardSearchResponseBodyDataSolutionListSegmentBaggageMappingList extends $dara.Model {
   passengerBaggageAllowanceMapping?: { [key: string]: DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue };
-  /**
-   * @remarks
-   * segment id list. 
-   * all the listed segment id share the same baggage rule
-   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -371,17 +276,8 @@ export class SearchResponseBodyDataSolutionListSegmentBaggageMappingList extends
   }
 }
 
-export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList extends $dara.Model {
-  /**
-   * @remarks
-   * change and refund policy mapping, key is passenger type, value is change and refund policy details
-   */
+export class StandardSearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList extends $dara.Model {
   refundChangeRuleMap?: { [key: string]: DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue };
-  /**
-   * @remarks
-   * segment id list. 
-   * all the listed segment ids share the same change and refund policy
-   */
   segmentIdList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -412,16 +308,8 @@ export class SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingLis
   }
 }
 
-export class SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Issue ticket type: 1: after payment; 2: before departure; -1: unknown
-   */
+export class StandardSearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo extends $dara.Model {
   issueTicketType?: number;
-  /**
-   * @remarks
-   * Estimated issue ticket time, unit: minutes
-   */
   issueTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -446,16 +334,9 @@ export class SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo ex
   }
 }
 
-export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.Model {
+export class StandardSearchResponseBodyDataSolutionListSolutionAttribute extends $dara.Model {
+  issueTimeInfo?: StandardSearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo;
   /**
-   * @remarks
-   * Issue ticket time related
-   */
-  issueTimeInfo?: SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo;
-  /**
-   * @remarks
-   * Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
-   * 
    * @example
    * 1
    */
@@ -469,7 +350,7 @@ export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
-      issueTimeInfo: SearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo,
+      issueTimeInfo: StandardSearchResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo,
       supplySourceType: 'string',
     };
   }
@@ -486,86 +367,48 @@ export class SearchResponseBodyDataSolutionListSolutionAttribute extends $dara.M
   }
 }
 
-export class SearchResponseBodyDataSolutionList extends $dara.Model {
+export class StandardSearchResponseBodyDataSolutionList extends $dara.Model {
   /**
-   * @remarks
-   * adult fare
-   * 
    * @example
-   * 600
+   * 300
    */
   adultPrice?: number;
   /**
-   * @remarks
-   * adult tax
-   * 
    * @example
-   * 11
+   * 30
    */
   adultTax?: number;
   /**
-   * @remarks
-   * child fare
-   * 
    * @example
-   * 500
+   * 200
    */
   childPrice?: number;
   /**
-   * @remarks
-   * child tax
-   * 
    * @example
-   * 10
+   * 20
    */
   childTax?: number;
   /**
-   * @remarks
-   * infant fare
-   * 
    * @example
-   * 400
+   * 100
    */
   infantPrice?: number;
   /**
-   * @remarks
-   * infant tax
-   * 
    * @example
-   * 9
+   * 10
    */
   infantTax?: number;
+  journeyList?: StandardSearchResponseBodyDataSolutionListJourneyList[];
+  segmentBaggageCheckInInfoList?: StandardSearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
+  segmentBaggageMappingList?: StandardSearchResponseBodyDataSolutionListSegmentBaggageMappingList[];
+  segmentRefundChangeRuleMappingList?: StandardSearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
+  solutionAttribute?: StandardSearchResponseBodyDataSolutionListSolutionAttribute;
   /**
    * @remarks
-   * segment list
-   */
-  journeyList?: SearchResponseBodyDataSolutionListJourneyList[];
-  /**
-   * @remarks
-   * through check-in baggage policy
-   */
-  segmentBaggageCheckInInfoList?: SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList[];
-  /**
-   * @remarks
-   * baggage rule
-   */
-  segmentBaggageMappingList?: SearchResponseBodyDataSolutionListSegmentBaggageMappingList[];
-  /**
-   * @remarks
-   * change and refund policy
-   */
-  segmentRefundChangeRuleMappingList?: SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList[];
-  /**
-   * @remarks
-   * Quotation attributes
-   */
-  solutionAttribute?: SearchResponseBodyDataSolutionListSolutionAttribute;
-  /**
-   * @remarks
-   * solution ID
+   * solution_id
    * 
    * @example
-   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   * eJwz8DeySEo0NjQ01TU3TUxxx
    */
   solutionId?: string;
   static names(): { [key: string]: string } {
@@ -593,11 +436,11 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
       childTax: 'number',
       infantPrice: 'number',
       infantTax: 'number',
-      journeyList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListJourneyList },
-      segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList },
-      segmentBaggageMappingList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentBaggageMappingList },
-      segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList },
-      solutionAttribute: SearchResponseBodyDataSolutionListSolutionAttribute,
+      journeyList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionListJourneyList },
+      segmentBaggageCheckInInfoList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionListSegmentBaggageCheckInInfoList },
+      segmentBaggageMappingList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionListSegmentBaggageMappingList },
+      segmentRefundChangeRuleMappingList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList },
+      solutionAttribute: StandardSearchResponseBodyDataSolutionListSolutionAttribute,
       solutionId: 'string',
     };
   }
@@ -626,12 +469,8 @@ export class SearchResponseBodyDataSolutionList extends $dara.Model {
   }
 }
 
-export class SearchResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * solution list
-   */
-  solutionList?: SearchResponseBodyDataSolutionList[];
+export class StandardSearchResponseBodyData extends $dara.Model {
+  solutionList?: StandardSearchResponseBodyDataSolutionList[];
   static names(): { [key: string]: string } {
     return {
       solutionList: 'solution_list',
@@ -640,7 +479,7 @@ export class SearchResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      solutionList: { 'type': 'array', 'itemType': SearchResponseBodyDataSolutionList },
+      solutionList: { 'type': 'array', 'itemType': StandardSearchResponseBodyDataSolutionList },
     };
   }
 
@@ -656,56 +495,34 @@ export class SearchResponseBodyData extends $dara.Model {
   }
 }
 
-export class SearchResponseBody extends $dara.Model {
+export class StandardSearchResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * request ID
-   * 
    * @example
-   * 2236993B-7BE7-5F92-B179-21FF08570165
+   * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  data?: StandardSearchResponseBodyData;
   /**
-   * @remarks
-   * data
-   */
-  data?: SearchResponseBodyData;
-  /**
-   * @remarks
-   * error code
-   * 
    * @example
-   * ""
+   * null
    */
   errorCode?: string;
   /**
-   * @remarks
-   * error data
-   * 
    * @example
-   * {}
+   * null
    */
   errorData?: any;
   /**
-   * @remarks
-   * error message
-   * 
    * @example
-   * ""
+   * null
    */
   errorMsg?: string;
   /**
-   * @remarks
-   * http request has been processed successfully，status code is 200
-   * 
    * @example
    * 200
    */
   status?: number;
   /**
-   * @remarks
-   * true represents success, false represents failure
-   * 
    * @example
    * true
    */
@@ -725,7 +542,7 @@ export class SearchResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      data: SearchResponseBodyData,
+      data: StandardSearchResponseBodyData,
       errorCode: 'string',
       errorData: 'any',
       errorMsg: 'string',

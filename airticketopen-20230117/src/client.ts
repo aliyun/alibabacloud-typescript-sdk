@@ -536,7 +536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-Detail
+   * Change-Detail
    * 
    * @param request - ChangeDetailRequest
    * @param headers - ChangeDetailHeaders
@@ -582,7 +582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 改签-Detail
+   * Change-Detail
    * 
    * @param request - ChangeDetailRequest
    * @returns ChangeDetailResponse
@@ -1265,7 +1265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade - Seat and Price Verification
+   * Transaction - Seat and Price Verification
    * 
    * @remarks
    * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
@@ -1314,7 +1314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Trade - Seat and Price Verification
+   * Transaction - Seat and Price Verification
    * 
    * @remarks
    * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
@@ -1329,10 +1329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-申请
-   * 
-   * @remarks
-   * Apply for a refund and generate a refund order.
+   * Ticket Refund - Application
    * 
    * @param tmpReq - RefundApplyRequest
    * @param headers - RefundApplyHeaders
@@ -1404,10 +1401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 退票-申请
-   * 
-   * @remarks
-   * Apply for a refund and generate a refund order.
+   * Ticket Refund - Application
    * 
    * @param request - RefundApplyRequest
    * @returns RefundApplyResponse
@@ -1420,9 +1414,6 @@ export default class Client extends OpenApi {
 
   /**
    * Refund - Detail
-   * 
-   * @remarks
-   * Query refund order detail.
    * 
    * @param request - RefundDetailRequest
    * @param headers - RefundDetailHeaders
@@ -1470,9 +1461,6 @@ export default class Client extends OpenApi {
   /**
    * Refund - Detail
    * 
-   * @remarks
-   * Query refund order detail.
-   * 
    * @param request - RefundDetailRequest
    * @returns RefundDetailResponse
    */
@@ -1484,9 +1472,6 @@ export default class Client extends OpenApi {
 
   /**
    * Refund - Detail List
-   * 
-   * @remarks
-   * Query refund order detail.
    * 
    * @param request - RefundDetailListRequest
    * @param headers - RefundDetailListHeaders
@@ -1550,9 +1535,6 @@ export default class Client extends OpenApi {
   /**
    * Refund - Detail List
    * 
-   * @remarks
-   * Query refund order detail.
-   * 
    * @param request - RefundDetailListRequest
    * @returns RefundDetailListResponse
    */
@@ -1563,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * search
+   * Search
    * 
    * @remarks
    * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
@@ -1642,7 +1624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * search
+   * Search
    * 
    * @remarks
    * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
@@ -1654,6 +1636,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.SearchHeaders({ });
     return await this.searchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 标准搜索
+   * 
+   * @param tmpReq - StandardSearchRequest
+   * @param headers - StandardSearchHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StandardSearchResponse
+   */
+  async standardSearchWithOptions(tmpReq: $_model.StandardSearchRequest, headers: $_model.StandardSearchHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.StandardSearchResponse> {
+    tmpReq.validate();
+    let request = new $_model.StandardSearchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.airLegs)) {
+      request.airLegsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.airLegs, "air_legs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchControlOptions)) {
+      request.searchControlOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchControlOptions, "search_control_options", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adults)) {
+      body["adults"] = request.adults;
+    }
+
+    if (!$dara.isNull(request.airLegsShrink)) {
+      body["air_legs"] = request.airLegsShrink;
+    }
+
+    if (!$dara.isNull(request.cabinClass)) {
+      body["cabin_class"] = request.cabinClass;
+    }
+
+    if (!$dara.isNull(request.children)) {
+      body["children"] = request.children;
+    }
+
+    if (!$dara.isNull(request.infants)) {
+      body["infants"] = request.infants;
+    }
+
+    if (!$dara.isNull(request.searchControlOptionsShrink)) {
+      body["search_control_options"] = request.searchControlOptionsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsAirticketAccessToken)) {
+      realHeaders["x-acs-airticket-access-token"] = String(headers.xAcsAirticketAccessToken);
+    }
+
+    if (!$dara.isNull(headers.xAcsAirticketLanguage)) {
+      realHeaders["x-acs-airticket-language"] = String(headers.xAcsAirticketLanguage);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StandardSearch",
+      version: "2023-01-17",
+      protocol: "HTTPS",
+      pathname: `/airticket/v1/trade/action-standardsearch`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StandardSearchResponse>(await this.callApi(params, req, runtime), new $_model.StandardSearchResponse({}));
+  }
+
+  /**
+   * 标准搜索
+   * 
+   * @param request - StandardSearchRequest
+   * @returns StandardSearchResponse
+   */
+  async standardSearch(request: $_model.StandardSearchRequest): Promise<$_model.StandardSearchResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.StandardSearchHeaders({ });
+    return await this.standardSearchWithOptions(request, headers, runtime);
   }
 
   /**

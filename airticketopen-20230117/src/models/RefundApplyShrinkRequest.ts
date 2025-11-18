@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundApplyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * order number
+   * Order number
    * 
    * This parameter is required.
    * 
@@ -15,21 +15,22 @@ export class RefundApplyShrinkRequest extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * journeys for which a refund is being requested
+   * Itinerary for which a refund is being requested
    * 
    * This parameter is required.
    */
   refundJourneysShrink?: string;
   /**
    * @remarks
-   * passengers that applying for a refund
+   * List of passengers applying for a refund
    * 
    * This parameter is required.
    */
   refundPassengerListShrink?: string;
   /**
    * @remarks
-   * refund type and attachments
+   * Refund type - involuntary or voluntary. 
+   * attachments are required for involuntary refund application.
    * 
    * This parameter is required.
    */

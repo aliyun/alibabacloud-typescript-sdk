@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $dara.Model {
   /**
    * @remarks
-   * credential number
+   * Document number
    * 
    * @example
    * 411***********4411
@@ -13,7 +13,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
   document?: string;
   /**
    * @remarks
-   * first name
+   * Passenger first name
    * 
    * @example
    * SAN
@@ -21,7 +21,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
   firstName?: string;
   /**
    * @remarks
-   * last name
+   * Passenger last name
    * 
    * @example
    * ZHANG
@@ -55,7 +55,7 @@ export class RefundApplyResponseBodyDataRefundResultsRefundPassengers extends $d
 export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   /**
    * @remarks
-   * reason for refund application failure
+   * Reason for refund application failure
    * 
    * @example
    * desc reason
@@ -63,7 +63,7 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * refund order number
+   * Refund order number
    * 
    * @example
    * 4966***617202
@@ -71,16 +71,12 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
   refundOrderNum?: number;
   /**
    * @remarks
-   * passengers of current refund order
+   * List of passengers for the refund order
    */
   refundPassengers?: RefundApplyResponseBodyDataRefundResultsRefundPassengers[];
   /**
    * @remarks
-   * refund order status 
-   * 
-   * 0: refund order created successfully
-   * 
-   * 1: refund order creation failed
+   * Refund order status 0: Refund order created successfully; 1: Refund order creation failed
    * 
    * @example
    * 0
@@ -119,7 +115,7 @@ export class RefundApplyResponseBodyDataRefundResults extends $dara.Model {
 export class RefundApplyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * order number
+   * Order number
    * 
    * @example
    * 4966***617111
@@ -127,7 +123,7 @@ export class RefundApplyResponseBodyData extends $dara.Model {
   orderNum?: number;
   /**
    * @remarks
-   * refund results
+   * List of refund application results
    */
   refundResults?: RefundApplyResponseBodyDataRefundResults[];
   static names(): { [key: string]: string } {
@@ -159,7 +155,7 @@ export class RefundApplyResponseBodyData extends $dara.Model {
 export class RefundApplyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * request ID
+   * Request RequestId
    * 
    * @example
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
@@ -167,7 +163,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * data
+   * Correctly processed return data
    */
   data?: RefundApplyResponseBodyData;
   /**
@@ -180,7 +176,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * error data
+   * Data carried in error handling
    * 
    * @example
    * null
@@ -188,7 +184,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorData?: any;
   /**
    * @remarks
-   * error message
+   * Error message
    * 
    * @example
    * null
@@ -196,7 +192,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * http reqeust has been processed successfully，status code is 200
+   * HTTP request successful, status value is always 200
    * 
    * @example
    * 200
@@ -204,7 +200,7 @@ export class RefundApplyResponseBody extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * true represents success, false represents failure
+   * Whether the request was successful
    * 
    * @example
    * true
