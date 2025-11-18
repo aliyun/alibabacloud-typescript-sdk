@@ -612,6 +612,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例RAG配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceConfigResponse
+   */
+  async modifyInstanceConfigWithOptions(request: $_model.ModifyInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      query["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceConfig",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceConfigResponse({}));
+  }
+
+  /**
+   * 修改实例RAG配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @returns ModifyInstanceConfigResponse
+   */
+  async modifyInstanceConfig(request: $_model.ModifyInstanceConfigRequest): Promise<$_model.ModifyInstanceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 修改服务白名单
    * 
    * @param request - ModifyInstanceIpWhitelistRequest

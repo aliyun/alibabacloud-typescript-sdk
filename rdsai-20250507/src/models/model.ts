@@ -44,6 +44,9 @@ export { ModifyInstanceAuthConfigRequest } from './ModifyInstanceAuthConfigReque
 export { ModifyInstanceAuthConfigShrinkRequest } from './ModifyInstanceAuthConfigShrinkRequest';
 export { ModifyInstanceAuthConfigResponseBody } from './ModifyInstanceAuthConfigResponseBody';
 export { ModifyInstanceAuthConfigResponse } from './ModifyInstanceAuthConfigResponse';
+export { ModifyInstanceConfigRequest } from './ModifyInstanceConfigRequest';
+export { ModifyInstanceConfigResponseBody } from './ModifyInstanceConfigResponseBody';
+export { ModifyInstanceConfigResponse } from './ModifyInstanceConfigResponse';
 export { ModifyInstanceIpWhitelistRequest } from './ModifyInstanceIpWhitelistRequest';
 export { ModifyInstanceIpWhitelistResponseBody } from './ModifyInstanceIpWhitelistResponseBody';
 export { ModifyInstanceIpWhitelistResponse } from './ModifyInstanceIpWhitelistResponse';

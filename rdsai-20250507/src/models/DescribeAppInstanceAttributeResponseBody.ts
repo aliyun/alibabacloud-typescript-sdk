@@ -18,6 +18,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * pgm-2ze49qv594vi****
    */
   DBInstanceName?: string;
+  eipStatus?: string;
   /**
    * @example
    * rdsai.supabase.basic
@@ -33,6 +34,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
    * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
+  natStatus?: string;
   /**
    * @example
    * 8.152. XXX.XXX:8000
@@ -73,9 +75,11 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       appName: 'AppName',
       appType: 'AppType',
       DBInstanceName: 'DBInstanceName',
+      eipStatus: 'EipStatus',
       instanceClass: 'InstanceClass',
       instanceMinorVersion: 'InstanceMinorVersion',
       instanceName: 'InstanceName',
+      natStatus: 'NatStatus',
       publicConnectionString: 'PublicConnectionString',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -91,9 +95,11 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       appName: 'string',
       appType: 'string',
       DBInstanceName: 'string',
+      eipStatus: 'string',
       instanceClass: 'string',
       instanceMinorVersion: 'string',
       instanceName: 'string',
+      natStatus: 'string',
       publicConnectionString: 'string',
       regionId: 'string',
       requestId: 'string',
