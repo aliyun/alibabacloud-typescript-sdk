@@ -6,6 +6,7 @@ import { JobReplicaStatus } from "./JobReplicaStatus";
 import { JobSpec } from "./JobSpec";
 import { JobSettings } from "./JobSettings";
 import { StatusTransitionItem } from "./StatusTransitionItem";
+import { PodNetworkInterface } from "./PodNetworkInterface";
 
 
 export class GetJobResponseBodyCodeSource extends $dara.Model {
@@ -119,6 +120,7 @@ export class GetJobResponseBodyDataSources extends $dara.Model {
 }
 
 export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
+  duration?: number;
   /**
    * @remarks
    * The time when the node was created (UTC).
@@ -151,6 +153,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
    * 10.0.1.3
    */
   ip?: string;
+  nodeName?: string;
   /**
    * @remarks
    * The ID of the node.
@@ -159,6 +162,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
    * Worker
    */
   podId?: string;
+  podIps?: PodNetworkInterface[];
   /**
    * @remarks
    * The UID of the node.
@@ -204,11 +208,14 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      duration: 'Duration',
       gmtCreateTime: 'GmtCreateTime',
       gmtFinishTime: 'GmtFinishTime',
       gmtStartTime: 'GmtStartTime',
       ip: 'Ip',
+      nodeName: 'NodeName',
       podId: 'PodId',
+      podIps: 'PodIps',
       podUid: 'PodUid',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -219,11 +226,14 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      duration: 'number',
       gmtCreateTime: 'string',
       gmtFinishTime: 'string',
       gmtStartTime: 'string',
       ip: 'string',
+      nodeName: 'string',
       podId: 'string',
+      podIps: { 'type': 'array', 'itemType': PodNetworkInterface },
       podUid: 'string',
       resourceType: 'string',
       status: 'string',
@@ -233,6 +243,9 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.podIps)) {
+      $dara.Model.validateArray(this.podIps);
+    }
     super.validate();
   }
 
@@ -242,6 +255,7 @@ export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
 }
 
 export class GetJobResponseBodyPods extends $dara.Model {
+  duration?: number;
   /**
    * @remarks
    * The time when the node was created (UTC).
@@ -279,6 +293,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
    * 10.0.1.2
    */
   ip?: string;
+  nodeName?: string;
   /**
    * @remarks
    * The node ID. It can be used in the GetPodLogs and GetPodEvents operations to obtain the detailed logs and events of the node.
@@ -287,6 +302,7 @@ export class GetJobResponseBodyPods extends $dara.Model {
    * Worker
    */
   podId?: string;
+  podIps?: PodNetworkInterface[];
   /**
    * @remarks
    * The UID of the node.
@@ -338,12 +354,15 @@ export class GetJobResponseBodyPods extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      duration: 'Duration',
       gmtCreateTime: 'GmtCreateTime',
       gmtFinishTime: 'GmtFinishTime',
       gmtStartTime: 'GmtStartTime',
       historyPods: 'HistoryPods',
       ip: 'Ip',
+      nodeName: 'NodeName',
       podId: 'PodId',
+      podIps: 'PodIps',
       podUid: 'PodUid',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -354,12 +373,15 @@ export class GetJobResponseBodyPods extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      duration: 'number',
       gmtCreateTime: 'string',
       gmtFinishTime: 'string',
       gmtStartTime: 'string',
       historyPods: { 'type': 'array', 'itemType': GetJobResponseBodyPodsHistoryPods },
       ip: 'string',
+      nodeName: 'string',
       podId: 'string',
+      podIps: { 'type': 'array', 'itemType': PodNetworkInterface },
       podUid: 'string',
       resourceType: 'string',
       status: 'string',
@@ -371,6 +393,9 @@ export class GetJobResponseBodyPods extends $dara.Model {
   validate() {
     if(Array.isArray(this.historyPods)) {
       $dara.Model.validateArray(this.historyPods);
+    }
+    if(Array.isArray(this.podIps)) {
+      $dara.Model.validateArray(this.podIps);
     }
     super.validate();
   }
