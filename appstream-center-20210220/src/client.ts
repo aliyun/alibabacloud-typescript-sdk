@@ -127,6 +127,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.areaSite)) {
+      query["AreaSite"] = request.areaSite;
+    }
+
     if (!$dara.isNull(request.authenticationCode)) {
       query["AuthenticationCode"] = request.authenticationCode;
     }

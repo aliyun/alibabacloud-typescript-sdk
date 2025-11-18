@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetLoginTokenShrinkRequest extends $dara.Model {
+  areaSite?: string;
   /**
    * @example
    * 182901
@@ -173,6 +174,7 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      areaSite: 'AreaSite',
       authenticationCode: 'AuthenticationCode',
       availableFeaturesShrink: 'AvailableFeatures',
       channel: 'Channel',
@@ -215,6 +217,7 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      areaSite: 'string',
       authenticationCode: 'string',
       availableFeaturesShrink: 'string',
       channel: 'string',
