@@ -61,8 +61,18 @@ export class CreateAgentRuntimeInput extends $dara.Model {
    * 
    * @example
    * cred-1234567890abcdef
+   * 
+   * @deprecated
    */
   credentialId?: string;
+  /**
+   * @remarks
+   * 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+   * 
+   * @example
+   * my-credential
+   */
+  credentialName?: string;
   /**
    * @remarks
    * 智能体运行时的描述信息，用于说明该运行时的用途和功能
@@ -165,6 +175,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       containerConfiguration: 'containerConfiguration',
       cpu: 'cpu',
       credentialId: 'credentialId',
+      credentialName: 'credentialName',
       description: 'description',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
@@ -187,6 +198,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       containerConfiguration: ContainerConfiguration,
       cpu: 'number',
       credentialId: 'string',
+      credentialName: 'string',
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',

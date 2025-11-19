@@ -10,11 +10,6 @@ export class UpdateMemoryRequest extends $dara.Model {
   longTtl?: number;
   /**
    * @example
-   * true
-   */
-  permanent?: boolean;
-  /**
-   * @example
    * 30
    */
   shortTtl?: number;
@@ -22,7 +17,6 @@ export class UpdateMemoryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       longTtl: 'longTtl',
-      permanent: 'permanent',
       shortTtl: 'shortTtl',
       strategy: 'strategy',
     };
@@ -31,7 +25,6 @@ export class UpdateMemoryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       longTtl: 'number',
-      permanent: 'boolean',
       shortTtl: 'number',
       strategy: { 'type': 'array', 'itemType': 'string' },
     };

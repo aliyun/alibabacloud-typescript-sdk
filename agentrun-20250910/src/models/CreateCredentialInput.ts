@@ -1,43 +1,55 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CredentialPublicConfig } from "./CredentialPublicConfig";
 
 
 export class CreateCredentialInput extends $dara.Model {
   /**
    * @remarks
-   * 凭证的配置参数，以键值对形式存储
-   * 
-   * @example
-   * api_endpoint=https://api.example.com,timeout=30
+   * This parameter is required.
    */
-  config?: { [key: string]: string };
+  credentialAuthType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  credentialName?: string;
+  credentialPublicConfig?: CredentialPublicConfig;
+  credentialSecret?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  credentialSourceType?: string;
   description?: string;
-  name?: string;
-  secret?: string;
-  type?: string;
+  enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      config: 'config',
+      credentialAuthType: 'credentialAuthType',
+      credentialName: 'credentialName',
+      credentialPublicConfig: 'credentialPublicConfig',
+      credentialSecret: 'credentialSecret',
+      credentialSourceType: 'credentialSourceType',
       description: 'description',
-      name: 'name',
-      secret: 'secret',
-      type: 'type',
+      enabled: 'enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      credentialAuthType: 'string',
+      credentialName: 'string',
+      credentialPublicConfig: CredentialPublicConfig,
+      credentialSecret: 'string',
+      credentialSourceType: 'string',
       description: 'string',
-      name: 'string',
-      secret: 'string',
-      type: 'string',
+      enabled: 'boolean',
     };
   }
 
   validate() {
-    if(this.config) {
-      $dara.Model.validateMap(this.config);
+    if(this.credentialPublicConfig && typeof (this.credentialPublicConfig as any).validate === 'function') {
+      (this.credentialPublicConfig as any).validate();
     }
     super.validate();
   }

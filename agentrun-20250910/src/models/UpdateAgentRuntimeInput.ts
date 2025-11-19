@@ -44,6 +44,14 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
    */
   cpu?: number;
   /**
+   * @remarks
+   * 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+   * 
+   * @example
+   * my-credential
+   */
+  credentialName?: string;
+  /**
    * @example
    * 更新后的智能体运行时描述
    */
@@ -129,6 +137,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       codeConfiguration: 'codeConfiguration',
       containerConfiguration: 'containerConfiguration',
       cpu: 'cpu',
+      credentialName: 'credentialName',
       description: 'description',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
@@ -150,6 +159,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       codeConfiguration: CodeConfiguration,
       containerConfiguration: ContainerConfiguration,
       cpu: 'number',
+      credentialName: 'string',
       description: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',

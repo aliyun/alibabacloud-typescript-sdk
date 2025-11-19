@@ -27,11 +27,20 @@ export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * 查询模式，支持精确查询和模糊查询
+   * 
+   * @example
+   * fuzzy
+   */
+  searchMode?: string;
   static names(): { [key: string]: string } {
     return {
       endpointName: 'endpointName',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      searchMode: 'searchMode',
     };
   }
 
@@ -40,6 +49,7 @@ export class ListAgentRuntimeEndpointsRequest extends $dara.Model {
       endpointName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      searchMode: 'string',
     };
   }
 

@@ -3,22 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RelatedWorkload extends $dara.Model {
-  workloadId?: string;
-  workloadName?: string;
-  workloadType?: string;
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      workloadId: 'workloadId',
-      workloadName: 'workloadName',
-      workloadType: 'workloadType',
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      workloadId: 'string',
-      workloadName: 'string',
-      workloadType: 'string',
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
     };
   }
 

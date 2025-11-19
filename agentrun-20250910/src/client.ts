@@ -232,10 +232,6 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
-    if (!$dara.isNull(request.permanent)) {
-      body["permanent"] = request.permanent;
-    }
-
     if (!$dara.isNull(request.shortTtl)) {
       body["shortTtl"] = request.shortTtl;
     }
@@ -849,6 +845,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.searchMode)) {
+      query["searchMode"] = request.searchMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -955,6 +955,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchMode)) {
+      query["searchMode"] = request.searchMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1123,16 +1127,16 @@ export default class Client extends OpenApi {
   async listMemoryWithOptions(request: $_model.ListMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoryResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.namePrefix)) {
-      query["namePrefix"] = request.namePrefix;
-    }
-
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
     if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pattern)) {
+      query["pattern"] = request.pattern;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1491,10 +1495,6 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.longTtl)) {
       body["longTtl"] = request.longTtl;
-    }
-
-    if (!$dara.isNull(request.permanent)) {
-      body["permanent"] = request.permanent;
     }
 
     if (!$dara.isNull(request.shortTtl)) {

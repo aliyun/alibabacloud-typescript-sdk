@@ -1,43 +1,34 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CredentialPublicConfig } from "./CredentialPublicConfig";
 
 
 export class UpdateCredentialInput extends $dara.Model {
-  /**
-   * @remarks
-   * 凭证的配置参数，以键值对形式存储
-   * 
-   * @example
-   * api_endpoint=https://api.example.com,timeout=30
-   */
-  config?: { [key: string]: string };
+  credentialPublicConfig?: CredentialPublicConfig;
+  credentialSecret?: string;
   description?: string;
-  name?: string;
-  secret?: string;
-  type?: string;
+  enabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      config: 'config',
+      credentialPublicConfig: 'credentialPublicConfig',
+      credentialSecret: 'credentialSecret',
       description: 'description',
-      name: 'name',
-      secret: 'secret',
-      type: 'type',
+      enabled: 'enabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      config: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      credentialPublicConfig: CredentialPublicConfig,
+      credentialSecret: 'string',
       description: 'string',
-      name: 'string',
-      secret: 'string',
-      type: 'string',
+      enabled: 'boolean',
     };
   }
 
   validate() {
-    if(this.config) {
-      $dara.Model.validateMap(this.config);
+    if(this.credentialPublicConfig && typeof (this.credentialPublicConfig as any).validate === 'function') {
+      (this.credentialPublicConfig as any).validate();
     }
     super.validate();
   }

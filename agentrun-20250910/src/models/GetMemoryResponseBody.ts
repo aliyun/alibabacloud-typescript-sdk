@@ -25,11 +25,6 @@ export class GetMemoryResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @example
-   * false
-   */
-  permanent?: boolean;
-  /**
-   * @example
    * 30
    */
   shortTtl?: number;
@@ -40,7 +35,6 @@ export class GetMemoryResponseBodyData extends $dara.Model {
       createTime: 'createTime',
       longTtl: 'longTtl',
       name: 'name',
-      permanent: 'permanent',
       shortTtl: 'shortTtl',
       strategy: 'strategy',
     };
@@ -52,7 +46,6 @@ export class GetMemoryResponseBodyData extends $dara.Model {
       createTime: 'number',
       longTtl: 'number',
       name: 'string',
-      permanent: 'boolean',
       shortTtl: 'number',
       strategy: { 'type': 'array', 'itemType': 'string' },
     };

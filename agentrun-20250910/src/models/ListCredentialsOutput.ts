@@ -4,14 +4,14 @@ import { CredentialListItem } from "./CredentialListItem";
 
 
 export class ListCredentialsOutput extends $dara.Model {
-  items?: CredentialListItem;
-  pageNum?: string;
+  items?: CredentialListItem[];
+  pageNumber?: string;
   pageSize?: string;
   total?: string;
   static names(): { [key: string]: string } {
     return {
       items: 'items',
-      pageNum: 'pageNum',
+      pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       total: 'total',
     };
@@ -19,16 +19,16 @@ export class ListCredentialsOutput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      items: CredentialListItem,
-      pageNum: 'string',
+      items: { 'type': 'array', 'itemType': CredentialListItem },
+      pageNumber: 'string',
       pageSize: 'string',
       total: 'string',
     };
   }
 
   validate() {
-    if(this.items && typeof (this.items as any).validate === 'function') {
-      (this.items as any).validate();
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
     }
     super.validate();
   }
