@@ -79,6 +79,7 @@ export class DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDet
 }
 
 export class DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources extends $dara.Model {
+  cloudResourceId?: string;
   details?: DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails[];
   /**
    * @example
@@ -107,6 +108,7 @@ export class DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources ex
   resourceProduct?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudResourceId: 'CloudResourceId',
       details: 'Details',
       reason: 'Reason',
       resourceInstanceId: 'ResourceInstanceId',
@@ -118,6 +120,7 @@ export class DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources ex
 
   static types(): { [key: string]: any } {
     return {
+      cloudResourceId: 'string',
       details: { 'type': 'array', 'itemType': DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails },
       reason: 'string',
       resourceInstanceId: 'string',

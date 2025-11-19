@@ -97,10 +97,10 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
    * @remarks
    * The port of the cloud service instance that is added to WAF.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 80
+   * 
+   * @deprecated
    */
   port?: number;
   /**
@@ -120,10 +120,10 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
    * @remarks
    * The ID of the cloud service instance that is added to WAF.
    * 
-   * This parameter is required.
-   * 
    * @example
    * lb-***
+   * 
+   * @deprecated
    */
   resourceInstanceId?: string;
   /**
@@ -135,10 +135,10 @@ export class ModifyCloudResourceRequestListen extends $dara.Model {
    * *   **ecs**: Elastic Compute Service (ECS).
    * *   **nlb**: Network Load Balancer (NLB).
    * 
-   * This parameter is required.
-   * 
    * @example
    * clb7
+   * 
+   * @deprecated
    */
   resourceProduct?: string;
   /**
@@ -365,6 +365,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
 }
 
 export class ModifyCloudResourceRequest extends $dara.Model {
+  cloudResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -412,6 +413,7 @@ export class ModifyCloudResourceRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudResourceId: 'CloudResourceId',
       instanceId: 'InstanceId',
       listen: 'Listen',
       redirect: 'Redirect',
@@ -422,6 +424,7 @@ export class ModifyCloudResourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudResourceId: 'string',
       instanceId: 'string',
       listen: ModifyCloudResourceRequestListen,
       redirect: ModifyCloudResourceRequestRedirect,

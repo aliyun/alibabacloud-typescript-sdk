@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteCloudResourceRequest extends $dara.Model {
+  cloudResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -19,10 +20,10 @@ export class DeleteCloudResourceRequest extends $dara.Model {
    * @remarks
    * The port of the resource that is added to WAF.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 443
+   * 
+   * @deprecated
    */
   port?: number;
   /**
@@ -42,10 +43,10 @@ export class DeleteCloudResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * lb-bp1*****jqnnqk5uj2p
+   * 
+   * @deprecated
    */
   resourceInstanceId?: string;
   /**
@@ -64,14 +65,15 @@ export class DeleteCloudResourceRequest extends $dara.Model {
    * *   **clb7**: Layer 7 CLB.
    * *   **ecs**: ECS.
    * 
-   * This parameter is required.
-   * 
    * @example
    * clb7
+   * 
+   * @deprecated
    */
   resourceProduct?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudResourceId: 'CloudResourceId',
       instanceId: 'InstanceId',
       port: 'Port',
       regionId: 'RegionId',
@@ -83,6 +85,7 @@ export class DeleteCloudResourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudResourceId: 'string',
       instanceId: 'string',
       port: 'number',
       regionId: 'string',

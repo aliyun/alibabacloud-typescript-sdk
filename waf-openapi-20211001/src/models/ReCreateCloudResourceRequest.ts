@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReCreateCloudResourceRequest extends $dara.Model {
+  cloudResourceId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -12,11 +13,10 @@ export class ReCreateCloudResourceRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 443
+   * 
+   * @deprecated
    */
   port?: number;
   /**
@@ -25,11 +25,10 @@ export class ReCreateCloudResourceRequest extends $dara.Model {
    */
   regionId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * lb-bp1*****jqnnqk5uj2p
+   * 
+   * @deprecated
    */
   resourceInstanceId?: string;
   /**
@@ -38,15 +37,15 @@ export class ReCreateCloudResourceRequest extends $dara.Model {
    */
   resourceManagerResourceGroupId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * clb7
+   * 
+   * @deprecated
    */
   resourceProduct?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudResourceId: 'CloudResourceId',
       instanceId: 'InstanceId',
       port: 'Port',
       regionId: 'RegionId',
@@ -58,6 +57,7 @@ export class ReCreateCloudResourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudResourceId: 'string',
       instanceId: 'string',
       port: 'number',
       regionId: 'string',

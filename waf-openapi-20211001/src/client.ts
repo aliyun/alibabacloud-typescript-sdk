@@ -1571,6 +1571,10 @@ export default class Client extends OpenApi {
   async deleteCloudResourceWithOptions(request: $_model.DeleteCloudResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudResourceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -11575,6 +11579,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -11635,6 +11643,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.certificates)) {
       query["Certificates"] = request.certificates;
+    }
+
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -13671,6 +13683,10 @@ export default class Client extends OpenApi {
   async reCreateCloudResourceWithOptions(request: $_model.ReCreateCloudResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReCreateCloudResourceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudResourceId)) {
+      query["CloudResourceId"] = request.cloudResourceId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

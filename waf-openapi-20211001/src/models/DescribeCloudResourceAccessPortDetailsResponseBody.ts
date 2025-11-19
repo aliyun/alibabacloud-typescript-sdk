@@ -160,6 +160,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    * 1
    */
   cipherSuite?: number;
+  cloudResourceId?: string;
   /**
    * @remarks
    * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
@@ -329,6 +330,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
     return {
       certificates: 'Certificates',
       cipherSuite: 'CipherSuite',
+      cloudResourceId: 'CloudResourceId',
       customCiphers: 'CustomCiphers',
       enableTLSv3: 'EnableTLSv3',
       http2Enabled: 'Http2Enabled',
@@ -355,6 +357,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
     return {
       certificates: { 'type': 'array', 'itemType': DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates },
       cipherSuite: 'number',
+      cloudResourceId: 'string',
       customCiphers: { 'type': 'array', 'itemType': 'string' },
       enableTLSv3: 'boolean',
       http2Enabled: 'boolean',

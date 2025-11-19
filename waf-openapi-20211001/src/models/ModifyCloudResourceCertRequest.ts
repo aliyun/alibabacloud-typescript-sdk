@@ -48,6 +48,7 @@ export class ModifyCloudResourceCertRequest extends $dara.Model {
    * This parameter is required.
    */
   certificates?: ModifyCloudResourceCertRequestCertificates[];
+  cloudResourceId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -57,11 +58,10 @@ export class ModifyCloudResourceCertRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 443
+   * 
+   * @deprecated
    */
   port?: number;
   /**
@@ -73,24 +73,23 @@ export class ModifyCloudResourceCertRequest extends $dara.Model {
    */
   regionId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * lb-bp1*****jqnnqk5uj2p
+   * 
+   * @deprecated
    */
   resourceInstanceId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * clb4
+   * 
+   * @deprecated
    */
   resourceProduct?: string;
   static names(): { [key: string]: string } {
     return {
       certificates: 'Certificates',
+      cloudResourceId: 'CloudResourceId',
       instanceId: 'InstanceId',
       port: 'Port',
       regionId: 'RegionId',
@@ -102,6 +101,7 @@ export class ModifyCloudResourceCertRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       certificates: { 'type': 'array', 'itemType': ModifyCloudResourceCertRequestCertificates },
+      cloudResourceId: 'string',
       instanceId: 'string',
       port: 'number',
       regionId: 'string',

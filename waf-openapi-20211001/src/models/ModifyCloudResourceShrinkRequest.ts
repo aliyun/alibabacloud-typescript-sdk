@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCloudResourceShrinkRequest extends $dara.Model {
+  cloudResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
@@ -50,6 +51,7 @@ export class ModifyCloudResourceShrinkRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudResourceId: 'CloudResourceId',
       instanceId: 'InstanceId',
       listenShrink: 'Listen',
       redirectShrink: 'Redirect',
@@ -60,6 +62,7 @@ export class ModifyCloudResourceShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudResourceId: 'string',
       instanceId: 'string',
       listenShrink: 'string',
       redirectShrink: 'string',
