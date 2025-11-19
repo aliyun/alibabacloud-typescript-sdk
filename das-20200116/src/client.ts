@@ -769,6 +769,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用户跨产品白名单模板
+   * 
+   * @param request - CreateSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityIPGroupResponse
+   */
+  async createSecurityIPGroupWithOptions(request: $_model.CreateSecurityIPGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityIPGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.GIpList)) {
+      query["GIpList"] = request.GIpList;
+    }
+
+    if (!$dara.isNull(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityIPGroup",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityIPGroupResponse({}));
+  }
+
+  /**
+   * 创建用户跨产品白名单模板
+   * 
+   * @param request - CreateSecurityIPGroupRequest
+   * @returns CreateSecurityIPGroupResponse
+   */
+  async createSecurityIPGroup(request: $_model.CreateSecurityIPGroupRequest): Promise<$_model.CreateSecurityIPGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
    * 
    * @remarks
@@ -964,6 +1014,52 @@ export default class Client extends OpenApi {
   async deleteCloudBenchTask(request: $_model.DeleteCloudBenchTaskRequest): Promise<$_model.DeleteCloudBenchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudBenchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除用户跨产品白名单模板
+   * 
+   * @param request - DeleteSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityIPGroupResponse
+   */
+  async deleteSecurityIPGroupWithOptions(request: $_model.DeleteSecurityIPGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityIPGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityIPGroup",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityIPGroupResponse({}));
+  }
+
+  /**
+   * 删除用户跨产品白名单模板
+   * 
+   * @param request - DeleteSecurityIPGroupRequest
+   * @returns DeleteSecurityIPGroupResponse
+   */
+  async deleteSecurityIPGroup(request: $_model.DeleteSecurityIPGroupRequest): Promise<$_model.DeleteSecurityIPGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityIPGroupWithOptions(request, runtime);
   }
 
   /**
@@ -1800,6 +1896,94 @@ export default class Client extends OpenApi {
   async describeQueryExplain(request: $_model.DescribeQueryExplainRequest): Promise<$_model.DescribeQueryExplainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeQueryExplainWithOptions(request, runtime);
+  }
+
+  /**
+   * 展示用户跨产品白名单模板具体信息
+   * 
+   * @param request - DescribeSecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityIPGroupResponse
+   */
+  async describeSecurityIPGroupWithOptions(request: $_model.DescribeSecurityIPGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityIPGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityIPGroup",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSecurityIPGroupResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSecurityIPGroupResponse({}));
+  }
+
+  /**
+   * 展示用户跨产品白名单模板具体信息
+   * 
+   * @param request - DescribeSecurityIPGroupRequest
+   * @returns DescribeSecurityIPGroupResponse
+   */
+  async describeSecurityIPGroup(request: $_model.DescribeSecurityIPGroupRequest): Promise<$_model.DescribeSecurityIPGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 展示用户跨产品白名单模板与实例绑定信息
+   * 
+   * @param request - DescribeSecurityIPGroupRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityIPGroupRelationResponse
+   */
+  async describeSecurityIPGroupRelationWithOptions(request: $_model.DescribeSecurityIPGroupRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSecurityIPGroupRelationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSecurityIPGroupRelation",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSecurityIPGroupRelationResponse({}));
+  }
+
+  /**
+   * 展示用户跨产品白名单模板与实例绑定信息
+   * 
+   * @param request - DescribeSecurityIPGroupRelationRequest
+   * @returns DescribeSecurityIPGroupRelationResponse
+   */
+  async describeSecurityIPGroupRelation(request: $_model.DescribeSecurityIPGroupRelationRequest): Promise<$_model.DescribeSecurityIPGroupRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   /**
@@ -6892,6 +7076,110 @@ export default class Client extends OpenApi {
   async modifyAutoScalingConfig(request: $_model.ModifyAutoScalingConfigRequest): Promise<$_model.ModifyAutoScalingConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改用户跨产品白名单模板
+   * 
+   * @param request - ModifySecurityIPGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityIPGroupResponse
+   */
+  async modifySecurityIPGroupWithOptions(request: $_model.ModifySecurityIPGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityIPGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.GIpList)) {
+      query["GIpList"] = request.GIpList;
+    }
+
+    if (!$dara.isNull(request.globalIgName)) {
+      query["GlobalIgName"] = request.globalIgName;
+    }
+
+    if (!$dara.isNull(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySecurityIPGroup",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySecurityIPGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecurityIPGroupResponse({}));
+  }
+
+  /**
+   * 修改用户跨产品白名单模板
+   * 
+   * @param request - ModifySecurityIPGroupRequest
+   * @returns ModifySecurityIPGroupResponse
+   */
+  async modifySecurityIPGroup(request: $_model.ModifySecurityIPGroupRequest): Promise<$_model.ModifySecurityIPGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 绑定/解绑用户跨产品白名单模板
+   * 
+   * @param request - ModifySecurityIPGroupRelationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityIPGroupRelationResponse
+   */
+  async modifySecurityIPGroupRelationWithOptions(request: $_model.ModifySecurityIPGroupRelationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityIPGroupRelationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.globalSecurityGroupId)) {
+      query["GlobalSecurityGroupId"] = request.globalSecurityGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionName)) {
+      query["RegionName"] = request.regionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySecurityIPGroupRelation",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySecurityIPGroupRelationResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecurityIPGroupRelationResponse({}));
+  }
+
+  /**
+   * 绑定/解绑用户跨产品白名单模板
+   * 
+   * @param request - ModifySecurityIPGroupRelationRequest
+   * @returns ModifySecurityIPGroupRelationResponse
+   */
+  async modifySecurityIPGroupRelation(request: $_model.ModifySecurityIPGroupRelationRequest): Promise<$_model.ModifySecurityIPGroupRelationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySecurityIPGroupRelationWithOptions(request, runtime);
   }
 
   /**
