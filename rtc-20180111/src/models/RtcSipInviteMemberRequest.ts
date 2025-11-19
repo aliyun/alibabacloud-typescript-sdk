@@ -90,6 +90,11 @@ export class RtcSipInviteMemberRequest extends $dara.Model {
    */
   sipUserPassword?: string;
   /**
+   * @example
+   * taskId
+   */
+  taskId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -112,6 +117,7 @@ export class RtcSipInviteMemberRequest extends $dara.Model {
       sipUserAgent: 'SipUserAgent',
       sipUserId: 'SipUserId',
       sipUserPassword: 'SipUserPassword',
+      taskId: 'TaskId',
       uid: 'Uid',
     };
   }
@@ -131,6 +137,7 @@ export class RtcSipInviteMemberRequest extends $dara.Model {
       sipUserAgent: 'string',
       sipUserId: 'string',
       sipUserPassword: 'string',
+      taskId: 'string',
       uid: 'string',
     };
   }

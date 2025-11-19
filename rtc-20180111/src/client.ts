@@ -5827,6 +5827,10 @@ export default class Client extends OpenApi {
       query["SipUserPassword"] = request.sipUserPassword;
     }
 
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     if (!$dara.isNull(request.uid)) {
       query["Uid"] = request.uid;
     }
