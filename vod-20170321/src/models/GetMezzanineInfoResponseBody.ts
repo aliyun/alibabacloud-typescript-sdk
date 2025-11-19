@@ -475,6 +475,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
    * 42.4930
    */
   duration?: string;
+  fileMD5?: string;
   /**
    * @remarks
    * The name of the file.
@@ -614,6 +615,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
       bitrate: 'Bitrate',
       creationTime: 'CreationTime',
       duration: 'Duration',
+      fileMD5: 'FileMD5',
       fileName: 'FileName',
       fileURL: 'FileURL',
       fps: 'Fps',
@@ -637,6 +639,7 @@ export class GetMezzanineInfoResponseBodyMezzanine extends $dara.Model {
       bitrate: 'string',
       creationTime: 'string',
       duration: 'string',
+      fileMD5: 'string',
       fileName: 'string',
       fileURL: 'string',
       fps: 'string',

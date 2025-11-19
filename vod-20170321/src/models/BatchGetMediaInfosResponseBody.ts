@@ -710,6 +710,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
    * 42.4930
    */
   duration?: string;
+  fileMD5?: string;
   /**
    * @remarks
    * The name of the file.
@@ -790,6 +791,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
       bitrate: 'Bitrate',
       creationTime: 'CreationTime',
       duration: 'Duration',
+      fileMD5: 'FileMD5',
       fileName: 'FileName',
       fileURL: 'FileURL',
       fps: 'Fps',
@@ -808,6 +810,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo extends $dara
       bitrate: 'string',
       creationTime: 'string',
       duration: 'string',
+      fileMD5: 'string',
       fileName: 'string',
       fileURL: 'string',
       fps: 'string',
