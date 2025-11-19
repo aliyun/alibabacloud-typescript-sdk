@@ -6719,6 +6719,11 @@ export default class Client extends OpenApi {
    */
   async startUserAppAsyncEnhanceInMsaWithOptions(request: $_model.StartUserAppAsyncEnhanceInMsaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartUserAppAsyncEnhanceInMsaResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.newShieldConfig)) {
+      query["NewShieldConfig"] = request.newShieldConfig;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.apkProtector)) {
       body["ApkProtector"] = request.apkProtector;
@@ -6796,11 +6801,16 @@ export default class Client extends OpenApi {
       body["UseAShield"] = request.useAShield;
     }
 
+    if (!$dara.isNull(request.useYShield)) {
+      body["UseYShield"] = request.useYShield;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -7350,6 +7360,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tenantId)) {
       body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.useYShield)) {
+      body["UseYShield"] = request.useYShield;
     }
 
     if (!$dara.isNull(request.workspaceId)) {

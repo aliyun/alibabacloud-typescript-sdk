@@ -22,6 +22,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
   memoryDump?: number;
   nativeDebugger?: number;
   nativeHook?: number;
+  newShieldConfig?: string;
   packageTampered?: number;
   root?: number;
   runMode?: string;
@@ -34,6 +35,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
   tenantId?: string;
   totalSwitch?: boolean;
   useAShield?: boolean;
+  useYShield?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -52,6 +54,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
       memoryDump: 'MemoryDump',
       nativeDebugger: 'NativeDebugger',
       nativeHook: 'NativeHook',
+      newShieldConfig: 'NewShieldConfig',
       packageTampered: 'PackageTampered',
       root: 'Root',
       runMode: 'RunMode',
@@ -60,6 +63,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
       tenantId: 'TenantId',
       totalSwitch: 'TotalSwitch',
       useAShield: 'UseAShield',
+      useYShield: 'UseYShield',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -77,6 +81,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
       memoryDump: 'number',
       nativeDebugger: 'number',
       nativeHook: 'number',
+      newShieldConfig: 'string',
       packageTampered: 'number',
       root: 'number',
       runMode: 'string',
@@ -85,6 +90,7 @@ export class StartUserAppAsyncEnhanceInMsaRequest extends $dara.Model {
       tenantId: 'string',
       totalSwitch: 'boolean',
       useAShield: 'boolean',
+      useYShield: 'boolean',
       workspaceId: 'string',
     };
   }

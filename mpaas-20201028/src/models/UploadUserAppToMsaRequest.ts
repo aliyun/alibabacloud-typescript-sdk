@@ -15,6 +15,7 @@ export class UploadUserAppToMsaRequest extends $dara.Model {
    * This parameter is required.
    */
   tenantId?: string;
+  useYShield?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -26,6 +27,7 @@ export class UploadUserAppToMsaRequest extends $dara.Model {
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       tenantId: 'TenantId',
+      useYShield: 'UseYShield',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -36,6 +38,7 @@ export class UploadUserAppToMsaRequest extends $dara.Model {
       fileName: 'string',
       fileUrl: 'string',
       tenantId: 'string',
+      useYShield: 'boolean',
       workspaceId: 'string',
     };
   }
