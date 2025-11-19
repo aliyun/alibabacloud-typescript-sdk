@@ -209,6 +209,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
    * e01-cn-2r42tmj4z02
    */
   nodeId?: string;
+  nodeType?: string;
   /**
    * @remarks
    * The node status.
@@ -294,6 +295,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
       nodeId: 'NodeId',
+      nodeType: 'NodeType',
       operatingState: 'OperatingState',
       sn: 'Sn',
       tags: 'Tags',
@@ -320,6 +322,7 @@ export class ListClusterNodesResponseBodyNodes extends $dara.Model {
       nodeGroupId: 'string',
       nodeGroupName: 'string',
       nodeId: 'string',
+      nodeType: 'string',
       operatingState: 'string',
       sn: 'string',
       tags: { 'type': 'array', 'itemType': ListClusterNodesResponseBodyNodesTags },
