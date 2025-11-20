@@ -6,25 +6,49 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 
 
 export class CreateConsumerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of AK/SK identity configurations.
+   */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
+  /**
+   * @remarks
+   * The configuration for the API key authentication method.
+   */
   apikeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
+   * @remarks
+   * The description of the consumer.
+   * 
    * @example
    * consumer for test
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates if enabled.
+   * 
    * @example
    * false
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The type of the gateway.
+   * 
    * @example
    * API
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The configuration of the JWT identity.
+   */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
+   * @remarks
+   * The name of the consumer.
+   * 
    * @example
    * test
    */

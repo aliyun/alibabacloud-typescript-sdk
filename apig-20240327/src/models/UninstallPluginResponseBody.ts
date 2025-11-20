@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UninstallPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F61D96E8-4E6D-5896-86E7-F1202AC31280

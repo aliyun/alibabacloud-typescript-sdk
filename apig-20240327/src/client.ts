@@ -185,7 +185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAndAttachPolicy
+   * Creates and associates a policy.
    * 
    * @param request - CreateAndAttachPolicyRequest
    * @param headers - map
@@ -246,7 +246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateAndAttachPolicy
+   * Creates and associates a policy.
    * 
    * @param request - CreateAndAttachPolicyRequest
    * @returns CreateAndAttachPolicyResponse
@@ -258,7 +258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消费者
+   * Creates a consumer.
    * 
    * @param request - CreateConsumerRequest
    * @param headers - map
@@ -315,7 +315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消费者
+   * Creates a consumer.
    * 
    * @param request - CreateConsumerRequest
    * @returns CreateConsumerResponse
@@ -327,7 +327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消费者授权规则
+   * Creates a consumer authorization rule.
    * 
    * @param request - CreateConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -376,7 +376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消费者授权规则
+   * Creates a consumer authorization rule.
    * 
    * @param request - CreateConsumerAuthorizationRuleRequest
    * @returns CreateConsumerAuthorizationRuleResponse
@@ -604,7 +604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云原生网关
+   * Creates a cloud-native gateway.
    * 
    * @param request - CreateGatewayRequest
    * @param headers - map
@@ -677,7 +677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建云原生网关
+   * Creates a cloud-native gateway.
    * 
    * @param request - CreateGatewayRequest
    * @returns CreateGatewayResponse
@@ -912,7 +912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建MCP server
+   * Creates an MCP server.
    * 
    * @param request - CreateMcpServerRequest
    * @param headers - map
@@ -989,7 +989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建MCP server
+   * Creates an MCP server.
    * 
    * @param request - CreateMcpServerRequest
    * @returns CreateMcpServerResponse
@@ -1001,7 +1001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API
+   * Attaches a plug-in.
    * 
    * @param request - CreatePluginAttachmentRequest
    * @param headers - map
@@ -1058,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API
+   * Attaches a plug-in.
    * 
    * @param request - CreatePluginAttachmentRequest
    * @returns CreatePluginAttachmentResponse
@@ -1251,7 +1251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消费者
+   * Deletes a consumer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1276,7 +1276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消费者
+   * Deletes a consumer.
    * @returns DeleteConsumerResponse
    */
   async deleteConsumer(consumerId: string): Promise<$_model.DeleteConsumerResponse> {
@@ -1286,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消费者授权规则
+   * Deletes a consumer authorization rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1311,7 +1311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消费者授权规则
+   * Deletes a consumer authorization rule.
    * @returns DeleteConsumerAuthorizationRuleResponse
    */
   async deleteConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.DeleteConsumerAuthorizationRuleResponse> {
@@ -1616,7 +1616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除挂载规则API
+   * Deletes a plug-in attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1641,7 +1641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除挂载规则API
+   * Deletes a plug-in attachment.
    * @returns DeletePluginAttachmentResponse
    */
   async deletePluginAttachment(pluginAttachmentId: string): Promise<$_model.DeletePluginAttachmentResponse> {
@@ -1721,7 +1721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务
+   * Deletes a service.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1746,7 +1746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务
+   * Deletes a service.
    * @returns DeleteServiceResponse
    */
   async deleteService(serviceId: string): Promise<$_model.DeleteServiceResponse> {
@@ -1809,7 +1809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布MCP server
+   * Deploys an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1834,7 +1834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布MCP server
+   * Deploys an MCP server.
    * @returns DeployMcpServerResponse
    */
   async deployMcpServer(mcpServerId: string): Promise<$_model.DeployMcpServerResponse> {
@@ -1879,7 +1879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者
+   * Obtains the information of a consumer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1904,7 +1904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者
+   * Obtains the information of a consumer.
    * @returns GetConsumerResponse
    */
   async getConsumer(consumerId: string): Promise<$_model.GetConsumerResponse> {
@@ -1914,7 +1914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者授权规则
+   * Obtains a consumer authentication rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1939,7 +1939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者授权规则
+   * Obtains a consumer authentication rule.
    * @returns GetConsumerAuthorizationRuleResponse
    */
   async getConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.GetConsumerAuthorizationRuleResponse> {
@@ -2271,7 +2271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP server
+   * Queries the detailed information of an MCP server.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,7 +2299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP server
+   * Queries the detailed information of an MCP server.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * @returns GetMcpServerResponse
    */
   async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
@@ -2306,7 +2312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetPluginAttachment。
+   * Queries a plug-in attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2331,7 +2337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetPluginAttachment。
+   * Queries a plug-in attachment.
    * @returns GetPluginAttachmentResponse
    */
   async getPluginAttachment(pluginAttachmentId: string): Promise<$_model.GetPluginAttachmentResponse> {
@@ -2629,7 +2635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * InstallPlugin
+   * Installs a plug-in.
    * 
    * @param request - InstallPluginRequest
    * @param headers - map
@@ -2666,7 +2672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * InstallPlugin
+   * Installs a plug-in.
    * 
    * @param request - InstallPluginRequest
    * @returns InstallPluginResponse
@@ -2678,7 +2684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者列表
+   * Queries a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @param headers - map
@@ -2723,7 +2729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者列表
+   * Queries a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @returns ListConsumersResponse
@@ -2875,6 +2881,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEnvironmentsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取Gateway的Features
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayFeaturesResponse
+   */
+  async listGatewayFeaturesWithOptions(gatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayFeaturesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayFeatures",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/gateway-features`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayFeaturesResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayFeaturesResponse({}));
+  }
+
+  /**
+   * 获取Gateway的Features
+   * @returns ListGatewayFeaturesResponse
+   */
+  async listGatewayFeatures(gatewayId: string): Promise<$_model.ListGatewayFeaturesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
   }
 
   /**
@@ -3256,7 +3297,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP server列表
+   * Retrieves a list of MCP servers.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListMcpServersRequest
    * @param headers - map
@@ -3313,7 +3357,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP server列表
+   * Retrieves a list of MCP servers.
+   * 
+   * @remarks
+   * You can call this operation to create multiple services at a time.
    * 
    * @param request - ListMcpServersRequest
    * @returns ListMcpServersResponse
@@ -3325,7 +3372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取挂载列表
+   * Retrieves a list of plug-in attachments.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -3390,7 +3437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取挂载列表
+   * Retrieves a list of plug-in attachments.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -3402,7 +3449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPlugins
+   * Queries plug-ins.
    * 
    * @param request - ListPluginsRequest
    * @param headers - map
@@ -3471,7 +3518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPlugins
+   * Queries plug-ins.
    * 
    * @param request - ListPluginsRequest
    * @returns ListPluginsResponse
@@ -3483,7 +3530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPolicies
+   * Queries policies.
    * 
    * @param request - ListPoliciesRequest
    * @param headers - map
@@ -3536,7 +3583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListPolicies
+   * Queries policies.
    * 
    * @param request - ListPoliciesRequest
    * @returns ListPoliciesResponse
@@ -3933,7 +3980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消发布MCP server
+   * Undeploys an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3958,7 +4005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消发布MCP server
+   * Undeploys an MCP server.
    * @returns UnDeployMcpServerResponse
    */
   async unDeployMcpServer(mcpServerId: string): Promise<$_model.UnDeployMcpServerResponse> {
@@ -4025,7 +4072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UninstallPlugin
+   * Uninstalls a plug-in.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4050,7 +4097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UninstallPlugin
+   * Uninstalls a plug-in.
    * @returns UninstallPluginResponse
    */
   async uninstallPlugin(pluginId: string): Promise<$_model.UninstallPluginResponse> {
@@ -4060,7 +4107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateAndAttachPolicy
+   * Updates and associates a policy.
    * 
    * @param request - UpdateAndAttachPolicyRequest
    * @param headers - map
@@ -4117,7 +4164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateAndAttachPolicy
+   * Updates and associates a policy.
    * 
    * @param request - UpdateAndAttachPolicyRequest
    * @returns UpdateAndAttachPolicyResponse
@@ -4129,7 +4176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者
+   * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @param headers - map
@@ -4178,7 +4225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者
+   * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
    * @returns UpdateConsumerResponse
@@ -4190,7 +4237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者授权规则
+   * Updates a consumer authorization rule.
    * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -4231,7 +4278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消费者授权规则
+   * Updates a consumer authorization rule.
    * 
    * @param request - UpdateConsumerAuthorizationRuleRequest
    * @returns UpdateConsumerAuthorizationRuleResponse
@@ -4679,7 +4726,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新MCP server
+   * Updates an MCP server.
+   * 
+   * @remarks
+   * You can only update the listening Ingress configuration for sources of the **ACK** type.
    * 
    * @param request - UpdateMcpServerRequest
    * @param headers - map
@@ -4748,7 +4798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新MCP server
+   * Updates an MCP server.
+   * 
+   * @remarks
+   * You can only update the listening Ingress configuration for sources of the **ACK** type.
    * 
    * @param request - UpdateMcpServerRequest
    * @returns UpdateMcpServerResponse
@@ -4760,7 +4813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新挂载规则API
+   * Updates a plug-in attachment.
    * 
    * @param request - UpdatePluginAttachmentRequest
    * @param headers - map
@@ -4801,7 +4854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新挂载规则API
+   * Updates a plug-in attachment.
    * 
    * @param request - UpdatePluginAttachmentRequest
    * @returns UpdatePluginAttachmentResponse

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConsumerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-cvnjramm1hks1r3fmmug
    */
@@ -31,19 +34,29 @@ export class CreateConsumerResponseBodyData extends $dara.Model {
 
 export class CreateConsumerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: CreateConsumerResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 479AE38F-A574-52F7-87EA-E91199999F9E

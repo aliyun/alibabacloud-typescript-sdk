@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallPluginResponseBodyDataInstallPluginResults extends $dara.Model {
   /**
+   * @remarks
+   * The gateway ID.
+   * 
    * @example
    * gw-d28mjcmm1hkub84mdbi0
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The plug-in ID.
+   * 
    * @example
    * pl-cvs7gbum1hkhs6us6vbg
    */
@@ -37,6 +43,10 @@ export class InstallPluginResponseBodyDataInstallPluginResults extends $dara.Mod
 }
 
 export class InstallPluginResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The installation result.
+   */
   installPluginResults?: InstallPluginResponseBodyDataInstallPluginResults[];
   static names(): { [key: string]: string } {
     return {
@@ -64,19 +74,29 @@ export class InstallPluginResponseBodyData extends $dara.Model {
 
 export class InstallPluginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: InstallPluginResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 201CFCA0-3AF5-52D0-A0F3-FBA697AF55CB

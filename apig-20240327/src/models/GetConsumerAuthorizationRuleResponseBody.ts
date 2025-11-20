@@ -6,58 +6,97 @@ import { GatewayInfo } from "./GatewayInfo";
 
 
 export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The API information.
+   */
   apiInfo?: HttpApiApiInfo;
   /**
+   * @remarks
+   * Filters the list of operations by a specific consumer authorization rule ID. Only authorized operations are returned in the response.
+   * 
    * @example
    * car-ctgdn8em1hko5krqq03g
    */
   consumerAuthorizationRuleId?: string;
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-ctgdn2um1hkossul8gvg
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The creation timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1750852089975
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The publishing status of the API in the current environment.
+   * 
    * @example
    * ""
    */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The environment information.
+   */
   environmentInfo?: EnvironmentInfo;
   /**
+   * @remarks
+   * The expiry mode. Valid values: LongTerm and ShortTerm.
+   * 
    * @example
    * LongTerm
    */
   expireMode?: string;
   /**
+   * @remarks
+   * The rule status.
+   * 
    * @example
    * true
    */
   expireStatus?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1750852089975
    */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The gateway information.
+   */
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 53102737-1E4E-5A8B-8E0A-4184B0959B84
    */
   requestId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * API
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The update timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1750852089975
    */

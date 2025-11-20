@@ -6,17 +6,24 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * MCP Server ID
+   * The MCP server ID.
    * 
    * @example
    * mcp-afaefaefaf
    */
   mcpServerId?: string;
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * test-mcp
    */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * The MCP tools.
+   */
   tools?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -48,26 +55,45 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
 
 export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   /**
+   * @remarks
+   * The service port (omit for dynamic ports).
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * The service protocol. Valid values:
+   * 
+   * *   TCP
+   * *   HTTP
+   * *   DUBBO
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * svc-cr6pk4tlhtgm58e***
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The service version.
+   * 
    * @example
    * v1
    */
   version?: string;
   /**
+   * @remarks
+   * The traffic weight percentage.
+   * 
    * @example
    * 49
    */
@@ -103,10 +129,17 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
 
 export class UpdateMcpServerRequestBackendConfig extends $dara.Model {
   /**
+   * @remarks
+   * The backend service scenario.
+   * 
    * @example
    * SingleService
    */
   scene?: string;
+  /**
+   * @remarks
+   * The backend services.
+   */
   services?: UpdateMcpServerRequestBackendConfigServices[];
   static names(): { [key: string]: string } {
     return {
@@ -135,24 +168,56 @@ export class UpdateMcpServerRequestBackendConfig extends $dara.Model {
 }
 
 export class UpdateMcpServerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+   */
   assembledSources?: UpdateMcpServerRequestAssembledSources[];
+  /**
+   * @remarks
+   * The backend service configurations for the route.
+   */
   backendConfig?: UpdateMcpServerRequestBackendConfig;
+  /**
+   * @remarks
+   * Specifies the type of source for MCP server creation.
+   */
   createFromType?: string;
+  /**
+   * @remarks
+   * The description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The domain IDs.
+   */
   domainIds?: string[];
   /**
+   * @remarks
+   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
+   * 
    * @example
    * /sse
    */
   exposedUriPath?: string;
+  /**
+   * @remarks
+   * The route match rule.
+   */
   match?: HttpRouteMatch;
   /**
+   * @remarks
+   * Specifies if MCP observability is enabled. Default value: false.
+   * 
    * @example
    * false
    */
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
+   * The service protocol. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -161,6 +226,8 @@ export class UpdateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
+   * The MCP server type. Valid values: RealMCP and AssemblyMCP.
+   * 
    * This parameter is required.
    * 
    * @example

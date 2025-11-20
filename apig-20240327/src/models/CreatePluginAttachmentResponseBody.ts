@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePluginAttachmentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The plug-in ID.
+   * 
    * @example
    * pa-cvs7jpmm1hkgihaqv4a0
    */
@@ -31,19 +34,29 @@ export class CreatePluginAttachmentResponseBodyData extends $dara.Model {
 
 export class CreatePluginAttachmentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreatePluginAttachmentResponseBodyData;
   /**
+   * @remarks
+   * The response message returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EBCB8485-24F9-54CD-B258-CB15FDB27677

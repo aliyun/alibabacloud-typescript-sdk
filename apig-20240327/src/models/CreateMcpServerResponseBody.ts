@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMcpServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * MCP Server ID
+   * The ID of the MCP server.
    * 
    * @example
    * mcp-afegaijoijaoji24a
    */
   mcpServerId?: string;
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * test-mcp
    */
@@ -41,19 +44,29 @@ export class CreateMcpServerResponseBodyData extends $dara.Model {
 
 export class CreateMcpServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: CreateMcpServerResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 464F9EA0-1052-51BD-8187-D292AA2D8D24

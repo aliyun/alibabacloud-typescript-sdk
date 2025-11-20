@@ -8,33 +8,69 @@ import { ResourceInfo } from "./ResourceInfo";
 
 export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * The types of resource attachments.
+   * - HttpApi
+   * - Operation
+   * - GatewayRoute
+   * - GatewayDomain
+   * - Gateway
+   * 
    * @example
    * GatewayRoute
    */
   attachResourceType?: string;
   /**
+   * @remarks
+   * Indicates if enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The environment metadata.
+   */
   environmentInfo?: EnvironmentInfo;
+  /**
+   * @remarks
+   * The parent resource metadata.
+   */
   parentResourceInfo?: ParentResourceInfo;
   /**
+   * @remarks
+   * The ID of the resource attachment.
+   * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
    */
   pluginAttachmentId?: string;
+  /**
+   * @remarks
+   * The plug-in type metadata.
+   */
   pluginClassInfo?: PluginClassInfo;
   /**
+   * @remarks
+   * The plug-in configurations (Base64-encoded).
+   * 
    * @example
    * bGltaXRfYnlfaGVhZGVyOiB4LWFwaS1rZXkKbGltaXRfa2V5czoKLSBrZXk6IGV4YW1wbGUta2V5LWEKICBxdWVyeV9wZXJfc2Vjb25kOiAxMAotIGtleTogZXhhbXBsZS1rZXktYgogIHF1ZXJ5X3Blcl9zZWNvbmQ6IDEK
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * The plug-in ID.
+   * 
    * @example
    * pl-cvu6r4um1hko3b3ti0a0
    */
   pluginId?: string;
+  /**
+   * @remarks
+   * The information of resource attachments.
+   */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -86,18 +122,31 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of resource attachments.
+   */
   items?: ListPluginAttachmentsResponseBodyDataItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -134,19 +183,29 @@ export class ListPluginAttachmentsResponseBodyData extends $dara.Model {
 
 export class ListPluginAttachmentsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: ListPluginAttachmentsResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9640D776-794A-5077-9184-A247CA4B45C1

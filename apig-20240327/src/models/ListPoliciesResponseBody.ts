@@ -4,18 +4,31 @@ import { PolicyInfo } from "./PolicyInfo";
 
 
 export class ListPoliciesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of policies.
+   */
   items?: PolicyInfo[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 18
    */
@@ -52,17 +65,30 @@ export class ListPoliciesResponseBodyData extends $dara.Model {
 
 export class ListPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: ListPoliciesResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID for API call tracing.
+   * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A
    */

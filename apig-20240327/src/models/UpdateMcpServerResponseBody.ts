@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMcpServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

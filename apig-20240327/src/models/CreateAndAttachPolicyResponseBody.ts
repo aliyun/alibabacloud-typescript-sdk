@@ -4,8 +4,15 @@ import { Attachment } from "./Attachment";
 
 
 export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The association information of the policy.
+   */
   attachment?: Attachment;
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * p-cq7l5s5lhtgi6qasrdc0
    */
@@ -38,17 +45,30 @@ export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
 
 export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateAndAttachPolicyResponseBodyData;
   /**
+   * @remarks
+   * The response message returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID, which is used to trace the call link.
+   * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
    */

@@ -7,17 +7,24 @@ import { HttpRouteMatch } from "./HttpRouteMatch";
 export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
   /**
    * @remarks
-   * MCP Server ID
+   * The ID of the MCP server.
    * 
    * @example
    * mcp-xdafeafzz
    */
   mcpServerId?: string;
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * test-mcp
    */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * The list of the MCP tools.
+   */
   tools?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -49,18 +56,27 @@ export class GetMcpServerResponseBodyDataAssembledSources extends $dara.Model {
 
 export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
   /**
+   * @remarks
+   * The domain name ID.
+   * 
    * @example
    * www.abc.com
    */
   domainId?: string;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * verifyicket
    */
   name?: string;
   /**
+   * @remarks
+   * The protocol. Valid values: HTTP and HTTPS.
+   * 
    * @example
-   * HTTP,HTTPS
+   * HTTP
    */
   protocol?: string;
   static names(): { [key: string]: string } {
@@ -90,16 +106,25 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
 
 export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   /**
+   * @remarks
+   * The Nacos instance.
+   * 
    * @example
    * mse-xxxxx
    */
   importInstanceId?: string;
   /**
+   * @remarks
+   * The synchronized MCP server ID.
+   * 
    * @example
    * test-mcp
    */
   importMcpServerId?: string;
   /**
+   * @remarks
+   * The Nacos namespace.
+   * 
    * @example
    * test-ns
    */
@@ -130,82 +155,155 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
 }
 
 export class GetMcpServerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
+   */
   assembledSources?: GetMcpServerResponseBodyDataAssembledSources[];
+  /**
+   * @remarks
+   * The backend service of the route.
+   */
   backend?: Backend;
   /**
+   * @remarks
+   * Indicates the type of source for MCP server creation. Valid values: 
+   * 
+   * ApiGatewayHttpToMCP 
+   * ApiGatewayMcpHosting 
+   * ApiGatewayAssembly 
+   * NacosHttpToMCP 
+   * NacosMcpHosting
+   * 
    * @example
    * ApiGatewayHttpToMCP
    */
   createFromType?: string;
   /**
+   * @remarks
+   * The publishing status of the API in the current environment.
+   * 
    * @example
    * Deployed
    */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The domain name IDs.
+   */
   domainIds?: string[];
+  /**
+   * @remarks
+   * The list of domain information.
+   */
   domainInfos?: GetMcpServerResponseBodyDataDomainInfos[];
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
+   * 
    * @example
    * /sse
    */
   exposedUriPath?: string;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The route match rule.
+   * 
    * @example
    * {\\"product_code\\":\\"apigw\\"}
    */
   match?: HttpRouteMatch;
+  /**
+   * @remarks
+   * The HTTP-to-MCP configurations.
+   */
   mcpServerConfig?: string;
   /**
+   * @remarks
+   * The attachment ID for the MCP server plug-in configuration.
+   * 
    * @example
    * pa-adfaefwaef
    */
   mcpServerConfigPluginAttachmentId?: string;
   /**
    * @remarks
-   * MCP Server ID
+   * The ID of the MCP server.
    * 
    * @example
    * mcp-adfefz24afg
    */
   mcpServerId?: string;
   /**
+   * @remarks
+   * The MCP server access path provided by the gateway.
+   * 
    * @example
    * /mcp-servers/test-mcp
    */
   mcpServerPath?: string;
   /**
+   * @remarks
+   * Indicates whether MCP observability is enabled. Default value: false.
+   * 
    * @example
    * false
    */
   mcpStatisticsEnable?: boolean;
+  /**
+   * @remarks
+   * The MCP information managed and synchronized by Nacos.
+   */
   nacosMcpSyncInfo?: GetMcpServerResponseBodyDataNacosMcpSyncInfo;
   /**
+   * @remarks
+   * The name of the MCP server.
+   * 
    * @example
    * test-mcp
    */
   name?: string;
   /**
+   * @remarks
+   * The service protocol.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
   /**
+   * @remarks
+   * The route ID.
+   * 
    * @example
    * hr-cr82undlhtgrlej***
    */
   routeId?: string;
   /**
+   * @remarks
+   * The type of the MCP server.
+   * 
    * @example
    * RealMCP
    */
@@ -291,19 +389,29 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
 
 export class GetMcpServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: GetMcpServerResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2A6E90D5-A711-54F4-A489-E33C2021EDDF

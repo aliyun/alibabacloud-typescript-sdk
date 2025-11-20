@@ -4,13 +4,23 @@ import { AuthorizationResourceInfo } from "./AuthorizationResourceInfo";
 
 
 export class UpdateConsumerAuthorizationRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of resource authorization information.
+   */
   authorizationResourceInfos?: AuthorizationResourceInfo[];
   /**
+   * @remarks
+   * The expiry mode. Valid values: LongTerm and ShortTerm.
+   * 
    * @example
    * LongTerm
    */
   expireMode?: string;
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1750852089975
    */

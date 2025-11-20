@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePluginAttachmentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The response message returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 76BDFFC7-0764-5168-B047-92EE0BC7FDDE

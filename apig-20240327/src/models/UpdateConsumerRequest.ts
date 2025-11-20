@@ -6,14 +6,36 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 
 
 export class UpdateConsumerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of AK/SK authentication configurations.
+   */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
+  /**
+   * @remarks
+   * The API key authentication configurations.
+   */
   apikeyIdentityConfig?: ApiKeyIdentityConfig;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is the description.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies the enablement status.
+   * 
    * @example
    * false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The JWT authentication configuration.
+   */
   jwtIdentityConfig?: JwtIdentityConfig;
   static names(): { [key: string]: string } {
     return {

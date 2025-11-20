@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallPluginRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of gateway IDs.
+   */
   gatewayIds?: string[];
   /**
+   * @remarks
+   * The plug-in type ID.
+   * 
    * @example
    * pls-csqmjndlhtguk0loef21
    */

@@ -6,36 +6,73 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 
 
 export class GetConsumerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The AK/SK authentication configurations.
+   */
   akSkIdentityConfigs?: AkSkIdentityConfig;
+  /**
+   * @remarks
+   * The API key authentication configurations.
+   */
   apiKeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
+   * @remarks
+   * The consumer ID.
+   * 
    * @example
    * cs-cvgbtk6m1hkji5sb8dr0
    */
   consumerId?: string;
   /**
+   * @remarks
+   * The creation timestamp.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The publishing status of the API in the current environment.
+   * 
    * @example
    * ""
    */
   deployStatus?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is the description.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates if enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The JWT authentication configurations.
+   */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
+   * @remarks
+   * The consumer name.
+   * 
    * @example
    * consumer-1
    */
   name?: string;
   /**
+   * @remarks
+   * The last update timestamp.
+   * 
    * @example
    * 1719386834548
    */
@@ -90,19 +127,29 @@ export class GetConsumerResponseBodyData extends $dara.Model {
 
 export class GetConsumerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: GetConsumerResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 880C61B3-7B90-5570-A3F7-D6D92C0E2D36

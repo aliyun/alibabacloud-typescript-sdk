@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConsumerAuthorizationRuleResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Filters the list of operations based on a specific consumer authorization rule ID. Only authorized operations are returned in the response.
+   * 
    * @example
    * car-d06p196m1hkg9ukum5pg
    */
@@ -31,17 +34,30 @@ export class CreateConsumerAuthorizationRuleResponseBodyData extends $dara.Model
 
 export class CreateConsumerAuthorizationRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: CreateConsumerAuthorizationRuleResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6CC83C32-3B5A-57EE-9AFE-D0D51822C7BA
    */

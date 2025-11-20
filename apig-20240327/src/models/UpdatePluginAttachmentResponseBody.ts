@@ -4,18 +4,24 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePluginAttachmentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F330090D-80F8-557B-8610-7EC7E386B4A4

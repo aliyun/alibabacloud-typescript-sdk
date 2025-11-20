@@ -5,11 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAndAttachPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * The association IDs.
+   * 
    * This parameter is required.
    */
   attachResourceIds?: string[];
   /**
    * @remarks
+   * The supported associated resource type. Valid values:
+   * 
+   * *   HttpApi: an HTTP API
+   * *   Operation: an operation in an HTTP API
+   * *   GatewayRoute: a route
+   * *   GatewayService: a service
+   * *   GatewayServicePort: a service port
+   * *   Domain: a domain name
+   * *   Gateway: an instance
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,24 +30,42 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
+   * The policy configurations. The value is a JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
    * {\\"enable\\":false}
    */
   config?: string;
+  /**
+   * @remarks
+   * The policy description.
+   * 
+   * @example
+   * This is the description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-cq2avtllhtgja4dk5djg
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * gw-cq2avtllhtgja4dk5djg
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The policy name.
+   * 
    * @example
    * test
    */

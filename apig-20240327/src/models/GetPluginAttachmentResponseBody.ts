@@ -9,29 +9,61 @@ import { ResourceInfo } from "./ResourceInfo";
 
 export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the plug-in is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The environment information.
+   */
   environmentInfo?: EnvironmentInfo;
+  /**
+   * @remarks
+   * The instance information.
+   */
   gatewayInfo?: GatewayInfo;
+  /**
+   * @remarks
+   * The information about the parent resource to which the plug-in is attached.
+   */
   parentResourceInfo?: ParentResourceInfo;
   /**
+   * @remarks
+   * The attachment ID.
+   * 
    * @example
    * pa-d05f1tmm1hku195dd8j0
    */
   pluginAttachmentId?: string;
+  /**
+   * @remarks
+   * The plug-in type information.
+   */
   pluginClassInfo?: PluginClassInfo;
   /**
+   * @remarks
+   * The Base64-encoded configurations of the plug-in.
+   * 
    * @example
    * cHJlcGVuZDoKLSByb2xlOiBzeXN0ZW0KICBjb250ZW50OiDor7fkvb/nlKjoi7Hor63lm57nrZTpl67popgKYXBwZW5kOgotIHJvbGU6IHVzZXIKICBjb250ZW50OiDmr4/mrKHlm57nrZTlrozpl67popjvvIzlsJ3or5Xov5vooYzlj43pl64K
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * The plug-in ID.
+   * 
    * @example
    * pl-cvo8ub6m1hkvgv03r3k0
    */
   pluginId?: string;
+  /**
+   * @remarks
+   * The resource details.
+   */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -87,19 +119,29 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
 
 export class GetPluginAttachmentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response payload.
+   */
   data?: GetPluginAttachmentResponseBodyData;
   /**
+   * @remarks
+   * The status message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129
