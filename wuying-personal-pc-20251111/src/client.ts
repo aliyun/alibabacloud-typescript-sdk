@@ -619,6 +619,10 @@ export default class Client extends OpenApi {
   async generateWuyingServerSceneUrlWithOptions(request: $_model.GenerateWuyingServerSceneUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateWuyingServerSceneUrlResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }

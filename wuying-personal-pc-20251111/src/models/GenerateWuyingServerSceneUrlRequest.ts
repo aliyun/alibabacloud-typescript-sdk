@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GenerateWuyingServerSceneUrlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  apiKey?: string;
   clientId?: string;
   clientIp?: string;
   clientOS?: string;
@@ -10,10 +15,6 @@ export class GenerateWuyingServerSceneUrlRequest extends $dara.Model {
   clientVersion?: string;
   endUserId?: string;
   loginRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   loginToken?: string;
   /**
    * @remarks
@@ -25,10 +26,6 @@ export class GenerateWuyingServerSceneUrlRequest extends $dara.Model {
    * This parameter is required.
    */
   scene?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   sessionId?: string;
   uuid?: string;
   /**
@@ -38,6 +35,7 @@ export class GenerateWuyingServerSceneUrlRequest extends $dara.Model {
   wuyingServerId?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'ApiKey',
       clientId: 'ClientId',
       clientIp: 'ClientIp',
       clientOS: 'ClientOS',
@@ -56,6 +54,7 @@ export class GenerateWuyingServerSceneUrlRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       clientId: 'string',
       clientIp: 'string',
       clientOS: 'string',
