@@ -2344,6 +2344,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过NodeId创建知识库节点副本
+   * 
+   * @param tmpReq - CopyDentryByNodeIdRequest
+   * @param tmpHeader - CopyDentryByNodeIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyDentryByNodeIdResponse
+   */
+  async copyDentryByNodeIdWithOptions(tmpReq: $_model.CopyDentryByNodeIdRequest, tmpHeader: $_model.CopyDentryByNodeIdHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CopyDentryByNodeIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.CopyDentryByNodeIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.CopyDentryByNodeIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.toNextNodeId)) {
+      body["ToNextNodeId"] = request.toNextNodeId;
+    }
+
+    if (!$dara.isNull(request.toParentNodeId)) {
+      body["ToParentNodeId"] = request.toParentNodeId;
+    }
+
+    if (!$dara.isNull(request.toPrevNodeId)) {
+      body["ToPrevNodeId"] = request.toPrevNodeId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CopyDentryByNodeId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v2/documents/copyDentryByNodeId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CopyDentryByNodeIdResponse>(await this.callApi(params, req, runtime), new $_model.CopyDentryByNodeIdResponse({}));
+  }
+
+  /**
+   * 通过NodeId创建知识库节点副本
+   * 
+   * @param request - CopyDentryByNodeIdRequest
+   * @returns CopyDentryByNodeIdResponse
+   */
+  async copyDentryByNodeId(request: $_model.CopyDentryByNodeIdRequest): Promise<$_model.CopyDentryByNodeIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CopyDentryByNodeIdHeaders({ });
+    return await this.copyDentryByNodeIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * @param tmpReq - CreateAlidingAssistantRequest
    * @param tmpHeader - CreateAlidingAssistantHeaders
    * @param runtime - runtime options for this request RuntimeOptions

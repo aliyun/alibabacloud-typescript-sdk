@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aliding20230426",
-  "version": "2.38.2",
+  "version": "2.39.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
