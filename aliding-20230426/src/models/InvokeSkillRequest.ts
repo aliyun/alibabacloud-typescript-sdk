@@ -17,11 +17,13 @@ export class InvokeSkillRequest extends $dara.Model {
    */
   skillId?: string;
   stream?: boolean;
+  sourceIdOfAssistantId?: string;
   static names(): { [key: string]: string } {
     return {
       params: 'Params',
       skillId: 'SkillId',
       stream: 'Stream',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
     };
   }
 
@@ -30,6 +32,7 @@ export class InvokeSkillRequest extends $dara.Model {
       params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       skillId: 'string',
       stream: 'boolean',
+      sourceIdOfAssistantId: 'string',
     };
   }
 

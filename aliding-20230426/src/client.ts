@@ -12924,6 +12924,10 @@ export default class Client extends OpenApi {
       body["Stream"] = request.stream;
     }
 
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -12997,6 +13001,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.stream)) {
       body["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.sourceIdOfAssistantId)) {
+      body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId;
     }
 
     let realHeaders : {[key: string ]: string} = { };

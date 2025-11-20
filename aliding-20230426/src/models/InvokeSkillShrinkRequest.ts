@@ -17,11 +17,13 @@ export class InvokeSkillShrinkRequest extends $dara.Model {
    */
   skillId?: string;
   stream?: boolean;
+  sourceIdOfAssistantId?: string;
   static names(): { [key: string]: string } {
     return {
       paramsShrink: 'Params',
       skillId: 'SkillId',
       stream: 'Stream',
+      sourceIdOfAssistantId: 'sourceIdOfAssistantId',
     };
   }
 
@@ -30,6 +32,7 @@ export class InvokeSkillShrinkRequest extends $dara.Model {
       paramsShrink: 'string',
       skillId: 'string',
       stream: 'boolean',
+      sourceIdOfAssistantId: 'string',
     };
   }
 
