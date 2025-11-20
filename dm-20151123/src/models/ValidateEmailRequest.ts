@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ValidateEmailRequest extends $dara.Model {
+  checkGraylist?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -18,6 +19,7 @@ export class ValidateEmailRequest extends $dara.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      checkGraylist: 'CheckGraylist',
       email: 'Email',
       timeout: 'Timeout',
     };
@@ -25,6 +27,7 @@ export class ValidateEmailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      checkGraylist: 'boolean',
       email: 'string',
       timeout: 'number',
     };

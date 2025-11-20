@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteValidateFileRequest extends $dara.Model {
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxx
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
