@@ -30,6 +30,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动模板的MCP服务器
+   * 
+   * @param request - ActivateTemplateMCPRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateTemplateMCPResponse
+   */
+  async activateTemplateMCPWithOptions(templateName: string, request: $_model.ActivateTemplateMCPRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateTemplateMCPResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabledTools)) {
+      body["enabledTools"] = request.enabledTools;
+    }
+
+    if (!$dara.isNull(request.transport)) {
+      body["transport"] = request.transport;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActivateTemplateMCP",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates/${$dara.URL.percentEncode(templateName)}/mcp/activate`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActivateTemplateMCPResponse>(await this.callApi(params, req, runtime), new $_model.ActivateTemplateMCPResponse({}));
+  }
+
+  /**
+   * 启动模板的MCP服务器
+   * 
+   * @param request - ActivateTemplateMCPRequest
+   * @returns ActivateTemplateMCPResponse
+   */
+  async activateTemplateMCP(templateName: string, request: $_model.ActivateTemplateMCPRequest): Promise<$_model.ActivateTemplateMCPResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activateTemplateMCPWithOptions(templateName, request, headers, runtime);
+  }
+
+  /**
    * Create an agent runtime
    * 
    * @remarks
@@ -214,6 +263,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a credential
+   * 
+   * @param request - CreateCredentialRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCredentialResponse
+   */
+  async createCredentialWithOptions(request: $_model.CreateCredentialRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCredentialResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCredential",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/credentials`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateCredentialResponse({}));
+  }
+
+  /**
+   * Create a credential
+   * 
+   * @param request - CreateCredentialRequest
+   * @returns CreateCredentialResponse
+   */
+  async createCredential(request: $_model.CreateCredentialRequest): Promise<$_model.CreateCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCredentialWithOptions(request, headers, runtime);
+  }
+
+  /**
    * create memory store
    * 
    * @param request - CreateMemoryRequest
@@ -313,6 +402,178 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMemoryEventWithOptions(memoryName, request, headers, runtime);
+  }
+
+  /**
+   * 新增模型
+   * 
+   * @param request - CreateModelProxyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelProxyResponse
+   */
+  async createModelProxyWithOptions(request: $_model.CreateModelProxyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelProxyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelProxy",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-proxies`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelProxyResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelProxyResponse({}));
+  }
+
+  /**
+   * 新增模型
+   * 
+   * @param request - CreateModelProxyRequest
+   * @returns CreateModelProxyResponse
+   */
+  async createModelProxy(request: $_model.CreateModelProxyRequest): Promise<$_model.CreateModelProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelProxyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 新增模型
+   * 
+   * @param request - CreateModelServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelServiceResponse
+   */
+  async createModelServiceWithOptions(request: $_model.CreateModelServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelServiceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelService",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-services`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelServiceResponse({}));
+  }
+
+  /**
+   * 新增模型
+   * 
+   * @param request - CreateModelServiceRequest
+   * @returns CreateModelServiceResponse
+   */
+  async createModelService(request: $_model.CreateModelServiceRequest): Promise<$_model.CreateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建沙箱
+   * 
+   * @remarks
+   * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+   * 
+   * @param request - CreateSandboxRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSandboxResponse
+   */
+  async createSandboxWithOptions(request: $_model.CreateSandboxRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSandboxResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSandboxResponse>(await this.callApi(params, req, runtime), new $_model.CreateSandboxResponse({}));
+  }
+
+  /**
+   * 创建沙箱
+   * 
+   * @remarks
+   * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+   * 
+   * @param request - CreateSandboxRequest
+   * @returns CreateSandboxResponse
+   */
+  async createSandbox(request: $_model.CreateSandboxRequest): Promise<$_model.CreateSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createSandboxWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建模板
+   * 
+   * @remarks
+   * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+   * 
+   * @param request - CreateTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
+   */
+  async createTemplateWithOptions(request: $_model.CreateTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTemplate",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateTemplateResponse({}));
+  }
+
+  /**
+   * 创建模板
+   * 
+   * @remarks
+   * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
+   */
+  async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTemplateWithOptions(request, headers, runtime);
   }
 
   /**
@@ -474,6 +735,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a credential
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCredentialResponse
+   */
+  async deleteCredentialWithOptions(credentialName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCredentialResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCredential",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/credentials/${$dara.URL.percentEncode(credentialName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCredentialResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCredentialResponse({}));
+  }
+
+  /**
+   * Delete a credential
+   * @returns DeleteCredentialResponse
+   */
+  async deleteCredential(credentialName: string): Promise<$_model.DeleteCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
    * delete memory store
    * 
    * @param headers - map
@@ -506,6 +802,170 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMemoryWithOptions(memoryName, headers, runtime);
+  }
+
+  /**
+   * 删除模型
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelProxyResponse
+   */
+  async deleteModelProxyWithOptions(modelProxyName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelProxyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelProxy",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-proxies/${$dara.URL.percentEncode(modelProxyName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelProxyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelProxyResponse({}));
+  }
+
+  /**
+   * 删除模型
+   * @returns DeleteModelProxyResponse
+   */
+  async deleteModelProxy(modelProxyName: string): Promise<$_model.DeleteModelProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelProxyWithOptions(modelProxyName, headers, runtime);
+  }
+
+  /**
+   * 删除模型
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelServiceWithOptions(modelServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelService",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-services/${$dara.URL.percentEncode(modelServiceName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelServiceResponse({}));
+  }
+
+  /**
+   * 删除模型
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelService(modelServiceName: string): Promise<$_model.DeleteModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelServiceWithOptions(modelServiceName, headers, runtime);
+  }
+
+  /**
+   * 删除模板
+   * 
+   * @remarks
+   * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplateWithOptions(templateName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTemplateResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTemplate",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates/${$dara.URL.percentEncode(templateName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTemplateResponse({}));
+  }
+
+  /**
+   * 删除模板
+   * 
+   * @remarks
+   * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+   * @returns DeleteTemplateResponse
+   */
+  async deleteTemplate(templateName: string): Promise<$_model.DeleteTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTemplateWithOptions(templateName, headers, runtime);
+  }
+
+  /**
+   * Get access token for a resource
+   * 
+   * @param request - GetAccessTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessTokenResponse
+   */
+  async getAccessTokenWithOptions(request: $_model.GetAccessTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessTokenResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceId)) {
+      query["resourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["resourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAccessToken",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/accessToken`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAccessTokenResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessTokenResponse({}));
+  }
+
+  /**
+   * Get access token for a resource
+   * 
+   * @param request - GetAccessTokenRequest
+   * @returns GetAccessTokenResponse
+   */
+  async getAccessToken(request: $_model.GetAccessTokenRequest): Promise<$_model.GetAccessTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAccessTokenWithOptions(request, headers, runtime);
   }
 
   /**
@@ -677,6 +1137,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get a credential
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCredentialResponse
+   */
+  async getCredentialWithOptions(credentialName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCredentialResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCredential",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/credentials/${$dara.URL.percentEncode(credentialName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetCredentialResponse({}));
+  }
+
+  /**
+   * Get a credential
+   * @returns GetCredentialResponse
+   */
+  async getCredential(credentialName: string): Promise<$_model.GetCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCredentialWithOptions(credentialName, headers, runtime);
+  }
+
+  /**
    * GetMemory
    * 
    * @param headers - map
@@ -817,6 +1312,158 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMemorySessionWithOptions(memoryName, sessionId, request, headers, runtime);
+  }
+
+  /**
+   * 查看model
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelProxyResponse
+   */
+  async getModelProxyWithOptions(modelProxyName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelProxyResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelProxy",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-proxies/${$dara.URL.percentEncode(modelProxyName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelProxyResponse>(await this.callApi(params, req, runtime), new $_model.GetModelProxyResponse({}));
+  }
+
+  /**
+   * 查看model
+   * @returns GetModelProxyResponse
+   */
+  async getModelProxy(modelProxyName: string): Promise<$_model.GetModelProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelProxyWithOptions(modelProxyName, headers, runtime);
+  }
+
+  /**
+   * 查看model
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelServiceResponse
+   */
+  async getModelServiceWithOptions(modelServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelService",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-services/${$dara.URL.percentEncode(modelServiceName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetModelServiceResponse({}));
+  }
+
+  /**
+   * 查看model
+   * @returns GetModelServiceResponse
+   */
+  async getModelService(modelServiceName: string): Promise<$_model.GetModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelServiceWithOptions(modelServiceName, headers, runtime);
+  }
+
+  /**
+   * 获取沙箱
+   * 
+   * @remarks
+   * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSandboxResponse
+   */
+  async getSandboxWithOptions(sandboxId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSandboxResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSandboxResponse>(await this.callApi(params, req, runtime), new $_model.GetSandboxResponse({}));
+  }
+
+  /**
+   * 获取沙箱
+   * 
+   * @remarks
+   * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+   * @returns GetSandboxResponse
+   */
+  async getSandbox(sandboxId: string): Promise<$_model.GetSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSandboxWithOptions(sandboxId, headers, runtime);
+  }
+
+  /**
+   * 获取模板
+   * 
+   * @remarks
+   * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
+   */
+  async getTemplateWithOptions(templateName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTemplateResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTemplate",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates/${$dara.URL.percentEncode(templateName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetTemplateResponse({}));
+  }
+
+  /**
+   * 获取模板
+   * 
+   * @remarks
+   * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+   * @returns GetTemplateResponse
+   */
+  async getTemplate(templateName: string): Promise<$_model.GetTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTemplateWithOptions(templateName, headers, runtime);
   }
 
   /**
@@ -1117,6 +1764,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * List credentials
+   * 
+   * @param request - ListCredentialsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCredentialsResponse
+   */
+  async listCredentialsWithOptions(request: $_model.ListCredentialsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCredentialsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialAuthType)) {
+      query["credentialAuthType"] = request.credentialAuthType;
+    }
+
+    if (!$dara.isNull(request.credentialName)) {
+      query["credentialName"] = request.credentialName;
+    }
+
+    if (!$dara.isNull(request.credentialSourceType)) {
+      query["credentialSourceType"] = request.credentialSourceType;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCredentials",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/credentials`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCredentialsResponse>(await this.callApi(params, req, runtime), new $_model.ListCredentialsResponse({}));
+  }
+
+  /**
+   * List credentials
+   * 
+   * @param request - ListCredentialsRequest
+   * @returns ListCredentialsResponse
+   */
+  async listCredentials(request: $_model.ListCredentialsRequest): Promise<$_model.ListCredentialsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCredentialsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * ListMemory
    * 
    * @param request - ListMemoryRequest
@@ -1290,6 +2006,311 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询支持的模型提供商及其模型
+   * 
+   * @param request - ListModelProvidersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelProvidersResponse
+   */
+  async listModelProvidersWithOptions(request: $_model.ListModelProvidersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelProvidersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelName)) {
+      query["modelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelProviders",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-providers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ListModelProvidersResponse({}));
+  }
+
+  /**
+   * 查询支持的模型提供商及其模型
+   * 
+   * @param request - ListModelProvidersRequest
+   * @returns ListModelProvidersResponse
+   */
+  async listModelProviders(request: $_model.ListModelProvidersRequest): Promise<$_model.ListModelProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelProvidersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * model列表
+   * 
+   * @param request - ListModelProxiesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelProxiesResponse
+   */
+  async listModelProxiesWithOptions(request: $_model.ListModelProxiesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelProxiesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.proxyMode)) {
+      query["proxyMode"] = request.proxyMode;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelProxies",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-proxies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelProxiesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelProxiesResponse({}));
+  }
+
+  /**
+   * model列表
+   * 
+   * @param request - ListModelProxiesRequest
+   * @returns ListModelProxiesResponse
+   */
+  async listModelProxies(request: $_model.ListModelProxiesRequest): Promise<$_model.ListModelProxiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelProxiesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * model列表
+   * 
+   * @param request - ListModelServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelServicesResponse
+   */
+  async listModelServicesWithOptions(request: $_model.ListModelServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelType)) {
+      query["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.providerType)) {
+      query["providerType"] = request.providerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelServices",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelServicesResponse({}));
+  }
+
+  /**
+   * model列表
+   * 
+   * @param request - ListModelServicesRequest
+   * @returns ListModelServicesResponse
+   */
+  async listModelServices(request: $_model.ListModelServicesRequest): Promise<$_model.ListModelServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelServicesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出沙箱
+   * 
+   * @remarks
+   * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+   * 
+   * @param request - ListSandboxesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSandboxesResponse
+   */
+  async listSandboxesWithOptions(request: $_model.ListSandboxesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSandboxesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["templateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["templateType"] = request.templateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSandboxes",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSandboxesResponse>(await this.callApi(params, req, runtime), new $_model.ListSandboxesResponse({}));
+  }
+
+  /**
+   * 列出沙箱
+   * 
+   * @remarks
+   * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+   * 
+   * @param request - ListSandboxesRequest
+   * @returns ListSandboxesResponse
+   */
+  async listSandboxes(request: $_model.ListSandboxesRequest): Promise<$_model.ListSandboxesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSandboxesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出模板
+   * 
+   * @remarks
+   * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+   * 
+   * @param request - ListTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplatesResponse
+   */
+  async listTemplatesWithOptions(request: $_model.ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["templateType"] = request.templateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTemplates",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListTemplatesResponse({}));
+  }
+
+  /**
+   * 列出模板
+   * 
+   * @remarks
+   * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+   * 
+   * @param request - ListTemplatesRequest
+   * @returns ListTemplatesResponse
+   */
+  async listTemplates(request: $_model.ListTemplatesRequest): Promise<$_model.ListTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 发布运行时版本
    * 
    * @remarks
@@ -1397,6 +2418,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止沙箱
+   * 
+   * @remarks
+   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopSandboxResponse
+   */
+  async stopSandboxWithOptions(sandboxId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopSandboxResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopSandboxResponse>(await this.callApi(params, req, runtime), new $_model.StopSandboxResponse({}));
+  }
+
+  /**
+   * 停止沙箱
+   * 
+   * @remarks
+   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * @returns StopSandboxResponse
+   */
+  async stopSandbox(sandboxId: string): Promise<$_model.StopSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopSandboxWithOptions(sandboxId, headers, runtime);
+  }
+
+  /**
+   * 停止模板的MCP服务器
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTemplateMCPResponse
+   */
+  async stopTemplateMCPWithOptions(templateName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopTemplateMCPResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopTemplateMCP",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates/${$dara.URL.percentEncode(templateName)}/mcp/stop`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopTemplateMCPResponse>(await this.callApi(params, req, runtime), new $_model.StopTemplateMCPResponse({}));
+  }
+
+  /**
+   * 停止模板的MCP服务器
+   * @returns StopTemplateMCPResponse
+   */
+  async stopTemplateMCP(templateName: string): Promise<$_model.StopTemplateMCPResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopTemplateMCPWithOptions(templateName, headers, runtime);
+  }
+
+  /**
    * 更新智能体运行时
    * 
    * @remarks
@@ -1483,6 +2580,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update a credential
+   * 
+   * @param request - UpdateCredentialRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCredentialResponse
+   */
+  async updateCredentialWithOptions(credentialName: string, request: $_model.UpdateCredentialRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCredentialResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCredential",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/credentials/${$dara.URL.percentEncode(credentialName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCredentialResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCredentialResponse({}));
+  }
+
+  /**
+   * Update a credential
+   * 
+   * @param request - UpdateCredentialRequest
+   * @returns UpdateCredentialResponse
+   */
+  async updateCredential(credentialName: string, request: $_model.UpdateCredentialRequest): Promise<$_model.UpdateCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCredentialWithOptions(credentialName, request, headers, runtime);
+  }
+
+  /**
    * Update Memory
    * 
    * @param request - UpdateMemoryRequest
@@ -1533,6 +2670,138 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMemoryWithOptions(memoryName, request, headers, runtime);
+  }
+
+  /**
+   * 更新模型
+   * 
+   * @param request - UpdateModelProxyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelProxyResponse
+   */
+  async updateModelProxyWithOptions(modelProxyName: string, request: $_model.UpdateModelProxyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelProxyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelProxy",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-proxies/${$dara.URL.percentEncode(modelProxyName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelProxyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelProxyResponse({}));
+  }
+
+  /**
+   * 更新模型
+   * 
+   * @param request - UpdateModelProxyRequest
+   * @returns UpdateModelProxyResponse
+   */
+  async updateModelProxy(modelProxyName: string, request: $_model.UpdateModelProxyRequest): Promise<$_model.UpdateModelProxyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelProxyWithOptions(modelProxyName, request, headers, runtime);
+  }
+
+  /**
+   * 更新模型
+   * 
+   * @param request - UpdateModelServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelServiceResponse
+   */
+  async updateModelServiceWithOptions(modelServiceName: string, request: $_model.UpdateModelServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelServiceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelService",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/model-services/${$dara.URL.percentEncode(modelServiceName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelServiceResponse({}));
+  }
+
+  /**
+   * 更新模型
+   * 
+   * @param request - UpdateModelServiceRequest
+   * @returns UpdateModelServiceResponse
+   */
+  async updateModelService(modelServiceName: string, request: $_model.UpdateModelServiceRequest): Promise<$_model.UpdateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelServiceWithOptions(modelServiceName, request, headers, runtime);
+  }
+
+  /**
+   * 更新模板
+   * 
+   * @remarks
+   * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+   * 
+   * @param request - UpdateTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTemplateResponse
+   */
+  async updateTemplateWithOptions(templateName: string, request: $_model.UpdateTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTemplate",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/templates/${$dara.URL.percentEncode(templateName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTemplateResponse({}));
+  }
+
+  /**
+   * 更新模板
+   * 
+   * @remarks
+   * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+   * 
+   * @param request - UpdateTemplateRequest
+   * @returns UpdateTemplateResponse
+   */
+  async updateTemplate(templateName: string, request: $_model.UpdateTemplateRequest): Promise<$_model.UpdateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTemplateWithOptions(templateName, request, headers, runtime);
   }
 
 }
