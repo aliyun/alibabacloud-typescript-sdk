@@ -2,6 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
 export class AddFaceVideoTemplateResponseBodyDateFaceInfos extends $dara.Model {
   templateFaceID?: string;
   templateFaceURL?: string;

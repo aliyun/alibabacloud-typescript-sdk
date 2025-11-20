@@ -16,41 +16,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("videoenhan", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -63,270 +109,6 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  /**
-   * @param request - AbstractEcommerceVideoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AbstractEcommerceVideoResponse
-   */
-  async abstractEcommerceVideoWithOptions(request: $_model.AbstractEcommerceVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbstractEcommerceVideoResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.duration)) {
-      body["Duration"] = request.duration;
-    }
-
-    if (!$dara.isNull(request.height)) {
-      body["Height"] = request.height;
-    }
-
-    if (!$dara.isNull(request.videoUrl)) {
-      body["VideoUrl"] = request.videoUrl;
-    }
-
-    if (!$dara.isNull(request.width)) {
-      body["Width"] = request.width;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "AbstractEcommerceVideo",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.AbstractEcommerceVideoResponse>(await this.callApi(params, req, runtime), new $_model.AbstractEcommerceVideoResponse({}));
-  }
-
-  /**
-   * @param request - AbstractEcommerceVideoRequest
-   * @returns AbstractEcommerceVideoResponse
-   */
-  async abstractEcommerceVideo(request: $_model.AbstractEcommerceVideoRequest): Promise<$_model.AbstractEcommerceVideoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.abstractEcommerceVideoWithOptions(request, runtime);
-  }
-
-  async abstractEcommerceVideoAdvance(request: $_model.AbstractEcommerceVideoAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbstractEcommerceVideoResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "videoenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let abstractEcommerceVideoReq = new $_model.AbstractEcommerceVideoRequest({ });
-    OpenApiUtil.convert(request, abstractEcommerceVideoReq);
-    if (!$dara.isNull(request.videoUrlObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.videoUrlObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      abstractEcommerceVideoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let abstractEcommerceVideoResp = await this.abstractEcommerceVideoWithOptions(abstractEcommerceVideoReq, runtime);
-    return abstractEcommerceVideoResp;
-  }
-
-  /**
-   * @param request - AbstractFilmVideoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns AbstractFilmVideoResponse
-   */
-  async abstractFilmVideoWithOptions(request: $_model.AbstractFilmVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbstractFilmVideoResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.length)) {
-      body["Length"] = request.length;
-    }
-
-    if (!$dara.isNull(request.videoUrl)) {
-      body["VideoUrl"] = request.videoUrl;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "AbstractFilmVideo",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.AbstractFilmVideoResponse>(await this.callApi(params, req, runtime), new $_model.AbstractFilmVideoResponse({}));
-  }
-
-  /**
-   * @param request - AbstractFilmVideoRequest
-   * @returns AbstractFilmVideoResponse
-   */
-  async abstractFilmVideo(request: $_model.AbstractFilmVideoRequest): Promise<$_model.AbstractFilmVideoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.abstractFilmVideoWithOptions(request, runtime);
-  }
-
-  async abstractFilmVideoAdvance(request: $_model.AbstractFilmVideoAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbstractFilmVideoResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "videoenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let abstractFilmVideoReq = new $_model.AbstractFilmVideoRequest({ });
-    OpenApiUtil.convert(request, abstractFilmVideoReq);
-    if (!$dara.isNull(request.videoUrlObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.videoUrlObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      abstractFilmVideoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let abstractFilmVideoResp = await this.abstractFilmVideoWithOptions(abstractFilmVideoReq, runtime);
-    return abstractFilmVideoResp;
   }
 
   /**
@@ -453,7 +235,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       addFaceVideoTemplateReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -593,7 +375,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       adjustVideoColorReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -749,148 +531,12 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       changeVideoSizeReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let changeVideoSizeResp = await this.changeVideoSizeWithOptions(changeVideoSizeReq, runtime);
     return changeVideoSizeResp;
-  }
-
-  /**
-   * @param request - ConvertHdrVideoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ConvertHdrVideoResponse
-   */
-  async convertHdrVideoWithOptions(request: $_model.ConvertHdrVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertHdrVideoResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.bitrate)) {
-      body["Bitrate"] = request.bitrate;
-    }
-
-    if (!$dara.isNull(request.HDRFormat)) {
-      body["HDRFormat"] = request.HDRFormat;
-    }
-
-    if (!$dara.isNull(request.maxIlluminance)) {
-      body["MaxIlluminance"] = request.maxIlluminance;
-    }
-
-    if (!$dara.isNull(request.videoURL)) {
-      body["VideoURL"] = request.videoURL;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ConvertHdrVideo",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ConvertHdrVideoResponse>(await this.callApi(params, req, runtime), new $_model.ConvertHdrVideoResponse({}));
-  }
-
-  /**
-   * @param request - ConvertHdrVideoRequest
-   * @returns ConvertHdrVideoResponse
-   */
-  async convertHdrVideo(request: $_model.ConvertHdrVideoRequest): Promise<$_model.ConvertHdrVideoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.convertHdrVideoWithOptions(request, runtime);
-  }
-
-  async convertHdrVideoAdvance(request: $_model.ConvertHdrVideoAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertHdrVideoResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "videoenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let convertHdrVideoReq = new $_model.ConvertHdrVideoRequest({ });
-    OpenApiUtil.convert(request, convertHdrVideoReq);
-    if (!$dara.isNull(request.videoURLObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.videoURLObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      convertHdrVideoReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let convertHdrVideoResp = await this.convertHdrVideoWithOptions(convertHdrVideoReq, runtime);
-    return convertHdrVideoResp;
   }
 
   /**
@@ -1055,7 +701,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       enhancePortraitVideoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1203,7 +849,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       enhanceVideoQualityReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1331,7 +977,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       eraseVideoLogoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1471,7 +1117,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       eraseVideoSubtitlesReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1603,7 +1249,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       generateHumanAnimeStyleVideoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1771,7 +1417,7 @@ export default class Client extends OpenApi {
             file: fileObj,
             success_action_status: "201",
           };
-          await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
           let tmpObj : $_model.GenerateVideoRequestFileList = generateVideoReq.fileList[i0];
           tmpObj.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
           i0++;
@@ -1946,7 +1592,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       interpolateVideoFrameReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2086,7 +1732,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       mergeVideoFaceReq.referenceURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2109,7 +1755,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       mergeVideoFaceReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2257,7 +1903,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       mergeVideoModelFaceReq.faceImageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2313,134 +1959,6 @@ export default class Client extends OpenApi {
   async queryFaceVideoTemplate(request: $_model.QueryFaceVideoTemplateRequest): Promise<$_model.QueryFaceVideoTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryFaceVideoTemplateWithOptions(request, runtime);
-  }
-
-  /**
-   * 视频降噪
-   * 
-   * @param request - ReduceVideoNoiseRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ReduceVideoNoiseResponse
-   */
-  async reduceVideoNoiseWithOptions(request: $_model.ReduceVideoNoiseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReduceVideoNoiseResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.videoUrl)) {
-      body["VideoUrl"] = request.videoUrl;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ReduceVideoNoise",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ReduceVideoNoiseResponse>(await this.callApi(params, req, runtime), new $_model.ReduceVideoNoiseResponse({}));
-  }
-
-  /**
-   * 视频降噪
-   * 
-   * @param request - ReduceVideoNoiseRequest
-   * @returns ReduceVideoNoiseResponse
-   */
-  async reduceVideoNoise(request: $_model.ReduceVideoNoiseRequest): Promise<$_model.ReduceVideoNoiseResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.reduceVideoNoiseWithOptions(request, runtime);
-  }
-
-  async reduceVideoNoiseAdvance(request: $_model.ReduceVideoNoiseAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReduceVideoNoiseResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "videoenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let reduceVideoNoiseReq = new $_model.ReduceVideoNoiseRequest({ });
-    OpenApiUtil.convert(request, reduceVideoNoiseReq);
-    if (!$dara.isNull(request.videoUrlObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.videoUrlObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      reduceVideoNoiseReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let reduceVideoNoiseResp = await this.reduceVideoNoiseWithOptions(reduceVideoNoiseReq, runtime);
-    return reduceVideoNoiseResp;
   }
 
   /**
@@ -2563,144 +2081,12 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       superResolveVideoReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let superResolveVideoResp = await this.superResolveVideoWithOptions(superResolveVideoReq, runtime);
     return superResolveVideoResp;
-  }
-
-  /**
-   * @param request - ToneSdrVideoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ToneSdrVideoResponse
-   */
-  async toneSdrVideoWithOptions(request: $_model.ToneSdrVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ToneSdrVideoResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.bitrate)) {
-      body["Bitrate"] = request.bitrate;
-    }
-
-    if (!$dara.isNull(request.recolorModel)) {
-      body["RecolorModel"] = request.recolorModel;
-    }
-
-    if (!$dara.isNull(request.videoURL)) {
-      body["VideoURL"] = request.videoURL;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "ToneSdrVideo",
-      version: "2020-03-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.ToneSdrVideoResponse>(await this.callApi(params, req, runtime), new $_model.ToneSdrVideoResponse({}));
-  }
-
-  /**
-   * @param request - ToneSdrVideoRequest
-   * @returns ToneSdrVideoResponse
-   */
-  async toneSdrVideo(request: $_model.ToneSdrVideoRequest): Promise<$_model.ToneSdrVideoResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.toneSdrVideoWithOptions(request, runtime);
-  }
-
-  async toneSdrVideoAdvance(request: $_model.ToneSdrVideoAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ToneSdrVideoResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "videoenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let toneSdrVideoReq = new $_model.ToneSdrVideoRequest({ });
-    OpenApiUtil.convert(request, toneSdrVideoReq);
-    if (!$dara.isNull(request.videoURLObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.videoURLObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      toneSdrVideoReq.videoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let toneSdrVideoResp = await this.toneSdrVideoWithOptions(toneSdrVideoReq, runtime);
-    return toneSdrVideoResp;
   }
 
 }
