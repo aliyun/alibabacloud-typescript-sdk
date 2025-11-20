@@ -97,6 +97,7 @@ export { DescribeVaultsResponseBodyVaultsVaultTrialInfo } from './DescribeVaults
 export { DescribeVaultsResponseBodyVaultsVault } from './DescribeVaultsResponseBody';
 export { DescribeVaultsResponseBodyVaults } from './DescribeVaultsResponseBody';
 export { InstallBackupClientsResponseBodyInstanceStatuses } from './InstallBackupClientsResponseBody';
+export { ListProtectedResourcesResponseBodyProtectedResources } from './ListProtectedResourcesResponseBody';
 export { SearchHistoricalSnapshotsResponseBodySnapshotsSnapshotPaths } from './SearchHistoricalSnapshotsResponseBody';
 export { SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot } from './SearchHistoricalSnapshotsResponseBody';
 export { SearchHistoricalSnapshotsResponseBodySnapshots } from './SearchHistoricalSnapshotsResponseBody';
@@ -316,6 +317,9 @@ export { InstallBackupClientsRequest } from './InstallBackupClientsRequest';
 export { InstallBackupClientsShrinkRequest } from './InstallBackupClientsShrinkRequest';
 export { InstallBackupClientsResponseBody } from './InstallBackupClientsResponseBody';
 export { InstallBackupClientsResponse } from './InstallBackupClientsResponse';
+export { ListProtectedResourcesRequest } from './ListProtectedResourcesRequest';
+export { ListProtectedResourcesResponseBody } from './ListProtectedResourcesResponseBody';
+export { ListProtectedResourcesResponse } from './ListProtectedResourcesResponse';
 export { OpenHbrServiceResponseBody } from './OpenHbrServiceResponseBody';
 export { OpenHbrServiceResponse } from './OpenHbrServiceResponse';
 export { SearchHistoricalSnapshotsRequest } from './SearchHistoricalSnapshotsRequest';

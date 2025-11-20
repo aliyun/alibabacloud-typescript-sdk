@@ -4306,6 +4306,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询已保护的资源列表
+   * 
+   * @param request - ListProtectedResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProtectedResourcesResponse
+   */
+  async listProtectedResourcesWithOptions(request: $_model.ListProtectedResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProtectedResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.createdByProduct)) {
+      query["CreatedByProduct"] = request.createdByProduct;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProtectedResources",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProtectedResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListProtectedResourcesResponse({}));
+  }
+
+  /**
+   * 查询已保护的资源列表
+   * 
+   * @param request - ListProtectedResourcesRequest
+   * @returns ListProtectedResourcesResponse
+   */
+  async listProtectedResources(request: $_model.ListProtectedResourcesRequest): Promise<$_model.ListProtectedResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProtectedResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Activates Cloud Backup.
    * 
    * @param request - OpenHbrServiceRequest
