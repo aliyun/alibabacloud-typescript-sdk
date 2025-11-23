@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule extends $dara.Model {
   /**
+   * @remarks
+   * The masking algorithm ID.
+   * 
    * @example
    * 101**
    */
   ruleId?: number;
   /**
+   * @remarks
+   * The masking algorithm name.
+   * 
    * @example
    * test
    */
@@ -38,11 +44,17 @@ export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColu
 
 export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleListSemiDesensitizationRule extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the partial masking algorithm.
+   * 
    * @example
    * 10***
    */
   ruleId?: number;
   /**
+   * @remarks
+   * The partial masking algorithm name.
+   * 
    * @example
    * test01
    */
@@ -97,37 +109,79 @@ export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColu
 }
 
 export class ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumn extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the category.
+   */
   categoryName?: string;
   /**
+   * @remarks
+   * The name of the sensitive field.
+   * 
    * @example
    * test_column
    */
   columnName?: string;
+  /**
+   * @remarks
+   * The information about the default masking algorithm.
+   */
   defaultDesensitizationRule?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 183****
    */
   instanceId?: number;
   /**
+   * @remarks
+   * Indicates whether the sensitive field is displayed in plaintext.
+   * 
    * @example
    * False
    */
   isPlain?: boolean;
+  /**
+   * @remarks
+   * The sample data.
+   */
   sampleData?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * test_schema
    */
   schemaName?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the field. Valid values:
+   * 
+   * *   Low
+   * *   Medium
+   * *   High
+   */
   securityLevel?: string;
+  /**
+   * @remarks
+   * The list of partial masking algorithms.
+   */
   semiDesensitizationRuleList?: ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * test_table
    */
   tableName?: string;
   /**
+   * @remarks
+   * The user-defined sensitivity level.
+   * 
    * @example
    * S1
    */
@@ -207,27 +261,49 @@ export class ListSensitiveColumnInfoResponseBodySensitiveColumnList extends $dar
 
 export class ListSensitiveColumnInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the sensitive field.
+   */
   sensitiveColumnList?: ListSensitiveColumnInfoResponseBodySensitiveColumnList;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries that are returned.
+   * 
    * @example
    * 1
    */

@@ -30,28 +30,50 @@ export class ListTablesInCategoryResponseBodyEntityList extends $dara.Model {
 }
 
 export class ListTablesInCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of table information associated with the asset category.
+   */
   entityList?: ListTablesInCategoryResponseBodyEntityList;
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request succeeded.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */

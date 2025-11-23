@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditMetaKnowledgeAssetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * C51420E3-144A-4A94-B473-8662FCF4AD10
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

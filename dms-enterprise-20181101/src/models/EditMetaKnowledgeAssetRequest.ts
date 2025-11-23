@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EditMetaKnowledgeAssetRequest extends $dara.Model {
   /**
    * @remarks
+   * Business knowledge content edited by users.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class EditMetaKnowledgeAssetRequest extends $dara.Model {
    */
   assetDescription?: string;
   /**
+   * @remarks
+   * The name of the field. This parameter is used when the edited content is a field.
+   * 
    * @example
    * test_column
    */
   columnName?: string;
   /**
    * @remarks
+   * The ID of the physical database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class EditMetaKnowledgeAssetRequest extends $dara.Model {
   dbId?: number;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class EditMetaKnowledgeAssetRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The schema name of the table, which is required only for SQL Server instances.
+   * 
    * @example
    * dbo
    */

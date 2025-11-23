@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAbacPolicyResponseBodyPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The number of users or custom roles to which the policy is attached.
+   * 
    * @example
    * 3
    */
   authorizedQuantity?: string;
   /**
+   * @remarks
+   * The ID of the user who create the policy.
+   * 
    * @example
    * 51****
    */
   creatorId?: number;
   /**
+   * @remarks
+   * The content of the policy.
+   * 
    * @example
    * {
    *   "Statement": [
@@ -35,20 +44,33 @@ export class GetAbacPolicyResponseBodyPolicy extends $dara.Model {
    */
   policyContent?: string;
   /**
+   * @remarks
+   * The description of the policy.
+   * 
    * @example
    * test
    */
   policyDesc?: string;
   /**
+   * @remarks
+   * The ID of the policy.
+   * 
    * @example
    * 12****
    */
   policyId?: number;
   /**
+   * @remarks
+   * The name of the policy.
+   * 
    * @example
    * policy_test
    */
   policyName?: string;
+  /**
+   * @remarks
+   * The source of the policy. Valid values:
+   */
   policySource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,22 +107,41 @@ export class GetAbacPolicyResponseBodyPolicy extends $dara.Model {
 
 export class GetAbacPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The details of the policy.
+   */
   policy?: GetAbacPolicyResponseBodyPolicy;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 2B7844DE-A0C3-50ED-A796-8F07D377144C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

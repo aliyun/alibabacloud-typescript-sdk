@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAuthorizedUsersForInstanceResponseBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * The UID of the user\\"s Alibaba Cloud account.
+   * 
    * @example
    * 164882191****
    */
   uid?: string;
   /**
+   * @remarks
+   * The ID of the user.
+   * 
    * @example
    * 51***
    */
   userId?: string;
   /**
+   * @remarks
+   * The nickname of the user.
+   * 
    * @example
    * user_test
    */
   userNickName?: string;
   /**
+   * @remarks
+   * The real name of the user.
+   * 
    * @example
    * user01
    */
@@ -52,10 +64,17 @@ export class ListAuthorizedUsersForInstanceResponseBodyUsers extends $dara.Model
 
 export class ListAuthorizedUsersForInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of users that have permissions on the specified instance.
+   */
   users?: ListAuthorizedUsersForInstanceResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

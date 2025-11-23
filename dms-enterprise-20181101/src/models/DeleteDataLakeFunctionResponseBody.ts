@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataLakeFunctionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * B4B07137-F6AE-4756-8474-7F92BB6C4E04
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */

@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加权限模板资源
+   * Adds instances, databases, and tables to the specified permission template.
    * 
    * @param tmpReq - AddAuthorityTemplateItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75,7 +75,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加权限模板资源
+   * Adds instances, databases, and tables to the specified permission template.
    * 
    * @param request - AddAuthorityTemplateItemsRequest
    * @returns AddAuthorityTemplateItemsResponse
@@ -155,7 +155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实例
+   * Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+   * 
+   * @remarks
+   * You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
    * 
    * @param request - AddInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -298,7 +301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实例
+   * Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+   * 
+   * @remarks
+   * You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
    * 
    * @param request - AddInstanceRequest
    * @returns AddInstanceResponse
@@ -437,7 +443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加表到资产类目
+   * Add a table to an asset category.
    * 
    * @param request - AddTableToCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -484,7 +490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加表到资产类目
+   * Add a table to an asset category.
    * 
    * @param request - AddTableToCategoryRequest
    * @returns AddTableToCategoryResponse
@@ -621,10 +627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * Answers the syntax questions of the corresponding engine according to the specified database ID.
    * 
    * @remarks
-   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
    * 
    * @param request - AnswerSqlSyntaxByMetaAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -663,10 +669,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * Answers the syntax questions of the corresponding engine according to the specified database ID.
    * 
    * @remarks
-   * 根据用户提供的数据库ID，回答对应引擎的语法问题
+   * You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
    * 
    * @param request - AnswerSqlSyntaxByMetaAgentRequest
    * @returns AnswerSqlSyntaxByMetaAgentResponse
@@ -853,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新建湖仓表分区
+   * Creates multiple partitions for a table in a data lakehouse at a time.
    * 
    * @param tmpReq - BatchCreateDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -924,7 +930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新建湖仓表分区
+   * Creates multiple partitions for a table in a data lakehouse at a time.
    * 
    * @param request - BatchCreateDataLakePartitionsRequest
    * @returns BatchCreateDataLakePartitionsResponse
@@ -935,7 +941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除湖仓表分区
+   * Deletes multiple partitions of a table in a data lakehouse at a time.
    * 
    * @param request - BatchDeleteDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -994,7 +1000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除湖仓表分区
+   * Deletes multiple partitions of a table in a data lakehouse at a time.
    * 
    * @param request - BatchDeleteDataLakePartitionsRequest
    * @returns BatchDeleteDataLakePartitionsResponse
@@ -1005,7 +1011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新湖仓表分区
+   * Updates multiple partitions of a table in a data lakehouse at a time.
    * 
    * @param tmpReq - BatchUpdateDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1068,7 +1074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新湖仓表分区
+   * Updates multiple partitions of a table in a data lakehouse at a time.
    * 
    * @param request - BatchUpdateDataLakePartitionsRequest
    * @returns BatchUpdateDataLakePartitionsResponse
@@ -1199,7 +1205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改字段敏感序列
+   * Changes the security level of a column.
    * 
    * @param request - ChangeColumnSecurityLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1254,7 +1260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改字段敏感序列
+   * Changes the security level of a column.
    * 
    * @param request - ChangeColumnSecurityLevelRequest
    * @returns ChangeColumnSecurityLevelResponse
@@ -1325,6 +1331,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 带有DMS脱敏能力的聊天API接口
+   * 
+   * @remarks
+   * 带有DMS脱敏能力的聊天API接口
+   * 
+   * @param tmpReq - ChatWithDesensitizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithDesensitizeResponse
+   */
+  async chatWithDesensitizeWithOptions(tmpReq: $_model.ChatWithDesensitizeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatWithDesensitizeResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithDesensitizeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stop)) {
+      request.stopShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stop, "Stop", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.desensitizationRule)) {
+      query["DesensitizationRule"] = request.desensitizationRule;
+    }
+
+    if (!$dara.isNull(request.enableThinking)) {
+      query["EnableThinking"] = request.enableThinking;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxTokens)) {
+      query["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.needDesensitization)) {
+      query["NeedDesensitization"] = request.needDesensitization;
+    }
+
+    if (!$dara.isNull(request.presencePenalty)) {
+      query["PresencePenalty"] = request.presencePenalty;
+    }
+
+    if (!$dara.isNull(request.responseFormat)) {
+      query["ResponseFormat"] = request.responseFormat;
+    }
+
+    if (!$dara.isNull(request.seed)) {
+      query["Seed"] = request.seed;
+    }
+
+    if (!$dara.isNull(request.stopShrink)) {
+      query["Stop"] = request.stopShrink;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      query["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.thinkingBudget)) {
+      query["ThinkingBudget"] = request.thinkingBudget;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.topLogprobs)) {
+      query["TopLogprobs"] = request.topLogprobs;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      query["TopP"] = request.topP;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithDesensitize",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatWithDesensitizeResponse>(await this.callApi(params, req, runtime), new $_model.ChatWithDesensitizeResponse({}));
+  }
+
+  /**
+   * 带有DMS脱敏能力的聊天API接口
+   * 
+   * @remarks
+   * 带有DMS脱敏能力的聊天API接口
+   * 
+   * @param request - ChatWithDesensitizeRequest
+   * @returns ChatWithDesensitizeResponse
+   */
+  async chatWithDesensitize(request: $_model.ChatWithDesensitizeRequest): Promise<$_model.ChatWithDesensitizeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatWithDesensitizeWithOptions(request, runtime);
+  }
+
+  /**
    * Closes a ticket.
    * 
    * @param request - CloseOrderRequest
@@ -1375,7 +1501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建权限策略授权
+   * Attaches a system policy or custom policy to a DMS user or custom role.
    * 
    * @param request - CreateAbacAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1422,7 +1548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建权限策略授权
+   * Attaches a system policy or custom policy to a DMS user or custom role.
    * 
    * @param request - CreateAbacAuthorizationRequest
    * @returns CreateAbacAuthorizationResponse
@@ -1433,7 +1559,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建权限策略
+   * Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+   * 
+   * @remarks
+   * Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
    * 
    * @param request - CreateAbacPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1476,7 +1605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建权限策略
+   * Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+   * 
+   * @remarks
+   * Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
    * 
    * @param request - CreateAbacPolicyRequest
    * @returns CreateAbacPolicyResponse
@@ -1929,7 +2061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓数据库
+   * Creates a database in a data lakehouse.
    * 
    * @param tmpReq - CreateDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1994,7 +2126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓数据库
+   * Creates a database in a data lakehouse.
    * 
    * @param request - CreateDataLakeDatabaseRequest
    * @returns CreateDataLakeDatabaseResponse
@@ -2005,7 +2137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓自定义函数
+   * Creates a custom function in a data lakehouse.
    * 
    * @param tmpReq - CreateDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2064,7 +2196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓自定义函数
+   * Creates a custom function in a data lakehouse.
    * 
    * @param request - CreateDataLakeFunctionRequest
    * @returns CreateDataLakeFunctionResponse
@@ -2075,7 +2207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表分区
+   * Creates a partition for a table in a data lakehouse.
    * 
    * @param tmpReq - CreateDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2146,7 +2278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表分区
+   * Creates a partition for a table in a data lakehouse.
    * 
    * @param request - CreateDataLakePartitionRequest
    * @returns CreateDataLakePartitionResponse
@@ -2157,7 +2289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表
+   * Creates a table in a data lakehouse.
    * 
    * @param tmpReq - CreateDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2216,7 +2348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表
+   * Creates a table in a data lakehouse.
    * 
    * @param request - CreateDataLakeTableRequest
    * @returns CreateDataLakeTableResponse
@@ -2873,7 +3005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资产类目
+   * Create Asset Category
    * 
    * @param request - CreateMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2912,7 +3044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资产类目
+   * Create Asset Category
    * 
    * @param request - CreateMetaCategoryRequest
    * @returns CreateMetaCategoryResponse
@@ -3007,7 +3139,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建可编程对象变更工单
+   * Creates a programmable object ticket.
+   * 
+   * @remarks
+   * You can call this API operation only for database instances that are managed in Security Collaboration mode.
    * 
    * @param tmpReq - CreateProcCorrectOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3064,7 +3199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建可编程对象变更工单
+   * Creates a programmable object ticket.
+   * 
+   * @remarks
+   * You can call this API operation only for database instances that are managed in Security Collaboration mode.
    * 
    * @param request - CreateProcCorrectOrderRequest
    * @returns CreateProcCorrectOrderResponse
@@ -3749,7 +3887,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
+   * 
+   * @remarks
+   * ## [](#)Prerequisites
+   * *   A virtual private cloud (VPC) is created.
+   * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
    * 
    * @param request - CreateWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3798,7 +3941,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
+   * 
+   * @remarks
+   * ## [](#)Prerequisites
+   * *   A virtual private cloud (VPC) is created.
+   * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
    * 
    * @param request - CreateWorkspaceRequest
    * @returns CreateWorkspaceResponse
@@ -3809,7 +3957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限策略授权
+   * Detaches a policy from a user or role.
    * 
    * @param request - DeleteAbacAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3848,7 +3996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限策略授权
+   * Detaches a policy from a user or role.
    * 
    * @param request - DeleteAbacAuthorizationRequest
    * @returns DeleteAbacAuthorizationResponse
@@ -3859,7 +4007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限策略
+   * Deletes a created permission policy.
    * 
    * @param request - DeleteAbacPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3894,7 +4042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限策略
+   * Deletes a created permission policy.
    * 
    * @param request - DeleteAbacPolicyRequest
    * @returns DeleteAbacPolicyResponse
@@ -3905,7 +4053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限模版
+   * Deletes a permission template.
    * 
    * @param request - DeleteAuthorityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3940,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除权限模版
+   * Deletes a permission template.
    * 
    * @param request - DeleteAuthorityTemplateRequest
    * @returns DeleteAuthorityTemplateResponse
@@ -3951,7 +4099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓数据库
+   * Deletes a database from a data lakehouse.
    * 
    * @param request - DeleteDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3998,7 +4146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓数据库
+   * Deletes a database from a data lakehouse.
    * 
    * @param request - DeleteDataLakeDatabaseRequest
    * @returns DeleteDataLakeDatabaseResponse
@@ -4009,7 +4157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓自定义函数
+   * Deletes a user-defined function in a data lakehouse.
    * 
    * @param request - DeleteDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4060,7 +4208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓自定义函数
+   * Deletes a user-defined function in a data lakehouse.
    * 
    * @param request - DeleteDataLakeFunctionRequest
    * @returns DeleteDataLakeFunctionResponse
@@ -4071,7 +4219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表分区
+   * Deletes a partition from a table in a data lakehouse.
    * 
    * @param tmpReq - DeleteDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4136,7 +4284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表分区
+   * Deletes a partition from a table in a data lakehouse.
    * 
    * @param request - DeleteDataLakePartitionRequest
    * @returns DeleteDataLakePartitionResponse
@@ -4147,7 +4295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表
+   * Deletes a table from a data lakehouse.
    * 
    * @param request - DeleteDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4198,7 +4346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表
+   * Deletes a table from a data lakehouse.
    * 
    * @param request - DeleteDataLakeTableRequest
    * @returns DeleteDataLakeTableResponse
@@ -4479,7 +4627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资产类目
+   * Deletes an asset category.
    * 
    * @param request - DeleteMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4514,7 +4662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资产类目
+   * Deletes an asset category.
    * 
    * @param request - DeleteMetaCategoryRequest
    * @returns DeleteMetaCategoryResponse
@@ -4675,7 +4823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除安全规则
+   * Deletes a security rule set.
+   * 
+   * @remarks
+   * Before you call this API operation, make sure that the security rule set is not associated with an instance.
    * 
    * @param request - DeleteStandardGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4710,7 +4861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除安全规则
+   * Deletes a security rule set.
+   * 
+   * @remarks
+   * Before you call this API operation, make sure that the security rule set is not associated with an instance.
    * 
    * @param request - DeleteStandardGroupRequest
    * @returns DeleteStandardGroupResponse
@@ -4931,7 +5085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4962,7 +5116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间
+   * Deletes a workspace.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -5455,7 +5609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑指定guid的元数据业务知识
+   * Edits the metadata business knowledge for specified GUIDs.
+   * 
+   * @remarks
+   * Edits the business knowledge of the metadata represented by the specified GUID.
    * 
    * @param request - EditMetaKnowledgeAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5502,7 +5659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑指定guid的元数据业务知识
+   * Edits the metadata business knowledge for specified GUIDs.
+   * 
+   * @remarks
+   * Edits the business knowledge of the metadata represented by the specified GUID.
    * 
    * @param request - EditMetaKnowledgeAssetRequest
    * @returns EditMetaKnowledgeAssetResponse
@@ -5805,10 +5965,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
    * 
    * @remarks
-   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
    * 
    * @param request - FixSqlByMetaAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5855,10 +6015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
    * 
    * @remarks
-   * 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+   * You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
    * 
    * @param request - FixSqlByMetaAgentRequest
    * @returns FixSqlByMetaAgentResponse
@@ -5999,7 +6159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取策略详情
+   * Queries the details of a policy, including the name, content, and the user who created the policy.
    * 
    * @param request - GetAbacPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6038,7 +6198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取策略详情
+   * Queries the details of a policy, including the name, content, and the user who created the policy.
    * 
    * @param request - GetAbacPolicyRequest
    * @returns GetAbacPolicyResponse
@@ -6199,7 +6359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例绑定的分类分级模板
+   * Queries the information about the classification and grading template associated with an instance.
    * 
    * @param request - GetClassificationTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6234,7 +6394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例绑定的分类分级模板
+   * Queries the information about the classification and grading template associated with an instance.
    * 
    * @param request - GetClassificationTemplateRequest
    * @returns GetClassificationTemplateResponse
@@ -6983,7 +7143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录
+   * Queries the data catalog of the data lake.
    * 
    * @param request - GetDataLakeCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7026,7 +7186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录
+   * Queries the data catalog of the data lake.
    * 
    * @param request - GetDataLakeCatalogRequest
    * @returns GetDataLakeCatalogResponse
@@ -7037,7 +7197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UC的数据库
+   * Queries the information about the database in the data lake.
    * 
    * @param request - GetDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7084,7 +7244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UC的数据库
+   * Queries the information about the database in the data lake.
    * 
    * @param request - GetDataLakeDatabaseRequest
    * @returns GetDataLakeDatabaseResponse
@@ -7095,7 +7255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓自定义函数详细信息
+   * Obtains the details about a user-defined function in a data lakehouse.
    * 
    * @param request - GetDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7146,7 +7306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓自定义函数详细信息
+   * Obtains the details about a user-defined function in a data lakehouse.
    * 
    * @param request - GetDataLakeFunctionRequest
    * @returns GetDataLakeFunctionResponse
@@ -7157,7 +7317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓表分区详情
+   * Queries the information about a partition of a table in a data lakehouse.
    * 
    * @param tmpReq - GetDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7218,7 +7378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓表分区详情
+   * Queries the information about a partition of a table in a data lakehouse.
    * 
    * @param request - GetDataLakePartitionRequest
    * @returns GetDataLakePartitionResponse
@@ -7229,7 +7389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Queries basic information about tables in the data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7280,7 +7440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Queries basic information about tables in the data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @returns GetDataLakeTableResponse
@@ -7539,7 +7699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库导出下载地址
+   * Queries the download URL of the results of a database export ticket.
    * 
    * @param request - GetDbExportDownloadURLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7574,7 +7734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库导出下载地址
+   * Queries the download URL of the results of a database export ticket.
    * 
    * @param request - GetDbExportDownloadURLRequest
    * @returns GetDbExportDownloadURLResponse
@@ -8161,7 +8321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据归档工单任务实例
+   * Queries the task information about a ticket.
    * 
    * @param request - GetPagedInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8188,7 +8348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据归档工单任务实例
+   * Queries the task information about a ticket.
    * 
    * @param request - GetPagedInstanceRequest
    * @returns GetPagedInstanceResponse
@@ -8539,7 +8699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全规则
+   * Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
    * 
    * @param request - GetStandardGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8574,7 +8734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取安全规则
+   * Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
    * 
    * @param request - GetStandardGroupRequest
    * @returns GetStandardGroupResponse
@@ -8927,7 +9087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定guid的元数据知识
+   * Gets metadata knowledge for a specified GUID.
+   * 
+   * @remarks
+   * This API can be called only for database instances that are enabled for security hosting.
    * 
    * @param request - GetTableKnowledgeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8966,7 +9129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定guid的元数据知识
+   * Gets metadata knowledge for a specified GUID.
+   * 
+   * @remarks
+   * This API can be called only for database instances that are enabled for security hosting.
    * 
    * @param request - GetTableKnowledgeInfoRequest
    * @returns GetTableKnowledgeInfoResponse
@@ -9349,7 +9515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间描述
+   * Queries the details of a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9380,7 +9546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间描述
+   * Queries the details of a workspace.
    * 
    * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
@@ -9579,7 +9745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限策略授权列表
+   * Queries a list of users to which the specified policy is attached and the number of the users.
    * 
    * @param request - ListAbacAuthorizationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9626,7 +9792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限策略授权列表
+   * Queries a list of users to which the specified policy is attached and the number of the users.
    * 
    * @param request - ListAbacAuthorizationsRequest
    * @returns ListAbacAuthorizationsResponse
@@ -9637,7 +9803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限策略列表
+   * Queries a list of policies that are created by a user.
    * 
    * @param request - ListAbacPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9680,7 +9846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限策略列表
+   * Queries a list of policies that are created by a user.
    * 
    * @param request - ListAbacPoliciesRequest
    * @returns ListAbacPoliciesResponse
@@ -9691,7 +9857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限模版列表
+   * Queries the information about permission templates, including the template creator, template name, and total number of templates.
    * 
    * @param request - ListAuthorityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9734,7 +9900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取权限模版列表
+   * Queries the information about permission templates, including the template creator, template name, and total number of templates.
    * 
    * @param request - ListAuthorityTemplateRequest
    * @returns ListAuthorityTemplateResponse
@@ -9745,7 +9911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户有权限的数据库
+   * Queries the databases on which the specified user has permissions.
    * 
    * @param request - ListAuthorizedDatabasesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9804,7 +9970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户有权限的数据库
+   * Queries the databases on which the specified user has permissions.
    * 
    * @param request - ListAuthorizedDatabasesForUserRequest
    * @returns ListAuthorizedDatabasesForUserResponse
@@ -9815,7 +9981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户有权限的实例
+   * Queries the instances on which the specified user has permissions.
    * 
    * @param request - ListAuthorizedInstancesForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9870,7 +10036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户有权限的实例
+   * Queries the instances on which the specified user has permissions.
    * 
    * @param request - ListAuthorizedInstancesForUserRequest
    * @returns ListAuthorizedInstancesForUserResponse
@@ -9881,7 +10047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询有数据库权限的用户
+   * Queries a list of users that have permissions on the specified database.
    * 
    * @param request - ListAuthorizedUsersForDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9932,7 +10098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询有数据库权限的用户
+   * Queries a list of users that have permissions on the specified database.
    * 
    * @param request - ListAuthorizedUsersForDatabaseRequest
    * @returns ListAuthorizedUsersForDatabaseResponse
@@ -9943,7 +10109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询有实例权限的用户
+   * Queries a list of users that have permissions on the specified instance.
    * 
    * @param request - ListAuthorizedUsersForInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9990,7 +10156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询有实例权限的用户
+   * Queries a list of users that have permissions on the specified instance.
    * 
    * @param request - ListAuthorizedUsersForInstanceRequest
    * @returns ListAuthorizedUsersForInstanceResponse
@@ -10551,7 +10717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录列表
+   * Queries a list of data catalogs in a data lake.
    * 
    * @param request - ListDataLakeCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10594,7 +10760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录列表
+   * Queries a list of data catalogs in a data lake.
    * 
    * @param request - ListDataLakeCatalogRequest
    * @returns ListDataLakeCatalogResponse
@@ -10605,7 +10771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库列表
+   * Queries the list of databases in the data lake.
    * 
    * @param request - ListDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10660,7 +10826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库列表
+   * Queries the list of databases in the data lake.
    * 
    * @param request - ListDataLakeDatabaseRequest
    * @returns ListDataLakeDatabaseResponse
@@ -10671,7 +10837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数列表
+   * Queries a list of functions in a data lake.
    * 
    * @param request - ListDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10730,7 +10896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数列表
+   * Queries a list of functions in a data lake.
    * 
    * @param request - ListDataLakeFunctionRequest
    * @returns ListDataLakeFunctionResponse
@@ -10741,7 +10907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数名列表
+   * Gets a list of data lake function names.
    * 
    * @param request - ListDataLakeFunctionNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10800,7 +10966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数名列表
+   * Gets a list of data lake function names.
    * 
    * @param request - ListDataLakeFunctionNameRequest
    * @returns ListDataLakeFunctionNameResponse
@@ -10811,7 +10977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区列表
+   * Queries a list of partitions of a table in a data lake.
    * 
    * @param tmpReq - ListDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10882,7 +11048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区列表
+   * Queries a list of partitions of a table in a data lake.
    * 
    * @param request - ListDataLakePartitionRequest
    * @returns ListDataLakePartitionResponse
@@ -10893,7 +11059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据筛选条件获取数据湖表分区列表
+   * Queries a list of partitions of a table in a data lake based on filter conditions.
    * 
    * @param request - ListDataLakePartitionByFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10958,7 +11124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据筛选条件获取数据湖表分区列表
+   * Queries a list of partitions of a table in a data lake based on filter conditions.
    * 
    * @param request - ListDataLakePartitionByFilterRequest
    * @returns ListDataLakePartitionByFilterResponse
@@ -10969,7 +11135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区名列表
+   * Queries a list of partition names of a table in a data lake.
    * 
    * @param request - ListDataLakePartitionNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11028,7 +11194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区名列表
+   * Queries a list of partition names of a table in a data lake.
    * 
    * @param request - ListDataLakePartitionNameRequest
    * @returns ListDataLakePartitionNameResponse
@@ -11039,7 +11205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表列表
+   * Queries a list of tables in a data lake.
    * 
    * @param request - ListDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11102,7 +11268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表列表
+   * Queries a list of tables in a data lake.
    * 
    * @param request - ListDataLakeTableRequest
    * @returns ListDataLakeTableResponse
@@ -11113,7 +11279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表名列表
+   * Queries a list of names of tables in a data lake.
    * 
    * @param request - ListDataLakeTableNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11176,7 +11342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表名列表
+   * Queries a list of names of tables in a data lake.
    * 
    * @param request - ListDataLakeTableNameRequest
    * @returns ListDataLakeTableNameResponse
@@ -11187,7 +11353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Queries basic information about tables in the data lake.
    * 
    * @param request - ListDataLakeTablebaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11246,7 +11412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Queries basic information about tables in the data lake.
    * 
    * @param request - ListDataLakeTablebaseInfoRequest
    * @returns ListDataLakeTablebaseInfoResponse
@@ -12077,7 +12243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资产类目列表
+   * Queries a list of categories
    * 
    * @param request - ListMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12120,7 +12286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资产类目列表
+   * Queries a list of categories
    * 
    * @param request - ListMetaCategoryRequest
    * @returns ListMetaCategoryResponse
@@ -12595,7 +12761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取敏感字段信息
+   * Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
    * 
    * @param request - ListSensitiveColumnInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12650,7 +12816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取敏感字段信息
+   * Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
    * 
    * @param request - ListSensitiveColumnInfoRequest
    * @returns ListSensitiveColumnInfoResponse
@@ -12955,7 +13121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表字段信息
+   * Queries the details about fields in a table.
    * 
    * @param request - ListTableColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12998,7 +13164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表字段信息
+   * Queries the details about fields in a table.
    * 
    * @param request - ListTableColumnsRequest
    * @returns ListTableColumnsResponse
@@ -13081,7 +13247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取类目下的表列表
+   * Obtains the list of tables in a category.
    * 
    * @param request - ListTablesInCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13124,7 +13290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取类目下的表列表
+   * Obtains the list of tables in a category.
    * 
    * @param request - ListTablesInCategoryRequest
    * @returns ListTablesInCategoryResponse
@@ -13567,6 +13733,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains
+   * 
+   * @param request - ListUserOwnedResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserOwnedResourcesResponse
+   */
+  async listUserOwnedResourcesWithOptions(request: $_model.ListUserOwnedResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserOwnedResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.logic)) {
+      query["Logic"] = request.logic;
+    }
+
+    if (!$dara.isNull(request.ownerType)) {
+      query["OwnerType"] = request.ownerType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserOwnedResources",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserOwnedResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListUserOwnedResourcesResponse({}));
+  }
+
+  /**
+   * Obtains
+   * 
+   * @param request - ListUserOwnedResourcesRequest
+   * @returns ListUserOwnedResourcesResponse
+   */
+  async listUserOwnedResources(request: $_model.ListUserOwnedResourcesRequest): Promise<$_model.ListUserOwnedResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserOwnedResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the permissions of a specific user on a database or a table.
    * 
    * @param request - ListUserPermissionsRequest
@@ -13841,7 +14081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索工作空间列表
+   * Queries a list of workspaces of the tenant.
    * 
    * @param request - ListWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13904,7 +14144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索工作空间列表
+   * Queries a list of workspaces of the tenant.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -14093,7 +14333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例信息，同时检查该实例连通性
+   * Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
    * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14240,7 +14480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例信息，同时检查该实例连通性
+   * Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
    * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse
@@ -14347,10 +14587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * Analyzes and optimizes the SQL statements in the specified database.
    * 
    * @remarks
-   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * You can call this operation to analyze and optimize the SQL statements in the specified database.
    * 
    * @param request - OptimizeSqlByMetaAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14393,10 +14633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * Analyzes and optimizes the SQL statements in the specified database.
    * 
    * @remarks
-   * 根据用户提供的SQL数据库ID，分析SQL性能并优化
+   * You can call this operation to analyze and optimize the SQL statements in the specified database.
    * 
    * @param request - OptimizeSqlByMetaAgentRequest
    * @returns OptimizeSqlByMetaAgentResponse
@@ -14467,7 +14707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止数据导出任务
+   * Terminates a SQL result set export task.
    * 
    * @param request - PauseDataExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14506,7 +14746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 终止数据导出任务
+   * Terminates a SQL result set export task.
    * 
    * @param request - PauseDataExportJobRequest
    * @returns PauseDataExportJobResponse
@@ -14517,7 +14757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工单审批流
+   * Previews the approval process of a ticket before the ticket is submitted.
    * 
    * @param request - PreviewWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14552,7 +14792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工单审批流
+   * Previews the approval process of a ticket before the ticket is submitted.
    * 
    * @param request - PreviewWorkflowRequest
    * @returns PreviewWorkflowResponse
@@ -15107,7 +15347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据导出任务
+   * Deletes a data export task.
    * 
    * @param request - RemoveDataExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15146,7 +15386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据导出任务
+   * Deletes a data export task.
    * 
    * @param request - RemoveDataExportJobRequest
    * @returns RemoveDataExportJobResponse
@@ -15157,7 +15397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从资产类目移除表
+   * Removes table from the asset category.
    * 
    * @param request - RemoveTableFromCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15204,7 +15444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从资产类目移除表
+   * Removes table from the asset category.
    * 
    * @param request - RemoveTableFromCategoryRequest
    * @returns RemoveTableFromCategoryResponse
@@ -15273,7 +15513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启数据导出任务
+   * Restarts a SQL result set export task.
    * 
    * @param request - RestartDataExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15312,7 +15552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启数据导出任务
+   * Restarts a SQL result set export task.
    * 
    * @param request - RestartDataExportJobRequest
    * @returns RestartDataExportJobResponse
@@ -15855,7 +16095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审批流额外信息
+   * Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
    * 
    * @param request - SetWorkflowExtraInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15918,7 +16158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审批流额外信息
+   * Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
    * 
    * @param request - SetWorkflowExtraInfoRequest
    * @returns SetWorkflowExtraInfoResponse
@@ -16195,7 +16435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 中断数据导出任务
+   * Suspends an ongoing or scheduled SQL result set export task.
    * 
    * @param request - SuspendDataExportJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16234,7 +16474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 中断数据导出任务
+   * Suspends an ongoing or scheduled SQL result set export task.
    * 
    * @param request - SuspendDataExportJobRequest
    * @returns SuspendDataExportJobResponse
@@ -16401,7 +16641,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务编排试运行
+   * Tests the task flow of task orchestration.
+   * 
+   * @remarks
+   * ### [](#)Usage notes
+   * An edge can be created only when the following conditions are met:
+   * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+   * 2.  After the edge is created, the DAG does not contain loops.
    * 
    * @param request - TryRunTaskFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16432,7 +16678,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务编排试运行
+   * Tests the task flow of task orchestration.
+   * 
+   * @remarks
+   * ### [](#)Usage notes
+   * An edge can be created only when the following conditions are met:
+   * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+   * 2.  After the edge is created, the DAG does not contain loops.
    * 
    * @param request - TryRunTaskFlowRequest
    * @returns TryRunTaskFlowResponse
@@ -16443,7 +16695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新权限策略
+   * Updates the name, description, or content of a policy.
    * 
    * @param request - UpdateAbacPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16490,7 +16742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新权限策略
+   * Updates the name, description, or content of a policy.
    * 
    * @param request - UpdateAbacPolicyRequest
    * @returns UpdateAbacPolicyResponse
@@ -16561,7 +16813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓数据库
+   * Updates the information about a database in a data lakehouse.
    * 
    * @param tmpReq - UpdateDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16626,7 +16878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓数据库
+   * Updates the information about a database in a data lakehouse.
    * 
    * @param request - UpdateDataLakeDatabaseRequest
    * @returns UpdateDataLakeDatabaseResponse
@@ -16637,7 +16889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓自定义函数
+   * Updates a user-defined function in a data lakehouse.
    * 
    * @param tmpReq - UpdateDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16700,7 +16952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓自定义函数
+   * Updates a user-defined function in a data lakehouse.
    * 
    * @param request - UpdateDataLakeFunctionRequest
    * @returns UpdateDataLakeFunctionResponse
@@ -16711,7 +16963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表分区
+   * Updates the partition information of a table in a data lakehouse.
    * 
    * @param tmpReq - UpdateDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16774,7 +17026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表分区
+   * Updates the partition information of a table in a data lakehouse.
    * 
    * @param request - UpdateDataLakePartitionRequest
    * @returns UpdateDataLakePartitionResponse
@@ -16785,7 +17037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表信息
+   * Updates the information about a table in a data lakehouse.
    * 
    * @param tmpReq - UpdateDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16848,7 +17100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表信息
+   * Updates the information about a table in a data lakehouse.
    * 
    * @param request - UpdateDataLakeTableRequest
    * @returns UpdateDataLakeTableResponse
@@ -17003,7 +17255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资产类目信息
+   * Updates asset category information.
    * 
    * @param request - UpdateMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17042,7 +17294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资产类目信息
+   * Updates asset category information.
    * 
    * @param request - UpdateMetaCategoryRequest
    * @returns UpdateMetaCategoryResponse
@@ -17335,7 +17587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 大sql更新节点专用
+   * Updates the node content in large SQL files.
+   * 
+   * @remarks
+   * You can call this operation to modify node configurations.
    * 
    * @param request - UpdateTaskContentV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17372,7 +17627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 大sql更新节点专用
+   * Updates the node content in large SQL files.
+   * 
+   * @remarks
+   * You can call this operation to modify node configurations.
    * 
    * @param request - UpdateTaskContentV2Request
    * @returns UpdateTaskContentV2Response
@@ -18157,7 +18415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作空间
+   * Updates the information about a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18202,7 +18460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改工作空间
+   * Updates the information about a workspace.
    * 
    * @param request - UpdateWorkspaceRequest
    * @returns UpdateWorkspaceResponse

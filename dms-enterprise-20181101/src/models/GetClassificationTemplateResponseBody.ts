@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetClassificationTemplateResponseBodyClassificationResourceTemplateMap extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource. The supported resource type is INSTANCE. The resource ID corresponds to the value of InstanceId. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the value of InstanceId.
+   * 
    * @example
    * 24****
    */
   resourceId?: number;
   /**
+   * @remarks
+   * The resource type. The value is fixed as **INSTANCE**.
+   * 
    * @example
    * INSTANCE
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The ID of the classification and grading template.
+   * 
    * @example
    * 3***
    */
   templateId?: number;
   /**
+   * @remarks
+   * The type of the classification and grading template. Valid values:
+   * 
+   * *   **INNER**: a built-in template.
+   * *   **USER_DEFINE**: a custom template.
+   * 
    * @example
    * INNER
    */
@@ -51,23 +66,42 @@ export class GetClassificationTemplateResponseBodyClassificationResourceTemplate
 }
 
 export class GetClassificationTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the classification template that is associated to the instance.
+   */
   classificationResourceTemplateMap?: GetClassificationTemplateResponseBodyClassificationResourceTemplateMap;
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 427688B8-ADFB-4C4E-9D45-EF5C1FD6E23D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

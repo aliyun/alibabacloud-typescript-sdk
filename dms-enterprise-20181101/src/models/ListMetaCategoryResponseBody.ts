@@ -30,28 +30,50 @@ export class ListMetaCategoryResponseBodyCategoryList extends $dara.Model {
 }
 
 export class ListMetaCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of categories.
+   */
   categoryList?: ListMetaCategoryResponseBodyCategoryList;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */

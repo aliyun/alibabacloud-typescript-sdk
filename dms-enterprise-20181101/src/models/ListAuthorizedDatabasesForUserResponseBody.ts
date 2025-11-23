@@ -4,17 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail extends $dara.Model {
   /**
+   * @remarks
+   * The type of object on which the operation is performed.
+   * 
    * @example
    * DATABASE
    */
   dsType?: string;
   /**
+   * @remarks
+   * The time when the permissions expire.
+   * 
    * @example
    * 2024-12-06 10:00:00
    */
   expireDate?: string;
+  /**
+   * @remarks
+   * If the permission source is a permission policy, the value of this parameter includes the policy name and the operations that are allowed for the user.
+   */
   message?: string;
   /**
+   * @remarks
+   * The type of the permission. Valid values:
+   * 
+   * *   **QUERY**: the query permission
+   * *   **EXPORT**: the data export permission
+   * *   **CORRECT**: the data change permission
+   * 
    * @example
    * CORRECT
    */
@@ -48,42 +65,73 @@ export class ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail
 
 export class ListAuthorizedDatabasesForUserResponseBodyDatabases extends $dara.Model {
   /**
+   * @remarks
+   * The database ID.
+   * 
    * @example
    * 254****
    */
   dbId?: string;
   /**
+   * @remarks
+   * The engine of the database.
+   * 
    * @example
    * MYSQL
    */
   dbType?: string;
   /**
+   * @remarks
+   * The type of the environment in which the database instance is deployed.
+   * 
    * @example
    * product
    */
   envType?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 235****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the database is a logical database. Valid values:
+   * 
+   * *   **true.**: The database is a logical database
+   * *   **false**: The database is a physical database.
+   * 
    * @example
    * false
    */
   logic?: boolean;
+  /**
+   * @remarks
+   * The details of permissions. The format of the permission details varies with the permission source. For example, if the permission source is a normal permission, the following parameters are returned.
+   */
   permissionDetail?: ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail;
   /**
+   * @remarks
+   * The database name.
+   * 
    * @example
    * poc_testdb
    */
   schemaName?: string;
   /**
+   * @remarks
+   * The name that is used to search for the database.
+   * 
    * @example
    * poc
    */
   searchName?: string;
   /**
+   * @remarks
+   * The user IDs.
+   * 
    * @example
    * 51****
    */
@@ -129,8 +177,15 @@ export class ListAuthorizedDatabasesForUserResponseBodyDatabases extends $dara.M
 }
 
 export class ListAuthorizedDatabasesForUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The names of the databases on which the user has permissions.
+   */
   databases?: ListAuthorizedDatabasesForUserResponseBodyDatabases[];
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 012AE0B5-4B52-532F-BD7C-1EE9F182089B
    */

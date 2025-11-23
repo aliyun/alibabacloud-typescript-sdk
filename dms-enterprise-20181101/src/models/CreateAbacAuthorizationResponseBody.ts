@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAbacAuthorizationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the request ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the policy is attached.
+   * 
    * @example
    * true
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request succeeded.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

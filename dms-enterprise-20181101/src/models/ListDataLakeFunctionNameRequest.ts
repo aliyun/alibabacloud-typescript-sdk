@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataLakeFunctionNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The region where the data lake resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +28,8 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
   dataRegion?: string;
   /**
    * @remarks
+   * The database name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,25 +37,49 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * The regular expression that is used to filter the returned function names.
+   * 
    * @example
    * .*
    */
   functionNamePattern?: string;
   /**
+   * @remarks
+   * The number of records per page. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, there is no next page.
+   * *   If a value of **NextToken** is returned, it indicates the token that is used for the next query.
+   * 
    * @example
    * f056501ada12c1cc
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * > To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
+   * 
    * @example
    * 3***
    */
   tid?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 12****
+   */
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {

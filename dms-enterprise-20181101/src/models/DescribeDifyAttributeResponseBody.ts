@@ -8,6 +8,9 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
    * 92748163-af62-4ca4-ad85-1****
    */
   appUuid?: string;
+  billingInstanceId?: string;
+  chargeType?: string;
+  expireTime?: number;
   /**
    * @example
    * 1
@@ -28,6 +31,7 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
    * DEPLOYED
    */
   status?: string;
+  storageType?: string;
   /**
    * @example
    * vsw-bp1tzpv5jfsuoqy****
@@ -51,10 +55,14 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appUuid: 'AppUuid',
+      billingInstanceId: 'BillingInstanceId',
+      chargeType: 'ChargeType',
+      expireTime: 'ExpireTime',
       replicas: 'Replicas',
       resourceQuota: 'ResourceQuota',
       securityGroupId: 'SecurityGroupId',
       status: 'Status',
+      storageType: 'StorageType',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
       workspaceId: 'WorkspaceId',
@@ -65,10 +73,14 @@ export class DescribeDifyAttributeResponseBodyRoot extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appUuid: 'string',
+      billingInstanceId: 'string',
+      chargeType: 'string',
+      expireTime: 'number',
       replicas: 'string',
       resourceQuota: 'string',
       securityGroupId: 'string',
       status: 'string',
+      storageType: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
       workspaceId: 'string',

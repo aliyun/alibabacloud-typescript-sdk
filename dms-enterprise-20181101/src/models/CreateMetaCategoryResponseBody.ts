@@ -4,23 +4,42 @@ import { MetaCategory } from "./MetaCategory";
 
 
 export class CreateMetaCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the category.
+   */
   category?: MetaCategory;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 207176D7-A9B3-55CE-A9DA-14E223A31913
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
    * @example
    * true
    */

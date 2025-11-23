@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser extends $dara.Model {
   /**
+   * @remarks
+   * The nickname of the approver.
+   * 
    * @example
    * Owner
    */
   nickName?: string;
   /**
+   * @remarks
+   * The name of the approver.
+   * 
    * @example
    * db_test
    */
   realName?: string;
   /**
+   * @remarks
+   * The ID of the approver.
+   * 
    * @example
    * 16***
    */
@@ -70,14 +79,34 @@ export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNo
 }
 
 export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode extends $dara.Model {
+  /**
+   * @remarks
+   * The approvers.
+   */
   auditUserList?: PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList;
+  /**
+   * @remarks
+   * The remarks of the approval node.
+   */
   comment?: string;
   /**
+   * @remarks
+   * The name of the approval node.
+   * 
    * @example
    * Owner
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The type of the approval node.
+   * 
+   * Valid values:
+   * 
+   * *   USER_LIST: The approval node is created by a user.
+   * *   UNKNOWN: The source of the approval node is unknown.
+   * *   SYS: The approval node is predefined by the system.
+   * 
    * @example
    * SYS
    */
@@ -139,8 +168,20 @@ export class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList extends $
 }
 
 export class PreviewWorkflowResponseBodyWorkflowDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks of the approval template.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * The name of the approval template.
+   */
   wfCateName?: string;
+  /**
+   * @remarks
+   * The approval nodes.
+   */
   workflowNodeList?: PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList;
   static names(): { [key: string]: string } {
     return {
@@ -172,25 +213,44 @@ export class PreviewWorkflowResponseBodyWorkflowDetail extends $dara.Model {
 
 export class PreviewWorkflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the workflow.
+   */
   workflowDetail?: PreviewWorkflowResponseBodyWorkflowDetail;
   static names(): { [key: string]: string } {
     return {

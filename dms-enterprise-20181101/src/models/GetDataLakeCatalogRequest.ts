@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataLakeCatalogRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,8 @@ export class GetDataLakeCatalogRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The region where the data lake resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,10 +30,20 @@ export class GetDataLakeCatalogRequest extends $dara.Model {
    */
   dataRegion?: string;
   /**
+   * @remarks
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+   * 
    * @example
    * 3
    */
   tid?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 12****
+   */
   workspaceId?: number;
   static names(): { [key: string]: string } {
     return {

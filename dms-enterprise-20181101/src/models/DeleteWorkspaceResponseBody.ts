@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the workspace is deleted successfully.
+   * 
    * @example
    * true
    */
@@ -17,6 +20,9 @@ export class DeleteWorkspaceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is called successfully.
+   * 
    * @example
    * true
    */

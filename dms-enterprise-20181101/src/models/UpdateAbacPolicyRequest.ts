@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAbacPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The content of the policy.
+   * 
    * @example
    * {
    *   "Statement": [
@@ -25,12 +28,17 @@ export class UpdateAbacPolicyRequest extends $dara.Model {
    */
   abacPolicyContent?: string;
   /**
+   * @remarks
+   * The description of the policy.
+   * 
    * @example
    * test
    */
   abacPolicyDesc?: string;
   /**
    * @remarks
+   * The ID of the policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,11 +46,19 @@ export class UpdateAbacPolicyRequest extends $dara.Model {
    */
   abacPolicyId?: number;
   /**
+   * @remarks
+   * The name of the permission policy.
+   * 
    * @example
    * policy_test
    */
   abacPolicyName?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * > To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
+   * 
    * @example
    * 3***
    */

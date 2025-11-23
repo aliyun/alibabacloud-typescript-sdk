@@ -5,22 +5,41 @@ import { DLPartition } from "./Dlpartition";
 
 export class BatchCreateDataLakePartitionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The details about the new partitions. This parameter is returned when the NeedResult parameter is set to true.
+   */
   partitions?: DLPartition[];
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request succeeded.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

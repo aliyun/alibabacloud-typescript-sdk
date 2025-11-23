@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAbacPoliciesResponseBodyPolicyList extends $dara.Model {
   /**
+   * @remarks
+   * The content of the policy.
+   * 
    * @example
    * {
    *   "Statement": [
@@ -25,26 +28,41 @@ export class ListAbacPoliciesResponseBodyPolicyList extends $dara.Model {
    */
   abacPolicyContent?: string;
   /**
+   * @remarks
+   * The description of the policy.
+   * 
    * @example
    * test
    */
   abacPolicyDesc?: string;
   /**
+   * @remarks
+   * The ID of the policy.
+   * 
    * @example
    * 12****
    */
   abacPolicyId?: number;
   /**
+   * @remarks
+   * The name of the policy.
+   * 
    * @example
    * policy_test
    */
   abacPolicyName?: string;
   /**
+   * @remarks
+   * The source of the policy.
+   * 
    * @example
    * USER_DEFINE
    */
   abacPolicySource?: string;
   /**
+   * @remarks
+   * The ID of the user who created the policy.
+   * 
    * @example
    * 51****
    */
@@ -82,32 +100,57 @@ export class ListAbacPoliciesResponseBodyPolicyList extends $dara.Model {
 
 export class ListAbacPoliciesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The details of the permission policies.
+   */
   policyList?: ListAbacPoliciesResponseBodyPolicyList[];
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
    * @example
    * 3***
    */
   tid?: number;
   /**
+   * @remarks
+   * The total number of policies.
+   * 
    * @example
    * 5
    */

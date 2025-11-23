@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAbacAuthorizationsResponseBodyAuthorizationList extends $dara.Model {
   /**
+   * @remarks
+   * The authorization ID.
+   * 
    * @example
    * 32****
    */
   authorizationId?: number;
   /**
+   * @remarks
+   * The ID of the object to which the policy is attached.
+   * 
    * @example
    * 51****
    */
   identityId?: number;
   /**
+   * @remarks
+   * The name of the object to which the policy is attached.
+   * 
    * @example
    * test_user
    */
   identityName?: string;
   /**
+   * @remarks
+   * The type of the object to which the policy is attached.
+   * 
    * @example
    * USER
    */
   identityType?: string;
   /**
+   * @remarks
+   * The ID of the policy.
+   * 
    * @example
    * 12****
    */
   policyId?: number;
   /**
+   * @remarks
+   * The name of the policy.
+   * 
    * @example
    * policy_test
    */
   policyName?: string;
   /**
+   * @remarks
+   * The source of the policy.
+   * 
    * @example
    * USER_DEFINE
    */
@@ -72,28 +93,50 @@ export class ListAbacAuthorizationsResponseBodyAuthorizationList extends $dara.M
 }
 
 export class ListAbacAuthorizationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of users to which the specified policy is attached.
+   */
   authorizationList?: ListAbacAuthorizationsResponseBodyAuthorizationList[];
   /**
+   * @remarks
+   * The error code that is returned when the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned when the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The number of objects to which the policy is attached.
+   * 
    * @example
    * 3
    */

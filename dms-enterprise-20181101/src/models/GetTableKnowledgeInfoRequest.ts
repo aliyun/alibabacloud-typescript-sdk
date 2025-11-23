@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableKnowledgeInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the physical database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTableKnowledgeInfoRequest extends $dara.Model {
   dbId?: number;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class GetTableKnowledgeInfoRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The schema name of the table, which is required only for SQL Server instances.
+   * 
    * @example
    * dbo
    */

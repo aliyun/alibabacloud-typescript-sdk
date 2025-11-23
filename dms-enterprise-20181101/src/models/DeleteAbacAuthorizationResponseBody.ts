@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAbacAuthorizationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 207176D7-A9B3-55CE-A9DA-14E223A31913
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the policy is detached from the user.
+   * 
    * @example
    * true
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

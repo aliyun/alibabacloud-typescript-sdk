@@ -5,22 +5,41 @@ import { DLPartition } from "./Dlpartition";
 
 export class GetDataLakePartitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The queried partition.
+   */
   partition?: DLPartition;
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

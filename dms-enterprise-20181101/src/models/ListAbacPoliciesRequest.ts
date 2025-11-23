@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAbacPoliciesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
    * @example
    * policy_test
    */
   searchKey?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
+   * 
    * @example
    * 3***
    */

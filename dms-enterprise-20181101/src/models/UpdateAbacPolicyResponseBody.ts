@@ -4,26 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAbacPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * CE43759B-5A72-560A-BF3D-862F38B36B9E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Indicates whether the policy is updated.
+   * 
    * @example
    * true
    */

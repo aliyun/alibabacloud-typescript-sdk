@@ -4,23 +4,42 @@ import { DLCatalog } from "./Dlcatalog";
 
 
 export class ListDataLakeCatalogResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of catalogs.
+   */
   cataLogList?: DLCatalog[];
   /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
    * @example
    * 400
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the request. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * E76DD2E7-EBAC-5724-B163-19AAC233F8F2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */

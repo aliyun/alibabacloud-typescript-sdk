@@ -4,18 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAuthorityTemplateResponseBodyAuthorityTemplateViewListAuthorityTemplateView extends $dara.Model {
   /**
+   * @remarks
+   * The time when the permission template was created. The time is in the yyyy-MM-DD HH:mm:ss format.
+   * 
    * @example
    * 2023-10-26 11:37:47
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the user who created the permission template.
+   * 
    * @example
    * 522****
    */
   creatorId?: number;
+  /**
+   * @remarks
+   * The description of the permission template.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the permission template.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the permission template.
+   * 
    * @example
    * 2592
    */
@@ -76,33 +93,58 @@ export class ListAuthorityTemplateResponseBodyAuthorityTemplateViewList extends 
 }
 
 export class ListAuthorityTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The permission templates.
+   */
   authorityTemplateViewList?: ListAuthorityTemplateResponseBodyAuthorityTemplateViewList;
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID. You can use the request ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * 31853A2B-DC9D-5B39-8492-D2AC8BCF550E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
    * @example
    * 3***
    */
   tid?: number;
   /**
+   * @remarks
+   * The total number of permission templates.
+   * 
    * @example
    * 10
    */

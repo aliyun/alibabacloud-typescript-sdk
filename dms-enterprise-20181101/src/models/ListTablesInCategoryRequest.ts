@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesInCategoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The category ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListTablesInCategoryRequest extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListTablesInCategoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ListTablesInCategoryRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+   * 
    * @example
    * 3***
    */

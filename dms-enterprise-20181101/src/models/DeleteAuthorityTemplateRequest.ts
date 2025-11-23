@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAuthorityTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the permission template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteAuthorityTemplateRequest extends $dara.Model {
    */
   templateId?: number;
   /**
+   * @remarks
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+   * 
    * @example
    * 3***
    */

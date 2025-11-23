@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListMetaCategoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of the page to return. Pages start from page 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListMetaCategoryRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class ListMetaCategoryRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The parent category ID.
+   * 
    * @example
    * 30000322682
    */
   parentCategoryId?: number;
   /**
+   * @remarks
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
+   * 
    * @example
    * 3***
    */

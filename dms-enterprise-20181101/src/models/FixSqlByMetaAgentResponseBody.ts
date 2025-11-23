@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class FixSqlByMetaAgentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The answer.
+   * 
    * @example
    * SQL修复结果...
    */
   content?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * f63a6eed-0e3c-4564-8533-b1295db8d6ff
    */
@@ -37,13 +43,23 @@ export class FixSqlByMetaAgentResponseBodyData extends $dara.Model {
 }
 
 export class FixSqlByMetaAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: FixSqlByMetaAgentResponseBodyData;
   /**
+   * @remarks
+   * The error code that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request failed.
+   * 
    * @example
    * UnknownError
    */
@@ -57,6 +73,12 @@ export class FixSqlByMetaAgentResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: The request was successful.
+   * *   **false**: The request failed.
+   * 
    * @example
    * true
    */
