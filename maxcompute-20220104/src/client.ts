@@ -4853,6 +4853,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将project的二层模型升级为三层模型
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectModelTierResponse
+   */
+  async updateProjectModelTierWithOptions(projectName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProjectModelTierResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProjectModelTier",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/projects/${$dara.URL.percentEncode(projectName)}/modelTier`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProjectModelTierResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProjectModelTierResponse({}));
+  }
+
+  /**
+   * 将project的二层模型升级为三层模型
+   * @returns UpdateProjectModelTierResponse
+   */
+  async updateProjectModelTier(projectName: string): Promise<$_model.UpdateProjectModelTierResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProjectModelTierWithOptions(projectName, headers, runtime);
+  }
+
+  /**
    * Updates a quota plan.
    * 
    * @param request - UpdateQuotaPlanRequest

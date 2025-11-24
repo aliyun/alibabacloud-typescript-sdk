@@ -484,6 +484,8 @@ export { UpdateProjectDefaultQuotaResponse } from './UpdateProjectDefaultQuotaRe
 export { UpdateProjectIpWhiteListRequest } from './UpdateProjectIpWhiteListRequest';
 export { UpdateProjectIpWhiteListResponseBody } from './UpdateProjectIpWhiteListResponseBody';
 export { UpdateProjectIpWhiteListResponse } from './UpdateProjectIpWhiteListResponse';
+export { UpdateProjectModelTierResponseBody } from './UpdateProjectModelTierResponseBody';
+export { UpdateProjectModelTierResponse } from './UpdateProjectModelTierResponse';
 export { UpdateQuotaPlanRequest } from './UpdateQuotaPlanRequest';
 export { UpdateQuotaPlanResponseBody } from './UpdateQuotaPlanResponseBody';
 export { UpdateQuotaPlanResponse } from './UpdateQuotaPlanResponse';
