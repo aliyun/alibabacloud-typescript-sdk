@@ -20,6 +20,16 @@ export class ListTemplatesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * READY
+   */
+  status?: string;
+  /**
+   * @example
+   * temp-abc
+   */
+  templateName?: string;
+  /**
    * @remarks
    * 按模板类型过滤
    * 
@@ -31,6 +41,8 @@ export class ListTemplatesRequest extends $dara.Model {
     return {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      status: 'status',
+      templateName: 'templateName',
       templateType: 'templateType',
     };
   }
@@ -39,6 +51,8 @@ export class ListTemplatesRequest extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      status: 'string',
+      templateName: 'string',
       templateType: 'string',
     };
   }

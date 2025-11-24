@@ -875,6 +875,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除Sandbox
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSandboxResponse
+   */
+  async deleteSandboxWithOptions(sandboxId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSandboxResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSandboxResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSandboxResponse({}));
+  }
+
+  /**
+   * 删除Sandbox
+   * @returns DeleteSandboxResponse
+   */
+  async deleteSandbox(sandboxId: string): Promise<$_model.DeleteSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteSandboxWithOptions(sandboxId, headers, runtime);
+  }
+
+  /**
    * 删除模板
    * 
    * @remarks
@@ -2273,6 +2308,14 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["templateName"] = request.templateName;
+    }
+
     if (!$dara.isNull(request.templateType)) {
       query["templateType"] = request.templateType;
     }
@@ -2418,7 +2461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止沙箱
+   * 删除沙箱
    * 
    * @remarks
    * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
@@ -2435,8 +2478,8 @@ export default class Client extends OpenApi {
       action: "StopSandbox",
       version: "2025-09-10",
       protocol: "HTTPS",
-      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}`,
-      method: "DELETE",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}/stop`,
+      method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
@@ -2446,7 +2489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止沙箱
+   * 删除沙箱
    * 
    * @remarks
    * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。

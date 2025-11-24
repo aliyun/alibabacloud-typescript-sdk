@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSandboxInput extends $dara.Model {
+  sandboxId?: string;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
@@ -17,6 +18,7 @@ export class CreateSandboxInput extends $dara.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      sandboxId: 'sandboxId',
       sandboxIdleTimeoutSeconds: 'sandboxIdleTimeoutSeconds',
       templateName: 'templateName',
     };
@@ -24,6 +26,7 @@ export class CreateSandboxInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      sandboxId: 'string',
       sandboxIdleTimeoutSeconds: 'number',
       templateName: 'string',
     };

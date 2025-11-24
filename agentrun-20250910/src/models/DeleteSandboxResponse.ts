@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { StopSandboxResult } from "./StopSandboxResult";
+import { DeleteSandboxResult } from "./DeleteSandboxResult";
 
 
-export class StopSandboxResponse extends $dara.Model {
+export class DeleteSandboxResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: StopSandboxResult;
+  body?: DeleteSandboxResult;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class StopSandboxResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: StopSandboxResult,
+      body: DeleteSandboxResult,
     };
   }
 

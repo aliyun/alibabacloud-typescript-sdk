@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Sandbox extends $dara.Model {
-  sandboxIdleTTLInSeconds?: number;
   /**
    * @remarks
    * 沙箱创建时间
@@ -24,6 +23,7 @@ export class Sandbox extends $dara.Model {
    * This parameter is required.
    */
   sandboxId?: string;
+  sandboxIdleTTLInSeconds?: number;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
@@ -42,13 +42,13 @@ export class Sandbox extends $dara.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
-      sandboxIdleTTLInSeconds: 'SandboxIdleTTLInSeconds',
       createdAt: 'createdAt',
       endedAt: 'endedAt',
       lastUpdatedAt: 'lastUpdatedAt',
       metadata: 'metadata',
       sandboxArn: 'sandboxArn',
       sandboxId: 'sandboxId',
+      sandboxIdleTTLInSeconds: 'sandboxIdleTTLInSeconds',
       sandboxIdleTimeoutSeconds: 'sandboxIdleTimeoutSeconds',
       status: 'status',
       templateId: 'templateId',
@@ -58,13 +58,13 @@ export class Sandbox extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sandboxIdleTTLInSeconds: 'number',
       createdAt: 'string',
       endedAt: 'string',
       lastUpdatedAt: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       sandboxArn: 'string',
       sandboxId: 'string',
+      sandboxIdleTTLInSeconds: 'number',
       sandboxIdleTimeoutSeconds: 'number',
       status: 'string',
       templateId: 'string',
