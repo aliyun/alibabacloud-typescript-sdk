@@ -20,6 +20,7 @@ export class UnifiedPageItem extends $dara.Model {
   snippet?: string;
   summary?: string;
   title?: string;
+  websiteAuthorityScore?: number;
   static names(): { [key: string]: string } {
     return {
       hostAuthorityScore: 'hostAuthorityScore',
@@ -35,6 +36,7 @@ export class UnifiedPageItem extends $dara.Model {
       snippet: 'snippet',
       summary: 'summary',
       title: 'title',
+      websiteAuthorityScore: 'websiteAuthorityScore',
     };
   }
 
@@ -53,6 +55,7 @@ export class UnifiedPageItem extends $dara.Model {
       snippet: 'string',
       summary: 'string',
       title: 'string',
+      websiteAuthorityScore: 'number',
     };
   }
 

@@ -105,6 +105,7 @@ export class ScorePageItem extends $dara.Model {
    * 小米SU7售价22.99万元起 高管亲自辟谣：发布前不会有价格
    */
   title?: string;
+  websiteAuthorityScore?: number;
   static names(): { [key: string]: string } {
     return {
       cardType: 'cardType',
@@ -127,6 +128,7 @@ export class ScorePageItem extends $dara.Model {
       snippet: 'snippet',
       summary: 'summary',
       title: 'title',
+      websiteAuthorityScore: 'websiteAuthorityScore',
     };
   }
 
@@ -152,6 +154,7 @@ export class ScorePageItem extends $dara.Model {
       snippet: 'string',
       summary: 'string',
       title: 'string',
+      websiteAuthorityScore: 'number',
     };
   }
 
