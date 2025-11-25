@@ -98,6 +98,16 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
   data?: string;
   /**
    * @example
+   * 0
+   */
+  handleStatus?: number;
+  /**
+   * @example
+   * 1758607200
+   */
+  handleTimestamp?: number;
+  /**
+   * @example
    * {\\"X-Total-Count\\": 1}
    */
   headers?: string;
@@ -260,6 +270,8 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
       contentLength: 'ContentLength',
       count: 'Count',
       data: 'Data',
+      handleStatus: 'HandleStatus',
+      handleTimestamp: 'HandleTimestamp',
       headers: 'Headers',
       hostId: 'HostId',
       hostname: 'Hostname',
@@ -308,6 +320,8 @@ export class DescribeAttacksResponseBodyAttacks extends $dara.Model {
       contentLength: 'number',
       count: 'number',
       data: 'string',
+      handleStatus: 'number',
+      handleTimestamp: 'number',
       headers: 'string',
       hostId: 'string',
       hostname: 'string',
