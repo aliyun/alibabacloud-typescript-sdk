@@ -87,6 +87,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * rdsai.supabase.basic
    */
   instanceClass?: string;
+  publicEndpointEnabled?: boolean;
   /**
    * @example
    * false
@@ -114,6 +115,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       dashboardUsername: 'DashboardUsername',
       databasePassword: 'DatabasePassword',
       instanceClass: 'InstanceClass',
+      publicEndpointEnabled: 'PublicEndpointEnabled',
       publicNetworkAccessEnabled: 'PublicNetworkAccessEnabled',
       RAGEnabled: 'RAGEnabled',
       regionId: 'RegionId',
@@ -132,6 +134,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
       dashboardUsername: 'string',
       databasePassword: 'string',
       instanceClass: 'string',
+      publicEndpointEnabled: 'boolean',
       publicNetworkAccessEnabled: 'boolean',
       RAGEnabled: 'boolean',
       regionId: 'string',

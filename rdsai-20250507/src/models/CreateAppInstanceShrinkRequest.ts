@@ -44,6 +44,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * rdsai.supabase.basic
    */
   instanceClass?: string;
+  publicEndpointEnabled?: boolean;
   /**
    * @example
    * false
@@ -71,6 +72,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       dashboardUsername: 'DashboardUsername',
       databasePassword: 'DatabasePassword',
       instanceClass: 'InstanceClass',
+      publicEndpointEnabled: 'PublicEndpointEnabled',
       publicNetworkAccessEnabled: 'PublicNetworkAccessEnabled',
       RAGEnabled: 'RAGEnabled',
       regionId: 'RegionId',
@@ -89,6 +91,7 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       dashboardUsername: 'string',
       databasePassword: 'string',
       instanceClass: 'string',
+      publicEndpointEnabled: 'boolean',
       publicNetworkAccessEnabled: 'boolean',
       RAGEnabled: 'boolean',
       regionId: 'string',

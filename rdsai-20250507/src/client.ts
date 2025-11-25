@@ -81,6 +81,10 @@ export default class Client extends OpenApi {
       query["InstanceClass"] = request.instanceClass;
     }
 
+    if (!$dara.isNull(request.publicEndpointEnabled)) {
+      query["PublicEndpointEnabled"] = request.publicEndpointEnabled;
+    }
+
     if (!$dara.isNull(request.publicNetworkAccessEnabled)) {
       query["PublicNetworkAccessEnabled"] = request.publicNetworkAccessEnabled;
     }
@@ -929,6 +933,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.dashboardPassword)) {
       query["DashboardPassword"] = request.dashboardPassword;
+    }
+
+    if (!$dara.isNull(request.databasePassword)) {
+      query["DatabasePassword"] = request.databasePassword;
     }
 
     if (!$dara.isNull(request.instanceName)) {

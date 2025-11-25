@@ -4,13 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetInstancePasswordRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * test_Password
    */
   dashboardPassword?: string;
+  databasePassword?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -27,6 +25,7 @@ export class ResetInstancePasswordRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dashboardPassword: 'DashboardPassword',
+      databasePassword: 'DatabasePassword',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -35,6 +34,7 @@ export class ResetInstancePasswordRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dashboardPassword: 'string',
+      databasePassword: 'string',
       instanceName: 'string',
       regionId: 'string',
     };
