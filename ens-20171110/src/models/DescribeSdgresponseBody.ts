@@ -148,6 +148,11 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
    */
   avaliableRegionIds?: DescribeSDGResponseBodySDGsAvaliableRegionIds[];
   billingCycle?: string;
+  /**
+   * @example
+   * Open
+   */
+  billingType?: string;
   creationDiskType?: string;
   /**
    * @remarks
@@ -236,6 +241,7 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
     return {
       avaliableRegionIds: 'AvaliableRegionIds',
       billingCycle: 'BillingCycle',
+      billingType: 'BillingType',
       creationDiskType: 'CreationDiskType',
       creationInstanceId: 'CreationInstanceId',
       creationRegionId: 'CreationRegionId',
@@ -255,6 +261,7 @@ export class DescribeSDGResponseBodySDGs extends $dara.Model {
     return {
       avaliableRegionIds: { 'type': 'array', 'itemType': DescribeSDGResponseBodySDGsAvaliableRegionIds },
       billingCycle: 'string',
+      billingType: 'string',
       creationDiskType: 'string',
       creationInstanceId: 'string',
       creationRegionId: 'string',

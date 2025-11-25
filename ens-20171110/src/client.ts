@@ -3296,6 +3296,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用CreateSecurityGroupPermissions创建安全组规则。
+   * 
+   * @param tmpReq - CreateSecurityGroupPermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityGroupPermissionsResponse
+   */
+  async createSecurityGroupPermissionsWithOptions(tmpReq: $_model.CreateSecurityGroupPermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityGroupPermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityGroupPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.permissionsShrink)) {
+      query["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityGroupPermissions",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityGroupPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityGroupPermissionsResponse({}));
+  }
+
+  /**
+   * 调用CreateSecurityGroupPermissions创建安全组规则。
+   * 
+   * @param request - CreateSecurityGroupPermissionsRequest
+   * @returns CreateSecurityGroupPermissionsResponse
+   */
+  async createSecurityGroupPermissions(request: $_model.CreateSecurityGroupPermissionsRequest): Promise<$_model.CreateSecurityGroupPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityGroupPermissionsWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a snapshot.
    * 
    * @param request - CreateSnapshotRequest
@@ -4807,6 +4859,58 @@ export default class Client extends OpenApi {
   async deleteSecurityGroup(request: $_model.DeleteSecurityGroupRequest): Promise<$_model.DeleteSecurityGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSecurityGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用DeleteSecurityGroupPermissions删除安全组规则。
+   * 
+   * @param tmpReq - DeleteSecurityGroupPermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityGroupPermissionsResponse
+   */
+  async deleteSecurityGroupPermissionsWithOptions(tmpReq: $_model.DeleteSecurityGroupPermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityGroupPermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteSecurityGroupPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissions)) {
+      request.permissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissions, "Permissions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.permissionsShrink)) {
+      query["Permissions"] = request.permissionsShrink;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityGroupPermissions",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityGroupPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityGroupPermissionsResponse({}));
+  }
+
+  /**
+   * 调用DeleteSecurityGroupPermissions删除安全组规则。
+   * 
+   * @param request - DeleteSecurityGroupPermissionsRequest
+   * @returns DeleteSecurityGroupPermissionsResponse
+   */
+  async deleteSecurityGroupPermissions(request: $_model.DeleteSecurityGroupPermissionsRequest): Promise<$_model.DeleteSecurityGroupPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityGroupPermissionsWithOptions(request, runtime);
   }
 
   /**
@@ -7353,6 +7457,48 @@ export default class Client extends OpenApi {
   async describeFileSystems(request: $_model.DescribeFileSystemsRequest): Promise<$_model.DescribeFileSystemsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFileSystemsWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用DescribeForwardEntryAttribute查询DNAT条目明细
+   * 
+   * @param request - DescribeForwardEntryAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeForwardEntryAttributeResponse
+   */
+  async describeForwardEntryAttributeWithOptions(request: $_model.DescribeForwardEntryAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeForwardEntryAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forwardEntryId)) {
+      query["ForwardEntryId"] = request.forwardEntryId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeForwardEntryAttribute",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeForwardEntryAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeForwardEntryAttributeResponse({}));
+  }
+
+  /**
+   * 调用DescribeForwardEntryAttribute查询DNAT条目明细
+   * 
+   * @param request - DescribeForwardEntryAttributeRequest
+   * @returns DescribeForwardEntryAttributeResponse
+   */
+  async describeForwardEntryAttribute(request: $_model.DescribeForwardEntryAttributeRequest): Promise<$_model.DescribeForwardEntryAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeForwardEntryAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -12803,6 +12949,56 @@ export default class Client extends OpenApi {
   async modifyInstanceChargeType(request: $_model.ModifyInstanceChargeTypeRequest): Promise<$_model.ModifyInstanceChargeTypeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例网络
+   * 
+   * @param request - ModifyInstanceNetworkAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNetworkAttributeResponse
+   */
+  async modifyInstanceNetworkAttributeWithOptions(request: $_model.ModifyInstanceNetworkAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstanceNetworkAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyInstanceNetworkAttribute",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyInstanceNetworkAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstanceNetworkAttributeResponse({}));
+  }
+
+  /**
+   * 修改实例网络
+   * 
+   * @param request - ModifyInstanceNetworkAttributeRequest
+   * @returns ModifyInstanceNetworkAttributeResponse
+   */
+  async modifyInstanceNetworkAttribute(request: $_model.ModifyInstanceNetworkAttributeRequest): Promise<$_model.ModifyInstanceNetworkAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyInstanceNetworkAttributeWithOptions(request, runtime);
   }
 
   /**
