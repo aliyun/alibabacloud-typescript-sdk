@@ -636,6 +636,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 验证用
+   * 
+   * @param request - CreateComputeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComputeResourceResponse
+   */
+  async createComputeResourceWithOptions(request: $_model.CreateComputeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComputeResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionProperties)) {
+      query["ConnectionProperties"] = request.connectionProperties;
+    }
+
+    if (!$dara.isNull(request.connectionPropertiesMode)) {
+      query["ConnectionPropertiesMode"] = request.connectionPropertiesMode;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComputeResource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComputeResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateComputeResourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - CreateComputeResourceRequest
+   * @returns CreateComputeResourceResponse
+   */
+  async createComputeResource(request: $_model.CreateComputeResourceRequest): Promise<$_model.CreateComputeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an alert rule for a synchronization task.
    * 
    * @param tmpReq - CreateDIAlarmRuleRequest
@@ -3280,6 +3342,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 验证用
+   * 
+   * @param request - DeleteComputeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComputeResourceResponse
+   */
+  async deleteComputeResourceWithOptions(request: $_model.DeleteComputeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComputeResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComputeResource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComputeResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComputeResourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - DeleteComputeResourceRequest
+   * @returns DeleteComputeResourceResponse
+   */
+  async deleteComputeResource(request: $_model.DeleteComputeResourceRequest): Promise<$_model.DeleteComputeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an alert rule configured for a synchronization task.
    * 
    * @param request - DeleteDIAlarmRuleRequest
@@ -5161,6 +5269,52 @@ export default class Client extends OpenApi {
   async getComponent(request: $_model.GetComponentRequest): Promise<$_model.GetComponentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getComponentWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - GetComputeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetComputeResourceResponse
+   */
+  async getComputeResourceWithOptions(request: $_model.GetComputeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetComputeResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetComputeResource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetComputeResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetComputeResourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - GetComputeResourceRequest
+   * @returns GetComputeResourceResponse
+   */
+  async getComputeResource(request: $_model.GetComputeResourceRequest): Promise<$_model.GetComputeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getComputeResourceWithOptions(request, runtime);
   }
 
   /**
@@ -7583,6 +7737,82 @@ export default class Client extends OpenApi {
   async listComponents(request: $_model.ListComponentsRequest): Promise<$_model.ListComponentsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listComponentsWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param tmpReq - ListComputeResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComputeResourcesResponse
+   */
+  async listComputeResourcesWithOptions(tmpReq: $_model.ListComputeResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListComputeResourcesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListComputeResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.typesShrink)) {
+      query["Types"] = request.typesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListComputeResources",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListComputeResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListComputeResourcesResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - ListComputeResourcesRequest
+   * @returns ListComputeResourcesResponse
+   */
+  async listComputeResources(request: $_model.ListComputeResourcesRequest): Promise<$_model.ListComputeResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listComputeResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -12361,6 +12591,64 @@ export default class Client extends OpenApi {
   async updateComponent(request: $_model.UpdateComponentRequest): Promise<$_model.UpdateComponentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateComponentWithOptions(request, runtime);
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - UpdateComputeResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateComputeResourceResponse
+   */
+  async updateComputeResourceWithOptions(request: $_model.UpdateComputeResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateComputeResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionProperties)) {
+      query["ConnectionProperties"] = request.connectionProperties;
+    }
+
+    if (!$dara.isNull(request.connectionPropertiesMode)) {
+      query["ConnectionPropertiesMode"] = request.connectionPropertiesMode;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateComputeResource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateComputeResourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateComputeResourceResponse({}));
+  }
+
+  /**
+   * 验证用
+   * 
+   * @param request - UpdateComputeResourceRequest
+   * @returns UpdateComputeResourceResponse
+   */
+  async updateComputeResource(request: $_model.UpdateComputeResourceRequest): Promise<$_model.UpdateComputeResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateComputeResourceWithOptions(request, runtime);
   }
 
   /**
