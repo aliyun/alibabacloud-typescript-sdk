@@ -419,6 +419,10 @@ export default class Client extends OpenApi {
       body["AlgorithmVersion"] = request.algorithmVersion;
     }
 
+    if (!$dara.isNull(request.assignNodeSpec)) {
+      body["AssignNodeSpec"] = request.assignNodeSpec;
+    }
+
     if (!$dara.isNull(request.codeDir)) {
       body["CodeDir"] = request.codeDir;
     }

@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { AlgorithmSpec } from "./AlgorithmSpec";
+import { AssignNodeSpec } from "./AssignNodeSpec";
 import { JobSettings } from "./JobSettings";
 
 
@@ -729,6 +730,7 @@ export class GetTrainingJobResponseBody extends $dara.Model {
    * v0.0.1
    */
   algorithmVersion?: string;
+  assignNodeSpec?: AssignNodeSpec;
   computeResource?: GetTrainingJobResponseBodyComputeResource;
   /**
    * @example
@@ -824,6 +826,7 @@ export class GetTrainingJobResponseBody extends $dara.Model {
       algorithmProvider: 'AlgorithmProvider',
       algorithmSpec: 'AlgorithmSpec',
       algorithmVersion: 'AlgorithmVersion',
+      assignNodeSpec: 'AssignNodeSpec',
       computeResource: 'ComputeResource',
       duration: 'Duration',
       environments: 'Environments',
@@ -866,6 +869,7 @@ export class GetTrainingJobResponseBody extends $dara.Model {
       algorithmProvider: 'string',
       algorithmSpec: AlgorithmSpec,
       algorithmVersion: 'string',
+      assignNodeSpec: AssignNodeSpec,
       computeResource: GetTrainingJobResponseBodyComputeResource,
       duration: 'number',
       environments: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -904,6 +908,9 @@ export class GetTrainingJobResponseBody extends $dara.Model {
   validate() {
     if(this.algorithmSpec && typeof (this.algorithmSpec as any).validate === 'function') {
       (this.algorithmSpec as any).validate();
+    }
+    if(this.assignNodeSpec && typeof (this.assignNodeSpec as any).validate === 'function') {
+      (this.assignNodeSpec as any).validate();
     }
     if(this.computeResource && typeof (this.computeResource as any).validate === 'function') {
       (this.computeResource as any).validate();

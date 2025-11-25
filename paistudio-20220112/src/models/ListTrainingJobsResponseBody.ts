@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { AssignNodeSpec } from "./AssignNodeSpec";
 
 
 export class ListTrainingJobsResponseBodyTrainingJobsComputeResourceInstanceSpec extends $dara.Model {
@@ -459,6 +460,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $dara.Model {
    * v0.0.1
    */
   algorithmVersion?: string;
+  assignNodeSpec?: AssignNodeSpec;
   computeResource?: ListTrainingJobsResponseBodyTrainingJobsComputeResource;
   dlcJobId?: string;
   environments?: { [key: string]: string };
@@ -532,6 +534,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $dara.Model {
       algorithmName: 'AlgorithmName',
       algorithmProvider: 'AlgorithmProvider',
       algorithmVersion: 'AlgorithmVersion',
+      assignNodeSpec: 'AssignNodeSpec',
       computeResource: 'ComputeResource',
       dlcJobId: 'DlcJobId',
       environments: 'Environments',
@@ -564,6 +567,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $dara.Model {
       algorithmName: 'string',
       algorithmProvider: 'string',
       algorithmVersion: 'string',
+      assignNodeSpec: AssignNodeSpec,
       computeResource: ListTrainingJobsResponseBodyTrainingJobsComputeResource,
       dlcJobId: 'string',
       environments: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -592,6 +596,9 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $dara.Model {
   }
 
   validate() {
+    if(this.assignNodeSpec && typeof (this.assignNodeSpec as any).validate === 'function') {
+      (this.assignNodeSpec as any).validate();
+    }
     if(this.computeResource && typeof (this.computeResource as any).validate === 'function') {
       (this.computeResource as any).validate();
     }
