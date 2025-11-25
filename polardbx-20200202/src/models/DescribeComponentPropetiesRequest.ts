@@ -27,11 +27,13 @@ export class DescribeComponentPropetiesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
       componentName: 'ComponentName',
       regionId: 'RegionId',
+      storageType: 'StorageType',
     };
   }
 
@@ -40,6 +42,7 @@ export class DescribeComponentPropetiesRequest extends $dara.Model {
       commodityCode: 'string',
       componentName: 'string',
       regionId: 'string',
+      storageType: 'string',
     };
   }
 
