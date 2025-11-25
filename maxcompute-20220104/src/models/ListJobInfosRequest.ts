@@ -16,6 +16,7 @@ export class ListJobInfosRequest extends $dara.Model {
    * The ancestor node IDs.
    */
   extNodeIdList?: string[];
+  extNodeNameList?: string[];
   /**
    * @remarks
    * The start timestamp.
@@ -79,6 +80,7 @@ export class ListJobInfosRequest extends $dara.Model {
    * The job states.
    */
   statusList?: string[];
+  taskNameList?: string[];
   /**
    * @remarks
    * The end timestamp.
@@ -138,6 +140,7 @@ export class ListJobInfosRequest extends $dara.Model {
     return {
       ascOrder: 'ascOrder',
       extNodeIdList: 'extNodeIdList',
+      extNodeNameList: 'extNodeNameList',
       from: 'from',
       instanceIdList: 'instanceIdList',
       jobOwnerList: 'jobOwnerList',
@@ -149,6 +152,7 @@ export class ListJobInfosRequest extends $dara.Model {
       sortByList: 'sortByList',
       sortOrderList: 'sortOrderList',
       statusList: 'statusList',
+      taskNameList: 'taskNameList',
       to: 'to',
       typeList: 'typeList',
       orderColumn: 'orderColumn',
@@ -163,6 +167,7 @@ export class ListJobInfosRequest extends $dara.Model {
     return {
       ascOrder: 'boolean',
       extNodeIdList: { 'type': 'array', 'itemType': 'string' },
+      extNodeNameList: { 'type': 'array', 'itemType': 'string' },
       from: 'number',
       instanceIdList: { 'type': 'array', 'itemType': 'string' },
       jobOwnerList: { 'type': 'array', 'itemType': 'string' },
@@ -174,6 +179,7 @@ export class ListJobInfosRequest extends $dara.Model {
       sortByList: { 'type': 'array', 'itemType': 'string' },
       sortOrderList: { 'type': 'array', 'itemType': 'string' },
       statusList: { 'type': 'array', 'itemType': 'string' },
+      taskNameList: { 'type': 'array', 'itemType': 'string' },
       to: 'number',
       typeList: { 'type': 'array', 'itemType': 'string' },
       orderColumn: 'string',
@@ -187,6 +193,9 @@ export class ListJobInfosRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.extNodeIdList)) {
       $dara.Model.validateArray(this.extNodeIdList);
+    }
+    if(Array.isArray(this.extNodeNameList)) {
+      $dara.Model.validateArray(this.extNodeNameList);
     }
     if(Array.isArray(this.instanceIdList)) {
       $dara.Model.validateArray(this.instanceIdList);
@@ -214,6 +223,9 @@ export class ListJobInfosRequest extends $dara.Model {
     }
     if(Array.isArray(this.statusList)) {
       $dara.Model.validateArray(this.statusList);
+    }
+    if(Array.isArray(this.taskNameList)) {
+      $dara.Model.validateArray(this.taskNameList);
     }
     if(Array.isArray(this.typeList)) {
       $dara.Model.validateArray(this.typeList);

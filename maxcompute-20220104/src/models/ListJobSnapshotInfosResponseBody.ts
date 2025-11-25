@@ -51,6 +51,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
    * Dataworks
    */
   extPlantFrom?: string;
+  extPlatformId?: string;
   /**
    * @remarks
    * The instance ID.
@@ -254,6 +255,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
       extNodeId: 'extNodeId',
       extNodeOnDuty: 'extNodeOnDuty',
       extPlantFrom: 'extPlantFrom',
+      extPlatformId: 'extPlatformId',
       instanceId: 'instanceId',
       jobOwner: 'jobOwner',
       jobType: 'jobType',
@@ -289,6 +291,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
       extNodeId: 'string',
       extNodeOnDuty: 'string',
       extPlantFrom: 'string',
+      extPlatformId: 'string',
       instanceId: 'string',
       jobOwner: 'string',
       jobType: 'string',

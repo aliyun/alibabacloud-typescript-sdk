@@ -123,6 +123,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * node_4
    */
   extNodeId?: string;
+  extNodeName?: string;
   /**
    * @remarks
    * The account of the node owner.
@@ -139,6 +140,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * platform_3
    */
   extPlantFrom?: string;
+  extPlatformId?: string;
   /**
    * @remarks
    * The amount of scanned data for the job. Unit: byte.
@@ -288,6 +290,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
    * []
    */
   tags?: string;
+  taskName?: string;
   /**
    * @remarks
    * The tenant ID.
@@ -319,8 +322,10 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       cuUsage: 'cuUsage',
       endAtTime: 'endAtTime',
       extNodeId: 'extNodeId',
+      extNodeName: 'extNodeName',
       extNodeOnDuty: 'extNodeOnDuty',
       extPlantFrom: 'extPlantFrom',
+      extPlatformId: 'extPlatformId',
       inputBytes: 'inputBytes',
       instanceId: 'instanceId',
       jobOwner: 'jobOwner',
@@ -340,6 +345,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       statusSnapshot: 'statusSnapshot',
       submittedAtTime: 'submittedAtTime',
       tags: 'tags',
+      taskName: 'taskName',
       tenantId: 'tenantId',
       totalTime: 'totalTime',
       waitingTime: 'waitingTime',
@@ -353,8 +359,10 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       cuUsage: 'number',
       endAtTime: 'number',
       extNodeId: 'string',
+      extNodeName: 'string',
       extNodeOnDuty: 'string',
       extPlantFrom: 'string',
+      extPlatformId: 'string',
       inputBytes: 'number',
       instanceId: 'string',
       jobOwner: 'string',
@@ -374,6 +382,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
       statusSnapshot: 'string',
       submittedAtTime: 'number',
       tags: 'string',
+      taskName: 'string',
       tenantId: 'string',
       totalTime: 'number',
       waitingTime: 'number',

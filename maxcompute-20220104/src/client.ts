@@ -2346,6 +2346,10 @@ export default class Client extends OpenApi {
       body["extNodeIdList"] = request.extNodeIdList;
     }
 
+    if (!$dara.isNull(request.extNodeNameList)) {
+      body["extNodeNameList"] = request.extNodeNameList;
+    }
+
     if (!$dara.isNull(request.from)) {
       body["from"] = request.from;
     }
@@ -2388,6 +2392,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.statusList)) {
       body["statusList"] = request.statusList;
+    }
+
+    if (!$dara.isNull(request.taskNameList)) {
+      body["taskNameList"] = request.taskNameList;
     }
 
     if (!$dara.isNull(request.to)) {
