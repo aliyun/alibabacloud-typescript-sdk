@@ -41,6 +41,7 @@ export { ListSimQuestionResponseBodySimQuestions } from './ListSimQuestionRespon
 export { ListSolutionResponseBodySolutions } from './ListSolutionResponseBody';
 export { ListTagResponseBodyTagGroups } from './ListTagResponseBody';
 export { ListTagGroupResponseBodyTagGroups } from './ListTagGroupResponseBody';
+export { ListTongyiConversationLogsResponseBodySessionFlowDebugInfo } from './ListTongyiConversationLogsResponseBody';
 export { ListUserSayResponseBodyUserSaysSlotInfos } from './ListUserSayResponseBody';
 export { ListUserSayResponseBodyUserSays } from './ListUserSayResponseBody';
 export { NluResponseBodyMessagesDialogHubNluInfoGlobalDictList } from './NluResponseBody';
