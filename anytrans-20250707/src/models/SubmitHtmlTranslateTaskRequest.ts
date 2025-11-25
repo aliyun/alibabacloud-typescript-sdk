@@ -3,15 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitHtmlTranslateTaskRequestExtConfig extends $dara.Model {
+  callbackUrl?: string;
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
+      callbackUrl: 'callbackUrl',
       skipCsiCheck: 'skipCsiCheck',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      callbackUrl: 'string',
       skipCsiCheck: 'boolean',
     };
   }

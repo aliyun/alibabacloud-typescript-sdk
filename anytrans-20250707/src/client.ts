@@ -113,6 +113,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通义多模态翻译批量翻译(供js sdk使用)
+   * 
+   * @param tmpReq - BatchTranslateForHtmlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchTranslateForHtmlResponse
+   */
+  async batchTranslateForHtmlWithOptions(tmpReq: $_model.BatchTranslateForHtmlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchTranslateForHtmlResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchTranslateForHtmlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ext)) {
+      request.extShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ext, "ext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.text)) {
+      request.textShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.text, "text", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appName)) {
+      body["appName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.extShrink)) {
+      body["ext"] = request.extShrink;
+    }
+
+    if (!$dara.isNull(request.format)) {
+      body["format"] = request.format;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      body["scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.sourceLanguage)) {
+      body["sourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!$dara.isNull(request.targetLanguage)) {
+      body["targetLanguage"] = request.targetLanguage;
+    }
+
+    if (!$dara.isNull(request.textShrink)) {
+      body["text"] = request.textShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchTranslateForHtml",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/batchForHtml`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchTranslateForHtmlResponse>(await this.callApi(params, req, runtime), new $_model.BatchTranslateForHtmlResponse({}));
+  }
+
+  /**
+   * 通义多模态翻译批量翻译(供js sdk使用)
+   * 
+   * @param request - BatchTranslateForHtmlRequest
+   * @returns BatchTranslateForHtmlResponse
+   */
+  async batchTranslateForHtml(request: $_model.BatchTranslateForHtmlRequest): Promise<$_model.BatchTranslateForHtmlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchTranslateForHtmlWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 通义多模态翻译获文档翻译任务
    * 
    * @param request - GetDocTranslateTaskRequest

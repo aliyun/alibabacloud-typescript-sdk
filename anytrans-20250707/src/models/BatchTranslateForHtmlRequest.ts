@@ -2,7 +2,11 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TextTranslateRequestExtConfig extends $dara.Model {
+export class BatchTranslateForHtmlRequestExtConfig extends $dara.Model {
+  /**
+   * @example
+   * fasle
+   */
   skipCsiCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -25,7 +29,7 @@ export class TextTranslateRequestExtConfig extends $dara.Model {
   }
 }
 
-export class TextTranslateRequestExtExamples extends $dara.Model {
+export class BatchTranslateForHtmlRequestExtExamples extends $dara.Model {
   src?: string;
   /**
    * @example
@@ -55,11 +59,11 @@ export class TextTranslateRequestExtExamples extends $dara.Model {
   }
 }
 
-export class TextTranslateRequestExtTerminologies extends $dara.Model {
+export class BatchTranslateForHtmlRequestExtTerminologies extends $dara.Model {
   src?: string;
   /**
    * @example
-   * ML
+   * API
    */
   tgt?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +89,7 @@ export class TextTranslateRequestExtTerminologies extends $dara.Model {
   }
 }
 
-export class TextTranslateRequestExtTextTransform extends $dara.Model {
+export class BatchTranslateForHtmlRequestExtTextTransform extends $dara.Model {
   /**
    * @example
    * false
@@ -126,21 +130,19 @@ export class TextTranslateRequestExtTextTransform extends $dara.Model {
   }
 }
 
-export class TextTranslateRequestExt extends $dara.Model {
-  agent?: string;
-  config?: TextTranslateRequestExtConfig;
+export class BatchTranslateForHtmlRequestExt extends $dara.Model {
+  config?: BatchTranslateForHtmlRequestExtConfig;
   /**
    * @example
-   * technology
+   * this sentence from an e-commerce product image, please provide a translation that is both highly concise and no more than 1.2 times the length of the original.
    */
   domainHint?: string;
-  examples?: TextTranslateRequestExtExamples[];
+  examples?: BatchTranslateForHtmlRequestExtExamples[];
   sensitives?: string[];
-  terminologies?: TextTranslateRequestExtTerminologies[];
-  textTransform?: TextTranslateRequestExtTextTransform;
+  terminologies?: BatchTranslateForHtmlRequestExtTerminologies[];
+  textTransform?: BatchTranslateForHtmlRequestExtTextTransform;
   static names(): { [key: string]: string } {
     return {
-      agent: 'agent',
       config: 'config',
       domainHint: 'domainHint',
       examples: 'examples',
@@ -152,13 +154,12 @@ export class TextTranslateRequestExt extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      agent: 'string',
-      config: TextTranslateRequestExtConfig,
+      config: BatchTranslateForHtmlRequestExtConfig,
       domainHint: 'string',
-      examples: { 'type': 'array', 'itemType': TextTranslateRequestExtExamples },
+      examples: { 'type': 'array', 'itemType': BatchTranslateForHtmlRequestExtExamples },
       sensitives: { 'type': 'array', 'itemType': 'string' },
-      terminologies: { 'type': 'array', 'itemType': TextTranslateRequestExtTerminologies },
-      textTransform: TextTranslateRequestExtTextTransform,
+      terminologies: { 'type': 'array', 'itemType': BatchTranslateForHtmlRequestExtTerminologies },
+      textTransform: BatchTranslateForHtmlRequestExtTextTransform,
     };
   }
 
@@ -186,8 +187,13 @@ export class TextTranslateRequestExt extends $dara.Model {
   }
 }
 
-export class TextTranslateRequest extends $dara.Model {
-  ext?: TextTranslateRequestExt;
+export class BatchTranslateForHtmlRequest extends $dara.Model {
+  /**
+   * @example
+   * baidufanyi
+   */
+  appName?: string;
+  ext?: BatchTranslateForHtmlRequestExt;
   /**
    * @example
    * text
@@ -218,7 +224,7 @@ export class TextTranslateRequest extends $dara.Model {
    * @remarks
    * This parameter is required.
    */
-  text?: string;
+  text?: { [key: string]: any };
   /**
    * @remarks
    * This parameter is required.
@@ -229,6 +235,7 @@ export class TextTranslateRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      appName: 'appName',
       ext: 'ext',
       format: 'format',
       scene: 'scene',
@@ -241,12 +248,13 @@ export class TextTranslateRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ext: TextTranslateRequestExt,
+      appName: 'string',
+      ext: BatchTranslateForHtmlRequestExt,
       format: 'string',
       scene: 'string',
       sourceLanguage: 'string',
       targetLanguage: 'string',
-      text: 'string',
+      text: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       workspaceId: 'string',
     };
   }
@@ -254,6 +262,9 @@ export class TextTranslateRequest extends $dara.Model {
   validate() {
     if(this.ext && typeof (this.ext as any).validate === 'function') {
       (this.ext as any).validate();
+    }
+    if(this.text) {
+      $dara.Model.validateMap(this.text);
     }
     super.validate();
   }
