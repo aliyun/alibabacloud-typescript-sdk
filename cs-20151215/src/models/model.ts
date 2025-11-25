@@ -82,6 +82,7 @@ export { DescribeClusterNodePoolDetailResponseBodyScalingGroupPrivatePoolOptions
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOptions } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyScalingGroup } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyStatusConditions } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyStatus } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyTeeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsAutoMode } from './DescribeClusterNodePoolsResponseBody';
@@ -175,6 +176,7 @@ export { ListClusterInspectReportsResponseBodyReports } from './ListClusterInspe
 export { ListClusterKubeconfigStatesResponseBodyPage } from './ListClusterKubeconfigStatesResponseBody';
 export { ListClusterKubeconfigStatesResponseBodyStates } from './ListClusterKubeconfigStatesResponseBody';
 export { ListOperationPlansResponseBodyPlans } from './ListOperationPlansResponseBody';
+export { ListOperationPlansForRegionResponseBodyPlansStateReason } from './ListOperationPlansForRegionResponseBody';
 export { ListOperationPlansForRegionResponseBodyPlans } from './ListOperationPlansForRegionResponseBody';
 export { ListTagResourcesResponseBodyTagResourcesTagResource } from './ListTagResourcesResponseBody';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';

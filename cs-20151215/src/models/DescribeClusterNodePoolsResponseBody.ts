@@ -1460,6 +1460,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
    * 120
    */
   systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
    * The label to be added to the ECS instances.
@@ -1519,6 +1520,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       systemDiskPerformanceLevel: 'system_disk_performance_level',
       systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
     };
@@ -1573,6 +1575,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       systemDiskPerformanceLevel: 'string',
       systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };

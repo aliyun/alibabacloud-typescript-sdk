@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListOperationPlansForRegionResponseBodyPlansStateReason extends $dara.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOperationPlansForRegionResponseBodyPlans extends $dara.Model {
   /**
    * @example
@@ -33,6 +59,7 @@ export class ListOperationPlansForRegionResponseBodyPlans extends $dara.Model {
    * Scheduled
    */
   state?: string;
+  stateReason?: ListOperationPlansForRegionResponseBodyPlansStateReason;
   /**
    * @example
    * c29ced64b3dfe4f33b57ca0aa9f68****
@@ -61,6 +88,7 @@ export class ListOperationPlansForRegionResponseBodyPlans extends $dara.Model {
       planId: 'plan_id',
       startTime: 'start_time',
       state: 'state',
+      stateReason: 'state_reason',
       targetId: 'target_id',
       targetType: 'target_type',
       taskId: 'task_id',
@@ -76,6 +104,7 @@ export class ListOperationPlansForRegionResponseBodyPlans extends $dara.Model {
       planId: 'string',
       startTime: 'string',
       state: 'string',
+      stateReason: ListOperationPlansForRegionResponseBodyPlansStateReason,
       targetId: 'string',
       targetType: 'string',
       taskId: 'string',
@@ -84,6 +113,9 @@ export class ListOperationPlansForRegionResponseBodyPlans extends $dara.Model {
   }
 
   validate() {
+    if(this.stateReason && typeof (this.stateReason as any).validate === 'function') {
+      (this.stateReason as any).validate();
+    }
     super.validate();
   }
 

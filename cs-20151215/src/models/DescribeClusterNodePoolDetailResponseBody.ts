@@ -1397,6 +1397,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
    * 120
    */
   systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
    * The labels that you want to add only to ECS instances.
@@ -1461,6 +1462,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
       systemDiskPerformanceLevel: 'system_disk_performance_level',
       systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
     };
@@ -1516,6 +1518,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
       systemDiskPerformanceLevel: 'string',
       systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -1566,7 +1569,43 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $dara
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyStatusConditions extends $dara.Model {
+  lastTransitionTime?: string;
+  message?: string;
+  reason?: string;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lastTransitionTime: 'last_transition_time',
+      message: 'message',
+      reason: 'reason',
+      status: 'status',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lastTransitionTime: 'string',
+      message: 'string',
+      reason: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model {
+  conditions?: DescribeClusterNodePoolDetailResponseBodyStatusConditions[];
   /**
    * @remarks
    * The number of failed nodes.
@@ -1639,6 +1678,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
   totalNodes?: number;
   static names(): { [key: string]: string } {
     return {
+      conditions: 'conditions',
       failedNodes: 'failed_nodes',
       healthyNodes: 'healthy_nodes',
       initialNodes: 'initial_nodes',
@@ -1652,6 +1692,7 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      conditions: { 'type': 'array', 'itemType': DescribeClusterNodePoolDetailResponseBodyStatusConditions },
       failedNodes: 'number',
       healthyNodes: 'number',
       initialNodes: 'number',
@@ -1664,6 +1705,9 @@ export class DescribeClusterNodePoolDetailResponseBodyStatus extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
     super.validate();
   }
 

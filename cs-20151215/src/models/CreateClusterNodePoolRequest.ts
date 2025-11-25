@@ -1533,6 +1533,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * 120
    */
   systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
    * The tags that you want to add only to ECS instances.
@@ -1597,6 +1598,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
       systemDiskPerformanceLevel: 'system_disk_performance_level',
       systemDiskProvisionedIops: 'system_disk_provisioned_iops',
       systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
       tags: 'tags',
       vswitchIds: 'vswitch_ids',
     };
@@ -1650,6 +1652,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
       systemDiskPerformanceLevel: 'string',
       systemDiskProvisionedIops: 'number',
       systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
       tags: { 'type': 'array', 'itemType': CreateClusterNodePoolRequestScalingGroupTags },
       vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };
