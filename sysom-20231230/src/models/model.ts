@@ -1,6 +1,7 @@
 export { AuthDiagnosisRequestInstances } from './AuthDiagnosisRequest';
 export { CheckInstanceSupportResponseBodyData } from './CheckInstanceSupportResponseBody';
 export { CreateAlertStrategyRequestStrategy } from './CreateAlertStrategyRequest';
+export { DescribeMetricListResponseBodyData } from './DescribeMetricListResponseBody';
 export { GetAbnormalEventsCountResponseBodyData } from './GetAbnormalEventsCountResponseBody';
 export { GetAgentResponseBodyDataVersions } from './GetAgentResponseBody';
 export { GetAgentResponseBodyData } from './GetAgentResponseBody';
@@ -85,6 +86,9 @@ export { CreateAlertStrategyResponse } from './CreateAlertStrategyResponse';
 export { DeleteAlertStrategyRequest } from './DeleteAlertStrategyRequest';
 export { DeleteAlertStrategyResponseBody } from './DeleteAlertStrategyResponseBody';
 export { DeleteAlertStrategyResponse } from './DeleteAlertStrategyResponse';
+export { DescribeMetricListRequest } from './DescribeMetricListRequest';
+export { DescribeMetricListResponseBody } from './DescribeMetricListResponseBody';
+export { DescribeMetricListResponse } from './DescribeMetricListResponse';
 export { GenerateCopilotResponseRequest } from './GenerateCopilotResponseRequest';
 export { GenerateCopilotResponseResponseBody } from './GenerateCopilotResponseResponseBody';
 export { GenerateCopilotResponseResponse } from './GenerateCopilotResponseResponse';

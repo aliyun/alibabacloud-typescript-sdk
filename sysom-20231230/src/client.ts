@@ -234,6 +234,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询指标
+   * 
+   * @param request - DescribeMetricListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricListResponse
+   */
+  async describeMetricListWithOptions(request: $_model.DescribeMetricListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instance)) {
+      query["instance"] = request.instance;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["metricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetricList",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/openapi/proxy/get/describeMetricList`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetricListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetricListResponse({}));
+  }
+
+  /**
+   * 查询指标
+   * 
+   * @param request - DescribeMetricListRequest
+   * @returns DescribeMetricListResponse
+   */
+  async describeMetricList(request: $_model.DescribeMetricListRequest): Promise<$_model.DescribeMetricListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeMetricListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取copilot服务的返回结果
    * 
    * @param request - GenerateCopilotResponseRequest
