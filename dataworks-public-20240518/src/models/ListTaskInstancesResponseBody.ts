@@ -381,6 +381,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
    * Scheduler
    */
   triggerType?: string;
+  unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
    * The timestamp for when it started waiting for resources.
@@ -469,6 +470,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
       triggerType: 'TriggerType',
+      unifiedWorkflowInstanceId: 'UnifiedWorkflowInstanceId',
       waitingResourceTime: 'WaitingResourceTime',
       waitingTriggerTime: 'WaitingTriggerTime',
       workflowId: 'WorkflowId',
@@ -509,6 +511,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       triggerRecurrence: 'string',
       triggerTime: 'number',
       triggerType: 'string',
+      unifiedWorkflowInstanceId: 'number',
       waitingResourceTime: 'number',
       waitingTriggerTime: 'number',
       workflowId: 'number',

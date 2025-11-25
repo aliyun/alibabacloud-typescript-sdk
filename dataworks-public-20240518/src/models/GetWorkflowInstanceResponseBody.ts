@@ -176,6 +176,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * Normal
    */
   type?: string;
+  unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -211,6 +212,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       status: 'Status',
       tags: 'Tags',
       type: 'Type',
+      unifiedWorkflowInstanceId: 'UnifiedWorkflowInstanceId',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
       workflowTaskInstanceId: 'WorkflowTaskInstanceId',
@@ -234,6 +236,7 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetWorkflowInstanceResponseBodyWorkflowInstanceTags },
       type: 'string',
+      unifiedWorkflowInstanceId: 'number',
       workflowId: 'number',
       workflowParameters: 'string',
       workflowTaskInstanceId: 'number',

@@ -10324,6 +10324,10 @@ export default class Client extends OpenApi {
       body["Bizdate"] = request.bizdate;
     }
 
+    if (!$dara.isNull(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }
@@ -10386,6 +10390,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.triggerType)) {
       body["TriggerType"] = request.triggerType;
+    }
+
+    if (!$dara.isNull(request.unifiedWorkflowInstanceId)) {
+      body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId;
     }
 
     if (!$dara.isNull(request.workflowId)) {
@@ -10711,9 +10719,17 @@ export default class Client extends OpenApi {
       request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.bizDate)) {
       body["BizDate"] = request.bizDate;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      body["Filter"] = request.filter;
     }
 
     if (!$dara.isNull(request.idsShrink)) {
@@ -10744,8 +10760,16 @@ export default class Client extends OpenApi {
       body["SortBy"] = request.sortBy;
     }
 
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
     if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.unifiedWorkflowInstanceId)) {
+      body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId;
     }
 
     if (!$dara.isNull(request.workflowId)) {
@@ -10801,6 +10825,10 @@ export default class Client extends OpenApi {
       request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
     }
 
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.envType)) {
       body["EnvType"] = request.envType;
@@ -10832,6 +10860,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sortBy)) {
       body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
     }
 
     if (!$dara.isNull(request.triggerType)) {

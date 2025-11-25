@@ -173,6 +173,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
    * Normal
    */
   type?: string;
+  unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -208,6 +209,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       status: 'Status',
       tags: 'Tags',
       type: 'Type',
+      unifiedWorkflowInstanceId: 'UnifiedWorkflowInstanceId',
       workflowId: 'WorkflowId',
       workflowParameters: 'WorkflowParameters',
       workflowTaskInstanceId: 'WorkflowTaskInstanceId',
@@ -231,6 +233,7 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstancesTags },
       type: 'string',
+      unifiedWorkflowInstanceId: 'number',
       workflowId: 'number',
       workflowParameters: 'string',
       workflowTaskInstanceId: 'number',

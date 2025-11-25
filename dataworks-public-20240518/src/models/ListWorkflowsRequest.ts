@@ -75,6 +75,7 @@ export class ListWorkflowsRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  tags?: string[];
   /**
    * @remarks
    * The trigger type.
@@ -96,6 +97,7 @@ export class ListWorkflowsRequest extends $dara.Model {
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       sortBy: 'SortBy',
+      tags: 'Tags',
       triggerType: 'TriggerType',
     };
   }
@@ -110,6 +112,7 @@ export class ListWorkflowsRequest extends $dara.Model {
       pageSize: 'number',
       projectId: 'number',
       sortBy: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
       triggerType: 'string',
     };
   }
@@ -117,6 +120,9 @@ export class ListWorkflowsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.ids)) {
       $dara.Model.validateArray(this.ids);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

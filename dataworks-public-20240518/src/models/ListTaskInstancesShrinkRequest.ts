@@ -13,6 +13,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * 1710239005403
    */
   bizdate?: number;
+  filter?: string;
   /**
    * @remarks
    * The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
@@ -166,6 +167,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
    * Normal
    */
   triggerType?: string;
+  unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -199,6 +201,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizdate: 'Bizdate',
+      filter: 'Filter',
       id: 'Id',
       idsShrink: 'Ids',
       owner: 'Owner',
@@ -215,6 +218,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
       taskType: 'TaskType',
       triggerRecurrence: 'TriggerRecurrence',
       triggerType: 'TriggerType',
+      unifiedWorkflowInstanceId: 'UnifiedWorkflowInstanceId',
       workflowId: 'WorkflowId',
       workflowInstanceId: 'WorkflowInstanceId',
       workflowInstanceType: 'WorkflowInstanceType',
@@ -224,6 +228,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizdate: 'number',
+      filter: 'string',
       id: 'number',
       idsShrink: 'string',
       owner: 'string',
@@ -240,6 +245,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
       taskType: 'string',
       triggerRecurrence: 'string',
       triggerType: 'string',
+      unifiedWorkflowInstanceId: 'number',
       workflowId: 'number',
       workflowInstanceId: 'number',
       workflowInstanceType: 'string',

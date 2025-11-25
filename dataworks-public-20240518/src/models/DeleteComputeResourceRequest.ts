@@ -12,6 +12,9 @@ export class DeleteComputeResourceRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1234
    */

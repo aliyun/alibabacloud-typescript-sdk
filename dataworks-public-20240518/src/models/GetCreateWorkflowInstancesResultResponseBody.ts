@@ -23,6 +23,7 @@ export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Mo
    * Created
    */
   status?: string;
+  unifiedWorkflowInstanceIds?: number[];
   /**
    * @remarks
    * The workflow instance IDs. This parameter is returned only if the creation is successful.
@@ -33,6 +34,7 @@ export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Mo
     return {
       failureMessage: 'FailureMessage',
       status: 'Status',
+      unifiedWorkflowInstanceIds: 'UnifiedWorkflowInstanceIds',
       workflowInstanceIds: 'WorkflowInstanceIds',
       workflowTaskInstanceIds: 'WorkflowTaskInstanceIds',
     };
@@ -42,12 +44,16 @@ export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Mo
     return {
       failureMessage: 'string',
       status: 'string',
+      unifiedWorkflowInstanceIds: { 'type': 'array', 'itemType': 'number' },
       workflowInstanceIds: { 'type': 'array', 'itemType': 'number' },
       workflowTaskInstanceIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.unifiedWorkflowInstanceIds)) {
+      $dara.Model.validateArray(this.unifiedWorkflowInstanceIds);
+    }
     if(Array.isArray(this.workflowInstanceIds)) {
       $dara.Model.validateArray(this.workflowInstanceIds);
     }

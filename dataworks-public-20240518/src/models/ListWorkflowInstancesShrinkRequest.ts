@@ -13,6 +13,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * 1710239005403
    */
   bizDate?: number;
+  filter?: string;
   /**
    * @remarks
    * The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
@@ -76,6 +77,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  tagsShrink?: string;
   /**
    * @remarks
    * The type of the workflow instance. Valid values:
@@ -91,6 +93,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    * Normal
    */
   type?: string;
+  unifiedWorkflowInstanceId?: number;
   /**
    * @remarks
    * The ID of the workflow to which the instance belongs.
@@ -102,6 +105,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
+      filter: 'Filter',
       idsShrink: 'Ids',
       name: 'Name',
       owner: 'Owner',
@@ -109,7 +113,9 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       sortBy: 'SortBy',
+      tagsShrink: 'Tags',
       type: 'Type',
+      unifiedWorkflowInstanceId: 'UnifiedWorkflowInstanceId',
       workflowId: 'WorkflowId',
     };
   }
@@ -117,6 +123,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizDate: 'number',
+      filter: 'string',
       idsShrink: 'string',
       name: 'string',
       owner: 'string',
@@ -124,7 +131,9 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
       pageSize: 'number',
       projectId: 'number',
       sortBy: 'string',
+      tagsShrink: 'string',
       type: 'string',
+      unifiedWorkflowInstanceId: 'number',
       workflowId: 'number',
     };
   }

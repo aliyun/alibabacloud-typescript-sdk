@@ -75,6 +75,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
    * Id Desc
    */
   sortBy?: string;
+  tagsShrink?: string;
   /**
    * @remarks
    * The trigger type.
@@ -96,6 +97,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
       pageSize: 'PageSize',
       projectId: 'ProjectId',
       sortBy: 'SortBy',
+      tagsShrink: 'Tags',
       triggerType: 'TriggerType',
     };
   }
@@ -110,6 +112,7 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
       pageSize: 'number',
       projectId: 'number',
       sortBy: 'string',
+      tagsShrink: 'string',
       triggerType: 'string',
     };
   }
