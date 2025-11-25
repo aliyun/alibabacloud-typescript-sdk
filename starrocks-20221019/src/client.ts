@@ -821,12 +821,20 @@ export default class Client extends OpenApi {
       query["NodeGroupId"] = request.nodeGroupId;
     }
 
+    if (!$dara.isNull(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
     if (!$dara.isNull(request.promotionOptionNo)) {
       query["PromotionOptionNo"] = request.promotionOptionNo;
     }
 
     if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
+    }
+
+    if (!$dara.isNull(request.terminationGracePeriodSeconds)) {
+      query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

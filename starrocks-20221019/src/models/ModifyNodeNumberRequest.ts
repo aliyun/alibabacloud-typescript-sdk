@@ -23,6 +23,7 @@ export class ModifyNodeNumberRequest extends $dara.Model {
    * ng-3d5ce6454354****
    */
   nodeGroupId?: string;
+  parallelism?: number;
   promotionOptionNo?: string;
   /**
    * @remarks
@@ -34,12 +35,15 @@ export class ModifyNodeNumberRequest extends $dara.Model {
    * 3
    */
   target?: number;
+  terminationGracePeriodSeconds?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       nodeGroupId: 'NodeGroupId',
+      parallelism: 'Parallelism',
       promotionOptionNo: 'PromotionOptionNo',
       target: 'Target',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
     };
   }
 
@@ -47,8 +51,10 @@ export class ModifyNodeNumberRequest extends $dara.Model {
     return {
       instanceId: 'string',
       nodeGroupId: 'string',
+      parallelism: 'number',
       promotionOptionNo: 'string',
       target: 'number',
+      terminationGracePeriodSeconds: 'number',
     };
   }
 
