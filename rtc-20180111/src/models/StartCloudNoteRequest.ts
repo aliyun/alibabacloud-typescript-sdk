@@ -173,10 +173,12 @@ export class StartCloudNoteRequestRealtimeSubtitleTranslation extends $dara.Mode
 }
 
 export class StartCloudNoteRequestRealtimeSubtitle extends $dara.Model {
+  asrCallback?: boolean;
   enabled?: boolean;
   translation?: StartCloudNoteRequestRealtimeSubtitleTranslation;
   static names(): { [key: string]: string } {
     return {
+      asrCallback: 'AsrCallback',
       enabled: 'Enabled',
       translation: 'Translation',
     };
@@ -184,6 +186,7 @@ export class StartCloudNoteRequestRealtimeSubtitle extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrCallback: 'boolean',
       enabled: 'boolean',
       translation: StartCloudNoteRequestRealtimeSubtitleTranslation,
     };
