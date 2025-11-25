@@ -81,7 +81,21 @@ export class GetAssetsPropertyItemResponseBodyPropertyItems extends $dara.Model 
    * localhost
    */
   domain?: string;
+  /**
+   * @remarks
+   * AI tool name.
+   * 
+   * @example
+   * vllm
+   */
   middlewareName?: string;
+  /**
+   * @remarks
+   * Name of the LLM service.
+   * 
+   * @example
+   * Deepseek
+   */
   modelName?: string;
   /**
    * @remarks

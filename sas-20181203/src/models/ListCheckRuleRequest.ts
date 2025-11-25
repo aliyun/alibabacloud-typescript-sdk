@@ -67,6 +67,10 @@ export class ListCheckRuleRequest extends $dara.Model {
    * INSTANCE
    */
   scopeType?: string;
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   static names(): { [key: string]: string } {
     return {

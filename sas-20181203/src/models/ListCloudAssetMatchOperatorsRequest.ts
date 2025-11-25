@@ -2,24 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeCustomizedDictRequest extends $dara.Model {
+export class ListCloudAssetMatchOperatorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the access source.
+   * Sets the language type for requests and received messages, default is **zh**. Values:
+   * - **zh**: Chinese 
+   * - **en**: English
    * 
    * @example
-   * 58.240.XX.XX
+   * zh
    */
-  sourceIp?: string;
+  lang?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
+      lang: 'Lang',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
+      lang: 'string',
     };
   }
 

@@ -162,6 +162,13 @@ export class ListCheckInstanceResultResponseBodyBasicData extends $dara.Model {
    * Task is failed.
    */
   statusMessage?: string;
+  /**
+   * @remarks
+   * The multi-cloud provider account name.
+   * 
+   * @example
+   * test
+   */
   vendorUserName?: string;
   static names(): { [key: string]: string } {
     return {

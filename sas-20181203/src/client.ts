@@ -3005,6 +3005,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create Policy
+   * 
+   * @param request - CreateCheckPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCheckPolicyResponse
+   */
+  async createCheckPolicyWithOptions(request: $_model.CreateCheckPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCheckPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dependentPolicyId)) {
+      query["DependentPolicyId"] = request.dependentPolicyId;
+    }
+
+    if (!$dara.isNull(request.policyShowName)) {
+      query["PolicyShowName"] = request.policyShowName;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCheckPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCheckPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateCheckPolicyResponse({}));
+  }
+
+  /**
+   * Create Policy
+   * 
+   * @param request - CreateCheckPolicyRequest
+   * @returns CreateCheckPolicyResponse
+   */
+  async createCheckPolicy(request: $_model.CreateCheckPolicyRequest): Promise<$_model.CreateCheckPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCheckPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a container scan task.
    * 
    * @param request - CreateContainerScanTaskRequest
@@ -4302,7 +4356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   * Get alert whitelist configuration details
    * 
    * @param request - CreateMaliciousFileWhitelistConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4361,7 +4415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+   * Get alert whitelist configuration details
    * 
    * @param request - CreateMaliciousFileWhitelistConfigRequest
    * @returns CreateMaliciousFileWhitelistConfigResponse
@@ -11473,7 +11527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群扫描组件状态
+   * Query the status of cluster scanning components.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11512,7 +11566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群扫描组件状态
+   * Query the status of cluster scanning components.
    * 
    * @param request - DescribeClusterScannerListRequest
    * @returns DescribeClusterScannerListResponse
@@ -12671,7 +12725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看自定义弱口令上传结果
+   * View the result of custom weak password uploads
    * 
    * @param request - DescribeCustomizedDictRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12702,7 +12756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看自定义弱口令上传结果
+   * View the result of custom weak password uploads
    * 
    * @param request - DescribeCustomizedDictRequest
    * @returns DescribeCustomizedDictResponse
@@ -14146,6 +14200,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.exposureIp)) {
+      query["ExposureIp"] = request.exposureIp;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.pageSize)) {
@@ -26392,7 +26454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成K8s集群扫描接入配置
+   * Generate K8s cluster scan access configuration.
    * 
    * @param request - GenerateClusterScannerWebhookYamlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26427,7 +26489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成K8s集群扫描接入配置
+   * Generate K8s cluster scan access configuration.
    * 
    * @param request - GenerateClusterScannerWebhookYamlRequest
    * @returns GenerateClusterScannerWebhookYamlResponse
@@ -28228,7 +28290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The total number of instances that are at risk.
+   * 获取云资产概要
    * 
    * @param request - GetCloudAssetSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28263,7 +28325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The total number of instances that are at risk.
+   * 获取云资产概要
    * 
    * @param request - GetCloudAssetSummaryRequest
    * @returns GetCloudAssetSummaryResponse
@@ -28362,7 +28424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询K8s集群扫描接入配置
+   * Query K8s cluster scan access configuration.
    * 
    * @param request - GetClusterScannerYamlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28393,7 +28455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询K8s集群扫描接入配置
+   * Query K8s cluster scan access configuration.
    * 
    * @param request - GetClusterScannerYamlRequest
    * @returns GetClusterScannerYamlResponse
@@ -29574,7 +29636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取蜜罐使用量的统计数据
+   * Get statistics on honey pot usage.
    * 
    * @param request - GetHoneypotStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29605,7 +29667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取蜜罐使用量的统计数据
+   * Get statistics on honey pot usage.
    * 
    * @param request - GetHoneypotStatisticsRequest
    * @returns GetHoneypotStatisticsResponse
@@ -29789,6 +29851,38 @@ export default class Client extends OpenApi {
   async getInstanceAlarmStatistics(request: $_model.GetInstanceAlarmStatisticsRequest): Promise<$_model.GetInstanceAlarmStatisticsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceAlarmStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例授权取值范围
+   * 
+   * @param request - GetInstanceAuthRangeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceAuthRangeResponse
+   */
+  async getInstanceAuthRangeWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceAuthRangeResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceAuthRange",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceAuthRangeResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceAuthRangeResponse({}));
+  }
+
+  /**
+   * 获取实例授权取值范围
+   * @returns GetInstanceAuthRangeResponse
+   */
+  async getInstanceAuthRange(): Promise<$_model.GetInstanceAuthRangeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceAuthRangeWithOptions(runtime);
   }
 
   /**
@@ -31868,7 +31962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量处理恶意样本告警。
+   * Batch process malicious alerts.
    * 
    * @remarks
    * ***
@@ -31918,7 +32012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量处理恶意样本告警。
+   * Batch process malicious alerts.
    * 
    * @remarks
    * ***
@@ -33869,7 +33963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers that are affected by baseline risks.
+   * Query the list of warning machines for a specific baseline check item.
    * 
    * @param request - ListCheckItemWarningMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33944,7 +34038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the servers that are affected by baseline risks.
+   * Query the list of warning machines for a specific baseline check item.
    * 
    * @param request - ListCheckItemWarningMachineRequest
    * @returns ListCheckItemWarningMachineResponse
@@ -34634,6 +34728,116 @@ export default class Client extends OpenApi {
   async listCloudAssetInstances(request: $_model.ListCloudAssetInstancesRequest): Promise<$_model.ListCloudAssetInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCloudAssetInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Get the list of cloud product configuration rule operators
+   * 
+   * @remarks
+   * Get the list of cloud asset data operators.
+   * 
+   * @param request - ListCloudAssetMatchOperatorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAssetMatchOperatorsResponse
+   */
+  async listCloudAssetMatchOperatorsWithOptions(request: $_model.ListCloudAssetMatchOperatorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAssetMatchOperatorsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAssetMatchOperators",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAssetMatchOperatorsResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAssetMatchOperatorsResponse({}));
+  }
+
+  /**
+   * Get the list of cloud product configuration rule operators
+   * 
+   * @remarks
+   * Get the list of cloud asset data operators.
+   * 
+   * @param request - ListCloudAssetMatchOperatorsRequest
+   * @returns ListCloudAssetMatchOperatorsResponse
+   */
+  async listCloudAssetMatchOperators(request: $_model.ListCloudAssetMatchOperatorsRequest): Promise<$_model.ListCloudAssetMatchOperatorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAssetMatchOperatorsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取云产品资产结构列表
+   * 
+   * @param request - ListCloudAssetSchemasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAssetSchemasResponse
+   */
+  async listCloudAssetSchemasWithOptions(request: $_model.ListCloudAssetSchemasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAssetSchemasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.associatedDataOnly)) {
+      query["AssociatedDataOnly"] = request.associatedDataOnly;
+    }
+
+    if (!$dara.isNull(request.cloudAssetTypes)) {
+      query["CloudAssetTypes"] = request.cloudAssetTypes;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.dataNames)) {
+      query["DataNames"] = request.dataNames;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAssetSchemas",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAssetSchemasResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAssetSchemasResponse({}));
+  }
+
+  /**
+   * 获取云产品资产结构列表
+   * 
+   * @param request - ListCloudAssetSchemasRequest
+   * @returns ListCloudAssetSchemasResponse
+   */
+  async listCloudAssetSchemas(request: $_model.ListCloudAssetSchemasRequest): Promise<$_model.ListCloudAssetSchemasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAssetSchemasWithOptions(request, runtime);
   }
 
   /**
@@ -36672,6 +36876,52 @@ export default class Client extends OpenApi {
   async listMaliciousFileWhitelistConfigs(request: $_model.ListMaliciousFileWhitelistConfigsRequest): Promise<$_model.ListMaliciousFileWhitelistConfigsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMaliciousFileWhitelistConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询多账号授权分配列表
+   * 
+   * @param request - ListMultiUserInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultiUserInstancesResponse
+   */
+  async listMultiUserInstancesWithOptions(request: $_model.ListMultiUserInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMultiUserInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMultiUserInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMultiUserInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListMultiUserInstancesResponse({}));
+  }
+
+  /**
+   * 查询多账号授权分配列表
+   * 
+   * @param request - ListMultiUserInstancesRequest
+   * @returns ListMultiUserInstancesResponse
+   */
+  async listMultiUserInstances(request: $_model.ListMultiUserInstancesRequest): Promise<$_model.ListMultiUserInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMultiUserInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -47152,6 +47402,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update Custom Policy
+   * 
+   * @param request - UpdateCheckPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCheckPolicyResponse
+   */
+  async updateCheckPolicyWithOptions(request: $_model.UpdateCheckPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCheckPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dependentPolicyId)) {
+      query["DependentPolicyId"] = request.dependentPolicyId;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.policyShowName)) {
+      query["PolicyShowName"] = request.policyShowName;
+    }
+
+    if (!$dara.isNull(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCheckPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCheckPolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCheckPolicyResponse({}));
+  }
+
+  /**
+   * Update Custom Policy
+   * 
+   * @param request - UpdateCheckPolicyRequest
+   * @returns UpdateCheckPolicyResponse
+   */
+  async updateCheckPolicy(request: $_model.UpdateCheckPolicyRequest): Promise<$_model.UpdateCheckPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCheckPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies alerting settings for servers.
    * 
    * @param request - UpdateClientAlertModeRequest
@@ -48145,6 +48453,48 @@ export default class Client extends OpenApi {
   async updateMaliciousFileWhitelistConfig(request: $_model.UpdateMaliciousFileWhitelistConfigRequest): Promise<$_model.UpdateMaliciousFileWhitelistConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMaliciousFileWhitelistConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改多账号实例配置
+   * 
+   * @param request - UpdateMultiUserInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMultiUserInstancesResponse
+   */
+  async updateMultiUserInstancesWithOptions(request: $_model.UpdateMultiUserInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMultiUserInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.memberInstances)) {
+      query["MemberInstances"] = request.memberInstances;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMultiUserInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMultiUserInstancesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMultiUserInstancesResponse({}));
+  }
+
+  /**
+   * 修改多账号实例配置
+   * 
+   * @param request - UpdateMultiUserInstancesRequest
+   * @returns UpdateMultiUserInstancesResponse
+   */
+  async updateMultiUserInstances(request: $_model.UpdateMultiUserInstancesRequest): Promise<$_model.UpdateMultiUserInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMultiUserInstancesWithOptions(request, runtime);
   }
 
   /**

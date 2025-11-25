@@ -3,6 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeWarningMachinesResponseBodyWarningMachines extends $dara.Model {
+  /**
+   * @remarks
+   * The type of cloud product assets.
+   * > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the types of cloud product assets.
+   * 
+   * @example
+   * 0
+   */
   assetType?: string;
   /**
    * @remarks

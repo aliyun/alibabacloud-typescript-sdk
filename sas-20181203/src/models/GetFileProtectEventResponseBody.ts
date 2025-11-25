@@ -159,7 +159,21 @@ export class GetFileProtectEventResponseBodyData extends $dara.Model {
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * User ID of the user who started the current process.
+   * 
+   * @example
+   * 1001
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username that started the current process.
+   * 
+   * @example
+   * test
+   */
   userName?: string;
   /**
    * @remarks

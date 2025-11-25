@@ -117,6 +117,14 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
    * The modules that are associated with the AccessKey pair.
    */
   authModules?: ModifyCloudVendorAccountAKResponseBodyDataAuthModules[];
+  /**
+   * @remarks
+   * Account ID. 
+   * >The account ID of the cloud provider being connected.
+   * 
+   * @example
+   * azure_demo_1
+   */
   ctdrCloudUserId?: string;
   /**
    * @remarks
@@ -168,6 +176,11 @@ export class ModifyCloudVendorAccountAKResponseBodyData extends $dara.Model {
    * *   **HUAWEICLOUD**: Huawei Cloud.
    * *   **Azure**: Microsoft Azure.
    * *   **AWS**: Amazon Web Services (AWS).
+   * *  **VOLCENGINE**: Volcengine 
+   * *  **google**: Google Cloud 
+   * *  **CHAITIN**: Chaitin Tech 
+   * *  **FORTINET**: Fortinet 
+   * *  **THREATBOOK**: ThreatBook
    * 
    * @example
    * Tencent

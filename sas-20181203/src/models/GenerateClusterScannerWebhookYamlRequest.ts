@@ -5,6 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateClusterScannerWebhookYamlRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the container cluster.
+   * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) API to obtain this parameter from the ClusterId field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +15,11 @@ export class GenerateClusterScannerWebhookYamlRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Indicates whether the incremental scan switch is enabled. Values:
+   * - **0**: Not enabled
+   * - **1**: Enabled
+   * 
    * @example
    * 1
    */

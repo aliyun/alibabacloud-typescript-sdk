@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas extends $dara.Model {
   /**
    * @remarks
-   * The subtype of the cloud service.
+   * Subtype of the cloud product
    * 
    * @example
    * 0
@@ -13,33 +13,33 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   assetSubType?: number;
   /**
    * @remarks
-   * The type of the cloud service. Valid values:
+   * 云产品的类型。取值：
    * 
-   * *   **0**: Elastic Compute Service (ECS)
-   * *   **1**: Server Load Balancer (SLB)
-   * *   **3**: ApsaraDB RDS
-   * *   **4**: ApsaraDB for MongoDB (MongoDB)
-   * *   **5**: ApsaraDB for Redis (Redis)
-   * *   **6**: Container Registry
-   * *   **8**: Container Service for Kubernetes (ACK)
-   * *   **9**: Virtual Private Cloud (VPC)
-   * *   **11**: ActionTrail
-   * *   **12**: Alibaba Cloud CDN (CDN)
-   * *   **13**: Certificate Management Service (formerly SSL Certificates Service)
-   * *   **14**: Apsara Devops
-   * *   **15**: Resource Access Management (RAM)
-   * *   **16**: Anti-DDoS
-   * *   **17**: Web Application Firewall (WAF)
-   * *   **18**: Object Storage Service (OSS)
-   * *   **19**: PolarDB
-   * *   **20**: ApsaraDB RDS for PostgreSQL
-   * *   **21**: Microservices Engine (MSE)
-   * *   **22**: File Storage NAS (NAS)
-   * *   **23**: Data Security Center (DSC)
-   * *   **24**: Elastic IP Address (EIP)
-   * *   **25**: Identity as a Service (IDaaS) - Enterprise Identity Access Management (EIAM)
-   * *   **26**: PolarDB for Xscale (PolarDB-X)
-   * *   **27**: Elasticsearch
+   * - **0**：云服务器 ECS
+   * - **1**：负载均衡
+   * - **3**：云数据库 RDS
+   * - **4**：云数据库 MongoDB 版
+   * - **5**：云数据库 Tair（兼容 Redis）
+   * - **6**：容器镜像服务
+   * - **8**：容器服务Kubernetes版
+   * - **9**：专有网络VPC
+   * - **11**：操作审计
+   * - **12**：CDN
+   * - **13**：数字证书管理服务（原SSL证书）
+   * - **14**：云效
+   * - **15**：访问控制
+   * - **16**：DDoS防护
+   * - **17**：Web应用防火墙
+   * - **18**：对象存储
+   * - **19**：云原生关系型数据库 PolarDB
+   * - **20**：云数据库 PostgreSQL 版
+   * - **21**：微服务引擎
+   * - **22**：文件存储NAS
+   * - **23**：数据安全中心
+   * - **24**：弹性公网IP
+   * - **25**：云身份服务-EIAM
+   * - **26**：PolarDB-X
+   * - **27**：Elasticsearch
    * 
    * @example
    * 16
@@ -47,7 +47,7 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   assetType?: number;
   /**
    * @remarks
-   * The total number of cloud service instances of this type.
+   * Total number of this type of cloud product instances.
    * 
    * @example
    * 16
@@ -55,7 +55,7 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   instanceCount?: number;
   /**
    * @remarks
-   * The total number of cloud service instances that are at risk of this type.
+   * Total number of risky instances for this type of cloud product.
    * 
    * @example
    * 5
@@ -63,13 +63,13 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
   instanceRiskCount?: number;
   /**
    * @remarks
-   * The server type. Valid values:
+   * 服务器厂商。取值：
    * 
-   * *   **0**: an asset provided by Alibaba Cloud
-   * *   **1**: an asset outside Alibaba Cloud
-   * *   **2**: an asset in a data center
-   * *   **3**, **4**, **5**, and **7**: an asset provided by a third-party service provider
-   * *   **8**: a lightweight asset
+   * - **0**：阿里云资产
+   * - **1**：云外资产
+   * - **2**：IDC资产
+   * - **3**、**4**、**5**、**7**：其它云资产
+   * - **8**：轻量级资产
    * 
    * @example
    * 3
@@ -107,12 +107,12 @@ export class GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas
 export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
   /**
    * @remarks
-   * The statistics of cloud services.
+   * List of cloud product statistics
    */
   cloudAssetSummaryMetas?: GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas[];
   /**
    * @remarks
-   * The total number of cloud service instances.
+   * Total number of cloud product instances.
    * 
    * @example
    * 919
@@ -120,7 +120,7 @@ export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
   instanceCountTotal?: number;
   /**
    * @remarks
-   * The total number of cloud service instances that are at risk.
+   * Total number of cloud product instances at risk
    * 
    * @example
    * 544
@@ -157,12 +157,12 @@ export class GetCloudAssetSummaryResponseBodyGroupedFields extends $dara.Model {
 export class GetCloudAssetSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The summary of cloud services.
+   * Summary information of cloud assets.
    */
   groupedFields?: GetCloudAssetSummaryResponseBodyGroupedFields;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 本次调用请求的ID，是由阿里云为该请求生成的唯一标识符，可用于排查和定位问题。
    * 
    * @example
    * F5CF78A7-30AA-59DB-847F-13EE3AE7****

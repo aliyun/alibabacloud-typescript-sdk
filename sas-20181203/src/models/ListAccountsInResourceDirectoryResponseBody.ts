@@ -12,10 +12,34 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
    */
   accountId?: string;
   /**
+   * @remarks
+   * This parameter is deprecated and should be ignored.
+   * 
+   * @example
+   * true
+   * 
    * @deprecated
    */
   buySas?: number;
+  /**
+   * @remarks
+   * Whether a yearly or monthly subscription of Cloud Security Center is purchased. Values:
+   * - **true**: Yes
+   * - **false**: No
+   * 
+   * @example
+   * true
+   */
   buySasNew?: boolean;
+  /**
+   * @remarks
+   * Subscription type. Values:
+   * * **0**: Prepaid
+   * * **1**: Pay-As-You-Go
+   * 
+   * @example
+   * 1
+   */
   chargeType?: number;
   /**
    * @remarks
@@ -33,6 +57,15 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
    * fd-cE2SQP****
    */
   folderId?: string;
+  /**
+   * @remarks
+   * Instance purchase type. Values:
+   * - **0**: Self-purchased
+   * - **1**: Multi-account allocation
+   * 
+   * @example
+   * 0
+   */
   instanceBuyType?: number;
   /**
    * @remarks
@@ -86,8 +119,42 @@ export class ListAccountsInResourceDirectoryResponseBodyAccounts extends $dara.M
    * no
    */
   isSiemDaAccount?: string;
+  /**
+   * @remarks
+   * Post-paid module switch. Values:
+   * - **0**: Off
+   * - **1**: On
+   * 
+   * @example
+   * 1
+   */
   postBasicService?: number;
+  /**
+   * @remarks
+   * The switch status of the pay-as-you-go module. The value is a JSON string. Valid values:
+   * 
+   * *   Key:
+   * 
+   *     *   **VUL**: vulnerability fixing module
+   *     *   **CSPM**: cloud service configuration check module
+   *     *   **AGENTLESS**: agentless detection module
+   *     *   **SERVERLESS**: serverless asset module
+   * 
+   * *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
+   * 
+   * >  If you do not specify a value for a module, the original value of the module is retained.
+   * 
+   * @example
+   * {\\"VUL\\":0}
+   */
   postPayModuleSwitch?: string;
+  /**
+   * @remarks
+   * Cloud Security Center Instance ID.
+   * 
+   * @example
+   * postpay-sas-x5x3hy1ly***
+   */
   saleInstance?: string;
   /**
    * @remarks

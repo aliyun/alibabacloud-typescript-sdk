@@ -23,6 +23,10 @@ export class ModifyPostPayModuleSwitchRequest extends $dara.Model {
    *     *   **CSPM**: cloud service configuration check module
    *     *   **AGENTLESS**: agentless detection module
    *     *   **SERVERLESS**: serverless asset module
+   *     *   **CTDR**: Threat Analysis and Response Module
+   *     *   **POST_HOST**: Host and Container Security Module
+   *     *   **SDK**: Malicious File Detection SDK Module
+   *     *   **RASP**: Application Protection Module
    * 
    * *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
    * 

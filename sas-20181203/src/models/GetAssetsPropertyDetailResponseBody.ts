@@ -89,7 +89,21 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * localhost
    */
   domain?: string;
+  /**
+   * @remarks
+   * LLM service endpoint
+   * 
+   * @example
+   * dashscope.aliyuncs.com
+   */
   endPoint?: string;
+  /**
+   * @remarks
+   * File path for requesting the LLM service.
+   * 
+   * @example
+   * /root/llm.py
+   */
   file?: string;
   /**
    * @remarks
@@ -109,6 +123,13 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * registry-vpc.cn-beijing.aliyuncs.com/acs/aliyun-ingress-controller****
    */
   imageName?: string;
+  /**
+   * @remarks
+   * AI tool installation path
+   * 
+   * @example
+   * /etc/pip3/env/vllm
+   */
   installationPath?: string;
   /**
    * @remarks
@@ -160,8 +181,29 @@ export class GetAssetsPropertyDetailResponseBodyPropertys extends $dara.Model {
    * tcp
    */
   listenProtocol?: string;
+  /**
+   * @remarks
+   * AI tool name.
+   * 
+   * @example
+   * vllm
+   */
   middlewareName?: string;
+  /**
+   * @remarks
+   * AI tool version.
+   * 
+   * @example
+   * 1.0.1
+   */
   middlewareVersion?: string;
+  /**
+   * @remarks
+   * Name of the LLM vendor.
+   * 
+   * @example
+   * OpenAI
+   */
   modelName?: string;
   /**
    * @remarks

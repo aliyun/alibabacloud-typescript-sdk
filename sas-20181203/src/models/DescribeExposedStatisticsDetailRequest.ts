@@ -19,6 +19,8 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  exposureIp?: string;
+  instanceId?: string;
   /**
    * @remarks
    * The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
@@ -85,6 +87,8 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
     return {
       criteria: 'Criteria',
       currentPage: 'CurrentPage',
+      exposureIp: 'ExposureIp',
+      instanceId: 'InstanceId',
       pageSize: 'PageSize',
       resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       statisticsType: 'StatisticsType',
@@ -98,6 +102,8 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
     return {
       criteria: 'string',
       currentPage: 'number',
+      exposureIp: 'string',
+      instanceId: 'string',
       pageSize: 'number',
       resourceDirectoryAccountId: 'number',
       statisticsType: 'string',

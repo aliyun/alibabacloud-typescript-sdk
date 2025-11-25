@@ -3,12 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterScannerListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * List of cluster IDs.
+   */
   clusterIdList?: string[];
   /**
+   * @remarks
+   * The language type for requests and responses.
+   * - **zh**: Chinese
+   * - **en**: English
+   * 
    * @example
    * zh
    */
   lang?: string;
+  /**
+   * @remarks
+   * List of scanner statuses. Values:
+   * - **online**: Running
+   * - **offline**: Offline
+   * - **not_installed**: Not Installed
+   */
   statusList?: string[];
   static names(): { [key: string]: string } {
     return {

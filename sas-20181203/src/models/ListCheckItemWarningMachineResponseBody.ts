@@ -87,6 +87,13 @@ export class ListCheckItemWarningMachineResponseBodyListWarningRiskList extends 
 }
 
 export class ListCheckItemWarningMachineResponseBodyList extends $dara.Model {
+  /**
+   * @remarks
+   * 云产品资产的类型。
+   * 
+   * @example
+   * 0
+   */
   assetType?: string;
   /**
    * @remarks

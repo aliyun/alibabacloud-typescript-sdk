@@ -35,6 +35,10 @@ export class GetCheckSummaryRequest extends $dara.Model {
    * 000
    */
   resourceDirectoryAccountId?: string;
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   /**
    * @remarks

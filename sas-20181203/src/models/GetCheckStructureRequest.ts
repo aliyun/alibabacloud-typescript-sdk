@@ -41,6 +41,10 @@ export class GetCheckStructureRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * List of task sources.
+   */
   taskSources?: string[];
   static names(): { [key: string]: string } {
     return {

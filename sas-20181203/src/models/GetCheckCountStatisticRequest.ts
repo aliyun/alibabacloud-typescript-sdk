@@ -16,6 +16,10 @@ export class GetCheckCountStatisticRequest extends $dara.Model {
    * instance
    */
   statisticType?: string;
+  /**
+   * @remarks
+   * Task source.
+   */
   taskSources?: string[];
   /**
    * @remarks

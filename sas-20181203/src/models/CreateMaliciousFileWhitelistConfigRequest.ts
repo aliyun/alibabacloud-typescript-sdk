@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert.
-   * 
-   * *   Set the value to ALL, which indicates all alert types.
+   * Alert name:
+   * - ALL: All alerts
    * 
    * @example
    * ALL
@@ -15,7 +14,7 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The field that you want to use in the whitelist rule.
+   * Field used for whitelist in sensitive file alerts.
    * 
    * @example
    * fileMd5
@@ -23,7 +22,7 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * The value of the field that you want to use in the whitelist rule.
+   * Expected value of the field to be whitelisted.
    * 
    * @example
    * b2cf9747ee49d8d9b105cf16e078cc16
@@ -31,20 +30,25 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The logical operator that you want to use in the whitelist rule.
-   * 
-   * *   Set the value to strEqual, which indicates the equality operator (=).
+   * Rule judgment operator:
+   * - strEqual: String equals
    * 
    * @example
    * strEqual
    */
   operator?: string;
+  /**
+   * @remarks
+   * Remarks.
+   * 
+   * @example
+   * whitelist
+   */
   remark?: string;
   /**
    * @remarks
-   * The feature to which this operation belongs.
-   * 
-   * *   Set the value to agentless, which indicates the agentless detection feature.
+   * Business source:
+   * - agentless: Agentless detection
    * 
    * @example
    * agentless
@@ -52,10 +56,9 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The type of the assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   SELECTION_KEY: selected assets
+   * Effective target type:
+   * - ALL: All assets
+   * - SELECTION_KEY: Assets selected via the asset selection component
    * 
    * @example
    * ALL
@@ -63,10 +66,9 @@ export class CreateMaliciousFileWhitelistConfigRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The assets on which you want the whitelist rule to take effect. Valid values:
-   * 
-   * *   ALL: all assets
-   * *   Others: selected assets
+   * Target effective scope:
+   * - ALL: All assets
+   * - Other: Key of the asset range selected by the asset selection component
    * 
    * @example
    * ALL

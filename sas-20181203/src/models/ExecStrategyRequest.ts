@@ -3,6 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExecStrategyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Set the action for this execution, default is **exec**. Values:
+   * - **exec**: Execute. - **terminate**: Terminate.
+   * 
+   * @example
+   * terminate
+   */
   execAction?: string;
   /**
    * @remarks

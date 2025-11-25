@@ -72,6 +72,15 @@ export class DescribeVersionConfigResponseBody extends $dara.Model {
    * 30
    */
   assetLevel?: number;
+  /**
+   * @remarks
+   * Whether it supports the activation of a postpaid trial package. Values:
+   *  - **0**: Not supported 
+   * - **1**: Supported
+   * 
+   * @example
+   * 1
+   */
   canTryPostPaidPackage?: number;
   /**
    * @remarks
