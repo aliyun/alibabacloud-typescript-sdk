@@ -64,6 +64,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * 100
    */
   bandwidthBaseLine?: number;
+  bucketId?: string;
   /**
    * @example
    * high_performance
@@ -90,6 +91,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * false
    */
   expired?: string;
+  fileSystemId?: string;
   /**
    * @example
    * Unlock
@@ -138,6 +140,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * pc-2zejpr41d9xk3uk34
    */
   relativeDbClusterId?: string;
+  relativePfsClusterId?: string;
   /**
    * @remarks
    * Id of the request
@@ -187,12 +190,14 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       acceleratingEnable: 'AcceleratingEnable',
       bandwidth: 'Bandwidth',
       bandwidthBaseLine: 'BandwidthBaseLine',
+      bucketId: 'BucketId',
       category: 'Category',
       clientDownloadPath: 'ClientDownloadPath',
       createTime: 'CreateTime',
       DBType: 'DBType',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      fileSystemId: 'FileSystemId',
       lockMode: 'LockMode',
       metaUrl: 'MetaUrl',
       minorVersion: 'MinorVersion',
@@ -205,6 +210,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       polarFsVersion: 'PolarFsVersion',
       regionId: 'RegionId',
       relativeDbClusterId: 'RelativeDbClusterId',
+      relativePfsClusterId: 'RelativePfsClusterId',
       requestId: 'RequestId',
       securityGroupId: 'SecurityGroupId',
       storageSpace: 'StorageSpace',
@@ -222,12 +228,14 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       acceleratingEnable: 'string',
       bandwidth: 'number',
       bandwidthBaseLine: 'number',
+      bucketId: 'string',
       category: 'string',
       clientDownloadPath: 'string',
       createTime: 'string',
       DBType: 'string',
       expireTime: 'string',
       expired: 'string',
+      fileSystemId: 'string',
       lockMode: 'string',
       metaUrl: 'string',
       minorVersion: 'string',
@@ -240,6 +248,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       polarFsVersion: 'string',
       regionId: 'string',
       relativeDbClusterId: 'string',
+      relativePfsClusterId: 'string',
       requestId: 'string',
       securityGroupId: 'string',
       storageSpace: 'number',

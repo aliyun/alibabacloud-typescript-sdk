@@ -353,6 +353,11 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
   internalIp?: string;
   /**
    * @example
+   * pkv-xxxxx
+   */
+  KVCacheInstanceId?: string;
+  /**
+   * @example
    * xxxxxxxxxxxxxxxxxxxxxxx
    */
   kubeClusterId?: string;
@@ -434,6 +439,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       expireTime: 'ExpireTime',
       expired: 'Expired',
       internalIp: 'InternalIp',
+      KVCacheInstanceId: 'KVCacheInstanceId',
       kubeClusterId: 'KubeClusterId',
       lockMode: 'LockMode',
       maxQPM: 'MaxQPM',
@@ -465,6 +471,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       expireTime: 'string',
       expired: 'boolean',
       internalIp: 'string',
+      KVCacheInstanceId: 'string',
       kubeClusterId: 'string',
       lockMode: 'string',
       maxQPM: 'string',
