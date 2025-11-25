@@ -128,6 +128,9 @@ export class PushShrinkRequest extends $dara.Model {
    * https://xxxx.xxx
    */
   androidOpenUrl?: string;
+  androidOppoDeleteIntentData?: string;
+  androidOppoIntelligentIntent?: string;
+  androidOppoIntentEnv?: number;
   androidOppoPrivateContentParametersShrink?: string;
   androidOppoPrivateMsgTemplateId?: string;
   androidOppoPrivateTitleParametersShrink?: string;
@@ -428,6 +431,9 @@ export class PushShrinkRequest extends $dara.Model {
       androidNotifyType: 'AndroidNotifyType',
       androidOpenType: 'AndroidOpenType',
       androidOpenUrl: 'AndroidOpenUrl',
+      androidOppoDeleteIntentData: 'AndroidOppoDeleteIntentData',
+      androidOppoIntelligentIntent: 'AndroidOppoIntelligentIntent',
+      androidOppoIntentEnv: 'AndroidOppoIntentEnv',
       androidOppoPrivateContentParametersShrink: 'AndroidOppoPrivateContentParameters',
       androidOppoPrivateMsgTemplateId: 'AndroidOppoPrivateMsgTemplateId',
       androidOppoPrivateTitleParametersShrink: 'AndroidOppoPrivateTitleParameters',
@@ -545,6 +551,9 @@ export class PushShrinkRequest extends $dara.Model {
       androidNotifyType: 'string',
       androidOpenType: 'string',
       androidOpenUrl: 'string',
+      androidOppoDeleteIntentData: 'string',
+      androidOppoIntelligentIntent: 'string',
+      androidOppoIntentEnv: 'number',
       androidOppoPrivateContentParametersShrink: 'string',
       androidOppoPrivateMsgTemplateId: 'string',
       androidOppoPrivateTitleParametersShrink: 'string',

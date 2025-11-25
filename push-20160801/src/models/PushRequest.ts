@@ -128,6 +128,9 @@ export class PushRequest extends $dara.Model {
    * https://xxxx.xxx
    */
   androidOpenUrl?: string;
+  androidOppoDeleteIntentData?: string;
+  androidOppoIntelligentIntent?: string;
+  androidOppoIntentEnv?: number;
   androidOppoPrivateContentParameters?: { [key: string]: string };
   androidOppoPrivateMsgTemplateId?: string;
   androidOppoPrivateTitleParameters?: { [key: string]: string };
@@ -428,6 +431,9 @@ export class PushRequest extends $dara.Model {
       androidNotifyType: 'AndroidNotifyType',
       androidOpenType: 'AndroidOpenType',
       androidOpenUrl: 'AndroidOpenUrl',
+      androidOppoDeleteIntentData: 'AndroidOppoDeleteIntentData',
+      androidOppoIntelligentIntent: 'AndroidOppoIntelligentIntent',
+      androidOppoIntentEnv: 'AndroidOppoIntentEnv',
       androidOppoPrivateContentParameters: 'AndroidOppoPrivateContentParameters',
       androidOppoPrivateMsgTemplateId: 'AndroidOppoPrivateMsgTemplateId',
       androidOppoPrivateTitleParameters: 'AndroidOppoPrivateTitleParameters',
@@ -545,6 +551,9 @@ export class PushRequest extends $dara.Model {
       androidNotifyType: 'string',
       androidOpenType: 'string',
       androidOpenUrl: 'string',
+      androidOppoDeleteIntentData: 'string',
+      androidOppoIntelligentIntent: 'string',
+      androidOppoIntentEnv: 'number',
       androidOppoPrivateContentParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       androidOppoPrivateMsgTemplateId: 'string',
       androidOppoPrivateTitleParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },

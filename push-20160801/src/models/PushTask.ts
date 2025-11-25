@@ -154,6 +154,8 @@ export class PushTaskNotificationAndroidOptionsMeizu extends $dara.Model {
 
 export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   category?: string;
+  deleteIntentData?: string;
+  intelligentIntent?: string;
   notifyLevel?: number;
   privateContentParameters?: string;
   privateMsgTemplateId?: string;
@@ -161,6 +163,8 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      deleteIntentData: 'DeleteIntentData',
+      intelligentIntent: 'IntelligentIntent',
       notifyLevel: 'NotifyLevel',
       privateContentParameters: 'PrivateContentParameters',
       privateMsgTemplateId: 'PrivateMsgTemplateId',
@@ -171,6 +175,8 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      deleteIntentData: 'string',
+      intelligentIntent: 'string',
       notifyLevel: 'number',
       privateContentParameters: 'string',
       privateMsgTemplateId: 'string',

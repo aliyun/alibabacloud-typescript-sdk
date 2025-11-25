@@ -864,6 +864,18 @@ export default class Client extends OpenApi {
       query["AndroidOpenUrl"] = request.androidOpenUrl;
     }
 
+    if (!$dara.isNull(request.androidOppoDeleteIntentData)) {
+      query["AndroidOppoDeleteIntentData"] = request.androidOppoDeleteIntentData;
+    }
+
+    if (!$dara.isNull(request.androidOppoIntelligentIntent)) {
+      query["AndroidOppoIntelligentIntent"] = request.androidOppoIntelligentIntent;
+    }
+
+    if (!$dara.isNull(request.androidOppoIntentEnv)) {
+      query["AndroidOppoIntentEnv"] = request.androidOppoIntentEnv;
+    }
+
     if (!$dara.isNull(request.androidOppoPrivateContentParametersShrink)) {
       query["AndroidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink;
     }
