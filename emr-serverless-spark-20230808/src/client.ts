@@ -130,6 +130,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CancelKyuubiSparkApplication
+   * 
+   * @param request - CancelKyuubiSparkApplicationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelKyuubiSparkApplicationResponse
+   */
+  async cancelKyuubiSparkApplicationWithOptions(workspaceId: string, kyuubiServiceId: string, applicationId: string, request: $_model.CancelKyuubiSparkApplicationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CancelKyuubiSparkApplicationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelKyuubiSparkApplication",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}/application/${$dara.URL.percentEncode(applicationId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelKyuubiSparkApplicationResponse>(await this.callApi(params, req, runtime), new $_model.CancelKyuubiSparkApplicationResponse({}));
+  }
+
+  /**
+   * CancelKyuubiSparkApplication
+   * 
+   * @param request - CancelKyuubiSparkApplicationRequest
+   * @returns CancelKyuubiSparkApplicationResponse
+   */
+  async cancelKyuubiSparkApplication(workspaceId: string, kyuubiServiceId: string, applicationId: string, request: $_model.CancelKyuubiSparkApplicationRequest): Promise<$_model.CancelKyuubiSparkApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cancelKyuubiSparkApplicationWithOptions(workspaceId, kyuubiServiceId, applicationId, request, headers, runtime);
+  }
+
+  /**
+   * CreateKyuubiService
+   * 
+   * @param request - CreateKyuubiServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKyuubiServiceResponse
+   */
+  async createKyuubiServiceWithOptions(workspaceId: string, request: $_model.CreateKyuubiServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKyuubiServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.computeInstance)) {
+      body["computeInstance"] = request.computeInstance;
+    }
+
+    if (!$dara.isNull(request.kyuubiConfigs)) {
+      body["kyuubiConfigs"] = request.kyuubiConfigs;
+    }
+
+    if (!$dara.isNull(request.kyuubiReleaseVersion)) {
+      body["kyuubiReleaseVersion"] = request.kyuubiReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.publicEndpointEnabled)) {
+      body["publicEndpointEnabled"] = request.publicEndpointEnabled;
+    }
+
+    if (!$dara.isNull(request.queue)) {
+      body["queue"] = request.queue;
+    }
+
+    if (!$dara.isNull(request.releaseVersion)) {
+      body["releaseVersion"] = request.releaseVersion;
+    }
+
+    if (!$dara.isNull(request.replica)) {
+      body["replica"] = request.replica;
+    }
+
+    if (!$dara.isNull(request.sparkConfigs)) {
+      body["sparkConfigs"] = request.sparkConfigs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateKyuubiServiceResponse({}));
+  }
+
+  /**
+   * CreateKyuubiService
+   * 
+   * @param request - CreateKyuubiServiceRequest
+   * @returns CreateKyuubiServiceResponse
+   */
+  async createKyuubiService(workspaceId: string, request: $_model.CreateKyuubiServiceRequest): Promise<$_model.CreateKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createKyuubiServiceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建kyuubi的token
    * 
    * @param request - CreateKyuubiTokenRequest
@@ -767,6 +889,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteKyuubiService
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKyuubiServiceResponse
+   */
+  async deleteKyuubiServiceWithOptions(workspaceId: string, kyuubiServiceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKyuubiServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKyuubiServiceResponse({}));
+  }
+
+  /**
+   * DeleteKyuubiService
+   * @returns DeleteKyuubiServiceResponse
+   */
+  async deleteKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.DeleteKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+  }
+
+  /**
    * 删除compute的token
    * 
    * @param request - DeleteKyuubiTokenRequest
@@ -965,6 +1122,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上线工作流及其调度
+   * 
+   * @param request - GenerateTaskCodesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateTaskCodesResponse
+   */
+  async generateTaskCodesWithOptions(bizId: string, request: $_model.GenerateTaskCodesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateTaskCodesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.genNum)) {
+      query["genNum"] = request.genNum;
+    }
+
+    if (!$dara.isNull(request.productNamespace)) {
+      query["productNamespace"] = request.productNamespace;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateTaskCodes",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/dolphinscheduler/projects/${$dara.URL.percentEncode(bizId)}/task-definition/gen-task-codes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateTaskCodesResponse>(await this.callApi(params, req, runtime), new $_model.GenerateTaskCodesResponse({}));
+  }
+
+  /**
+   * 上线工作流及其调度
+   * 
+   * @param request - GenerateTaskCodesRequest
+   * @returns GenerateTaskCodesResponse
+   */
+  async generateTaskCodes(bizId: string, request: $_model.GenerateTaskCodesRequest): Promise<$_model.GenerateTaskCodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateTaskCodesWithOptions(bizId, request, headers, runtime);
+  }
+
+  /**
    * Queries the number of CU-hours consumed by a queue during a specified cycle.
    * 
    * @param request - GetCuHoursRequest
@@ -1109,6 +1319,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+  }
+
+  /**
+   * GetKyuubiService
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKyuubiServiceResponse
+   */
+  async getKyuubiServiceWithOptions(workspaceId: string, kyuubiServiceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetKyuubiServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetKyuubiServiceResponse({}));
+  }
+
+  /**
+   * GetKyuubiService
+   * @returns GetKyuubiServiceResponse
+   */
+  async getKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.GetKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
   }
 
   /**
@@ -2551,6 +2796,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * StartKyuubiService
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartKyuubiServiceResponse
+   */
+  async startKyuubiServiceWithOptions(workspaceId: string, kyuubiServiceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartKyuubiServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.StartKyuubiServiceResponse({}));
+  }
+
+  /**
+   * StartKyuubiService
+   * @returns StartKyuubiServiceResponse
+   */
+  async startKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StartKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+  }
+
+  /**
    * 启动livy compute
    * 
    * @param request - StartLivyComputeRequest
@@ -2736,6 +3016,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * StopKyuubiService
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopKyuubiServiceResponse
+   */
+  async stopKyuubiServiceWithOptions(workspaceId: string, kyuubiServiceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopKyuubiServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.StopKyuubiServiceResponse({}));
+  }
+
+  /**
+   * StopKyuubiService
+   * @returns StopKyuubiServiceResponse
+   */
+  async stopKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StopKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+  }
+
+  /**
    * 停止livy compute
    * 
    * @param request - StopLivyComputeRequest
@@ -2878,6 +3193,87 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+  }
+
+  /**
+   * UpdateKyuubiService
+   * 
+   * @param request - UpdateKyuubiServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKyuubiServiceResponse
+   */
+  async updateKyuubiServiceWithOptions(workspaceId: string, kyuubiServiceId: string, request: $_model.UpdateKyuubiServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKyuubiServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.computeInstance)) {
+      body["computeInstance"] = request.computeInstance;
+    }
+
+    if (!$dara.isNull(request.kyuubiConfigs)) {
+      body["kyuubiConfigs"] = request.kyuubiConfigs;
+    }
+
+    if (!$dara.isNull(request.kyuubiReleaseVersion)) {
+      body["kyuubiReleaseVersion"] = request.kyuubiReleaseVersion;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.publicEndpointEnabled)) {
+      body["publicEndpointEnabled"] = request.publicEndpointEnabled;
+    }
+
+    if (!$dara.isNull(request.queue)) {
+      body["queue"] = request.queue;
+    }
+
+    if (!$dara.isNull(request.releaseVersion)) {
+      body["releaseVersion"] = request.releaseVersion;
+    }
+
+    if (!$dara.isNull(request.replica)) {
+      body["replica"] = request.replica;
+    }
+
+    if (!$dara.isNull(request.restart)) {
+      body["restart"] = request.restart;
+    }
+
+    if (!$dara.isNull(request.sparkConfigs)) {
+      body["sparkConfigs"] = request.sparkConfigs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKyuubiService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/kyuubi/${$dara.URL.percentEncode(workspaceId)}/${$dara.URL.percentEncode(kyuubiServiceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKyuubiServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKyuubiServiceResponse({}));
+  }
+
+  /**
+   * UpdateKyuubiService
+   * 
+   * @param request - UpdateKyuubiServiceRequest
+   * @returns UpdateKyuubiServiceResponse
+   */
+  async updateKyuubiService(workspaceId: string, kyuubiServiceId: string, request: $_model.UpdateKyuubiServiceRequest): Promise<$_model.UpdateKyuubiServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
   }
 
   /**
