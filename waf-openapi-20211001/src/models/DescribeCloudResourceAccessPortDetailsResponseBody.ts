@@ -227,6 +227,11 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
    */
   logHeaders?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders[];
   /**
+   * @example
+   * 2
+   */
+  maxBodySize?: number;
+  /**
    * @remarks
    * The ID of the Alibaba Cloud account to which the resource belongs.
    * 
@@ -338,6 +343,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
       logHeaders: 'LogHeaders',
+      maxBodySize: 'MaxBodySize',
       ownerUserId: 'OwnerUserId',
       port: 'Port',
       protocol: 'Protocol',
@@ -365,6 +371,7 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
       logHeaders: { 'type': 'array', 'itemType': DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders },
+      maxBodySize: 'number',
       ownerUserId: 'string',
       port: 'number',
       protocol: 'string',

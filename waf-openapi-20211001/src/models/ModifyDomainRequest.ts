@@ -387,6 +387,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
    */
   loadbalance?: string;
   /**
+   * @example
+   * 2
+   */
+  maxBodySize?: number;
+  /**
    * @remarks
    * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
    * 
@@ -504,6 +509,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
+      maxBodySize: 'MaxBodySize',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
       retry: 'Retry',
@@ -531,6 +537,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
       loadbalance: 'string',
+      maxBodySize: 'number',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': ModifyDomainRequestRedirectRequestHeaders },
       retry: 'boolean',

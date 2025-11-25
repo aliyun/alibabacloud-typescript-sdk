@@ -271,6 +271,11 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
    */
   keepaliveTimeout?: number;
   /**
+   * @example
+   * 5
+   */
+  maxBodySize?: number;
+  /**
    * @remarks
    * The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
    * 
@@ -326,6 +331,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
       keepalive: 'Keepalive',
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
+      maxBodySize: 'MaxBodySize',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
       writeTimeout: 'WriteTimeout',
@@ -340,6 +346,7 @@ export class ModifyCloudResourceRequestRedirect extends $dara.Model {
       keepalive: 'boolean',
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
+      maxBodySize: 'number',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': ModifyCloudResourceRequestRedirectRequestHeaders },
       writeTimeout: 'number',
