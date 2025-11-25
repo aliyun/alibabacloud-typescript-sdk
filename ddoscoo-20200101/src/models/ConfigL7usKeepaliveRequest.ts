@@ -13,6 +13,7 @@ export class ConfigL7UsKeepaliveRequest extends $dara.Model {
    * www.aliyun.com
    */
   domain?: string;
+  downstreamKeepalive?: string;
   /**
    * @remarks
    * The settings for back-to-origin persistent connections. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
@@ -30,6 +31,7 @@ export class ConfigL7UsKeepaliveRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
+      downstreamKeepalive: 'DownstreamKeepalive',
       upstreamKeepalive: 'UpstreamKeepalive',
     };
   }
@@ -37,6 +39,7 @@ export class ConfigL7UsKeepaliveRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
+      downstreamKeepalive: 'string',
       upstreamKeepalive: 'string',
     };
   }

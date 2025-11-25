@@ -187,6 +187,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
    * default
    */
   ccTemplate?: string;
+  certExpireTime?: number;
   /**
    * @remarks
    * The name of the SSL certificate.
@@ -368,6 +369,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
    * tls1.1
    */
   sslProtocols?: string;
+  tls13CustomCiphers?: string[];
   /**
    * @remarks
    * The name of the certificate uploaded by the user to the certificate center.
@@ -387,6 +389,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
       ccEnabled: 'CcEnabled',
       ccRuleEnabled: 'CcRuleEnabled',
       ccTemplate: 'CcTemplate',
+      certExpireTime: 'CertExpireTime',
       certName: 'CertName',
       certRegion: 'CertRegion',
       cname: 'Cname',
@@ -406,6 +409,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
       ssl13Enabled: 'Ssl13Enabled',
       sslCiphers: 'SslCiphers',
       sslProtocols: 'SslProtocols',
+      tls13CustomCiphers: 'Tls13CustomCiphers',
       userCertName: 'UserCertName',
       whiteList: 'WhiteList',
     };
@@ -417,6 +421,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
       ccEnabled: 'boolean',
       ccRuleEnabled: 'boolean',
       ccTemplate: 'string',
+      certExpireTime: 'number',
       certName: 'string',
       certRegion: 'string',
       cname: 'string',
@@ -436,6 +441,7 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
       ssl13Enabled: 'boolean',
       sslCiphers: 'string',
       sslProtocols: 'string',
+      tls13CustomCiphers: { 'type': 'array', 'itemType': 'string' },
       userCertName: 'string',
       whiteList: { 'type': 'array', 'itemType': 'string' },
     };
@@ -456,6 +462,9 @@ export class DescribeWebRulesResponseBodyWebRules extends $dara.Model {
     }
     if(Array.isArray(this.realServers)) {
       $dara.Model.validateArray(this.realServers);
+    }
+    if(Array.isArray(this.tls13CustomCiphers)) {
+      $dara.Model.validateArray(this.tls13CustomCiphers);
     }
     if(Array.isArray(this.whiteList)) {
       $dara.Model.validateArray(this.whiteList);

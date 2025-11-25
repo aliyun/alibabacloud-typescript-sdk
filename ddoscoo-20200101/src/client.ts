@@ -423,6 +423,10 @@ export default class Client extends OpenApi {
       query["Domain"] = request.domain;
     }
 
+    if (!$dara.isNull(request.downstreamKeepalive)) {
+      query["DownstreamKeepalive"] = request.downstreamKeepalive;
+    }
+
     if (!$dara.isNull(request.upstreamKeepalive)) {
       query["UpstreamKeepalive"] = request.upstreamKeepalive;
     }
@@ -2611,6 +2615,56 @@ export default class Client extends OpenApi {
   async describeBlockStatus(request: $_model.DescribeBlockStatusRequest): Promise<$_model.DescribeBlockStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBlockStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeCdnLinkageRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnLinkageRulesResponse
+   */
+  async describeCdnLinkageRulesWithOptions(request: $_model.DescribeCdnLinkageRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCdnLinkageRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCdnLinkageRules",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCdnLinkageRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCdnLinkageRulesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeCdnLinkageRulesRequest
+   * @returns DescribeCdnLinkageRulesResponse
+   */
+  async describeCdnLinkageRules(request: $_model.DescribeCdnLinkageRulesRequest): Promise<$_model.DescribeCdnLinkageRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCdnLinkageRulesWithOptions(request, runtime);
   }
 
   /**

@@ -6,6 +6,11 @@ export { DescribeAutoCcWhitelistResponseBodyAutoCcWhitelist } from './DescribeAu
 export { DescribeBlackholeStatusResponseBodyBlackholeStatus } from './DescribeBlackholeStatusResponseBody';
 export { DescribeBlockStatusResponseBodyStatusListBlockStatusList } from './DescribeBlockStatusResponseBody';
 export { DescribeBlockStatusResponseBodyStatusList } from './DescribeBlockStatusResponseBody';
+export { DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParamParamData } from './DescribeCdnLinkageRulesResponseBody';
+export { DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleParam } from './DescribeCdnLinkageRulesResponseBody';
+export { DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRuleRules } from './DescribeCdnLinkageRulesResponseBody';
+export { DescribeCdnLinkageRulesResponseBodySchedulerRulesCdnLinkageRule } from './DescribeCdnLinkageRulesResponseBody';
+export { DescribeCdnLinkageRulesResponseBodySchedulerRules } from './DescribeCdnLinkageRulesResponseBody';
 export { DescribeCertsResponseBodyCerts } from './DescribeCertsResponseBody';
 export { DescribeCnameReusesResponseBodyCnameReuses } from './DescribeCnameReusesResponseBody';
 export { DescribeDDoSEventsResponseBodyDDoSEvents } from './DescribeDdoSeventsResponseBody';
@@ -261,6 +266,9 @@ export { DescribeBlackholeStatusResponse } from './DescribeBlackholeStatusRespon
 export { DescribeBlockStatusRequest } from './DescribeBlockStatusRequest';
 export { DescribeBlockStatusResponseBody } from './DescribeBlockStatusResponseBody';
 export { DescribeBlockStatusResponse } from './DescribeBlockStatusResponse';
+export { DescribeCdnLinkageRulesRequest } from './DescribeCdnLinkageRulesRequest';
+export { DescribeCdnLinkageRulesResponseBody } from './DescribeCdnLinkageRulesResponseBody';
+export { DescribeCdnLinkageRulesResponse } from './DescribeCdnLinkageRulesResponse';
 export { DescribeCertsRequest } from './DescribeCertsRequest';
 export { DescribeCertsResponseBody } from './DescribeCertsResponseBody';
 export { DescribeCertsResponse } from './DescribeCertsResponse';

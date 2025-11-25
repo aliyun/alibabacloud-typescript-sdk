@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $dara.Model {
+  dsKeepaliveTimeout?: number;
   /**
    * @remarks
    * Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
@@ -32,6 +33,7 @@ export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $dara.Model {
   keepaliveTimeout?: number;
   static names(): { [key: string]: string } {
     return {
+      dsKeepaliveTimeout: 'DsKeepaliveTimeout',
       enabled: 'Enabled',
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
@@ -40,6 +42,7 @@ export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dsKeepaliveTimeout: 'number',
       enabled: 'boolean',
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
