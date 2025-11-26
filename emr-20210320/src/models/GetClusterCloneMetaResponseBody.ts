@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { ApplicationConfig } from "./ApplicationConfig";
 import { Application } from "./Application";
 import { Script } from "./Script";
+import { CollationTimeZone } from "./CollationTimeZone";
 import { NodeAttributes } from "./NodeAttributes";
 import { NodeGroup } from "./NodeGroup";
 import { SubscriptionConfig } from "./SubscriptionConfig";
@@ -298,6 +299,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
    * DATALAKE
    */
   clusterType?: string;
+  collationTimeZone?: CollationTimeZone;
   /**
    * @remarks
    * Indicates whether release protection is enabled for the cluster. Valid values:
@@ -421,6 +423,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
       clusterName: 'ClusterName',
       clusterState: 'ClusterState',
       clusterType: 'ClusterType',
+      collationTimeZone: 'CollationTimeZone',
       deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       emrDefaultRole: 'EmrDefaultRole',
@@ -447,6 +450,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
       clusterName: 'string',
       clusterState: 'string',
       clusterType: 'string',
+      collationTimeZone: CollationTimeZone,
       deletionProtection: 'boolean',
       deployMode: 'string',
       emrDefaultRole: 'string',
@@ -473,6 +477,9 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $dara.Model
     }
     if(Array.isArray(this.bootstrapScripts)) {
       $dara.Model.validateArray(this.bootstrapScripts);
+    }
+    if(this.collationTimeZone && typeof (this.collationTimeZone as any).validate === 'function') {
+      (this.collationTimeZone as any).validate();
     }
     if(this.nodeAttributes && typeof (this.nodeAttributes as any).validate === 'function') {
       (this.nodeAttributes as any).validate();

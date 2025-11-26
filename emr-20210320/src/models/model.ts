@@ -589,6 +589,7 @@ export { Cluster } from './Cluster';
 export { ClusterScript } from './ClusterScript';
 export { ClusterStateChangeReason } from './ClusterStateChangeReason';
 export { ClusterSummary } from './ClusterSummary';
+export { CollationTimeZone } from './CollationTimeZone';
 export { ComponentInstanceSelector } from './ComponentInstanceSelector';
 export { ComponentLayout } from './ComponentLayout';
 export { ConfigEffectActions } from './ConfigEffectActions';
@@ -897,6 +898,9 @@ export { UpdateApplicationConfigsResponse } from './UpdateApplicationConfigsResp
 export { UpdateClusterAttributeRequest } from './UpdateClusterAttributeRequest';
 export { UpdateClusterAttributeResponseBody } from './UpdateClusterAttributeResponseBody';
 export { UpdateClusterAttributeResponse } from './UpdateClusterAttributeResponse';
+export { UpdateClusterAutoRenewRequest } from './UpdateClusterAutoRenewRequest';
+export { UpdateClusterAutoRenewResponseBody } from './UpdateClusterAutoRenewResponseBody';
+export { UpdateClusterAutoRenewResponse } from './UpdateClusterAutoRenewResponse';
 export { UpdateScriptRequest } from './UpdateScriptRequest';
 export { UpdateScriptShrinkRequest } from './UpdateScriptShrinkRequest';
 export { UpdateScriptResponseBody } from './UpdateScriptResponseBody';

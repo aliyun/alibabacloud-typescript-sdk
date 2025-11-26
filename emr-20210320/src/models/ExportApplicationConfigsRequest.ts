@@ -19,6 +19,7 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
    * c-b933c5aac8fe****
    */
   clusterId?: string;
+  configScope?: string;
   /**
    * @example
    * MODIFICATION
@@ -32,6 +33,8 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
    * XML
    */
   fileFormat?: string;
+  nodeGroupIds?: string[];
+  nodeIds?: string[];
   /**
    * @remarks
    * 区域ID。
@@ -46,8 +49,11 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
     return {
       applicationConfigFiles: 'ApplicationConfigFiles',
       clusterId: 'ClusterId',
+      configScope: 'ConfigScope',
       exportMode: 'ExportMode',
       fileFormat: 'FileFormat',
+      nodeGroupIds: 'NodeGroupIds',
+      nodeIds: 'NodeIds',
       regionId: 'RegionId',
     };
   }
@@ -56,8 +62,11 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
     return {
       applicationConfigFiles: { 'type': 'array', 'itemType': ApplicationConfigFile },
       clusterId: 'string',
+      configScope: 'string',
       exportMode: 'string',
       fileFormat: 'string',
+      nodeGroupIds: { 'type': 'array', 'itemType': 'string' },
+      nodeIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };
   }
@@ -65,6 +74,12 @@ export class ExportApplicationConfigsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.applicationConfigFiles)) {
       $dara.Model.validateArray(this.applicationConfigFiles);
+    }
+    if(Array.isArray(this.nodeGroupIds)) {
+      $dara.Model.validateArray(this.nodeGroupIds);
+    }
+    if(Array.isArray(this.nodeIds)) {
+      $dara.Model.validateArray(this.nodeIds);
     }
     super.validate();
   }

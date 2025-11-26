@@ -692,6 +692,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出应用服务配置
+   * 
    * @param request - ExportApplicationConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportApplicationConfigsResponse
@@ -707,12 +709,24 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.configScope)) {
+      query["ConfigScope"] = request.configScope;
+    }
+
     if (!$dara.isNull(request.exportMode)) {
       query["ExportMode"] = request.exportMode;
     }
 
     if (!$dara.isNull(request.fileFormat)) {
       query["FileFormat"] = request.fileFormat;
+    }
+
+    if (!$dara.isNull(request.nodeGroupIds)) {
+      query["NodeGroupIds"] = request.nodeGroupIds;
+    }
+
+    if (!$dara.isNull(request.nodeIds)) {
+      query["NodeIds"] = request.nodeIds;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -737,6 +751,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出应用服务配置
+   * 
    * @param request - ExportApplicationConfigsRequest
    * @returns ExportApplicationConfigsResponse
    */
@@ -4710,6 +4726,68 @@ export default class Client extends OpenApi {
   async updateClusterAttribute(request: $_model.UpdateClusterAttributeRequest): Promise<$_model.UpdateClusterAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClusterAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateClusterAutoRenewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClusterAutoRenewResponse
+   */
+  async updateClusterAutoRenewWithOptions(request: $_model.UpdateClusterAutoRenewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateClusterAutoRenewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenewInstances)) {
+      query["AutoRenewInstances"] = request.autoRenewInstances;
+    }
+
+    if (!$dara.isNull(request.clusterAutoRenew)) {
+      query["ClusterAutoRenew"] = request.clusterAutoRenew;
+    }
+
+    if (!$dara.isNull(request.clusterAutoRenewDuration)) {
+      query["ClusterAutoRenewDuration"] = request.clusterAutoRenewDuration;
+    }
+
+    if (!$dara.isNull(request.clusterAutoRenewDurationUnit)) {
+      query["ClusterAutoRenewDurationUnit"] = request.clusterAutoRenewDurationUnit;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.renewAllInstances)) {
+      query["RenewAllInstances"] = request.renewAllInstances;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateClusterAutoRenew",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateClusterAutoRenewResponse>(await this.callApi(params, req, runtime), new $_model.UpdateClusterAutoRenewResponse({}));
+  }
+
+  /**
+   * @param request - UpdateClusterAutoRenewRequest
+   * @returns UpdateClusterAutoRenewResponse
+   */
+  async updateClusterAutoRenew(request: $_model.UpdateClusterAutoRenewRequest): Promise<$_model.UpdateClusterAutoRenewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateClusterAutoRenewWithOptions(request, runtime);
   }
 
   /**

@@ -34,8 +34,6 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The list of resource IDs. Number of array elements N Valid values: 1 to 1
    * 
-   * This parameter is required.
-   * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
    */

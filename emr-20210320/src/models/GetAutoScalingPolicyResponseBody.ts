@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CollationTimeZone } from "./CollationTimeZone";
 import { MetricsTrigger } from "./MetricsTrigger";
 import { TimeTrigger } from "./TimeTrigger";
 
@@ -72,6 +73,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
    * 100
    */
   adjustmentValue?: number;
+  collationTimeZone?: CollationTimeZone;
   /**
    * @remarks
    * The description of load-based scaling.
@@ -106,6 +108,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       activityType: 'ActivityType',
       adjustmentType: 'AdjustmentType',
       adjustmentValue: 'AdjustmentValue',
+      collationTimeZone: 'CollationTimeZone',
       metricsTrigger: 'MetricsTrigger',
       ruleName: 'RuleName',
       timeTrigger: 'TimeTrigger',
@@ -118,6 +121,7 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
       activityType: 'string',
       adjustmentType: 'string',
       adjustmentValue: 'number',
+      collationTimeZone: CollationTimeZone,
       metricsTrigger: MetricsTrigger,
       ruleName: 'string',
       timeTrigger: TimeTrigger,
@@ -126,6 +130,9 @@ export class GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules extends $
   }
 
   validate() {
+    if(this.collationTimeZone && typeof (this.collationTimeZone as any).validate === 'function') {
+      (this.collationTimeZone as any).validate();
+    }
     if(this.metricsTrigger && typeof (this.metricsTrigger as any).validate === 'function') {
       (this.metricsTrigger as any).validate();
     }

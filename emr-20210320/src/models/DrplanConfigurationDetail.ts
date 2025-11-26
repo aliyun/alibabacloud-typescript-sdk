@@ -88,6 +88,7 @@ export class DRPlanConfigurationDetail extends $dara.Model {
   releaseVersion?: string;
   resourceGroupId?: string;
   scalingPolicies?: ScalingPolicy[];
+  scalingTimeZone?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -115,6 +116,7 @@ export class DRPlanConfigurationDetail extends $dara.Model {
       releaseVersion: 'ReleaseVersion',
       resourceGroupId: 'ResourceGroupId',
       scalingPolicies: 'ScalingPolicies',
+      scalingTimeZone: 'ScalingTimeZone',
       securityMode: 'SecurityMode',
       subscriptionConfig: 'SubscriptionConfig',
       tags: 'Tags',
@@ -141,6 +143,7 @@ export class DRPlanConfigurationDetail extends $dara.Model {
       releaseVersion: 'string',
       resourceGroupId: 'string',
       scalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
+      scalingTimeZone: 'string',
       securityMode: 'string',
       subscriptionConfig: SubscriptionConfig,
       tags: { 'type': 'array', 'itemType': Tag },
