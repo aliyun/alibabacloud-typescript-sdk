@@ -4,10 +4,12 @@ import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParamete
 import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { EmbeddingTransformParameters } from "./EmbeddingTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
+import { SourcePostgreSQLParameters } from "./SourcePostgreSqlparameters";
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkOSSParameters } from "./SinkOssparameters";
 
 
 export class CreateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
@@ -6024,6 +6026,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify MNS as the event target.
    */
   sinkMNSParameters?: CreateEventStreamingRequestSinkSinkMNSParameters;
+  sinkOSSParameters?: SinkOSSParameters;
   sinkOpenSourceRabbitMQParameters?: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters;
   /**
    * @remarks
@@ -6063,6 +6066,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkPrometheusParameters: 'SinkPrometheusParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
@@ -6089,6 +6093,7 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: CreateEventStreamingRequestSinkSinkKafkaParameters,
       sinkMNSParameters: CreateEventStreamingRequestSinkSinkMNSParameters,
+      sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters,
       sinkPrometheusParameters: CreateEventStreamingRequestSinkSinkPrometheusParameters,
       sinkRabbitMQParameters: CreateEventStreamingRequestSinkSinkRabbitMQParameters,
@@ -6143,6 +6148,9 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
+      (this.sinkOSSParameters as any).validate();
     }
     if(this.sinkOpenSourceRabbitMQParameters && typeof (this.sinkOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sinkOpenSourceRabbitMQParameters as any).validate();
@@ -7352,6 +7360,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
   sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: CreateEventStreamingRequestSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters;
+  sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
   /**
    * @remarks
    * Parameters that are configured if you specify Managed Service for Prometheus as the event source.
@@ -7387,6 +7396,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
+      sourcePostgreSQLParameters: 'SourcePostgreSQLParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
@@ -7409,6 +7419,7 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: CreateEventStreamingRequestSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters,
+      sourcePostgreSQLParameters: SourcePostgreSQLParameters,
       sourcePrometheusParameters: CreateEventStreamingRequestSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters,
@@ -7453,6 +7464,9 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
     }
     if(this.sourceOpenSourceRabbitMQParameters && typeof (this.sourceOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceOpenSourceRabbitMQParameters as any).validate();
+    }
+    if(this.sourcePostgreSQLParameters && typeof (this.sourcePostgreSQLParameters as any).validate === 'function') {
+      (this.sourcePostgreSQLParameters as any).validate();
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();

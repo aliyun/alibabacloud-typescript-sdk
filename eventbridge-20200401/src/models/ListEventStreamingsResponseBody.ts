@@ -3,9 +3,11 @@ import * as $dara from '@darabonba/typescript';
 import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParameters";
 import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
+import { SourcePostgreSQLParameters } from "./SourcePostgreSqlparameters";
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkOSSParameters } from "./SinkOssparameters";
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow extends $dara.Model {
@@ -5042,6 +5044,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
    * The parameters that are returned if MNS is specified as the event target.
    */
   sinkMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters;
+  sinkOSSParameters?: SinkOSSParameters;
   sinkOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters;
   /**
    * @remarks
@@ -5074,6 +5077,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQCheckpointParameters: 'SinkRocketMQCheckpointParameters',
@@ -5097,6 +5101,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters,
       sinkMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters,
+      sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters,
       sinkRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters,
       sinkRocketMQCheckpointParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters,
@@ -5144,6 +5149,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
+      (this.sinkOSSParameters as any).validate();
     }
     if(this.sinkOpenSourceRabbitMQParameters && typeof (this.sinkOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sinkOpenSourceRabbitMQParameters as any).validate();
@@ -6377,6 +6385,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
   sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters;
+  sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
   sourcePrometheusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters;
   /**
    * @remarks
@@ -6407,6 +6416,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
+      sourcePostgreSQLParameters: 'SourcePostgreSQLParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
@@ -6428,6 +6438,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters,
+      sourcePostgreSQLParameters: SourcePostgreSQLParameters,
       sourcePrometheusParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters,
@@ -6469,6 +6480,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
     }
     if(this.sourceOpenSourceRabbitMQParameters && typeof (this.sourceOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceOpenSourceRabbitMQParameters as any).validate();
+    }
+    if(this.sourcePostgreSQLParameters && typeof (this.sourcePostgreSQLParameters as any).validate === 'function') {
+      (this.sourcePostgreSQLParameters as any).validate();
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();

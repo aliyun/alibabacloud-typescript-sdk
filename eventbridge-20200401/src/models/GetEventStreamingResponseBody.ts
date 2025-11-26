@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParameters";
 import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
+import { SourcePostgreSQLParameters } from "./SourcePostgreSqlparameters";
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
+import { SinkOSSParameters } from "./SinkOssparameters";
 
 
 export class GetEventStreamingResponseBodyDataDetailedStatus extends $dara.Model {
@@ -5490,6 +5492,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
    * The parameters that are returned if the event target is Message Service (MNS).
    */
   sinkMNSParameters?: GetEventStreamingResponseBodyDataSinkSinkMNSParameters;
+  sinkOSSParameters?: SinkOSSParameters;
   /**
    * @remarks
    * Sink Open Source RabbitMQ Parameters
@@ -5532,6 +5535,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkHttpsParameters: 'SinkHttpsParameters',
       sinkKafkaParameters: 'SinkKafkaParameters',
       sinkMNSParameters: 'SinkMNSParameters',
+      sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQCheckpointParameters: 'SinkRocketMQCheckpointParameters',
@@ -5557,6 +5561,7 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
       sinkHttpsParameters: SinkHttpsParameters,
       sinkKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkKafkaParameters,
       sinkMNSParameters: GetEventStreamingResponseBodyDataSinkSinkMNSParameters,
+      sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: GetEventStreamingResponseBodyDataSinkSinkOpenSourceRabbitMQParameters,
       sinkRabbitMQParameters: GetEventStreamingResponseBodyDataSinkSinkRabbitMQParameters,
       sinkRocketMQCheckpointParameters: GetEventStreamingResponseBodyDataSinkSinkRocketMQCheckpointParameters,
@@ -5610,6 +5615,9 @@ export class GetEventStreamingResponseBodyDataSink extends $dara.Model {
     }
     if(this.sinkMNSParameters && typeof (this.sinkMNSParameters as any).validate === 'function') {
       (this.sinkMNSParameters as any).validate();
+    }
+    if(this.sinkOSSParameters && typeof (this.sinkOSSParameters as any).validate === 'function') {
+      (this.sinkOSSParameters as any).validate();
     }
     if(this.sinkOpenSourceRabbitMQParameters && typeof (this.sinkOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sinkOpenSourceRabbitMQParameters as any).validate();
@@ -6884,6 +6892,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
   sourceMySQLParameters?: SourceMySQLParameters;
   sourceOSSParameters?: GetEventStreamingResponseBodyDataSourceSourceOSSParameters;
   sourceOpenSourceRabbitMQParameters?: GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters;
+  sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
   sourcePrometheusParameters?: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters;
   /**
    * @remarks
@@ -6915,6 +6924,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
       sourceMySQLParameters: 'SourceMySQLParameters',
       sourceOSSParameters: 'SourceOSSParameters',
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
+      sourcePostgreSQLParameters: 'SourcePostgreSQLParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
@@ -6937,6 +6947,7 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
       sourceMySQLParameters: SourceMySQLParameters,
       sourceOSSParameters: GetEventStreamingResponseBodyDataSourceSourceOSSParameters,
       sourceOpenSourceRabbitMQParameters: GetEventStreamingResponseBodyDataSourceSourceOpenSourceRabbitMQParameters,
+      sourcePostgreSQLParameters: SourcePostgreSQLParameters,
       sourcePrometheusParameters: GetEventStreamingResponseBodyDataSourceSourcePrometheusParameters,
       sourceRabbitMQParameters: GetEventStreamingResponseBodyDataSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: GetEventStreamingResponseBodyDataSourceSourceRocketMQCheckpointParameters,
@@ -6981,6 +6992,9 @@ export class GetEventStreamingResponseBodyDataSource extends $dara.Model {
     }
     if(this.sourceOpenSourceRabbitMQParameters && typeof (this.sourceOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceOpenSourceRabbitMQParameters as any).validate();
+    }
+    if(this.sourcePostgreSQLParameters && typeof (this.sourcePostgreSQLParameters as any).validate === 'function') {
+      (this.sourcePostgreSQLParameters as any).validate();
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();
