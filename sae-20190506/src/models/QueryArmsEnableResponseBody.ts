@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryArmsEnableResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates if enabled. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -31,28 +34,63 @@ export class QueryArmsEnableResponseBodyData extends $dara.Model {
 
 export class QueryArmsEnableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code or error code. Valid values: 2xx: The request was successful. 3xx: The request was redirected. 4xx: The request was invalid. 5xx: A server error occurred.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: QueryArmsEnableResponseBodyData;
+  /**
+   * @remarks
+   * The error code. Value description:
+   * 
+   * *   If the request was successful, this field is not returned.
+   * *   For more information, see the **Error codes** section of this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
+   */
   errorCode?: string;
   /**
+   * @remarks
+   * The additional information. Value description:
+   * 
+   * *   If the request was successful, **success** is returned.
+   * *   If the request failed, an error code is returned.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The ID of the trace, which is used to query the details of a request.
+   * 
    * @example
    * 0a98a02315955564772843261e****
    */

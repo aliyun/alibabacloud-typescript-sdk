@@ -13,6 +13,7 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
    */
   appId?: string;
+  deploy?: boolean;
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -26,6 +27,7 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      deploy: 'Deploy',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -33,6 +35,7 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      deploy: 'boolean',
       vSwitchId: 'string',
     };
   }

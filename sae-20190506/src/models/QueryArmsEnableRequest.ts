@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryArmsEnableRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example

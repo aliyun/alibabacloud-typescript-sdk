@@ -124,7 +124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重启应用
+   * Restarts applications in batches.
    * 
    * @param request - BatchRestartApplicationsRequest
    * @param headers - map
@@ -161,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量重启应用
+   * Restarts applications in batches.
    * 
    * @param request - BatchRestartApplicationsRequest
    * @returns BatchRestartApplicationsResponse
@@ -3200,6 +3200,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information of the associated MSE microservice governance application.
+   * 
    * @param request - DescribeApplicationMseServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3235,6 +3237,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information of the associated MSE microservice governance application.
+   * 
    * @param request - DescribeApplicationMseServiceRequest
    * @returns DescribeApplicationMseServiceResponse
    */
@@ -7010,6 +7014,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries whether ARMS monitoring is enabled for a specified application.
+   * 
    * @param request - QueryArmsEnableRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7041,6 +7047,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries whether ARMS monitoring is enabled for a specified application.
+   * 
    * @param request - QueryArmsEnableRequest
    * @returns QueryArmsEnableResponse
    */
@@ -7222,6 +7230,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cpu)) {
       query["Cpu"] = request.cpu;
+    }
+
+    if (!$dara.isNull(request.deploy)) {
+      query["Deploy"] = request.deploy;
     }
 
     if (!$dara.isNull(request.diskSize)) {
@@ -8171,6 +8183,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.deploy)) {
+      query["Deploy"] = request.deploy;
     }
 
     if (!$dara.isNull(request.vSwitchId)) {

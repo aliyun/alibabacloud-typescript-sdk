@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateIngressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   addressType?: string;
   /**
    * @remarks
@@ -27,6 +34,13 @@ export class CreateIngressRequest extends $dara.Model {
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
    */
   certIds?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   corsConfig?: string;
   /**
    * @remarks
@@ -51,11 +65,53 @@ export class CreateIngressRequest extends $dara.Model {
    * ingress-for-sae-test
    */
   description?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableGzip?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableXForwardedFor?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableXForwardedForClientSrcPort?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableXForwardedForProto?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableXForwardedForSlbId?: boolean;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
@@ -97,6 +153,13 @@ export class CreateIngressRequest extends $dara.Model {
    * clb
    */
   loadBalanceType?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   loadBalancerEdition?: string;
   /**
    * @remarks
@@ -153,6 +216,13 @@ export class CreateIngressRequest extends $dara.Model {
    * lb-uf6hucc7inlqrtcq5****
    */
   slbId?: string;
+  /**
+   * @remarks
+   * -
+   * 
+   * @example
+   * -
+   */
   zoneMappings?: string;
   static names(): { [key: string]: string } {
     return {

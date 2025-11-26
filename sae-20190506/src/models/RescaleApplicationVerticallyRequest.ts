@@ -23,6 +23,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
    * 1000
    */
   cpu?: string;
+  deploy?: boolean;
   /**
    * @remarks
    * The disk size. Unit: GB.
@@ -71,6 +72,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
     return {
       appId: 'AppId',
       cpu: 'Cpu',
+      deploy: 'Deploy',
       diskSize: 'DiskSize',
       memory: 'Memory',
       resourceType: 'ResourceType',
@@ -85,6 +87,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
     return {
       appId: 'string',
       cpu: 'string',
+      deploy: 'boolean',
       diskSize: 'string',
       memory: 'string',
       resourceType: 'string',

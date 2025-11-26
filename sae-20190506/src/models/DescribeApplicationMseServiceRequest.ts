@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationMseServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeApplicationMseServiceRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * Specifies whether to enable traffic limiting and degradation. Set to true to check traffic limiting and degradation permissions when accessing related APIs; set to false otherwise.
+   * 
    * This parameter is required.
    * 
    * @example
