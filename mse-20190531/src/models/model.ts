@@ -311,6 +311,7 @@ export { QueryGovernanceKubernetesClusterResponseBodyDataResult } from './QueryG
 export { QueryGovernanceKubernetesClusterResponseBodyData } from './QueryGovernanceKubernetesClusterResponseBody';
 export { QueryInstancesInfoResponseBodyData } from './QueryInstancesInfoResponseBody';
 export { QueryMonitorResponseBodyData } from './QueryMonitorResponseBody';
+export { QueryNacosGrayConfigResponseBodyData } from './QueryNacosGrayConfigResponseBody';
 export { QueryNamespaceResponseBodyData } from './QueryNamespaceResponseBody';
 export { QuerySlbSpecResponseBodyData } from './QuerySlbSpecResponseBody';
 export { QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems } from './QuerySwimmingLaneByIdResponseBody';
@@ -952,6 +953,9 @@ export { QueryInstancesInfoResponse } from './QueryInstancesInfoResponse';
 export { QueryMonitorRequest } from './QueryMonitorRequest';
 export { QueryMonitorResponseBody } from './QueryMonitorResponseBody';
 export { QueryMonitorResponse } from './QueryMonitorResponse';
+export { QueryNacosGrayConfigRequest } from './QueryNacosGrayConfigRequest';
+export { QueryNacosGrayConfigResponseBody } from './QueryNacosGrayConfigResponseBody';
+export { QueryNacosGrayConfigResponse } from './QueryNacosGrayConfigResponse';
 export { QueryNamespaceRequest } from './QueryNamespaceRequest';
 export { QueryNamespaceResponseBody } from './QueryNamespaceResponseBody';
 export { QueryNamespaceResponse } from './QueryNamespaceResponse';

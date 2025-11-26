@@ -11987,6 +11987,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询nacos灰度配置
+   * 
+   * @param request - QueryNacosGrayConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryNacosGrayConfigResponse
+   */
+  async queryNacosGrayConfigWithOptions(request: $_model.QueryNacosGrayConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryNacosGrayConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.dataId)) {
+      query["DataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.grayName)) {
+      query["GrayName"] = request.grayName;
+    }
+
+    if (!$dara.isNull(request.group)) {
+      query["Group"] = request.group;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.requestPars)) {
+      query["RequestPars"] = request.requestPars;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryNacosGrayConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryNacosGrayConfigResponse>(await this.callApi(params, req, runtime), new $_model.QueryNacosGrayConfigResponse({}));
+  }
+
+  /**
+   * 查询nacos灰度配置
+   * 
+   * @param request - QueryNacosGrayConfigRequest
+   * @returns QueryNacosGrayConfigResponse
+   */
+  async queryNacosGrayConfig(request: $_model.QueryNacosGrayConfigRequest): Promise<$_model.QueryNacosGrayConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryNacosGrayConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 查询MSE命名空间
    * 
    * @param request - QueryNamespaceRequest
