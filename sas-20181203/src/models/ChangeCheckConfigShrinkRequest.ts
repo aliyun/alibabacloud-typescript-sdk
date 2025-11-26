@@ -176,6 +176,16 @@ export class ChangeCheckConfigShrinkRequest extends $dara.Model {
   removedCheck?: ChangeCheckConfigShrinkRequestRemovedCheck[];
   /**
    * @remarks
+   * The Alibaba Cloud account ID of the member in the resource directory.
+   * 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+   * 
+   * @example
+   * 1232428423234****
+   */
+  resourceDirectoryAccountId?: number;
+  /**
+   * @remarks
    * An array that consists of the information about the check item.
    */
   standardIds?: number[];
@@ -215,6 +225,7 @@ export class ChangeCheckConfigShrinkRequest extends $dara.Model {
       endTime: 'EndTime',
       regionId: 'RegionId',
       removedCheck: 'RemovedCheck',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       standardIds: 'StandardIds',
       startTime: 'StartTime',
       systemConfig: 'SystemConfig',
@@ -234,6 +245,7 @@ export class ChangeCheckConfigShrinkRequest extends $dara.Model {
       endTime: 'number',
       regionId: 'string',
       removedCheck: { 'type': 'array', 'itemType': ChangeCheckConfigShrinkRequestRemovedCheck },
+      resourceDirectoryAccountId: 'number',
       standardIds: { 'type': 'array', 'itemType': 'number' },
       startTime: 'number',
       systemConfig: 'boolean',
