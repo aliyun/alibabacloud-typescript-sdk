@@ -54,6 +54,7 @@ export class SubscriptionForView extends $dara.Model {
    * This parameter is required.
    */
   subscriptionName?: string;
+  syncFromType?: string;
   updateTime?: string;
   userId?: string;
   workspace?: string;
@@ -67,6 +68,7 @@ export class SubscriptionForView extends $dara.Model {
       pushingSetting: 'pushingSetting',
       subscriptionId: 'subscriptionId',
       subscriptionName: 'subscriptionName',
+      syncFromType: 'syncFromType',
       updateTime: 'updateTime',
       userId: 'userId',
       workspace: 'workspace',
@@ -83,6 +85,7 @@ export class SubscriptionForView extends $dara.Model {
       pushingSetting: SubscriptionForViewPushingSetting,
       subscriptionId: 'string',
       subscriptionName: 'string',
+      syncFromType: 'string',
       updateTime: 'string',
       userId: 'string',
       workspace: 'string',

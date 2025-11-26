@@ -228,6 +228,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建云资源中心
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudResourceResponse
+   */
+  async createCloudResourceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudResource",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/cloudresource`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudResourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudResourceResponse({}));
+  }
+
+  /**
+   * 创建云资源中心
+   * @returns CreateCloudResourceResponse
+   */
+  async createCloudResource(): Promise<$_model.CreateCloudResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
    * Create storage related to EntityStore
    * 
    * @param headers - map
@@ -818,6 +853,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除云资源中心
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudResourceResponse
+   */
+  async deleteCloudResourceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudResource",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/cloudresource`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudResourceResponse({}));
+  }
+
+  /**
+   * 删除云资源中心
+   * @returns DeleteCloudResourceResponse
+   */
+  async deleteCloudResource(): Promise<$_model.DeleteCloudResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
    * Delete EntityStore related storage
    * 
    * @param headers - map
@@ -1195,6 +1265,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询地域信息列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * 查询地域信息列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Check addon release (view connection status)
    * 
    * @param headers - map
@@ -1262,6 +1377,143 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+  }
+
+  /**
+   * 查询云资源中心
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudResourceResponse
+   */
+  async getCloudResourceWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudResource",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/cloudresource`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudResourceResponse({}));
+  }
+
+  /**
+   * 查询云资源中心
+   * @returns GetCloudResourceResponse
+   */
+  async getCloudResource(): Promise<$_model.GetCloudResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 查询云资源中心数据
+   * 
+   * @param request - GetCloudResourceDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudResourceDataResponse
+   */
+  async getCloudResourceDataWithOptions(request: $_model.GetCloudResourceDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudResourceDataResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.from)) {
+      query["from"] = request.from;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.to)) {
+      query["to"] = request.to;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudResourceData",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/cloudresource/data`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudResourceDataResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudResourceDataResponse({}));
+  }
+
+  /**
+   * 查询云资源中心数据
+   * 
+   * @param request - GetCloudResourceDataRequest
+   * @returns GetCloudResourceDataResponse
+   */
+  async getCloudResourceData(request: $_model.GetCloudResourceDataRequest): Promise<$_model.GetCloudResourceDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCloudResourceDataWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取云监控开通状态
+   * 
+   * @param request - GetCmsServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCmsServiceResponse
+   */
+  async getCmsServiceWithOptions(request: $_model.GetCmsServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCmsServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.product)) {
+      query["product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.service)) {
+      query["service"] = request.service;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCmsService",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/cmsservice`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCmsServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetCmsServiceResponse({}));
+  }
+
+  /**
+   * 获取云监控开通状态
+   * 
+   * @param request - GetCmsServiceRequest
+   * @returns GetCmsServiceResponse
+   */
+  async getCmsService(request: $_model.GetCmsServiceRequest): Promise<$_model.GetCmsServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCmsServiceWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1449,6 +1701,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询指定环境实例
+   * 
+   * @param request - GetPrometheusUserSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPrometheusUserSettingResponse
+   */
+  async getPrometheusUserSettingWithOptions(request: $_model.GetPrometheusUserSettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPrometheusUserSettingResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPrometheusUserSetting",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/prometheus-user-setting`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPrometheusUserSettingResponse>(await this.callApi(params, req, runtime), new $_model.GetPrometheusUserSettingResponse({}));
+  }
+
+  /**
+   * 查询指定环境实例
+   * 
+   * @param request - GetPrometheusUserSettingRequest
+   * @returns GetPrometheusUserSettingResponse
+   */
+  async getPrometheusUserSetting(request: $_model.GetPrometheusUserSettingRequest): Promise<$_model.GetPrometheusUserSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPrometheusUserSettingWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2223,6 +2520,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationPolicyPodMonitorsWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 获取接入中心策略的存储要求信息
+   * 
+   * @param request - ListIntegrationPolicyServiceMonitorsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationPolicyServiceMonitorsResponse
+   */
+  async listIntegrationPolicyServiceMonitorsWithOptions(policyId: string, request: $_model.ListIntegrationPolicyServiceMonitorsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyServiceMonitorsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addonReleaseName)) {
+      query["addonReleaseName"] = request.addonReleaseName;
+    }
+
+    if (!$dara.isNull(request.encryptYaml)) {
+      query["encryptYaml"] = request.encryptYaml;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntegrationPolicyServiceMonitors",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-policies/${$dara.URL.percentEncode(policyId)}/service-monitors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIntegrationPolicyServiceMonitorsResponse>(await this.callApi(params, req, runtime), new $_model.ListIntegrationPolicyServiceMonitorsResponse({}));
+  }
+
+  /**
+   * 获取接入中心策略的存储要求信息
+   * 
+   * @param request - ListIntegrationPolicyServiceMonitorsRequest
+   * @returns ListIntegrationPolicyServiceMonitorsResponse
+   */
+  async listIntegrationPolicyServiceMonitors(policyId: string, request: $_model.ListIntegrationPolicyServiceMonitorsRequest): Promise<$_model.ListIntegrationPolicyServiceMonitorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIntegrationPolicyServiceMonitorsWithOptions(policyId, request, headers, runtime);
   }
 
   /**
@@ -3014,7 +3364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新订阅
+   * 更新通知策略
    * 
    * @param request - UpdateNotifyStrategyRequest
    * @param headers - map
@@ -3048,7 +3398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新订阅
+   * 更新通知策略
    * 
    * @param request - UpdateNotifyStrategyRequest
    * @returns UpdateNotifyStrategyResponse
@@ -3148,6 +3498,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新Prom实例信息
+   * 
+   * @param request - UpdatePrometheusUserSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePrometheusUserSettingResponse
+   */
+  async updatePrometheusUserSettingWithOptions(settingKey: string, request: $_model.UpdatePrometheusUserSettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePrometheusUserSettingResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.settingValue)) {
+      query["settingValue"] = request.settingValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePrometheusUserSetting",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/prometheus-user-setting/${$dara.URL.percentEncode(settingKey)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePrometheusUserSettingResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePrometheusUserSettingResponse({}));
+  }
+
+  /**
+   * 更新Prom实例信息
+   * 
+   * @param request - UpdatePrometheusUserSettingRequest
+   * @returns UpdatePrometheusUserSettingResponse
+   */
+  async updatePrometheusUserSetting(settingKey: string, request: $_model.UpdatePrometheusUserSettingRequest): Promise<$_model.UpdatePrometheusUserSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePrometheusUserSettingWithOptions(settingKey, request, headers, runtime);
   }
 
   /**
