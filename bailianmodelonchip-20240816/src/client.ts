@@ -75,6 +75,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 主动交互消息生成eu
+   * 
+   * @param request - ActiveInteractionEuCreateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActiveInteractionEuCreateResponse
+   */
+  async activeInteractionEuCreateWithOptions(request: $_model.ActiveInteractionEuCreateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ActiveInteractionEuCreateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.image)) {
+      body["image"] = request.image;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActiveInteractionEuCreate",
+      version: "2024-08-16",
+      protocol: "HTTPS",
+      pathname: `/open/api/eu/active/interaction/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActiveInteractionEuCreateResponse>(await this.callApi(params, req, runtime), new $_model.ActiveInteractionEuCreateResponse({}));
+  }
+
+  /**
+   * 主动交互消息生成eu
+   * 
+   * @param request - ActiveInteractionEuCreateRequest
+   * @returns ActiveInteractionEuCreateResponse
+   */
+  async activeInteractionEuCreate(request: $_model.ActiveInteractionEuCreateRequest): Promise<$_model.ActiveInteractionEuCreateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.activeInteractionEuCreateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 设备注册
    * 
    * @param request - DeviceRegisterRequest
@@ -253,6 +298,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelTypeDetermineWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 音频-供机械臂调用
+   * 
+   * @param request - OmniRealtimeConversationEURequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OmniRealtimeConversationEUResponse
+   */
+  async omniRealtimeConversationEUWithOptions(request: $_model.OmniRealtimeConversationEURequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OmniRealtimeConversationEUResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputAudio)) {
+      body["inputAudio"] = request.inputAudio;
+    }
+
+    if (!$dara.isNull(request.userPrompt)) {
+      body["userPrompt"] = request.userPrompt;
+    }
+
+    if (!$dara.isNull(request.voice)) {
+      body["voice"] = request.voice;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OmniRealtimeConversationEU",
+      version: "2024-08-16",
+      protocol: "HTTPS",
+      pathname: `/open/api/eu/active/interaction/audio`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OmniRealtimeConversationEUResponse>(await this.callApi(params, req, runtime), new $_model.OmniRealtimeConversationEUResponse({}));
+  }
+
+  /**
+   * 音频-供机械臂调用
+   * 
+   * @param request - OmniRealtimeConversationEURequest
+   * @returns OmniRealtimeConversationEUResponse
+   */
+  async omniRealtimeConversationEU(request: $_model.OmniRealtimeConversationEURequest): Promise<$_model.OmniRealtimeConversationEUResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.omniRealtimeConversationEUWithOptions(request, headers, runtime);
   }
 
 }
