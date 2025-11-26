@@ -32,7 +32,15 @@ export class UpdateExtensionsRequest extends $dara.Model {
    * postgres_fdw
    */
   extensions?: string;
+  /**
+   * @example
+   * test@example.com
+   */
   ownerAccount?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   ownerId?: number;
   /**
    * @example
@@ -44,7 +52,15 @@ export class UpdateExtensionsRequest extends $dara.Model {
    * rg-**********
    */
   resourceGroupId?: string;
+  /**
+   * @example
+   * test@example.com
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   resourceOwnerId?: number;
   /**
    * @example

@@ -19,14 +19,32 @@ export class DescribeExtensionsRequest extends $dara.Model {
    * song
    */
   DBName?: string;
+  extensionName?: string;
+  /**
+   * @example
+   * test@example.com
+   */
   ownerAccount?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   ownerId?: number;
+  /**
+   * @example
+   * test@example.com
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       DBName: 'DBName',
+      extensionName: 'ExtensionName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -38,6 +56,7 @@ export class DescribeExtensionsRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       DBName: 'string',
+      extensionName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

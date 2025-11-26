@@ -9735,6 +9735,10 @@ export default class Client extends OpenApi {
       query["DBName"] = request.DBName;
     }
 
+    if (!$dara.isNull(request.extensionName)) {
+      query["ExtensionName"] = request.extensionName;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
