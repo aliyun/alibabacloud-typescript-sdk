@@ -1994,6 +1994,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建身份凭证
+   * 
+   * @param tmpReq - CreateIdentifyCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdentifyCredentialResponse
+   */
+  async createIdentifyCredentialWithOptions(tmpReq: $_model.CreateIdentifyCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIdentifyCredentialResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateIdentifyCredentialShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.identifyCredential)) {
+      request.identifyCredentialShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.identifyCredential, "IdentifyCredential", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.identifyCredentialShrink)) {
+      body["IdentifyCredential"] = request.identifyCredentialShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIdentifyCredential",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateIdentifyCredentialResponse>(await this.callApi(params, req, runtime), new $_model.CreateIdentifyCredentialResponse({}));
+  }
+
+  /**
+   * 创建身份凭证
+   * 
+   * @param request - CreateIdentifyCredentialRequest
+   * @returns CreateIdentifyCredentialResponse
+   */
+  async createIdentifyCredential(request: $_model.CreateIdentifyCredentialRequest): Promise<$_model.CreateIdentifyCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createIdentifyCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
    * 
    * @param tmpReq - CreateLineageRelationshipRequest
