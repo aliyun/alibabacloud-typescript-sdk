@@ -29,6 +29,29 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary
   }
 }
 
+export class ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation extends $dara.Model {
+  remediationTemplateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remediationTemplateId: 'RemediationTemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remediationTemplateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo extends $dara.Model {
   /**
    * @remarks
@@ -101,6 +124,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSumma
 
 export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara.Model {
   accountSummary?: ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary;
+  availableRemediation?: ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation[];
   /**
    * @remarks
    * The error information.
@@ -169,6 +193,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   static names(): { [key: string]: string } {
     return {
       accountSummary: 'AccountSummary',
+      availableRemediation: 'AvailableRemediation',
       errorInfo: 'ErrorInfo',
       evaluationTime: 'EvaluationTime',
       id: 'Id',
@@ -183,6 +208,7 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   static types(): { [key: string]: any } {
     return {
       accountSummary: ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary,
+      availableRemediation: { 'type': 'array', 'itemType': ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation },
       errorInfo: ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo,
       evaluationTime: 'string',
       id: 'string',
@@ -197,6 +223,9 @@ export class ListEvaluationResultsResponseBodyResultsMetricResults extends $dara
   validate() {
     if(this.accountSummary && typeof (this.accountSummary as any).validate === 'function') {
       (this.accountSummary as any).validate();
+    }
+    if(Array.isArray(this.availableRemediation)) {
+      $dara.Model.validateArray(this.availableRemediation);
     }
     if(this.errorInfo && typeof (this.errorInfo as any).validate === 'function') {
       (this.errorInfo as any).validate();

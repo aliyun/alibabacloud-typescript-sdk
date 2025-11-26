@@ -27,6 +27,7 @@ export { ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties } fr
 export { ListEvaluationMetricDetailsResponseBodyResources } from './ListEvaluationMetricDetailsResponseBody';
 export { ListEvaluationResultsRequestFilters } from './ListEvaluationResultsRequest';
 export { ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary } from './ListEvaluationResultsResponseBody';
+export { ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation } from './ListEvaluationResultsResponseBody';
 export { ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo } from './ListEvaluationResultsResponseBody';
 export { ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary } from './ListEvaluationResultsResponseBody';
 export { ListEvaluationResultsResponseBodyResultsMetricResults } from './ListEvaluationResultsResponseBody';
