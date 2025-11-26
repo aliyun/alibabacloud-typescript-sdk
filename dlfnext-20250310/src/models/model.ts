@@ -29,6 +29,7 @@ export { Partition } from './Partition';
 export { PartitionSummaries } from './PartitionSummaries';
 export { PartitionSummary } from './PartitionSummary';
 export { Permission } from './Permission';
+export { PrepayResource } from './PrepayResource';
 export { ReceivedShare } from './ReceivedShare';
 export { Receiver } from './Receiver';
 export { Role } from './Role';

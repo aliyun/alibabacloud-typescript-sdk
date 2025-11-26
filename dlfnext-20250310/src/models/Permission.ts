@@ -40,6 +40,7 @@ export class Permission extends $dara.Model {
   access?: string;
   columns?: PermissionColumns;
   database?: string;
+  expireTime?: string;
   function?: string;
   principal?: string;
   resourceType?: string;
@@ -50,6 +51,7 @@ export class Permission extends $dara.Model {
       access: 'access',
       columns: 'columns',
       database: 'database',
+      expireTime: 'expireTime',
       function: 'function',
       principal: 'principal',
       resourceType: 'resourceType',
@@ -63,6 +65,7 @@ export class Permission extends $dara.Model {
       access: 'string',
       columns: PermissionColumns,
       database: 'string',
+      expireTime: 'string',
       function: 'string',
       principal: 'string',
       resourceType: 'string',
