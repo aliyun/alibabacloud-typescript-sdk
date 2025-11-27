@@ -1491,6 +1491,341 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @remarks
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @param tmpReq - ChatWithDesensitizeSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithDesensitizeSSEResponse
+   */
+  async *chatWithDesensitizeSSEWithSSE(tmpReq: $_model.ChatWithDesensitizeSSERequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatWithDesensitizeSSEResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithDesensitizeSSEShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modalitiesList)) {
+      request.modalitiesListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList, "ModalitiesList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchOptions)) {
+      request.searchOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchOptions, "SearchOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stop)) {
+      request.stopShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stop, "Stop", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.audioJson)) {
+      query["AudioJson"] = request.audioJson;
+    }
+
+    if (!$dara.isNull(request.desensitizationRule)) {
+      query["DesensitizationRule"] = request.desensitizationRule;
+    }
+
+    if (!$dara.isNull(request.enableCodeInterpreter)) {
+      query["EnableCodeInterpreter"] = request.enableCodeInterpreter;
+    }
+
+    if (!$dara.isNull(request.enableSearch)) {
+      query["EnableSearch"] = request.enableSearch;
+    }
+
+    if (!$dara.isNull(request.enableThinking)) {
+      query["EnableThinking"] = request.enableThinking;
+    }
+
+    if (!$dara.isNull(request.includeUsage)) {
+      query["IncludeUsage"] = request.includeUsage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logprobs)) {
+      query["Logprobs"] = request.logprobs;
+    }
+
+    if (!$dara.isNull(request.maxTokens)) {
+      query["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.modalitiesListShrink)) {
+      query["ModalitiesList"] = request.modalitiesListShrink;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.needDesensitization)) {
+      query["NeedDesensitization"] = request.needDesensitization;
+    }
+
+    if (!$dara.isNull(request.presencePenalty)) {
+      query["PresencePenalty"] = request.presencePenalty;
+    }
+
+    if (!$dara.isNull(request.responseFormat)) {
+      query["ResponseFormat"] = request.responseFormat;
+    }
+
+    if (!$dara.isNull(request.searchOptionsShrink)) {
+      query["SearchOptions"] = request.searchOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.seed)) {
+      query["Seed"] = request.seed;
+    }
+
+    if (!$dara.isNull(request.stopShrink)) {
+      query["Stop"] = request.stopShrink;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      query["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      query["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.thinkingBudget)) {
+      query["ThinkingBudget"] = request.thinkingBudget;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.topLogprobs)) {
+      query["TopLogprobs"] = request.topLogprobs;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      query["TopP"] = request.topP;
+    }
+
+    if (!$dara.isNull(request.vlHighResolutionImages)) {
+      query["VlHighResolutionImages"] = request.vlHighResolutionImages;
+    }
+
+    if (!$dara.isNull(request.XDashScopeDataInspection)) {
+      query["XDashScopeDataInspection"] = request.XDashScopeDataInspection;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithDesensitizeSSE",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.ChatWithDesensitizeSSEResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.ChatWithDesensitizeSSEResponse({}));
+    }
+  }
+
+  /**
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @remarks
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @param tmpReq - ChatWithDesensitizeSSERequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatWithDesensitizeSSEResponse
+   */
+  async chatWithDesensitizeSSEWithOptions(tmpReq: $_model.ChatWithDesensitizeSSERequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatWithDesensitizeSSEResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChatWithDesensitizeSSEShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.modalitiesList)) {
+      request.modalitiesListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList, "ModalitiesList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchOptions)) {
+      request.searchOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchOptions, "SearchOptions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stop)) {
+      request.stopShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stop, "Stop", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.audioJson)) {
+      query["AudioJson"] = request.audioJson;
+    }
+
+    if (!$dara.isNull(request.desensitizationRule)) {
+      query["DesensitizationRule"] = request.desensitizationRule;
+    }
+
+    if (!$dara.isNull(request.enableCodeInterpreter)) {
+      query["EnableCodeInterpreter"] = request.enableCodeInterpreter;
+    }
+
+    if (!$dara.isNull(request.enableSearch)) {
+      query["EnableSearch"] = request.enableSearch;
+    }
+
+    if (!$dara.isNull(request.enableThinking)) {
+      query["EnableThinking"] = request.enableThinking;
+    }
+
+    if (!$dara.isNull(request.includeUsage)) {
+      query["IncludeUsage"] = request.includeUsage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.logprobs)) {
+      query["Logprobs"] = request.logprobs;
+    }
+
+    if (!$dara.isNull(request.maxTokens)) {
+      query["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.modalitiesListShrink)) {
+      query["ModalitiesList"] = request.modalitiesListShrink;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.needDesensitization)) {
+      query["NeedDesensitization"] = request.needDesensitization;
+    }
+
+    if (!$dara.isNull(request.presencePenalty)) {
+      query["PresencePenalty"] = request.presencePenalty;
+    }
+
+    if (!$dara.isNull(request.responseFormat)) {
+      query["ResponseFormat"] = request.responseFormat;
+    }
+
+    if (!$dara.isNull(request.searchOptionsShrink)) {
+      query["SearchOptions"] = request.searchOptionsShrink;
+    }
+
+    if (!$dara.isNull(request.seed)) {
+      query["Seed"] = request.seed;
+    }
+
+    if (!$dara.isNull(request.stopShrink)) {
+      query["Stop"] = request.stopShrink;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      query["Stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      query["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.thinkingBudget)) {
+      query["ThinkingBudget"] = request.thinkingBudget;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.topLogprobs)) {
+      query["TopLogprobs"] = request.topLogprobs;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      query["TopP"] = request.topP;
+    }
+
+    if (!$dara.isNull(request.vlHighResolutionImages)) {
+      query["VlHighResolutionImages"] = request.vlHighResolutionImages;
+    }
+
+    if (!$dara.isNull(request.XDashScopeDataInspection)) {
+      query["XDashScopeDataInspection"] = request.XDashScopeDataInspection;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatWithDesensitizeSSE",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatWithDesensitizeSSEResponse>(await this.callApi(params, req, runtime), new $_model.ChatWithDesensitizeSSEResponse({}));
+  }
+
+  /**
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @remarks
+   * 带有DMS脱敏能力的聊天SSE API接口
+   * 
+   * @param request - ChatWithDesensitizeSSERequest
+   * @returns ChatWithDesensitizeSSEResponse
+   */
+  async chatWithDesensitizeSSE(request: $_model.ChatWithDesensitizeSSERequest): Promise<$_model.ChatWithDesensitizeSSEResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatWithDesensitizeSSEWithOptions(request, runtime);
+  }
+
+  /**
    * 批量校验是否有表访问权限
    * 
    * @param tmpReq - CheckBatchTableAccessPermissionRequest
