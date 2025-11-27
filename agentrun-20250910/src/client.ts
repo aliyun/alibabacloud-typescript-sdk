@@ -1643,6 +1643,10 @@ export default class Client extends OpenApi {
       query["searchMode"] = request.searchMode;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

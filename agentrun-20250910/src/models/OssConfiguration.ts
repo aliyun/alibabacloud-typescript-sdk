@@ -19,12 +19,18 @@ export class OssConfiguration extends $dara.Model {
    * This parameter is required.
    */
   prefix?: string;
+  /**
+   * @example
+   * ch-hangzhou
+   */
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       bucketName: 'bucketName',
       mountPoint: 'mountPoint',
       permission: 'permission',
       prefix: 'prefix',
+      region: 'region',
     };
   }
 
@@ -34,6 +40,7 @@ export class OssConfiguration extends $dara.Model {
       mountPoint: 'string',
       permission: 'string',
       prefix: 'string',
+      region: 'string',
     };
   }
 

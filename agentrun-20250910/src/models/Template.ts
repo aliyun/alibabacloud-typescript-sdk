@@ -78,6 +78,7 @@ export class Template extends $dara.Model {
   cpu?: number;
   createdAt?: string;
   credentialConfiguration?: CredentialConfiguration;
+  description?: string;
   diskSize?: number;
   environmentVariables?: string;
   executionRoleArn?: string;
@@ -117,6 +118,7 @@ export class Template extends $dara.Model {
       cpu: 'cpu',
       createdAt: 'createdAt',
       credentialConfiguration: 'credentialConfiguration',
+      description: 'description',
       diskSize: 'diskSize',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
@@ -147,6 +149,7 @@ export class Template extends $dara.Model {
       cpu: 'number',
       createdAt: 'string',
       credentialConfiguration: CredentialConfiguration,
+      description: 'string',
       diskSize: 'number',
       environmentVariables: 'string',
       executionRoleArn: 'string',

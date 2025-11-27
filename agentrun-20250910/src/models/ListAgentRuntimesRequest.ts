@@ -35,12 +35,21 @@ export class ListAgentRuntimesRequest extends $dara.Model {
    * fuzzy
    */
   searchMode?: string;
+  /**
+   * @remarks
+   * 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
+   * 
+   * @example
+   * READY,CREATING
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       searchMode: 'searchMode',
+      status: 'status',
     };
   }
 
@@ -50,6 +59,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       searchMode: 'string',
+      status: 'string',
     };
   }
 
