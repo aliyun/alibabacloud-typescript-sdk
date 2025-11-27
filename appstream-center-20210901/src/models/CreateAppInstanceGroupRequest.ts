@@ -775,6 +775,11 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
    */
   subPayType?: string;
   userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
+  /**
+   * **if can be null:**
+   * true
+   */
+  userGroupIds?: string[];
   userInfo?: CreateAppInstanceGroupRequestUserInfo;
   users?: string[];
   videoPolicy?: CreateAppInstanceGroupRequestVideoPolicy;
@@ -804,6 +809,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
       storagePolicy: 'StoragePolicy',
       subPayType: 'SubPayType',
       userDefinePolicy: 'UserDefinePolicy',
+      userGroupIds: 'UserGroupIds',
       userInfo: 'UserInfo',
       users: 'Users',
       videoPolicy: 'VideoPolicy',
@@ -836,6 +842,7 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
       storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
       subPayType: 'string',
       userDefinePolicy: CreateAppInstanceGroupRequestUserDefinePolicy,
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userInfo: CreateAppInstanceGroupRequestUserInfo,
       users: { 'type': 'array', 'itemType': 'string' },
       videoPolicy: CreateAppInstanceGroupRequestVideoPolicy,
@@ -860,6 +867,9 @@ export class CreateAppInstanceGroupRequest extends $dara.Model {
     }
     if(this.userDefinePolicy && typeof (this.userDefinePolicy as any).validate === 'function') {
       (this.userDefinePolicy as any).validate();
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
     }
     if(this.userInfo && typeof (this.userInfo as any).validate === 'function') {
       (this.userInfo as any).validate();

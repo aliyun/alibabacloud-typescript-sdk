@@ -85,6 +85,10 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * alice
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The environment configuration.
+   */
   environmentConfig?: string;
   /**
    * @remarks

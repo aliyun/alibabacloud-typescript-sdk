@@ -313,6 +313,10 @@ export default class Client extends OpenApi {
       body["SubPayType"] = request.subPayType;
     }
 
+    if (!$dara.isNull(request.userGroupIds)) {
+      body["UserGroupIds"] = request.userGroupIds;
+    }
+
     if (!$dara.isNull(request.userInfoShrink)) {
       body["UserInfo"] = request.userInfoShrink;
     }
@@ -1304,8 +1308,16 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.excludedUserGroupIds)) {
+      body["ExcludedUserGroupIds"] = request.excludedUserGroupIds;
+    }
+
     if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userGroupIds)) {
+      body["UserGroupIds"] = request.userGroupIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1538,7 +1550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表显示镜像
+   * Queries the image information about an ECS instance.
    * 
    * @param request - ListImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1651,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表显示镜像
+   * Queries the image information about an ECS instance.
    * 
    * @param request - ListImageRequest
    * @returns ListImageResponse
@@ -2365,7 +2377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改浏览器交付组
+   * Modifies the properties of the cloud browser.
+   * 
+   * @remarks
+   * Modifies the properties of the cloud browser.
    * 
    * @param tmpReq - ModifyBrowserInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2436,7 +2451,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改浏览器交付组
+   * Modifies the properties of the cloud browser.
+   * 
+   * @remarks
+   * Modifies the properties of the cloud browser.
    * 
    * @param request - ModifyBrowserInstanceGroupRequest
    * @returns ModifyBrowserInstanceGroupResponse

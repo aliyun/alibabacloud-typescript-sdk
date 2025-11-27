@@ -814,7 +814,13 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
    * PUBLISHED
    */
   status?: string;
+  supportUserGroupMixedAuth?: boolean;
   tags?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags[];
+  /**
+   * @example
+   * Mixed
+   */
+  userGroupAuthMode?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
@@ -852,7 +858,9 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
       skipUserAuthCheck: 'SkipUserAuthCheck',
       specId: 'SpecId',
       status: 'Status',
+      supportUserGroupMixedAuth: 'SupportUserGroupMixedAuth',
       tags: 'Tags',
+      userGroupAuthMode: 'UserGroupAuthMode',
     };
   }
 
@@ -893,7 +901,9 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
       skipUserAuthCheck: 'boolean',
       specId: 'string',
       status: 'string',
+      supportUserGroupMixedAuth: 'boolean',
       tags: { 'type': 'array', 'itemType': ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags },
+      userGroupAuthMode: 'string',
     };
   }
 

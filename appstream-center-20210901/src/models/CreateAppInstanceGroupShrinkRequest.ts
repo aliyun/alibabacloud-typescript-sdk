@@ -129,6 +129,11 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
    */
   subPayType?: string;
   userDefinePolicyShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  userGroupIds?: string[];
   userInfoShrink?: string;
   users?: string[];
   videoPolicyShrink?: string;
@@ -158,6 +163,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
       storagePolicyShrink: 'StoragePolicy',
       subPayType: 'SubPayType',
       userDefinePolicyShrink: 'UserDefinePolicy',
+      userGroupIds: 'UserGroupIds',
       userInfoShrink: 'UserInfo',
       users: 'Users',
       videoPolicyShrink: 'VideoPolicy',
@@ -190,6 +196,7 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
       storagePolicyShrink: 'string',
       subPayType: 'string',
       userDefinePolicyShrink: 'string',
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userInfoShrink: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
       videoPolicyShrink: 'string',
@@ -197,6 +204,9 @@ export class CreateAppInstanceGroupShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
+    }
     if(Array.isArray(this.users)) {
       $dara.Model.validateArray(this.users);
     }

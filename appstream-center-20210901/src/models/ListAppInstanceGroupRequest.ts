@@ -64,6 +64,11 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    */
   bizRegionId?: string;
   /**
+   * **if can be null:**
+   * true
+   */
+  excludedUserGroupIds?: string[];
+  /**
    * @remarks
    * The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
    * 
@@ -126,12 +131,18 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
    * true
    */
   tag?: ListAppInstanceGroupRequestTag[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  userGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
       appCenterImageId: 'AppCenterImageId',
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceGroupName: 'AppInstanceGroupName',
       bizRegionId: 'BizRegionId',
+      excludedUserGroupIds: 'ExcludedUserGroupIds',
       nodeInstanceType: 'NodeInstanceType',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
@@ -140,6 +151,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
       regionId: 'RegionId',
       status: 'Status',
       tag: 'Tag',
+      userGroupIds: 'UserGroupIds',
     };
   }
 
@@ -149,6 +161,7 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
       appInstanceGroupId: 'string',
       appInstanceGroupName: 'string',
       bizRegionId: 'string',
+      excludedUserGroupIds: { 'type': 'array', 'itemType': 'string' },
       nodeInstanceType: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',
@@ -157,15 +170,22 @@ export class ListAppInstanceGroupRequest extends $dara.Model {
       regionId: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': ListAppInstanceGroupRequestTag },
+      userGroupIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.excludedUserGroupIds)) {
+      $dara.Model.validateArray(this.excludedUserGroupIds);
+    }
     if(Array.isArray(this.status)) {
       $dara.Model.validateArray(this.status);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
+    }
+    if(Array.isArray(this.userGroupIds)) {
+      $dara.Model.validateArray(this.userGroupIds);
     }
     super.validate();
   }

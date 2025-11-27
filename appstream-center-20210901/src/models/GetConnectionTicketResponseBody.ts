@@ -27,6 +27,10 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    * p-0bxls9m3cl7s****
    */
   appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * The avatar ID.
+   */
   avatarId?: string;
   /**
    * @remarks
