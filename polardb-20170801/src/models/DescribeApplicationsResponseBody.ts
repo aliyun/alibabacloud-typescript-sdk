@@ -87,6 +87,11 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
   creationTime?: string;
   /**
    * @example
+   * pc-xxxxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @example
    * myapp
    */
   description?: string;
@@ -136,6 +141,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
       applicationId: 'ApplicationId',
       applicationType: 'ApplicationType',
       creationTime: 'CreationTime',
+      DBClusterId: 'DBClusterId',
       description: 'Description',
       endpoints: 'Endpoints',
       engineVersion: 'EngineVersion',
@@ -154,6 +160,7 @@ export class DescribeApplicationsResponseBodyItemsApplications extends $dara.Mod
       applicationId: 'string',
       applicationType: 'string',
       creationTime: 'string',
+      DBClusterId: 'string',
       description: 'string',
       endpoints: DescribeApplicationsResponseBodyItemsApplicationsEndpoints,
       engineVersion: 'string',
