@@ -2,17 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListExportTasksRequest extends $dara.Model {
+export class GetShutdownPolicyRecordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 292828565558721922
+   */
+  customerUID?: number;
   /**
    * @example
-   * 12343
+   * 2025-12-15 10:34:36
    */
-  id?: number;
-  /**
-   * @example
-   * en
-   */
-  language?: string;
+  operationTime?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -29,31 +32,21 @@ export class ListExportTasksRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * intlExportUsageDeductHistory
-   */
-  sceneCode?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      language: 'Language',
+      customerUID: 'CustomerUID',
+      operationTime: 'OperationTime',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      sceneCode: 'SceneCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'number',
-      language: 'string',
+      customerUID: 'number',
+      operationTime: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      sceneCode: 'string',
     };
   }
 

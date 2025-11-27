@@ -1218,6 +1218,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下单控制记录查询
+   * 
+   * @param request - GetPurchaseControlRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPurchaseControlRecordResponse
+   */
+  async getPurchaseControlRecordWithOptions(request: $_model.GetPurchaseControlRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPurchaseControlRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customerUID)) {
+      query["CustomerUID"] = request.customerUID;
+    }
+
+    if (!$dara.isNull(request.operationTime)) {
+      query["OperationTime"] = request.operationTime;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPurchaseControlRecord",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPurchaseControlRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetPurchaseControlRecordResponse({}));
+  }
+
+  /**
+   * 下单控制记录查询
+   * 
+   * @param request - GetPurchaseControlRecordRequest
+   * @returns GetPurchaseControlRecordResponse
+   */
+  async getPurchaseControlRecord(request: $_model.GetPurchaseControlRecordRequest): Promise<$_model.GetPurchaseControlRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPurchaseControlRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询延停策略修改记录
+   * 
+   * @param request - GetShutdownPolicyRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetShutdownPolicyRecordResponse
+   */
+  async getShutdownPolicyRecordWithOptions(request: $_model.GetShutdownPolicyRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetShutdownPolicyRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customerUID)) {
+      query["CustomerUID"] = request.customerUID;
+    }
+
+    if (!$dara.isNull(request.operationTime)) {
+      query["OperationTime"] = request.operationTime;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetShutdownPolicyRecord",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetShutdownPolicyRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetShutdownPolicyRecordResponse({}));
+  }
+
+  /**
+   * 查询延停策略修改记录
+   * 
+   * @param request - GetShutdownPolicyRecordRequest
+   * @returns GetShutdownPolicyRecordResponse
+   */
+  async getShutdownPolicyRecord(request: $_model.GetShutdownPolicyRecordRequest): Promise<$_model.GetShutdownPolicyRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getShutdownPolicyRecordWithOptions(request, runtime);
+  }
+
+  /**
    * Query all the Unassociated Customer.
    * 
    * @param request - GetUnassociatedCustomerRequest
@@ -1467,6 +1575,10 @@ export default class Client extends OpenApi {
   async listExportTasksWithOptions(request: $_model.ListExportTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExportTasksResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
