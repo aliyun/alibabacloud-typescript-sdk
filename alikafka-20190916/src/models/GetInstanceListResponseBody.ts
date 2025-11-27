@@ -641,6 +641,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
    * 172.16.3.XX:9094,172.16.3.XX:9094,172.16.3.XX:9094
    */
   saslEndPoint?: string;
+  scheduledRetirement?: boolean;
   /**
    * @remarks
    * The security group to which the instance belongs.
@@ -879,6 +880,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       resourceGroupId: 'ResourceGroupId',
       saslDomainEndpoint: 'SaslDomainEndpoint',
       saslEndPoint: 'SaslEndPoint',
+      scheduledRetirement: 'ScheduledRetirement',
       securityGroup: 'SecurityGroup',
       series: 'Series',
       serviceStatus: 'ServiceStatus',
@@ -935,6 +937,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $dara.Mod
       resourceGroupId: 'string',
       saslDomainEndpoint: 'string',
       saslEndPoint: 'string',
+      scheduledRetirement: 'boolean',
       securityGroup: 'string',
       series: 'string',
       serviceStatus: 'number',

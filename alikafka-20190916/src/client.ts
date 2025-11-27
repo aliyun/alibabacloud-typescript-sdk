@@ -1438,6 +1438,186 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 降配后付费实例
+   * 
+   * @param tmpReq - DowngradePostPayOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DowngradePostPayOrderResponse
+   */
+  async downgradePostPayOrderWithOptions(tmpReq: $_model.DowngradePostPayOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DowngradePostPayOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.DowngradePostPayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.serverlessConfig)) {
+      request.serverlessConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig, "ServerlessConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.diskSize)) {
+      query["DiskSize"] = request.diskSize;
+    }
+
+    if (!$dara.isNull(request.eipMax)) {
+      query["EipMax"] = request.eipMax;
+    }
+
+    if (!$dara.isNull(request.eipModel)) {
+      query["EipModel"] = request.eipModel;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ioMax)) {
+      query["IoMax"] = request.ioMax;
+    }
+
+    if (!$dara.isNull(request.ioMaxSpec)) {
+      query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!$dara.isNull(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serverlessConfigShrink)) {
+      query["ServerlessConfig"] = request.serverlessConfigShrink;
+    }
+
+    if (!$dara.isNull(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    if (!$dara.isNull(request.topicQuota)) {
+      query["TopicQuota"] = request.topicQuota;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DowngradePostPayOrder",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DowngradePostPayOrderResponse>(await this.callApi(params, req, runtime), new $_model.DowngradePostPayOrderResponse({}));
+  }
+
+  /**
+   * 降配后付费实例
+   * 
+   * @param request - DowngradePostPayOrderRequest
+   * @returns DowngradePostPayOrderResponse
+   */
+  async downgradePostPayOrder(request: $_model.DowngradePostPayOrderRequest): Promise<$_model.DowngradePostPayOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downgradePostPayOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 降配预付费实例
+   * 
+   * @param tmpReq - DowngradePrePayOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DowngradePrePayOrderResponse
+   */
+  async downgradePrePayOrderWithOptions(tmpReq: $_model.DowngradePrePayOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DowngradePrePayOrderResponse> {
+    tmpReq.validate();
+    let request = new $_model.DowngradePrePayOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.confluentConfig)) {
+      request.confluentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.confluentConfig, "ConfluentConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.confluentConfigShrink)) {
+      query["ConfluentConfig"] = request.confluentConfigShrink;
+    }
+
+    if (!$dara.isNull(request.diskSize)) {
+      query["DiskSize"] = request.diskSize;
+    }
+
+    if (!$dara.isNull(request.eipMax)) {
+      query["EipMax"] = request.eipMax;
+    }
+
+    if (!$dara.isNull(request.eipModel)) {
+      query["EipModel"] = request.eipModel;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ioMax)) {
+      query["IoMax"] = request.ioMax;
+    }
+
+    if (!$dara.isNull(request.ioMaxSpec)) {
+      query["IoMaxSpec"] = request.ioMaxSpec;
+    }
+
+    if (!$dara.isNull(request.paidType)) {
+      query["PaidType"] = request.paidType;
+    }
+
+    if (!$dara.isNull(request.partitionNum)) {
+      query["PartitionNum"] = request.partitionNum;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.specType)) {
+      query["SpecType"] = request.specType;
+    }
+
+    if (!$dara.isNull(request.topicQuota)) {
+      query["TopicQuota"] = request.topicQuota;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DowngradePrePayOrder",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DowngradePrePayOrderResponse>(await this.callApi(params, req, runtime), new $_model.DowngradePrePayOrderResponse({}));
+  }
+
+  /**
+   * 降配预付费实例
+   * 
+   * @param request - DowngradePrePayOrderRequest
+   * @returns DowngradePrePayOrderResponse
+   */
+  async downgradePrePayOrder(request: $_model.DowngradePrePayOrderRequest): Promise<$_model.DowngradePrePayOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downgradePrePayOrderWithOptions(request, runtime);
+  }
+
+  /**
    * Enables and disables the flexible group creation feature.
    * 
    * @param request - EnableAutoGroupCreationRequest
