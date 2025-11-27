@@ -50,6 +50,7 @@ export { DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig } from './
 export { DescribeRenderingInstanceResponseBodyConfigInfo } from './DescribeRenderingInstanceResponseBody';
 export { DescribeRenderingInstanceResponseBodyPortMappings } from './DescribeRenderingInstanceResponseBody';
 export { DescribeRenderingInstanceResponseBodyRenderingStatus } from './DescribeRenderingInstanceResponseBody';
+export { DescribeRenderingInstanceResponseBodyResourceAttributes } from './DescribeRenderingInstanceResponseBody';
 export { DescribeRenderingInstanceResponseBodySystemInfo } from './DescribeRenderingInstanceResponseBody';
 export { DescribeRenderingInstanceConfigurationRequestConfiguration } from './DescribeRenderingInstanceConfigurationRequest';
 export { DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes } from './DescribeRenderingInstanceConfigurationResponseBody';

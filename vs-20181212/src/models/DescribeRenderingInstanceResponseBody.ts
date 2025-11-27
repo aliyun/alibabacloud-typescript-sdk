@@ -278,6 +278,54 @@ export class DescribeRenderingInstanceResponseBodyRenderingStatus extends $dara.
   }
 }
 
+export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $dara.Model {
+  /**
+   * @example
+   * ON
+   */
+  edgeMediaService?: string;
+  /**
+   * @example
+   * ON
+   */
+  inAccess?: string;
+  /**
+   * @example
+   * ON
+   */
+  outAccess?: string;
+  /**
+   * @example
+   * Public
+   */
+  zone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      edgeMediaService: 'EdgeMediaService',
+      inAccess: 'InAccess',
+      outAccess: 'OutAccess',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      edgeMediaService: 'string',
+      inAccess: 'string',
+      outAccess: 'string',
+      zone: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRenderingInstanceResponseBodySystemInfo extends $dara.Model {
   /**
    * @example
@@ -341,6 +389,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  resourceAttributes?: DescribeRenderingInstanceResponseBodyResourceAttributes;
   storageSize?: number;
   systemInfo?: DescribeRenderingInstanceResponseBodySystemInfo;
   static names(): { [key: string]: string } {
@@ -357,6 +406,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       renderingSpec: 'RenderingSpec',
       renderingStatus: 'RenderingStatus',
       requestId: 'RequestId',
+      resourceAttributes: 'ResourceAttributes',
       storageSize: 'StorageSize',
       systemInfo: 'SystemInfo',
     };
@@ -376,6 +426,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       renderingSpec: 'string',
       renderingStatus: DescribeRenderingInstanceResponseBodyRenderingStatus,
       requestId: 'string',
+      resourceAttributes: DescribeRenderingInstanceResponseBodyResourceAttributes,
       storageSize: 'number',
       systemInfo: DescribeRenderingInstanceResponseBodySystemInfo,
     };
@@ -393,6 +444,9 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
     }
     if(this.renderingStatus && typeof (this.renderingStatus as any).validate === 'function') {
       (this.renderingStatus as any).validate();
+    }
+    if(this.resourceAttributes && typeof (this.resourceAttributes as any).validate === 'function') {
+      (this.resourceAttributes as any).validate();
     }
     if(this.systemInfo && typeof (this.systemInfo as any).validate === 'function') {
       (this.systemInfo as any).validate();
