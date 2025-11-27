@@ -458,6 +458,7 @@ export class DescribeVulListResponseBodyVulRecords extends $dara.Model {
    * true
    */
   bind?: boolean;
+  containerId?: string;
   /**
    * @remarks
    * The extended information about the vulnerability.
@@ -803,6 +804,7 @@ export class DescribeVulListResponseBodyVulRecords extends $dara.Model {
       aliasName: 'AliasName',
       authVersion: 'AuthVersion',
       bind: 'Bind',
+      containerId: 'ContainerId',
       extendContentJson: 'ExtendContentJson',
       firstTs: 'FirstTs',
       groupId: 'GroupId',
@@ -847,6 +849,7 @@ export class DescribeVulListResponseBodyVulRecords extends $dara.Model {
       aliasName: 'string',
       authVersion: 'string',
       bind: 'boolean',
+      containerId: 'string',
       extendContentJson: DescribeVulListResponseBodyVulRecordsExtendContentJson,
       firstTs: 'number',
       groupId: 'number',
