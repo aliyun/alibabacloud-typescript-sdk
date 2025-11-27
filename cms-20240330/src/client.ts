@@ -228,6 +228,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建业务链路
+   * 
+   * @param request - CreateBizTraceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBizTraceResponse
+   */
+  async createBizTraceWithOptions(request: $_model.CreateBizTraceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBizTraceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.advancedConfig)) {
+      body["advancedConfig"] = request.advancedConfig;
+    }
+
+    if (!$dara.isNull(request.bizTraceCode)) {
+      body["bizTraceCode"] = request.bizTraceCode;
+    }
+
+    if (!$dara.isNull(request.bizTraceName)) {
+      body["bizTraceName"] = request.bizTraceName;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      body["ruleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBizTrace",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/bizTrace`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBizTraceResponse>(await this.callApi(params, req, runtime), new $_model.CreateBizTraceResponse({}));
+  }
+
+  /**
+   * 创建业务链路
+   * 
+   * @param request - CreateBizTraceRequest
+   * @returns CreateBizTraceResponse
+   */
+  async createBizTrace(request: $_model.CreateBizTraceRequest): Promise<$_model.CreateBizTraceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBizTraceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建云资源中心
    * 
    * @param headers - map
@@ -853,6 +914,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除业务链路
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBizTraceResponse
+   */
+  async deleteBizTraceWithOptions(bizTraceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBizTraceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBizTrace",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/bizTrace/${$dara.URL.percentEncode(bizTraceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBizTraceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBizTraceResponse({}));
+  }
+
+  /**
+   * 删除业务链路
+   * @returns DeleteBizTraceResponse
+   */
+  async deleteBizTrace(bizTraceId: string): Promise<$_model.DeleteBizTraceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBizTraceWithOptions(bizTraceId, headers, runtime);
+  }
+
+  /**
    * 删除云资源中心
    * 
    * @param headers - map
@@ -1310,6 +1406,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 插件详情(Addon)
+   * 
+   * @param request - GetAddonRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAddonResponse
+   */
+  async getAddonWithOptions(addonName: string, request: $_model.GetAddonRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAddonResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAddon",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/addons/${$dara.URL.percentEncode(addonName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAddonResponse>(await this.callApi(params, req, runtime), new $_model.GetAddonResponse({}));
+  }
+
+  /**
+   * 插件详情(Addon)
+   * 
+   * @param request - GetAddonRequest
+   * @returns GetAddonResponse
+   */
+  async getAddon(addonName: string, request: $_model.GetAddonRequest): Promise<$_model.GetAddonResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAddonWithOptions(addonName, request, headers, runtime);
+  }
+
+  /**
+   * 插件schema详情(Addon)
+   * 
+   * @param request - GetAddonCodeTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAddonCodeTemplateResponse
+   */
+  async getAddonCodeTemplateWithOptions(addonName: string, request: $_model.GetAddonCodeTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAddonCodeTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.environmentType)) {
+      query["environmentType"] = request.environmentType;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAddonCodeTemplate",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/addons/${$dara.URL.percentEncode(addonName)}/alert-code-template`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAddonCodeTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetAddonCodeTemplateResponse({}));
+  }
+
+  /**
+   * 插件schema详情(Addon)
+   * 
+   * @param request - GetAddonCodeTemplateRequest
+   * @returns GetAddonCodeTemplateResponse
+   */
+  async getAddonCodeTemplate(addonName: string, request: $_model.GetAddonCodeTemplateRequest): Promise<$_model.GetAddonCodeTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAddonCodeTemplateWithOptions(addonName, request, headers, runtime);
+  }
+
+  /**
    * Check addon release (view connection status)
    * 
    * @param headers - map
@@ -1345,6 +1543,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 插件schema详情(Addon)
+   * 
+   * @param request - GetAddonSchemaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAddonSchemaResponse
+   */
+  async getAddonSchemaWithOptions(addonName: string, request: $_model.GetAddonSchemaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAddonSchemaResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.environmentType)) {
+      query["environmentType"] = request.environmentType;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAddonSchema",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/addons/${$dara.URL.percentEncode(addonName)}/schema`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAddonSchemaResponse>(await this.callApi(params, req, runtime), new $_model.GetAddonSchemaResponse({}));
+  }
+
+  /**
+   * 插件schema详情(Addon)
+   * 
+   * @param request - GetAddonSchemaRequest
+   * @returns GetAddonSchemaResponse
+   */
+  async getAddonSchema(addonName: string, request: $_model.GetAddonSchemaRequest): Promise<$_model.GetAddonSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAddonSchemaWithOptions(addonName, request, headers, runtime);
+  }
+
+  /**
    * Describes the aggregation task group
    * 
    * @param headers - map
@@ -1377,6 +1628,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+  }
+
+  /**
+   * 查询业务链路
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBizTraceResponse
+   */
+  async getBizTraceWithOptions(bizTraceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBizTraceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBizTrace",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/bizTrace/${$dara.URL.percentEncode(bizTraceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBizTraceResponse>(await this.callApi(params, req, runtime), new $_model.GetBizTraceResponse({}));
+  }
+
+  /**
+   * 查询业务链路
+   * @returns GetBizTraceResponse
+   */
+  async getBizTrace(bizTraceId: string): Promise<$_model.GetBizTraceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBizTraceWithOptions(bizTraceId, headers, runtime);
   }
 
   /**
@@ -1646,6 +1932,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIntegrationPolicyWithOptions(policyId, headers, runtime);
+  }
+
+  /**
+   * 查询接入中心在CS的版本
+   * 
+   * @param request - GetIntegrationVersionForCSRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIntegrationVersionForCSResponse
+   */
+  async getIntegrationVersionForCSWithOptions(request: $_model.GetIntegrationVersionForCSRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntegrationVersionForCSResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["clusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.clusterType)) {
+      query["clusterType"] = request.clusterType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIntegrationVersionForCS",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-version/cs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIntegrationVersionForCSResponse>(await this.callApi(params, req, runtime), new $_model.GetIntegrationVersionForCSResponse({}));
+  }
+
+  /**
+   * 查询接入中心在CS的版本
+   * 
+   * @param request - GetIntegrationVersionForCSRequest
+   * @returns GetIntegrationVersionForCSResponse
+   */
+  async getIntegrationVersionForCS(request: $_model.GetIntegrationVersionForCSRequest): Promise<$_model.GetIntegrationVersionForCSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIntegrationVersionForCSWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2097,6 +2432,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新版接入中心产品列表(分组)
+   * 
+   * @param request - ListAddonsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAddonsResponse
+   */
+  async listAddonsWithOptions(request: $_model.ListAddonsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAddonsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliyunLang)) {
+      query["aliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.regexp)) {
+      query["regexp"] = request.regexp;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["search"] = request.search;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAddons",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/addons`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAddonsResponse>(await this.callApi(params, req, runtime), new $_model.ListAddonsResponse({}));
+  }
+
+  /**
+   * 新版接入中心产品列表(分组)
+   * 
+   * @param request - ListAddonsRequest
+   * @returns ListAddonsResponse
+   */
+  async listAddons(request: $_model.ListAddonsRequest): Promise<$_model.ListAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAddonsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * List Aggregation Task Groups
    * 
    * @param tmpReq - ListAggTaskGroupsRequest
@@ -2243,6 +2635,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 业务链路列表
+   * 
+   * @param request - ListBizTracesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBizTracesResponse
+   */
+  async listBizTracesWithOptions(request: $_model.ListBizTracesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBizTracesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBizTraces",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/bizTraces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBizTracesResponse>(await this.callApi(params, req, runtime), new $_model.ListBizTracesResponse({}));
+  }
+
+  /**
+   * 业务链路列表
+   * 
+   * @param request - ListBizTracesRequest
+   * @returns ListBizTracesResponse
+   */
+  async listBizTraces(request: $_model.ListBizTracesRequest): Promise<$_model.ListBizTracesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBizTracesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Query Access Center Policy List Information
    * 
    * @remarks
@@ -2349,6 +2794,94 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listIntegrationPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 策略addon列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationPolicyAddonsResponse
+   */
+  async listIntegrationPolicyAddonsWithOptions(policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntegrationPolicyAddons",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-policies/${$dara.URL.percentEncode(policyId)}/addons`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIntegrationPolicyAddonsResponse>(await this.callApi(params, req, runtime), new $_model.ListIntegrationPolicyAddonsResponse({}));
+  }
+
+  /**
+   * 策略addon列表
+   * @returns ListIntegrationPolicyAddonsResponse
+   */
+  async listIntegrationPolicyAddons(policyId: string): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIntegrationPolicyAddonsWithOptions(policyId, headers, runtime);
+  }
+
+  /**
+   * 获取接入中心策略的存储要求信息
+   * 
+   * @param request - ListIntegrationPolicyCollectorsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntegrationPolicyCollectorsResponse
+   */
+  async listIntegrationPolicyCollectorsWithOptions(policyId: string, request: $_model.ListIntegrationPolicyCollectorsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyCollectorsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addonReleaseName)) {
+      query["addonReleaseName"] = request.addonReleaseName;
+    }
+
+    if (!$dara.isNull(request.collectorType)) {
+      query["collectorType"] = request.collectorType;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIntegrationPolicyCollectors",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/integration-policies/${$dara.URL.percentEncode(policyId)}/collectors`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIntegrationPolicyCollectorsResponse>(await this.callApi(params, req, runtime), new $_model.ListIntegrationPolicyCollectorsResponse({}));
+  }
+
+  /**
+   * 获取接入中心策略的存储要求信息
+   * 
+   * @param request - ListIntegrationPolicyCollectorsRequest
+   * @returns ListIntegrationPolicyCollectorsResponse
+   */
+  async listIntegrationPolicyCollectors(policyId: string, request: $_model.ListIntegrationPolicyCollectorsRequest): Promise<$_model.ListIntegrationPolicyCollectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIntegrationPolicyCollectorsWithOptions(policyId, request, headers, runtime);
   }
 
   /**
@@ -3304,6 +3837,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+  }
+
+  /**
+   * 修改业务链路
+   * 
+   * @param request - UpdateBizTraceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBizTraceResponse
+   */
+  async updateBizTraceWithOptions(bizTraceId: string, request: $_model.UpdateBizTraceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBizTraceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.advancedConfig)) {
+      body["advancedConfig"] = request.advancedConfig;
+    }
+
+    if (!$dara.isNull(request.bizTraceName)) {
+      body["bizTraceName"] = request.bizTraceName;
+    }
+
+    if (!$dara.isNull(request.ruleConfig)) {
+      body["ruleConfig"] = request.ruleConfig;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBizTrace",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/bizTrace/${$dara.URL.percentEncode(bizTraceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBizTraceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBizTraceResponse({}));
+  }
+
+  /**
+   * 修改业务链路
+   * 
+   * @param request - UpdateBizTraceRequest
+   * @returns UpdateBizTraceResponse
+   */
+  async updateBizTrace(bizTraceId: string, request: $_model.UpdateBizTraceRequest): Promise<$_model.UpdateBizTraceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
   }
 
   /**

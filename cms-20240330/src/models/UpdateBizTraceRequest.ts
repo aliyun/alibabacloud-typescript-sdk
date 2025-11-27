@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class BizTraceConfig extends $dara.Model {
+export class UpdateBizTraceRequest extends $dara.Model {
   /**
    * @example
    * {"sample":{"strategy":"BY_APP"}}
@@ -10,32 +10,12 @@ export class BizTraceConfig extends $dara.Model {
   advancedConfig?: string;
   /**
    * @example
-   * label_env
-   */
-  bizTraceCode?: string;
-  /**
-   * @example
-   * e339260ed64c95d
-   */
-  bizTraceId?: string;
-  /**
-   * @example
    * just test
    */
   bizTraceName?: string;
   /**
    * @example
-   * 2025-12-12 00:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @example
-   * [{"entrancePid":"xxxxx@b57c44xx6e86","rpcMatcher":{"matchType":"EQUALS","pattern":"/createApp"},"characteristics":{"operation":"AND","rules":[{"target":"CUSTOM_EXTRACT","matcher":{"matchType":"CONTAINS","pattern":[]}}]}}]
+   * [{"entrancePid":"xxx@d9w3jd9j3","rpcMatcher":{"matchType":"EQUALS","pattern":"/"},"characteristics":{"operation":"OR","rules":[{"target":"CUSTOM_EXTRACT","id":"oi0b3bb7","key":"biz.test","matcher":{"matchType":"CONTAINS","pattern":["1"]}}]}}]
    */
   ruleConfig?: string;
   /**
@@ -46,11 +26,7 @@ export class BizTraceConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       advancedConfig: 'advancedConfig',
-      bizTraceCode: 'bizTraceCode',
-      bizTraceId: 'bizTraceId',
       bizTraceName: 'bizTraceName',
-      createTime: 'createTime',
-      regionId: 'regionId',
       ruleConfig: 'ruleConfig',
       workspace: 'workspace',
     };
@@ -59,11 +35,7 @@ export class BizTraceConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       advancedConfig: 'string',
-      bizTraceCode: 'string',
-      bizTraceId: 'string',
       bizTraceName: 'string',
-      createTime: 'string',
-      regionId: 'string',
       ruleConfig: 'string',
       workspace: 'string',
     };
