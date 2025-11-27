@@ -12,6 +12,7 @@ export { ChatWithDesensitizeResponseBodyDataChoicesMessage } from './ChatWithDes
 export { ChatWithDesensitizeResponseBodyDataChoices } from './ChatWithDesensitizeResponseBody';
 export { ChatWithDesensitizeResponseBodyDataUsage } from './ChatWithDesensitizeResponseBody';
 export { ChatWithDesensitizeResponseBodyData } from './ChatWithDesensitizeResponseBody';
+export { CheckBatchTableAccessPermissionResponseBodyData } from './CheckBatchTableAccessPermissionResponseBody';
 export { CreateAuthorityTemplateResponseBodyAuthorityTemplateView } from './CreateAuthorityTemplateResponseBody';
 export { CreateDataArchiveOrderRequestParamTableIncludes } from './CreateDataArchiveOrderRequest';
 export { CreateDataArchiveOrderRequestParamVariables } from './CreateDataArchiveOrderRequest';
@@ -458,6 +459,10 @@ export { ChatWithDesensitizeRequest } from './ChatWithDesensitizeRequest';
 export { ChatWithDesensitizeShrinkRequest } from './ChatWithDesensitizeShrinkRequest';
 export { ChatWithDesensitizeResponseBody } from './ChatWithDesensitizeResponseBody';
 export { ChatWithDesensitizeResponse } from './ChatWithDesensitizeResponse';
+export { CheckBatchTableAccessPermissionRequest } from './CheckBatchTableAccessPermissionRequest';
+export { CheckBatchTableAccessPermissionShrinkRequest } from './CheckBatchTableAccessPermissionShrinkRequest';
+export { CheckBatchTableAccessPermissionResponseBody } from './CheckBatchTableAccessPermissionResponseBody';
+export { CheckBatchTableAccessPermissionResponse } from './CheckBatchTableAccessPermissionResponse';
 export { CloseOrderRequest } from './CloseOrderRequest';
 export { CloseOrderResponseBody } from './CloseOrderResponseBody';
 export { CloseOrderResponse } from './CloseOrderResponse';

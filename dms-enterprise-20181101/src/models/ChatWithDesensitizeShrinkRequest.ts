@@ -5,9 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
   /**
    * @example
+   * {}
+   */
+  audioJson?: string;
+  /**
+   * @example
    * UserInfo
    */
   desensitizationRule?: string;
+  /**
+   * @example
+   * false
+   */
+  enableCodeInterpreter?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableSearch?: boolean;
   /**
    * @example
    * true
@@ -23,13 +38,15 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @example
+   * false
+   */
+  logprobs?: boolean;
+  /**
+   * @example
    * 256
    */
   maxTokens?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * [
    *     {
@@ -39,6 +56,11 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
    * ]
    */
   messagesShrink?: string;
+  /**
+   * @example
+   * ["text","audio"]
+   */
+  modalitiesListShrink?: string;
   /**
    * @example
    * qwen-plus
@@ -53,12 +75,17 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
    * @example
    * 0.0
    */
-  presencePenalty?: number;
+  presencePenalty?: string;
   /**
    * @example
    * text
    */
   responseFormat?: string;
+  /**
+   * @example
+   * {}
+   */
+  searchOptionsShrink?: string;
   /**
    * @example
    * 1
@@ -69,7 +96,7 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
    * @example
    * 1
    */
-  temperature?: number;
+  temperature?: string;
   /**
    * @example
    * 256
@@ -89,18 +116,34 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
    * @example
    * 0.5
    */
-  topP?: number;
+  topP?: string;
+  /**
+   * @example
+   * false
+   */
+  vlHighResolutionImages?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  XDashScopeDataInspection?: string;
   static names(): { [key: string]: string } {
     return {
+      audioJson: 'AudioJson',
       desensitizationRule: 'DesensitizationRule',
+      enableCodeInterpreter: 'EnableCodeInterpreter',
+      enableSearch: 'EnableSearch',
       enableThinking: 'EnableThinking',
       instanceId: 'InstanceId',
+      logprobs: 'Logprobs',
       maxTokens: 'MaxTokens',
       messagesShrink: 'Messages',
+      modalitiesListShrink: 'ModalitiesList',
       model: 'Model',
       needDesensitization: 'NeedDesensitization',
       presencePenalty: 'PresencePenalty',
       responseFormat: 'ResponseFormat',
+      searchOptionsShrink: 'SearchOptions',
       seed: 'Seed',
       stopShrink: 'Stop',
       temperature: 'Temperature',
@@ -108,27 +151,37 @@ export class ChatWithDesensitizeShrinkRequest extends $dara.Model {
       topK: 'TopK',
       topLogprobs: 'TopLogprobs',
       topP: 'TopP',
+      vlHighResolutionImages: 'VlHighResolutionImages',
+      XDashScopeDataInspection: 'XDashScopeDataInspection',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audioJson: 'string',
       desensitizationRule: 'string',
+      enableCodeInterpreter: 'boolean',
+      enableSearch: 'boolean',
       enableThinking: 'boolean',
       instanceId: 'number',
+      logprobs: 'boolean',
       maxTokens: 'number',
       messagesShrink: 'string',
+      modalitiesListShrink: 'string',
       model: 'string',
       needDesensitization: 'boolean',
-      presencePenalty: 'number',
+      presencePenalty: 'string',
       responseFormat: 'string',
+      searchOptionsShrink: 'string',
       seed: 'number',
       stopShrink: 'string',
-      temperature: 'number',
+      temperature: 'string',
       thinkingBudget: 'number',
       topK: 'number',
       topLogprobs: 'number',
-      topP: 'number',
+      topP: 'string',
+      vlHighResolutionImages: 'boolean',
+      XDashScopeDataInspection: 'string',
     };
   }
 

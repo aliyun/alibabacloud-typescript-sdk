@@ -5,9 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithDesensitizeRequest extends $dara.Model {
   /**
    * @example
+   * {}
+   */
+  audioJson?: string;
+  /**
+   * @example
    * UserInfo
    */
   desensitizationRule?: string;
+  /**
+   * @example
+   * false
+   */
+  enableCodeInterpreter?: boolean;
+  /**
+   * @example
+   * false
+   */
+  enableSearch?: boolean;
   /**
    * @example
    * true
@@ -23,13 +38,15 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
   instanceId?: number;
   /**
    * @example
+   * false
+   */
+  logprobs?: boolean;
+  /**
+   * @example
    * 256
    */
   maxTokens?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * [
    *     {
@@ -38,7 +55,12 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
    *     }
    * ]
    */
-  messages?: { [key: string]: any }[];
+  messages?: any[];
+  /**
+   * @example
+   * ["text","audio"]
+   */
+  modalitiesList?: string[];
   /**
    * @example
    * qwen-plus
@@ -53,12 +75,17 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
    * @example
    * 0.0
    */
-  presencePenalty?: number;
+  presencePenalty?: string;
   /**
    * @example
    * text
    */
   responseFormat?: string;
+  /**
+   * @example
+   * {}
+   */
+  searchOptions?: { [key: string]: string };
   /**
    * @example
    * 1
@@ -69,7 +96,7 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
    * @example
    * 1
    */
-  temperature?: number;
+  temperature?: string;
   /**
    * @example
    * 256
@@ -89,18 +116,34 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
    * @example
    * 0.5
    */
-  topP?: number;
+  topP?: string;
+  /**
+   * @example
+   * false
+   */
+  vlHighResolutionImages?: boolean;
+  /**
+   * @example
+   * {}
+   */
+  XDashScopeDataInspection?: string;
   static names(): { [key: string]: string } {
     return {
+      audioJson: 'AudioJson',
       desensitizationRule: 'DesensitizationRule',
+      enableCodeInterpreter: 'EnableCodeInterpreter',
+      enableSearch: 'EnableSearch',
       enableThinking: 'EnableThinking',
       instanceId: 'InstanceId',
+      logprobs: 'Logprobs',
       maxTokens: 'MaxTokens',
       messages: 'Messages',
+      modalitiesList: 'ModalitiesList',
       model: 'Model',
       needDesensitization: 'NeedDesensitization',
       presencePenalty: 'PresencePenalty',
       responseFormat: 'ResponseFormat',
+      searchOptions: 'SearchOptions',
       seed: 'Seed',
       stop: 'Stop',
       temperature: 'Temperature',
@@ -108,33 +151,49 @@ export class ChatWithDesensitizeRequest extends $dara.Model {
       topK: 'TopK',
       topLogprobs: 'TopLogprobs',
       topP: 'TopP',
+      vlHighResolutionImages: 'VlHighResolutionImages',
+      XDashScopeDataInspection: 'XDashScopeDataInspection',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audioJson: 'string',
       desensitizationRule: 'string',
+      enableCodeInterpreter: 'boolean',
+      enableSearch: 'boolean',
       enableThinking: 'boolean',
       instanceId: 'number',
+      logprobs: 'boolean',
       maxTokens: 'number',
-      messages: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      messages: { 'type': 'array', 'itemType': 'any' },
+      modalitiesList: { 'type': 'array', 'itemType': 'string' },
       model: 'string',
       needDesensitization: 'boolean',
-      presencePenalty: 'number',
+      presencePenalty: 'string',
       responseFormat: 'string',
+      searchOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       seed: 'number',
       stop: { 'type': 'array', 'itemType': 'string' },
-      temperature: 'number',
+      temperature: 'string',
       thinkingBudget: 'number',
       topK: 'number',
       topLogprobs: 'number',
-      topP: 'number',
+      topP: 'string',
+      vlHighResolutionImages: 'boolean',
+      XDashScopeDataInspection: 'string',
     };
   }
 
   validate() {
     if(Array.isArray(this.messages)) {
       $dara.Model.validateArray(this.messages);
+    }
+    if(Array.isArray(this.modalitiesList)) {
+      $dara.Model.validateArray(this.modalitiesList);
+    }
+    if(this.searchOptions) {
+      $dara.Model.validateMap(this.searchOptions);
     }
     if(Array.isArray(this.stop)) {
       $dara.Model.validateArray(this.stop);

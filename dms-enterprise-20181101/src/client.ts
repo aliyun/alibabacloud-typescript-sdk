@@ -1348,13 +1348,33 @@ export default class Client extends OpenApi {
       request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
     }
 
+    if (!$dara.isNull(tmpReq.modalitiesList)) {
+      request.modalitiesListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList, "ModalitiesList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchOptions)) {
+      request.searchOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchOptions, "SearchOptions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.stop)) {
       request.stopShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stop, "Stop", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.audioJson)) {
+      query["AudioJson"] = request.audioJson;
+    }
+
     if (!$dara.isNull(request.desensitizationRule)) {
       query["DesensitizationRule"] = request.desensitizationRule;
+    }
+
+    if (!$dara.isNull(request.enableCodeInterpreter)) {
+      query["EnableCodeInterpreter"] = request.enableCodeInterpreter;
+    }
+
+    if (!$dara.isNull(request.enableSearch)) {
+      query["EnableSearch"] = request.enableSearch;
     }
 
     if (!$dara.isNull(request.enableThinking)) {
@@ -1365,8 +1385,16 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.logprobs)) {
+      query["Logprobs"] = request.logprobs;
+    }
+
     if (!$dara.isNull(request.maxTokens)) {
       query["MaxTokens"] = request.maxTokens;
+    }
+
+    if (!$dara.isNull(request.modalitiesListShrink)) {
+      query["ModalitiesList"] = request.modalitiesListShrink;
     }
 
     if (!$dara.isNull(request.model)) {
@@ -1383,6 +1411,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.responseFormat)) {
       query["ResponseFormat"] = request.responseFormat;
+    }
+
+    if (!$dara.isNull(request.searchOptionsShrink)) {
+      query["SearchOptions"] = request.searchOptionsShrink;
     }
 
     if (!$dara.isNull(request.seed)) {
@@ -1411,6 +1443,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.topP)) {
       query["TopP"] = request.topP;
+    }
+
+    if (!$dara.isNull(request.vlHighResolutionImages)) {
+      query["VlHighResolutionImages"] = request.vlHighResolutionImages;
+    }
+
+    if (!$dara.isNull(request.XDashScopeDataInspection)) {
+      query["XDashScopeDataInspection"] = request.XDashScopeDataInspection;
     }
 
     let body : {[key: string ]: any} = { };
@@ -1448,6 +1488,70 @@ export default class Client extends OpenApi {
   async chatWithDesensitize(request: $_model.ChatWithDesensitizeRequest): Promise<$_model.ChatWithDesensitizeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.chatWithDesensitizeWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量校验是否有表访问权限
+   * 
+   * @param tmpReq - CheckBatchTableAccessPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckBatchTableAccessPermissionResponse
+   */
+  async checkBatchTableAccessPermissionWithOptions(tmpReq: $_model.CheckBatchTableAccessPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckBatchTableAccessPermissionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CheckBatchTableAccessPermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tableNameList)) {
+      request.tableNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableNameList, "TableNameList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.logic)) {
+      query["Logic"] = request.logic;
+    }
+
+    if (!$dara.isNull(request.permissionType)) {
+      query["PermissionType"] = request.permissionType;
+    }
+
+    if (!$dara.isNull(request.tableNameListShrink)) {
+      query["TableNameList"] = request.tableNameListShrink;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckBatchTableAccessPermission",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckBatchTableAccessPermissionResponse>(await this.callApi(params, req, runtime), new $_model.CheckBatchTableAccessPermissionResponse({}));
+  }
+
+  /**
+   * 批量校验是否有表访问权限
+   * 
+   * @param request - CheckBatchTableAccessPermissionRequest
+   * @returns CheckBatchTableAccessPermissionResponse
+   */
+  async checkBatchTableAccessPermission(request: $_model.CheckBatchTableAccessPermissionRequest): Promise<$_model.CheckBatchTableAccessPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkBatchTableAccessPermissionWithOptions(request, runtime);
   }
 
   /**

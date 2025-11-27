@@ -49,10 +49,16 @@ export class ChatWithDesensitizeResponseBodyDataChoices extends $dara.Model {
    * stop
    */
   finishReason?: string;
+  /**
+   * @example
+   * {}
+   */
+  logprobs?: { [key: string]: any };
   message?: ChatWithDesensitizeResponseBodyDataChoicesMessage;
   static names(): { [key: string]: string } {
     return {
       finishReason: 'FinishReason',
+      logprobs: 'Logprobs',
       message: 'Message',
     };
   }
@@ -60,11 +66,15 @@ export class ChatWithDesensitizeResponseBodyDataChoices extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       finishReason: 'string',
+      logprobs: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: ChatWithDesensitizeResponseBodyDataChoicesMessage,
     };
   }
 
   validate() {
+    if(this.logprobs) {
+      $dara.Model.validateMap(this.logprobs);
+    }
     if(this.message && typeof (this.message as any).validate === 'function') {
       (this.message as any).validate();
     }
@@ -84,9 +94,19 @@ export class ChatWithDesensitizeResponseBodyDataUsage extends $dara.Model {
   completionTokens?: string;
   /**
    * @example
+   * {}
+   */
+  completionTokensDetails?: { [key: string]: string };
+  /**
+   * @example
    * 9
    */
   promptTokens?: string;
+  /**
+   * @example
+   * {}
+   */
+  promptTokensDetails?: { [key: string]: string };
   /**
    * @example
    * 19
@@ -95,7 +115,9 @@ export class ChatWithDesensitizeResponseBodyDataUsage extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       completionTokens: 'CompletionTokens',
+      completionTokensDetails: 'CompletionTokensDetails',
       promptTokens: 'PromptTokens',
+      promptTokensDetails: 'PromptTokensDetails',
       totalTokens: 'TotalTokens',
     };
   }
@@ -103,12 +125,20 @@ export class ChatWithDesensitizeResponseBodyDataUsage extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       completionTokens: 'string',
+      completionTokensDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       promptTokens: 'string',
+      promptTokensDetails: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       totalTokens: 'string',
     };
   }
 
   validate() {
+    if(this.completionTokensDetails) {
+      $dara.Model.validateMap(this.completionTokensDetails);
+    }
+    if(this.promptTokensDetails) {
+      $dara.Model.validateMap(this.promptTokensDetails);
+    }
     super.validate();
   }
 
@@ -124,17 +154,27 @@ export class ChatWithDesensitizeResponseBodyData extends $dara.Model {
    * 1763710100
    */
   created?: string;
+  message?: string;
   /**
    * @example
    * qwen-plus
    */
   model?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: string;
+  type?: string;
   usage?: ChatWithDesensitizeResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
       choices: 'Choices',
       created: 'Created',
+      message: 'Message',
       model: 'Model',
+      statusCode: 'StatusCode',
+      type: 'Type',
       usage: 'Usage',
     };
   }
@@ -143,7 +183,10 @@ export class ChatWithDesensitizeResponseBodyData extends $dara.Model {
     return {
       choices: { 'type': 'array', 'itemType': ChatWithDesensitizeResponseBodyDataChoices },
       created: 'string',
+      message: 'string',
       model: 'string',
+      statusCode: 'string',
+      type: 'string',
       usage: ChatWithDesensitizeResponseBodyDataUsage,
     };
   }
@@ -176,6 +219,9 @@ export class ChatWithDesensitizeResponseBody extends $dara.Model {
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
    */
