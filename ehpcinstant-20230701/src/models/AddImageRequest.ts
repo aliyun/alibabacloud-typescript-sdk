@@ -6,16 +6,25 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.Model {
   /**
+   * @remarks
+   * The password of the logon user.
+   * 
    * @example
    * userpassword
    */
   password?: string;
   /**
+   * @remarks
+   * The registered address of the image repository.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
    */
   server?: string;
   /**
+   * @remarks
+   * The username of the logon user.
+   * 
    * @example
    * username
    */
@@ -47,22 +56,44 @@ export class AddImageRequestContainerImageSpecRegistryCredential extends $dara.M
 
 export class AddImageRequestContainerImageSpec extends $dara.Model {
   /**
+   * @remarks
+   * Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+   * 
+   * *   True
+   * *   False
+   * 
    * @example
    * True
    */
   isACREnterprise?: boolean;
   /**
+   * @remarks
+   * Whether it is an Alibaba Cloud image repository.
+   * 
+   * *   True
+   * *   False
+   * 
    * @example
    * True
    */
   isACRRegistry?: boolean;
+  /**
+   * @remarks
+   * The authentication of the private image repository.
+   */
   registryCredential?: AddImageRequestContainerImageSpecRegistryCredential;
   /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition image repository.
+   * 
    * @example
    * cri-xyz795ygf8k9****
    */
   registryCriId?: string;
   /**
+   * @remarks
+   * The endpoint of the container image.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
    */
@@ -101,6 +132,9 @@ export class AddImageRequestContainerImageSpec extends $dara.Model {
 
 export class AddImageRequestVMImageSpec extends $dara.Model {
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * m-bp1akkkr1rkxtb******
    */
@@ -127,22 +161,52 @@ export class AddImageRequestVMImageSpec extends $dara.Model {
 }
 
 export class AddImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the container image.
+   */
   containerImageSpec?: AddImageRequestContainerImageSpec;
+  /**
+   * @remarks
+   * The description of the image.
+   * 
+   * @example
+   * Test image
+   */
   description?: string;
+  /**
+   * @remarks
+   * The type of the images. Valid values:
+   * 
+   * *   VM: virtual machine image.
+   * *   Container: the container image.
+   * 
+   * @example
+   * VM
+   */
   imageType?: string;
   /**
+   * @remarks
+   * The version of the image.
+   * 
    * @example
    * V1.0
    */
   imageVersion?: string;
   /**
    * @remarks
+   * The name of the custom image.
+   * 
    * This parameter is required.
    * 
    * @example
    * app-image
    */
   name?: string;
+  /**
+   * @remarks
+   * The image configuration of the virtual machine.
+   */
   VMImageSpec?: AddImageRequestVMImageSpec;
   static names(): { [key: string]: string } {
     return {

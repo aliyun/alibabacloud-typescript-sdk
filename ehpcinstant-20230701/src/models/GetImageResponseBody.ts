@@ -33,16 +33,25 @@ export class GetImageResponseBodyImageAdditionalRegionsInfo extends $dara.Model 
 
 export class GetImageResponseBodyImageContainerImageSpecRegistryCredential extends $dara.Model {
   /**
+   * @remarks
+   * The password of the logon user.
+   * 
    * @example
    * userpassword
    */
   password?: string;
   /**
+   * @remarks
+   * The registered address of the image repository.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
    */
   server?: string;
   /**
+   * @remarks
+   * The username of the logon user.
+   * 
    * @example
    * username
    */
@@ -75,24 +84,46 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
 export class GetImageResponseBodyImageContainerImageSpec extends $dara.Model {
   architecture?: string;
   /**
+   * @remarks
+   * Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+   * 
+   * *   True
+   * *   False
+   * 
    * @example
    * True
    */
   isACREnterprise?: boolean;
   /**
+   * @remarks
+   * Whether it is an Alibaba Cloud image repository.
+   * 
+   * *   True
+   * *   False
+   * 
    * @example
    * True
    */
   isACRRegistry?: boolean;
   osTag?: string;
   platform?: string;
+  /**
+   * @remarks
+   * The authentication of the private image repository.
+   */
   registryCredential?: GetImageResponseBodyImageContainerImageSpecRegistryCredential;
   /**
+   * @remarks
+   * The ID of the Container Registry Enterprise Edition image repository.
+   * 
    * @example
    * cri-xyz795ygf8k9****
    */
   registryCriId?: string;
   /**
+   * @remarks
+   * The endpoint of the container image.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/ehpc_open/nginx:latest
    */
@@ -166,21 +197,33 @@ export class GetImageResponseBodyImageDocumentInfo extends $dara.Model {
 
 export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
   /**
+   * @remarks
+   * The type of the architecture.
+   * 
    * @example
    * x86_64
    */
   architecture?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * m-uf60twafjtaart******
    */
   imageId?: string;
   /**
+   * @remarks
+   * The ID of the specific OS version.
+   * 
    * @example
    * CentOS  7.6 64 bit
    */
   osTag?: string;
   /**
+   * @remarks
+   * The type of the platform.
+   * 
    * @example
    * CentOS
    */
@@ -215,16 +258,29 @@ export class GetImageResponseBodyImageVMImageSpec extends $dara.Model {
 export class GetImageResponseBodyImage extends $dara.Model {
   additionalRegionsInfo?: GetImageResponseBodyImageAdditionalRegionsInfo[];
   appId?: string;
+  /**
+   * @remarks
+   * The configuration details of the container image.
+   */
   containerImageSpec?: GetImageResponseBodyImageContainerImageSpec;
   /**
+   * @remarks
+   * The time when the image was created.
+   * 
    * @example
    * 2022-12-23T09:51:39Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the image.
+   */
   description?: string;
   documentInfo?: GetImageResponseBodyImageDocumentInfo;
   /**
    * @remarks
+   * The type of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -232,18 +288,31 @@ export class GetImageResponseBodyImage extends $dara.Model {
    */
   imageType?: string;
   /**
+   * @remarks
+   * The name of the image.
+   * 
    * @example
    * app-image
    */
   name?: string;
   /**
+   * @remarks
+   * The size of the image. Unit: GiB.
+   * 
    * @example
    * 40 GiB
    */
   size?: string;
   status?: string;
+  /**
+   * @remarks
+   * The configuration details of the virtual machine image.
+   */
   VMImageSpec?: GetImageResponseBodyImageVMImageSpec;
   /**
+   * @remarks
+   * The version.
+   * 
    * @example
    * v1.0
    */
@@ -304,18 +373,34 @@ export class GetImageResponseBodyImage extends $dara.Model {
 }
 
 export class GetImageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the image.
+   */
   image?: GetImageResponseBodyImage;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The task is successful.
+   * *   false: The error occurred.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total amount of data in this request.
+   * 
    * @example
    * 10
    */

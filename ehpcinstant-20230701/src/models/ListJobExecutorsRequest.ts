@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListJobExecutorsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * job-xxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The page number of the page to return.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * task0
    */

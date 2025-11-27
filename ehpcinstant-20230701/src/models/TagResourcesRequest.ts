@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
+   * The key of the tag. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class TagResourcesRequestTag extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag. You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * 
    * @example
    * TestValue
    */
@@ -42,11 +47,18 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The list of resource IDs. Valid values of N: 1 to 50.
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   Job
+   * *   Executor
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,6 +67,8 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
+   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];

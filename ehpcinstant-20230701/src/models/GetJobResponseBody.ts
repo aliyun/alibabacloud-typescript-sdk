@@ -55,8 +55,34 @@ export class GetJobResponseBodyJobInfoDependencyPolicy extends $dara.Model {
 }
 
 export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * Whether the resource is created in the zone corresponding to the passed-in VSwitch parameter.
+   * 
+   * *   true: The resource is created in the zone corresponding to the passed-in VSwitch parameter.
+   * *   false: The resource is created in any zone that has resources.
+   * 
+   * @example
+   * false
+   */
   enableENIMapping?: boolean;
+  /**
+   * @remarks
+   * Whether to create a public IP address.
+   * 
+   * Valid values:
+   * 
+   * *   false: false.
+   * *   true: true.
+   * 
+   * @example
+   * false
+   */
   enableExternalIpAddress?: boolean;
+  /**
+   * @remarks
+   * The VSwitch array.
+   */
   vswitch?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -87,7 +113,21 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyNetwork extends $dara.Mode
 }
 
 export class GetJobResponseBodyJobInfoDeploymentPolicyTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the job tag.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the job tag.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,12 +154,35 @@ export class GetJobResponseBodyJobInfoDeploymentPolicyTags extends $dara.Model {
 
 export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The type of the resource. Only Dedicated is supported. You must enable a whitelist.
+   * 
    * @example
    * Dedicated
    */
   allocationSpec?: string;
+  /**
+   * @remarks
+   * The computing power level. The following disk categories are supported:
+   * 
+   * *   General
+   * *   Performance
+   * 
+   * Default value: General
+   * 
+   * @example
+   * General
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network configuration information.
+   */
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
+  /**
+   * @remarks
+   * The list of job tags.
+   */
   tags?: GetJobResponseBodyJobInfoDeploymentPolicyTags[];
   static names(): { [key: string]: string } {
     return {
@@ -156,16 +219,27 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
 
 export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $dara.Model {
   /**
+   * @remarks
+   * The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
+   * 
    * @example
    * 9
    */
   indexEnd?: number;
   /**
+   * @remarks
+   * The starting value of the array job index. Valid values: 0 to 4999.
+   * 
    * @example
    * 0
    */
   indexStart?: number;
   /**
+   * @remarks
+   * The interval of the array job index.
+   * 
+   * > If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three subtasks. The values of the subtask indexes are 1,3, and 5.
+   * 
    * @example
    * 1
    */
@@ -196,8 +270,15 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec extends $dara
 }
 
 export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the array job.
+   */
   arraySpec?: GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec;
   /**
+   * @remarks
+   * The maximum number of nodes to run the job.
+   * 
    * @example
    * 10
    */
@@ -230,31 +311,49 @@ export class GetJobResponseBodyJobInfoTasksExecutorPolicy extends $dara.Model {
 
 export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
   /**
+   * @remarks
+   * Sub-job ID
+   * 
    * @example
    * 0
    */
   arrayId?: number;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2024-02-04 13:54:10
    */
   createTime?: string;
   /**
+   * @remarks
+   * The end time of the scaling plan job.
+   * 
    * @example
    * 2024-02-04 13:54:10
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time of the scaling plan job.
+   * 
    * @example
    * 2024-02-04 13:54:10
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the job.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The reason why the stack instance is in the OUTDATED state.
+   * 
    * @example
    * Creating executor
    */
@@ -292,11 +391,20 @@ export class GetJobResponseBodyJobInfoTasksExecutorStatus extends $dara.Model {
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks extends $dara.Model {
   /**
+   * @remarks
+   * The size of the disk.
+   * 
    * @example
    * 100
    */
   size?: number;
   /**
+   * @remarks
+   * The type of the disk. The following disk categories are supported:
+   * 
+   * *   System: system disk.
+   * *   Data: data disk.
+   * 
    * @example
    * System
    */
@@ -326,15 +434,25 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks extends $dara.M
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs on which the job is run.
+   * 
    * @example
    * 1
    */
   cores?: number;
+  /**
+   * @remarks
+   * The array of the disks.
+   */
   disks?: GetJobResponseBodyJobInfoTasksTaskSpecResourceDisks[];
   enableHT?: boolean;
   hostNamePrefix?: string;
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The memory capacity. Unit: GiB.
+   * 
    * @example
    * 4
    */
@@ -433,16 +551,25 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy extends $dara.Mod
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.Model {
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * m-xxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The pre-processing script. Base64 encoding is required.
+   * 
    * @example
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
    */
   prologScript?: string;
   /**
+   * @remarks
+   * The running-job script. Base64 encoding is required.
+   * 
    * @example
    * ZWNobyAiMTIzNCIgPiBgZGF0ZSArJXNg
    */
@@ -473,6 +600,10 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM extends $dara.
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Model {
+  /**
+   * @remarks
+   * Use ECS instances.
+   */
   VM?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutorVM;
   static names(): { [key: string]: string } {
     return {
@@ -499,8 +630,16 @@ export class GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor extends $dara.Mo
 }
 
 export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The resource information.
+   */
   resource?: GetJobResponseBodyJobInfoTasksTaskSpecResource;
   retryPolicy?: GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy;
+  /**
+   * @remarks
+   * The task execution configurations.
+   */
   taskExecutor?: GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor[];
   static names(): { [key: string]: string } {
     return {
@@ -537,15 +676,33 @@ export class GetJobResponseBodyJobInfoTasksTaskSpec extends $dara.Model {
 }
 
 export class GetJobResponseBodyJobInfoTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The task execution policy.
+   */
   executorPolicy?: GetJobResponseBodyJobInfoTasksExecutorPolicy;
+  /**
+   * @remarks
+   * The execution status of the task.
+   */
   executorStatus?: GetJobResponseBodyJobInfoTasksExecutorStatus[];
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * task0
    */
   taskName?: string;
+  /**
+   * @remarks
+   * The details of the task specification.
+   */
   taskSpec?: GetJobResponseBodyJobInfoTasksTaskSpec;
   /**
+   * @remarks
+   * Indicate whether the job is a long-running job.
+   * 
    * @example
    * true
    */
@@ -589,45 +746,100 @@ export class GetJobResponseBodyJobInfoTasks extends $dara.Model {
 }
 
 export class GetJobResponseBodyJobInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The additional information about the application.
+   * 
+   * @example
+   * {\\"xxx\\": \\"xxxxx\\"}
+   */
   appExtraInfo?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2024-03-05 20:00:46
    */
   createTime?: string;
   dependencyPolicy?: GetJobResponseBodyJobInfoDependencyPolicy;
+  /**
+   * @remarks
+   * The resource deployment policy.
+   */
   deploymentPolicy?: GetJobResponseBodyJobInfoDeploymentPolicy;
   /**
+   * @remarks
+   * The time when the job is complete.
+   * 
    * @example
    * 2024-03-05 20:01:48
    */
   endTime?: string;
   /**
+   * @remarks
+   * The description of the job.
+   * 
    * @example
    * Demo
    */
   jobDescription?: string;
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * testJob
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The type of the job scheduler.
+   * 
+   * @example
+   * HPC
+   */
   jobScheduler?: string;
   /**
+   * @remarks
+   * The time when the job started.
+   * 
    * @example
    * 2024-03-05 20:00:48
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   Pending: The job is being queued.
+   * *   Initing: The job is being initialized.
+   * *   Succeed: The job is successfully run.
+   * *   Failed: The job failed to run.
+   * *   Running: The job is running.
+   * *   Exception: scheduling exception
+   * *   Retrying: The job is being retried.
+   * *   Expired: The job timed out.
+   * *   Deleted: The job is deleted.
+   * *   Suspended: job hibernation
+   * *   Restarting: The job is being restarted.
+   * 
    * @example
    * Succeed
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of tasks. Only one task is supported.
+   */
   tasks?: GetJobResponseBodyJobInfoTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -682,8 +894,15 @@ export class GetJobResponseBodyJobInfo extends $dara.Model {
 }
 
 export class GetJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The job details.
+   */
   jobInfo?: GetJobResponseBodyJobInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */

@@ -3,8 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteJobsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of executor IDs. A maximum of 100 IDs are supported.
+   */
   executorIdsShrink?: string;
+  /**
+   * @remarks
+   * The type of the job scheduler.
+   * 
+   * *   HPC
+   * *   K8S
+   * 
+   * Default value: HPC
+   * 
+   * @example
+   * HPC
+   */
   jobScheduler?: string;
+  /**
+   * @remarks
+   * The information about the job to be deleted.
+   */
   jobSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {

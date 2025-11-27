@@ -3,13 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExecutorsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Queries the Executor filter conditions.
+   */
   filterShrink?: string;
   /**
+   * @remarks
+   * The current page number.\\
+   * Starting value: 1\\
+   * Default value: 1
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. The number of entries returned per page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 50
    */

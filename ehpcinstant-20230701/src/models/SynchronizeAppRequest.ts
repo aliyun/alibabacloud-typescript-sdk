@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class SynchronizeAppRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ci-vm-rYfypJKwlN9Y
    */
   appId?: string;
+  /**
+   * @remarks
+   * The list of arrays that are synchronized to the specified region. If \\"all\\" is included, it is synchronized to all other unsynchronized regions by default.
+   */
   targetRegionIds?: string[];
   static names(): { [key: string]: string } {
     return {

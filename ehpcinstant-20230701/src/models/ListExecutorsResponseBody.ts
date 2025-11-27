@@ -3,7 +3,24 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model {
+  /**
+   * @remarks
+   * The size of the disk.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * The category of the disk. The following disk categories are supported:
+   * 
+   * *   System: system disk.
+   * *   Data: data disk.
+   * 
+   * @example
+   * System
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +46,27 @@ export class ListExecutorsResponseBodyExecutorsResourceDisks extends $dara.Model
 }
 
 export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
+  /**
+   * @remarks
+   * The number of running CPUs.
+   * 
+   * @example
+   * 1
+   */
   cores?: number;
+  /**
+   * @remarks
+   * The array of the disks.
+   */
   disks?: ListExecutorsResponseBodyExecutorsResourceDisks[];
   instanceType?: string;
+  /**
+   * @remarks
+   * The total amount of memory resources. Unit: GiB.
+   * 
+   * @example
+   * 4
+   */
   memory?: number;
   static names(): { [key: string]: string } {
     return {
@@ -64,7 +99,21 @@ export class ListExecutorsResponseBodyExecutorsResource extends $dara.Model {
 }
 
 export class ListExecutorsResponseBodyExecutorsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the executor tag.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the executor tag.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,62 +142,156 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
   allocationSpec?: string;
   appName?: string;
   /**
+   * @remarks
+   * The executor number.
+   * 
    * @example
    * 0
    */
   arrayIndex?: number;
   blockDuration?: number;
   /**
+   * @remarks
+   * The time when the instance was created.
+   * 
    * @example
    * 2024-02-20 10:04:10
    */
   createTime?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-02-20 10:04:18
    */
   endTime?: string;
   /**
+   * @remarks
+   * The executor ID. The format is JobId-TaskName-ArrayIndex.
+   * 
    * @example
    * job-xxxx-task0-1
    */
   executorId?: string;
   expirationTime?: string;
+  /**
+   * @remarks
+   * The list of public IP addresses of the nodes.
+   */
   externalIpAddress?: string[];
+  /**
+   * @remarks
+   * The list of hostnames.
+   */
   hostName?: string[];
+  /**
+   * @remarks
+   * Executor image.
+   * 
+   * @example
+   * m-f8z0dfa96luxxxxx
+   */
   image?: string;
+  /**
+   * @remarks
+   * The list of internal IP addresses.
+   */
   ipAddress?: string[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-hy1nggvyukuvkr******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * testJob
    */
   jobName?: string;
   preemptible?: boolean;
+  /**
+   * @remarks
+   * The resource information.
+   */
   resource?: ListExecutorsResponseBodyExecutorsResource;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * ECI
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 2024-02-20 10:04:13
+   */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the executor. Valid values:
+   * 
+   * *   Pending
+   * *   Initing
+   * *   Succeed
+   * *   Failed
+   * *   Running
+   * *   Unknown
+   * *   Exception
+   * *   Retrying
+   * *   Expired
+   * *   Deleted
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The description of the status reason.
+   * 
    * @example
    * Succeeded to release executor resource
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * The list of executor tags.
+   */
   tags?: ListExecutorsResponseBodyExecutorsTags[];
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * task0
    */
   taskName?: string;
+  /**
+   * @remarks
+   * Indicate whether the job is a long-running job.
+   * 
+   * @example
+   * true
+   */
   taskSustainable?: boolean;
+  vpcId?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-xxx
+   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,6 +318,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
       tags: 'Tags',
       taskName: 'TaskName',
       taskSustainable: 'TaskSustainable',
+      vpcId: 'VpcId',
       vswitchId: 'VswitchId',
     };
   }
@@ -204,6 +348,7 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
       tags: { 'type': 'array', 'itemType': ListExecutorsResponseBodyExecutorsTags },
       taskName: 'string',
       taskSustainable: 'boolean',
+      vpcId: 'string',
       vswitchId: 'string',
     };
   }
@@ -233,23 +378,39 @@ export class ListExecutorsResponseBodyExecutors extends $dara.Model {
 }
 
 export class ListExecutorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Executor list.
+   */
   executors?: ListExecutorsResponseBodyExecutors[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 40
    */

@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加托管侧用户自定义镜像
+   * Add a custom image.
    * 
    * @param tmpReq - AddImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +91,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加托管侧用户自定义镜像
+   * Add a custom image.
    * 
    * @param request - AddImageRequest
    * @returns AddImageResponse
@@ -102,7 +102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建执行计划创建执行计划
+   * Create a E-HPC execution plan.
+   * 
+   * @remarks
+   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
    * 
    * @param tmpReq - CreateActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -179,7 +182,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建执行计划创建执行计划
+   * Create a E-HPC execution plan.
+   * 
+   * @remarks
+   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
    * 
    * @param request - CreateActionPlanRequest
    * @returns CreateActionPlanResponse
@@ -190,7 +196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交任务
+   * Create a E-HPC Instant job.
    * 
    * @param tmpReq - CreateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -263,7 +269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交任务
+   * Create a E-HPC Instant job.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -274,7 +280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源池
+   * Creates a resource pool.
    * 
    * @param tmpReq - CreatePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -319,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源池
+   * Creates a resource pool.
    * 
    * @param request - CreatePoolRequest
    * @returns CreatePoolResponse
@@ -330,7 +336,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除执行计划
+   * Delete an execution plan
+   * 
+   * @remarks
+   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+   * This operation stops all Instant jobs that are managed by ActionPlanId.
    * 
    * @param request - DeleteActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -361,7 +371,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除执行计划
+   * Delete an execution plan
+   * 
+   * @remarks
+   * *Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+   * This operation stops all Instant jobs that are managed by ActionPlanId.
    * 
    * @param request - DeleteActionPlanRequest
    * @returns DeleteActionPlanResponse
@@ -372,7 +386,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除作业
+   * Deletes one or more job records that are in the final state from a specified cluster.
+   * 
+   * @param tmpReq - DeleteJobRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobRecordsResponse
+   */
+  async deleteJobRecordsWithOptions(tmpReq: $_model.DeleteJobRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteJobRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.jobIds)) {
+      request.jobIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobIds, "JobIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.jobIdsShrink)) {
+      query["JobIds"] = request.jobIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteJobRecords",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteJobRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteJobRecordsResponse({}));
+  }
+
+  /**
+   * Deletes one or more job records that are in the final state from a specified cluster.
+   * 
+   * @param request - DeleteJobRecordsRequest
+   * @returns DeleteJobRecordsResponse
+   */
+  async deleteJobRecords(request: $_model.DeleteJobRecordsRequest): Promise<$_model.DeleteJobRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteJobRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes one or more jobs from a specified cluster.
    * 
    * @param tmpReq - DeleteJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除作业
+   * Deletes one or more jobs from a specified cluster.
    * 
    * @param request - DeleteJobsRequest
    * @returns DeleteJobsResponse
@@ -432,7 +494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源池
+   * You can execute this statement to delete a resource pool.
    * 
    * @param request - DeletePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源池
+   * You can execute this statement to delete a resource pool.
    * 
    * @param request - DeletePoolRequest
    * @returns DeletePoolResponse
@@ -474,7 +536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业性能数据
+   * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
    * 
    * @param tmpReq - DescribeJobMetricDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -523,7 +585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业性能数据
+   * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
    * 
    * @param request - DescribeJobMetricDataRequest
    * @returns DescribeJobMetricDataResponse
@@ -534,7 +596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业即时监控项
+   * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
    * 
    * @param tmpReq - DescribeJobMetricLastRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -579,7 +641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业即时监控项
+   * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
    * 
    * @param request - DescribeJobMetricLastRequest
    * @returns DescribeJobMetricLastResponse
@@ -590,7 +652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划详情
+   * Querying Execution Plan Details
    * 
    * @param request - GetActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -621,7 +683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划详情
+   * Querying Execution Plan Details
    * 
    * @param request - GetActionPlanRequest
    * @returns GetActionPlanResponse
@@ -632,7 +694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看应用版本列表
+   * Obtains the application version list.
    * 
    * @param request - GetAppVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -679,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看应用版本列表
+   * Obtains the application version list.
    * 
    * @param request - GetAppVersionsRequest
    * @returns GetAppVersionsResponse
@@ -690,7 +752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询托管侧镜像详情。
+   * Obtains the information about an image.
    * 
    * @param tmpReq - GetImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -739,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询托管侧镜像详情。
+   * Obtains the information about an image.
    * 
    * @param request - GetImageRequest
    * @returns GetImageResponse
@@ -750,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业详情
+   * Obtains the details of an execution job.
    * 
    * @param request - GetJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -781,7 +843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业详情
+   * Obtains the details of an execution job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -792,7 +854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询队列详细信息
+   * Obtains the details of a resource pool.
    * 
    * @param request - GetPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询队列详细信息
+   * Obtains the details of a resource pool.
    * 
    * @param request - GetPoolRequest
    * @returns GetPoolResponse
@@ -834,7 +896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划的执行情况。
+   * Queries the execution status of an execution plan.
    * 
    * @param request - ListActionPlanActivitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -873,7 +935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划的执行情况。
+   * Queries the execution status of an execution plan.
    * 
    * @param request - ListActionPlanActivitiesRequest
    * @returns ListActionPlanActivitiesResponse
@@ -884,7 +946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划列表
+   * Queries the list of execution plans.
    * 
    * @param tmpReq - ListActionPlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -929,7 +991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询执行计划列表
+   * Queries the list of execution plans.
    * 
    * @param request - ListActionPlansRequest
    * @returns ListActionPlansResponse
@@ -940,7 +1002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局Executor信息
+   * Querying Global Executor Information
    * 
    * @param tmpReq - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -985,7 +1047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局Executor信息
+   * Querying Global Executor Information
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -996,7 +1058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看托管侧镜像列表
+   * Queries the image list.
    * 
    * @param tmpReq - ListImagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1061,7 +1123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看托管侧镜像列表
+   * Queries the image list.
    * 
    * @param request - ListImagesRequest
    * @returns ListImagesResponse
@@ -1072,7 +1134,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业Executor信息
+   * Queries job executor information.
+   * 
+   * @remarks
+   * Queries job executor information.
    * 
    * @param request - ListJobExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1115,7 +1180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业Executor信息
+   * Queries job executor information.
+   * 
+   * @remarks
+   * Queries job executor information.
    * 
    * @param request - ListJobExecutorsRequest
    * @returns ListJobExecutorsResponse
@@ -1126,7 +1194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业列表
+   * Queries the jobs in a cluster.
    * 
    * @param tmpReq - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1179,7 +1247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询作业列表
+   * Queries the jobs in a cluster.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -1190,7 +1258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源池列表
+   * Queries the resource pool list.
    * 
    * @param tmpReq - ListPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源池列表
+   * Queries the resource pool list.
    * 
    * @param request - ListPoolsRequest
    * @returns ListPoolsResponse
@@ -1246,7 +1314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一个或多个资源已经绑定的标签列表
+   * Queries the tags that are bound to one or more Instant resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1293,7 +1361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询一个或多个资源已经绑定的标签列表
+   * Queries the tags that are bound to one or more Instant resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -1304,7 +1372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除托管侧镜像信息。
+   * Remove a custom image
    * 
    * @param request - RemoveImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1339,7 +1407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除托管侧镜像信息。
+   * Remove a custom image
    * 
    * @param request - RemoveImageRequest
    * @returns RemoveImageResponse
@@ -1350,7 +1418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用跨地域同步
+   * Application cross-region synchronization
    * 
    * @param tmpReq - SynchronizeAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1391,7 +1459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用跨地域同步
+   * Application cross-region synchronization
    * 
    * @param request - SynchronizeAppRequest
    * @returns SynchronizeAppResponse
@@ -1402,7 +1470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的资源列表统一创建并绑定标签
+   * Create and bind tags to Instant resource list
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1441,7 +1509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的资源列表统一创建并绑定标签
+   * Create and bind tags to Instant resource list
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -1452,7 +1520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的ECS资源列表统一解绑标签
+   * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
    * 
    * @param request - UnTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1495,7 +1563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的ECS资源列表统一解绑标签
+   * Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
    * 
    * @param request - UnTagResourcesRequest
    * @returns UnTagResourcesResponse
@@ -1506,7 +1574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行计划
+   * Adjust the resource scale of the execution plan or modify the execution status
    * 
    * @param request - UpdateActionPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1545,7 +1613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行计划
+   * Adjust the resource scale of the execution plan or modify the execution status
    * 
    * @param request - UpdateActionPlanRequest
    * @returns UpdateActionPlanResponse
@@ -1556,7 +1624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源池
+   * Update the resource pool configuration.
    * 
    * @param tmpReq - UpdatePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1601,7 +1669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源池
+   * Update the resource pool configuration.
    * 
    * @param request - UpdatePoolRequest
    * @returns UpdatePoolResponse

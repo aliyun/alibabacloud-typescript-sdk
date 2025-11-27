@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateJobResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The list of executor IDs contained in the task.
+   */
   executorIds?: string[];
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * task0
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,15 +44,25 @@ export class CreateJobResponseBodyTasks extends $dara.Model {
 
 export class CreateJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of tasks.
+   */
   tasks?: CreateJobResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {

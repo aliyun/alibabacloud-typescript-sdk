@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * job-hz12dqq8y3ormo1hz49h
    */
   jobId?: string;
   /**
+   * @remarks
+   * The operation type of the execution plan activity on the job. Possible values are as follows:
+   * 
+   * *   Create
+   * *   Delete
+   * 
    * @example
    * Create
    */
   jobOperationType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -45,32 +57,58 @@ export class ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs extend
 
 export class ListActionPlanActivitiesResponseBodyActionPlanActivities extends $dara.Model {
   /**
+   * @remarks
+   * The activity ID of the execution plan.
+   * 
    * @example
    * et-4119e3f60eb34fc4
    */
   actionPlanActivityId?: string;
   /**
+   * @remarks
+   * The increased capacity of this execution plan activity.
+   * 
    * @example
    * 100
    */
   createdCapacity?: number;
   /**
+   * @remarks
+   * The capacity released by this execution plan activity.
+   * 
    * @example
    * 0
    */
   destroyCapacity?: number;
   /**
+   * @remarks
+   * The end time of the execution plan activity.
+   * 
    * @example
    * 2025-08-10 18:28:05
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of Instant jobs involved in the execution plan.
+   */
   jobs?: ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs[];
   /**
+   * @remarks
+   * The start time of the implementation of the planned activity.
+   * 
    * @example
    * 2025-08-10 18:28:05
    */
   startTime?: string;
   /**
+   * @remarks
+   * The implementation status of the execution plan activity. Valid values:
+   * 
+   * *   InProcess
+   * *   Completed
+   * *   Failed
+   * 
    * @example
    * InProcess
    */
@@ -112,14 +150,23 @@ export class ListActionPlanActivitiesResponseBodyActionPlanActivities extends $d
 }
 
 export class ListActionPlanActivitiesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of execution details of the execution plan.
+   */
   actionPlanActivities?: ListActionPlanActivitiesResponseBodyActionPlanActivities[];
   /**
+   * @remarks
+   * The maximum number of records returned in this request.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
    * @remarks
+   * Indicates the read position returned by the current call. An empty value means all data has been read.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -127,11 +174,17 @@ export class ListActionPlanActivitiesResponseBody extends $dara.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total data count under the current request conditions (optional; not returned by default).
+   * 
    * @example
    * 40
    */

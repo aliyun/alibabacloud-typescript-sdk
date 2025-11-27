@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteJobsRequestJobSpecTaskSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The list of array job indexes to be deleted.
+   */
   arrayIndex?: number[];
   /**
+   * @remarks
+   * The name of the task to be deleted.
+   * 
    * @example
    * task0
    */
@@ -37,10 +44,18 @@ export class DeleteJobsRequestJobSpecTaskSpec extends $dara.Model {
 
 export class DeleteJobsRequestJobSpec extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the job to be deleted.\\
+   * You can call the ListJobs operation to query job IDs.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The task details of the job to be deleted.
+   */
   taskSpec?: DeleteJobsRequestJobSpecTaskSpec[];
   static names(): { [key: string]: string } {
     return {
@@ -69,8 +84,28 @@ export class DeleteJobsRequestJobSpec extends $dara.Model {
 }
 
 export class DeleteJobsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of executor IDs. A maximum of 100 IDs are supported.
+   */
   executorIds?: string[];
+  /**
+   * @remarks
+   * The type of the job scheduler.
+   * 
+   * *   HPC
+   * *   K8S
+   * 
+   * Default value: HPC
+   * 
+   * @example
+   * HPC
+   */
   jobScheduler?: string;
+  /**
+   * @remarks
+   * The information about the job to be deleted.
+   */
   jobSpec?: DeleteJobsRequestJobSpec[];
   static names(): { [key: string]: string } {
     return {

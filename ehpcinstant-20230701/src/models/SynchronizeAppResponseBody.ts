@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SynchronizeAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */

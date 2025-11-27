@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteActionPlanRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the execution plan.
+   * 
    * @example
    * ap-hz036ubmx2qmw93k****
    */

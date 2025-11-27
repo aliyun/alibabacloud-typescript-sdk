@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeJobMetricDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of array job indexes.
+   */
   arrayIndex?: number[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-xxxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The metrics of the job.
+   * 
    * @example
    * cpu_utilization
    */
   metricName?: string;
   /**
+   * @remarks
+   * The name of the task.
+   * 
    * @example
    * Task0
    */

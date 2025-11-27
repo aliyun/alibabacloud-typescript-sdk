@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetActionPlanRequest extends $dara.Model {
+export class DeleteJobRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the execution plan.
-   * 
-   * @example
-   * ap-hz036ubmx2qmw93k****
+   * The list of job IDs.
    */
-  actionPlanId?: string;
+  jobIds?: string[];
   static names(): { [key: string]: string } {
     return {
-      actionPlanId: 'ActionPlanId',
+      jobIds: 'JobIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionPlanId: 'string',
+      jobIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.jobIds)) {
+      $dara.Model.validateArray(this.jobIds);
+    }
     super.validate();
   }
 

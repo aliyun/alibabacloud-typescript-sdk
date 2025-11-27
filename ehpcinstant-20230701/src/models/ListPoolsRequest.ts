@@ -3,14 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPoolsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Queries the list of resource pool names.
+   */
   poolName?: string[];
+  /**
+   * @remarks
+   * Queries resource pool status list.
+   */
   status?: string[];
   /**
+   * @remarks
+   * For node pools created after this time, the time in the region is converted into a UNIX timestamp.
+   * 
    * @example
    * 1703819914
    */
   timeCreatedAfter?: number;
   /**
+   * @remarks
+   * For node pools created before this time, the time in the region is converted into a UNIX timestamp.
+   * 
    * @example
    * 1703820113
    */
@@ -49,13 +63,23 @@ export class ListPoolsRequestFilter extends $dara.Model {
 }
 
 export class ListPoolsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Queries the filter conditions of a resource pool.
+   */
   filter?: ListPoolsRequestFilter;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on each page. Maximum value: 50. Default value: 10.
+   * 
    * @example
    * 10
    */

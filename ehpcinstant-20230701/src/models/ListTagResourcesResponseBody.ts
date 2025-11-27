@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource.
+   * 
    * @example
    * job-xxxxxxxx
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The type of the resource.
+   * 
    * @example
    * Job
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
    * @example
    * TestKey
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * TestValue
    */
@@ -78,15 +90,25 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * 1d2db86scXXXXXXXXXX
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource list.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

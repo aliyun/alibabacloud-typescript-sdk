@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePoolRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the resource pool.
+   * 
+   * *   The value can be up to 15 characters in length.
+   * *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,12 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The image ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * m-bp14wakr1rkxtb******
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The type of the images. Valid values:
+   * 
+   * *   VM: Virtual Machine Image
+   * *   Container: container image
+   * 
+   * @example
+   * VM
+   */
   imageType?: string;
   static names(): { [key: string]: string } {
     return {

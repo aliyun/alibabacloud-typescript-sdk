@@ -4,26 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListJobsRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job name. Fuzzy search is supported.
+   * 
    * @example
    * testJob
    */
   jobName?: string;
   /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   Pending
+   * *   initing
+   * *   Succeed
+   * *   Failed
+   * *   Running
+   * *   Exception
+   * *   Retrying
+   * *   Expired
+   * *   Suspended
+   * *   Restarting
+   * *   Deleted
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
+   * 
    * @example
    * 1703819914
    */
   timeCreatedAfter?: number;
   /**
+   * @remarks
+   * For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
+   * 
    * @example
    * 1703820113
    */
@@ -59,11 +86,23 @@ export class ListJobsRequestFilter extends $dara.Model {
 
 export class ListJobsRequestSortBy extends $dara.Model {
   /**
+   * @remarks
+   * The sorting label. Valid values:
+   * 
+   * *   time_start
+   * *   job_name
+   * 
    * @example
    * time_start
    */
   label?: string;
   /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   ASC (default): ascending order
+   * *   DESC: descending order
+   * 
    * @example
    * ASC
    */
@@ -92,17 +131,35 @@ export class ListJobsRequestSortBy extends $dara.Model {
 }
 
 export class ListJobsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Queries job filter conditions.
+   */
   filter?: ListJobsRequestFilter;
   /**
+   * @remarks
+   * The page number.
+   * 
+   * Pages start from page 1.
+   * 
+   * Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on the current page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The sorting method.
+   */
   sortBy?: ListJobsRequestSortBy;
   static names(): { [key: string]: string } {
     return {

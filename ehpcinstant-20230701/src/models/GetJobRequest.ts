@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the job.
+   * 
    * @example
    * job-xxxx
    */

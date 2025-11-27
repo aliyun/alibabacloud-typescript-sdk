@@ -3,13 +3,62 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The number of executers in the Deleted state.
+   * 
+   * @example
+   * 1
+   */
   deleted?: number;
+  /**
+   * @remarks
+   * The number of executers in the abnormal state.
+   * 
+   * @example
+   * 1
+   */
   exception?: number;
+  /**
+   * @remarks
+   * The number of executers in the Failed state.
+   * 
+   * @example
+   * 1
+   */
   failed?: number;
+  /**
+   * @remarks
+   * The number of executers in the initialized state.
+   * 
+   * @example
+   * 1
+   */
   initing?: number;
+  /**
+   * @remarks
+   * The number of executers in the queued state.
+   * 
+   * @example
+   * 1
+   */
   pending?: number;
   restarting?: number;
+  /**
+   * @remarks
+   * The number of executers in the running state.
+   * 
+   * @example
+   * 1
+   */
   running?: number;
+  /**
+   * @remarks
+   * The number of executoresin the Successful state.
+   * 
+   * @example
+   * 1
+   */
   succeeded?: number;
   suspended?: number;
   static names(): { [key: string]: string } {
@@ -50,7 +99,21 @@ export class ListJobExecutorsResponseBodyExecutorStatus extends $dara.Model {
 }
 
 export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the executor tag.
+   * 
+   * @example
+   * TestKey
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the executor tag.
+   * 
+   * @example
+   * TestValue
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,38 +141,94 @@ export class ListJobExecutorsResponseBodyExecutorsTags extends $dara.Model {
 export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
   allocationSpec?: string;
   /**
+   * @remarks
+   * The executor index number.
+   * 
    * @example
    * 0
    */
   arrayIndex?: number;
   blockDuration?: number;
   /**
+   * @remarks
+   * The time when the storage resource was created.
+   * 
    * @example
    * 2024-02-20 10:04:10
    */
   createTime?: string;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2024-02-20 10:04:18
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The executor ID. The format is JobId-TaskName-ArrayIndex.
+   * 
+   * @example
+   * job-xxxx-Task0-1
+   */
   executorId?: string;
   expirationTime?: string;
+  /**
+   * @remarks
+   * The list of public IP addresses of the nodes.
+   */
   externalIpAddress?: string[];
+  /**
+   * @remarks
+   * An array of node hostnames.
+   */
   hostName?: string[];
+  /**
+   * @remarks
+   * The list of node IP addresses.
+   */
   ipAddress?: string[];
   preemptible?: boolean;
+  /**
+   * @remarks
+   * The create time.
+   * 
+   * @example
+   * 2024-02-20 10:04:13
+   */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the executor. Valid values:
+   * 
+   * *   Pending
+   * *   Initing
+   * *   Succeed
+   * *   Failed
+   * *   Running
+   * *   Unknown
+   * *   Exception
+   * *   Retrying
+   * *   Expired
+   * *   Deleted
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The description of the status reason.
+   * 
    * @example
    * Creating executor
    */
   statusReason?: string;
+  /**
+   * @remarks
+   * The list of executor tags.
+   */
   tags?: ListJobExecutorsResponseBodyExecutorsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -173,34 +292,60 @@ export class ListJobExecutorsResponseBodyExecutors extends $dara.Model {
 }
 
 export class ListJobExecutorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Executor status statistics.
+   */
   executorStatus?: ListJobExecutorsResponseBodyExecutorStatus;
+  /**
+   * @remarks
+   * The executor list.
+   */
   executors?: ListJobExecutorsResponseBodyExecutors[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * job-xxxx
    */
   jobId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 896D338C-E4F4-41EC-A154-D605E5DE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * task0
    */
   taskName?: string;
   /**
+   * @remarks
+   * The total number of list entries.
+   * 
    * @example
    * 50
    */

@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetActionPlanRequest extends $dara.Model {
+export class DeleteJobRecordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the execution plan.
-   * 
-   * @example
-   * ap-hz036ubmx2qmw93k****
+   * The list of job IDs.
    */
-  actionPlanId?: string;
+  jobIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      actionPlanId: 'ActionPlanId',
+      jobIdsShrink: 'JobIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionPlanId: 'string',
+      jobIdsShrink: 'string',
     };
   }
 

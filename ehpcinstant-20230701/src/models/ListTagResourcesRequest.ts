@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * TestKey
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * TestValue
    */
@@ -38,24 +44,43 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 
 export class ListTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of records per page.
+   * 
    * @example
    * 20
    */
   maxResult?: number;
   /**
+   * @remarks
+   * A pagination token.
+   * 
    * @example
    * 1d2db86scXXXXXXXXXX
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of resource IDs. Valid values of N: 1 to 50.
+   */
   resourceId?: string[];
   /**
    * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   Job
+   * *   Executor
+   * 
    * This parameter is required.
    * 
    * @example
    * Job
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

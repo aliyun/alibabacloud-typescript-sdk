@@ -5,9 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobRequestDependencyPolicyJobDependency extends $dara.Model {
   /**
    * @remarks
+   * The ID of the job.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * job-bjxxxxxxxxxxxx
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The type of the dependency. Valid values:
+   * 
+   * *   AfterSucceeded: **All subtasks** of the dependent job or array job succeed. The exit code is 0.
+   * *   AfterFailed: **All subtasks** of the dependent job or array job fail. The exit code is not 0.
+   * *   AfterAny: The dependent job completes (succeeds or fails).
+   * *   AfterCorresponding: The subtask corresponding to the dependent array job succeeds. The exit code is 0.
+   * 
+   * Default value: AfterSucceeded.
+   * 
+   * @example
+   * AfterSucceeded
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +52,10 @@ export class CreateJobRequestDependencyPolicyJobDependency extends $dara.Model {
 }
 
 export class CreateJobRequestDependencyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The job dependency. A maximum of 10 groups.
+   */
   jobDependency?: CreateJobRequestDependencyPolicyJobDependency[];
   static names(): { [key: string]: string } {
     return {
@@ -59,7 +82,23 @@ export class CreateJobRequestDependencyPolicy extends $dara.Model {
 }
 
 export class CreateJobRequestDeploymentPolicyNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * Whether the job creates a public IP address.
+   * 
+   * *   true: creates a public IP address.
+   * *   false: does not create a public IP address.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   enableExternalIpAddress?: boolean;
+  /**
+   * @remarks
+   * The VSwitch array.
+   */
   vswitch?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -90,9 +129,21 @@ export class CreateJobRequestDeploymentPolicyNetwork extends $dara.Model {
 export class CreateJobRequestDeploymentPolicyTag extends $dara.Model {
   /**
    * @remarks
+   * The key of the job tag. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * TestKey
    */
   key?: string;
+  /**
+   * @remarks
+   * The value of the job tag. You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,14 +170,55 @@ export class CreateJobRequestDeploymentPolicyTag extends $dara.Model {
 
 export class CreateJobRequestDeploymentPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The resource type,
+   * 
+   * *   Standard
+   * *   Dedicated: You must enable a whitelist for use.
+   * *   Economic: You must enable a whitelist for use.
+   * 
    * @example
    * Dedicated
    */
   allocationSpec?: string;
+  /**
+   * @remarks
+   * The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
+   * 
+   * *   General
+   * *   Performance
+   * 
+   * Default value: General.
+   * 
+   * @example
+   * General
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network configuration information.
+   */
   network?: CreateJobRequestDeploymentPolicyNetwork;
+  /**
+   * @remarks
+   * The resource pool of the job.
+   * 
+   * @example
+   * compute
+   */
   pool?: string;
+  /**
+   * @remarks
+   * The priorities of the jobs. A larger value indicates a higher job scheduling priority. Valid values: 1 to 100.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The tag information of the job. A maximum of 20 groups.
+   */
   tag?: CreateJobRequestDeploymentPolicyTag[];
   static names(): { [key: string]: string } {
     return {
@@ -166,6 +258,10 @@ export class CreateJobRequestDeploymentPolicy extends $dara.Model {
 }
 
 export class CreateJobRequestSecurityPolicySecurityGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The array of security group IDs.
+   */
   securityGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -192,6 +288,10 @@ export class CreateJobRequestSecurityPolicySecurityGroup extends $dara.Model {
 }
 
 export class CreateJobRequestSecurityPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The security group ID.
+   */
   securityGroup?: CreateJobRequestSecurityPolicySecurityGroup;
   static names(): { [key: string]: string } {
     return {
@@ -219,16 +319,27 @@ export class CreateJobRequestSecurityPolicy extends $dara.Model {
 
 export class CreateJobRequestTasksExecutorPolicyArraySpec extends $dara.Model {
   /**
+   * @remarks
+   * The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
+   * 
    * @example
    * 9
    */
   indexEnd?: number;
   /**
+   * @remarks
+   * The starting value of the array job index. Valid values: 0 to 4999.
+   * 
    * @example
    * 0
    */
   indexStart?: number;
   /**
+   * @remarks
+   * The interval of the array job index.
+   * 
+   * > If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three sub-jobs. The index values of the sub-jobs are 1,3, and 5. You can access the sub-jobs by using environment variables.
+   * 
    * @example
    * 1
    */
@@ -259,8 +370,27 @@ export class CreateJobRequestTasksExecutorPolicyArraySpec extends $dara.Model {
 }
 
 export class CreateJobRequestTasksExecutorPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the array job. The index value of the sub-job is passed to the running environment through environment variables to support user business program reference. Environment variables include:
+   * 
+   * *   EHPC_JOB_NAME: the name of the job. This parameter corresponds to the JobName parameter.
+   * *   EHPC_JOB_ID: The ID of the job.
+   * *   EHPC_TASK_NAME: the name of the task. This parameter corresponds to the TaskName parameter.
+   * *   EHPC_EXECUTOR_ID: The ID of the execution unit.
+   * *   EHPC_ARRAY_TASK_ID: the sub-job index value.
+   * *   EHPC_ARRAY_TASK_COUNT: the total number of sub-jobs.
+   * *   EHPC_ARRAY_TASK_MAX: the maximum sub-job index, which corresponds to the IndexStart parameter.
+   * *   EHPC_ARRAY_TASK_MIN: the minimum value of the sub-job index, which corresponds to the IndexEnd parameter.
+   * *   EHPC_ARRAY_TASK_STEP: the index step size of the sub-job, which corresponds to the IndexStep parameter.
+   */
   arraySpec?: CreateJobRequestTasksExecutorPolicyArraySpec;
   /**
+   * @remarks
+   * The maximum number of nodes to run the job.
+   * 
+   * > Follow the calculation formula: `MaxCount = (IndexEnd - IndexStart) / IndexStep +1`
+   * 
    * @example
    * 1
    */
@@ -293,11 +423,17 @@ export class CreateJobRequestTasksExecutorPolicy extends $dara.Model {
 
 export class CreateJobRequestTasksTaskSpecResourceDisks extends $dara.Model {
   /**
+   * @remarks
+   * The size of the disk. Unit: GiB.
+   * 
    * @example
    * 40
    */
   size?: number;
   /**
+   * @remarks
+   * The type of the disk. Currently, only System is supported, which indicates the system disk.
+   * 
    * @example
    * System
    */
@@ -327,15 +463,29 @@ export class CreateJobRequestTasksTaskSpecResourceDisks extends $dara.Model {
 
 export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
   /**
+   * @remarks
+   * The number of CPUs in the running environment.
+   * 
    * @example
    * 2
    */
   cores?: number;
+  /**
+   * @remarks
+   * The array of the disks.
+   */
   disks?: CreateJobRequestTasksTaskSpecResourceDisks[];
   enableHT?: boolean;
   hostNamePrefix?: string;
+  /**
+   * @remarks
+   * The instance type of the running environment. A maximum of 5 groups.
+   */
   instanceTypes?: string[];
   /**
+   * @remarks
+   * The memory size of the running environment. Unit: GiB.
+   * 
    * @example
    * 4
    */
@@ -380,12 +530,25 @@ export class CreateJobRequestTasksTaskSpecResource extends $dara.Model {
 export class CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions extends $dara.Model {
   /**
    * @remarks
+   * The next step behavior of the task.
+   * 
+   * *   Retry: The job starts a retry when a specific exit code is hit.
+   * *   Exit: The job exits when a specific exit code is hit.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Retry
    */
   action?: string;
   /**
    * @remarks
+   * The task exit code, which is used together with the action to form a job retry rule. Valid values: 0 to 255.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   exitCode?: number;
   static names(): { [key: string]: string } {
@@ -412,7 +575,18 @@ export class CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions extends $da
 }
 
 export class CreateJobRequestTasksTaskSpecRetryPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The retry rule. A maximum of 10 groups.
+   */
   exitCodeActions?: CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions[];
+  /**
+   * @remarks
+   * The maximum number of retries. Valid values: 1 to 10. Default value: 3.
+   * 
+   * @example
+   * 5
+   */
   retryCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -442,11 +616,17 @@ export class CreateJobRequestTasksTaskSpecRetryPolicy extends $dara.Model {
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars extends $dara.Model {
   /**
+   * @remarks
+   * The name of the environment variable for the container. It can be 1 to 128 characters in length. Format requirement: [0-9a-zA-Z], and underscores, cannot start with a number.
+   * 
    * @example
    * PATH
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the environment variable for the container. The value must be 0 to 256 bits in length.
+   * 
    * @example
    * /usr/local/bin
    */
@@ -475,12 +655,39 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars e
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * ci-vm-32k6LXAi3cOG
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The startup argument of the init container. A maximum of 10 groups.
+   */
   arg?: string[];
+  /**
+   * @remarks
+   * The container startup commands. You can specify up to 20 commands. Each command can be up to 256 characters in length.
+   * 
+   * > 
+   * 
+   * *   If the start command contains spaces (for example, `sleep 60s` ), the input JSON format parameter is `["sleep", "60s"]`.
+   * 
+   * *   If the startup command is complex, the parameter format may be a combination of `Command: ["/bin/bash"]` and `Arg:["-c", "<customized command>"]`. The `<customized command>` is a user-defined combination of commands and can contain characters such as spaces.
+   */
   command?: string[];
+  /**
+   * @remarks
+   * The environment variables of the container. A maximum of 20 groups.
+   */
   environmentVars?: CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars[];
   /**
    * @remarks
+   * The image of the container.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -488,6 +695,9 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
    */
   image?: string;
   /**
+   * @remarks
+   * The working directory of the container.
+   * 
    * @example
    * /usr/local/
    */
@@ -533,22 +743,48 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorContainer extends $dara.Mo
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the virtual machine application.
+   * 
+   * @example
+   * ci-vm-9jc58Pm5Leky
+   */
   appId?: string;
   /**
    * @remarks
+   * The ID of the image.
+   * 
    * This parameter is required.
    * 
    * @example
    * m-xxxx
    */
   image?: string;
+  /**
+   * @remarks
+   * The logon password of the virtual machine environment. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+   * 
+   * ()\\`~!@#$%^&\\*-_+=|{}[]:;\\"<>,.?/ In Windows, the password cannot contain a forward slash (/) as the first character.
+   * 
+   * > We recommend that you use HTTPS to send requests if you specify Password to avoid password leakage.
+   * 
+   * @example
+   * EHPC@1234
+   */
   password?: string;
   /**
+   * @remarks
+   * The pre-processing script. Base64 encoding is required.
+   * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
    */
   prologScript?: string;
   /**
+   * @remarks
+   * The running-job script. Base64 encoding is required.
+   * 
    * @example
    * ZWNobyBoZWxsbyBlY3Mh
    */
@@ -583,7 +819,15 @@ export class CreateJobRequestTasksTaskSpecTaskExecutorVM extends $dara.Model {
 }
 
 export class CreateJobRequestTasksTaskSpecTaskExecutor extends $dara.Model {
+  /**
+   * @remarks
+   * Use the container environment.
+   */
   container?: CreateJobRequestTasksTaskSpecTaskExecutorContainer;
+  /**
+   * @remarks
+   * Use a virtual machine environment.
+   */
   VM?: CreateJobRequestTasksTaskSpecTaskExecutorVM;
   static names(): { [key: string]: string } {
     return {
@@ -616,17 +860,46 @@ export class CreateJobRequestTasksTaskSpecTaskExecutor extends $dara.Model {
 
 export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
   /**
+   * @remarks
+   * The list of data volume mount parameters. Each option is a key-value pair in a JSON string.
+   * 
+   * *   Format for mounting a NAS file system:{"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+   * 
+   * > server indicates the address of the mount point of the NAS file system. path indicates the subdirectory of the NAS file system. The subdirectory must start with a (/) and must already exist. vers indicates the version number of the NFS protocol used to mount the file system. We recommend that you use v3. options indicates the custom parameters in the format of "xxx,xxx,xxx".
+   * 
+   * *   OSS mount format:{"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
+   * 
+   * > bucket indicates the name of the OSS bucket. url indicates the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the Overview page of the destination bucket. path indicates the directory structure of the root file of the bucket. The default value is /, which requires that the directory already exists. akId indicates the AccessKey ID. akSecret indicates the AccessKey secret.
+   * 
    * @example
    * {"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
    */
   mountOptions?: string;
   /**
+   * @remarks
+   * The directory where the task mounts the data volume.
+   * 
+   * > The content of the mounted directory is overwritten by the content of the volume. Exercise caution when you use the directory.
+   * 
    * @example
    * /mnt
    */
   mountPath?: string;
+  /**
+   * @remarks
+   * Specifies whether the volume is read-only. Default value: false.
+   * 
+   * @example
+   * false
+   */
   readOnly?: boolean;
   /**
+   * @remarks
+   * Currently supported data volume types.
+   * 
+   * *   alicloud/nas: mounts NAS.
+   * *   alicloud/oss: mounts OSS.
+   * 
    * @example
    * alicloud/nas
    */
@@ -659,13 +932,27 @@ export class CreateJobRequestTasksTaskSpecVolumeMount extends $dara.Model {
 }
 
 export class CreateJobRequestTasksTaskSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The resource information of the running environment.
+   */
   resource?: CreateJobRequestTasksTaskSpecResource;
+  /**
+   * @remarks
+   * Task retry policy.
+   */
   retryPolicy?: CreateJobRequestTasksTaskSpecRetryPolicy;
   /**
    * @remarks
+   * The task execution configurations.
+   * 
    * This parameter is required.
    */
   taskExecutor?: CreateJobRequestTasksTaskSpecTaskExecutor[];
+  /**
+   * @remarks
+   * The list of data volumes mounted to the task. A maximum of 10 groups.
+   */
   volumeMount?: CreateJobRequestTasksTaskSpecVolumeMount[];
   static names(): { [key: string]: string } {
     return {
@@ -707,14 +994,33 @@ export class CreateJobRequestTasksTaskSpec extends $dara.Model {
 }
 
 export class CreateJobRequestTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The task execution policy.
+   */
   executorPolicy?: CreateJobRequestTasksExecutorPolicy;
   /**
+   * @remarks
+   * The job name. It must be 2 to 32 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+   * 
    * @example
    * task0
    */
   taskName?: string;
+  /**
+   * @remarks
+   * The details of the task specification.
+   */
   taskSpec?: CreateJobRequestTasksTaskSpec;
   /**
+   * @remarks
+   * Indicate whether the job is a long-running job.
+   * 
+   * *   true: background service the job.
+   * *   false: batch jobs.
+   * 
+   * Default value: false.
+   * 
    * @example
    * true
    */
@@ -753,25 +1059,56 @@ export class CreateJobRequestTasks extends $dara.Model {
 }
 
 export class CreateJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Dependency policy.
+   */
   dependencyPolicy?: CreateJobRequestDependencyPolicy;
+  /**
+   * @remarks
+   * The resource deployment policy.
+   */
   deploymentPolicy?: CreateJobRequestDeploymentPolicy;
   /**
+   * @remarks
+   * The description of the job.
+   * 
    * @example
    * Demo
    */
   jobDescription?: string;
   /**
    * @remarks
+   * The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+   * 
    * This parameter is required.
    * 
    * @example
    * testjob
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The type of the job scheduler.
+   * 
+   * *   HPC
+   * *   K8S
+   * 
+   * Default value: HPC
+   * 
+   * @example
+   * HPC
+   */
   jobScheduler?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
   securityPolicy?: CreateJobRequestSecurityPolicy;
   /**
    * @remarks
+   * The list of tasks. Only one task is supported.
+   * 
    * This parameter is required.
    */
   tasks?: CreateJobRequestTasks[];

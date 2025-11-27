@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppVersionsResponseBodyAppVersions extends $dara.Model {
   /**
    * @remarks
+   * The image ID of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class GetAppVersionsResponseBodyAppVersions extends $dara.Model {
    */
   imageId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * V-Ray
    */
   name?: string;
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * v1.0
    */
@@ -47,28 +55,51 @@ export class GetAppVersionsResponseBodyAppVersions extends $dara.Model {
 }
 
 export class GetAppVersionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of application versions.
+   */
   appVersions?: GetAppVersionsResponseBodyAppVersions[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * true
+   * 
+   * false
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */

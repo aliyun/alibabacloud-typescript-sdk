@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeJobMetricLastResponseBodyMetrics extends $dara.Model {
   /**
+   * @remarks
+   * The index of the array job.
+   * 
    * @example
    * 1
    */
   arrayIndex?: number;
   /**
+   * @remarks
+   * The monitoring item information corresponding to the array job index.
+   * 
    * @example
    * {"memory_utilization": 37.42,"cpu_utilization": 1.008, "disk_utilization": 3.562}
    */
@@ -37,8 +43,15 @@ export class DescribeJobMetricLastResponseBodyMetrics extends $dara.Model {
 }
 
 export class DescribeJobMetricLastResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of the JobMetric details.
+   */
   metrics?: DescribeJobMetricLastResponseBodyMetrics[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****
    */
