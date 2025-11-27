@@ -110,6 +110,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    * SUB_ROOT
    */
   certificateType?: string;
+  clusterId?: string;
   /**
    * @remarks
    * The common name or abbreviation of the organization that is associated with the CA certificate.
@@ -162,6 +163,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
    */
   identifier?: string;
   issuerType?: string;
+  keyIndex?: number;
   /**
    * @remarks
    * The key length of the CA certificate.
@@ -299,6 +301,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       certRemainingCount: 'CertRemainingCount',
       certTotalCount: 'CertTotalCount',
       certificateType: 'CertificateType',
+      clusterId: 'ClusterId',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
       crlDay: 'CrlDay',
@@ -307,6 +310,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       fullAlgorithm: 'FullAlgorithm',
       identifier: 'Identifier',
       issuerType: 'IssuerType',
+      keyIndex: 'KeyIndex',
       keySize: 'KeySize',
       locality: 'Locality',
       md5: 'Md5',
@@ -337,6 +341,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       certRemainingCount: 'number',
       certTotalCount: 'number',
       certificateType: 'string',
+      clusterId: 'string',
       commonName: 'string',
       countryCode: 'string',
       crlDay: 'number',
@@ -345,6 +350,7 @@ export class DescribeCACertificateResponseBodyCertificate extends $dara.Model {
       fullAlgorithm: 'string',
       identifier: 'string',
       issuerType: 'string',
+      keyIndex: 'number',
       keySize: 'number',
       locality: 'string',
       md5: 'string',
