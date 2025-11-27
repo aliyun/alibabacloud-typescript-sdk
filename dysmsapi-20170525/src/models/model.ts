@@ -12,6 +12,7 @@ export { GetMediaResourceIdResponseBodyData } from './GetMediaResourceIdResponse
 export { GetOSSInfoForCardTemplateResponseBodyData } from './GetOssinfoForCardTemplateResponseBody';
 export { GetOSSInfoForUploadFileResponseBodyModel } from './GetOssinfoForUploadFileResponseBody';
 export { GetQualificationOssInfoResponseBodyData } from './GetQualificationOssInfoResponseBody';
+export { GetSmsOcrOssInfoResponseBodyModel } from './GetSmsOcrOssInfoResponseBody';
 export { GetSmsSignResponseBodyAuditInfo } from './GetSmsSignResponseBody';
 export { GetSmsSignResponseBodySignIspRegisterDetailListRegisterStatusReasons } from './GetSmsSignResponseBody';
 export { GetSmsSignResponseBodySignIspRegisterDetailList } from './GetSmsSignResponseBody';
@@ -127,6 +128,9 @@ export { GetOSSInfoForUploadFileResponse } from './GetOssinfoForUploadFileRespon
 export { GetQualificationOssInfoRequest } from './GetQualificationOssInfoRequest';
 export { GetQualificationOssInfoResponseBody } from './GetQualificationOssInfoResponseBody';
 export { GetQualificationOssInfoResponse } from './GetQualificationOssInfoResponse';
+export { GetSmsOcrOssInfoRequest } from './GetSmsOcrOssInfoRequest';
+export { GetSmsOcrOssInfoResponseBody } from './GetSmsOcrOssInfoResponseBody';
+export { GetSmsOcrOssInfoResponse } from './GetSmsOcrOssInfoResponse';
 export { GetSmsSignRequest } from './GetSmsSignRequest';
 export { GetSmsSignResponseBody } from './GetSmsSignResponseBody';
 export { GetSmsSignResponse } from './GetSmsSignResponse';

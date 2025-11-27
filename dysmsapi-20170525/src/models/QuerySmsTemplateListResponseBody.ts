@@ -147,6 +147,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $dara.Model
    * 7
    */
   templateType?: number;
+  trafficDriving?: string;
   static names(): { [key: string]: string } {
     return {
       auditStatus: 'AuditStatus',
@@ -159,6 +160,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $dara.Model
       templateContent: 'TemplateContent',
       templateName: 'TemplateName',
       templateType: 'TemplateType',
+      trafficDriving: 'TrafficDriving',
     };
   }
 
@@ -174,6 +176,7 @@ export class QuerySmsTemplateListResponseBodySmsTemplateList extends $dara.Model
       templateContent: 'string',
       templateName: 'string',
       templateType: 'number',
+      trafficDriving: 'string',
     };
   }
 

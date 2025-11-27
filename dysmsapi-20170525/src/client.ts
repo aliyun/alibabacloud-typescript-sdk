@@ -1669,6 +1669,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取OCR的OSS信息
+   * 
+   * @param request - GetSmsOcrOssInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmsOcrOssInfoResponse
+   */
+  async getSmsOcrOssInfoWithOptions(request: $_model.GetSmsOcrOssInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSmsOcrOssInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSmsOcrOssInfo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSmsOcrOssInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetSmsOcrOssInfoResponse({}));
+  }
+
+  /**
+   * 获取OCR的OSS信息
+   * 
+   * @param request - GetSmsOcrOssInfoRequest
+   * @returns GetSmsOcrOssInfoResponse
+   */
+  async getSmsOcrOssInfo(request: $_model.GetSmsOcrOssInfoRequest): Promise<$_model.GetSmsOcrOssInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSmsOcrOssInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Query SMS Signature Details
    * 
    * @remarks
