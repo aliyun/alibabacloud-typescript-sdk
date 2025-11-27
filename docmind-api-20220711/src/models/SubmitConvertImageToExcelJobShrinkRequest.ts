@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitConvertImageToExcelJobShrinkRequest extends $dara.Model {
+  enableEventCallback?: boolean;
   forceMergeExcel?: boolean;
   /**
    * @example
@@ -15,6 +16,7 @@ export class SubmitConvertImageToExcelJobShrinkRequest extends $dara.Model {
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      enableEventCallback: 'EnableEventCallback',
       forceMergeExcel: 'ForceMergeExcel',
       imageNameExtension: 'ImageNameExtension',
       imageNamesShrink: 'ImageNames',
@@ -26,6 +28,7 @@ export class SubmitConvertImageToExcelJobShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableEventCallback: 'boolean',
       forceMergeExcel: 'boolean',
       imageNameExtension: 'string',
       imageNamesShrink: 'string',

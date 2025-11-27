@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitConvertPdfToExcelJobAdvanceRequest extends $dara.Model {
+  enableEventCallback?: boolean;
   /**
    * @example
    * convertPdfToExcel.pdf
@@ -20,6 +21,7 @@ export class SubmitConvertPdfToExcelJobAdvanceRequest extends $dara.Model {
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      enableEventCallback: 'EnableEventCallback',
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
       forceExportInnerImage: 'ForceExportInnerImage',
@@ -31,6 +33,7 @@ export class SubmitConvertPdfToExcelJobAdvanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableEventCallback: 'boolean',
       fileName: 'string',
       fileUrlObject: 'Readable',
       forceExportInnerImage: 'boolean',

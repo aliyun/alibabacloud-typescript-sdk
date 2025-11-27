@@ -105,6 +105,7 @@ export class SubmitDocParserJobRequestMultimediaParameters extends $dara.Model {
 
 export class SubmitDocParserJobRequest extends $dara.Model {
   customOssConfig?: SubmitDocParserJobRequestCustomOssConfig;
+  enableEventCallback?: boolean;
   enhancementMode?: string;
   /**
    * @example
@@ -134,6 +135,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       customOssConfig: 'CustomOssConfig',
+      enableEventCallback: 'EnableEventCallback',
       enhancementMode: 'EnhancementMode',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
@@ -154,6 +156,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       customOssConfig: SubmitDocParserJobRequestCustomOssConfig,
+      enableEventCallback: 'boolean',
       enhancementMode: 'string',
       fileName: 'string',
       fileNameExtension: 'string',

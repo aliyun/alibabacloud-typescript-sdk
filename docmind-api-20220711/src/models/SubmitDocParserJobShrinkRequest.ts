@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   customOssConfigShrink?: string;
+  enableEventCallback?: boolean;
   enhancementMode?: string;
   /**
    * @example
@@ -33,6 +34,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       customOssConfigShrink: 'CustomOssConfig',
+      enableEventCallback: 'EnableEventCallback',
       enhancementMode: 'EnhancementMode',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
@@ -53,6 +55,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       customOssConfigShrink: 'string',
+      enableEventCallback: 'boolean',
       enhancementMode: 'string',
       fileName: 'string',
       fileNameExtension: 'string',

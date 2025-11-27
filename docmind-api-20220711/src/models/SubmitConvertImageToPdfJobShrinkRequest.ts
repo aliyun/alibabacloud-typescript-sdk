@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitConvertImageToPdfJobShrinkRequest extends $dara.Model {
+  enableEventCallback?: boolean;
   /**
    * @example
    * JPG
@@ -14,6 +15,7 @@ export class SubmitConvertImageToPdfJobShrinkRequest extends $dara.Model {
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      enableEventCallback: 'EnableEventCallback',
       imageNameExtension: 'ImageNameExtension',
       imageNamesShrink: 'ImageNames',
       imageUrlsShrink: 'ImageUrls',
@@ -24,6 +26,7 @@ export class SubmitConvertImageToPdfJobShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableEventCallback: 'boolean',
       imageNameExtension: 'string',
       imageNamesShrink: 'string',
       imageUrlsShrink: 'string',

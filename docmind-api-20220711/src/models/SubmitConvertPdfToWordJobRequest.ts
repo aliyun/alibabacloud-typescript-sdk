@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
+  enableEventCallback?: boolean;
   /**
    * @example
    * covertPdfToWord.pdf
@@ -20,6 +21,7 @@ export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      enableEventCallback: 'EnableEventCallback',
       fileName: 'FileName',
       fileUrl: 'FileUrl',
       forceExportInnerImage: 'ForceExportInnerImage',
@@ -32,6 +34,7 @@ export class SubmitConvertPdfToWordJobRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableEventCallback: 'boolean',
       fileName: 'string',
       fileUrl: 'string',
       forceExportInnerImage: 'boolean',

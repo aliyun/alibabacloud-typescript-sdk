@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitConvertPdfToImageJobAdvanceRequest extends $dara.Model {
+  enableEventCallback?: boolean;
   /**
    * @example
    * convertPdfToImage.pdf
@@ -18,6 +19,7 @@ export class SubmitConvertPdfToImageJobAdvanceRequest extends $dara.Model {
   ossEndpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      enableEventCallback: 'EnableEventCallback',
       fileName: 'FileName',
       fileUrlObject: 'FileUrl',
       ossBucket: 'OssBucket',
@@ -27,6 +29,7 @@ export class SubmitConvertPdfToImageJobAdvanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableEventCallback: 'boolean',
       fileName: 'string',
       fileUrlObject: 'Readable',
       ossBucket: 'string',

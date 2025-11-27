@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitDocStructureJobRequest extends $dara.Model {
   allowPptFormat?: boolean;
+  enableEventCallback?: boolean;
   /**
    * @example
    * docStructure.pdf
@@ -27,6 +28,7 @@ export class SubmitDocStructureJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allowPptFormat: 'AllowPptFormat',
+      enableEventCallback: 'EnableEventCallback',
       fileName: 'FileName',
       fileNameExtension: 'FileNameExtension',
       fileUrl: 'FileUrl',
@@ -41,6 +43,7 @@ export class SubmitDocStructureJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allowPptFormat: 'boolean',
+      enableEventCallback: 'boolean',
       fileName: 'string',
       fileNameExtension: 'string',
       fileUrl: 'string',
