@@ -766,6 +766,7 @@ export class DeployApplicationRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  slsLogEnvTags?: string;
   /**
    * @remarks
    * Check Failure: Indicates that the application failed to start. The system will report the exception and automatically restart it.
@@ -961,6 +962,7 @@ export class DeployApplicationRequest extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      slsLogEnvTags: 'SlsLogEnvTags',
       startupProbe: 'StartupProbe',
       swimlanePvtzDiscoverySvc: 'SwimlanePvtzDiscoverySvc',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
@@ -1048,6 +1050,7 @@ export class DeployApplicationRequest extends $dara.Model {
       serviceTags: 'string',
       sidecarContainersConfig: { 'type': 'array', 'itemType': SidecarContainerConfig },
       slsConfigs: 'string',
+      slsLogEnvTags: 'string',
       startupProbe: 'string',
       swimlanePvtzDiscoverySvc: 'string',
       terminationGracePeriodSeconds: 'number',

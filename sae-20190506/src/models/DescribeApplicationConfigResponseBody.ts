@@ -1504,6 +1504,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  slsLogEnvTags?: string;
   /**
    * @remarks
    * Enable startup probe.
@@ -1705,6 +1706,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      slsLogEnvTags: 'SlsLogEnvTags',
       startupProbe: 'StartupProbe',
       swimlanePvtzDiscovery: 'SwimlanePvtzDiscovery',
       tags: 'Tags',
@@ -1808,6 +1810,7 @@ export class DescribeApplicationConfigResponseBodyData extends $dara.Model {
       serviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       sidecarContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfig },
       slsConfigs: 'string',
+      slsLogEnvTags: 'string',
       startupProbe: 'string',
       swimlanePvtzDiscovery: 'string',
       tags: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataTags },

@@ -765,6 +765,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
    */
   slsConfigs?: string;
+  slsLogEnvTags?: string;
   /**
    * @remarks
    * Enable application startup probe.
@@ -924,6 +925,7 @@ export class CreateApplicationRequest extends $dara.Model {
       serviceTags: 'ServiceTags',
       sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
+      slsLogEnvTags: 'SlsLogEnvTags',
       startupProbe: 'StartupProbe',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -1013,6 +1015,7 @@ export class CreateApplicationRequest extends $dara.Model {
       serviceTags: 'string',
       sidecarContainersConfig: { 'type': 'array', 'itemType': SidecarContainerConfig },
       slsConfigs: 'string',
+      slsLogEnvTags: 'string',
       startupProbe: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',

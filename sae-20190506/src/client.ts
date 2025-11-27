@@ -718,6 +718,10 @@ export default class Client extends OpenApi {
       query["SlsConfigs"] = request.slsConfigs;
     }
 
+    if (!$dara.isNull(request.slsLogEnvTags)) {
+      query["SlsLogEnvTags"] = request.slsLogEnvTags;
+    }
+
     if (!$dara.isNull(request.startupProbe)) {
       query["StartupProbe"] = request.startupProbe;
     }
@@ -2784,6 +2788,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.slsConfigs)) {
       query["SlsConfigs"] = request.slsConfigs;
+    }
+
+    if (!$dara.isNull(request.slsLogEnvTags)) {
+      query["SlsLogEnvTags"] = request.slsLogEnvTags;
     }
 
     if (!$dara.isNull(request.startupProbe)) {
