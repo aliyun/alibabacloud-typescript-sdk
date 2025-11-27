@@ -30,6 +30,8 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    * Got fatal error 1236 from master when reading data from binary log...
    */
   replicationErrorMessage?: string;
+  replicationIp?: string;
+  replicationPort?: string;
   /**
    * @remarks
    * The source of the native replication.
@@ -67,6 +69,8 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
       externalReplication: 'ExternalReplication',
       replicationDelay: 'ReplicationDelay',
       replicationErrorMessage: 'ReplicationErrorMessage',
+      replicationIp: 'ReplicationIp',
+      replicationPort: 'ReplicationPort',
       replicationSource: 'ReplicationSource',
       replicationState: 'ReplicationState',
       requestId: 'RequestId',
@@ -78,6 +82,8 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
       externalReplication: 'string',
       replicationDelay: 'string',
       replicationErrorMessage: 'string',
+      replicationIp: 'string',
+      replicationPort: 'string',
       replicationSource: 'string',
       replicationState: 'string',
       requestId: 'string',

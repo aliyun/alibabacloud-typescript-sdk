@@ -79,6 +79,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   port?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  retainVip?: boolean;
+  targetDBInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       babelfishPort: 'BabelfishPort',
@@ -92,6 +94,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
       port: 'Port',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      retainVip: 'RetainVip',
+      targetDBInstanceId: 'TargetDBInstanceId',
     };
   }
 
@@ -108,6 +112,8 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
       port: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      retainVip: 'boolean',
+      targetDBInstanceId: 'string',
     };
   }
 

@@ -1,9 +1,39 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunRCInstancesShrinkRequestTag } from "./RunRcinstancesShrinkRequestTag";
 
+
+export class RunRCInstancesShrinkRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunRCInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * gn8is
+   */
+  acuType?: string;
   /**
    * @remarks
    * The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
@@ -158,6 +188,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * 2F9e9@a69c!e18b569c8
    */
   password?: string;
+  passwordInherit?: boolean;
   /**
    * @remarks
    * The subscription duration of the instance. Default value: **1**.
@@ -189,6 +220,11 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * {"rule":[{"beginTime":"09:00","endTime":"17:00","acu":4}]}
+   */
+  scheduledRule?: string;
   /**
    * @remarks
    * The reserved parameter. This parameter is not supported.
@@ -241,6 +277,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      acuType: 'AcuType',
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
@@ -264,11 +301,13 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
       password: 'Password',
+      passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      scheduledRule: 'ScheduledRule',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
@@ -284,6 +323,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acuType: 'string',
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
@@ -307,11 +347,13 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
       ioOptimized: 'string',
       keyPairName: 'string',
       password: 'string',
+      passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      scheduledRule: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',

@@ -1,9 +1,126 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRCInstanceHistoryEventsRequestEventPublishTime } from "./DescribeRcinstanceHistoryEventsRequestEventPublishTime";
-import { DescribeRCInstanceHistoryEventsRequestNotBefore } from "./DescribeRcinstanceHistoryEventsRequestNotBefore";
-import { DescribeRCInstanceHistoryEventsRequestTag } from "./DescribeRcinstanceHistoryEventsRequestTag";
 
+
+export class DescribeRCInstanceHistoryEventsRequestEventPublishTime extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2025-04-01T06:32:31Z
+   */
+  end?: string;
+  /**
+   * @remarks
+   * The beginning of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2025-03-30T06:32:31Z
+   */
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequestNotBefore extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2025-04-01T06:32:31Z
+   */
+  end?: string;
+  /**
+   * @remarks
+   * The start time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2025-03-30T06:32:31Z
+   */
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceHistoryEventsRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the resource.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of tag N of the port list.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRCInstanceHistoryEventsRequest extends $dara.Model {
   eventPublishTime?: DescribeRCInstanceHistoryEventsRequestEventPublishTime;

@@ -3,7 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstancesRequest extends $dara.Model {
+  description?: string;
   hostIp?: string;
+  imageId?: string;
   /**
    * @remarks
    * The instance ID.
@@ -13,6 +15,11 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    */
   instanceId?: string;
   instanceIds?: string;
+  /**
+   * @example
+   * k8s-node
+   */
+  instanceName?: string;
   /**
    * @remarks
    * The page number.
@@ -58,9 +65,12 @@ export class DescribeRCInstancesRequest extends $dara.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       hostIp: 'HostIp',
+      imageId: 'ImageId',
       instanceId: 'InstanceId',
       instanceIds: 'InstanceIds',
+      instanceName: 'InstanceName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       publicIp: 'PublicIp',
@@ -73,9 +83,12 @@ export class DescribeRCInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       hostIp: 'string',
+      imageId: 'string',
       instanceId: 'string',
       instanceIds: 'string',
+      instanceName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       publicIp: 'string',

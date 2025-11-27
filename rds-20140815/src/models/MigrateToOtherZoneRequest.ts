@@ -17,6 +17,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
    * HighAvailability
    */
   category?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The new instance type of the instance. You can change the instance type of the instance. You cannot change the storage type of the instance. If you set **IsModifySpec** to **true**, you must specify at least one of DBInstanceClass and **DBInstanceStorage**.
@@ -173,6 +174,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -196,6 +198,7 @@ export class MigrateToOtherZoneRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',

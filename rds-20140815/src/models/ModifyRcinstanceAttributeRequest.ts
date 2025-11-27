@@ -32,6 +32,11 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   instanceIds?: string[];
   /**
+   * @example
+   * k8s-node
+   */
+  instanceName?: string;
+  /**
    * @remarks
    * The new password of the instance.
    * 
@@ -76,6 +81,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
       hostName: 'HostName',
       instanceId: 'InstanceId',
       instanceIds: 'InstanceIds',
+      instanceName: 'InstanceName',
       password: 'Password',
       reboot: 'Reboot',
       regionId: 'RegionId',
@@ -90,6 +96,7 @@ export class ModifyRCInstanceAttributeRequest extends $dara.Model {
       hostName: 'string',
       instanceId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceName: 'string',
       password: 'string',
       reboot: 'boolean',
       regionId: 'string',

@@ -1,7 +1,116 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeInstanceLinkedWhitelistTemplateResponseBodyData } from "./DescribeInstanceLinkedWhitelistTemplateResponseBodyData";
 
+
+export class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The primary key of the data table.
+   * 
+   * @example
+   * 1884
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The IP addresses.
+   * 
+   * @example
+   * 12.0.X.X,10.2.X.X
+   */
+  ips?: string;
+  /**
+   * @remarks
+   * The whitelist template ID.
+   * 
+   * @example
+   * 412
+   */
+  templateId?: number;
+  /**
+   * @remarks
+   * The whitelist template name.
+   * 
+   * @example
+   * template_123
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 16****
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ips: 'Ips',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ips: 'string',
+      templateId: 'number',
+      templateName: 'string',
+      userId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceLinkedWhitelistTemplateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * rm-bp191w771kd3****
+   */
+  insName?: string;
+  /**
+   * @remarks
+   * The information about whitelists that are returned by page.
+   */
+  templates?: DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates[];
+  static names(): { [key: string]: string } {
+    return {
+      insName: 'InsName',
+      templates: 'Templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insName: 'string',
+      templates: { 'type': 'array', 'itemType': DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.templates)) {
+      $dara.Model.validateArray(this.templates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeInstanceLinkedWhitelistTemplateResponseBody extends $dara.Model {
   /**

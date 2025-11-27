@@ -1,7 +1,55 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDBInstanceShrinkRequestTag } from "./CreateDbinstanceShrinkRequestTag";
 
+
+export class CreateDBInstanceShrinkRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can use this parameter to add tags to the instance.
+   * 
+   * *   If the specified tag key is an existing key, the system directly adds the tag key to the instance. You can call the ListTagResources to query the existing tag.
+   * *   If the specified tag key does not exist, the system creates the tag key and adds the tag key to the instance.
+   * *   The value cannot be an empty string.
+   * *   This parameter must be used together with the **Tag.Value** parameter.
+   * 
+   * @example
+   * testkey1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can use this parameter to add tags to the instance.
+   * 
+   * *   If the specified tag value is found in the specified tag key, the system directly adds the tag value to the instance. You can call the ListTagResources to query the existing tag.
+   * *   If the specified tag value is not found in the specified tag key, the system creates the tag value and adds the tag value to the instance.
+   * *   This parameter must be used together with the **Tag.Key** parameter.
+   * 
+   * @example
+   * testvalue1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDBInstanceShrinkRequest extends $dara.Model {
   /**
@@ -20,7 +68,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create a database proxy. Valid values:
+   * Specifies whether to automatically create a proxy. Valid values:
    * 
    * *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
    * *   **false**: does not automatically create a database proxy.
@@ -196,6 +244,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * Atomicity
    */
   createStrategy?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The instance type of the instance. You can specify an instance type of the standard or YiTian product type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
@@ -216,9 +265,9 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance name. The name must be 2 to 255 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The instance name. The value must be 2 to 255 characters in length The name can contain letters, digits, and hyphens (-) and must start with a letter.
    * 
-   * > The name cannot start with http:// or https://.
+   * >  The value cannot start with http:// or https://.
    * 
    * @example
    * Test database
@@ -325,8 +374,8 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the release protection feature for the instance. This feature is available only for pay-as-you-go instances. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: enables the feature.
+   * *   **false** (default): disables the feature.
    * 
    * @example
    * true
@@ -412,12 +461,16 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **VPC**: a virtual private cloud (VPC)
-   * *   **Classic**: the classic network
+   * *   **VPC**: virtual private cloud (VPC)
+   * *   **Classic**: classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engines, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -472,7 +525,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * *   **Year**
    * *   **Month**
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
    * 
    * @example
    * Year
@@ -556,10 +609,10 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   serverlessConfigShrink?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic storage expansion feature for the instance. If the instance runs MySQL or PostgreSQL, this feature is supported. Valid values:
+   * Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
    * 
-   * *   **Enable**
-   * *   **Disable** (default)
+   * *   **Enable**: enables the feature.
+   * *   **Disable** (default): disables the feature.
    * 
    * >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings. For more information, see [Configure automatic storage expansion](https://help.aliyun.com/document_detail/173826.html).
    * 
@@ -569,7 +622,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
   storageAutoScale?: string;
   /**
    * @remarks
-   * The threshold in percentage based on which automatic storage expansion is triggered. Valid values:
+   * The threshold in percentage based on which automatic storage expansion is triggered.
    * 
    * *   **10**
    * *   **20**
@@ -577,7 +630,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
    * *   **40**
    * *   **50**
    * 
-   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must also specify this parameter.
+   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
    * 
    * @example
    * 50
@@ -778,6 +831,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createStrategy: 'CreateStrategy',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -844,6 +898,7 @@ export class CreateDBInstanceShrinkRequest extends $dara.Model {
       connectionMode: 'string',
       connectionString: 'string',
       createStrategy: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
       DBInstanceNetType: 'string',

@@ -1,7 +1,62 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRegionInfosResponseBodyRegions } from "./DescribeRegionInfosResponseBodyRegions";
 
+
+export class DescribeRegionInfosResponseBodyRegionsRDSRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionInfosResponseBodyRegions extends $dara.Model {
+  RDSRegion?: DescribeRegionInfosResponseBodyRegionsRDSRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      RDSRegion: 'RDSRegion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      RDSRegion: { 'type': 'array', 'itemType': DescribeRegionInfosResponseBodyRegionsRDSRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.RDSRegion)) {
+      $dara.Model.validateArray(this.RDSRegion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRegionInfosResponseBody extends $dara.Model {
   /**

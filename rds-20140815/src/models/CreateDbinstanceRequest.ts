@@ -1,8 +1,141 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateDBInstanceRequestServerlessConfig } from "./CreateDbinstanceRequestServerlessConfig";
-import { CreateDBInstanceRequestTag } from "./CreateDbinstanceRequestTag";
 
+
+export class CreateDBInstanceRequestServerlessConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic startup and stop feature for the serverless instance. Valid values:
+   * 
+   * *   **true**: enables the feature.
+   * *   **false** (default): disables the feature.
+   * 
+   * >  This parameter is required only for serverless instances that run MySQL and PostgreSQL. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection to the instance is established, the instance is resumed.
+   * 
+   * @example
+   * true
+   */
+  autoPause?: boolean;
+  /**
+   * @remarks
+   * The maximum number of RDS Capacity Units (RCUs). Valid values:
+   * 
+   * *   Serverless ApsaraDB RDS for MySQL instances: **1 to 32**
+   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 16**
+   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **1 to 14**
+   * 
+   * >  The value of this parameter must be greater than or equal to the value of the **MinCapacity** parameter and can be set only to an **integer**.
+   * 
+   * @example
+   * 8
+   */
+  maxCapacity?: number;
+  /**
+   * @remarks
+   * The minimum number of RCUs. Valid values:
+   * 
+   * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
+   * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 16**. Only integers are supported.
+   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**
+   * 
+   * >  The value of this parameter must be less than or equal to the value of the **MaxCapacity** parameter.
+   * 
+   * @example
+   * 0.5
+   */
+  minCapacity?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the forced scaling feature for the serverless instance. Valid values:
+   * 
+   * *   **true**: enables the feature.
+   * *   **false** (default): disables the feature.
+   * 
+   * > 
+   * 
+   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
+   * 
+   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+   * 
+   * @example
+   * false
+   */
+  switchForce?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      autoPause: 'AutoPause',
+      maxCapacity: 'MaxCapacity',
+      minCapacity: 'MinCapacity',
+      switchForce: 'SwitchForce',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPause: 'boolean',
+      maxCapacity: 'number',
+      minCapacity: 'number',
+      switchForce: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. You can use this parameter to add tags to the instance.
+   * 
+   * *   If the specified tag key is an existing key, the system directly adds the tag key to the instance. You can call the ListTagResources to query the existing tag.
+   * *   If the specified tag key does not exist, the system creates the tag key and adds the tag key to the instance.
+   * *   The value cannot be an empty string.
+   * *   This parameter must be used together with the **Tag.Value** parameter.
+   * 
+   * @example
+   * testkey1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. You can use this parameter to add tags to the instance.
+   * 
+   * *   If the specified tag value is found in the specified tag key, the system directly adds the tag value to the instance. You can call the ListTagResources to query the existing tag.
+   * *   If the specified tag value is not found in the specified tag key, the system creates the tag value and adds the tag value to the instance.
+   * *   This parameter must be used together with the **Tag.Key** parameter.
+   * 
+   * @example
+   * testvalue1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateDBInstanceRequest extends $dara.Model {
   /**
@@ -21,7 +154,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to automatically create a database proxy. Valid values:
+   * Specifies whether to automatically create a proxy. Valid values:
    * 
    * *   **true**: automatically creates a database proxy. By default, a general-purpose database proxy is created.
    * *   **false**: does not automatically create a database proxy.
@@ -197,6 +330,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * Atomicity
    */
   createStrategy?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The instance type of the instance. You can specify an instance type of the standard or YiTian product type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
@@ -217,9 +351,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance name. The name must be 2 to 255 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The instance name. The value must be 2 to 255 characters in length The name can contain letters, digits, and hyphens (-) and must start with a letter.
    * 
-   * > The name cannot start with http:// or https://.
+   * >  The value cannot start with http:// or https://.
    * 
    * @example
    * Test database
@@ -326,8 +460,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the release protection feature for the instance. This feature is available only for pay-as-you-go instances. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: enables the feature.
+   * *   **false** (default): disables the feature.
    * 
    * @example
    * true
@@ -413,12 +547,16 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **VPC**: a virtual private cloud (VPC)
-   * *   **Classic**: the classic network
+   * *   **VPC**: virtual private cloud (VPC)
+   * *   **Classic**: classic network
    * 
-   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > 
+   * 
+   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * 
+   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engines, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -473,7 +611,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   **Year**
    * *   **Month**
    * 
-   * >  If you set the PayType parameter to **Prepaid**, you must also specify this parameter.
+   * >  If you set the PayType parameter to **Prepaid**, you must specify this parameter.
    * 
    * @example
    * Year
@@ -557,10 +695,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
   serverlessConfig?: CreateDBInstanceRequestServerlessConfig;
   /**
    * @remarks
-   * Specifies whether to enable the automatic storage expansion feature for the instance. If the instance runs MySQL or PostgreSQL, this feature is supported. Valid values:
+   * Specifies whether to enable the automatic storage expansion feature for the instance. This feature is supported if the instance runs MySQL or PostgreSQL. Valid values:
    * 
-   * *   **Enable**
-   * *   **Disable** (default)
+   * *   **Enable**: enables the feature.
+   * *   **Disable** (default): disables the feature.
    * 
    * >  After the instance is created, you can call the ModifyDasInstanceConfig operation to adjust the settings. For more information, see [Configure automatic storage expansion](https://help.aliyun.com/document_detail/173826.html).
    * 
@@ -570,7 +708,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   storageAutoScale?: string;
   /**
    * @remarks
-   * The threshold in percentage based on which automatic storage expansion is triggered. Valid values:
+   * The threshold in percentage based on which automatic storage expansion is triggered.
    * 
    * *   **10**
    * *   **20**
@@ -578,7 +716,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   **40**
    * *   **50**
    * 
-   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must also specify this parameter.
+   * >  If you set the **StorageAutoScale** parameter to **Enable**, you must specify this parameter.
    * 
    * @example
    * 50
@@ -779,6 +917,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       createStrategy: 'CreateStrategy',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceNetType: 'DBInstanceNetType',
@@ -845,6 +984,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       connectionMode: 'string',
       connectionString: 'string',
       createStrategy: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
       DBInstanceNetType: 'string',

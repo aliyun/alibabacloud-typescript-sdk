@@ -85,6 +85,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
    * 0c593ea1-3bea-11e9-b96b-88**********
    */
   clientToken?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
@@ -336,6 +337,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       clientToken: 'ClientToken',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
@@ -373,6 +375,7 @@ export class CloneDBInstanceShrinkRequest extends $dara.Model {
       burstingEnabled: 'boolean',
       category: 'string',
       clientToken: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
       DBInstanceId: 'string',

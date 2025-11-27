@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup set ID.
+   * The backup set ID. You can call the DescribeBackups operation to query the backup set ID. The backup set must meet the following requirements:
+   * 
+   * *   The Engine parameter is SQLServer
+   * *   The BackupMode parameter is set to Manual.
+   * *   The BackupMethod parameter is set to Physical.
+   * *   The BackupType parameter is set to FullBackup.
+   * *   The BackupStatus parameter is set to Success.
    * 
    * This parameter is required.
    * 
@@ -15,7 +21,7 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   backupId?: number;
   /**
    * @remarks
-   * The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +31,9 @@ export class ModifyBackupSetExpireTimeRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The point in time to which you want to extend the expiration time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The time cannot be earlier than the current expiration time.
+   * The point in time to which you want to extend the expiration time of the backup set. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * 
+   * The time cannot be earlier than the current expiration time. You can call the DescribeBackups operation to view the current expiration time of the backup set.
    * 
    * This parameter is required.
    * 

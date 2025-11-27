@@ -11,6 +11,11 @@ export class DescribeRCInstanceAttributeRequest extends $dara.Model {
    * rc-dh2jf9n6j4s14926****
    */
   instanceId?: string;
+  /**
+   * @example
+   * k8s-node
+   */
+  instanceName?: string;
   maxDisksResults?: number;
   privateIpAddress?: string;
   /**
@@ -24,6 +29,7 @@ export class DescribeRCInstanceAttributeRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       maxDisksResults: 'MaxDisksResults',
       privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
@@ -33,6 +39,7 @@ export class DescribeRCInstanceAttributeRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      instanceName: 'string',
       maxDisksResults: 'number',
       privateIpAddress: 'string',
       regionId: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpgradeDBInstanceMajorVersionRequest extends $dara.Model {
+  allowDDL?: boolean;
   /**
    * @remarks
    * Specify the point in time at which the system collects the statistics of the instance.
@@ -16,6 +17,7 @@ export class UpgradeDBInstanceMajorVersionRequest extends $dara.Model {
    * After
    */
   collectStatMode?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The new instance type of the instance. The new CPU and memory specifications of the instance must be higher than or equal to the original CPU and memory specifications. If you set the **UpgradeMode** parameter to **inPlaceUpgrade**, you **do not need to configure** this parameter.
@@ -247,7 +249,9 @@ export class UpgradeDBInstanceMajorVersionRequest extends $dara.Model {
   zoneIdSlave2?: string;
   static names(): { [key: string]: string } {
     return {
+      allowDDL: 'AllowDDL',
       collectStatMode: 'CollectStatMode',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -273,7 +277,9 @@ export class UpgradeDBInstanceMajorVersionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowDDL: 'boolean',
       collectStatMode: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',

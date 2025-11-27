@@ -90,6 +90,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOC****
    */
   clientToken?: string;
+  customExtraInfo?: string;
   /**
    * @remarks
    * The instance type of the read-only instance. For more information, see [Read-only instance types](https://help.aliyun.com/document_detail/145759.html). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
@@ -221,6 +222,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
    * None
    */
   ioAccelerationEnabled?: string;
+  isAnalyticReadOnlyIns?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -373,6 +375,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       clientToken: 'ClientToken',
+      customExtraInfo: 'CustomExtraInfo',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
@@ -385,6 +388,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
       instanceNetworkType: 'InstanceNetworkType',
       instructionSetArch: 'InstructionSetArch',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
+      isAnalyticReadOnlyIns: 'IsAnalyticReadOnlyIns',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -416,6 +420,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
       burstingEnabled: 'boolean',
       category: 'string',
       clientToken: 'string',
+      customExtraInfo: 'string',
       DBInstanceClass: 'string',
       DBInstanceDescription: 'string',
       DBInstanceId: 'string',
@@ -428,6 +433,7 @@ export class CreateReadOnlyDBInstanceRequest extends $dara.Model {
       instanceNetworkType: 'string',
       instructionSetArch: 'string',
       ioAccelerationEnabled: 'string',
+      isAnalyticReadOnlyIns: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',

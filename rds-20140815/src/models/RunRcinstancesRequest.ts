@@ -1,12 +1,187 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { RunRCInstancesRequestCreateAckEdgeParam } from "./RunRcinstancesRequestCreateAckEdgeParam";
-import { RunRCInstancesRequestDataDisk } from "./RunRcinstancesRequestDataDisk";
-import { RunRCInstancesRequestSystemDisk } from "./RunRcinstancesRequestSystemDisk";
-import { RunRCInstancesRequestTag } from "./RunRcinstancesRequestTag";
 
+
+export class RunRCInstancesRequestCreateAckEdgeParam extends $dara.Model {
+  clusterId?: string;
+  nodePoolId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodePoolId: 'NodePoolId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodePoolId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesRequestDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the data disk. Set the value to **cloud_essd**, which indicates Enterprise SSDs (ESSDs).
+   * 
+   * @example
+   * local_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
+  deleteWithInstance?: boolean;
+  device?: string;
+  /**
+   * @remarks
+   * Specifies whether to encrypt the cloud disk. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * false
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * null
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
+   * @example
+   * 10
+   */
+  size?: number;
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      device: 'Device',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      device: 'string',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+      snapshotId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesRequestSystemDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
+   * 
+   * @example
+   * cloud_essd
+   */
+  category?: string;
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
+   * 
+   * @example
+   * 20
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunRCInstancesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class RunRCInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * gn8is
+   */
+  acuType?: string;
   /**
    * @remarks
    * The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
@@ -161,6 +336,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * 2F9e9@a69c!e18b569c8
    */
   password?: string;
+  passwordInherit?: boolean;
   /**
    * @remarks
    * The subscription duration of the instance. Default value: **1**.
@@ -192,6 +368,11 @@ export class RunRCInstancesRequest extends $dara.Model {
    */
   regionId?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * {"rule":[{"beginTime":"09:00","endTime":"17:00","acu":4}]}
+   */
+  scheduledRule?: string;
   /**
    * @remarks
    * The reserved parameter. This parameter is not supported.
@@ -244,6 +425,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      acuType: 'AcuType',
       amount: 'Amount',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
@@ -267,11 +449,13 @@ export class RunRCInstancesRequest extends $dara.Model {
       ioOptimized: 'IoOptimized',
       keyPairName: 'KeyPairName',
       password: 'Password',
+      passwordInherit: 'PasswordInherit',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      scheduledRule: 'ScheduledRule',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
@@ -287,6 +471,7 @@ export class RunRCInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acuType: 'string',
       amount: 'number',
       autoPay: 'boolean',
       autoRenew: 'boolean',
@@ -310,11 +495,13 @@ export class RunRCInstancesRequest extends $dara.Model {
       ioOptimized: 'string',
       keyPairName: 'string',
       password: 'string',
+      passwordInherit: 'boolean',
       period: 'number',
       periodUnit: 'string',
       promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      scheduledRule: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',

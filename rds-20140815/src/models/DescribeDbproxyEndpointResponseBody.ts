@@ -1,8 +1,162 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDBProxyEndpointResponseBodyDBProxyNodes } from "./DescribeDbproxyEndpointResponseBodyDbproxyNodes";
-import { DescribeDBProxyEndpointResponseBodyEndpointConnectItems } from "./DescribeDbproxyEndpointResponseBodyEndpointConnectItems";
 
+
+export class DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The number of CPU cores of the node.
+   * 
+   * @example
+   * 2
+   */
+  cpuCores?: string;
+  /**
+   * @remarks
+   * The ID of the node in the zone.
+   * 
+   * @example
+   * pn-xxxxxxx01
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * The zone ID of the node.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuCores: 'cpuCores',
+      nodeId: 'nodeId',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuCores: 'string',
+      nodeId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyEndpointResponseBodyDBProxyNodes extends $dara.Model {
+  DBProxyNodes?: DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      DBProxyNodes: 'DBProxyNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBProxyNodes: { 'type': 'array', 'itemType': DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBProxyNodes)) {
+      $dara.Model.validateArray(this.DBProxyNodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyEndpointResponseBodyEndpointConnectItemsEndpointConnectItems extends $dara.Model {
+  /**
+   * @remarks
+   * The proxy endpoint queried.
+   * 
+   * @example
+   * testproxy****.rwlb.rds.aliyuncs.com
+   */
+  dbProxyEndpointConnectString?: string;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **0**: Internet
+   * *   **1**: classic network
+   * *   **2**: virtual private cloud (VPC)
+   * 
+   * @example
+   * 2
+   */
+  dbProxyEndpointNetType?: string;
+  /**
+   * @remarks
+   * The port number that is associated with the proxy endpoint. Default value: **3306**.
+   * 
+   * @example
+   * 3306
+   */
+  dbProxyEndpointPort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbProxyEndpointConnectString: 'DbProxyEndpointConnectString',
+      dbProxyEndpointNetType: 'DbProxyEndpointNetType',
+      dbProxyEndpointPort: 'DbProxyEndpointPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbProxyEndpointConnectString: 'string',
+      dbProxyEndpointNetType: 'string',
+      dbProxyEndpointPort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBProxyEndpointResponseBodyEndpointConnectItems extends $dara.Model {
+  endpointConnectItems?: DescribeDBProxyEndpointResponseBodyEndpointConnectItemsEndpointConnectItems[];
+  static names(): { [key: string]: string } {
+    return {
+      endpointConnectItems: 'EndpointConnectItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointConnectItems: { 'type': 'array', 'itemType': DescribeDBProxyEndpointResponseBodyEndpointConnectItemsEndpointConnectItems },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.endpointConnectItems)) {
+      $dara.Model.validateArray(this.endpointConnectItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
   /**

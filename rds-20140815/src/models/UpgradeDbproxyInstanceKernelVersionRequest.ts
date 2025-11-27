@@ -34,6 +34,7 @@ export class UpgradeDBProxyInstanceKernelVersionRequest extends $dara.Model {
    * 2019-07-10T13:15:12Z
    */
   switchTime?: string;
+  targetMinorVersion?: string;
   /**
    * @remarks
    * The time when you want to upgrade the database proxy version of the instance. Valid values:
@@ -57,6 +58,7 @@ export class UpgradeDBProxyInstanceKernelVersionRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       switchTime: 'SwitchTime',
+      targetMinorVersion: 'TargetMinorVersion',
       upgradeTime: 'UpgradeTime',
     };
   }
@@ -69,6 +71,7 @@ export class UpgradeDBProxyInstanceKernelVersionRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       switchTime: 'string',
+      targetMinorVersion: 'string',
       upgradeTime: 'string',
     };
   }

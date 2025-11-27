@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeComputeBurstConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed configurations of the assured serverless feature.
+   * 
    * @example
    * {
    *     "cpuEnlargeThreshold": "60",
@@ -16,11 +19,20 @@ export class DescribeComputeBurstConfigResponseBody extends $dara.Model {
    */
   computeBurstConfig?: { [key: string]: any };
   /**
+   * @remarks
+   * Indicates whether the assured serverless feature is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   computeBurstEnabled?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 847BA085-B377-4BFA-8267-F82345ECE1D2
    */

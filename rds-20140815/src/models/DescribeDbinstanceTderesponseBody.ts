@@ -1,7 +1,75 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDBInstanceTDEResponseBodyDatabases } from "./DescribeDbinstanceTderesponseBodyDatabases";
 
+
+export class DescribeDBInstanceTDEResponseBodyDatabasesDatabase extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test02
+   */
+  DBName?: string;
+  /**
+   * @remarks
+   * The TDE status at the database level. Valid values:
+   * 
+   * *   **Enabled**
+   * *   **Disabled**
+   * 
+   * @example
+   * Enabled
+   */
+  TDEStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBName: 'DBName',
+      TDEStatus: 'TDEStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBName: 'string',
+      TDEStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTDEResponseBodyDatabases extends $dara.Model {
+  database?: DescribeDBInstanceTDEResponseBodyDatabasesDatabase[];
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: { 'type': 'array', 'itemType': DescribeDBInstanceTDEResponseBodyDatabasesDatabase },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.database)) {
+      $dara.Model.validateArray(this.database);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
   /**

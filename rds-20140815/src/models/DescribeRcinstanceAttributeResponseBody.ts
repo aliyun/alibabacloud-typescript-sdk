@@ -1,16 +1,546 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeRCInstanceAttributeResponseBodyDataDisks } from "./DescribeRcinstanceAttributeResponseBodyDataDisks";
-import { DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute } from "./DescribeRcinstanceAttributeResponseBodyDedicatedHostAttribute";
-import { DescribeRCInstanceAttributeResponseBodyEipAddress } from "./DescribeRcinstanceAttributeResponseBodyEipAddress";
-import { DescribeRCInstanceAttributeResponseBodyInnerIpAddress } from "./DescribeRcinstanceAttributeResponseBodyInnerIpAddress";
-import { DescribeRCInstanceAttributeResponseBodyOperationLocks } from "./DescribeRcinstanceAttributeResponseBodyOperationLocks";
-import { DescribeRCInstanceAttributeResponseBodyPublicIpAddress } from "./DescribeRcinstanceAttributeResponseBodyPublicIpAddress";
-import { DescribeRCInstanceAttributeResponseBodySecurityGroupIds } from "./DescribeRcinstanceAttributeResponseBodySecurityGroupIds";
-import { DescribeRCInstanceAttributeResponseBodySystemDisk } from "./DescribeRcinstanceAttributeResponseBodySystemDisk";
-import { DescribeRCInstanceAttributeResponseBodyTags } from "./DescribeRcinstanceAttributeResponseBodyTags";
-import { DescribeRCInstanceAttributeResponseBodyVpcAttributes } from "./DescribeRcinstanceAttributeResponseBodyVpcAttributes";
 
+
+export class DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the data disk.
+   * 
+   * @example
+   * cloud_essd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * Indicates whether the data disk is released when the instance is released. Valid values:
+   * 
+   * *   **true**: The data disk is released when the instance is released.
+   * *   **false**: The data disk is reserved when the instance is released.
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @example
+   * /dev/xvdb
+   */
+  device?: string;
+  /**
+   * @remarks
+   * Indicates whether the data disk is encrypted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  encrypted?: string;
+  /**
+   * @remarks
+   * The performance level of data disk. This parameter is available when the data disk is an Enterprise SSD (ESSD).
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
+  size?: number;
+  /**
+   * @example
+   * rcds-bp18um4r4f2fve24**
+   */
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      device: 'Device',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      device: 'string',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+      snapshotId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyDataDisks extends $dara.Model {
+  dataDisk?: DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk[];
+  static names(): { [key: string]: string } {
+    return {
+      dataDisk: 'DataDisk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisk: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyDataDisksDataDisk },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataDisk)) {
+      $dara.Model.validateArray(this.dataDisk);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated host.
+   * 
+   * @example
+   * None
+   */
+  dedicatedHostId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated host.
+   * 
+   * @example
+   * None
+   */
+  dedicatedHostName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedHostId: 'DedicatedHostId',
+      dedicatedHostName: 'DedicatedHostName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedHostId: 'string',
+      dedicatedHostName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyEipAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-bp14k3rz6cbg6zxbe****
+   */
+  allocationId?: string;
+  /**
+   * @remarks
+   * The maximum Internet bandwidth of the EIP. Unit: Mbit/s.
+   * 
+   * @example
+   * 5
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The billing method of the Internet-facing instance. Valid values:
+   * 
+   * *   **paybytraffic:** pay-by-data-transfer
+   * *   **paybybandwidth**: pay-by-bandwidth
+   * 
+   * >  If the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+   * 
+   * @example
+   * paybytraffic
+   */
+  internetChargeType?: string;
+  /**
+   * @remarks
+   * The EIP.
+   * 
+   * @example
+   * 8.147.XXX.XXX
+   */
+  ipAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      bandwidth: 'Bandwidth',
+      internetChargeType: 'InternetChargeType',
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      bandwidth: 'number',
+      internetChargeType: 'string',
+      ipAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyInnerIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason extends $dara.Model {
+  /**
+   * @remarks
+   * The reason why the instance is locked. Valid values:
+   * 
+   * *   **financial**: The instance is locked due to overdue payments.
+   * *   **security**: The instance is locked for security purposes.
+   * *   **recycling**: The instance is locked because the instance is a preemptible instance and pending to be released.
+   * *   **dedicatedhostfinancial**: The instance is locked due to overdue payments for the dedicated host.
+   * *   **refunded**: The instance is locked because a refund was made for the instance.
+   * 
+   * @example
+   * None
+   */
+  lockReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyOperationLocks extends $dara.Model {
+  lockReason?: DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason[];
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyOperationLocksLockReason },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lockReason)) {
+      $dara.Model.validateArray(this.lockReason);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyPublicIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $dara.Model {
+  securityGroupId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupId)) {
+      $dara.Model.validateArray(this.securityGroupId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodySystemDisk extends $dara.Model {
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskPerformanceLevel: 'SystemDiskPerformanceLevel',
+      systemDiskSize: 'SystemDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyTagsTag extends $dara.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyTags extends $dara.Model {
+  tag?: DescribeRCInstanceAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress extends $dara.Model {
+  ipAddress?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipAddress: 'IpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipAddress: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipAddress)) {
+      $dara.Model.validateArray(this.ipAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.Model {
+  /**
+   * @remarks
+   * The network address translation (NAT) IP address of the instance. The NAT IP address is used by instances in different VPCs for communication.
+   * 
+   * @example
+   * None
+   */
+  natIpAddress?: string;
+  /**
+   * @remarks
+   * The private IP addresses of the instance.
+   */
+  privateIpAddress?: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1nt15muovrc5qdj****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-2zeu747v4765aw2id****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      natIpAddress: 'NatIpAddress',
+      privateIpAddress: 'PrivateIpAddress',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      natIpAddress: 'string',
+      privateIpAddress: DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress,
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.privateIpAddress && typeof (this.privateIpAddress as any).validate === 'function') {
+      (this.privateIpAddress as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
   autoRenew?: boolean;
