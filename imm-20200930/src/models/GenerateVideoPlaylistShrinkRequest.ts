@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * **If you do not have special requirements, leave this parameter empty.**
+   * **If you have no special requirements, leave this parameter empty.**
    * 
    * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
@@ -24,7 +24,7 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   masterURI?: string;
   /**
    * @remarks
-   * The notification settings. To view details, click Notification. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notificationShrink?: string;
   /**
@@ -103,9 +103,9 @@ export class GenerateVideoPlaylistShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The live transcoding playlists. Up to 6 playlists are supported. Each output corresponds to at most one video media playlist and one or more subtitle media playlists.
+   * The array of live transcoding playlists. The maximum length of the array is 6. Each element corresponds to at most one video media playlist and one or more subtitle media playlists.
    * 
-   * >  If more than one output is configured, the **MasterURI** parameter is required.
+   * >  If the array contains more than one element, the **MasterURI** parameter cannot be left empty.
    * 
    * This parameter is required.
    */

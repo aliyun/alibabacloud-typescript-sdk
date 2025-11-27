@@ -35,6 +35,8 @@ export class CreateCompressPointCloudTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * 
+   * >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
    */
   notification?: Notification;
   /**

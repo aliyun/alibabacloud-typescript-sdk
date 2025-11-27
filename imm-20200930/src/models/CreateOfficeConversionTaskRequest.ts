@@ -6,7 +6,30 @@ import { TrimPolicy } from "./TrimPolicy";
 
 
 export class CreateOfficeConversionTaskRequestSources extends $dara.Model {
+  /**
+   * @remarks
+   * The rotation angle. Valid values:
+   * 
+   * *   0 (default)
+   * *   90
+   * *   180
+   * *   270
+   * 
+   * @example
+   * 90
+   */
   rotate?: number;
+  /**
+   * @remarks
+   * The OSS URI of the input image.
+   * 
+   * The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+   * 
+   * The operation supports the following image formats: JPG, JP2, PNG, TIFF, WebP, BMP, and SVG.
+   * 
+   * @example
+   * oss://examplebucket/sampleobject.jpg
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -222,9 +245,9 @@ export class CreateOfficeConversionTaskRequest extends $dara.Model {
   quality?: number;
   /**
    * @remarks
-   * The percentage scale relative to the source document. Valid values: 20 to 200. The default value is 100, which indicates that the document is not scaled.
+   * The percentage scale relative to the source document. Valid values: 20 to 199. The default value is 100, which indicates that the document is not scaled.
    * 
-   * >  A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
+   * > A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
    * 
    * @example
    * 100
@@ -280,6 +303,13 @@ export class CreateOfficeConversionTaskRequest extends $dara.Model {
    * oss://test-bucket/test-object
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The list of images. The sequence of image URIs in the list determines the order in which they are converted. (**This parameter is not officially available and is not recommended.**)
+   * 
+   * @example
+   * oss://imm-test/test.pptx
+   */
   sources?: CreateOfficeConversionTaskRequestSources[];
   /**
    * @remarks

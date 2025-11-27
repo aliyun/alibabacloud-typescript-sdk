@@ -37,6 +37,12 @@ export class GetFileMetaShrinkRequest extends $dara.Model {
    * oss://test-bucket/test-object
    */
   URI?: string;
+  /**
+   * @remarks
+   * The metadata fields that you want to include in the response. You can use this parameter to reduce the size of the response.
+   * 
+   * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields of the file.
+   */
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFileCompressionTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The format of the package. Default value: zip.
+   * The format of the output file.
    * 
-   * >  Only the ZIP format is supported.
+   * > Only the ZIP format is supported.
    * 
    * @example
    * zip

@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language. Valid values:
-   * 
-   * *   zh-CN: Chinese.
-   * *   en-US: English.
-   * *   ja: Japanese.
+   * Language type. The range of values is as follows:
+   * - zh-CN: Chinese
+   * - en-US: English
+   * - ja: Japanese
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ import { Dataset } from "./Dataset";
 export class ListDatasetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of datasets.
+   * The datasets.
    */
   datasets?: Dataset[];
   /**

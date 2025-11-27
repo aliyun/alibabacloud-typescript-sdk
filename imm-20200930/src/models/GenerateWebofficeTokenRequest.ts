@@ -10,32 +10,28 @@ import { WebofficeWatermark } from "./WebofficeWatermark";
 export class GenerateWebofficeTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable cache preview.
-   * 
-   * *   true: enables cache preview. The document can be previewed only and cannot be collaboratively edited.
-   * *   false: does not enable cache preview. The document can be collaboratively edited when it is being previewed.
-   * 
-   * >  The pricing for document previews varies based on whether cache preview is enabled or disabled.
-   * 
-   * >  During a cache preview, document content search and printing are not supported.
+   * Cache preview flag: 
+   * - true: When enabled, the document preview will no longer update collaborative editing content, suitable for scenarios where only preview is needed. 
+   * - false: When disabled, it defaults to collaborative preview, allowing the preview to synchronously update collaborative editing content.
+   * >Notice: The price for cache preview and non-cache preview differs. Please refer to the billing item description for more details.</notice> >Notice: Search and print functions are not supported during cache preview.</notice> <notice>Updating cached content is currently not supported in cache preview mode.</notice>
    * 
    * @example
-   * false
+   * true、false
    */
   cachePreview?: boolean;
   /**
    * @remarks
-   * **If you have no special requirements, leave this parameter empty.**
+   * **If there are no special requirements, leave this blank.**
    * 
-   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * Chained authorization configuration, not required. For more information, see [Using Chained Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
-   * Specifies whether to allow an upload of a document to the Object Storage Service (OSS) bucket. Valid values:
+   * Indicates whether uploading a file with the same name to OSS is an expected behavior. Possible values are as follows:
    * 
-   * *   true: Documents can be directly uploaded to OSS. The uploaded document overwrites the existing document and a new version is generated for the document. Before you upload a new document, close the existing document if it is being edited. After the document is uploaded, wait for approximately 5 minutes before you open the document again so that the new version can successfully load. Upload a new document only when the existing is closed. Otherwise, the uploaded document is overwritten when the existing document is saved.
-   * *   false: Documents cannot be directly uploaded to OSS. If you try to upload a document, an error is returned. This is the default value.
+   * - true: Uploading a file with the same name to OSS is an expected behavior. The uploaded document will overwrite the original document and generate a new version. After setting it to true, you still need to close the currently editing document and wait for about 5 minutes before reopening it to load the new document. The upload is only effective when the document is closed; if the document is open, the new save will overwrite the uploaded file.
+   * - false (default): Uploading a file with the same name to OSS is not an expected behavior, and the interface will return an error.
    * 
    * @example
    * false
@@ -43,102 +39,137 @@ export class GenerateWebofficeTokenRequest extends $dara.Model {
   externalUploaded?: boolean;
   /**
    * @remarks
-   * The name of the file. The extension must be included in the file name. By default, this parameter is set to the last depth level of the **SourceURI** parameter value.
-   * 
-   * Supported extensions (only preview supported for .pdf):
-   * 
-   * *   Word documents: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
-   * *   Presentation documents: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
-   * *   Table documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
-   * *   PDF documents: .pdf
+   * Filename, which must include the file extension. By default, it is the last segment of the **SourceURI** parameter.
+   * Supported file extensions (PDF is only supported for preview):
+   * - Text documents (Word): doc, docx, txt, dot, wps, wpt, dotx, docm, dotm, rtf 
+   * - Presentation documents (PPT): ppt, pptx, pptm, ppsx, ppsm, pps, potx, potm, dpt, dps - Spreadsheet documents (Excel): et, xls, xlt, xlsx, xlsm, xltx, xltm, csv 
+   * - PDF documents: pdf
    * 
    * @example
-   * test.pptx
+   * test-Object.pptx
    */
   filename?: string;
   /**
+   * @remarks
+   * Whether to hide the toolbar. This parameter can be set in document preview mode. Possible values are as follows:
+   * 
+   * - false (default): Do not hide the toolbar.
+   * - true: Hide the toolbar.
+   * 
    * @example
    * false
    */
   hidecmb?: boolean;
   /**
    * @remarks
-   * The notification settings. Only SMQ messages are supported. For more information, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+   * Notification message configuration, currently supporting only MNS. For the asynchronous notification message format, refer to [WebOffice Message Notification Format](https://help.aliyun.com/document_detail/2743999.html).
    * 
-   * >  A notification is sent after the document is saved or renamed.
+   * > There will be message notifications when the file is saved or renamed.
    */
   notification?: Notification;
   /**
+   * @remarks
+   * Supports notifying some events to customers via MNS messages. This parameter is the topic for MNS asynchronous message notifications.
+   * 
    * @example
-   * topic1
+   * test-topic
    */
   notifyTopicName?: string;
   /**
+   * @remarks
+   * The password to open the document.
+   * > If you need to preview or edit a password-protected document, set this parameter.
+   * 
    * @example
    * 123456
    */
   password?: string;
   /**
    * @remarks
-   * The user permission settings in the JSON format.
+   * User permission information, represented in JSON format.
    * 
-   * The parameter supports the following permission fields:
+   * User permissions include the following options:
    * 
-   * Each field is of type Boolean and can have a value of true and false (the default value):
+   * Each option is of type Boolean, with a default value of false, and can be set to true or false.
    * 
-   * *   Readonly: grants the permission to preview the document. This field is optional.
-   * *   Rename: grants the permission to rename the document. Notification messages of a rename event can be sent only by using SMQ. This field is optional.
-   * *   History: grants the permission to view historical versions. This field is optional.
-   * *   Copy: grants the permission to copy the document. This field is optional.
-   * *   Export: grants the permission to export the document as a PDF file. This field is optional.
-   * *   Print: grants the permission to print the document. This field is optional.
+   * - Readonly (optional): Preview mode.
+   * - Rename (optional): File renaming permission, which only provides message notification functionality. The renaming event will be sent to MNS.
+   * - History (optional): Permission to view historical versions.
+   * - Copy (optional): Copy permission.
+   * - Export (optional): PDF export permission.
+   * - Print (optional): Print permission.
    * 
-   * >  Only online preview is supported for PDF documents. When you call the operation on a PDF document, you can set Readonly only to true.
-   * 
-   * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
-   * 
-   * >  Printing is not supported during cache preview.
+   * >PDF only supports preview functionality, so the "Readonly" parameter must be set to true.
+   * >
+   * >PDF files do not support exporting.
+   * > 
+   * >To use the multi-version feature, you must first enable the multi-version feature in OSS and then set the "History" parameter to true.
+   * >
+   * >Notice: Printing is not supported in cached preview.
+   * >Notice: Historical versions can be viewed in edit mode but not in preview mode.
    */
   permission?: WebofficePermission;
   /**
+   * @remarks
+   * Limits the number of pages that can be previewed. By default, there is no limit. The maximum cannot exceed 5000.
+   * 
    * @example
    * 5
    */
   previewPages?: number;
   /**
    * @remarks
+   * Project name, for how to obtain it, please refer to [Create Project](https://help.aliyun.com/document_detail/478153.html).
+   * 
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
+   * @remarks
+   * OSS anti-leeching. IMM needs to obtain the source file from OSS. If OSS has set up anti-leeching, IMM must pass the corresponding header to OSS to get the source file.
+   * > If the Bucket where the document is located has Referer set, please configure this parameter.
+   * 
    * @example
    * *
    */
   referer?: string;
   /**
    * @remarks
+   * OSS address of the document to be previewed or edited. The OSS address follows the rule `oss://${Bucket}/${Object}`, where `Bucket` is the name of the OSS Bucket in the same region as the current project, and `Object` is the full path of the file including the file extension.
+   * 
    * This parameter is required.
    * 
    * @example
-   * oss://imm-test/test.pptx
+   * oss://test-bucket/test-object.docx
    */
   sourceURI?: string;
   /**
    * @remarks
-   * The user information. The user information that you want to display on the WebOffice page. If you do not specify this parameter, the user name displayed is Unknown.
+   * User information. You can pass in user information from the business side, which will be displayed on the WebOffice page.
+   * 
+   * The system distinguishes different users by User.Id, and User.Name is used only for front-end display. If User.Id is not provided, the backend will generate a random ID. Users with different IDs are considered different entities and cannot modify or delete each other\\"s comments.
+   * 
+   * The default format is: Unknown_random string. If User.Id is not provided, the user information will default to "Unknown".
    */
   user?: WebofficeUser;
   /**
    * @remarks
-   * The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum length of the value is 2,048 bytes.
+   * User-defined information. It only takes effect when Notification parameters are filled in for MNS configuration. It will be returned in asynchronous message notifications, which can help you correlate and process messages within your system. The maximum length is 2048 bytes.
    * 
    * @example
-   * {"file_id": "abc"}
+   * {
+   *       "id": "test-id",
+   *       "name": "test-name"
+   * }
    */
   userData?: string;
+  /**
+   * @remarks
+   * Watermark information. The watermark is generated on the front end and is not written into the source document. The same document with different parameters will result in different watermarks.
+   */
   watermark?: WebofficeWatermark;
   static names(): { [key: string]: string } {
     return {

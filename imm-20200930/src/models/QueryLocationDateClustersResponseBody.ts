@@ -11,7 +11,7 @@ export class QueryLocationDateClustersResponseBody extends $dara.Model {
   locationDateClusters?: LocationDateCluster[];
   /**
    * @remarks
-   * The pagination token.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * MzQNjmY2MzYxNhNjk2ZNjEu****

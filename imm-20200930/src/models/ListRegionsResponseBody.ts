@@ -6,12 +6,12 @@ import { RegionType } from "./RegionType";
 export class ListRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * List of Regions.
    */
   regions?: RegionType[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID for the interface.
    * 
    * @example
    * 7F7D235C-76FF-4B65-800C-8238AE3F****

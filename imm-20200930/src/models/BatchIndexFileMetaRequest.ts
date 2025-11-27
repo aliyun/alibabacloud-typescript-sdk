@@ -37,6 +37,16 @@ export class BatchIndexFileMetaRequest extends $dara.Model {
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum information length is 2,048 bytes.
+   * 
+   * @example
+   * {
+   *       "id": "test-id",
+   *       "name": "test-name"
+   * }
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {

@@ -7,7 +7,7 @@ import { Notification } from "./Notification";
 export class CreateImageModerationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfig?: CredentialConfig;
   /**
@@ -28,7 +28,7 @@ export class CreateImageModerationTaskRequest extends $dara.Model {
   maxFrames?: number;
   /**
    * @remarks
-   * The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**

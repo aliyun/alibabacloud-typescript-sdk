@@ -15,7 +15,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   createTimeRangeShrink?: string;
   /**
    * @remarks
-   * The custom labels, which can be used as query conditions.
+   * The custom labels.
    * 
    * @example
    * key=value
@@ -23,7 +23,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   customLabels?: string;
   /**
    * @remarks
-   * The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+   * The name of the dataset. For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   locationDateClusterEndTimeRangeShrink?: string;
   /**
    * @remarks
-   * The administrative level of the spatiotemporal clustering groups to be queried.
+   * The container for the administrative division level of the spatiotemporal clusters to be queried.
    */
   locationDateClusterLevelsShrink?: string;
   /**
@@ -64,7 +64,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the group that you want to query. Specify this parameter if you want to obtain the information about a specific spatiotemporal clustering group. Otherwise, leave this parameter empty and use other parameters to query the groups that meet the matching conditions.
+   * The ID of the cluster that you want to query. Specify this parameter if you want to query a specific spatiotemporal cluster. Otherwise, leave this parameter empty to query spatiotemporal clusters that meet the specified conditions.
    * 
    * @example
    * location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
@@ -72,11 +72,11 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The order that you use to sort the query results.
    * 
-   * Default value: asc. Valid values:
+   * Valid values:
    * 
-   * *   asc: ascending order.
+   * *   asc: ascending order. This is the default value.
    * *   desc: descending order.
    * 
    * @example
@@ -85,7 +85,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
    * 
    * This parameter is required.
    * 
@@ -95,14 +95,14 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The condition by which the results are sorted.
+   * The field that you use to sort the query results.
    * 
    * Valid values:
    * 
-   * *   LocationDateClusterEndTime: by the end time of the spatiotemporal clustering groups.
-   * *   CreateTime: by the creation time of the spatiotemporal clustering groups.
-   * *   UpdateTime: by the update time of the spatiotemporal clustering groups.
-   * *   LocationDateClusterStartTime: by the start time of the spatiotemporal clustering groups. This is the default value.
+   * *   LocationDateClusterEndTime: by the time at which the latest photo in a cluster was taken.
+   * *   CreateTime: by the creation time of a spatiotemporal cluster.
+   * *   UpdateTime: by the update time of a spatiotemporal cluster.
+   * *   LocationDateClusterStartTime: by the time at which the earliest photo in a cluster was taken. This is the default value.
    * 
    * @example
    * LocationDateClusterStartTime
@@ -110,7 +110,7 @@ export class QueryLocationDateClustersShrinkRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The title of spatiotemporal clustering. Fuzzy matching is performed.
+   * The characters that are included in the titles of spatiotemporal clusters to be queried. Matches are found by using fuzzy matching.
    */
   title?: string;
   /**

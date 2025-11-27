@@ -7,14 +7,16 @@ import { Notification } from "./Notification";
 export class CreateFileUncompressionTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * **If you have no special requirements, leave this parameter empty.**
+   * **If you do not have special requirements, leave this parameter empty.**
    * 
-   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
    * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+   * 
+   * >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
    */
   notification?: Notification;
   /**

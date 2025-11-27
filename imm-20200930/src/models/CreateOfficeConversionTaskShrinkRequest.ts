@@ -193,9 +193,9 @@ export class CreateOfficeConversionTaskShrinkRequest extends $dara.Model {
   quality?: number;
   /**
    * @remarks
-   * The percentage scale relative to the source document. Valid values: 20 to 200. The default value is 100, which indicates that the document is not scaled.
+   * The percentage scale relative to the source document. Valid values: 20 to 199. The default value is 100, which indicates that the document is not scaled.
    * 
-   * >  A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
+   * > A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
    * 
    * @example
    * 100
@@ -251,6 +251,13 @@ export class CreateOfficeConversionTaskShrinkRequest extends $dara.Model {
    * oss://test-bucket/test-object
    */
   sourceURI?: string;
+  /**
+   * @remarks
+   * The list of images. The sequence of image URIs in the list determines the order in which they are converted. (**This parameter is not officially available and is not recommended.**)
+   * 
+   * @example
+   * oss://imm-test/test.pptx
+   */
   sourcesShrink?: string;
   /**
    * @remarks

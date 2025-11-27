@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoModerationResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.[](~~478153~~)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetVideoModerationResultRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetVideoModerationResultRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The task type.
+   * 
    * This parameter is required.
    * 
    * @example

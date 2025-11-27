@@ -57,6 +57,7 @@ export { GetImageModerationResultResponseBodyModerationResult } from './GetImage
 export { GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames } from './GetVideoModerationResultResponseBody';
 export { GetVideoModerationResultResponseBodyModerationResultFrames } from './GetVideoModerationResultResponseBody';
 export { GetVideoModerationResultResponseBodyModerationResult } from './GetVideoModerationResultResponseBody';
+export { ListAttachedOSSBucketsResponseBodyAttachedOSSBuckets } from './ListAttachedOssbucketsResponseBody';
 export { ListProjectsRequestTag } from './ListProjectsRequest';
 export { RemoveStoryFilesRequestFiles } from './RemoveStoryFilesRequest';
 export { SearchImageFigureClusterResponseBodyClusters } from './SearchImageFigureClusterResponseBody';
@@ -431,6 +432,9 @@ export { IndexFileMetaRequest } from './IndexFileMetaRequest';
 export { IndexFileMetaShrinkRequest } from './IndexFileMetaShrinkRequest';
 export { IndexFileMetaResponseBody } from './IndexFileMetaResponseBody';
 export { IndexFileMetaResponse } from './IndexFileMetaResponse';
+export { ListAttachedOSSBucketsRequest } from './ListAttachedOssbucketsRequest';
+export { ListAttachedOSSBucketsResponseBody } from './ListAttachedOssbucketsResponseBody';
+export { ListAttachedOSSBucketsResponse } from './ListAttachedOssbucketsResponse';
 export { ListBatchesRequest } from './ListBatchesRequest';
 export { ListBatchesResponseBody } from './ListBatchesResponseBody';
 export { ListBatchesResponse } from './ListBatchesResponse';

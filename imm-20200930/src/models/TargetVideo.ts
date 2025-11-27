@@ -254,6 +254,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
   resolutionOption?: string;
   rotation?: number;
   scaleType?: string;
+  videoSlim?: number;
   static names(): { [key: string]: string } {
     return {
       adaptiveResolutionDirection: 'AdaptiveResolutionDirection',
@@ -273,6 +274,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
       resolutionOption: 'ResolutionOption',
       rotation: 'Rotation',
       scaleType: 'ScaleType',
+      videoSlim: 'VideoSlim',
     };
   }
 
@@ -295,6 +297,7 @@ export class TargetVideoTranscodeVideo extends $dara.Model {
       resolutionOption: 'string',
       rotation: 'number',
       scaleType: 'string',
+      videoSlim: 'number',
     };
   }
 

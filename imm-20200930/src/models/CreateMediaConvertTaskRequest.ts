@@ -11,7 +11,7 @@ import { TargetVideo } from "./TargetVideo";
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $dara.Model {
   /**
    * @remarks
-   * The subtitle language. If you specify this parameter, comply with the ISO 639-2 standard. This parameter is left empty by default.
+   * The language of the subtitle, referenced by ISO 639-2, with a default value of empty.
    * 
    * @example
    * eng
@@ -19,7 +19,7 @@ export class CreateMediaConvertTaskRequestSourcesSubtitles extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time offset of the subtitle. Unit: seconds. Default value: 0.
+   * The subtitle delay time, in seconds, with a default value of 0.
    * 
    * @example
    * 10.5
@@ -27,10 +27,11 @@ export class CreateMediaConvertTaskRequestSourcesSubtitles extends $dara.Model {
   timeOffset?: number;
   /**
    * @remarks
-   * The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension. The following subtitle formats are supported: srt, vtt, mov_text, ass, dvd_sub, and pgs.
+   * The OSS address rule is `oss://${Bucket}/${Object}`, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
+   * Supported subtitle formats include: srt, vtt, mov_text, ass, dvd_sub, pgs.
    * 
    * @example
-   * oss://test-bucket/subtitles
+   * oss://test-bucket/test-object
    */
   URI?: string;
   static names(): { [key: string]: string } {
@@ -59,13 +60,53 @@ export class CreateMediaConvertTaskRequestSourcesSubtitles extends $dara.Model {
 }
 
 export class CreateMediaConvertTaskRequestSources extends $dara.Model {
+  /**
+   * @remarks
+   * The alignment strategy for adding audio and video streams, with the following value range:
+   * - false (default): No alignment.
+   * - loop: Loop the audio and video content to align.
+   * - pad: Align by padding silent frames and black video frames.
+   * > - Only valid when the Attached parameter is true.
+   * 
+   * @example
+   * false
+   */
   alignMode?: string;
+  /**
+   * @remarks
+   * Add the current source media file as a synchronized audio or video stream to the output media file, with a default value of false.
+   * 
+   * > - The AlignmentIndex parameter pointing to the Attached parameter of the Source cannot be true.
+   * 
+   * @example
+   * false
+   */
   attached?: boolean;
+  /**
+   * @remarks
+   * Whether to disable the audio in the source media file. The value range is as follows:
+   * 
+   * - true: Disable.
+   * - false (default): Do not disable.
+   * 
+   * @example
+   * false
+   */
   disableAudio?: boolean;
+  /**
+   * @remarks
+   * Whether to disable the video in the source media file. The value range is as follows:
+   * 
+   * - true: Disable.
+   * - false (default): Do not disable.
+   * 
+   * @example
+   * false
+   */
   disableVideo?: boolean;
   /**
    * @remarks
-   * The transcoding duration of the media. Unit: seconds. Default value: 0. A value of 0 specifies that the transcoding duration lasts until the end of the video.
+   * The duration of media transcoding, in seconds. The default value is 0, indicating until the end of the video.
    * 
    * @example
    * 0
@@ -73,10 +114,9 @@ export class CreateMediaConvertTaskRequestSources extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The start time of the media transcoding task. Unit: seconds. Valid values:
-   * 
-   * *   0 (default): starts transcoding when the media starts playing.
-   * *   n: starts transcoding n seconds after the media starts playing. n must be greater than 0.
+   * The start time for media transcoding, in seconds. The value range is as follows:
+   * - 0 (default): Start transcoding from the beginning of the media.
+   * - n (greater than 0): Start transcoding n seconds after the beginning of the media.
    * 
    * @example
    * 0
@@ -84,12 +124,12 @@ export class CreateMediaConvertTaskRequestSources extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The subtitles. By default, this parameter is left empty.
+   * A list of subtitles to add, which is empty by default.
    */
   subtitles?: CreateMediaConvertTaskRequestSourcesSubtitles[];
   /**
    * @remarks
-   * The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
+   * The OSS address rule is `oss://${Bucket}/${Object}`, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
    * 
    * @example
    * oss://test-bucket/test-object
@@ -136,7 +176,7 @@ export class CreateMediaConvertTaskRequestSources extends $dara.Model {
 export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
   /**
    * @remarks
-   * The duration of the segment. Unit: seconds.
+   * Segment length. Unit: seconds.
    * 
    * @example
    * 30
@@ -144,10 +184,9 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The media segmentation mode. Valid values:
-   * 
-   * *   hls
-   * *   dash
+   * Media slicing method. The value range is as follows:
+   * - hls
+   * - dash
    * 
    * @example
    * hls
@@ -155,7 +194,7 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The start sequence number. You can specify this parameter only if you set Format to hls. Default value: 0.
+   * Starting sequence number, supported only for hls, default is 0.
    * 
    * @example
    * 5
@@ -189,22 +228,16 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $dara.Model {
 export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The audio processing settings.
-   * 
-   * >  If you leave Audio empty and the first audio stream exists, the first audio stream is directly copied to the output file.
+   * Audio processing parameter configuration.
+   * >Notice: If Audio is null, the first audio stream (if present) will be directly copied to the output file.</notice>
    */
   audio?: TargetAudio;
   /**
    * @remarks
-   * The type of the media container.
-   * 
-   * *   Valid values for audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, and flv.
-   * 
-   * *   Valid values only for audio containers: mp3, aac, flac, oga, ac3, and opus.
-   * 
-   *     **
-   * 
-   *     **Note** Specify Container and URI at the same time. If you want to extract subtitles, capture frames, capture image sprites, or rotate media images, set Container and URI to null. In this case, Segment, Video, Audio, and Speed do not take effect.
+   * Media container type. Available container types are as follows:
+   * - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+   * - Audio containers: mp3, aac, flac, oga, ac3, opus
+   * >Notice: Both Container and URI parameters need to be set. If only subtitle extraction, frame capture, sprite image capture, or media-to-gif conversion is performed, both Container and URI should be set to null, making the Segment, Video, Audio, and Speed parameters meaningless.</notice>
    * 
    * @example
    * mp4
@@ -212,19 +245,18 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
   container?: string;
   /**
    * @remarks
-   * The frame capturing, sprite capturing, and media rotation settings.
+   * Configuration for frame capture, sprite image capture, and media to animated image conversion.
    */
   image?: TargetImage;
   /**
    * @remarks
-   * The media segmentation settings. By default, no segmentation is performed.
+   * Media segment settings, no segmentation by default.
    */
   segment?: CreateMediaConvertTaskRequestTargetsSegment;
   /**
    * @remarks
-   * The playback speed of the media. Valid values: 0.5 to 2. Default value: 1.0.
-   * 
-   * >  This parameter specifies the ratio of the non-regular playback speed of the transcoded media file to the default playback speed of the source media file.
+   * Media playback speed setting, with a value range of [0.5,1.0], default is 1.0.
+   * > The ratio of the playback speed of the transcoded media file to the original media file, not a speed-up transcoding.
    * 
    * @example
    * 1.0
@@ -232,38 +264,33 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
   speed?: number;
   /**
    * @remarks
-   * Specifies whether to remove the metadata, such as `title` and `album`, from the media file. Default value: false.
+   * Removes metadata from the media file, such as `title`, `album`, etc. The default value is false.
    */
   stripMetadata?: boolean;
   /**
    * @remarks
-   * The subtitle processing settings.
-   * 
-   * >  If you leave Subtitle empty and the first subtitle stream exists, the first subtitle stream is directly copied to the output file.
+   * Subtitle processing parameter configuration.
+   * >Notice: If Subtitle is null, the first subtitle stream (if present) will be directly copied to the output file.</notice>
    */
   subtitle?: TargetSubtitle;
   /**
    * @remarks
-   * The URI of the OSS bucket in which you want to store the media transcoding output file.
+   * OSS address for the output file of media transcoding.
    * 
-   * Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
-   * 
-   * *   If the value of **URI** contains an extension, the endpoint of the OSS bucket matches the URI. If multiple media transcoding output files exist, the endpoints of the correspodning OSS buckets may be overwritten.****
-   * 
-   * *   If the value of **URI** does not contain an extension, the endpoint of the OSS bucket consists of the following parameters: **URI**, **Container**, and **Segment**. In the following examples, the value of **URI** is `oss://examplebucket/outputVideo`.
-   * 
-   *     *   If the value of **Container** is `mp4` and the value of **Segment** is null, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.mp4`.
-   *     *   If the value of **Container** is `ts` and the value of **Format** in **Segment** is `hls`, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.m3u8`. In addition, multiple ts files prefixed with `oss://examplebucket/outputVideo` are generated.
+   * The OSS address rule is `oss://${Bucket}/${Object}`, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
+   * - When **URI** has an extension, the OSS address for the transcoded media file will be **URI**. If there are multiple output files, they may overwrite each other.
+   * - When **URI** does not have an extension, the OSS address for the transcoded media file is determined by the **URI**, **Container**, and **Segment** parameters. For example, if **URI** is `oss://examplebucket/outputVideo`:
+   *    -  When **Container** is `mp4` and **Segment** is empty, the generated media file\\"s OSS address will be `oss://examplebucket/outputVideo.mp4`.
+   *    -  When **Container** is `ts` and **Segment**\\"s **Format** is `hls`, it will generate an m3u8 file with the OSS address `oss://examplebucket/outputVideo.m3u8` and multiple ts files with the prefix `oss://examplebucket/outputVideo`.
    * 
    * @example
-   * oss://test-bucket/targets
+   * oss://test-bucket/test-target-object.mp4
    */
   URI?: string;
   /**
    * @remarks
-   * The video processing settings.
-   * 
-   * >  If you leave Video empty and the first video stream exists, the first video stream is directly copied to the output file.
+   * Video processing parameter configuration.
+   * >Notice: If Video is null, the first video stream (if present) will be directly copied to the output file.</notice>
    */
   video?: TargetVideo;
   static names(): { [key: string]: string } {
@@ -321,41 +348,44 @@ export class CreateMediaConvertTaskRequestTargets extends $dara.Model {
 export class CreateMediaConvertTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the main media file in the concatenation list of media files. The main media file provides the default transcoding settings, such as the resolution and the frame rate, for videos and audios. Default value: `0`. A value of `0` specifies that the main media file is aligned with the first media file in the concatenation list.
+   * When performing media concatenation, the index of the primary media file (which provides the default transcoding parameters for `Video` and `Audio`, including resolution, frame rate, etc.) in the concatenation list. The default value is 0 (aligning with the first media file in the concatenation list).
+   * 
+   * @example
+   * 0
    */
   alignmentIndex?: number;
   /**
    * @remarks
-   * **If you have no special requirements, leave this parameter empty.**
+   * **If there are no special requirements, please leave this blank.**
    * 
-   * The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * Chain authorization configuration. For more information, see [Using Chain Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfig?: CredentialConfig;
   /**
    * @remarks
-   * The notification settings. For more information, see "Notification". For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+   * Notification configuration. For details, click Notification. The format of asynchronous notification messages can be found in [Asynchronous Notification Message Format](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
    * @remarks
-   * The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+   * The name of the project. For how to obtain it, see [Creating a Project](https://help.aliyun.com/document_detail/478153.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * immtest
+   * test-project
    */
   projectName?: string;
   /**
    * @remarks
-   * The source media files. If multiple files exist at the same time, the Concat feature is enabled. The video files are concatenated in the order of their URI inputs.
+   * A list of media files. If the list contains more than one element, it indicates that the Concat (concatenation) function is enabled. The Concat order follows the sequence of the input video file URIs.
    * 
    * This parameter is required.
    */
   sources?: CreateMediaConvertTaskRequestSources[];
   /**
    * @remarks
-   * The custom tags. You can search for or filter asynchronous tasks by custom tag.
+   * Custom tags used for searching and filtering asynchronous tasks.
    * 
    * @example
    * {"test":"val1"}
@@ -363,17 +393,17 @@ export class CreateMediaConvertTaskRequest extends $dara.Model {
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The media processing tasks. You can specify multiple values for this parameter.
+   * List of media processing tasks, supporting multiple task configurations.
    * 
    * This parameter is required.
    */
   targets?: CreateMediaConvertTaskRequestTargets[];
   /**
    * @remarks
-   * The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+   * User-defined information that will be returned in asynchronous message notifications, used for convenient association and processing within your system. The maximum length is 2048 bytes.
    * 
    * @example
-   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

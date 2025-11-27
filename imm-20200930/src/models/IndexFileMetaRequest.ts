@@ -24,7 +24,7 @@ export class IndexFileMetaRequest extends $dara.Model {
   file?: InputFile;
   /**
    * @remarks
-   * The notification settings. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+   * The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
    */
   notification?: Notification;
   /**
@@ -37,6 +37,13 @@ export class IndexFileMetaRequest extends $dara.Model {
    * test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The custom user information, which is returned in an asynchronous notification. The maximum length of a notification is 2048 bytes.
+   * 
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {

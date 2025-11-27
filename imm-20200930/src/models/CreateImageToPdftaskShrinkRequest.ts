@@ -7,7 +7,7 @@ export class CreateImageToPDFTaskShrinkRequest extends $dara.Model {
    * @remarks
    * **If you have no special requirements, leave this parameter empty.**
    * 
-   * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+   * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
   /**

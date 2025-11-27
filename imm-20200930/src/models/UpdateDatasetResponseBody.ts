@@ -6,10 +6,13 @@ import { Dataset } from "./Dataset";
 export class UpdateDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dataset.
+   * 数据集。
    */
   dataset?: Dataset;
   /**
+   * @remarks
+   * 请求ID。
+   * 
    * @example
    * 45234D4A-A3E3-4B23-AACA-8D897514****
    */

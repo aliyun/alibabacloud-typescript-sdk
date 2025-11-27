@@ -15,7 +15,25 @@ export class GetTaskRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Specifies whether to return the initial request parameters that are used to create the task. Default value: False.
+   * Specifies whether to return original request parameters specified to create the task.
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * This parameter applies only to the following tasks:
+   * 
+   * *   MediaConvert
+   * *   VideoLabelClassification
+   * *   FaceClustering
+   * *   FileCompression
+   * *   ArchiveFileInspection
+   * *   FileUncompression
+   * *   PointCloudCompress
+   * *   ImageToPDF
+   * *   StoryCreation
+   * *   LocationDateClustering
+   * *   ImageSplicing
+   * *   FacesSearching
    * 
    * @example
    * True

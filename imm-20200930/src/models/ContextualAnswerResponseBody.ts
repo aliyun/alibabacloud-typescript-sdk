@@ -4,10 +4,31 @@ import { Answer } from "./Answer";
 
 
 export class ContextualAnswerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Content of the response from the large model.
+   */
   answer?: Answer;
+  /**
+   * @remarks
+   * Error code.
+   * 
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * Error message.
+   * 
+   * @example
+   * The specified resource project is not found.
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID of the current request.
+   * 
    * @example
    * 22F081FB-90D7-525A-BFE4-D28DC906A28F
    */

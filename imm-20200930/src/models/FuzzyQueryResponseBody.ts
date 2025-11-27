@@ -34,6 +34,9 @@ export class FuzzyQueryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of hits.
+   * 
+   * @example
+   * 10
    */
   totalHits?: number;
   static names(): { [key: string]: string } {
