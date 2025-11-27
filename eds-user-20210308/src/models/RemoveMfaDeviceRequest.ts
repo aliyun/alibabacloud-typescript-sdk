@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveMfaDeviceRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain of the Active Directory (AD) workspace.
+   * The address of the AD office network.
    * 
    * @example
    * alpha.lftltd.net
@@ -13,7 +13,7 @@ export class RemoveMfaDeviceRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * The serial number of the virtual MFA device. The serial number is unique for each device.
+   * The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to get this information.
    * 
    * This parameter is required.
    * 

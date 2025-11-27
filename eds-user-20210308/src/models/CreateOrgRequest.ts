@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrgRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the organization.
+   * 
    * This parameter is required.
    */
   orgName?: string;
   /**
    * @remarks
+   * The ID of the parent organization.
+   * 
    * This parameter is required.
    * 
    * @example

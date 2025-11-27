@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUsersRequest extends $dara.Model {
+  /**
+   * @example
+   * null
+   */
   bizType?: string;
   /**
    * @remarks
@@ -33,6 +37,10 @@ export class DescribeUsersRequest extends $dara.Model {
    * ug-12341234****
    */
   groupId?: string;
+  /**
+   * @example
+   * true
+   */
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
@@ -63,7 +71,15 @@ export class DescribeUsersRequest extends $dara.Model {
    */
   orgId?: string;
   showExtras?: { [key: string]: any };
+  /**
+   * @example
+   * null
+   */
   solutionId?: string;
+  /**
+   * @remarks
+   * The status.
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {

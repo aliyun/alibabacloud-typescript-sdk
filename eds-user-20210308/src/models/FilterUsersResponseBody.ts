@@ -42,9 +42,47 @@ export class FilterUsersResponseBodyUsersExternalInfo extends $dara.Model {
   }
 }
 
+export class FilterUsersResponseBodyUsersGroups extends $dara.Model {
+  groupId?: string;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
+  /**
+   * @remarks
+   * The organization ID.
+   */
   orgId?: string;
+  /**
+   * @remarks
+   * The organization name.
+   */
   orgName?: string;
+  /**
+   * @remarks
+   * The organization name path.
+   */
   orgNamePath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,7 +110,15 @@ export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
 }
 
 export class FilterUsersResponseBodyUsersSupportLoginIdps extends $dara.Model {
+  /**
+   * @remarks
+   * The enterprise identity provider ID.
+   */
   idpId?: string;
+  /**
+   * @remarks
+   * The enterprise identity provider name.
+   */
   idpName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,6 +335,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * The additional information about the convenience user.
    */
   externalInfo?: FilterUsersResponseBodyUsersExternalInfo;
+  groups?: FilterUsersResponseBodyUsersGroups[];
   /**
    * @remarks
    * The ID of the convenience user.
@@ -323,6 +370,10 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * true
    */
   isTenantManager?: boolean;
+  /**
+   * @remarks
+   * The organizations to which the user belongs.
+   */
   orgList?: FilterUsersResponseBodyUsersOrgList[];
   /**
    * @remarks
@@ -392,6 +443,10 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * The supported identity provider logon methods.
+   */
   supportLoginIdps?: FilterUsersResponseBodyUsersSupportLoginIdps[];
   /**
    * @remarks
@@ -407,6 +462,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       enableAdminAccess: 'EnableAdminAccess',
       endUserId: 'EndUserId',
       externalInfo: 'ExternalInfo',
+      groups: 'Groups',
       id: 'Id',
       isTenantManager: 'IsTenantManager',
       orgList: 'OrgList',
@@ -431,6 +487,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       enableAdminAccess: 'boolean',
       endUserId: 'string',
       externalInfo: FilterUsersResponseBodyUsersExternalInfo,
+      groups: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersGroups },
       id: 'number',
       isTenantManager: 'boolean',
       orgList: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersOrgList },
@@ -449,6 +506,9 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
   validate() {
     if(this.externalInfo && typeof (this.externalInfo as any).validate === 'function') {
       (this.externalInfo as any).validate();
+    }
+    if(Array.isArray(this.groups)) {
+      $dara.Model.validateArray(this.groups);
     }
     if(Array.isArray(this.orgList)) {
       $dara.Model.validateArray(this.orgList);
@@ -486,7 +546,7 @@ export class FilterUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The convenience accounts.
+   * The information about the convenience accounts.
    */
   users?: FilterUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

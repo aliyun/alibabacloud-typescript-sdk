@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class MoveUserOrgRequest extends $dara.Model {
   /**
    * @remarks
+   * The user IDs.
+   * 
    * This parameter is required.
    */
   endUserIds?: string[];
   /**
    * @remarks
+   * The organization ID.
+   * 
    * This parameter is required.
    * 
    * @example

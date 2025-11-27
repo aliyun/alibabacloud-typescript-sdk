@@ -21,6 +21,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
    * test1
    */
   endUserId?: string;
+  groupIdList?: string[];
   /**
    * @remarks
    * The organization to which the convenience user belongs.
@@ -80,6 +81,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
     return {
       email: 'Email',
       endUserId: 'EndUserId',
+      groupIdList: 'GroupIdList',
       orgId: 'OrgId',
       ownerType: 'OwnerType',
       password: 'Password',
@@ -93,6 +95,7 @@ export class CreateUsersRequestUsers extends $dara.Model {
     return {
       email: 'string',
       endUserId: 'string',
+      groupIdList: { 'type': 'array', 'itemType': 'string' },
       orgId: 'string',
       ownerType: 'string',
       password: 'string',
@@ -103,6 +106,9 @@ export class CreateUsersRequestUsers extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.groupIdList)) {
+      $dara.Model.validateArray(this.groupIdList);
+    }
     super.validate();
   }
 

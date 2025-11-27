@@ -199,8 +199,20 @@ export class FilterUsersRequest extends $dara.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the organization information.
+   */
   includeOrgInfo?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the supported logon types.
+   */
   includeSupportIdps?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to query all sub-organizations.
+   */
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
@@ -254,6 +266,13 @@ export class FilterUsersRequest extends $dara.Model {
    * The list of property names and property values.
    */
   propertyKeyValueFilterParam?: FilterUsersRequestPropertyKeyValueFilterParam[];
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {

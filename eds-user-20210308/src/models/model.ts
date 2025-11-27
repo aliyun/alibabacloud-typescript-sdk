@@ -11,6 +11,7 @@ export { CreateUsersResponseBodyCreateResultFailedUsers } from './CreateUsersRes
 export { CreateUsersResponseBodyCreateResult } from './CreateUsersResponseBody';
 export { DescribeGroupUserResponseBodyGroups } from './DescribeGroupUserResponseBody';
 export { DescribeGroupUserResponseBodyUsers } from './DescribeGroupUserResponseBody';
+export { DescribeGroupsResponseBodyGroupsAttachedLoginPolicy } from './DescribeGroupsResponseBody';
 export { DescribeGroupsResponseBodyGroups } from './DescribeGroupsResponseBody';
 export { DescribeMfaDevicesResponseBodyMfaDevicesAdUser } from './DescribeMfaDevicesResponseBody';
 export { DescribeMfaDevicesResponseBodyMfaDevices } from './DescribeMfaDevicesResponseBody';
@@ -31,6 +32,7 @@ export { FilterUsersRequestPropertyKeyValueFilterParam } from './FilterUsersRequ
 export { FilterUsersShrinkRequestPropertyFilterParam } from './FilterUsersShrinkRequest';
 export { FilterUsersShrinkRequestPropertyKeyValueFilterParam } from './FilterUsersShrinkRequest';
 export { FilterUsersResponseBodyUsersExternalInfo } from './FilterUsersResponseBody';
+export { FilterUsersResponseBodyUsersGroups } from './FilterUsersResponseBody';
 export { FilterUsersResponseBodyUsersOrgList } from './FilterUsersResponseBody';
 export { FilterUsersResponseBodyUsersSupportLoginIdps } from './FilterUsersResponseBody';
 export { FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues } from './FilterUsersResponseBody';

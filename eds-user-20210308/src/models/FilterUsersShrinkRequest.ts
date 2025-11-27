@@ -148,8 +148,20 @@ export class FilterUsersShrinkRequest extends $dara.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the organization information.
+   */
   includeOrgInfo?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the supported logon types.
+   */
   includeSupportIdps?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to query all sub-organizations.
+   */
   isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
@@ -203,6 +215,13 @@ export class FilterUsersShrinkRequest extends $dara.Model {
    * The list of property names and property values.
    */
   propertyKeyValueFilterParam?: FilterUsersShrinkRequestPropertyKeyValueFilterParam[];
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {

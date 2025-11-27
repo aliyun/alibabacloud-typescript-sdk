@@ -112,7 +112,15 @@ export class DescribeUsersResponseBodyUsersOrgs extends $dara.Model {
 }
 
 export class DescribeUsersResponseBodyUsersProperties extends $dara.Model {
+  /**
+   * @example
+   * Role
+   */
   key?: string;
+  /**
+   * @example
+   * Student
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,6 +170,10 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
    * username@example.com
    */
   email?: string;
+  /**
+   * @remarks
+   * Enables the administrator permissions.
+   */
   enableAdminAccess?: boolean;
   /**
    * @remarks
@@ -262,6 +274,8 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
    * Normal
    */
   ownerType?: string;
+  passwordExpireDays?: number;
+  passwordExpireRestDays?: number;
   /**
    * @remarks
    * The mobile number of the convenience user. If you leave this parameter empty, the value of this parameter is not returned.
@@ -331,6 +345,8 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
       orgId: 'OrgId',
       orgs: 'Orgs',
       ownerType: 'OwnerType',
+      passwordExpireDays: 'PasswordExpireDays',
+      passwordExpireRestDays: 'PasswordExpireRestDays',
       phone: 'Phone',
       properties: 'Properties',
       realNickName: 'RealNickName',
@@ -357,6 +373,8 @@ export class DescribeUsersResponseBodyUsers extends $dara.Model {
       orgId: 'string',
       orgs: { 'type': 'array', 'itemType': DescribeUsersResponseBodyUsersOrgs },
       ownerType: 'string',
+      passwordExpireDays: 'number',
+      passwordExpireRestDays: 'number',
       phone: 'string',
       properties: { 'type': 'array', 'itemType': DescribeUsersResponseBodyUsersProperties },
       realNickName: 'string',
@@ -406,7 +424,7 @@ export class DescribeUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The convenience accounts.
+   * The information about the convenience accounts.
    */
   users?: DescribeUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

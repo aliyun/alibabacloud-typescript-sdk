@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the user group.
+   * 
    * @example
    * ug-12341234****
    */

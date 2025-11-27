@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserBatchJoinGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of user IDs.
+   */
   endUserIds?: string[];
   /**
    * @remarks
+   * The ID of the user group.
+   * 
    * This parameter is required.
    * 
    * @example

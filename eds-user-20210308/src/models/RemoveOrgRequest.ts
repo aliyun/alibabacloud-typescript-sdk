@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveOrgRequest extends $dara.Model {
   /**
    * @remarks
+   * The organization ID.
+   * 
    * This parameter is required.
    * 
    * @example

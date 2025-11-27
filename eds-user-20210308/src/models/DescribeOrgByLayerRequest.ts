@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeOrgByLayerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the organization.
+   */
   orgName?: string;
   /**
+   * @remarks
+   * The ID of the parent organization.
+   * 
    * @example
    * org-11fs****
    */

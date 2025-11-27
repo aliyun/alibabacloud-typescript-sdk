@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchSetDesktopManagerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether the convenience account has the local administrator permissions on cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   0: no
+   * *   1 (default): yes
+   * 
    * @example
    * 1
    */
   isDesktopManager?: string;
   /**
    * @remarks
+   * The convenience accounts.
+   * 
    * This parameter is required.
    */
   users?: string[];

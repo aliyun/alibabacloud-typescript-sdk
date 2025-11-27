@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MoveOrgRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the parent organization.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MoveOrgRequest extends $dara.Model {
   newParentOrgId?: string;
   /**
    * @remarks
+   * The ID of the organization that you want to move.
+   * 
    * This parameter is required.
    * 
    * @example

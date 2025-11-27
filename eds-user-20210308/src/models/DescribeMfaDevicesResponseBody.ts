@@ -46,7 +46,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   consecutiveFails?: number;
   /**
    * @remarks
-   * The type of the virtual MFA device. The value can only be TOTP_VIRTUAL. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
+   * The type of the virtual MFA device. The value can only be `TOTP_VIRTUAL`. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
    * 
    * @example
    * TOTP_VIRTUAL
@@ -62,7 +62,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username of the convenience user that uses the virtual MFA device.
+   * The username of the convenience account that uses the virtual MFA device.
    * 
    * @example
    * test
@@ -70,7 +70,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
    * 
    * @example
    * 2021-06-22T06:20:49Z
@@ -78,7 +78,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   gmtEnabled?: string;
   /**
    * @remarks
-   * The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
    * 
    * @example
    * 2021-06-23T06:20:49Z
@@ -86,7 +86,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   gmtUnlock?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * The ID of the virtual MFA device.
    * 
    * @example
    * 36
@@ -94,7 +94,7 @@ export class DescribeMfaDevicesResponseBodyMfaDevices extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The serial number of the virtual MFA device. The serial number is unique for each device.
+   * The serial number of the virtual MFA device.
    * 
    * @example
    * dc856334-446b-4035-bfbc-18af261e****

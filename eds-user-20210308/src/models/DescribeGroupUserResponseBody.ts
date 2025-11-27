@@ -4,12 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
   /**
+   * @remarks
+   * The user group ID.
+   * 
    * @example
    * ug-91mvbosdjsdfh****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the user group.
+   */
   groupName?: string;
   /**
+   * @remarks
+   * The number of members in the user group.
+   * 
    * @example
    * 1
    */
@@ -41,50 +51,84 @@ export class DescribeGroupUserResponseBodyGroups extends $dara.Model {
 
 export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * >  This field is deprecated.
+   * 
    * @example
    * xx-xx-xx
    */
   address?: string;
   /**
+   * @remarks
+   * >  This field is deprecated.
+   * 
    * @example
    * https://avatar.****.com
    */
   avatar?: string;
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * alex****@aliyun.com
    */
   email?: string;
   /**
+   * @remarks
+   * The user name.
+   * 
    * @example
    * alex****
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The time when the user was created.
+   * 
    * @example
    * 2024-08-26T02:59:22.000+00:00
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The time when the user was added to the user group.
+   * 
    * @example
    * 2024-08-26T02:59:22.000+00:00
    */
   gmtJoinGroup?: string;
   /**
+   * @remarks
+   * >  This field is deprecated.
+   * 
    * @example
    * 123
    */
   jobNumber?: string;
   /**
+   * @remarks
+   * The display name.
+   * 
    * @example
    * alex
    */
   nickName?: string;
   /**
+   * @remarks
+   * The mobile number.
+   * 
    * @example
    * 188888****
    */
   phone?: string;
+  /**
+   * @remarks
+   * The remarks on the user.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,13 +170,31 @@ export class DescribeGroupUserResponseBodyUsers extends $dara.Model {
 }
 
 export class DescribeGroupUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * >  This field is deprecated.
+   */
   groups?: DescribeGroupUserResponseBodyGroups[];
+  /**
+   * @remarks
+   * The token for the next query. If NextToken is empty, all results have been queried.
+   * 
+   * @example
+   * AAAAAV3MpHK****
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AA8D67CB-345D-5CDA-986E-FFAC7D0****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The members.
+   */
   users?: DescribeGroupUserResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMfaDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain of the Active Directory (AD) workspace.
+   * The address of the AD office network.
    * 
    * @example
    * cn.misumi.pri
@@ -13,7 +13,7 @@ export class DescribeMfaDevicesRequest extends $dara.Model {
   adDomain?: string;
   /**
    * @remarks
-   * The usernames of the convenience users.
+   * The usernames of the convenience accounts.
    * 
    * @example
    * test

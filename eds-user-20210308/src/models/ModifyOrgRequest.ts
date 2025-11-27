@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOrgRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the organization.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyOrgRequest extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
+   * The name of the organization.
+   * 
    * This parameter is required.
    */
   orgName?: string;

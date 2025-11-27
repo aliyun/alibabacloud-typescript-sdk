@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserBatchQuitGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 890JNJNF-SADASSDFS-SDFSDF****
    */

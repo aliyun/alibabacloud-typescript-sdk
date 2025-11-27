@@ -30,7 +30,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置桌面管理员
+   * Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+   * 
+   * @remarks
+   * Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
    * 
    * @param request - BatchSetDesktopManagerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +68,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置桌面管理员
+   * Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+   * 
+   * @remarks
+   * Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
    * 
    * @param request - BatchSetDesktopManagerRequest
    * @returns BatchSetDesktopManagerResponse
@@ -216,7 +222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建角色.
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -263,7 +269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建角色.
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -274,7 +280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建组织
+   * Creates an organization.
    * 
    * @param request - CreateOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -309,7 +315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建组织
+   * Creates an organization.
    * 
    * @param request - CreateOrgRequest
    * @returns CreateOrgResponse
@@ -366,7 +372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * Creates a resource group.
    * 
    * @param request - CreateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -405,7 +411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建资源组
+   * Creates a resource group.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -584,7 +590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全量同步初始化
+   * Queries the members of a user group.
    * 
    * @param request - DescribeGroupUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -635,7 +641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全量同步初始化
+   * Queries the members of a user group.
    * 
    * @param request - DescribeGroupUserRequest
    * @returns DescribeGroupUserResponse
@@ -646,7 +652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全量同步初始化.
+   * Queries user groups.
    * 
    * @param request - DescribeGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,12 +665,24 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.excludeAttachedLoginPolicyGroups)) {
+      query["ExcludeAttachedLoginPolicyGroups"] = request.excludeAttachedLoginPolicyGroups;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
     if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.idpId)) {
+      query["IdpId"] = request.idpId;
+    }
+
+    if (!$dara.isNull(request.loginPolicyId)) {
+      query["LoginPolicyId"] = request.loginPolicyId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -701,7 +719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 全量同步初始化.
+   * Queries user groups.
    * 
    * @param request - DescribeGroupsRequest
    * @returns DescribeGroupsResponse
@@ -712,7 +730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+   * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
    * 
    * @param request - DescribeMfaDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -763,7 +781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+   * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
    * 
    * @param request - DescribeMfaDevicesRequest
    * @returns DescribeMfaDevicesResponse
@@ -774,7 +792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找下级组织
+   * Queries subordinate organizations.
    * 
    * @param request - DescribeOrgByLayerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -809,7 +827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查找下级组织
+   * Queries subordinate organizations.
    * 
    * @param request - DescribeOrgByLayerRequest
    * @returns DescribeOrgByLayerResponse
@@ -890,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看资源组
+   * Queries resource groups.
    * 
    * @param request - DescribeResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -941,7 +959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看资源组
+   * Queries resource groups.
    * 
    * @param request - DescribeResourceGroupsRequest
    * @returns DescribeResourceGroupsResponse
@@ -1212,7 +1230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化TenantAlias
+   * Initializes an organization ID.
    * 
    * @param request - InitTenantAliasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化TenantAlias
+   * Initializes an organization ID.
    * @returns InitTenantAliasResponse
    */
   async initTenantAlias(): Promise<$_model.InitTenantAliasResponse> {
@@ -1418,7 +1436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改角色.
+   * Modifies the name and description of a user group.
    * 
    * @param request - ModifyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,7 +1475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改角色.
+   * Modifies the name and description of a user group.
    * 
    * @param request - ModifyGroupRequest
    * @returns ModifyGroupResponse
@@ -1468,7 +1486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改组织
+   * Modifies an organization.
    * 
    * @param request - ModifyOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1503,7 +1521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改组织
+   * Modifies an organization.
    * 
    * @param request - ModifyOrgRequest
    * @returns ModifyOrgResponse
@@ -1564,7 +1582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动组织
+   * Moves an organization.
    * 
    * @param request - MoveOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动组织
+   * Moves an organization.
    * 
    * @param request - MoveOrgRequest
    * @returns MoveOrgResponse
@@ -1610,7 +1628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动用户组织
+   * Moves users to a specific organization.
    * 
    * @param request - MoveUserOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1645,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动用户组织
+   * Moves users to a specific organization.
    * 
    * @param request - MoveUserOrgRequest
    * @returns MoveUserOrgResponse
@@ -1688,7 +1706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除角色.
+   * Deletes a single user group or multiple user groups at a time.
    * 
    * @param request - RemoveGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1723,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除角色.
+   * Deletes a single user group or multiple user groups at a time.
    * 
    * @param request - RemoveGroupRequest
    * @returns RemoveGroupResponse
@@ -1734,10 +1752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+   * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
    * 
    * @remarks
-   * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+   * If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
    * 
    * @param request - RemoveMfaDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1772,10 +1790,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+   * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
    * 
    * @remarks
-   * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+   * If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
    * 
    * @param request - RemoveMfaDeviceRequest
    * @returns RemoveMfaDeviceResponse
@@ -1786,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除组织
+   * Removes an organization.
    * 
    * @param request - RemoveOrgRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1817,7 +1835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除组织
+   * Removes an organization.
    * 
    * @param request - RemoveOrgRequest
    * @returns RemoveOrgResponse
@@ -2188,7 +2206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户批量分配角色
+   * Add multiple users to a user group at a time.
    * 
    * @param request - UserBatchJoinGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2223,7 +2241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户批量分配角色
+   * Add multiple users to a user group at a time.
    * 
    * @param request - UserBatchJoinGroupRequest
    * @returns UserBatchJoinGroupResponse
@@ -2234,7 +2252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户批量移出角色
+   * Removes multiple users from a user group at a time.
    * 
    * @param request - UserBatchQuitGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2269,7 +2287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户批量移出角色
+   * Removes multiple users from a user group at a time.
    * 
    * @param request - UserBatchQuitGroupRequest
    * @returns UserBatchQuitGroupResponse

@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UserBatchQuitGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The user IDs.
+   */
   endUserIds?: string[];
   /**
+   * @remarks
+   * The ID of the user group.
+   * 
    * @example
    * ug-lkuvalovhnlxvv****
    */

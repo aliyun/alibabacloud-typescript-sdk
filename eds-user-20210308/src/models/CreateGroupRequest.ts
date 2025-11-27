@@ -8,14 +8,27 @@ export class CreateGroupRequest extends $dara.Model {
    * ENTERPRISE
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The description of the user group.
+   * 
+   * @example
+   * TestGroup
+   */
   description?: string;
   groupName?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * root
    */
   parentGroupId?: string;
   /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
    * @example
    * co-0esnf80jab***
    */
