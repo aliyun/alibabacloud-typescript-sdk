@@ -1,0 +1,13 @@
+export { ChatDetailUserInfo } from './ChatDetail';
+export { SearchInfoRequestKnowledgeBaseFilters } from './SearchInfoRequest';
+export { SearchInfoRequestWebFilters } from './SearchInfoRequest';
+export { SearchInfoResponseBodyKnowledgeBaseSearchResults } from './SearchInfoResponseBody';
+export { SearchInfoResponseBodyWebSearchResults } from './SearchInfoResponseBody';
+export { Chat } from './Chat';
+export { ChatDetail } from './ChatDetail';
+export { Feedback } from './Feedback';
+export { Label } from './Label';
+export { Session } from './Session';
+export { SearchInfoRequest } from './SearchInfoRequest';
+export { SearchInfoResponseBody } from './SearchInfoResponseBody';
+export { SearchInfoResponse } from './SearchInfoResponse';
