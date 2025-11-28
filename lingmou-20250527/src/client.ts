@@ -81,6 +81,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户确认
+   * 
+   * @param request - ConfirmTrainPicAvatarRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmTrainPicAvatarResponse
+   */
+  async confirmTrainPicAvatarWithOptions(request: $_model.ConfirmTrainPicAvatarRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmTrainPicAvatarResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.avatarId)) {
+      query["avatarId"] = request.avatarId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmTrainPicAvatar",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/train/confirmTrainPicAvatar`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmTrainPicAvatarResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmTrainPicAvatarResponse({}));
+  }
+
+  /**
+   * 用户确认
+   * 
+   * @param request - ConfirmTrainPicAvatarRequest
+   * @returns ConfirmTrainPicAvatarResponse
+   */
+  async confirmTrainPicAvatar(request: $_model.ConfirmTrainPicAvatarRequest): Promise<$_model.ConfirmTrainPicAvatarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.confirmTrainPicAvatarWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建背景素材
    * 
    * @param request - CreateBackgroundPicRequest
@@ -301,6 +350,173 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建TTS音色
+   * 
+   * @param request - CreateTTSVoiceCustomRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTTSVoiceCustomResponse
+   */
+  async createTTSVoiceCustomWithOptions(request: $_model.CreateTTSVoiceCustomRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTTSVoiceCustomResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.gender)) {
+      query["gender"] = request.gender;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      query["ossKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTTSVoiceCustom",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/voice/createTTSVoiceCustom`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTTSVoiceCustomResponse>(await this.callApi(params, req, runtime), new $_model.CreateTTSVoiceCustomResponse({}));
+  }
+
+  /**
+   * 创建TTS音色
+   * 
+   * @param request - CreateTTSVoiceCustomRequest
+   * @returns CreateTTSVoiceCustomResponse
+   */
+  async createTTSVoiceCustom(request: $_model.CreateTTSVoiceCustomRequest): Promise<$_model.CreateTTSVoiceCustomResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTTSVoiceCustomWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建图片训练数字人
+   * 
+   * @param request - CreateTrainPicAvatarRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrainPicAvatarResponse
+   */
+  async createTrainPicAvatarWithOptions(request: $_model.CreateTrainPicAvatarRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTrainPicAvatarResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gender)) {
+      query["gender"] = request.gender;
+    }
+
+    if (!$dara.isNull(request.generateAssets)) {
+      query["generateAssets"] = request.generateAssets;
+    }
+
+    if (!$dara.isNull(request.imageOssPath)) {
+      query["imageOssPath"] = request.imageOssPath;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.transparent)) {
+      query["transparent"] = request.transparent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTrainPicAvatar",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/train/createTrainPicAvatar`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTrainPicAvatarResponse>(await this.callApi(params, req, runtime), new $_model.CreateTrainPicAvatarResponse({}));
+  }
+
+  /**
+   * 创建图片训练数字人
+   * 
+   * @param request - CreateTrainPicAvatarRequest
+   * @returns CreateTrainPicAvatarResponse
+   */
+  async createTrainPicAvatar(request: $_model.CreateTrainPicAvatarRequest): Promise<$_model.CreateTrainPicAvatarResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTrainPicAvatarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询图片训练数字人的状态
+   * 
+   * @param request - GetTrainPicAvatarStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrainPicAvatarStatusResponse
+   */
+  async getTrainPicAvatarStatusWithOptions(request: $_model.GetTrainPicAvatarStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrainPicAvatarStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.avatarId)) {
+      query["avatarId"] = request.avatarId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTrainPicAvatarStatus",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/train/getTrainPicAvatarStatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTrainPicAvatarStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetTrainPicAvatarStatusResponse({}));
+  }
+
+  /**
+   * 查询图片训练数字人的状态
+   * 
+   * @param request - GetTrainPicAvatarStatusRequest
+   * @returns GetTrainPicAvatarStatusResponse
+   */
+  async getTrainPicAvatarStatus(request: $_model.GetTrainPicAvatarStatusRequest): Promise<$_model.GetTrainPicAvatarStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTrainPicAvatarStatusWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取对话免训图片素材上传凭证
    * 
    * @param request - GetUploadPolicyRequest
@@ -347,6 +563,128 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUploadPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列举私有TTS音色
+   * 
+   * @param request - ListPrivateTTSVoicesCustomRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateTTSVoicesCustomResponse
+   */
+  async listPrivateTTSVoicesCustomWithOptions(request: $_model.ListPrivateTTSVoicesCustomRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrivateTTSVoicesCustomResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPrivateTTSVoicesCustom",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/voice/listPrivateTTSVoicesCustom`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPrivateTTSVoicesCustomResponse>(await this.callApi(params, req, runtime), new $_model.ListPrivateTTSVoicesCustomResponse({}));
+  }
+
+  /**
+   * 列举私有TTS音色
+   * 
+   * @param request - ListPrivateTTSVoicesCustomRequest
+   * @returns ListPrivateTTSVoicesCustomResponse
+   */
+  async listPrivateTTSVoicesCustom(request: $_model.ListPrivateTTSVoicesCustomRequest): Promise<$_model.ListPrivateTTSVoicesCustomResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPrivateTTSVoicesCustomWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询底板素材
+   * 
+   * @param request - ListTemplateMaterialRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplateMaterialResponse
+   */
+  async listTemplateMaterialWithOptions(request: $_model.ListTemplateMaterialRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplateMaterialResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.templateIds)) {
+      query["templateIds"] = request.templateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTemplateMaterial",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/train/listTemplateMaterial`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTemplateMaterialResponse>(await this.callApi(params, req, runtime), new $_model.ListTemplateMaterialResponse({}));
+  }
+
+  /**
+   * 查询底板素材
+   * 
+   * @param request - ListTemplateMaterialRequest
+   * @returns ListTemplateMaterialResponse
+   */
+  async listTemplateMaterial(request: $_model.ListTemplateMaterialRequest): Promise<$_model.ListTemplateMaterialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTemplateMaterialWithOptions(request, headers, runtime);
   }
 
   /**
