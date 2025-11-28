@@ -6,7 +6,10 @@ export { CreateChatSessionResponseBodyData } from './CreateChatSessionResponseBo
 export { CreateNoTrainPicAvatarResponseBodyData } from './CreateNoTrainPicAvatarResponseBody';
 export { GetUploadPolicyResponseBodyDataOssPolicy } from './GetUploadPolicyResponseBody';
 export { GetUploadPolicyResponseBodyData } from './GetUploadPolicyResponseBody';
+export { BroadcastTemplate } from './BroadcastTemplate';
+export { BroadcastVideo } from './BroadcastVideo';
 export { ChatSessionInfo } from './ChatSessionInfo';
+export { TemplateVariable } from './TemplateVariable';
 export { CloseChatInstanceSessionsRequest } from './CloseChatInstanceSessionsRequest';
 export { CloseChatInstanceSessionsShrinkRequest } from './CloseChatInstanceSessionsShrinkRequest';
 export { CloseChatInstanceSessionsResponseBody } from './CloseChatInstanceSessionsResponseBody';
