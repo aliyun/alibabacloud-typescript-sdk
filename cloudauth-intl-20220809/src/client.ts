@@ -16,41 +16,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("cloudauth-intl", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -880,7 +926,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       credentialVerifyIntlReq.imageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1108,7 +1154,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       deepfakeDetectIntlStreamReq.faceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1349,6 +1395,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authorize)) {
+      body["Authorize"] = request.authorize;
+    }
+
     if (!$dara.isNull(request.docPage)) {
       body["DocPage"] = request.docPage;
     }

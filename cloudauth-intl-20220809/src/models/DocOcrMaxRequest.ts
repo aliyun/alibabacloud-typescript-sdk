@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DocOcrMaxRequest extends $dara.Model {
+  authorize?: string;
   /**
    * @remarks
    * Page expected to be recognized
@@ -136,6 +137,7 @@ export class DocOcrMaxRequest extends $dara.Model {
   spoof?: string;
   static names(): { [key: string]: string } {
     return {
+      authorize: 'Authorize',
       docPage: 'DocPage',
       docType: 'DocType',
       idOcrPictureBase64: 'IdOcrPictureBase64',
@@ -155,6 +157,7 @@ export class DocOcrMaxRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authorize: 'string',
       docPage: 'string',
       docType: 'string',
       idOcrPictureBase64: 'string',
