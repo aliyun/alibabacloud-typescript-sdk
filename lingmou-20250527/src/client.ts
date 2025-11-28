@@ -179,6 +179,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建播报贴图
+   * 
+   * @param request - CreateBroadcastStickerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBroadcastStickerResponse
+   */
+  async createBroadcastStickerWithOptions(request: $_model.CreateBroadcastStickerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBroadcastStickerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileName)) {
+      body["fileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      body["ossKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBroadcastSticker",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/material/sticker/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBroadcastStickerResponse>(await this.callApi(params, req, runtime), new $_model.CreateBroadcastStickerResponse({}));
+  }
+
+  /**
+   * 创建播报贴图
+   * 
+   * @param request - CreateBroadcastStickerRequest
+   * @returns CreateBroadcastStickerResponse
+   */
+  async createBroadcastSticker(request: $_model.CreateBroadcastStickerRequest): Promise<$_model.CreateBroadcastStickerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBroadcastStickerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 基于模板创建播报视频
+   * 
+   * @param request - CreateBroadcastVideoFromTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBroadcastVideoFromTemplateResponse
+   */
+  async createBroadcastVideoFromTemplateWithOptions(request: $_model.CreateBroadcastVideoFromTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBroadcastVideoFromTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.variables)) {
+      body["variables"] = request.variables;
+    }
+
+    if (!$dara.isNull(request.videoOptions)) {
+      body["videoOptions"] = request.videoOptions;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBroadcastVideoFromTemplate",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/api/v1/amp/customer/broadcast/video/createFromTemplate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBroadcastVideoFromTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateBroadcastVideoFromTemplateResponse({}));
+  }
+
+  /**
+   * 基于模板创建播报视频
+   * 
+   * @param request - CreateBroadcastVideoFromTemplateRequest
+   * @returns CreateBroadcastVideoFromTemplateResponse
+   */
+  async createBroadcastVideoFromTemplate(request: $_model.CreateBroadcastVideoFromTemplateRequest): Promise<$_model.CreateBroadcastVideoFromTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createBroadcastVideoFromTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 背景配置
    * 
    * @param request - CreateChatConfigRequest
@@ -472,6 +578,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询播报模板详情
+   * 
+   * @param request - GetBroadcastTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBroadcastTemplateResponse
+   */
+  async getBroadcastTemplateWithOptions(request: $_model.GetBroadcastTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBroadcastTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetBroadcastTemplate",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/template/detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetBroadcastTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetBroadcastTemplateResponse({}));
+  }
+
+  /**
+   * 查询播报模板详情
+   * 
+   * @param request - GetBroadcastTemplateRequest
+   * @returns GetBroadcastTemplateResponse
+   */
+  async getBroadcastTemplate(request: $_model.GetBroadcastTemplateRequest): Promise<$_model.GetBroadcastTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getBroadcastTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询图片训练数字人的状态
    * 
    * @param request - GetTrainPicAvatarStatusRequest
@@ -563,6 +714,114 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getUploadPolicyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列举播报模板
+   * 
+   * @param request - ListBroadcastTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBroadcastTemplatesResponse
+   */
+  async listBroadcastTemplatesWithOptions(request: $_model.ListBroadcastTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBroadcastTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBroadcastTemplates",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/customer/broadcast/template/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBroadcastTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListBroadcastTemplatesResponse({}));
+  }
+
+  /**
+   * 列举播报模板
+   * 
+   * @param request - ListBroadcastTemplatesRequest
+   * @returns ListBroadcastTemplatesResponse
+   */
+  async listBroadcastTemplates(request: $_model.ListBroadcastTemplatesRequest): Promise<$_model.ListBroadcastTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBroadcastTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据视频id批量查询播报视频（最多查询100个）
+   * 
+   * @param tmpReq - ListBroadcastVideosByIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBroadcastVideosByIdResponse
+   */
+  async listBroadcastVideosByIdWithOptions(tmpReq: $_model.ListBroadcastVideosByIdRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListBroadcastVideosByIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListBroadcastVideosByIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.videoIds)) {
+      request.videoIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoIds, "videoIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.videoIdsShrink)) {
+      query["videoIds"] = request.videoIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBroadcastVideosById",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/api/v1/amp/customer/broadcast/video/batchQuery`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBroadcastVideosByIdResponse>(await this.callApi(params, req, runtime), new $_model.ListBroadcastVideosByIdResponse({}));
+  }
+
+  /**
+   * 根据视频id批量查询播报视频（最多查询100个）
+   * 
+   * @param request - ListBroadcastVideosByIdRequest
+   * @returns ListBroadcastVideosByIdResponse
+   */
+  async listBroadcastVideosById(request: $_model.ListBroadcastVideosByIdRequest): Promise<$_model.ListBroadcastVideosByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listBroadcastVideosByIdWithOptions(request, headers, runtime);
   }
 
   /**
