@@ -1570,6 +1570,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建扫描规则
+   * 
+   * @param tmpReq - CreateScanRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScanRuleResponse
+   */
+  async createScanRuleWithOptions(tmpReq: $_model.CreateScanRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScanRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateScanRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.repoNames)) {
+      request.repoNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.repoNames, "RepoNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!$dara.isNull(request.repoNamesShrink)) {
+      query["RepoNames"] = request.repoNamesShrink;
+    }
+
+    if (!$dara.isNull(request.repoTagFilterPattern)) {
+      query["RepoTagFilterPattern"] = request.repoTagFilterPattern;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.scanScope)) {
+      query["ScanScope"] = request.scanScope;
+    }
+
+    if (!$dara.isNull(request.scanType)) {
+      query["ScanType"] = request.scanType;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScanRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScanRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateScanRuleResponse({}));
+  }
+
+  /**
+   * 创建扫描规则
+   * 
+   * @param request - CreateScanRuleRequest
+   * @returns CreateScanRuleResponse
+   */
+  async createScanRule(request: $_model.CreateScanRuleRequest): Promise<$_model.CreateScanRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScanRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建实例域名路由规则
+   * 
+   * @param tmpReq - CreateStorageDomainRoutingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStorageDomainRoutingRuleResponse
+   */
+  async createStorageDomainRoutingRuleWithOptions(tmpReq: $_model.CreateStorageDomainRoutingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStorageDomainRoutingRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateStorageDomainRoutingRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.routes)) {
+      request.routesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.routes, "Routes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.routesShrink)) {
+      query["Routes"] = request.routesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStorageDomainRoutingRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStorageDomainRoutingRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateStorageDomainRoutingRuleResponse({}));
+  }
+
+  /**
+   * 创建实例域名路由规则
+   * 
+   * @param request - CreateStorageDomainRoutingRuleRequest
+   * @returns CreateStorageDomainRoutingRuleResponse
+   */
+  async createStorageDomainRoutingRule(request: $_model.CreateStorageDomainRoutingRuleRequest): Promise<$_model.CreateStorageDomainRoutingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStorageDomainRoutingRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an artifact lifecycle management rule.
    * 
    * @param request - DeleteArtifactLifecycleRuleRequest
@@ -2327,6 +2459,98 @@ export default class Client extends OpenApi {
   async deleteRepository(request: $_model.DeleteRepositoryRequest): Promise<$_model.DeleteRepositoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRepositoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除扫描规则
+   * 
+   * @param request - DeleteScanRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteScanRuleResponse
+   */
+  async deleteScanRuleWithOptions(request: $_model.DeleteScanRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteScanRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scanRuleId)) {
+      query["ScanRuleId"] = request.scanRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteScanRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteScanRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteScanRuleResponse({}));
+  }
+
+  /**
+   * 删除扫描规则
+   * 
+   * @param request - DeleteScanRuleRequest
+   * @returns DeleteScanRuleResponse
+   */
+  async deleteScanRule(request: $_model.DeleteScanRuleRequest): Promise<$_model.DeleteScanRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteScanRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除实例存储域名映射规则
+   * 
+   * @param request - DeleteStorageDomainRoutingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStorageDomainRoutingRuleResponse
+   */
+  async deleteStorageDomainRoutingRuleWithOptions(request: $_model.DeleteStorageDomainRoutingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStorageDomainRoutingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStorageDomainRoutingRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStorageDomainRoutingRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStorageDomainRoutingRuleResponse({}));
+  }
+
+  /**
+   * 删除实例存储域名映射规则
+   * 
+   * @param request - DeleteStorageDomainRoutingRuleRequest
+   * @returns DeleteStorageDomainRoutingRuleResponse
+   */
+  async deleteStorageDomainRoutingRule(request: $_model.DeleteStorageDomainRoutingRuleRequest): Promise<$_model.DeleteStorageDomainRoutingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStorageDomainRoutingRuleWithOptions(request, runtime);
   }
 
   /**
@@ -3405,6 +3629,98 @@ export default class Client extends OpenApi {
   async getRepository(request: $_model.GetRepositoryRequest): Promise<$_model.GetRepositoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRepositoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询扫描规则
+   * 
+   * @param request - GetScanRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScanRuleResponse
+   */
+  async getScanRuleWithOptions(request: $_model.GetScanRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScanRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scanRuleId)) {
+      query["ScanRuleId"] = request.scanRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScanRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScanRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetScanRuleResponse({}));
+  }
+
+  /**
+   * 查询扫描规则
+   * 
+   * @param request - GetScanRuleRequest
+   * @returns GetScanRuleResponse
+   */
+  async getScanRule(request: $_model.GetScanRuleRequest): Promise<$_model.GetScanRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScanRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例存储域名路由规则
+   * 
+   * @param request - GetStorageDomainRoutingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStorageDomainRoutingRuleResponse
+   */
+  async getStorageDomainRoutingRuleWithOptions(request: $_model.GetStorageDomainRoutingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStorageDomainRoutingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStorageDomainRoutingRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStorageDomainRoutingRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetStorageDomainRoutingRuleResponse({}));
+  }
+
+  /**
+   * 查询实例存储域名路由规则
+   * 
+   * @param request - GetStorageDomainRoutingRuleRequest
+   * @returns GetStorageDomainRoutingRuleResponse
+   */
+  async getStorageDomainRoutingRule(request: $_model.GetStorageDomainRoutingRuleRequest): Promise<$_model.GetStorageDomainRoutingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStorageDomainRoutingRuleWithOptions(request, runtime);
   }
 
   /**
@@ -4768,6 +5084,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询扫描规则
+   * 
+   * @param request - ListScanRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScanRuleResponse
+   */
+  async listScanRuleWithOptions(request: $_model.ListScanRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScanRuleResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScanRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScanRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListScanRuleResponse({}));
+  }
+
+  /**
+   * 查询扫描规则
+   * 
+   * @param request - ListScanRuleRequest
+   * @returns ListScanRuleResponse
+   */
+  async listScanRule(request: $_model.ListScanRuleRequest): Promise<$_model.ListScanRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScanRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags that are added to cloud resources. Instance resources are supported.
    * 
    * @param request - ListTagResourcesRequest
@@ -5813,6 +6167,142 @@ export default class Client extends OpenApi {
   async updateRepository(request: $_model.UpdateRepositoryRequest): Promise<$_model.UpdateRepositoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRepositoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新扫描规则
+   * 
+   * @param tmpReq - UpdateScanRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScanRuleResponse
+   */
+  async updateScanRuleWithOptions(tmpReq: $_model.UpdateScanRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScanRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateScanRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.repoNames)) {
+      request.repoNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.repoNames, "RepoNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!$dara.isNull(request.repoNamesShrink)) {
+      query["RepoNames"] = request.repoNamesShrink;
+    }
+
+    if (!$dara.isNull(request.repoTagFilterPattern)) {
+      query["RepoTagFilterPattern"] = request.repoTagFilterPattern;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.scanRuleId)) {
+      query["ScanRuleId"] = request.scanRuleId;
+    }
+
+    if (!$dara.isNull(request.scanScope)) {
+      query["ScanScope"] = request.scanScope;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScanRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScanRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScanRuleResponse({}));
+  }
+
+  /**
+   * 更新扫描规则
+   * 
+   * @param request - UpdateScanRuleRequest
+   * @returns UpdateScanRuleResponse
+   */
+  async updateScanRule(request: $_model.UpdateScanRuleRequest): Promise<$_model.UpdateScanRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateScanRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新实例域名路由规则
+   * 
+   * @param tmpReq - UpdateStorageDomainRoutingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStorageDomainRoutingRuleResponse
+   */
+  async updateStorageDomainRoutingRuleWithOptions(tmpReq: $_model.UpdateStorageDomainRoutingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStorageDomainRoutingRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateStorageDomainRoutingRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.routes)) {
+      request.routesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.routes, "Routes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.routesShrink)) {
+      query["Routes"] = request.routesShrink;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStorageDomainRoutingRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStorageDomainRoutingRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStorageDomainRoutingRuleResponse({}));
+  }
+
+  /**
+   * 更新实例域名路由规则
+   * 
+   * @param request - UpdateStorageDomainRoutingRuleRequest
+   * @returns UpdateStorageDomainRoutingRuleResponse
+   */
+  async updateStorageDomainRoutingRule(request: $_model.UpdateStorageDomainRoutingRuleRequest): Promise<$_model.UpdateStorageDomainRoutingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateStorageDomainRoutingRuleWithOptions(request, runtime);
   }
 
 }
