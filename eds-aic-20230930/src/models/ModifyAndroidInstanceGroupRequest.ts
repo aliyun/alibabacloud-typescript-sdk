@@ -31,11 +31,13 @@ export class ModifyAndroidInstanceGroupRequest extends $dara.Model {
    * pg-2w97kp89gnsif****
    */
   policyGroupId?: string;
+  streamMode?: number;
   static names(): { [key: string]: string } {
     return {
       instanceGroupId: 'InstanceGroupId',
       newInstanceGroupName: 'NewInstanceGroupName',
       policyGroupId: 'PolicyGroupId',
+      streamMode: 'StreamMode',
     };
   }
 
@@ -44,6 +46,7 @@ export class ModifyAndroidInstanceGroupRequest extends $dara.Model {
       instanceGroupId: 'string',
       newInstanceGroupName: 'string',
       policyGroupId: 'string',
+      streamMode: 'number',
     };
   }
 

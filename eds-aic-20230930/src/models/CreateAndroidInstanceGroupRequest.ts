@@ -302,6 +302,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    */
   policyGroupId?: string;
   promotionId?: string;
+  streamMode?: number;
   /**
    * @remarks
    * The tags
@@ -343,6 +344,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
+      streamMode: 'StreamMode',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
     };
@@ -373,6 +375,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       promotionId: 'string',
+      streamMode: 'number',
       tag: { 'type': 'array', 'itemType': CreateAndroidInstanceGroupRequestTag },
       vSwitchId: 'string',
     };

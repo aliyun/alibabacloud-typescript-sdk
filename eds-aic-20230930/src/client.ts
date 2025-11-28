@@ -532,6 +532,10 @@ export default class Client extends OpenApi {
       query["PromotionId"] = request.promotionId;
     }
 
+    if (!$dara.isNull(request.streamMode)) {
+      query["StreamMode"] = request.streamMode;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -3747,6 +3751,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.streamMode)) {
+      query["StreamMode"] = request.streamMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
