@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMachineSpecRequest extends $dara.Model {
+  chargeType?: string;
   /**
    * @remarks
    * This parameter is deprecated.
@@ -10,15 +11,20 @@ export class DescribeMachineSpecRequest extends $dara.Model {
    * @deprecated
    */
   instanceTypes?: string[];
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       instanceTypes: 'InstanceTypes',
+      resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
     };
   }
 

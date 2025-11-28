@@ -2059,8 +2059,16 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.instanceTypesShrink)) {
       query["InstanceTypes"] = request.instanceTypesShrink;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4039,6 +4047,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVirtualResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Migrates resource group instances.
+   * 
+   * @param request - MigrateResourceInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateResourceInstanceResponse
+   */
+  async migrateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, request: $_model.MigrateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MigrateResourceInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destResourceId)) {
+      body["DestResourceId"] = request.destResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.migrateToHybrid)) {
+      body["MigrateToHybrid"] = request.migrateToHybrid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MigrateResourceInstance",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instances/migrate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MigrateResourceInstanceResponse>(await this.callApi(params, req, runtime), new $_model.MigrateResourceInstanceResponse({}));
+  }
+
+  /**
+   * Migrates resource group instances.
+   * 
+   * @param request - MigrateResourceInstanceRequest
+   * @returns MigrateResourceInstanceResponse
+   */
+  async migrateResourceInstance(ClusterId: string, ResourceId: string, request: $_model.MigrateResourceInstanceRequest): Promise<$_model.MigrateResourceInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.migrateResourceInstanceWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
