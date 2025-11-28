@@ -84,6 +84,13 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The method that is used to create sparse vector indexes.
+   * 
+   * @example
+   * ip
+   */
   sparseVectorMetrics?: string;
   /**
    * @remarks
@@ -96,6 +103,13 @@ export class DescribeCollectionResponseBody extends $dara.Model {
    * success
    */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether sparse vectors are supported.
+   * 
+   * @example
+   * true
+   */
   supportSparse?: boolean;
   static names(): { [key: string]: string } {
     return {

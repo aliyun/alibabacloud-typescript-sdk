@@ -29,8 +29,15 @@ export class TextEmbeddingResponseBodyResultsResultsEmbedding extends $dara.Mode
 }
 
 export class TextEmbeddingResponseBodyResultsResults extends $dara.Model {
+  /**
+   * @remarks
+   * The embedding values.
+   */
   embedding?: TextEmbeddingResponseBodyResultsResultsEmbedding;
   /**
+   * @remarks
+   * The number of the embedding in the Input request parameter, which starts from 0.
+   * 
    * @example
    * 0
    */
@@ -89,22 +96,41 @@ export class TextEmbeddingResponseBodyResults extends $dara.Model {
 
 export class TextEmbeddingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The embedding results.
+   */
   results?: TextEmbeddingResponseBodyResults;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **success**
+   * *   **fail**
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The total number of tokens consumed.
+   * 
    * @example
    * 1000
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIndicesResponseBodyIndicesIndices extends $dara.Model {
   /**
+   * @remarks
+   * The name of the collection.
+   * 
    * @example
    * testcollection
    */
   collection?: string;
   /**
+   * @remarks
+   * The definition of the index.
+   * 
    * @example
    * CREATE INDEX testindex ON mynamespace. testcollection
    */
   indexDef?: string;
   /**
+   * @remarks
+   * The name of the index.
+   * 
    * @example
    * testindex
    */
   indexName?: string;
   /**
+   * @remarks
+   * The namespace to which the pod belongs.
+   * 
    * @example
    * mynamespace
    */
@@ -77,8 +89,15 @@ export class ListIndicesResponseBodyIndices extends $dara.Model {
 }
 
 export class ListIndicesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The queried indexes.
+   */
   indices?: ListIndicesResponseBodyIndices;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
@@ -92,6 +111,12 @@ export class ListIndicesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **success**.
+   * *   **fail**.
+   * 
    * @example
    * success
    */

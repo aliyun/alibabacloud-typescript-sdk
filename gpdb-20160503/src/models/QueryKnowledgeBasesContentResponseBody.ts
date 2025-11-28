@@ -4,25 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryKnowledgeBasesContentResponseBodyEntitiesEntities extends $dara.Model {
   /**
+   * @remarks
+   * The entity description.
+   * 
    * @example
    * A former advisor at DeepMind.
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the entity.
+   * 
    * @example
    * Dr. Wang
    */
   entity?: string;
   /**
+   * @remarks
+   * The name of the file.
+   * 
    * @example
    * my_doc.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * The entity ID.
+   * 
    * @example
    * 1
    */
   id?: string;
+  /**
+   * @remarks
+   * The entity type.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -80,39 +96,70 @@ export class QueryKnowledgeBasesContentResponseBodyEntities extends $dara.Model 
 }
 
 export class QueryKnowledgeBasesContentResponseBodyMatchesMatchList extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the text.
+   */
   content?: string;
   /**
+   * @remarks
+   * The name of the file.
+   * 
    * @example
    * my_doc.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * The public network URL of the image result. By default, the URL is valid for 2 hours.
+   * 
+   * You can use the UrlExpiration parameter to specify a validity period.
+   * 
    * @example
    * https://xxx-cn-beijing.aliyuncs.com/image/test.png
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The unique ID of the vector data.
+   * 
    * @example
    * doca-1234
    */
   id?: string;
   /**
+   * @remarks
+   * Document loader metadata.
+   * 
    * @example
    * {"page_pos": 1}
    */
   loaderMetadata?: string;
+  /**
+   * @remarks
+   * The metadata map.
+   */
   metadata?: { [key: string]: string };
   /**
+   * @remarks
+   * The rerank score.
+   * 
    * @example
    * 6.2345
    */
   rerankScore?: number;
   /**
+   * @remarks
+   * The source of the retrieval results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
+   * 
    * @example
    * 1
    */
   retrievalSource?: number;
   /**
+   * @remarks
+   * The similarity score of the data. It is related to the algorithm (l2, ip, or cosine) that is specified when you create an index.
+   * 
    * @example
    * 0.12345
    */
@@ -185,22 +232,38 @@ export class QueryKnowledgeBasesContentResponseBodyMatches extends $dara.Model {
 
 export class QueryKnowledgeBasesContentResponseBodyRelationsRelations extends $dara.Model {
   /**
+   * @remarks
+   * The description of the relationship edge.
+   * 
    * @example
    * Dr. Wang previously served as an advisor at DeepMind.
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the file.
+   * 
    * @example
    * my_doc.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * The ID of the link.
+   * 
    * @example
    * 1
    */
   id?: string;
+  /**
+   * @remarks
+   * The source entity.
+   */
   sourceEntity?: string;
   /**
+   * @remarks
+   * The destination entity.
+   * 
    * @example
    * Dr. Wang
    */
@@ -262,11 +325,21 @@ export class QueryKnowledgeBasesContentResponseBodyRelations extends $dara.Model
 
 export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of entries that are used during vectorization.
+   * 
+   * >  An entry refers to a single unit of vectorization processing. Processing one text input counts as 1 entry, while processing one image counts as 2 entries.
+   * 
    * @example
    * 10
    */
   embeddingEntries?: string;
   /**
+   * @remarks
+   * The number of tokens that are used for vectorization.
+   * 
+   * >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+   * 
    * @example
    * 475
    */
@@ -296,28 +369,61 @@ export class QueryKnowledgeBasesContentResponseBodyUsage extends $dara.Model {
 
 export class QueryKnowledgeBasesContentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens that are used during vectorization.
+   * 
+   * >  A token is the minimum unit for segmenting text. A token can be a word, phrase, punctuation, or character.
+   * 
    * @example
    * 100
    */
   embeddingTokens?: string;
+  /**
+   * @remarks
+   * The details of the entity.
+   */
   entities?: QueryKnowledgeBasesContentResponseBodyEntities;
+  /**
+   * @remarks
+   * A single data record.
+   */
   matches?: QueryKnowledgeBasesContentResponseBodyMatches;
   /**
+   * @remarks
+   * The returned information.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The details of the relationship edge.
+   */
   relations?: QueryKnowledgeBasesContentResponseBodyRelations;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **success**.
+   * *   **fail**.
+   * 
    * @example
    * success
    */
   status?: string;
+  /**
+   * @remarks
+   * The total number of tokens that are consumed by this query.
+   */
   usage?: QueryKnowledgeBasesContentResponseBodyUsage;
   static names(): { [key: string]: string } {
     return {

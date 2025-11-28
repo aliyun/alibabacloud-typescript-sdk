@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,19 +16,35 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Whether to return the retrieved result. Default value: false.
+   * 
    * @example
    * false
    */
   includeKnowledgeBaseResults?: boolean;
+  /**
+   * @remarks
+   * The knowledge retrieval parameter object. If you do not specify this parameter, only chat mode is enabled.
+   */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
+   * The Large Language Model (LLM) invocation parameter object.
+   * 
    * This parameter is required.
    */
   modelParamsShrink?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The system prompt template, which should include {{ text_chunks }},{{ user_system_prompt }},{{ graph_entities },{{ graph_relations }}. If any of these placeholders are not specified, the corresponding section should have no effect.
+   */
   promptParams?: string;
   /**
+   * @remarks
+   * 实例所在的地域ID
+   * 
    * @example
    * cn-hangzhou
    */

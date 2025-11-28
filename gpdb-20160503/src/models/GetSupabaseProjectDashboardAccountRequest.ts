@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectDashboardAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The Supabase project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetSupabaseProjectDashboardAccountRequest extends $dara.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-beijing
    */

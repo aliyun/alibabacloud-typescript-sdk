@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBackupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backup job ID.
+   * 
    * @example
    * 123
    */
   backupJobId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */

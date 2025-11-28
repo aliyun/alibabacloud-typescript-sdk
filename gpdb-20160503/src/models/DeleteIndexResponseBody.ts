@@ -4,16 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIndexResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **fail**
+   * *   **success**
+   * 
    * @example
    * success
    */

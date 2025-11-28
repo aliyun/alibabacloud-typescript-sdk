@@ -59,7 +59,18 @@ export class QueryContentShrinkRequest extends $dara.Model {
    * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
+  /**
+   * @remarks
+   * Whether to enable knowledge graph enhancement. Default value: false.
+   * 
+   * @example
+   * false
+   */
   graphEnhance?: boolean;
+  /**
+   * @remarks
+   * The search parameters of the knowledge graph.
+   */
   graphSearchArgsShrink?: string;
   /**
    * @remarks
@@ -162,11 +173,21 @@ export class QueryContentShrinkRequest extends $dara.Model {
    */
   namespacePassword?: string;
   /**
+   * @remarks
+   * Offset, used for paginated queries.
+   * 
    * @example
    * 0
    */
   offset?: number;
   /**
+   * @remarks
+   * The fields by which to sort the results. This parameter is empty by default.
+   * 
+   * The field must be either a metadata field or a default field in the table (e.g., id). Supported formats include:
+   * 
+   * Single field, such as chunk_id. Multiple fields that are separated by commas (,), such as block_id,chunk_id. Descending order is supported, e.g., block_id DESC, chunk_id DESC.
+   * 
    * @example
    * created_at
    */
@@ -201,12 +222,27 @@ export class QueryContentShrinkRequest extends $dara.Model {
   rerankFactor?: number;
   /**
    * @remarks
-   * Set the number of top results to return.
+   * The number of the returned top results.
    * 
    * @example
    * 10
    */
   topK?: number;
+  /**
+   * @remarks
+   * The validity period of the returned image URL.
+   * 
+   * >  Value Description
+   * 
+   * *   Supported units are seconds (s) and days (d). For example, 300s specifies that the URL is valid for 300 seconds, and 60d specifies that the URL is valid for 60 days.
+   * 
+   * *   Valid values: 60s to 365d.
+   * 
+   * *   Default value: 7200s, that is, 2 hours.
+   * 
+   * @example
+   * 7200s
+   */
   urlExpiration?: string;
   /**
    * @remarks

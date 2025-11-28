@@ -5,6 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The password of the database account.
+   * 
+   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+   * *   The password must be 8 to 32 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,8 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
+   * Supabase Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +28,9 @@ export class ResetSupabaseProjectPasswordRequest extends $dara.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */

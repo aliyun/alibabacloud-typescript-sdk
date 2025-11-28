@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAINodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of AINodes to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,18 +14,29 @@ export class DeleteAINodeRequest extends $dara.Model {
    */
   AINodeNum?: number;
   /**
+   * @remarks
+   * The ID of the AINode resource pool.
+   * 
    * @example
    * aipool-xxxx
    */
   AINodePoolId?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The list of AINodes to be deleted.
+   */
   nodeNames?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -27,9 +27,9 @@ export class DeleteDocumentCollectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Namespace, default is public.
+   * The name of the namespace. Default value: public.
    * 
-   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace

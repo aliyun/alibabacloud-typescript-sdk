@@ -68,6 +68,13 @@ export class CreateSecretRequest extends $dara.Model {
    * testacc
    */
   username?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

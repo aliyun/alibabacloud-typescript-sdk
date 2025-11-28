@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelServiceRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteModelServiceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The ID of the model service to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example

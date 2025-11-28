@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSupportModelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */

@@ -70,6 +70,16 @@ export class DeleteVectorIndexRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The vector type. Valid values:
+   * 
+   * *   Dense (default)
+   * *   Sparse
+   * 
+   * @example
+   * Dense
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

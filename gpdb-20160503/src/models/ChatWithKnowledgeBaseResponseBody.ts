@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction extends $dara.Model {
   /**
+   * @remarks
+   * Arguments of the called function.
+   * 
    * @example
    * {"city":"hangzhou"}
    */
   arguments?: string;
   /**
+   * @remarks
+   * The name of the called function.
+   * 
    * @example
    * "get_weather"
    */
@@ -37,6 +43,10 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
 }
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls extends $dara.Model {
+  /**
+   * @remarks
+   * Function call information.
+   */
   function?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction;
   /**
    * @remarks
@@ -47,6 +57,9 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
    */
   id?: string;
   /**
+   * @remarks
+   * The position of this tool in the \\"input\\" request parameter.
+   * 
    * @example
    * 1
    */
@@ -80,17 +93,35 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
 }
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the document.
+   */
   content?: string;
   /**
+   * @remarks
+   * 模型思维内容
+   * 
    * @example
    * 逻辑推理过程
    */
   reasoningContent?: string;
   /**
+   * @remarks
+   * Message role:
+   * 
+   * *   system
+   * *   user
+   * *   assistant
+   * 
    * @example
    * user
    */
   role?: string;
+  /**
+   * @remarks
+   * Tool call response.
+   */
   toolCalls?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls[];
   static names(): { [key: string]: string } {
     return {
@@ -124,15 +155,25 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage exten
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoices extends $dara.Model {
   /**
+   * @remarks
+   * Finish reason.
+   * 
    * @example
    * finish
    */
   finishReason?: string;
   /**
+   * @remarks
+   * The sequence number of the reply.
+   * 
    * @example
    * 0
    */
   index?: number;
+  /**
+   * @remarks
+   * LLM response.
+   */
   message?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage;
   static names(): { [key: string]: string } {
     return {
@@ -164,6 +205,9 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoices extends $dar
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens from cache hits.
+   * 
    * @example
    * 24
    */
@@ -191,17 +235,30 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDet
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens consumed by the generated content.
+   * 
    * @example
    * 42
    */
   completionTokens?: number;
   /**
+   * @remarks
+   * The number of tokens consumed by the prompt.
+   * 
    * @example
    * 42
    */
   promptTokens?: number;
+  /**
+   * @remarks
+   * The details about the prompt token.
+   */
   promptTokensDetails?: ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails;
   /**
+   * @remarks
+   * The total number of tokens.
+   * 
    * @example
    * 42
    */
@@ -237,22 +294,39 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsage extends $dara.
 }
 
 export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model {
+  /**
+   * @remarks
+   * Text content generated in real time.
+   */
   choices?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoices[];
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1758529748
    */
   created?: number;
   /**
+   * @remarks
+   * The ID of the response.
+   * 
    * @example
    * 273e3fc7-8f56-4167-a1bb-d35d2f3b9043
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the model.
+   * 
    * @example
    * qwen-plus
    */
   model?: string;
+  /**
+   * @remarks
+   * The number of tokens used in LLM output.
+   */
   usage?: ChatWithKnowledgeBaseResponseBodyChatCompletionUsage;
   static names(): { [key: string]: string } {
     return {
@@ -291,6 +365,9 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model
 
 export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata extends $dara.Model {
   /**
+   * @remarks
+   * The source of the document.
+   * 
    * @example
    * 1
    */
@@ -317,43 +394,78 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
 }
 
 export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the document.
+   */
   content?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * process_info_19b9df4dc9ad4bf2b30eb2faa4a9a987.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * The URL of the image result. By default, the URL is valid for 2 hours.
+   * 
+   * You can use the UrlExpiration parameter to specify a validity period.
+   * 
    * @example
    * http://viapi-customer-pop.oss-cn-shanghai.aliyuncs.com/b4d8_207196811002111319_570c0e199f03428f812ab21fcc00dd6a
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The unique ID of the vector data.
+   * 
    * @example
    * 273e3fc7-8f56-4167-a1bb-d35d2f3b9043
    */
   id?: string;
   /**
+   * @remarks
+   * Document loader metadata.
+   * 
    * @example
    * {"page":1}
    */
   loaderMetadata?: any;
+  /**
+   * @remarks
+   * The metadata.
+   */
   metadata?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatchesMetadata;
   /**
+   * @remarks
+   * The rerank score.
+   * 
    * @example
    * 0.1
    */
   rerankScore?: number;
   /**
+   * @remarks
+   * The source of the retrieved results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
+   * 
    * @example
    * 3
    */
   retrievalSource?: number;
   /**
+   * @remarks
+   * The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+   * 
    * @example
    * 12
    */
   score?: number;
+  /**
+   * @remarks
+   * The vector data.
+   */
   vector?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -402,6 +514,11 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
 
 export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage extends $dara.Model {
   /**
+   * @remarks
+   * The number of tokens that are used during vectorization.
+   * 
+   * >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+   * 
    * @example
    * 21
    */
@@ -428,24 +545,52 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage e
 }
 
 export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the entity.
+   */
   entities?: string[];
+  /**
+   * @remarks
+   * The retrieved items.
+   */
   matches?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches[];
+  /**
+   * @remarks
+   * The name of the file.
+   */
   relations?: string[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 6B9E3255-4543-5B3B-9E00-6490CA64742B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **success**
+   * *   **fail**
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * The number of tokens that are consumed.
+   * 
    * @example
    * 42
    */
   tokens?: number;
+  /**
+   * @remarks
+   * The number of tokens that are consumed during document understanding or embedding.
+   */
   usage?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage;
   static names(): { [key: string]: string } {
     return {
@@ -493,19 +638,39 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
 }
 
 export class ChatWithKnowledgeBaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * model response.
+   */
   chatCompletion?: ChatWithKnowledgeBaseResponseBodyChatCompletion;
   /**
+   * @remarks
+   * The returned information.
+   * 
    * @example
    * Successful
    */
   message?: string;
+  /**
+   * @remarks
+   * Retrieve information from multiple knowledge bases.
+   */
   multiCollectionRecallResult?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the operation. Valid values:
+   * 
+   * *   **success**
+   * *   **fail**
+   * 
    * @example
    * success
    */

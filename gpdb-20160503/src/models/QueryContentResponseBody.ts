@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryContentResponseBodyEntitiesEntities extends $dara.Model {
+  /**
+   * @remarks
+   * Entity description.
+   * 
+   * @example
+   * A former advisor at DeepMind.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The entity name.
+   * 
+   * @example
+   * Dr. Wang
+   */
   entity?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * my_doc.txt
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The entity ID.
+   * 
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The entity type.
+   * 
+   * @example
+   * Figure
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -246,10 +281,45 @@ export class QueryContentResponseBodyMatches extends $dara.Model {
 }
 
 export class QueryContentResponseBodyRelationsRelations extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the relationship edge.
+   * 
+   * @example
+   * Dr. Wang previously served as an advisor at DeepMind.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * my_doc.txt
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The ID of the relationship edge.
+   * 
+   * @example
+   * 1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The source entity.
+   * 
+   * @example
+   * Former DeepMind consultant
+   */
   sourceEntity?: string;
+  /**
+   * @remarks
+   * The destination entity.
+   * 
+   * @example
+   * Dr. Wang
+   */
   targetEntity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -512,6 +582,10 @@ export class QueryContentResponseBody extends $dara.Model {
    * 100
    */
   embeddingTokens?: string;
+  /**
+   * @remarks
+   * The entities.
+   */
   entities?: QueryContentResponseBodyEntities;
   /**
    * @remarks
@@ -526,6 +600,10 @@ export class QueryContentResponseBody extends $dara.Model {
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The list of relationship edges.
+   */
   relations?: QueryContentResponseBodyRelations;
   /**
    * @remarks

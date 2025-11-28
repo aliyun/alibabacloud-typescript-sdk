@@ -31,41 +31,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("gpdb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -81,7 +127,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加AI节点
+   * Adds AI nodes to the cluster.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This operation is used to add an AINode node.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
    * 
    * @param request - AddAINodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -120,7 +172,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加AI节点
+   * Adds AI nodes to the cluster.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This operation is used to add an AINode node.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
    * 
    * @param request - AddAINodeRequest
    * @returns AddAINodeResponse
@@ -267,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消创建索引任务
+   * Cancels an index creation job.
    * 
    * @param request - CancelCreateIndexJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -326,7 +384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消创建索引任务
+   * Cancels an index creation job.
    * 
    * @param request - CancelCreateIndexJobRequest
    * @returns CancelCreateIndexJobResponse
@@ -493,10 +551,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
    * 
    * @remarks
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+   * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+   * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+   * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+   * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
    * 
    * @param tmpReq - ChatWithKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -561,10 +623,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
    * 
    * @remarks
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+   * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+   * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+   * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+   * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
    * 
    * @param request - ChatWithKnowledgeBaseRequest
    * @returns ChatWithKnowledgeBaseResponse
@@ -575,10 +641,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
    * 
    * @remarks
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+   * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+   * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+   * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+   * *   PromptTemplate: optional. It is used to customize a system prompt template.
    * 
    * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -656,10 +726,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
    * 
    * @remarks
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+   * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+   * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+   * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+   * *   PromptTemplate: optional. It is used to customize a system prompt template.
    * 
    * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -724,10 +798,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
    * 
    * @remarks
-   * 通过结合知识库和大模型，提供智能问答服务。
+   * This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+   * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+   * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+   * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+   * *   PromptTemplate: optional. It is used to customize a system prompt template.
    * 
    * @param request - ChatWithKnowledgeBaseStreamRequest
    * @returns ChatWithKnowledgeBaseStreamResponse
@@ -942,7 +1020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复数据至指定实例
+   * Restores data to a new AnalyticDB for PostgreSQL instance.
    * 
    * @param request - CloneDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -981,7 +1059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 恢复数据至指定实例
+   * Restores data to a new AnalyticDB for PostgreSQL instance.
    * 
    * @param request - CloneDBInstanceRequest
    * @returns CloneDBInstanceResponse
@@ -1070,7 +1148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建备份
+   * Creates a backup set.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1101,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建备份
+   * Creates a backup set.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -1464,6 +1542,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds an IP whitelist group.
+   * 
+   * @param tmpReq - CreateDBInstanceIPArrayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDBInstanceIPArrayResponse
+   */
+  async createDBInstanceIPArrayWithOptions(tmpReq: $_model.CreateDBInstanceIPArrayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBInstanceIPArrayResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDBInstanceIPArrayShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.securityIPList)) {
+      request.securityIPListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityIPList, "SecurityIPList", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.IPArrayAttribute)) {
+      query["IPArrayAttribute"] = request.IPArrayAttribute;
+    }
+
+    if (!$dara.isNull(request.IPArrayName)) {
+      query["IPArrayName"] = request.IPArrayName;
+    }
+
+    if (!$dara.isNull(request.securityIPListShrink)) {
+      query["SecurityIPList"] = request.securityIPListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDBInstanceIPArray",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDBInstanceIPArrayResponse>(await this.callApi(params, req, runtime), new $_model.CreateDBInstanceIPArrayResponse({}));
+  }
+
+  /**
+   * Adds an IP whitelist group.
+   * 
+   * @param request - CreateDBInstanceIPArrayRequest
+   * @returns CreateDBInstanceIPArrayResponse
+   */
+  async createDBInstanceIPArray(request: $_model.CreateDBInstanceIPArrayRequest): Promise<$_model.CreateDBInstanceIPArrayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDBInstanceIPArrayWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a plan for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -1599,6 +1737,72 @@ export default class Client extends OpenApi {
   async createDBResourceGroup(request: $_model.CreateDBResourceGroupRequest): Promise<$_model.CreateDBResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a database.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabaseWithOptions(request: $_model.CreateDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.characterSetName)) {
+      query["CharacterSetName"] = request.characterSetName;
+    }
+
+    if (!$dara.isNull(request.collate)) {
+      query["Collate"] = request.collate;
+    }
+
+    if (!$dara.isNull(request.ctype)) {
+      query["Ctype"] = request.ctype;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatabase",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatabaseResponse({}));
+  }
+
+  /**
+   * Creates a database.
+   * 
+   * @param request - CreateDatabaseRequest
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabase(request: $_model.CreateDatabaseRequest): Promise<$_model.CreateDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatabaseWithOptions(request, runtime);
   }
 
   /**
@@ -1944,7 +2148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建索引
+   * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
    * 
    * @param request - CreateIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2011,7 +2215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建索引
+   * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
    * 
    * @param request - CreateIndexRequest
    * @returns CreateIndexResponse
@@ -2092,7 +2296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model service.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param tmpReq - CreateModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2175,7 +2382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模型服务
+   * Creates a model service.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
    * 
    * @param request - CreateModelServiceRequest
    * @returns CreateModelServiceResponse
@@ -2778,7 +2988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建supabase project
+   * Creates a Supabase project.
+   * 
+   * @remarks
+   *   You can call this operation to create a Supabase project.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2849,7 +3062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建supabase project
+   * Creates a Supabase project.
+   * 
+   * @remarks
+   *   You can call this operation to create a Supabase project.
    * 
    * @param request - CreateSupabaseProjectRequest
    * @returns CreateSupabaseProjectResponse
@@ -2954,7 +3170,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除AI节点
+   * Delete AI Node
+   * 
+   * @remarks
+   *   Subscription instances cannot be manually released. They are automatically released when they expire.
+   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
    * 
    * @param request - DeleteAINodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2997,7 +3217,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除AI节点
+   * Delete AI Node
+   * 
+   * @remarks
+   *   Subscription instances cannot be manually released. They are automatically released when they expire.
+   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
    * 
    * @param request - DeleteAINodeRequest
    * @returns DeleteAINodeResponse
@@ -3054,7 +3278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除备份
+   * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
    * 
    * @param request - DeleteBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3089,7 +3313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除备份
+   * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
    * 
    * @param request - DeleteBackupRequest
    * @returns DeleteBackupResponse
@@ -3306,6 +3530,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除IP分组
+   * 
+   * @param request - DeleteDBInstanceIPArrayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDBInstanceIPArrayResponse
+   */
+  async deleteDBInstanceIPArrayWithOptions(request: $_model.DeleteDBInstanceIPArrayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBInstanceIPArrayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.IPArrayName)) {
+      query["IPArrayName"] = request.IPArrayName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDBInstanceIPArray",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDBInstanceIPArrayResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDBInstanceIPArrayResponse({}));
+  }
+
+  /**
+   * 删除IP分组
+   * 
+   * @param request - DeleteDBInstanceIPArrayRequest
+   * @returns DeleteDBInstanceIPArrayResponse
+   */
+  async deleteDBInstanceIPArray(request: $_model.DeleteDBInstanceIPArrayRequest): Promise<$_model.DeleteDBInstanceIPArrayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDBInstanceIPArrayWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a plan from an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -3413,6 +3683,52 @@ export default class Client extends OpenApi {
   async deleteDBResourceGroup(request: $_model.DeleteDBResourceGroupRequest): Promise<$_model.DeleteDBResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据库
+   * 
+   * @param request - DeleteDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatabaseResponse
+   */
+  async deleteDatabaseWithOptions(request: $_model.DeleteDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDatabase",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatabaseResponse({}));
+  }
+
+  /**
+   * 删除数据库
+   * 
+   * @param request - DeleteDatabaseRequest
+   * @returns DeleteDatabaseResponse
+   */
+  async deleteDatabase(request: $_model.DeleteDatabaseRequest): Promise<$_model.DeleteDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatabaseWithOptions(request, runtime);
   }
 
   /**
@@ -3698,7 +4014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除索引
+   * Deletes an index.
    * 
    * @param request - DeleteIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3757,7 +4073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除索引
+   * Deletes an index.
    * 
    * @param request - DeleteIndexRequest
    * @returns DeleteIndexResponse
@@ -3818,7 +4134,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型服务
+   * Delete Model Service
+   * 
+   * @remarks
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3853,7 +4172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模型服务
+   * Delete Model Service
+   * 
+   * @remarks
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @returns DeleteModelServiceResponse
@@ -3927,6 +4249,48 @@ export default class Client extends OpenApi {
   async deleteNamespace(request: $_model.DeleteNamespaceRequest): Promise<$_model.DeleteNamespaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+   * 关闭私有RAG服务
+   * 
+   * @param request - DeletePrivateRAGServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrivateRAGServiceResponse
+   */
+  async deletePrivateRAGServiceWithOptions(request: $_model.DeletePrivateRAGServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrivateRAGServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrivateRAGService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePrivateRAGServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrivateRAGServiceResponse({}));
+  }
+
+  /**
+   * 关闭私有RAG服务
+   * 
+   * @param request - DeletePrivateRAGServiceRequest
+   * @returns DeletePrivateRAGServiceResponse
+   */
+  async deletePrivateRAGService(request: $_model.DeletePrivateRAGServiceRequest): Promise<$_model.DeletePrivateRAGServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePrivateRAGServiceWithOptions(request, runtime);
   }
 
   /**
@@ -4192,7 +4556,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Supabase实例
+   * Deletes a Supabase project.
+   * 
+   * @remarks
+   *   You can call this operation to delete a Supabase project.
    * 
    * @param request - DeleteSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4227,7 +4594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Supabase实例
+   * Deletes a Supabase project.
+   * 
+   * @remarks
+   *   You can call this operation to delete a Supabase project.
    * 
    * @param request - DeleteSupabaseProjectRequest
    * @returns DeleteSupabaseProjectResponse
@@ -4305,6 +4675,56 @@ export default class Client extends OpenApi {
   async deleteVectorIndex(request: $_model.DeleteVectorIndexRequest): Promise<$_model.DeleteVectorIndexResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVectorIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * 部署私有RAG服务
+   * 
+   * @param request - DeployPrivateRAGServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployPrivateRAGServiceResponse
+   */
+  async deployPrivateRAGServiceWithOptions(request: $_model.DeployPrivateRAGServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeployPrivateRAGServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployPrivateRAGService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeployPrivateRAGServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeployPrivateRAGServiceResponse({}));
+  }
+
+  /**
+   * 部署私有RAG服务
+   * 
+   * @param request - DeployPrivateRAGServiceRequest
+   * @returns DeployPrivateRAGServiceResponse
+   */
+  async deployPrivateRAGService(request: $_model.DeployPrivateRAGServiceRequest): Promise<$_model.DeployPrivateRAGServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deployPrivateRAGServiceWithOptions(request, runtime);
   }
 
   /**
@@ -4498,7 +4918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取备份任务详情
+   * Queries the information about a backup job.
    * 
    * @param request - DescribeBackupJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4533,7 +4953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取备份任务详情
+   * Queries the information about a backup job.
    * 
    * @param request - DescribeBackupJobRequest
    * @returns DescribeBackupJobResponse
@@ -4662,7 +5082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取创建索引任务
+   * Queries the information about an index creation job.
    * 
    * @param request - DescribeCreateIndexJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4721,7 +5141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取创建索引任务
+   * Queries the information about an index creation job.
    * 
    * @param request - DescribeCreateIndexJobRequest
    * @returns DescribeCreateIndexJobResponse
@@ -6152,6 +6572,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述数据库
+   * 
+   * @param request - DescribeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDatabaseResponse
+   */
+  async describeDatabaseWithOptions(request: $_model.DescribeDatabaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDatabaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDatabase",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDatabaseResponse({}));
+  }
+
+  /**
+   * 描述数据库
+   * 
+   * @param request - DescribeDatabaseRequest
+   * @returns DescribeDatabaseResponse
+   */
+  async describeDatabase(request: $_model.DescribeDatabaseRequest): Promise<$_model.DescribeDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
@@ -6422,7 +6888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Document Details
+   * Queries the information about a document.
    * 
    * @param request - DescribeDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6477,7 +6943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Document Details
+   * Queries the information about a document.
    * 
    * @param request - DescribeDocumentRequest
    * @returns DescribeDocumentResponse
@@ -6581,6 +7047,56 @@ export default class Client extends OpenApi {
   async describeDownloadSQLLogs(request: $_model.DescribeDownloadSQLLogsRequest): Promise<$_model.DescribeDownloadSQLLogsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDownloadSQLLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安装在某个数据库上的插件信息
+   * 
+   * @param request - DescribeExtensionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeExtensionResponse
+   */
+  async describeExtensionWithOptions(request: $_model.DescribeExtensionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExtensionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.extensionName)) {
+      query["ExtensionName"] = request.extensionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeExtension",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeExtensionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeExtensionResponse({}));
+  }
+
+  /**
+   * 获取安装在某个数据库上的插件信息
+   * 
+   * @param request - DescribeExtensionRequest
+   * @returns DescribeExtensionResponse
+   */
+  async describeExtension(request: $_model.DescribeExtensionRequest): Promise<$_model.DescribeExtensionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeExtensionWithOptions(request, runtime);
   }
 
   /**
@@ -6890,7 +7406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引详情
+   * Retrieves the information about an index.
    * 
    * @param request - DescribeIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6949,7 +7465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引详情
+   * Retrieves the information about an index.
    * 
    * @param request - DescribeIndexRequest
    * @returns DescribeIndexResponse
@@ -7064,7 +7580,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型服务
+   * Queries the information about a model service.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This interface is used to view the details of a model service.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
    * 
    * @param request - DescribeModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7099,7 +7621,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型服务
+   * Queries the information about a model service.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This interface is used to view the details of a model service.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
    * 
    * @param request - DescribeModelServiceRequest
    * @returns DescribeModelServiceResponse
@@ -7278,6 +7806,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取私有RAG服务详情
+   * 
+   * @param request - DescribePrivateRAGServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePrivateRAGServiceResponse
+   */
+  async describePrivateRAGServiceWithOptions(request: $_model.DescribePrivateRAGServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePrivateRAGServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePrivateRAGService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePrivateRAGServiceResponse>(await this.callApi(params, req, runtime), new $_model.DescribePrivateRAGServiceResponse({}));
+  }
+
+  /**
+   * 获取私有RAG服务详情
+   * 
+   * @param request - DescribePrivateRAGServiceRequest
+   * @returns DescribePrivateRAGServiceResponse
+   */
+  async describePrivateRAGService(request: $_model.DescribePrivateRAGServiceRequest): Promise<$_model.DescribePrivateRAGServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePrivateRAGServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of vSwitches.
    * 
    * @remarks
@@ -7439,6 +8009,48 @@ export default class Client extends OpenApi {
   async describeRdsVpcs(request: $_model.DescribeRdsVpcsRequest): Promise<$_model.DescribeRdsVpcsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRdsVpcsWithOptions(request, runtime);
+  }
+
+  /**
+   * 描述一个实例是否处于平衡状态
+   * 
+   * @param request - DescribeRebalanceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRebalanceStatusResponse
+   */
+  async describeRebalanceStatusWithOptions(request: $_model.DescribeRebalanceStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRebalanceStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRebalanceStatus",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRebalanceStatusResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRebalanceStatusResponse({}));
+  }
+
+  /**
+   * 描述一个实例是否处于平衡状态
+   * 
+   * @param request - DescribeRebalanceStatusRequest
+   * @returns DescribeRebalanceStatusResponse
+   */
+  async describeRebalanceStatus(request: $_model.DescribeRebalanceStatusRequest): Promise<$_model.DescribeRebalanceStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRebalanceStatusWithOptions(request, runtime);
   }
 
   /**
@@ -8438,6 +9050,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取私有RAG服务可部署可用区
+   * 
+   * @param request - DescribeZonesPrivateRAGServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeZonesPrivateRAGServiceResponse
+   */
+  async describeZonesPrivateRAGServiceWithOptions(request: $_model.DescribeZonesPrivateRAGServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeZonesPrivateRAGServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeZonesPrivateRAGService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeZonesPrivateRAGServiceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeZonesPrivateRAGServiceResponse({}));
+  }
+
+  /**
+   * 获取私有RAG服务可部署可用区
+   * 
+   * @param request - DescribeZonesPrivateRAGServiceRequest
+   * @returns DescribeZonesPrivateRAGServiceResponse
+   */
+  async describeZonesPrivateRAGService(request: $_model.DescribeZonesPrivateRAGServiceRequest): Promise<$_model.DescribeZonesPrivateRAGServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeZonesPrivateRAGServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
    * 
    * @remarks
@@ -8678,7 +9336,85 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识库开启构建知识图谱
+   * Downloads slow SQL records.
+   * 
+   * @param request - DownloadSlowSQLRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadSlowSQLRecordsResponse
+   */
+  async downloadSlowSQLRecordsWithOptions(request: $_model.DownloadSlowSQLRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadSlowSQLRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxDuration)) {
+      query["MaxDuration"] = request.maxDuration;
+    }
+
+    if (!$dara.isNull(request.minDuration)) {
+      query["MinDuration"] = request.minDuration;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadSlowSQLRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadSlowSQLRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DownloadSlowSQLRecordsResponse({}));
+  }
+
+  /**
+   * Downloads slow SQL records.
+   * 
+   * @param request - DownloadSlowSQLRecordsRequest
+   * @returns DownloadSlowSQLRecordsResponse
+   */
+  async downloadSlowSQLRecords(request: $_model.DownloadSlowSQLRecordsRequest): Promise<$_model.DownloadSlowSQLRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadSlowSQLRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables knowledge graph construction for the knowledge base.
    * 
    * @param tmpReq - EnableCollectionGraphRAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8763,7 +9499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 知识库开启构建知识图谱
+   * Enables knowledge graph construction for the knowledge base.
    * 
    * @param request - EnableCollectionGraphRAGRequest
    * @returns EnableCollectionGraphRAGResponse
@@ -8978,7 +9714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取构建知识图谱任务
+   * Retrieves a task to build a knowledge graph.
    * 
    * @param request - GetGraphRAGJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9033,7 +9769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取构建知识图谱任务
+   * Retrieves a task to build a knowledge graph.
    * 
    * @param request - GetGraphRAGJobRequest
    * @returns GetGraphRAGJobResponse
@@ -9168,7 +9904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例详情
+   * Retrieves the detailed configuration and status information for a specific Supabase instance.
+   * 
+   * @remarks
+   * This interface is used to query the details of a Supabase instance.
    * 
    * @param request - GetSupabaseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9203,7 +9942,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例详情
+   * Retrieves the detailed configuration and status information for a specific Supabase instance.
+   * 
+   * @remarks
+   * This interface is used to query the details of a Supabase instance.
    * 
    * @param request - GetSupabaseProjectRequest
    * @returns GetSupabaseProjectResponse
@@ -9214,7 +9956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例 API Keys
+   * Queries a list of API keys for a Supabase project.
+   * 
+   * @remarks
+   * You can call this operation to query a list of API keys for a Supabase project.
    * 
    * @param request - GetSupabaseProjectApiKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9249,7 +9994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例 API Keys
+   * Queries a list of API keys for a Supabase project.
+   * 
+   * @remarks
+   * You can call this operation to query a list of API keys for a Supabase project.
    * 
    * @param request - GetSupabaseProjectApiKeysRequest
    * @returns GetSupabaseProjectApiKeysResponse
@@ -9260,7 +10008,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase项目dashboard账号信息
+   * Retrieves the username and password for the dashboard of a specific Supabase project.
+   * 
+   * @remarks
+   * Query Supabase Project Dashboard Account Information
    * 
    * @param request - GetSupabaseProjectDashboardAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9295,7 +10046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase项目dashboard账号信息
+   * Retrieves the username and password for the dashboard of a specific Supabase project.
+   * 
+   * @remarks
+   * Query Supabase Project Dashboard Account Information
    * 
    * @param request - GetSupabaseProjectDashboardAccountRequest
    * @returns GetSupabaseProjectDashboardAccountResponse
@@ -9309,9 +10063,9 @@ export default class Client extends OpenApi {
    * Queries the progress and result of an asynchronous document upload job based on the job ID.
    * 
    * @remarks
-   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-   * >  Suggestions:
-   * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+   * > Suggestions
+   * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
    * 
    * @param request - GetUploadDocumentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9371,9 +10125,9 @@ export default class Client extends OpenApi {
    * Queries the progress and result of an asynchronous document upload job based on the job ID.
    * 
    * @remarks
-   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-   * >  Suggestions:
-   * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+   * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+   * > Suggestions
+   * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
    * 
    * @param request - GetUploadDocumentJobRequest
    * @returns GetUploadDocumentJobResponse
@@ -9650,7 +10404,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举AI节点池
+   * Queries a list of AI nodes.
+   * 
+   * @remarks
+   *   This operation queries a list of AI nodes.
    * 
    * @param request - ListAINodePoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9685,7 +10442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举AI节点池
+   * Queries a list of AI nodes.
+   * 
+   * @remarks
+   *   This operation queries a list of AI nodes.
    * 
    * @param request - ListAINodePoolsRequest
    * @returns ListAINodePoolsResponse
@@ -9696,7 +10456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取备份任务列表
+   * Queries a list of backup jobs.
    * 
    * @param request - ListBackupJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9731,7 +10491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取备份任务列表
+   * Queries a list of backup jobs.
    * 
    * @param request - ListBackupJobsRequest
    * @returns ListBackupJobsResponse
@@ -9801,6 +10561,52 @@ export default class Client extends OpenApi {
   async listCollections(request: $_model.ListCollectionsRequest): Promise<$_model.ListCollectionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCollectionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取安装在某个数据库上的所有插件信息
+   * 
+   * @param request - ListDatabaseExtensionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabaseExtensionsResponse
+   */
+  async listDatabaseExtensionsWithOptions(request: $_model.ListDatabaseExtensionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatabaseExtensionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatabaseExtensions",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatabaseExtensionsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatabaseExtensionsResponse({}));
+  }
+
+  /**
+   * 获取安装在某个数据库上的所有插件信息
+   * 
+   * @param request - ListDatabaseExtensionsRequest
+   * @returns ListDatabaseExtensionsResponse
+   */
+  async listDatabaseExtensions(request: $_model.ListDatabaseExtensionsRequest): Promise<$_model.ListDatabaseExtensionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatabaseExtensionsWithOptions(request, runtime);
   }
 
   /**
@@ -10106,7 +10912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引列表
+   * Queries a list of indexes.
    * 
    * @param request - ListIndicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10161,7 +10967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取索引列表
+   * Queries a list of indexes.
    * 
    * @param request - ListIndicesRequest
    * @returns ListIndicesResponse
@@ -10169,6 +10975,56 @@ export default class Client extends OpenApi {
   async listIndices(request: $_model.ListIndicesRequest): Promise<$_model.ListIndicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listIndicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举数据库
+   * 
+   * @param request - ListInstanceDatabasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceDatabasesResponse
+   */
+  async listInstanceDatabasesWithOptions(request: $_model.ListInstanceDatabasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceDatabasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceDatabases",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceDatabasesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceDatabasesResponse({}));
+  }
+
+  /**
+   * 列举数据库
+   * 
+   * @param request - ListInstanceDatabasesRequest
+   * @returns ListInstanceDatabasesResponse
+   */
+  async listInstanceDatabases(request: $_model.ListInstanceDatabasesRequest): Promise<$_model.ListInstanceDatabasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceDatabasesWithOptions(request, runtime);
   }
 
   /**
@@ -10234,7 +11090,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型服务
+   * Queries all model services.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This interface is used to view all model service information.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
    * 
    * @param request - ListModelServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10277,7 +11139,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模型服务
+   * Queries all model services.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This interface is used to view all model service information.
+   * ## [](#qps-)QPS limit
+   * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
    * 
    * @param request - ListModelServicesRequest
    * @returns ListModelServicesResponse
@@ -10524,6 +11392,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries slow SQL queries.
+   * 
+   * @param request - ListSlowSQLRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSlowSQLRecordsResponse
+   */
+  async listSlowSQLRecordsWithOptions(request: $_model.ListSlowSQLRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSlowSQLRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxDuration)) {
+      query["MaxDuration"] = request.maxDuration;
+    }
+
+    if (!$dara.isNull(request.minDuration)) {
+      query["MinDuration"] = request.minDuration;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSlowSQLRecords",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSlowSQLRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListSlowSQLRecordsResponse({}));
+  }
+
+  /**
+   * Queries slow SQL queries.
+   * 
+   * @param request - ListSlowSQLRecordsRequest
+   * @returns ListSlowSQLRecordsResponse
+   */
+  async listSlowSQLRecords(request: $_model.ListSlowSQLRecordsRequest): Promise<$_model.ListSlowSQLRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSlowSQLRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * Create External Data Source Configuration
    * 
    * @param request - ListStreamingDataServicesRequest
@@ -10686,7 +11640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例列表
+   * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+   * 
+   * @remarks
+   *   You can call this operation to query Supabase instances.
    * 
    * @param request - ListSupabaseProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10725,7 +11682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例列表
+   * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+   * 
+   * @remarks
+   *   You can call this operation to query Supabase instances.
    * 
    * @param request - ListSupabaseProjectsRequest
    * @returns ListSupabaseProjectsResponse
@@ -10736,7 +11696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持的模型列表
+   * Get the list of supported models
+   * 
+   * @remarks
+   *   This API is used to query the list of supported models.
    * 
    * @param request - ListSupportModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10767,7 +11730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取支持的模型列表
+   * Get the list of supported models
+   * 
+   * @remarks
+   *   This API is used to query the list of supported models.
    * 
    * @param request - ListSupportModelsRequest
    * @returns ListSupportModelsResponse
@@ -11042,7 +12008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Collection
+   * Updates a collection.
    * 
    * @param request - ModifyCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11101,7 +12067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Collection
+   * Updates a collection.
    * 
    * @param request - ModifyCollectionRequest
    * @returns ModifyCollectionResponse
@@ -11228,7 +12194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例部署模式
+   * Changes the development mode of an instance.
    * 
    * @param request - ModifyDBInstanceDeploymentModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11271,7 +12237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例部署模式
+   * Changes the development mode of an instance.
    * 
    * @param request - ModifyDBInstanceDeploymentModeRequest
    * @returns ModifyDBInstanceDeploymentModeResponse
@@ -12492,7 +13458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改supabase项目白名单
+   * Sets or replaces the IP address whitelist for a specified Supabase project.
+   * 
+   * @remarks
+   * Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
    * 
    * @param request - ModifySupabaseProjectSecurityIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12531,7 +13500,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改supabase项目白名单
+   * Sets or replaces the IP address whitelist for a specified Supabase project.
+   * 
+   * @remarks
+   * Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
    * 
    * @param request - ModifySupabaseProjectSecurityIpsRequest
    * @returns ModifySupabaseProjectSecurityIpsResponse
@@ -13071,7 +14043,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       queryContentReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -13080,7 +14052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多知识库查询
+   * Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
    * 
    * @param tmpReq - QueryKnowledgeBasesContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13153,7 +14125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 多知识库查询
+   * Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
    * 
    * @param request - QueryKnowledgeBasesContentRequest
    * @returns QueryKnowledgeBasesContentResponse
@@ -13438,7 +14410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置supabase数据库密码
+   * Reset the password of a Supabase database
+   * 
+   * @remarks
+   * Call this API to reset the password of the Supabase database.
    * 
    * @param request - ResetSupabaseProjectPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13477,7 +14452,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置supabase数据库密码
+   * Reset the password of a Supabase database
+   * 
+   * @remarks
+   * Call this API to reset the password of the Supabase database.
    * 
    * @param request - ResetSupabaseProjectPasswordRequest
    * @returns ResetSupabaseProjectPasswordResponse
@@ -13910,7 +14888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过模型对文本文档进行向量化
+   * Generates text embeddings using an embedding model.
    * 
    * @param tmpReq - TextEmbeddingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13969,7 +14947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过模型对文本文档进行向量化
+   * Generates text embeddings using an embedding model.
    * 
    * @param request - TextEmbeddingRequest
    * @returns TextEmbeddingResponse
@@ -14787,7 +15765,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       uploadDocumentAsyncReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -14796,10 +15774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload split text
+   * Splits a document into chunks and uploads the vectorized chunks to a document collection.
    * 
    * @remarks
-   * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+   * The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
    * 
    * @param tmpReq - UpsertChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14874,10 +15852,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload split text
+   * Splits a document into chunks and uploads the vectorized chunks to a document collection.
    * 
    * @remarks
-   * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+   * The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
    * 
    * @param request - UpsertChunksRequest
    * @returns UpsertChunksResponse
@@ -15129,7 +16107,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       upsertCollectionDataAsyncReq.fileUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 

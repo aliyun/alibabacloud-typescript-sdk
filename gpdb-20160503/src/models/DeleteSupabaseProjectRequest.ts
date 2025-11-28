@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The Supabase project ID. You can go to the Supabase page in the AnalyticDB for PostgreSQL console to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteSupabaseProjectRequest extends $dara.Model {
    */
   projectId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
