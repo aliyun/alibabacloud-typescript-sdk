@@ -4,10 +4,14 @@ import { BaiLianAgentTransformParameters } from "./BaiLianAgentTransformParamete
 import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
 import { SourcePostgreSQLParameters } from "./SourcePostgreSqlparameters";
+import { SourceRabbitMQMetaParameters } from "./SourceRabbitMqmetaParameters";
+import { SourceRabbitMQMsgSyncParameters } from "./SourceRabbitMqmsgSyncParameters";
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
 import { SinkOSSParameters } from "./SinkOssparameters";
+import { SinkRabbitMQMetaParameters } from "./SinkRabbitMqmetaParameters";
+import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
 
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow extends $dara.Model {
@@ -2534,6 +2538,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
    * *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
    */
   acks?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks;
+  compressionType?: string;
   /**
    * @remarks
    * The ID of the ApsaraMQ for Kafka instance.
@@ -2557,6 +2562,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   static names(): { [key: string]: string } {
     return {
       acks: 'Acks',
+      compressionType: 'CompressionType',
       instanceId: 'InstanceId',
       key: 'Key',
       topic: 'Topic',
@@ -2567,6 +2573,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   static types(): { [key: string]: any } {
     return {
       acks: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks,
+      compressionType: 'string',
       instanceId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersInstanceId,
       key: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersKey,
       topic: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersTopic,
@@ -5046,6 +5053,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters;
   sinkOSSParameters?: SinkOSSParameters;
   sinkOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters;
+  sinkRabbitMQMetaParameters?: SinkRabbitMQMetaParameters;
+  sinkRabbitMQMsgSyncParameters?: SinkRabbitMQMsgSyncParameters;
   /**
    * @remarks
    * The parameters that are returned if ApsaraMQ for RabbitMQ is specified as the event target.
@@ -5079,6 +5088,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkMNSParameters: 'SinkMNSParameters',
       sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
+      sinkRabbitMQMetaParameters: 'SinkRabbitMQMetaParameters',
+      sinkRabbitMQMsgSyncParameters: 'SinkRabbitMQMsgSyncParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQCheckpointParameters: 'SinkRocketMQCheckpointParameters',
       sinkRocketMQParameters: 'SinkRocketMQParameters',
@@ -5103,6 +5114,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
       sinkMNSParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters,
       sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters,
+      sinkRabbitMQMetaParameters: SinkRabbitMQMetaParameters,
+      sinkRabbitMQMsgSyncParameters: SinkRabbitMQMsgSyncParameters,
       sinkRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters,
       sinkRocketMQCheckpointParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters,
       sinkRocketMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters,
@@ -5155,6 +5168,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
     }
     if(this.sinkOpenSourceRabbitMQParameters && typeof (this.sinkOpenSourceRabbitMQParameters as any).validate === 'function') {
       (this.sinkOpenSourceRabbitMQParameters as any).validate();
+    }
+    if(this.sinkRabbitMQMetaParameters && typeof (this.sinkRabbitMQMetaParameters as any).validate === 'function') {
+      (this.sinkRabbitMQMetaParameters as any).validate();
+    }
+    if(this.sinkRabbitMQMsgSyncParameters && typeof (this.sinkRabbitMQMsgSyncParameters as any).validate === 'function') {
+      (this.sinkRabbitMQMsgSyncParameters as any).validate();
     }
     if(this.sinkRabbitMQParameters && typeof (this.sinkRabbitMQParameters as any).validate === 'function') {
       (this.sinkRabbitMQParameters as any).validate();
@@ -6387,6 +6406,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
   sourceOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters;
   sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
   sourcePrometheusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters;
+  sourceRabbitMQMetaParameters?: SourceRabbitMQMetaParameters;
+  sourceRabbitMQMsgSyncParameters?: SourceRabbitMQMsgSyncParameters;
   /**
    * @remarks
    * The parameters that are returned if ApsaraMQ for RabbitMQ is specified as the event source.
@@ -6418,6 +6439,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePostgreSQLParameters: 'SourcePostgreSQLParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
+      sourceRabbitMQMetaParameters: 'SourceRabbitMQMetaParameters',
+      sourceRabbitMQMsgSyncParameters: 'SourceRabbitMQMsgSyncParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
@@ -6440,6 +6463,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
       sourceOpenSourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters,
       sourcePostgreSQLParameters: SourcePostgreSQLParameters,
       sourcePrometheusParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters,
+      sourceRabbitMQMetaParameters: SourceRabbitMQMetaParameters,
+      sourceRabbitMQMsgSyncParameters: SourceRabbitMQMsgSyncParameters,
       sourceRabbitMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters,
       sourceRocketMQParameters: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters,
@@ -6486,6 +6511,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();
+    }
+    if(this.sourceRabbitMQMetaParameters && typeof (this.sourceRabbitMQMetaParameters as any).validate === 'function') {
+      (this.sourceRabbitMQMetaParameters as any).validate();
+    }
+    if(this.sourceRabbitMQMsgSyncParameters && typeof (this.sourceRabbitMQMsgSyncParameters as any).validate === 'function') {
+      (this.sourceRabbitMQMsgSyncParameters as any).validate();
     }
     if(this.sourceRabbitMQParameters && typeof (this.sourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceRabbitMQParameters as any).validate();

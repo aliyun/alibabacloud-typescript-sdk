@@ -5,11 +5,15 @@ import { DashScopeTransformParameters } from "./DashScopeTransformParameters";
 import { EmbeddingTransformParameters } from "./EmbeddingTransformParameters";
 import { SourceMySQLParameters } from "./SourceMySqlparameters";
 import { SourcePostgreSQLParameters } from "./SourcePostgreSqlparameters";
+import { SourceRabbitMQMetaParameters } from "./SourceRabbitMqmetaParameters";
+import { SourceRabbitMQMsgSyncParameters } from "./SourceRabbitMqmsgSyncParameters";
 import { SinkApiDestinationParameters } from "./SinkApiDestinationParameters";
 import { SinkBaiLianParameters } from "./SinkBaiLianParameters";
 import { SinkDataWorksTriggerParameters } from "./SinkDataWorksTriggerParameters";
 import { SinkHttpsParameters } from "./SinkHttpsParameters";
 import { SinkOSSParameters } from "./SinkOssparameters";
+import { SinkRabbitMQMetaParameters } from "./SinkRabbitMqmetaParameters";
+import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
 
 
 export class CreateEventStreamingRequestRunOptionsBatchWindow extends $dara.Model {
@@ -464,6 +468,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParametersVpcId exten
 export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $dara.Model {
   acks?: string;
   bootstraps?: string;
+  compressionType?: string;
   headers?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders;
   key?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersKey;
   networkType?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType;
@@ -472,6 +477,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   saslUser?: string;
   securityGroupId?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId;
   securityProtocol?: string;
+  sslTruststoreCertificates?: string;
   topic?: string;
   vSwitchIds?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds;
   value?: CreateEventStreamingRequestSinkSinkApacheKafkaParametersValue;
@@ -480,6 +486,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
     return {
       acks: 'Acks',
       bootstraps: 'Bootstraps',
+      compressionType: 'CompressionType',
       headers: 'Headers',
       key: 'Key',
       networkType: 'NetworkType',
@@ -488,6 +495,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       saslUser: 'SaslUser',
       securityGroupId: 'SecurityGroupId',
       securityProtocol: 'SecurityProtocol',
+      sslTruststoreCertificates: 'SslTruststoreCertificates',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
       value: 'Value',
@@ -499,6 +507,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
     return {
       acks: 'string',
       bootstraps: 'string',
+      compressionType: 'string',
       headers: CreateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders,
       key: CreateEventStreamingRequestSinkSinkApacheKafkaParametersKey,
       networkType: CreateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType,
@@ -507,6 +516,7 @@ export class CreateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       saslUser: 'string',
       securityGroupId: CreateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId,
       securityProtocol: 'string',
+      sslTruststoreCertificates: 'string',
       topic: 'string',
       vSwitchIds: CreateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds,
       value: CreateEventStreamingRequestSinkSinkApacheKafkaParametersValue,
@@ -2931,6 +2941,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
    * *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
    */
   acks?: CreateEventStreamingRequestSinkSinkKafkaParametersAcks;
+  compressionType?: string;
   headers?: CreateEventStreamingRequestSinkSinkKafkaParametersHeaders;
   /**
    * @remarks
@@ -2955,6 +2966,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static names(): { [key: string]: string } {
     return {
       acks: 'Acks',
+      compressionType: 'CompressionType',
       headers: 'Headers',
       instanceId: 'InstanceId',
       key: 'Key',
@@ -2966,6 +2978,7 @@ export class CreateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   static types(): { [key: string]: any } {
     return {
       acks: CreateEventStreamingRequestSinkSinkKafkaParametersAcks,
+      compressionType: 'string',
       headers: CreateEventStreamingRequestSinkSinkKafkaParametersHeaders,
       instanceId: CreateEventStreamingRequestSinkSinkKafkaParametersInstanceId,
       key: CreateEventStreamingRequestSinkSinkKafkaParametersKey,
@@ -6033,6 +6046,8 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
    * The parameters that are configured if you specify Managed Service for Prometheus as the event target.
    */
   sinkPrometheusParameters?: CreateEventStreamingRequestSinkSinkPrometheusParameters;
+  sinkRabbitMQMetaParameters?: SinkRabbitMQMetaParameters;
+  sinkRabbitMQMsgSyncParameters?: SinkRabbitMQMsgSyncParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify ApsaraMQ for RabbitMQ as the event target.
@@ -6069,6 +6084,8 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkOSSParameters: 'SinkOSSParameters',
       sinkOpenSourceRabbitMQParameters: 'SinkOpenSourceRabbitMQParameters',
       sinkPrometheusParameters: 'SinkPrometheusParameters',
+      sinkRabbitMQMetaParameters: 'SinkRabbitMQMetaParameters',
+      sinkRabbitMQMsgSyncParameters: 'SinkRabbitMQMsgSyncParameters',
       sinkRabbitMQParameters: 'SinkRabbitMQParameters',
       sinkRocketMQCheckpointParameters: 'SinkRocketMQCheckpointParameters',
       sinkRocketMQParameters: 'SinkRocketMQParameters',
@@ -6096,6 +6113,8 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
       sinkOSSParameters: SinkOSSParameters,
       sinkOpenSourceRabbitMQParameters: CreateEventStreamingRequestSinkSinkOpenSourceRabbitMQParameters,
       sinkPrometheusParameters: CreateEventStreamingRequestSinkSinkPrometheusParameters,
+      sinkRabbitMQMetaParameters: SinkRabbitMQMetaParameters,
+      sinkRabbitMQMsgSyncParameters: SinkRabbitMQMsgSyncParameters,
       sinkRabbitMQParameters: CreateEventStreamingRequestSinkSinkRabbitMQParameters,
       sinkRocketMQCheckpointParameters: CreateEventStreamingRequestSinkSinkRocketMQCheckpointParameters,
       sinkRocketMQParameters: CreateEventStreamingRequestSinkSinkRocketMQParameters,
@@ -6158,6 +6177,12 @@ export class CreateEventStreamingRequestSink extends $dara.Model {
     if(this.sinkPrometheusParameters && typeof (this.sinkPrometheusParameters as any).validate === 'function') {
       (this.sinkPrometheusParameters as any).validate();
     }
+    if(this.sinkRabbitMQMetaParameters && typeof (this.sinkRabbitMQMetaParameters as any).validate === 'function') {
+      (this.sinkRabbitMQMetaParameters as any).validate();
+    }
+    if(this.sinkRabbitMQMsgSyncParameters && typeof (this.sinkRabbitMQMsgSyncParameters as any).validate === 'function') {
+      (this.sinkRabbitMQMsgSyncParameters as any).validate();
+    }
     if(this.sinkRabbitMQParameters && typeof (this.sinkRabbitMQParameters as any).validate === 'function') {
       (this.sinkRabbitMQParameters as any).validate();
     }
@@ -6188,6 +6213,7 @@ export class CreateEventStreamingRequestSourceSourceApacheKafkaParameters extend
   saslUser?: string;
   securityGroupId?: string;
   securityProtocol?: string;
+  sslTruststoreCertificates?: string;
   topic?: string;
   vSwitchIds?: string;
   valueDataType?: string;
@@ -6203,6 +6229,7 @@ export class CreateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       saslUser: 'SaslUser',
       securityGroupId: 'SecurityGroupId',
       securityProtocol: 'SecurityProtocol',
+      sslTruststoreCertificates: 'SslTruststoreCertificates',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
       valueDataType: 'ValueDataType',
@@ -6221,6 +6248,7 @@ export class CreateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       saslUser: 'string',
       securityGroupId: 'string',
       securityProtocol: 'string',
+      sslTruststoreCertificates: 'string',
       topic: 'string',
       vSwitchIds: 'string',
       valueDataType: 'string',
@@ -7366,6 +7394,8 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
    * Parameters that are configured if you specify Managed Service for Prometheus as the event source.
    */
   sourcePrometheusParameters?: CreateEventStreamingRequestSourceSourcePrometheusParameters;
+  sourceRabbitMQMetaParameters?: SourceRabbitMQMetaParameters;
+  sourceRabbitMQMsgSyncParameters?: SourceRabbitMQMsgSyncParameters;
   /**
    * @remarks
    * The parameters that are configured if you specify ApsaraMQ for RabbitMQ as the event source.
@@ -7398,6 +7428,8 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceOpenSourceRabbitMQParameters: 'SourceOpenSourceRabbitMQParameters',
       sourcePostgreSQLParameters: 'SourcePostgreSQLParameters',
       sourcePrometheusParameters: 'SourcePrometheusParameters',
+      sourceRabbitMQMetaParameters: 'SourceRabbitMQMetaParameters',
+      sourceRabbitMQMsgSyncParameters: 'SourceRabbitMQMsgSyncParameters',
       sourceRabbitMQParameters: 'SourceRabbitMQParameters',
       sourceRocketMQCheckpointParameters: 'SourceRocketMQCheckpointParameters',
       sourceRocketMQParameters: 'SourceRocketMQParameters',
@@ -7421,6 +7453,8 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
       sourceOpenSourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceOpenSourceRabbitMQParameters,
       sourcePostgreSQLParameters: SourcePostgreSQLParameters,
       sourcePrometheusParameters: CreateEventStreamingRequestSourceSourcePrometheusParameters,
+      sourceRabbitMQMetaParameters: SourceRabbitMQMetaParameters,
+      sourceRabbitMQMsgSyncParameters: SourceRabbitMQMsgSyncParameters,
       sourceRabbitMQParameters: CreateEventStreamingRequestSourceSourceRabbitMQParameters,
       sourceRocketMQCheckpointParameters: CreateEventStreamingRequestSourceSourceRocketMQCheckpointParameters,
       sourceRocketMQParameters: CreateEventStreamingRequestSourceSourceRocketMQParameters,
@@ -7470,6 +7504,12 @@ export class CreateEventStreamingRequestSource extends $dara.Model {
     }
     if(this.sourcePrometheusParameters && typeof (this.sourcePrometheusParameters as any).validate === 'function') {
       (this.sourcePrometheusParameters as any).validate();
+    }
+    if(this.sourceRabbitMQMetaParameters && typeof (this.sourceRabbitMQMetaParameters as any).validate === 'function') {
+      (this.sourceRabbitMQMetaParameters as any).validate();
+    }
+    if(this.sourceRabbitMQMsgSyncParameters && typeof (this.sourceRabbitMQMsgSyncParameters as any).validate === 'function') {
+      (this.sourceRabbitMQMsgSyncParameters as any).validate();
     }
     if(this.sourceRabbitMQParameters && typeof (this.sourceRabbitMQParameters as any).validate === 'function') {
       (this.sourceRabbitMQParameters as any).validate();
