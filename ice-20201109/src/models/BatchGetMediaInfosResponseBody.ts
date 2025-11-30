@@ -365,6 +365,55 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   }
 }
 
+export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData extends $dara.Model {
+  data?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo extends $dara.Model {
+  dynamicMetaData?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicMetaData: 'DynamicMetaData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicMetaData: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData,
+    };
+  }
+
+  validate() {
+    if(this.dynamicMetaData && typeof (this.dynamicMetaData as any).validate === 'function') {
+      (this.dynamicMetaData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
@@ -376,6 +425,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
    * The basic information of the media asset.
    */
   mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
+  mediaDynamicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo;
   /**
    * @remarks
    * The ID of the media asset.
@@ -388,6 +438,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
     return {
       fileInfoList: 'FileInfoList',
       mediaBasicInfo: 'MediaBasicInfo',
+      mediaDynamicInfo: 'MediaDynamicInfo',
       mediaId: 'MediaId',
     };
   }
@@ -396,6 +447,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
     return {
       fileInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoList },
       mediaBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo,
+      mediaDynamicInfo: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo,
       mediaId: 'string',
     };
   }
@@ -407,6 +459,9 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
     if(this.mediaBasicInfo && typeof (this.mediaBasicInfo as any).validate === 'function') {
       (this.mediaBasicInfo as any).validate();
     }
+    if(this.mediaDynamicInfo && typeof (this.mediaDynamicInfo as any).validate === 'function') {
+      (this.mediaDynamicInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -416,6 +471,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
 }
 
 export class BatchGetMediaInfosResponseBody extends $dara.Model {
+  ignoredList?: string[];
   /**
    * @remarks
    * The queried media assets.
@@ -431,6 +487,7 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      ignoredList: 'IgnoredList',
       mediaInfos: 'MediaInfos',
       requestId: 'RequestId',
     };
@@ -438,12 +495,16 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ignoredList: { 'type': 'array', 'itemType': 'string' },
       mediaInfos: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfos },
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.ignoredList)) {
+      $dara.Model.validateArray(this.ignoredList);
+    }
     if(Array.isArray(this.mediaInfos)) {
       $dara.Model.validateArray(this.mediaInfos);
     }

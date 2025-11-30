@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MediaObject extends $dara.Model {
   media?: string;
   type?: string;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
       media: 'Media',
       type: 'Type',
-      url: 'Url',
     };
   }
 
@@ -18,7 +16,6 @@ export class MediaObject extends $dara.Model {
     return {
       media: 'string',
       type: 'string',
-      url: 'string',
     };
   }
 
