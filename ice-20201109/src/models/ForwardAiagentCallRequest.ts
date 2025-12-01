@@ -8,6 +8,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
    * 13**********
    */
   calledNumber?: string;
+  callerNumber?: string;
   errorPrompt?: string;
   /**
    * @example
@@ -18,6 +19,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       calledNumber: 'CalledNumber',
+      callerNumber: 'CallerNumber',
       errorPrompt: 'ErrorPrompt',
       instanceId: 'InstanceId',
       transferPrompt: 'TransferPrompt',
@@ -27,6 +29,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       calledNumber: 'string',
+      callerNumber: 'string',
       errorPrompt: 'string',
       instanceId: 'string',
       transferPrompt: 'string',

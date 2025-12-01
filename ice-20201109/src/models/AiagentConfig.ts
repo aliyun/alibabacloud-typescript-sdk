@@ -71,6 +71,151 @@ export class AIAgentConfigAsrConfig extends $dara.Model {
   }
 }
 
+export class AIAgentConfigAutoSpeechConfigLlmPendingMessages extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigAutoSpeechConfigLlmPending extends $dara.Model {
+  messages?: AIAgentConfigAutoSpeechConfigLlmPendingMessages[];
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'Messages',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': AIAgentConfigAutoSpeechConfigLlmPendingMessages },
+      waitTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigAutoSpeechConfigUserIdleMessages extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigAutoSpeechConfigUserIdle extends $dara.Model {
+  maxRepeats?: number;
+  messages?: AIAgentConfigAutoSpeechConfigUserIdleMessages[];
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRepeats: 'MaxRepeats',
+      messages: 'Messages',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRepeats: 'number',
+      messages: { 'type': 'array', 'itemType': AIAgentConfigAutoSpeechConfigUserIdleMessages },
+      waitTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentConfigAutoSpeechConfig extends $dara.Model {
+  llmPending?: AIAgentConfigAutoSpeechConfigLlmPending;
+  userIdle?: AIAgentConfigAutoSpeechConfigUserIdle;
+  static names(): { [key: string]: string } {
+    return {
+      llmPending: 'LlmPending',
+      userIdle: 'UserIdle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      llmPending: AIAgentConfigAutoSpeechConfigLlmPending,
+      userIdle: AIAgentConfigAutoSpeechConfigUserIdle,
+    };
+  }
+
+  validate() {
+    if(this.llmPending && typeof (this.llmPending as any).validate === 'function') {
+      (this.llmPending as any).validate();
+    }
+    if(this.userIdle && typeof (this.userIdle as any).validate === 'function') {
+      (this.userIdle as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentConfigAvatarConfig extends $dara.Model {
   avatarId?: string;
   static names(): { [key: string]: string } {
@@ -178,6 +323,7 @@ export class AIAgentConfigLlmConfigLlmHistory extends $dara.Model {
 export class AIAgentConfigLlmConfig extends $dara.Model {
   bailianAppParams?: string;
   functionMap?: AIAgentConfigLlmConfigFunctionMap[];
+  historySyncWithTTS?: boolean;
   llmCompleteReply?: boolean;
   llmHistory?: AIAgentConfigLlmConfigLlmHistory[];
   llmHistoryLimit?: number;
@@ -189,6 +335,7 @@ export class AIAgentConfigLlmConfig extends $dara.Model {
     return {
       bailianAppParams: 'BailianAppParams',
       functionMap: 'FunctionMap',
+      historySyncWithTTS: 'HistorySyncWithTTS',
       llmCompleteReply: 'LlmCompleteReply',
       llmHistory: 'LlmHistory',
       llmHistoryLimit: 'LlmHistoryLimit',
@@ -203,6 +350,7 @@ export class AIAgentConfigLlmConfig extends $dara.Model {
     return {
       bailianAppParams: 'string',
       functionMap: { 'type': 'array', 'itemType': AIAgentConfigLlmConfigFunctionMap },
+      historySyncWithTTS: 'boolean',
       llmCompleteReply: 'boolean',
       llmHistory: { 'type': 'array', 'itemType': AIAgentConfigLlmConfigLlmHistory },
       llmHistoryLimit: 'number',
@@ -565,6 +713,7 @@ export class AIAgentConfigVoiceprintConfig extends $dara.Model {
 export class AIAgentConfig extends $dara.Model {
   ambientSoundConfig?: AIAgentConfigAmbientSoundConfig;
   asrConfig?: AIAgentConfigAsrConfig;
+  autoSpeechConfig?: AIAgentConfigAutoSpeechConfig;
   avatarConfig?: AIAgentConfigAvatarConfig;
   avatarUrl?: string;
   avatarUrlType?: string;
@@ -589,6 +738,7 @@ export class AIAgentConfig extends $dara.Model {
     return {
       ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
+      autoSpeechConfig: 'AutoSpeechConfig',
       avatarConfig: 'AvatarConfig',
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
@@ -616,6 +766,7 @@ export class AIAgentConfig extends $dara.Model {
     return {
       ambientSoundConfig: AIAgentConfigAmbientSoundConfig,
       asrConfig: AIAgentConfigAsrConfig,
+      autoSpeechConfig: AIAgentConfigAutoSpeechConfig,
       avatarConfig: AIAgentConfigAvatarConfig,
       avatarUrl: 'string',
       avatarUrlType: 'string',
@@ -645,6 +796,9 @@ export class AIAgentConfig extends $dara.Model {
     }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
+    }
+    if(this.autoSpeechConfig && typeof (this.autoSpeechConfig as any).validate === 'function') {
+      (this.autoSpeechConfig as any).validate();
     }
     if(this.avatarConfig && typeof (this.avatarConfig as any).validate === 'function') {
       (this.avatarConfig as any).validate();

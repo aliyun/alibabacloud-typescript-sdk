@@ -69,6 +69,151 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   }
 }
 
+export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPending extends $dara.Model {
+  messages?: AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages[];
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'Messages',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages },
+      waitTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages extends $dara.Model {
+  probability?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      probability: 'Probability',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      probability: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Model {
+  maxRepeats?: number;
+  messages?: AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages[];
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxRepeats: 'MaxRepeats',
+      messages: 'Messages',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxRepeats: 'number',
+      messages: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages },
+      waitTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messages)) {
+      $dara.Model.validateArray(this.messages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentOutboundCallConfigAutoSpeechConfig extends $dara.Model {
+  llmPending?: AIAgentOutboundCallConfigAutoSpeechConfigLlmPending;
+  userIdle?: AIAgentOutboundCallConfigAutoSpeechConfigUserIdle;
+  static names(): { [key: string]: string } {
+    return {
+      llmPending: 'LlmPending',
+      userIdle: 'UserIdle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      llmPending: AIAgentOutboundCallConfigAutoSpeechConfigLlmPending,
+      userIdle: AIAgentOutboundCallConfigAutoSpeechConfigUserIdle,
+    };
+  }
+
+  validate() {
+    if(this.llmPending && typeof (this.llmPending as any).validate === 'function') {
+      (this.llmPending as any).validate();
+    }
+    if(this.userIdle && typeof (this.userIdle as any).validate === 'function') {
+      (this.userIdle as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   interruptWords?: string[];
@@ -153,6 +298,7 @@ export class AIAgentOutboundCallConfigLlmConfigLlmHistory extends $dara.Model {
 export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   bailianAppParams?: string;
   functionMap?: AIAgentOutboundCallConfigLlmConfigFunctionMap[];
+  historySyncWithTTS?: boolean;
   llmCompleteReply?: boolean;
   llmHistory?: AIAgentOutboundCallConfigLlmConfigLlmHistory[];
   llmHistoryLimit?: number;
@@ -164,6 +310,7 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
     return {
       bailianAppParams: 'BailianAppParams',
       functionMap: 'FunctionMap',
+      historySyncWithTTS: 'HistorySyncWithTTS',
       llmCompleteReply: 'LlmCompleteReply',
       llmHistory: 'LlmHistory',
       llmHistoryLimit: 'LlmHistoryLimit',
@@ -178,6 +325,7 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
     return {
       bailianAppParams: 'string',
       functionMap: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigLlmConfigFunctionMap },
+      historySyncWithTTS: 'boolean',
       llmCompleteReply: 'boolean',
       llmHistory: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigLlmConfigLlmHistory },
       llmHistoryLimit: 'number',
@@ -314,24 +462,28 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
 export class AIAgentOutboundCallConfig extends $dara.Model {
   ambientSoundConfig?: AIAgentOutboundCallConfigAmbientSoundConfig;
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
+  autoSpeechConfig?: AIAgentOutboundCallConfigAutoSpeechConfig;
   enableIntelligentSegment?: boolean;
   experimentalConfig?: string;
   greeting?: string;
   greetingDelay?: number;
   interruptConfig?: AIAgentOutboundCallConfigInterruptConfig;
   llmConfig?: AIAgentOutboundCallConfigLlmConfig;
+  maxIdleTime?: number;
   ttsConfig?: AIAgentOutboundCallConfigTtsConfig;
   turnDetectionConfig?: AIAgentOutboundCallConfigTurnDetectionConfig;
   static names(): { [key: string]: string } {
     return {
       ambientSoundConfig: 'AmbientSoundConfig',
       asrConfig: 'AsrConfig',
+      autoSpeechConfig: 'AutoSpeechConfig',
       enableIntelligentSegment: 'EnableIntelligentSegment',
       experimentalConfig: 'ExperimentalConfig',
       greeting: 'Greeting',
       greetingDelay: 'GreetingDelay',
       interruptConfig: 'InterruptConfig',
       llmConfig: 'LlmConfig',
+      maxIdleTime: 'MaxIdleTime',
       ttsConfig: 'TtsConfig',
       turnDetectionConfig: 'TurnDetectionConfig',
     };
@@ -341,12 +493,14 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
     return {
       ambientSoundConfig: AIAgentOutboundCallConfigAmbientSoundConfig,
       asrConfig: AIAgentOutboundCallConfigAsrConfig,
+      autoSpeechConfig: AIAgentOutboundCallConfigAutoSpeechConfig,
       enableIntelligentSegment: 'boolean',
       experimentalConfig: 'string',
       greeting: 'string',
       greetingDelay: 'number',
       interruptConfig: AIAgentOutboundCallConfigInterruptConfig,
       llmConfig: AIAgentOutboundCallConfigLlmConfig,
+      maxIdleTime: 'number',
       ttsConfig: AIAgentOutboundCallConfigTtsConfig,
       turnDetectionConfig: AIAgentOutboundCallConfigTurnDetectionConfig,
     };
@@ -358,6 +512,9 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
     }
     if(this.asrConfig && typeof (this.asrConfig as any).validate === 'function') {
       (this.asrConfig as any).validate();
+    }
+    if(this.autoSpeechConfig && typeof (this.autoSpeechConfig as any).validate === 'function') {
+      (this.autoSpeechConfig as any).validate();
     }
     if(this.interruptConfig && typeof (this.interruptConfig as any).validate === 'function') {
       (this.interruptConfig as any).validate();

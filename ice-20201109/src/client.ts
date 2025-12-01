@@ -6215,6 +6215,10 @@ export default class Client extends OpenApi {
       query["CalledNumber"] = request.calledNumber;
     }
 
+    if (!$dara.isNull(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
     if (!$dara.isNull(request.errorPrompt)) {
       query["ErrorPrompt"] = request.errorPrompt;
     }
