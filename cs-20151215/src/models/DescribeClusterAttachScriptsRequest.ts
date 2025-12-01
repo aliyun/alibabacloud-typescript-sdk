@@ -64,6 +64,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
    * np1c9229d9be2d432c93f77a88fca0****
    */
   nodepoolId?: string;
+  oneTimeToken?: boolean;
   /**
    * @remarks
    * The node configurations for the node that you want to add.
@@ -86,6 +87,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
       formatDisk: 'format_disk',
       keepInstanceName: 'keep_instance_name',
       nodepoolId: 'nodepool_id',
+      oneTimeToken: 'one_time_token',
       options: 'options',
       rdsInstances: 'rds_instances',
     };
@@ -98,6 +100,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
       formatDisk: 'boolean',
       keepInstanceName: 'boolean',
       nodepoolId: 'string',
+      oneTimeToken: 'boolean',
       options: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
     };

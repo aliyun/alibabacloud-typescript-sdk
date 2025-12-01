@@ -2456,6 +2456,10 @@ export default class Client extends OpenApi {
       body["nodepool_id"] = request.nodepoolId;
     }
 
+    if (!$dara.isNull(request.oneTimeToken)) {
+      body["one_time_token"] = request.oneTimeToken;
+    }
+
     if (!$dara.isNull(request.options)) {
       body["options"] = request.options;
     }
