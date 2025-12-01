@@ -3267,6 +3267,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * OSS图片脱敏
+   * 
+   * @param request - MaskOssImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MaskOssImageResponse
+   */
+  async maskOssImageWithOptions(request: $_model.MaskOssImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MaskOssImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucketName)) {
+      query["BucketName"] = request.bucketName;
+    }
+
+    if (!$dara.isNull(request.isAlwaysUpload)) {
+      query["IsAlwaysUpload"] = request.isAlwaysUpload;
+    }
+
+    if (!$dara.isNull(request.isSupportRestore)) {
+      query["IsSupportRestore"] = request.isSupportRestore;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maskRuleIdList)) {
+      query["MaskRuleIdList"] = request.maskRuleIdList;
+    }
+
+    if (!$dara.isNull(request.objectKey)) {
+      query["ObjectKey"] = request.objectKey;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MaskOssImage",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MaskOssImageResponse>(await this.callApi(params, req, runtime), new $_model.MaskOssImageResponse({}));
+  }
+
+  /**
+   * OSS图片脱敏
+   * 
+   * @param request - MaskOssImageRequest
+   * @returns MaskOssImageResponse
+   */
+  async maskOssImage(request: $_model.MaskOssImageRequest): Promise<$_model.MaskOssImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.maskOssImageWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
    * 
    * @param request - ModifyDataLimitRequest
@@ -3766,6 +3832,64 @@ export default class Client extends OpenApi {
   async modifyRuleStatus(request: $_model.ModifyRuleStatusRequest): Promise<$_model.ModifyRuleStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyRuleStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 图片复原
+   * 
+   * @param request - RestoreOssImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreOssImageResponse
+   */
+  async restoreOssImageWithOptions(request: $_model.RestoreOssImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestoreOssImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.objectKey)) {
+      query["ObjectKey"] = request.objectKey;
+    }
+
+    if (!$dara.isNull(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!$dara.isNull(request.targetObjectKey)) {
+      query["TargetObjectKey"] = request.targetObjectKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestoreOssImage",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestoreOssImageResponse>(await this.callApi(params, req, runtime), new $_model.RestoreOssImageResponse({}));
+  }
+
+  /**
+   * 图片复原
+   * 
+   * @param request - RestoreOssImageRequest
+   * @returns RestoreOssImageResponse
+   */
+  async restoreOssImage(request: $_model.RestoreOssImageRequest): Promise<$_model.RestoreOssImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restoreOssImageWithOptions(request, runtime);
   }
 
   /**
