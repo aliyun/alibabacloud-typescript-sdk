@@ -614,6 +614,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Policy Comparison.
+   * 
+   * @param request - CompareRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareRuleResponse
+   */
+  async compareRuleWithOptions(request: $_model.CompareRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompareRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.previousRuleVersionId)) {
+      query["previousRuleVersionId"] = request.previousRuleVersionId;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["regId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.ruleVersionId)) {
+      query["ruleVersionId"] = request.ruleVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CompareRule",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CompareRuleResponse>(await this.callApi(params, req, runtime), new $_model.CompareRuleResponse({}));
+  }
+
+  /**
+   * Policy Comparison.
+   * 
+   * @param request - CompareRuleRequest
+   * @returns CompareRuleResponse
+   */
+  async compareRule(request: $_model.CompareRuleRequest): Promise<$_model.CompareRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.compareRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Add Query Conditions
    * 
    * @param request - CreateAnalysisConditionFavoriteRequest
@@ -6231,6 +6285,68 @@ export default class Client extends OpenApi {
   async describeExpressionVariablePage(request: $_model.DescribeExpressionVariablePageRequest): Promise<$_model.DescribeExpressionVariablePageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeExpressionVariablePageWithOptions(request, runtime);
+  }
+
+  /**
+   * Custom Variable Version Details.
+   * 
+   * @param request - DescribeExpressionVariableVersionDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeExpressionVariableVersionDetailResponse
+   */
+  async describeExpressionVariableVersionDetailWithOptions(request: $_model.DescribeExpressionVariableVersionDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressionVariableVersionDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.objectCode)) {
+      query["objectCode"] = request.objectCode;
+    }
+
+    if (!$dara.isNull(request.objectId)) {
+      query["objectId"] = request.objectId;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["regId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeExpressionVariableVersionDetail",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeExpressionVariableVersionDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeExpressionVariableVersionDetailResponse({}));
+  }
+
+  /**
+   * Custom Variable Version Details.
+   * 
+   * @param request - DescribeExpressionVariableVersionDetailRequest
+   * @returns DescribeExpressionVariableVersionDetailResponse
+   */
+  async describeExpressionVariableVersionDetail(request: $_model.DescribeExpressionVariableVersionDetailRequest): Promise<$_model.DescribeExpressionVariableVersionDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeExpressionVariableVersionDetailWithOptions(request, runtime);
   }
 
   /**
@@ -12881,6 +12997,68 @@ export default class Client extends OpenApi {
   async describeVariableSceneList(request: $_model.DescribeVariableSceneListRequest): Promise<$_model.DescribeVariableSceneListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVariableSceneListWithOptions(request, runtime);
+  }
+
+  /**
+   * Cumulative Variable Version Details.
+   * 
+   * @param request - DescribeVariableVersionDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVariableVersionDetailResponse
+   */
+  async describeVariableVersionDetailWithOptions(request: $_model.DescribeVariableVersionDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVariableVersionDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.objectCode)) {
+      query["objectCode"] = request.objectCode;
+    }
+
+    if (!$dara.isNull(request.objectId)) {
+      query["objectId"] = request.objectId;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["regId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVariableVersionDetail",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVariableVersionDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVariableVersionDetailResponse({}));
+  }
+
+  /**
+   * Cumulative Variable Version Details.
+   * 
+   * @param request - DescribeVariableVersionDetailRequest
+   * @returns DescribeVariableVersionDetailResponse
+   */
+  async describeVariableVersionDetail(request: $_model.DescribeVariableVersionDetailRequest): Promise<$_model.DescribeVariableVersionDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVariableVersionDetailWithOptions(request, runtime);
   }
 
   /**

@@ -7,6 +7,9 @@ export { CompareCopyRuleVariableResponseBodyResultObjectNameListVariableList } f
 export { CompareCopyRuleVariableResponseBodyResultObjectQueryExpressionVariableList } from './CompareCopyRuleVariableResponseBody';
 export { CompareCopyRuleVariableResponseBodyResultObjectSystemVariableList } from './CompareCopyRuleVariableResponseBody';
 export { CompareCopyRuleVariableResponseBodyResultObject } from './CompareCopyRuleVariableResponseBody';
+export { CompareRuleResponseBodyResultObjectNewRule } from './CompareRuleResponseBody';
+export { CompareRuleResponseBodyResultObjectOldRule } from './CompareRuleResponseBody';
+export { CompareRuleResponseBodyResultObject } from './CompareRuleResponseBody';
 export { CreateAnalysisExportTaskResponseBodyResultObject } from './CreateAnalysisExportTaskResponseBody';
 export { CreateSampleResponseBodyResultObject } from './CreateSampleResponseBody';
 export { DeepCopyRuleResponseBodyResultObject } from './DeepCopyRuleResponseBody';
@@ -102,6 +105,7 @@ export { DescribeEventVariableTemplateListResponseBodyResultObjectVariables } fr
 export { DescribeEventVariableTemplateListResponseBodyResultObject } from './DescribeEventVariableTemplateListResponseBody';
 export { DescribeExpressionVariableFunctionListResponseBodyResultObject } from './DescribeExpressionVariableFunctionListResponseBody';
 export { DescribeExpressionVariablePageResponseBodyResultObject } from './DescribeExpressionVariablePageResponseBody';
+export { DescribeExpressionVariableVersionDetailResponseBodyResultObject } from './DescribeExpressionVariableVersionDetailResponseBody';
 export { DescribeFieldListResponseBodyResultObject } from './DescribeFieldListResponseBody';
 export { DescribeFieldPageResponseBodyResultObject } from './DescribeFieldPageResponseBody';
 export { DescribeGroupConditionListResponseBodyResultObject } from './DescribeGroupConditionListResponseBody';
@@ -241,6 +245,7 @@ export { DescribeVariableDetailResponseBodyResultObjectBaseInfo } from './Descri
 export { DescribeVariableDetailResponseBodyResultObject } from './DescribeVariableDetailResponseBody';
 export { DescribeVariableListResponseBodyResultObject } from './DescribeVariableListResponseBody';
 export { DescribeVariableSceneListResponseBodyResultObject } from './DescribeVariableSceneListResponseBody';
+export { DescribeVariableVersionDetailResponseBodyResultObject } from './DescribeVariableVersionDetailResponseBody';
 export { DescribeVersionPageListResponseBodyResultObject } from './DescribeVersionPageListResponseBody';
 export { DownloadSmapleBatchResponseBodyResultObject } from './DownloadSmapleBatchResponseBody';
 export { ImportFieldResponseBodyResultObject } from './ImportFieldResponseBody';
@@ -277,6 +282,9 @@ export { CheckUsageVariableResponse } from './CheckUsageVariableResponse';
 export { CompareCopyRuleVariableRequest } from './CompareCopyRuleVariableRequest';
 export { CompareCopyRuleVariableResponseBody } from './CompareCopyRuleVariableResponseBody';
 export { CompareCopyRuleVariableResponse } from './CompareCopyRuleVariableResponse';
+export { CompareRuleRequest } from './CompareRuleRequest';
+export { CompareRuleResponseBody } from './CompareRuleResponseBody';
+export { CompareRuleResponse } from './CompareRuleResponse';
 export { CreateAnalysisConditionFavoriteRequest } from './CreateAnalysisConditionFavoriteRequest';
 export { CreateAnalysisConditionFavoriteResponseBody } from './CreateAnalysisConditionFavoriteResponseBody';
 export { CreateAnalysisConditionFavoriteResponse } from './CreateAnalysisConditionFavoriteResponse';
@@ -559,6 +567,9 @@ export { DescribeExpressionVariableFunctionListResponse } from './DescribeExpres
 export { DescribeExpressionVariablePageRequest } from './DescribeExpressionVariablePageRequest';
 export { DescribeExpressionVariablePageResponseBody } from './DescribeExpressionVariablePageResponseBody';
 export { DescribeExpressionVariablePageResponse } from './DescribeExpressionVariablePageResponse';
+export { DescribeExpressionVariableVersionDetailRequest } from './DescribeExpressionVariableVersionDetailRequest';
+export { DescribeExpressionVariableVersionDetailResponseBody } from './DescribeExpressionVariableVersionDetailResponseBody';
+export { DescribeExpressionVariableVersionDetailResponse } from './DescribeExpressionVariableVersionDetailResponse';
 export { DescribeFieldByIdRequest } from './DescribeFieldByIdRequest';
 export { DescribeFieldByIdResponseBody } from './DescribeFieldByIdResponseBody';
 export { DescribeFieldByIdResponse } from './DescribeFieldByIdResponse';
@@ -913,6 +924,9 @@ export { DescribeVariableMarketListResponse } from './DescribeVariableMarketList
 export { DescribeVariableSceneListRequest } from './DescribeVariableSceneListRequest';
 export { DescribeVariableSceneListResponseBody } from './DescribeVariableSceneListResponseBody';
 export { DescribeVariableSceneListResponse } from './DescribeVariableSceneListResponse';
+export { DescribeVariableVersionDetailRequest } from './DescribeVariableVersionDetailRequest';
+export { DescribeVariableVersionDetailResponseBody } from './DescribeVariableVersionDetailResponseBody';
+export { DescribeVariableVersionDetailResponse } from './DescribeVariableVersionDetailResponse';
 export { DescribeVersionPageListRequest } from './DescribeVersionPageListRequest';
 export { DescribeVersionPageListResponseBody } from './DescribeVersionPageListResponseBody';
 export { DescribeVersionPageListResponse } from './DescribeVersionPageListResponse';

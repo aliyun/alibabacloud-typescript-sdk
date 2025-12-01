@@ -3,8 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSafDeOrderResponseBodyResultObjectRegions extends $dara.Model {
+  /**
+   * @remarks
+   * Expiration date (timestamp).
+   * 
+   * @example
+   * 2117750400000
+   */
   expirationDate?: number;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * Specification model:
+   * 
+   * 1: Basic Edition 
+   * 2: Advanced Edition 
+   * 3: Premium Edition 
+   * 4: Flagship Edition
+   * 
+   * @example
+   * 1
+   */
   specification?: number;
   static names(): { [key: string]: string } {
     return {
@@ -52,6 +78,10 @@ export class DescribeSafDeOrderResponseBodyResultObject extends $dara.Model {
    * 2
    */
   openUserType?: number;
+  /**
+   * @remarks
+   * Activated region permission addresses.
+   */
   regions?: DescribeSafDeOrderResponseBodyResultObjectRegions[];
   static names(): { [key: string]: string } {
     return {
