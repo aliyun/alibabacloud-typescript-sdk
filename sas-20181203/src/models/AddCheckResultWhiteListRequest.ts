@@ -10,6 +10,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
    * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
    */
   checkIds?: number[];
+  instanceIds?: string[];
   /**
    * @remarks
    * The description. The value of this parameter can be up to 65,535 bytes in length.
@@ -31,6 +32,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       checkIds: 'CheckIds',
+      instanceIds: 'InstanceIds',
       remark: 'Remark',
       ruleType: 'RuleType',
     };
@@ -39,6 +41,7 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       remark: 'string',
       ruleType: 'string',
     };
@@ -47,6 +50,9 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.checkIds)) {
       $dara.Model.validateArray(this.checkIds);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     super.validate();
   }

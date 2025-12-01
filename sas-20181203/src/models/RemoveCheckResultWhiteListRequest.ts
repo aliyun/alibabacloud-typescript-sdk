@@ -16,6 +16,7 @@ export class RemoveCheckResultWhiteListRequest extends $dara.Model {
    * The IDs of the check items.
    */
   checkIds?: number[];
+  instanceIds?: string[];
   /**
    * @remarks
    * The ID of the whitelist rule.
@@ -38,6 +39,7 @@ export class RemoveCheckResultWhiteListRequest extends $dara.Model {
     return {
       checkGroupId: 'CheckGroupId',
       checkIds: 'CheckIds',
+      instanceIds: 'InstanceIds',
       ruleId: 'RuleId',
       type: 'Type',
     };
@@ -47,6 +49,7 @@ export class RemoveCheckResultWhiteListRequest extends $dara.Model {
     return {
       checkGroupId: 'string',
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       ruleId: 'number',
       type: 'string',
     };
@@ -55,6 +58,9 @@ export class RemoveCheckResultWhiteListRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.checkIds)) {
       $dara.Model.validateArray(this.checkIds);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     super.validate();
   }

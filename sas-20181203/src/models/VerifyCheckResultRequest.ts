@@ -8,6 +8,7 @@ export class VerifyCheckResultRequest extends $dara.Model {
    * The IDs of the check items.
    */
   checkIds?: number[];
+  instanceIds?: string[];
   /**
    * @remarks
    * The source of task.
@@ -19,6 +20,7 @@ export class VerifyCheckResultRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       checkIds: 'CheckIds',
+      instanceIds: 'InstanceIds',
       taskSource: 'TaskSource',
     };
   }
@@ -26,6 +28,7 @@ export class VerifyCheckResultRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       checkIds: { 'type': 'array', 'itemType': 'number' },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       taskSource: 'string',
     };
   }
@@ -33,6 +36,9 @@ export class VerifyCheckResultRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.checkIds)) {
       $dara.Model.validateArray(this.checkIds);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     super.validate();
   }

@@ -13,6 +13,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
    * 16
    */
   checkId?: number;
+  checkIds?: number[];
   /**
    * @remarks
    * The instance IDs of the assets on which risks are detected based on the check item.
@@ -29,6 +30,7 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       checkId: 'CheckId',
+      checkIds: 'CheckIds',
       instanceIds: 'InstanceIds',
       taskSource: 'TaskSource',
     };
@@ -37,12 +39,16 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       checkId: 'number',
+      checkIds: { 'type': 'array', 'itemType': 'number' },
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       taskSource: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.checkIds)) {
+      $dara.Model.validateArray(this.checkIds);
+    }
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
     }

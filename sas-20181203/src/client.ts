@@ -258,6 +258,10 @@ export default class Client extends OpenApi {
       query["CheckIds"] = request.checkIds;
     }
 
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
@@ -45318,6 +45322,10 @@ export default class Client extends OpenApi {
       query["CheckIds"] = request.checkIds;
     }
 
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
     if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
@@ -49539,6 +49547,10 @@ export default class Client extends OpenApi {
       query["CheckId"] = request.checkId;
     }
 
+    if (!$dara.isNull(request.checkIds)) {
+      query["CheckIds"] = request.checkIds;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
@@ -49587,6 +49599,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.checkIds)) {
       query["CheckIds"] = request.checkIds;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
     }
 
     if (!$dara.isNull(request.taskSource)) {

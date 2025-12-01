@@ -458,6 +458,13 @@ export class DescribeVulListResponseBodyVulRecords extends $dara.Model {
    * true
    */
   bind?: boolean;
+  /**
+   * @remarks
+   * The container ID.
+   * 
+   * @example
+   * 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
+   */
   containerId?: string;
   /**
    * @remarks
