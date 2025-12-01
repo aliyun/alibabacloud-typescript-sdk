@@ -27,6 +27,18 @@ export class ReleaseDedicatedHostRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The expiration time of the subscription dedicated host.
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   terminateSubscription?: boolean;
   static names(): { [key: string]: string } {
     return {

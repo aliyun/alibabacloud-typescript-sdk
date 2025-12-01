@@ -45,7 +45,7 @@ export class DescribeAutoProvisioningGroupHistoryRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values: 1 to 100.
    * 
-   * Default value: 10.
+   * and the default value is 10.
    * 
    * @example
    * 5

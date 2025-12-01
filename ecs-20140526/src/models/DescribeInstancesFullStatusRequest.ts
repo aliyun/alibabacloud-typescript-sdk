@@ -113,8 +113,9 @@ export class DescribeInstancesFullStatusRequest extends $dara.Model {
    * @remarks
    * The health status of the instance. Valid values:
    * 
-   * *   OK
    * *   Impaired
+   * *   Warning: The instance performance may be degraded due to maintenance or technical issues.
+   * *   Maintaining
    * *   Initializing
    * *   InsufficientData
    * *   NotApplicable

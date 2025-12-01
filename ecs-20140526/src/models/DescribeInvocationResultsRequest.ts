@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationResultsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the command task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
-   * 
-   * If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
-   * 
-   * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The ID of the instance.
    * 
    * @example
    * TestKey
@@ -17,9 +13,7 @@ export class DescribeInvocationResultsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the command task. Valid values of N: 1 to 20. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The ID of the command task. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query the IDs of all command tasks.
    * 
    * @example
    * TestValue
@@ -51,7 +45,7 @@ export class DescribeInvocationResultsRequestTag extends $dara.Model {
 export class DescribeInvocationResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command.
+   * $.parameters[11].schema.example
    * 
    * @example
    * c-hz0jdfwcsr****
@@ -59,12 +53,38 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
-   * 
-   * *   PlainText: returns the original command content and command output.
-   * *   Base64: returns the Base64-encoded command content and command output.
-   * 
-   * Default value: Base64.
+   * <DescribeInvocationResultsResponse>
+   *     <RequestId>473469C7-AA6F-4DC5-B3DB-A3DC0DE*****</RequestId>
+   *     <Invocation>
+   *         <InvocationResults>
+   *             <InvocationResult>
+   *                 <Dropped>0</Dropped>
+   *                 <InvocationStatus>Success</InvocationStatus>
+   *                 <InstanceId>i-bp1i7gg30r52z2em****</InstanceId>
+   *                 <ExitCode>0</ExitCode>
+   *                 <ErrorInfo>the specified instance does not exists</ErrorInfo>
+   *                 <StartTime>2019-12-20T06:15:55Z</StartTime>
+   *                 <Repeats>0</Repeats>
+   *                 <InvokeRecordStatus>Running</InvokeRecordStatus>
+   *                 <FinishedTime>2019-12-20T06:15:56Z</FinishedTime>
+   *                 <Output>MTU6MzA6MDEK</Output>
+   *                 <CommandId>c-hz0jdfwcsr****</CommandId>
+   *                 <ErrorCode>InstanceNotExists</ErrorCode>
+   *                 <InvokeId>t-hz0jdfwd9f****</InvokeId>
+   *                 <StopTime>2020-01-19T09:15:47Z</StopTime>
+   *                 <ContainerId>ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****</ContainerId>
+   *                 <ContainerName>test-container</ContainerName>
+   *                 <Tags>
+   *                     <TagKey>owner</TagKey>
+   *                     <TagValue>zhangsan</TagValue>
+   *                 </Tags>
+   *             </InvocationResult>
+   *         </InvocationResults>
+   *         <TotalCount>1</TotalCount>
+   *         <PageSize>1</PageSize>
+   *         <PageNumber>1</PageNumber>
+   *     </Invocation>
+   * </DescribeInvocationResultsResponse>
    * 
    * @example
    * PlainText
@@ -72,12 +92,40 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * Specifies whether to return the results of historical scheduled executions. Valid values:
-   * 
-   * *   true: returns the results of historical scheduled executions. If you set this parameter to true, you must set InvokeId to the ID of a task that is run on a schedule (RepeatMode set to Period) or on each system startup (RepeatMode set to EveryReboot).
-   * *   false: does not return the results of historical scheduled executions.
-   * 
-   * Default value: false.
+   * {
+   *   "RequestId" : "473469C7-AA6F-4DC5-B3DB-A3DC0DE*****",
+   *   "Invocation" : {
+   *     "InvocationResults" : {
+   *       "InvocationResult" : [ {
+   *         "Dropped" : 0,
+   *         "InvocationStatus" : "Success",
+   *         "InstanceId" : "i-bp1i7gg30r52z2em****",
+   *         "ExitCode" : 0,
+   *         "ErrorInfo" : "the specified instance does not exists",
+   *         "StartTime" : "2019-12-20T06:15:55Z",
+   *         "Repeats" : 0,
+   *         "InvokeRecordStatus" : "Running",
+   *         "FinishedTime" : "2019-12-20T06:15:56Z",
+   *         "Output" : "MTU6MzA6MDEK",
+   *         "CommandId" : "c-hz0jdfwcsr****",
+   *         "ErrorCode" : "InstanceNotExists",
+   *         "InvokeId" : "t-hz0jdfwd9f****",
+   *         "StopTime" : "2020-01-19T09:15:47Z",
+   *         "ContainerId":"ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****",
+   *         "ContainerName":"test-container",      
+   *         "Tags": [
+   *                     {
+   *                         "TagKey": "owner",
+   *                         "TagValue": "zhangsan"
+   *                     }
+   *                 ]
+   *       } ]
+   *     },
+   *     "TotalCount" : 1,
+   *     "PageSize" : 1,
+   *     "PageNumber" : 1
+   *   }
+   * }
    * 
    * @example
    * false
@@ -85,7 +133,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   includeHistory?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * $.parameters[11].schema.description
    * 
    * @example
    * i-bp1i7gg30r52z2em****
@@ -93,7 +141,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the command task. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query the IDs of all command tasks.
+   * $.parameters[11].schema.items.enumValueTitles
    * 
    * @example
    * t-hz0jdfwd9f****
@@ -101,36 +149,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The execution status of the command task. Valid values:
-   * 
-   * *   Running:
-   * 
-   *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
-   *     *   One-time task: If the command is being run on instances, the execution state is Running.
-   * 
-   * *   Finished:
-   * 
-   *     *   Scheduled task: The execution state can never be Finished.
-   *     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
-   * 
-   * *   Success:
-   * 
-   *     *   One-time task: The execution is complete, and the exit code is 0.
-   *     *   Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
-   * 
-   * *   Failed:
-   * 
-   *     *   Scheduled task: The execution state can never be Failed.
-   *     *   One-time task: The execution fails on all instances.
-   * 
-   * *   PartialFailed:
-   * 
-   *     *   Scheduled task: The execution state can never be PartialFailed.
-   *     *   One-time task: The execution fails on some instances.
-   * 
-   * *   Stopped: The task is stopped.
-   * 
-   * *   Stopping: The task is being stopped.
+   * $.parameters[11].schema.enumValueTitles
    * 
    * @example
    * Running
@@ -138,11 +157,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   invokeRecordStatus?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
-   * 
-   * Valid values: 1 to 50.
-   * 
-   * Default value: 10.
+   * FEATUREecsXZ3H4M
    * 
    * @example
    * 10
@@ -150,7 +165,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * dubbo
    * 
    * @example
    * AAAAAdDWBF2
@@ -160,7 +175,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * acs:ecs:{#regionId}:{#accountId}:command/*
    * 
    * @example
    * 1
@@ -168,7 +183,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+   * acs:ecs:{#regionId}:{#accountId}:instance/*
    * 
    * @example
    * 1
@@ -176,7 +191,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * $.parameters[11].schema.items.description
    * 
    * This parameter is required.
    * 
@@ -186,7 +201,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
+   * $.parameters[11].schema.items.example
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -196,7 +211,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags of the command task.
+   * The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    */
   tag?: DescribeInvocationResultsRequestTag[];
   static names(): { [key: string]: string } {

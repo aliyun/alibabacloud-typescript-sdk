@@ -53,7 +53,7 @@ export class DescribeImagePipelinesRequest extends $dara.Model {
   imagePipelineId?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 500.
+   * The maximum number of entries per page. Valid values: 1 to 500
    * 
    * Default value: 50.
    * 

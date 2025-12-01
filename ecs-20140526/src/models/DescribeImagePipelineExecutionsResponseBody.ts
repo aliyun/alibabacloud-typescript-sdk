@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionImagePipelineExecutionSetTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the image creation task.
+   * The tag of the image creation task.
    * 
    * @example
-   * null
+   * TestValue
    */
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the image creation task.
+   * The tags of the image creation task.
    * 
    * @example
-   * null
+   * TestKey
    */
   tagValue?: string;
   static names(): { [key: string]: string } {
@@ -71,7 +71,7 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
 export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionImagePipelineExecutionSet extends $dara.Model {
   /**
    * @remarks
-   * The time when the image creation task was created.
+   * Details of the image creation tasks.
    * 
    * @example
    * 2020-11-24T06:00:00Z
@@ -79,7 +79,7 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the image creation task.
+   * The data returned.
    * 
    * @example
    * exec-5fb8facb8ed7427c****
@@ -87,7 +87,7 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   executionId?: string;
   /**
    * @remarks
-   * The ID of the image.
+   * The ID of the resource group.
    * 
    * @example
    * m-bp67acfmxazb4p****
@@ -95,7 +95,7 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   imageId?: string;
   /**
    * @remarks
-   * The ID of the image template.
+   * Details of the image creation task.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****
@@ -103,7 +103,7 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   imagePipelineId?: string;
   /**
    * @remarks
-   * The data returned.
+   * The last modification time of the image creation task.
    * 
    * @example
    * Create transition vpc "vpc-2ze70rc7093j9idu6****" success!
@@ -111,20 +111,12 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   message?: string;
   /**
    * @remarks
-   * The last modification time of the image creation task.
+   * The ID of the image template.
    * 
    * @example
    * 2020-11-25T06:00:00Z
    */
   modifiedTime?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
-  resourceGroupId?: string;
   /**
    * @remarks
    * The status of the image creation task. Valid values:
@@ -143,12 +135,20 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
    * *   CANCELLED: The image creation task is canceled.
    * 
    * @example
+   * rg-bp67acfmxazb4p****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The time when the image creation task was created.
+   * 
+   * @example
    * BUILDING
    */
   status?: string;
   /**
    * @remarks
-   * The tags of the image creation task.
+   * The ID of the image.
    */
   tags?: DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionImagePipelineExecutionSetTags;
   static names(): { [key: string]: string } {
@@ -220,12 +220,12 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution e
 export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the image creation tasks.
+   * The total number of returned image components.
    */
   imagePipelineExecution?: DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The request ID.
    * 
    * @example
    * 50
@@ -233,7 +233,7 @@ export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
+   * The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -241,7 +241,9 @@ export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The maximum number of entries per page. Valid values: 1 to 500
+   * 
+   * Default value: 50.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -249,7 +251,7 @@ export class DescribeImagePipelineExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned image components.
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
    * 
    * @example
    * 1

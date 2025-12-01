@@ -518,6 +518,29 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedule
   }
 }
 
+export class CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions extends $dara.Model {
+  trustedSystemMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trustedSystemMode: 'TrustedSystemMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trustedSystemMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends $dara.Model {
   /**
    * @remarks
@@ -905,6 +928,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
    */
   periodUnit?: string;
   schedulerOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions;
+  securityOptions?: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions;
   /**
    * @remarks
    * The protection period of the spot instance. Unit: hours. Default value: 1. Valid values: Valid values:
@@ -981,6 +1005,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       period: 'Period',
       periodUnit: 'PeriodUnit',
       schedulerOptions: 'SchedulerOptions',
+      securityOptions: 'SecurityOptions',
       spotDuration: 'SpotDuration',
       spotInterruptionBehavior: 'SpotInterruptionBehavior',
     };
@@ -1026,6 +1051,7 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
       period: 'number',
       periodUnit: 'string',
       schedulerOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions,
+      securityOptions: CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions,
       spotDuration: 'number',
       spotInterruptionBehavior: 'string',
     };
@@ -1058,6 +1084,9 @@ export class CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration extends
     }
     if(this.schedulerOptions && typeof (this.schedulerOptions as any).validate === 'function') {
       (this.schedulerOptions as any).validate();
+    }
+    if(this.securityOptions && typeof (this.securityOptions as any).validate === 'function') {
+      (this.securityOptions as any).validate();
     }
     super.validate();
   }

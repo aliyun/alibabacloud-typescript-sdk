@@ -8,15 +8,15 @@ export class DescribeImagePipelineExecutionsRequestTag extends $dara.Model {
    * The key of tag N of the image creation task. Valid values of N: 1 to 20.
    * 
    * @example
-   * null
+   * TestKey
    */
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the image creation task. Valid values of N: 1 to 20.
+   * null
    * 
    * @example
-   * null
+   * TestValue
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeImagePipelineExecutionsRequestTag extends $dara.Model {
 export class DescribeImagePipelineExecutionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image creation task.
+   * null
    * 
    * @example
    * exec-5fb8facb8ed7427c****
@@ -53,7 +53,7 @@ export class DescribeImagePipelineExecutionsRequest extends $dara.Model {
   executionId?: string;
   /**
    * @remarks
-   * The ID of the image template.
+   * The value of tag N of the image creation task. Valid values of N: 1 to 20.
    * 
    * @example
    * ip-2ze5tsl5bp6nf2b3****
@@ -61,9 +61,22 @@ export class DescribeImagePipelineExecutionsRequest extends $dara.Model {
   imagePipelineId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 500.
+   * The status of the image creation task. You can specify multiple values. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
    * 
-   * Default value: 50.
+   * *   PREPARING: Resources, such as the intermediate instance, are being created.
+   * *   REPAIRING: The source image is being repaired.
+   * *   BUILDING: The user-defined commands are being run and an image is being created.
+   * *   TESTING: The user-defined test commands are being run.
+   * *   DISTRIBUTING: The created image is being copied and shared.
+   * *   RELEASING: The temporary resources generated during the image creation process are being released.
+   * *   SUCCESS: The image creation task is completed.
+   * *   PARTITION_SUCCESS: The image creation task is partially completed. The image is created, but exceptions may occur when the image was copied or shared or when temporary resources were released.
+   * *   FAILED: The image creation task fails.
+   * *   TEST_FAILED: The image is created, but the test fails.
+   * *   CANCELLING: The image creation task is being canceled.
+   * *   CANCELLED: The image creation task is canceled.
+   * 
+   * >  If you leave this parameter empty, all image creation tasks are queried regardless of task status.
    * 
    * @example
    * 50
@@ -71,7 +84,7 @@ export class DescribeImagePipelineExecutionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The ID of the image creation task.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -93,22 +106,7 @@ export class DescribeImagePipelineExecutionsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the image creation task. You can specify multiple values. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
-   * 
-   * *   PREPARING: Resources, such as the intermediate instance, are being created.
-   * *   REPAIRING: The source image is being repaired.
-   * *   BUILDING: The user-defined commands are being run and an image is being created.
-   * *   TESTING: The user-defined test commands are being run.
-   * *   DISTRIBUTING: The created image is being copied and shared.
-   * *   RELEASING: The temporary resources generated during the image creation process are being released.
-   * *   SUCCESS: The image creation task is completed.
-   * *   PARTITION_SUCCESS: The image creation task is partially completed. The image is created, but exceptions may occur when the image was copied or shared or when temporary resources were released.
-   * *   FAILED: The image creation task fails.
-   * *   TEST_FAILED: The image is created, but the test fails.
-   * *   CANCELLING: The image creation task is being canceled.
-   * *   CANCELLED: The image creation task is canceled.
-   * 
-   * >  If you leave this parameter empty, all image creation tasks are queried regardless of task status.
+   * The ID of the image template.
    * 
    * @example
    * BUILDING

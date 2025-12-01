@@ -464,7 +464,7 @@ export class DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImpo
   diskDeviceMappings?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappings;
   /**
    * @remarks
-   * The feature attributes of the image.
+   * The attributes of the custom image.
    */
   features?: DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures;
   imageName?: string;
@@ -995,7 +995,7 @@ export class DescribeImagePipelinesResponseBodyImagePipeline extends $dara.Model
 export class DescribeImagePipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the image templates.
+   * Details of the image templates.
    */
   imagePipeline?: DescribeImagePipelinesResponseBodyImagePipeline;
   /**

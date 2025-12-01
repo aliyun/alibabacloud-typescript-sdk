@@ -134,6 +134,23 @@ export class DescribeInstanceAttributeResponseBodyInnerIpAddress extends $dara.M
 }
 
 export class DescribeInstanceAttributeResponseBodyNetworkOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth weight.
+   * 
+   * The supported values vary with instance types. You can query the bandwidth weights supported by the current instance type by using the DescribeInstanceTypes.
+   * 
+   * Valid values:
+   * 
+   * *   Vpc-L1.
+   * *   Vpc-L2.
+   * *   Ebs-L1.
+   * *   Ebs-L2.
+   * *   Default.
+   * 
+   * @example
+   * Vpc-L1
+   */
   bandwidthWeighting?: string;
   /**
    * @example
@@ -571,7 +588,7 @@ export class DescribeInstanceAttributeResponseBody extends $dara.Model {
    * @remarks
    * Details about network options.
    * 
-   * >  This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitational preview and is not publicly available.
    */
   networkOptions?: DescribeInstanceAttributeResponseBodyNetworkOptions;
   /**

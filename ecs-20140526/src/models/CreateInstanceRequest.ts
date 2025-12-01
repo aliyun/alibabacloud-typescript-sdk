@@ -911,9 +911,13 @@ export class CreateInstanceRequest extends $dara.Model {
    * *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
    * *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
    * 
-   * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+   * > 
    * 
-   * >  This parameter takes effect only if the SpotStrategy parameter is set to SpotWithPriceLimit or SpotAsPriceGo.
+   * *   You can set this parameter only to 0 or 1.
+   * 
+   * *   The spot instance is billed by second. Specify an appropriate protection period.
+   * 
+   * *   Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released.
    * 
    * @example
    * 1

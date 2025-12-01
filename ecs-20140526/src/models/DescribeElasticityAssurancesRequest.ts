@@ -98,7 +98,7 @@ export class DescribeElasticityAssurancesRequest extends $dara.Model {
    * @remarks
    * The maximum number of entries per page.
    * 
-   * Valid values: 1 to 100.
+   * Maximum value: 100
    * 
    * Default value: 10.
    * 

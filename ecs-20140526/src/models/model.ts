@@ -25,6 +25,7 @@ export { CreateAutoProvisioningGroupRequestLaunchConfigurationTag } from './Crea
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupRequest';
+export { CreateAutoProvisioningGroupRequestLaunchConfigurationSecurityOptions } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchConfiguration } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestDataDiskConfig } from './CreateAutoProvisioningGroupRequest';
 export { CreateAutoProvisioningGroupRequestLaunchTemplateConfig } from './CreateAutoProvisioningGroupRequest';
@@ -40,6 +41,7 @@ export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationTag } from '
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions } from './CreateAutoProvisioningGroupShrinkRequest';
+export { CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestDataDiskConfig } from './CreateAutoProvisioningGroupShrinkRequest';
 export { CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig } from './CreateAutoProvisioningGroupShrinkRequest';
@@ -1835,6 +1837,9 @@ export { ModifyVirtualBorderRouterAttributeResponse } from './ModifyVirtualBorde
 export { ModifyVpcAttributeRequest } from './ModifyVpcAttributeRequest';
 export { ModifyVpcAttributeResponseBody } from './ModifyVpcAttributeResponseBody';
 export { ModifyVpcAttributeResponse } from './ModifyVpcAttributeResponse';
+export { OpenSnapshotServiceRequest } from './OpenSnapshotServiceRequest';
+export { OpenSnapshotServiceResponseBody } from './OpenSnapshotServiceResponseBody';
+export { OpenSnapshotServiceResponse } from './OpenSnapshotServiceResponse';
 export { PurchaseElasticityAssuranceRequest } from './PurchaseElasticityAssuranceRequest';
 export { PurchaseElasticityAssuranceResponseBody } from './PurchaseElasticityAssuranceResponseBody';
 export { PurchaseElasticityAssuranceResponse } from './PurchaseElasticityAssuranceResponse';

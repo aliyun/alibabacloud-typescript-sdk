@@ -34,11 +34,12 @@ export class ModifyCloudAssistantSettingsShrinkRequest extends $dara.Model {
   sessionManagerConfigShrink?: string;
   /**
    * @remarks
-   * The Cloud Assistant feature. Valid values:
+   * The Cloud Assistant feature. Set SettingType to one of the following valid values:
    * 
    * *   SessionManagerDelivery: the Session Record Delivery configurations.
    * *   InvocationDelivery: the Operation Content and Result Delivery configurations.
    * *   AgentUpgradeConfig: the Cloud Assistant Agent Upgrade configurations.
+   * *   SessionManagerConfig: Cloud Assistant the SessionManager configuration.
    * 
    * This parameter is required.
    * 

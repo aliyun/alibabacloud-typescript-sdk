@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment. Valid values:
+   * Specifies whether to automatically complete the payment. Valid value:
    * 
-   * *   true: The payment is automatically completed. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled.
+   * *   true: The payment is automatically completed. Ensure that your account balance is sufficient. Otherwise, your order becomes invalid and must be canceled.
    * *   false: An order is generated but no payment is made.
    * 
    * Default value: true.
    * 
-   * > If you do not have sufficient balance in your account, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can pay for the order.
+   * >  If you do not have sufficient balance in your account, you can set `AutoPay` to `false` to generate an unpaid order. Then, you can pay for the order.
    * 
    * @example
    * false
@@ -28,7 +28,7 @@ export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The new billing method for the dedicated host. Valid values:
+   * The new billing method for the dedicated host. Valid value:
    * 
    * *   PrePaid: changes the billing method from pay-as-you-go to subscription.
    * *   PostPaid: changes the billing method from subscription to pay-as-you-go.
@@ -53,7 +53,7 @@ export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return the billing details of the order when the billing method is changed from subscription to pay-as-you-go.
    * 
-   * Default value: false.
+   * Indicates whether the nfs volume is set to the read-only mode. Default value: false.
    * 
    * @example
    * false
@@ -61,12 +61,12 @@ export class ModifyDedicatedHostsChargeTypeRequest extends $dara.Model {
   detailFee?: boolean;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. Valid values:
+   * Specifies whether to perform only a dry run. Valid value:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. Otherwise, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
-   * Default value: false.
+   * Indicates whether the nfs volume is set to the read-only mode. Default value: false.
    * 
    * @example
    * false

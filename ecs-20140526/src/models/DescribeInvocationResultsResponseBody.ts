@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResultTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the command task.
+   * The output delivery status of the command execution. Valid values:
+   * 
+   * *   InProgress: The delivery is in progress.
+   * *   Finished: The delivery is complete.
+   * *   Failed: The delivery failed.
    * 
    * @example
    * owner
@@ -13,7 +17,7 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the command task.
+   * The username used to run the command on the instance.
    * 
    * @example
    * zhangsan
@@ -71,65 +75,6 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
 export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResult extends $dara.Model {
   /**
    * @remarks
-   * The command ID.
-   * 
-   * @example
-   * c-hz0jdfwcsr****
-   */
-  commandId?: string;
-  /**
-   * @remarks
-   * The container ID.
-   * 
-   * @example
-   * ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
-   */
-  containerId?: string;
-  /**
-   * @remarks
-   * The container name.
-   * 
-   * @example
-   * test-container
-   */
-  containerName?: string;
-  /**
-   * @remarks
-   * The size of the Output text that was truncated and discarded because the `Output` value exceeded 24 KB in size.
-   * 
-   * @example
-   * 0
-   */
-  dropped?: number;
-  /**
-   * @remarks
-   * The error code returned when the command failed to be sent or run. Valid values:
-   * 
-   * *   If this parameter is empty, the command was run as expected.
-   * *   InstanceNotExists: The specified instance did not exist or was released.
-   * *   InstanceReleased: The instance was released while the command was being run.
-   * *   InstanceNotRunning: The instance was not running while the command was being run.
-   * *   CommandNotApplicable: The command was inapplicable to the specified instance.
-   * *   AccountNotExists: The username specified to run the command did not exist.
-   * *   DirectoryNotExists: The specified directory did not exist.
-   * *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
-   * *   ClientNotRunning: Cloud Assistant Agent was not running.
-   * *   ClientNotResponse: Cloud Assistant Agent did not respond.
-   * *   ClientIsUpgrading: Cloud Assistant Agent was being upgraded.
-   * *   ClientNeedUpgrade: Cloud Assistant Agent needed to be upgraded.
-   * *   DeliveryTimeout: The request to send the command timed out.
-   * *   ExecutionTimeout: The execution timed out.
-   * *   ExecutionException: An exception occurred while the command was being run.
-   * *   ExecutionInterrupted: The execution was interrupted.
-   * *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
-   * *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
-   * 
-   * @example
-   * InstanceNotExists
-   */
-  errorCode?: string;
-  /**
-   * @remarks
    * The error message returned when the command failed to be sent or run. Valid values:
    * 
    * *   If this parameter is empty, the command was run as expected.
@@ -152,36 +97,17 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * *   The specified instance was released during task execution.
    * 
    * @example
-   * the specified instance does not exists
+   * c-hz0jdfwcsr****
    */
-  errorInfo?: string;
+  commandId?: string;
   /**
    * @remarks
-   * The exit code of the command task.
-   * 
-   * *   For Linux instances, the value is the exit code of the shell command.
-   * *   For Windows instances, the value is the exit code of the batch or PowerShell command.
+   * Command to execute the Output OSS delivery configuration.
    * 
    * @example
-   * 0
+   * ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
    */
-  exitCode?: number;
-  /**
-   * @remarks
-   * The time when the command task was completed. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
-   * 
-   * @example
-   * 2019-12-20T06:15:56Z
-   */
-  finishedTime?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-bp1i7gg30r52z2em****
-   */
-  instanceId?: string;
+  containerId?: string;
   /**
    * @remarks
    * The execution status on a single instance. Valid values:
@@ -220,17 +146,162 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    *     *   Scheduled task: The command is waiting to be run.
    * 
    * @example
+   * test-container
+   */
+  containerName?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * 0
+   */
+  dropped?: number;
+  /**
+   * @remarks
+   * The time when the command started to be run on the instance.
+   * 
+   * @example
+   * InstanceNotExists
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * the specified instance does not exists
+   */
+  errorInfo?: string;
+  /**
+   * @remarks
+   * The key of tag N of the command task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * 
+   * If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+   * 
+   * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * 0
+   */
+  exitCode?: number;
+  /**
+   * @remarks
+   * The total number of the commands.
+   * 
+   * @example
+   * 2019-12-20T06:15:56Z
+   */
+  finishedTime?: string;
+  /**
+   * @remarks
+   * The value of tag N of the command task. Valid values of N: 1 to 20. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * i-bp1i7gg30r52z2em****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The tag of the command task.
+   * 
+   * @example
    * Success
    */
   invocationStatus?: string;
   /**
    * @remarks
-   * The command task ID.
+   * The number of times that the command was run on the instance.
+   * 
+   * *   If the command is set to run only once, the value is 0 or 1.
+   * *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
    * 
    * @example
    * t-hz0jdfwd9f****
    */
   invokeId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * Running
+   */
+  invokeRecordStatus?: string;
+  /**
+   * @remarks
+   * The exit code of the command task.
+   * 
+   * *   For Linux instances, the value is the exit code of the shell command.
+   * *   For Windows instances, the value is the exit code of the batch or PowerShell command.
+   * 
+   * @example
+   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+   */
+  launcher?: string;
+  /**
+   * @remarks
+   * The tags of the command task.
+   * 
+   * @example
+   * oss://testBucket/testPrefix
+   */
+  ossOutputDelivery?: string;
+  /**
+   * @remarks
+   * The execution results.
+   * 
+   * @example
+   * Finished
+   */
+  ossOutputStatus?: string;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * oss://testBucket/testPrefix/output.txt
+   */
+  ossOutputUri?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * MTU6MzA6MDEK
+   */
+  output?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 0
+   */
+  repeats?: number;
+  /**
+   * @remarks
+   * Details about the execution results.
+   * 
+   * @example
+   * 2019-12-20T06:15:55Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * root
+   * 
+   * @example
+   * 2020-01-19T09:15:47Z
+   */
+  stopTime?: string;
+  /**
+   * @remarks
+   * The time when the command task was completed. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
+   */
+  tags?: DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResultTags;
   /**
    * @remarks
    * The execution status of the command. Valid values:
@@ -260,105 +331,15 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * *   Stopping: The task is being stopped.
    * 
    * @example
-   * Running
-   */
-  invokeRecordStatus?: string;
-  /**
-   * @remarks
-   * The launcher for script execution. The value cannot exceed 1 KB in length.
-   * 
-   * @example
-   * python3 -u {{ACS::ScriptFileName|Ext(".py")}}
-   */
-  launcher?: string;
-  /**
-   * @remarks
-   * Command to execute the Output OSS delivery configuration.
-   * 
-   * @example
-   * oss://testBucket/testPrefix
-   */
-  ossOutputDelivery?: string;
-  /**
-   * @remarks
-   * The output delivery status of the command execution. Valid values:
-   * 
-   * *   InProgress: The delivery is in progress.
-   * *   Finished: The delivery is complete.
-   * *   Failed: The delivery failed.
-   * 
-   * @example
-   * Finished
-   */
-  ossOutputStatus?: string;
-  /**
-   * @remarks
-   * The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
-   * 
-   * @example
-   * oss://testBucket/testPrefix/output.txt
-   */
-  ossOutputUri?: string;
-  /**
-   * @remarks
-   * The command output.
-   * 
-   * *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
-   * *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
-   * 
-   * @example
-   * MTU6MzA6MDEK
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The number of times that the command was run on the instance.
-   * 
-   * *   If the command is set to run only once, the value is 0 or 1.
-   * *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
-   * 
-   * @example
-   * 0
-   */
-  repeats?: number;
-  /**
-   * @remarks
-   * The time when the command started to be run on the instance.
-   * 
-   * @example
-   * 2019-12-20T06:15:55Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The time when the command task was stopped. If you call the `StopInvocation` operation to stop the command task, the value of this parameter is the time when the operation is called.
-   * 
-   * @example
-   * 2020-01-19T09:15:47Z
-   */
-  stopTime?: string;
-  /**
-   * @remarks
-   * The tags of the command task.
-   */
-  tags?: DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResultTags;
-  /**
-   * @remarks
-   * Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
-   * 
-   * *   Process: The process of the command is stopped.
-   * *   ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
-   * 
-   * @example
    * ProcessTree
    */
   terminationMode?: string;
   /**
    * @remarks
-   * The username used to run the command on the instance.
+   * The size of the Output text that was truncated and discarded because the `Output` value exceeded 24 KB in size.
    * 
    * @example
-   * root
+   * test
    */
   username?: string;
   static names(): { [key: string]: string } {
@@ -458,12 +439,16 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResults ex
 export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model {
   /**
    * @remarks
-   * The execution results.
+   * The maximum number of entries per page.
+   * 
+   * Valid values: 1 to 50.
+   * 
+   * Default value: 10.
    */
   invocationResults?: DescribeInvocationResultsResponseBodyInvocationInvocationResults;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * AAAAAdDWBF2
@@ -471,7 +456,12 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
+   * 
+   * *   PlainText: returns the original command content and command output.
+   * *   Base64: returns the Base64-encoded command content and command output.
+   * 
+   * Default value: Base64.
    * 
    * @example
    * 1
@@ -479,7 +469,12 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Specifies whether to return the results of historical scheduled executions. Valid values:
+   * 
+   * *   true: returns the results of historical scheduled executions. If you set this parameter to true, you must set InvokeId to the ID of a task that is run on a schedule (RepeatMode set to Period) or on each system startup (RepeatMode set to EveryReboot).
+   * *   false: does not return the results of historical scheduled executions.
+   * 
+   * Default value: false.
    * 
    * @example
    * 1
@@ -487,7 +482,7 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The total number of the commands.
+   * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
    * 
    * @example
    * 1
@@ -528,12 +523,41 @@ export class DescribeInvocationResultsResponseBodyInvocation extends $dara.Model
 export class DescribeInvocationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the execution results.
+   * The execution status of the command task. Valid values:
+   * 
+   * *   Running:
+   * 
+   *     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+   *     *   One-time task: If the command is being run on instances, the execution state is Running.
+   * 
+   * *   Finished:
+   * 
+   *     *   Scheduled task: The execution state can never be Finished.
+   *     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
+   * 
+   * *   Success:
+   * 
+   *     *   One-time task: The execution is complete, and the exit code is 0.
+   *     *   Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
+   * 
+   * *   Failed:
+   * 
+   *     *   Scheduled task: The execution state can never be Failed.
+   *     *   One-time task: The execution fails on all instances.
+   * 
+   * *   PartialFailed:
+   * 
+   *     *   Scheduled task: The execution state can never be PartialFailed.
+   *     *   One-time task: The execution fails on some instances.
+   * 
+   * *   Stopped: The task is stopped.
+   * 
+   * *   Stopping: The task is being stopped.
    */
   invocation?: DescribeInvocationResultsResponseBodyInvocation;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the command.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
