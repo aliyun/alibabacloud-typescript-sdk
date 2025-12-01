@@ -5,6 +5,8 @@ export { AddFilePermissionRequestMemberListCdsIdentity } from './AddFilePermissi
 export { AddFilePermissionRequestMemberList } from './AddFilePermissionRequest';
 export { ApplyCoordinationForMonitoringRequestResourceCandidates } from './ApplyCoordinationForMonitoringRequest';
 export { ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels } from './ApplyCoordinationForMonitoringResponseBody';
+export { BatchModifyEntitlementResponseBodyEntitlementsAssignModels } from './BatchModifyEntitlementResponseBody';
+export { BatchModifyEntitlementResponseBodyEntitlements } from './BatchModifyEntitlementResponseBody';
 export { BindConfigGroupRequestResourceInfos } from './BindConfigGroupRequest';
 export { CopyCdsFileResponseBodyCopyCdsFileModel } from './CopyCdsFileResponseBody';
 export { CreateADConnectorDirectoryResponseBodyAdConnectors } from './CreateAdconnectorDirectoryResponseBody';
@@ -319,6 +321,9 @@ export { AttachCenResponse } from './AttachCenResponse';
 export { AttachEndUserRequest } from './AttachEndUserRequest';
 export { AttachEndUserResponseBody } from './AttachEndUserResponseBody';
 export { AttachEndUserResponse } from './AttachEndUserResponse';
+export { BatchModifyEntitlementRequest } from './BatchModifyEntitlementRequest';
+export { BatchModifyEntitlementResponseBody } from './BatchModifyEntitlementResponseBody';
+export { BatchModifyEntitlementResponse } from './BatchModifyEntitlementResponse';
 export { BindConfigGroupRequest } from './BindConfigGroupRequest';
 export { BindConfigGroupResponseBody } from './BindConfigGroupResponseBody';
 export { BindConfigGroupResponse } from './BindConfigGroupResponse';

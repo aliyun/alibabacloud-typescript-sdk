@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
   /**
+   * @remarks
+   * The PL of the data disk.
+   * 
+   * Valid values:
+   * 
+   * *   PL1: a PL1 ESSD.
+   * *   PL0: a PL0 ESSD.
+   * *   AutoPL: an AutoPL SSD.
+   * 
    * @example
    * AutoPL
    */
   performanceLevel?: string;
   /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
    * @example
    * 100
    */
@@ -38,51 +50,81 @@ export class DescribeTemplatesResponseBodyDataDataDiskList extends $dara.Model {
 
 export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 4
    */
   cpuCount?: number;
   /**
+   * @remarks
+   * The GPU memory information. This parameter is supported only by Graphics cloud computer types.
+   * 
    * @example
    * 4GiB
    */
   gpuSpec?: string;
   /**
+   * @remarks
+   * The memory size. Unit: MiB.
+   * 
    * @example
    * 8192
    */
   memorySize?: number;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-beijing+dir-3040*****
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-shenzhen
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the cloud computer type.
+   * 
    * @example
    * eds.enterprise_office.4c8g
    */
   resourceInstanceType?: string;
   /**
+   * @remarks
+   * The snapshot policy ID.
+   * 
    * @example
    * sp-b9fasjuu0*****
    */
   snapshotPolicyId?: string;
   /**
+   * @remarks
+   * The subnet ID.
+   * 
    * @example
    * vsw-dgea1*****
    */
   subnetId?: string;
   /**
+   * @remarks
+   * Indicates whether disk encryption is enabled.
+   * 
    * @example
    * false
    */
   volumeEncryptionEnable?: boolean;
   /**
+   * @remarks
+   * The ID of the Key Management Service (KMS) key that is used to encrypt the disk.
+   * 
    * @example
    * 3bc77be0-cbce-4a29-b07b-13f16394****
    */
@@ -128,11 +170,17 @@ export class DescribeTemplatesResponseBodyDataRegionConfigList extends $dara.Mod
 
 export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The property value.
+   * 
    * @example
    * test
    */
@@ -162,11 +210,17 @@ export class DescribeTemplatesResponseBodyDataResourceTagList extends $dara.Mode
 
 export class DescribeTemplatesResponseBodyDataSiteConfigList extends $dara.Model {
   /**
+   * @remarks
+   * 应用管控策略ID
+   * 
    * @example
    * bwr-5a5371e0*******
    */
   appRuleId?: string;
   /**
+   * @remarks
+   * 站点名称。
+   * 
    * @example
    * mainland
    */
@@ -198,29 +252,66 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   autoPay?: boolean;
   autoRenew?: boolean;
   chargeType?: string;
+  /**
+   * @remarks
+   * The sizes of the data disks.
+   */
   dataDiskList?: DescribeTemplatesResponseBodyDataDataDiskList[];
   /**
+   * @remarks
+   * The default language of the template.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English.
+   * *   zh-HK: Chinese, Traditional (Hong Kong, China).
+   * *   zh-CN: Simplified Chinese.
+   * *   ja-JP: Japanese.
+   * 
    * @example
    * zh-CN
    */
   defaultLanguage?: string;
+  /**
+   * @remarks
+   * The template description.
+   */
   description?: string;
   /**
+   * @remarks
+   * The time when the template was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+   * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the template was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2025-04-25T05:18:46.000+00:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * m-5q8ehbihx*****
    */
   imageId?: string;
   /**
+   * @remarks
+   * The image type.
+   * 
+   * Valid values:
+   * 
+   * *   User: a custom image.
+   * *   Shared: a shared image.
+   * *   System: a system image.
+   * *   Community: a community image.
+   * 
    * @example
    * User
    */
@@ -228,51 +319,109 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
   period?: number;
   periodUnit?: string;
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * pg-0caoeogkhz*****
    */
   policyGroupId?: string;
   postPaidAfterUsedUp?: boolean;
   /**
+   * @remarks
+   * The service type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudDesktop: cloud computers.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
+  /**
+   * @remarks
+   * The region-related settings.
+   */
   regionConfigList?: DescribeTemplatesResponseBodyDataRegionConfigList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1871984F-51F6-5588-BAF6-******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-a5fqjjqaejt***
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags added to cloud computers. A tag is a key-value pair.
+   */
   resourceTagList?: DescribeTemplatesResponseBodyDataResourceTagList[];
+  /**
+   * @remarks
+   * 区域配置管理
+   */
   siteConfigList?: DescribeTemplatesResponseBodyDataSiteConfigList[];
   /**
+   * @remarks
+   * The performance level (PL) of the system disk.
+   * 
+   * Valid value:
+   * 
+   * *   PL1: a PL1 Enterprise SSD (ESSD).
+   * *   PL0: a PL0 ESSD.
+   * *   AutoPL: an AutoPL SSD.
+   * 
    * @example
    * AutoPL
    */
   systemDiskPerformanceLevel?: string;
   /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
    * @example
    * 80
    */
   systemDiskSize?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * b-0caoeogs88y*****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
+   * Valid values:
+   * 
+   * *   USER_TEMPLATE: custom templates.
+   * *   SYSTEM_TEMPLATE: system templates.
+   * 
    * @example
    * USER_TEMPLATE
    */
   templateType?: string;
   /**
+   * @remarks
+   * The ID of the scheduled task group.
+   * 
    * @example
    * bcc-dweha*****
    */
@@ -365,6 +514,9 @@ export class DescribeTemplatesResponseBodyData extends $dara.Model {
 
 export class DescribeTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The modification result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * success
    */
@@ -375,36 +527,57 @@ export class DescribeTemplatesResponseBody extends $dara.Model {
    */
   data?: DescribeTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned. This parameter is not returned if the value of Code is `success`.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1871984F-51F6-5588-BAF6-*******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of templates.
+   * 
    * @example
    * 94
    */

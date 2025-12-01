@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstalledAppsResponseBodyApps extends $dara.Model {
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * test_app
    */
   appName?: string;
   /**
+   * @remarks
+   * The application version.
+   * 
    * @example
    * 2.0.1
    */
@@ -37,13 +43,23 @@ export class ListInstalledAppsResponseBodyApps extends $dara.Model {
 }
 
 export class ListInstalledAppsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
   apps?: ListInstalledAppsResponseBodyApps[];
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 94
    */

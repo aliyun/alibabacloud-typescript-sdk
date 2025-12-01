@@ -689,6 +689,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    */
   cameraRedirect?: string;
   clientControlMenu?: string;
+  clientCreateSnapshot?: string;
   /**
    * @remarks
    * The types of Alibaba Cloud Workspace clients that end users can use to connect to cloud computers.
@@ -1636,6 +1637,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * on
    */
   watermarkSecurity?: string;
+  watermarkShadow?: string;
   /**
    * @remarks
    * The watermark opacity. A higher value makes the watermark more opaque. Valid values: 10 to 100.
@@ -1696,6 +1698,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       businessType: 'BusinessType',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
+      clientCreateSnapshot: 'ClientCreateSnapshot',
       clientType: 'ClientType',
       clipboard: 'Clipboard',
       clipboardGraineds: 'ClipboardGraineds',
@@ -1801,6 +1804,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       watermarkPower: 'WatermarkPower',
       watermarkRowAmount: 'WatermarkRowAmount',
       watermarkSecurity: 'WatermarkSecurity',
+      watermarkShadow: 'WatermarkShadow',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
       wuyingKeeper: 'WuyingKeeper',
@@ -1818,6 +1822,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       businessType: 'number',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
+      clientCreateSnapshot: 'string',
       clientType: { 'type': 'array', 'itemType': CreateCenterPolicyRequestClientType },
       clipboard: 'string',
       clipboardGraineds: { 'type': 'array', 'itemType': CreateCenterPolicyRequestClipboardGraineds },
@@ -1923,6 +1928,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       watermarkPower: 'string',
       watermarkRowAmount: 'number',
       watermarkSecurity: 'string',
+      watermarkShadow: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
       wuyingKeeper: 'string',

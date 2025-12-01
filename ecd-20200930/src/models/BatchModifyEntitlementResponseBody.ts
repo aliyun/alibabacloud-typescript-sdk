@@ -1,0 +1,117 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends $dara.Model {
+  /**
+   * @example
+   * ecd-e94kzikmpljjx99pl
+   */
+  desktopId?: string;
+  endUserIds?: string[];
+  /**
+   * @example
+   * FINISHED
+   */
+  innerStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desktopId: 'DesktopId',
+      endUserIds: 'EndUserIds',
+      innerStatus: 'InnerStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopId: 'string',
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
+      innerStatus: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.endUserIds)) {
+      $dara.Model.validateArray(this.endUserIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model {
+  assignModels?: BatchModifyEntitlementResponseBodyEntitlementsAssignModels[];
+  /**
+   * @example
+   * FINISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * B2F4F018-0EDF-159C-B285-117B5F1C****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignModels: 'AssignModels',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignModels: { 'type': 'array', 'itemType': BatchModifyEntitlementResponseBodyEntitlementsAssignModels },
+      status: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.assignModels)) {
+      $dara.Model.validateArray(this.assignModels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchModifyEntitlementResponseBody extends $dara.Model {
+  entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
+  /**
+   * @example
+   * 51592A88-0F2C-55E6-AD2C-2AD9C10D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entitlements: 'Entitlements',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entitlements: BatchModifyEntitlementResponseBodyEntitlements,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.entitlements && typeof (this.entitlements as any).validate === 'function') {
+      (this.entitlements as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

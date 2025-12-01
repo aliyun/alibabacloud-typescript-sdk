@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstalledAppsRequest extends $dara.Model {
   /**
    * @remarks
+   * The cloud computer ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,19 @@ export class ListInstalledAppsRequest extends $dara.Model {
    */
   desktopId?: string;
   /**
+   * @remarks
+   * The page number.\\
+   * Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.\\
+   * Default value: 20.
+   * 
    * @example
    * 20
    */

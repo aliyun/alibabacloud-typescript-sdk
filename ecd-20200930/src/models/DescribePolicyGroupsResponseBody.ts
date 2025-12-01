@@ -661,6 +661,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   cameraRedirect?: string;
   clientControlMenu?: string;
+  clientCreateSnapshot?: string;
   /**
    * @remarks
    * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
@@ -1618,6 +1619,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   watermarkSecurity?: string;
+  watermarkShadow?: string;
   /**
    * @remarks
    * The watermark transparency.
@@ -1682,6 +1684,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       autoReconnect: 'AutoReconnect',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
+      clientCreateSnapshot: 'ClientCreateSnapshot',
       clientTypes: 'ClientTypes',
       clipboard: 'Clipboard',
       colorEnhancement: 'ColorEnhancement',
@@ -1789,6 +1792,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       watermarkPower: 'WatermarkPower',
       watermarkRowAmount: 'WatermarkRowAmount',
       watermarkSecurity: 'WatermarkSecurity',
+      watermarkShadow: 'WatermarkShadow',
       watermarkTransparency: 'WatermarkTransparency',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
@@ -1806,6 +1810,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       autoReconnect: 'string',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
+      clientCreateSnapshot: 'string',
       clientTypes: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes },
       clipboard: 'string',
       colorEnhancement: 'string',
@@ -1913,6 +1918,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       watermarkPower: 'string',
       watermarkRowAmount: 'number',
       watermarkSecurity: 'string',
+      watermarkShadow: 'string',
       watermarkTransparency: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',

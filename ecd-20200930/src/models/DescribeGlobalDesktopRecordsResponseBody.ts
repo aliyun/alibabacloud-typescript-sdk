@@ -193,6 +193,11 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
    */
   officeSiteName?: string;
   /**
+   * @example
+   * Simple
+   */
+  officeSiteType?: string;
+  /**
    * @remarks
    * The OS type. Valid values:
    * 
@@ -300,6 +305,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       memory: 'Memory',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
+      officeSiteType: 'OfficeSiteType',
       osType: 'OsType',
       platform: 'Platform',
       protocolType: 'ProtocolType',
@@ -330,6 +336,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       memory: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
+      officeSiteType: 'string',
       osType: 'string',
       platform: 'string',
       protocolType: 'string',
