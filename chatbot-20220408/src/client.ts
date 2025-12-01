@@ -196,6 +196,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消对应对话
+   * 
+   * @param request - CancelChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelChatResponse
+   */
+  async cancelChatWithOptions(request: $_model.CancelChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelChatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentKey)) {
+      body["AgentKey"] = request.agentKey;
+    }
+
+    if (!$dara.isNull(request.answer)) {
+      body["Answer"] = request.answer;
+    }
+
+    if (!$dara.isNull(request.chatId)) {
+      body["ChatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelChat",
+      version: "2022-04-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelChatResponse>(await this.callApi(params, req, runtime), new $_model.CancelChatResponse({}));
+  }
+
+  /**
+   * 取消对应对话
+   * 
+   * @param request - CancelChatRequest
+   * @returns CancelChatResponse
+   */
+  async cancelChat(request: $_model.CancelChatRequest): Promise<$_model.CancelChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelChatWithOptions(request, runtime);
+  }
+
+  /**
    * 取消机器人发布
    * 
    * @param request - CancelInstancePublishTaskRequest
