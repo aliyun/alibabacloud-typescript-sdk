@@ -187,6 +187,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
    * 1750061980000
    */
   timestamp?: number;
+  trafficStatus?: string;
   /**
    * @remarks
    * If the health check of an application instance fails, the detailed failure cause or error message is returned. If the health check of an application instance passes, no response is returned.
@@ -220,6 +221,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
       packageVersion: 'PackageVersion',
       sidecarContainersStatus: 'SidecarContainersStatus',
       timestamp: 'Timestamp',
+      trafficStatus: 'TrafficStatus',
       unhealthyMessage: 'UnhealthyMessage',
       vSwitchId: 'VSwitchId',
     };
@@ -242,6 +244,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $dara
       packageVersion: 'string',
       sidecarContainersStatus: { 'type': 'array', 'itemType': DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus },
       timestamp: 'number',
+      trafficStatus: 'string',
       unhealthyMessage: 'string',
       vSwitchId: 'string',
     };

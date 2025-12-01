@@ -61,6 +61,7 @@ export class ListApplicationsRequest extends $dara.Model {
    * cn-beijing:demo
    */
   namespaceId?: string;
+  newSaeVersion?: string;
   /**
    * @remarks
    * Specifies how applications are sorted. Valid values:
@@ -114,6 +115,7 @@ export class ListApplicationsRequest extends $dara.Model {
       fieldValue: 'FieldValue',
       isStateful: 'IsStateful',
       namespaceId: 'NamespaceId',
+      newSaeVersion: 'NewSaeVersion',
       orderBy: 'OrderBy',
       pageSize: 'PageSize',
       reverse: 'Reverse',
@@ -130,6 +132,7 @@ export class ListApplicationsRequest extends $dara.Model {
       fieldValue: 'string',
       isStateful: 'string',
       namespaceId: 'string',
+      newSaeVersion: 'string',
       orderBy: 'string',
       pageSize: 'number',
       reverse: 'boolean',

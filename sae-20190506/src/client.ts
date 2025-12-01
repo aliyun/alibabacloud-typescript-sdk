@@ -5832,6 +5832,10 @@ export default class Client extends OpenApi {
       query["NamespaceId"] = request.namespaceId;
     }
 
+    if (!$dara.isNull(request.newSaeVersion)) {
+      query["NewSaeVersion"] = request.newSaeVersion;
+    }
+
     if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
