@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFeatureConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration, in JSON format
+   * query
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * Label meaning
+   * query
    * 
    * @example
    * 标签2
@@ -21,7 +21,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Label value, customer-defined
+   * query
    * 
    * @example
    * __config__
@@ -29,7 +29,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   field?: string;
   /**
    * @remarks
-   * Region
+   * query
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * query
    * 
    * @example
    * text
@@ -45,7 +45,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Service code.
+   * System-defined parameter. Value: **ModifyFeatureConfig**.
    * 
    * @example
    * llm_query_moderation
@@ -53,7 +53,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * Type
+   * query
    * 
    * @example
    * custom_llm_template

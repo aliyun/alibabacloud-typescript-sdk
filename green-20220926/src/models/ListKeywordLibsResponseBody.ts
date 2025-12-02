@@ -4,25 +4,48 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKeywordLibsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2022-11-30 16:30:29
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Number of keywords.
+   * 
    * @example
    * 10
    */
   keywordCount?: string;
   /**
+   * @remarks
+   * Library ID.
+   * 
    * @example
    * custom_xxxxx
    */
   libId?: string;
+  /**
+   * @remarks
+   * Library name.
+   * 
+   * @example
+   * 测试
+   */
   libName?: string;
+  /**
+   * @remarks
+   * Service codes.
+   * 
+   * @example
+   * service1,service2
+   */
   serviceCodes?: string;
   /**
    * @remarks
-   * UID。
+   * UID.
    * 
    * @example
    * 19964*****086772
@@ -61,22 +84,38 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
 
 export class ListKeywordLibsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: ListKeywordLibsResponseBodyData[];
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

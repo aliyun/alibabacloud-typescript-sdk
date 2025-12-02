@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteKeywordLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Returned data.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

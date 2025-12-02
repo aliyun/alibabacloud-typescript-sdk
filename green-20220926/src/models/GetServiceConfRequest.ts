@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceConfRequest extends $dara.Model {
   /**
+   * @remarks
+   * Query default configuration
+   * 
    * @example
    * False
    */
   byDefault?: boolean;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * image
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Audit scenario.
+   * 
    * @example
    * pornographic
    */
   scene?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * baselineCheck
    */

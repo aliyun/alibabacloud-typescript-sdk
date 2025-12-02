@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetOssCheckStatResponseBodyBarChartY extends $dara.Model {
+  /**
+   * @remarks
+   * Data.
+   */
   data?: number[];
   /**
+   * @remarks
+   * Name.
+   * 
    * @example
    * document_detection
    */
@@ -36,7 +43,15 @@ export class GetOssCheckStatResponseBodyBarChartY extends $dara.Model {
 }
 
 export class GetOssCheckStatResponseBodyBarChart extends $dara.Model {
+  /**
+   * @remarks
+   * X values of the coordinates.
+   */
   x?: string[];
+  /**
+   * @remarks
+   * Y values of the coordinates.
+   */
   y?: GetOssCheckStatResponseBodyBarChartY[];
   static names(): { [key: string]: string } {
     return {
@@ -68,8 +83,15 @@ export class GetOssCheckStatResponseBodyBarChart extends $dara.Model {
 }
 
 export class GetOssCheckStatResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Bar chart
+   */
   barChart?: GetOssCheckStatResponseBodyBarChart;
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

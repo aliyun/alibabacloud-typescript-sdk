@@ -4,44 +4,80 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
   /**
+   * @remarks
+   * Internationalization key.
+   * 
    * @example
    * xxx
    */
   i18nKey?: string;
+  /**
+   * @remarks
+   * List of keywords that are too long or too short.
+   */
   illegalLengthKeywords?: string[];
   /**
+   * @remarks
+   * Invalid keyword count
+   * 
    * @example
    * 1
    */
   invalidCount?: number;
+  /**
+   * @remarks
+   * List of invalid keywords
+   */
   invalidKeywords?: string[];
   /**
+   * @remarks
+   * The keyword library ID.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The progress percentage of the task.
+   * 
    * @example
    * 100
    */
   progress?: number;
   /**
+   * @remarks
+   * Duplicate keyword count
+   * 
    * @example
    * 1
    */
   repeatCount?: number;
+  /**
+   * @remarks
+   * List of duplicate keywords
+   */
   repeatKeywords?: string[];
   /**
+   * @remarks
+   * The success count of the keywords.
+   * 
    * @example
    * 6
    */
   successCount?: number;
   /**
+   * @remarks
+   * The tips.
+   * 
    * @example
    * xxxxx
    */
   tips?: string;
   /**
+   * @remarks
+   * The total count of the keywords.
+   * 
    * @example
    * 8
    */
@@ -97,13 +133,23 @@ export class AddKeywordsResponseBodyDataKeywordsResult extends $dara.Model {
 }
 
 export class AddKeywordsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Result.
+   */
   keywordsResult?: AddKeywordsResponseBodyDataKeywordsResult;
   /**
+   * @remarks
+   * The ID of the keyword library.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * xxxxx-xxxxx
    */
@@ -138,22 +184,38 @@ export class AddKeywordsResponseBodyData extends $dara.Model {
 
 export class AddKeywordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Return code. A return of 200 represents success.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: AddKeywordsResponseBodyData;
   /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

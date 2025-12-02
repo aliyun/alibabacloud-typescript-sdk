@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBucketsListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * OSS file storage bucket name.
+   * 
    * @example
    * bucket_test
    */
   bucket?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -37,8 +43,15 @@ export class GetBucketsListResponseBodyData extends $dara.Model {
 }
 
 export class GetBucketsListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetBucketsListResponseBodyData[];
   /**
+   * @remarks
+   * Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

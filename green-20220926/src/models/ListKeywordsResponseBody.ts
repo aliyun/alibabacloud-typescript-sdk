@@ -4,30 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2023-06-03 14:43:03
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2023-06-03 14:43:03
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Primary key ID.
+   * 
    * @example
    * 112
    */
   id?: number;
   /**
+   * @remarks
+   * Keyword library ID.
+   * 
    * @example
    * custom_xxxx
    */
   keywordLibId?: string;
   /**
+   * @remarks
+   * Keyword data ID.
+   * 
    * @example
    * 4205334
    */
   keywordMd5Id?: number;
+  /**
+   * @remarks
+   * Keyword.
+   * 
+   * @example
+   * 测试词
+   */
   word?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,17 +84,30 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
 
 export class ListKeywordsResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Data of the current page.
+   */
   items?: ListKeywordsResponseBodyDataItems[];
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 23
    */
@@ -109,22 +144,38 @@ export class ListKeywordsResponseBodyData extends $dara.Model {
 
 export class ListKeywordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: ListKeywordsResponseBodyData;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success flag.
+   * 
    * @example
    * True
    */

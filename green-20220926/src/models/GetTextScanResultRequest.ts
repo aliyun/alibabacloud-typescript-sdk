@@ -4,28 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTextScanResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End date and time.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Search criteria.
+   */
   query?: { [key: string]: string };
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort fields.
+   */
   sort?: { [key: string]: string };
   /**
+   * @remarks
+   * Start date and time.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */

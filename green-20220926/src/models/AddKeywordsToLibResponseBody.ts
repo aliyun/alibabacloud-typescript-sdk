@@ -4,39 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model {
   /**
+   * @remarks
+   * Internationalization key.
+   * 
    * @example
    * xxx
    */
   i18nKey?: string;
+  /**
+   * @remarks
+   * List of keywords that are too long or too short.
+   */
   illegalLengthKeywords?: string[];
   /**
+   * @remarks
+   * Invalid keyword count.
+   * 
    * @example
    * 1
    */
   invalidCount?: number;
+  /**
+   * @remarks
+   * List of invalid keywords
+   */
   invalidKeywords?: string[];
   /**
+   * @remarks
+   * The id of the keyword library.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The progress percentage of the task.
+   * 
    * @example
    * 100
    */
   progress?: number;
   /**
+   * @remarks
+   * Duplicate keyword count
+   * 
    * @example
    * 1
    */
   repeatCount?: number;
+  /**
+   * @remarks
+   * List of duplicate keywords
+   */
   repeatKeywords?: string[];
   /**
+   * @remarks
+   * The success count of keywords.
+   * 
    * @example
    * 8
    */
   successCount?: number;
   /**
+   * @remarks
+   * The total count of keywords.
+   * 
    * @example
    * 10
    */
@@ -90,13 +123,23 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
 }
 
 export class AddKeywordsToLibResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Result.
+   */
   keywordsResult?: AddKeywordsToLibResponseBodyDataKeywordsResult;
   /**
+   * @remarks
+   * The id of the keyword library.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * xxxxx-xxxxx
    */
@@ -130,8 +173,15 @@ export class AddKeywordsToLibResponseBodyData extends $dara.Model {
 }
 
 export class AddKeywordsToLibResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: AddKeywordsToLibResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

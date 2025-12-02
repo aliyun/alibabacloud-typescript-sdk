@@ -104,7 +104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图库
+   * Create Image Library
    * 
    * @param request - AddImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -145,7 +145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建图库
+   * Create Image Library
    * 
    * @param request - AddImageLibRequest
    * @returns AddImageLibResponse
@@ -156,7 +156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加图片
+   * Add image to image lib
    * 
    * @param request - AddImages2LibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -197,7 +197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量添加图片
+   * Add image to image lib
    * 
    * @param request - AddImages2LibRequest
    * @returns AddImages2LibResponse
@@ -208,7 +208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建关键词库
+   * Create keyword library
    * 
    * @param request - AddKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -253,7 +253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建关键词库
+   * Create keyword library
    * 
    * @param request - AddKeywordLibRequest
    * @returns AddKeywordLibResponse
@@ -264,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加关键词
+   * Add keywords
    * 
    * @param request - AddKeywordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -309,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加关键词
+   * Add keywords
    * 
    * @param request - AddKeywordsRequest
    * @returns AddKeywordsResponse
@@ -320,7 +320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加关键词
+   * Add keywords to keyword library.
    * 
    * @param request - AddKeywordsToLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -365,7 +365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加关键词
+   * Add keywords to keyword library.
    * 
    * @param request - AddKeywordsToLibRequest
    * @returns AddKeywordsToLibResponse
@@ -376,7 +376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消oss扫描任务
+   * Cancel OSS detection task
    * 
    * @param request - CancelStockOssCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -411,7 +411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消oss扫描任务
+   * Cancel OSS detection task
    * 
    * @param request - CancelStockOssCheckTaskRequest
    * @returns CancelStockOssCheckTaskResponse
@@ -422,7 +422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 复制服务
+   * copy service config
    * 
    * @param request - CopyServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -471,7 +471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 复制服务
+   * copy service config
    * 
    * @param request - CopyServiceConfigRequest
    * @returns CopyServiceConfigResponse
@@ -482,7 +482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建oss扫描任务
+   * Create stock oss check task
    * 
    * @param request - CreatStockOssCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -621,7 +621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建oss扫描任务
+   * Create stock oss check task
    * 
    * @param request - CreatStockOssCheckTaskRequest
    * @returns CreatStockOssCheckTaskResponse
@@ -692,7 +692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建消息通知
+   * Create a new message notification
    * 
    * @param request - CreateCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -741,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建消息通知
+   * Create a new message notification
    * 
    * @param request - CreateCallbackRequest
    * @returns CreateCallbackResponse
@@ -806,7 +806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建oss扫描任务前检查
+   * Check before creating an OSS scan task
    * 
    * @param request - CreatePreCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -891,7 +891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建oss扫描任务前检查
+   * Check before creating an OSS scan task
    * 
    * @param request - CreatePreCheckRequest
    * @returns CreatePreCheckResponse
@@ -1000,7 +1000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息通知
+   * delete callback
    * 
    * @param request - DeleteCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1037,7 +1037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息通知
+   * delete callback
    * 
    * @param request - DeleteCallbackRequest
    * @returns DeleteCallbackResponse
@@ -1108,7 +1108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除
+   * Delete images from library.
    * 
    * @param request - DeleteImagesFromLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除
+   * Delete images from library.
    * 
    * @param request - DeleteImagesFromLibRequest
    * @returns DeleteImagesFromLibResponse
@@ -1160,7 +1160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除关键词
+   * Delete keyword
    * 
    * @param request - DeleteKeywordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1205,7 +1205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除关键词
+   * Delete keyword
    * 
    * @param request - DeleteKeywordRequest
    * @returns DeleteKeywordResponse
@@ -1216,7 +1216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除关键词库
+   * Delete Keyword Library
    * 
    * @param request - DeleteKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1253,7 +1253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除关键词库
+   * Delete Keyword Library
    * 
    * @param request - DeleteKeywordLibRequest
    * @returns DeleteKeywordLibResponse
@@ -1408,7 +1408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用量
+   * Export Call Volume
    * 
    * @param request - ExportCipStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,7 +1477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用量
+   * Export Call Volume
    * 
    * @param request - ExportCipStatsRequest
    * @returns ExportCipStatsResponse
@@ -1488,7 +1488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出关键词
+   * Export Keywords
    * 
    * @param request - ExportKeywordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1525,7 +1525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出关键词
+   * Export Keywords
    * 
    * @param request - ExportKeywordRequest
    * @returns ExportKeywordResponse
@@ -1536,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss用量统计导出
+   * OSS Usage Statistics Export
    * 
    * @param request - ExportOssCheckStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1585,7 +1585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss用量统计导出
+   * OSS Usage Statistics Export
    * 
    * @param request - ExportOssCheckStatRequest
    * @returns ExportOssCheckStatResponse
@@ -1596,7 +1596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出oss扫描结果
+   * Export OSS scan results
    * 
    * @param tmpReq - ExportResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1663,7 +1663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出oss扫描结果
+   * Export OSS scan results
    * 
    * @param request - ExportResultRequest
    * @returns ExportResultResponse
@@ -1674,7 +1674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用结果，excel文件
+   * Export scan results, Excel file
    * 
    * @param tmpReq - ExportScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1745,7 +1745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用结果，excel文件
+   * Export scan results, Excel file
    * 
    * @param request - ExportScanResultRequest
    * @returns ExportScanResultResponse
@@ -1756,7 +1756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用结果，excel文件
+   * Export text scan results, Excel file
    * 
    * @param tmpReq - ExportTextScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1807,7 +1807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出调用结果，excel文件
+   * Export text scan results, Excel file
    * 
    * @param request - ExportTextScanResultRequest
    * @returns ExportTextScanResultResponse
@@ -1864,7 +1864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 证据转存获取用户bucket列表
+   * Evidence Transfer to Get User\\"s Bucket List
    * 
    * @param request - GetBackupBucketsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1895,7 +1895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 证据转存获取用户bucket列表
+   * Evidence Transfer to Get User\\"s Bucket List
    * 
    * @param request - GetBackupBucketsListRequest
    * @returns GetBackupBucketsListResponse
@@ -1906,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证据转存配置
+   * Get Evidence Backup Configuration
    * 
    * @param request - GetBackupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1945,7 +1945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证据转存配置
+   * Get Evidence Backup Configuration
    * 
    * @param request - GetBackupConfigRequest
    * @returns GetBackupConfigResponse
@@ -1956,7 +1956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户授权校验
+   * User Backup Authorization Verification
    * 
    * @param request - GetBackupStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1987,7 +1987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户授权校验
+   * User Backup Authorization Verification
    * 
    * @param request - GetBackupStatusRequest
    * @returns GetBackupStatusResponse
@@ -1998,7 +1998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * bucket列表
+   * Get User OSS Scan Bucket List
    * 
    * @param request - GetBucketsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * bucket列表
+   * Get User OSS Scan Bucket List
    * 
    * @param request - GetBucketsListRequest
    * @returns GetBucketsListResponse
@@ -2116,7 +2116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取定时任务预计执行时间
+   * Get Scheduled  OSS Scan  Task Estimated Execution Time
    * 
    * @param request - GetExecuteTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2147,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取定时任务预计执行时间
+   * Get Scheduled  OSS Scan  Task Estimated Execution Time
    * 
    * @param request - GetExecuteTimeRequest
    * @returns GetExecuteTimeResponse
@@ -2218,7 +2218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片规则标签信息
+   * Get Image Rule Label Information
    * 
    * @param request - GetImageSceneLabelConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2249,7 +2249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片规则标签信息
+   * Get Image Rule Label Information
    * 
    * @param request - GetImageSceneLabelConfRequest
    * @returns GetImageSceneLabelConfResponse
@@ -2260,7 +2260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片规则标签信息
+   * Get Image Rule Label Information
    * 
    * @param request - GetImageSceneLabelListConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2295,7 +2295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取图片规则标签信息
+   * Get Image Rule Label Information
    * 
    * @param request - GetImageSceneLabelListConfRequest
    * @returns GetImageSceneLabelListConfResponse
@@ -2306,7 +2306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss定时扫描检测周期查询
+   * OSS scheduled scan detection cycle query
    * 
    * @param tmpReq - GetJobNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2359,7 +2359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss定时扫描检测周期查询
+   * OSS scheduled scan detection cycle query
    * 
    * @param request - GetJobNameListRequest
    * @returns GetJobNameListResponse
@@ -2370,7 +2370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导入关键词结果
+   * Query the result of keyword import
    * 
    * @param request - GetKeywordImportResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2407,7 +2407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询导入关键词结果
+   * Query the result of keyword import
    * 
    * @param request - GetKeywordImportResultRequest
    * @returns GetKeywordImportResultResponse
@@ -2418,7 +2418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关键词库信息
+   * Keyword Library Information
    * 
    * @param request - GetKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2455,7 +2455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关键词库信息
+   * Keyword Library Information
    * 
    * @param request - GetKeywordLibRequest
    * @returns GetKeywordLibResponse
@@ -2466,7 +2466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss冻结结果查询
+   * Query OSS freeze result
    * 
    * @param tmpReq - GetOssCheckFreezeResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2535,7 +2535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss冻结结果查询
+   * Query OSS freeze result
    * 
    * @param request - GetOssCheckFreezeResultRequest
    * @returns GetOssCheckFreezeResultResponse
@@ -2546,7 +2546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果详情
+   * OSS result details
    * 
    * @param request - GetOssCheckResultDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2601,7 +2601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss结果详情
+   * OSS result details
    * 
    * @param request - GetOssCheckResultDetailRequest
    * @returns GetOssCheckResultDetailResponse
@@ -2612,7 +2612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss用量统计
+   * OSS Check Usage Statistics
    * 
    * @param request - GetOssCheckStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2661,7 +2661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss用量统计
+   * OSS Check Usage Statistics
    * 
    * @param request - GetOssCheckStatRequest
    * @returns GetOssCheckStatResponse
@@ -2672,7 +2672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取OSS检测用户状态
+   * Get User OSS check user status
    * 
    * @param request - GetOssCheckStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2703,7 +2703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取OSS检测用户状态
+   * Get User OSS check user status
    * 
    * @param request - GetOssCheckStatusRequest
    * @returns GetOssCheckStatusResponse
@@ -2756,7 +2756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户待检测信息
+   * User OSS Check Task Pending Inspection Information
    * 
    * @param request - GetScanNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2795,7 +2795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户待检测信息
+   * User OSS Check Task Pending Inspection Information
    * 
    * @param request - GetScanNumRequest
    * @returns GetScanNumResponse
@@ -2806,7 +2806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用结果
+   * Query the Scan results
    * 
    * @param tmpReq - GetScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2877,7 +2877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用结果
+   * Query the Scan results
    * 
    * @param request - GetScanResultRequest
    * @returns GetScanResultResponse
@@ -2888,7 +2888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务
+   * Get a Single Service Configuration
    * 
    * @param request - GetServiceConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2937,7 +2937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务
+   * Get a Single Service Configuration
    * 
    * @param request - GetServiceConfRequest
    * @returns GetServiceConfResponse
@@ -2948,7 +2948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务
+   * Get a Single Service Configuration
    * 
    * @param request - GetServiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2989,7 +2989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务
+   * Get a Single Service Configuration
    * 
    * @param request - GetServiceConfigRequest
    * @returns GetServiceConfigResponse
@@ -3000,7 +3000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务的标签配置
+   * Get the label configuration of a single service
    * 
    * @param request - GetServiceLabelConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3041,7 +3041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个服务的标签配置
+   * Get the label configuration of a single service
    * 
    * @param request - GetServiceLabelConfigRequest
    * @returns GetServiceLabelConfigResponse
@@ -3052,7 +3052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询oss扫描任务列表
+   * Query OSS Scan Task List
    * 
    * @param tmpReq - GetStockOssCheckTasksListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3123,7 +3123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询oss扫描任务列表
+   * Query OSS Scan Task List
    * 
    * @param request - GetStockOssCheckTasksListRequest
    * @returns GetStockOssCheckTasksListResponse
@@ -3134,7 +3134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用结果
+   * Query the invocation result
    * 
    * @param tmpReq - GetTextScanResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调用结果
+   * Query the invocation result
    * 
    * @param request - GetTextScanResultRequest
    * @returns GetTextScanResultResponse
@@ -3212,7 +3212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件上传获取相应信息
+   * Get the corresponding information for file upload
    * 
    * @param request - GetUploadInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3253,7 +3253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件上传获取相应信息
+   * Get the corresponding information for file upload
    * 
    * @param request - GetUploadInfoRequest
    * @returns GetUploadInfoResponse
@@ -3306,7 +3306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户购买状态
+   * Get User Purchase Status
    * 
    * @param request - GetUserBuyStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3343,7 +3343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户购买状态
+   * Get User Purchase Status
    * 
    * @param request - GetUserBuyStatusRequest
    * @returns GetUserBuyStatusResponse
@@ -3396,7 +3396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息通知列表
+   * Get Callback List
    * 
    * @param request - ListCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3427,7 +3427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息通知列表
+   * Get Callback List
    * 
    * @param request - ListCallbackRequest
    * @returns ListCallbackResponse
@@ -3438,7 +3438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图库列表
+   * Image Library List
    * 
    * @param request - ListImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3469,7 +3469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图库列表
+   * Image Library List
    * 
    * @param request - ListImageLibRequest
    * @returns ListImageLibResponse
@@ -3480,7 +3480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片列表 分页
+   * Paged Image List
    * 
    * @param tmpReq - ListImagesFromLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3547,7 +3547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片列表 分页
+   * Paged Image List
    * 
    * @param request - ListImagesFromLibRequest
    * @returns ListImagesFromLibResponse
@@ -3558,7 +3558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关键词库列表
+   * Keyword Library List
    * 
    * @param request - ListKeywordLibsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,7 +3589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关键词库列表
+   * Keyword Library List
    * 
    * @param request - ListKeywordLibsRequest
    * @returns ListKeywordLibsResponse
@@ -3600,7 +3600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询关键词列表
+   * Query Keyword List
    * 
    * @param tmpReq - ListKeywordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3659,7 +3659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询关键词列表
+   * Query Keyword List
    * 
    * @param request - ListKeywordsRequest
    * @returns ListKeywordsResponse
@@ -3670,7 +3670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss扫描结果查询
+   * query OSS scan result list
    * 
    * @param tmpReq - ListOssCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * oss扫描结果查询
+   * query OSS scan result list
    * 
    * @param request - ListOssCheckResultRequest
    * @returns ListOssCheckResultResponse
@@ -3750,7 +3750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务列表
+   * Get Service List
    * 
    * @param request - ListServiceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3795,7 +3795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取服务列表
+   * Get Service List
    * 
    * @param request - ListServiceConfigsRequest
    * @returns ListServiceConfigsResponse
@@ -3806,7 +3806,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用SSE接口流式调用大模型
+   * Use SSE interface to stream large model calls
+   * 
+   * @param request - LlmStreamChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmStreamChatResponse
+   */
+  async *llmStreamChatWithSSE(request: $_model.LlmStreamChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.LlmStreamChatResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messages)) {
+      body["Messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      body["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      body["TopP"] = request.topP;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LlmStreamChat",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.LlmStreamChatResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.LlmStreamChatResponse({}));
+    }
+  }
+
+  /**
+   * Use SSE interface to stream large model calls
    * 
    * @param request - LlmStreamChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3827,6 +3883,10 @@ export default class Client extends OpenApi {
       body["TopP"] = request.topP;
     }
 
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -3845,7 +3905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 使用SSE接口流式调用大模型
+   * Use SSE interface to stream large model calls
    * 
    * @param request - LlmStreamChatRequest
    * @returns LlmStreamChatResponse
@@ -3906,7 +3966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息通知
+   * Modify Message Notification
    * 
    * @param request - ModifyCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3959,7 +4019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息通知
+   * Modify Message Notification
    * 
    * @param request - ModifyCallbackRequest
    * @returns ModifyCallbackResponse
@@ -3970,7 +4030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Feature Configuration
+   * 保存特性配置
    * 
    * @param request - ModifyFeatureConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4027,7 +4087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Save Feature Configuration
+   * 保存特性配置
    * 
    * @param request - ModifyFeatureConfigRequest
    * @returns ModifyFeatureConfigResponse
@@ -4038,7 +4098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑服务
+   * Edit Service
    * 
    * @param request - ModifyServiceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4087,7 +4147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑服务
+   * Edit Service
    * 
    * @param request - ModifyServiceInfoRequest
    * @returns ModifyServiceInfoResponse
@@ -4246,7 +4306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个回调配置
+   * Query a Single Callback Configuration
    * 
    * @param request - QueryCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4287,7 +4347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个回调配置
+   * Query a Single Callback Configuration
    * 
    * @param request - QueryCallbackRequest
    * @returns QueryCallbackResponse
@@ -4298,7 +4358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息通知
+   * Paginated Query of Message Notification List
    * 
    * @param request - QueryCallbackByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4339,7 +4399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息通知
+   * Paginated Query of Message Notification List
    * 
    * @param request - QueryCallbackByPageRequest
    * @returns QueryCallbackByPageResponse
@@ -4400,7 +4460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新证据转存配置
+   * Update Evidence Backup Configuration
    * 
    * @param request - UpdateBackupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4443,7 +4503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新证据转存配置
+   * Update Evidence Backup Configuration
    * 
    * @param request - UpdateBackupConfigRequest
    * @returns UpdateBackupConfigResponse
@@ -4454,7 +4514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑图库
+   * Edit Image Library
    * 
    * @param request - UpdateImageLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4503,7 +4563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑图库
+   * Edit Image Library
    * 
    * @param request - UpdateImageLibRequest
    * @returns UpdateImageLibResponse
@@ -4514,7 +4574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑图库免检配置
+   * Edit Image Library Free Inspection Configuration
    * 
    * @param tmpReq - UpdateImageLibFreeInspectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4557,7 +4617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑图库免检配置
+   * Edit Image Library Free Inspection Configuration
    * 
    * @param request - UpdateImageLibFreeInspectionRequest
    * @returns UpdateImageLibFreeInspectionResponse
@@ -4568,7 +4628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑关键词库
+   * Edit Keyword Library
    * 
    * @param request - UpdateKeywordLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4609,7 +4669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑关键词库
+   * Edit Keyword Library
    * 
    * @param request - UpdateKeywordLibRequest
    * @returns UpdateKeywordLibResponse
@@ -4852,7 +4912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测结果反馈
+   * Feedback on Scan Results
    * 
    * @param request - UpdateScanResultFeedbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4905,7 +4965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测结果反馈
+   * Feedback on Scan Results
    * 
    * @param request - UpdateScanResultFeedbackRequest
    * @returns UpdateScanResultFeedbackResponse

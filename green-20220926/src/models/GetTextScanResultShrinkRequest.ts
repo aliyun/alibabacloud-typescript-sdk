@@ -4,28 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTextScanResultShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End date and time.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Search criteria.
+   */
   queryShrink?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort fields.
+   */
   sortShrink?: string;
   /**
+   * @remarks
+   * Start date and time.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */

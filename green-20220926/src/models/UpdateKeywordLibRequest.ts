@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateKeywordLibRequest extends $dara.Model {
   /**
+   * @remarks
+   * Library ID.
+   * 
    * @example
    * custom_xxxx
    */
   libId?: string;
+  /**
+   * @remarks
+   * Keyword library name.
+   * 
+   * @example
+   * 测试库
+   */
   libName?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

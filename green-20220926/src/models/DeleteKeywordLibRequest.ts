@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteKeywordLibRequest extends $dara.Model {
   /**
+   * @remarks
+   * Keyword library ID.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

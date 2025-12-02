@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFeatureConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code.
+   * Success indicator.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data
+   * query
    * 
    * @example
    * True
@@ -21,7 +21,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * HTTP status code.
+   * Status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message of this request.
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * Returned data
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -45,7 +45,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Success indicator.
+   * Response message of this request.
    * 
    * @example
    * True

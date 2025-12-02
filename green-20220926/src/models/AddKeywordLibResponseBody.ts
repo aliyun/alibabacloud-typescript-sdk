@@ -4,39 +4,72 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddKeywordLibResponseBodyDataKeywordsResult extends $dara.Model {
   /**
+   * @remarks
+   * Internationalization key.
+   * 
    * @example
    * xxx
    */
   i18nKey?: string;
+  /**
+   * @remarks
+   * List of keywords that are too long or too short.
+   */
   illegalLengthKeywords?: string[];
   /**
+   * @remarks
+   * Invalid keyword count
+   * 
    * @example
    * 133
    */
   invalidCount?: number;
+  /**
+   * @remarks
+   * List of invalid keywords
+   */
   invalidKeywords?: string[];
   /**
+   * @remarks
+   * The id of the keyword library.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * Duplicate keyword count
+   * 
    * @example
    * 118
    */
   repeatCount?: number;
+  /**
+   * @remarks
+   * List of duplicate keywords
+   */
   repeatKeywords?: string[];
   /**
+   * @remarks
+   * Successful keyword count
+   * 
    * @example
    * 278
    */
   successCount?: number;
   /**
+   * @remarks
+   * The tips.
+   * 
    * @example
    * xxx
    */
   tips?: string;
   /**
+   * @remarks
+   * The total number of keywords.
+   * 
    * @example
    * 529
    */
@@ -90,13 +123,23 @@ export class AddKeywordLibResponseBodyDataKeywordsResult extends $dara.Model {
 }
 
 export class AddKeywordLibResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Result.
+   */
   keywordsResult?: AddKeywordLibResponseBodyDataKeywordsResult;
   /**
+   * @remarks
+   * The id of the keyword library.
+   * 
    * @example
    * customxx_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * xxxxx-xxxxx
    */
@@ -131,22 +174,38 @@ export class AddKeywordLibResponseBodyData extends $dara.Model {
 
 export class AddKeywordLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: AddKeywordLibResponseBodyData;
   /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

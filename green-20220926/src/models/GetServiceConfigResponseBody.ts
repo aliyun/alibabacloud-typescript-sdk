@@ -3,9 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Risk levels.
+   */
   auditRiskLevels?: string[];
+  /**
+   * @remarks
+   * Callback notification ID
+   * 
+   * @example
+   * 123
+   */
   callbackId?: number;
+  /**
+   * @remarks
+   * Whether to enable. Values:
+   * - **true**: Enabled
+   * - **false**: Disabled
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * Manual review service
+   * 
+   * @example
+   * imageManualCheck
+   */
   manualService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,9 +65,25 @@ export class GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfi
 }
 
 export class GetServiceConfigResponseBodyDataCustomServiceConf extends $dara.Model {
+  /**
+   * @remarks
+   * Ignore word libraries.
+   */
   keywordFilterLibs?: string[];
+  /**
+   * @remarks
+   * Hit word libraries.
+   */
   keywordHitLibs?: string[];
+  /**
+   * @remarks
+   * Human-machine review configuration.
+   */
   manualMachineConfig?: GetServiceConfigResponseBodyDataCustomServiceConfManualMachineConfig;
+  /**
+   * @remarks
+   * Hit similar text libraries.
+   */
   similarTextHitLibs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -82,25 +125,38 @@ export class GetServiceConfigResponseBodyDataCustomServiceConf extends $dara.Mod
 }
 
 export class GetServiceConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Custom service details
+   */
   customServiceConf?: GetServiceConfigResponseBodyDataCustomServiceConf;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2024-05-06 03:07:44
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * text
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * nickname_detection
    */
   serviceCode?: string;
   /**
    * @remarks
-   * UID。
+   * UID.
    * 
    * @example
    * 165379****31937
@@ -140,22 +196,38 @@ export class GetServiceConfigResponseBodyData extends $dara.Model {
 
 export class GetServiceConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetServiceConfigResponseBodyData;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

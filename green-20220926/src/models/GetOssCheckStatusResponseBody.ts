@@ -5,38 +5,56 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Bid。
+   * Bid.
    * 
    * @example
    * 26842
    */
   bid?: string;
   /**
+   * @remarks
+   * Whether a product has been activated on Alibaba Cloud.
+   * 
    * @example
    * True
    */
   buy?: boolean;
   /**
+   * @remarks
+   * Commodity code.
+   * 
    * @example
    * xxx
    */
   commodityCode?: string;
   /**
+   * @remarks
+   * Whether there is an outstanding payment.
+   * 
    * @example
    * False
    */
   indebt?: boolean;
   /**
+   * @remarks
+   * Whether internal security is authorized.
+   * 
    * @example
    * True
    */
   ramStatus?: string;
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether log analysis function is authorized.
+   * 
    * @example
    * True
    */

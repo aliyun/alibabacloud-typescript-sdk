@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetOssCheckStatRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to query by month.
+   * 
    * @example
    * true
    */
   byMonth?: boolean;
   /**
+   * @remarks
+   * End date.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Parent task ID.
+   * 
    * @example
    * P_UNHBH
    */
   parentTaskId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Start date.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */

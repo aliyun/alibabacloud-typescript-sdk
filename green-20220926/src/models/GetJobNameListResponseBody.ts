@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetJobNameListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: string[];
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteOnlineTestRequest extends $dara.Model {
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * image
    */

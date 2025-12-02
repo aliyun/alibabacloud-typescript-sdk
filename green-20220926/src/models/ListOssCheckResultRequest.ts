@@ -4,42 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOssCheckResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End date.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Number of completed tasks.
+   * 
    * @example
    * 2
    */
   finishNum?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Search condition.
+   * 
    * @example
    * {"TaskId":"P_11TL5T"}
    */
   query?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sort?: { [key: string]: string };
   /**
+   * @remarks
+   * Start date.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */
   startDate?: string;
   /**
+   * @remarks
+   * Task status.
+   * 
    * @example
    * 4
    */

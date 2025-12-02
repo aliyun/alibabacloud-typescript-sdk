@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetBackupBucketsListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetImageSceneLabelListConfRequest extends $dara.Model {
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * baselineCheck
    */
   imageServiceCode?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

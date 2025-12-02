@@ -4,79 +4,171 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Storage space.
+   * 
    * @example
    * tmp
    */
   bucket?: string;
   /**
+   * @remarks
+   * Error code, consistent with HTTP status.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Audio and video detection type.
+   * 
    * @example
    * audio
    */
   contentType?: string;
   /**
+   * @remarks
+   * Primary service.
+   * 
    * @example
    * audio_media_detection
    */
   copyFrom?: string;
+  /**
+   * @remarks
+   * Freeze status.
+   * 
+   * @example
+   * FREEZED
+   */
   freezeStatus?: string;
+  /**
+   * @remarks
+   * Freeze type.
+   * 
+   * @example
+   * ACL
+   */
   freezeType?: string;
   /**
+   * @remarks
+   * Image URL address.
+   * 
    * @example
    * http://www.aliyuncs.com/test.jpg
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * Whether to copy.
+   * 
    * @example
    * true
    */
   isCopy?: boolean;
   /**
+   * @remarks
+   * Job name.
+   * 
    * @example
    * dhT20X2310
    */
   jobName?: string;
+  /**
+   * @remarks
+   * Image labels.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * Text labels.
+   */
   labels2?: string[];
   /**
+   * @remarks
+   * File MD5.
+   * 
    * @example
    * 54416c9b159df4a60ae03c04ccb94cb5
    */
   md5?: string;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * Object name.
+   * 
    * @example
    * 1713014531569_958.png.jpeg
    */
   object?: string;
+  /**
+   * @remarks
+   * Image risk level
+   * 
+   * @example
+   * high
+   */
   riskLevel?: string;
+  /**
+   * @remarks
+   * Overall risk level
+   * 
+   * @example
+   * low
+   */
   riskLevel0?: string;
+  /**
+   * @remarks
+   * Text risk level
+   * 
+   * @example
+   * none
+   */
   riskLevel2?: string;
   /**
+   * @remarks
+   * Details of the result.
+   * 
    * @example
    * {}
    */
   scanResult?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * audio_media_detection_01
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service name.
+   * 
+   * @example
+   * 服务名称
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * EP6TI7_au_Zo25ITvCbkocNuF801QOQX
    */
   taskId?: string;
   /**
+   * @remarks
+   * Task URL.
+   * 
    * @example
    * http://www.aliyuncs.com/test.mp3
    */
@@ -152,22 +244,38 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
 
 export class ListOssCheckResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Data of the current page.
+   */
   items?: ListOssCheckResultResponseBodyItems[];
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 13
    */

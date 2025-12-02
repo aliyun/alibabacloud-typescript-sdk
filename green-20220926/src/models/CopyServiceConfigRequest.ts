@@ -4,21 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class CopyServiceConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * text
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * nickname_detection
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service description
+   * 
+   * @example
+   * test
+   */
   serviceDesc?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * test_name
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {

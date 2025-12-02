@@ -4,26 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListKeywordsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * Library ID.
+   * 
    * @example
    * custom_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sortShrink?: string;
+  /**
+   * @remarks
+   * Keyword.
+   * 
+   * @example
+   * 测试词
+   */
   word?: string;
   static names(): { [key: string]: string } {
     return {

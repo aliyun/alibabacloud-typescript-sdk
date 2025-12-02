@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCallbackRequest extends $dara.Model {
   /**
+   * @remarks
+   * Encryption algorithm.
+   * 
    * @example
    * SHA256
    */
   cryptType?: string;
+  /**
+   * @remarks
+   * Plan name.
+   * 
+   * @example
+   * 消息通知1
+   */
   name?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Review result.
+   * 
    * @example
    * all
    */
   scope?: string;
   /**
+   * @remarks
+   * Callback URL.
+   * 
    * @example
    * https://console.aliyun.com
    */

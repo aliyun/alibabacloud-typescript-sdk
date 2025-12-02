@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCallbackRequest extends $dara.Model {
   /**
    * @remarks
+   * callback id.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DeleteCallbackRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-shanghai
    */

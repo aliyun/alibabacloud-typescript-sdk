@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetOssCheckResultDetailRequest extends $dara.Model {
   /**
+   * @remarks
+   * Bucket name.
+   * 
    * @example
    * oss-tmp
    */
   bucket?: string;
   /**
+   * @remarks
+   * Media type.
+   * 
    * @example
    * 1
    */
   mediaType?: number;
   /**
+   * @remarks
+   * Object name.
+   * 
    * @example
    * 1748396909030.jpg
    */
   object?: string;
+  /**
+   * @remarks
+   * Parent task ID.
+   * 
+   * @example
+   * P_RZQ66T
+   */
   parentTaskId?: string;
   /**
+   * @remarks
+   * Query request ID.
+   * 
    * @example
    * 62E97001-1255-50A9-8E1E-4FD05473D952
    */
   queryRequestId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * audio_media_detection_01
    */

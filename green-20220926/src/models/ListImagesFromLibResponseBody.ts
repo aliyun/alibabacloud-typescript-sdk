@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListImagesFromLibResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2022-11-30 16:30:29
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Image ID.
+   * 
    * @example
    * 112
    */
   imageId?: string;
   /**
+   * @remarks
+   * Image URL.
+   * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/image/upload/IMG_2123.jpg
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * Thumbnail URL.
+   * 
    * @example
    * https://oss-cip-shanghai.oss-cn-shanghai.aliyuncs.com/image/upload/IMG_2123.jpg
    */
@@ -52,42 +64,70 @@ export class ListImagesFromLibResponseBodyItems extends $dara.Model {
 
 export class ListImagesFromLibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code, consistent with HTTP status.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Current page.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Data of the current page.
+   */
   items?: ListImagesFromLibResponseBodyItems[];
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of images.
+   * 
    * @example
    * 10
    */

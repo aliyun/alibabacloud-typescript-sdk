@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddImages2LibResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The id of the uploaded image.
+   * 
    * @example
    * 100001
    */
@@ -31,27 +34,46 @@ export class AddImages2LibResponseBodyData extends $dara.Model {
 
 export class AddImages2LibResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: AddImages2LibResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

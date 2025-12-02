@@ -3,17 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServiceConfigsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Category.
+   * 
+   * @example
+   * guard-scene
+   */
   classify?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * text
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * Usage status.
+   * 
+   * @example
+   * in
+   */
   useStatus?: string;
   static names(): { [key: string]: string } {
     return {

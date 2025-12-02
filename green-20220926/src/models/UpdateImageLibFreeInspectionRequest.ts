@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration.
+   */
   config?: { [key: string]: number };
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

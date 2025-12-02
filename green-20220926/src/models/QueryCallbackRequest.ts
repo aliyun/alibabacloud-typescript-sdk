@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCallbackRequest extends $dara.Model {
   /**
+   * @remarks
+   * Query data under the OSS detection task.
+   * 
    * @example
    * true
    */
   checkForOss?: boolean;
   /**
    * @remarks
+   * Primary key ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class QueryCallbackRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

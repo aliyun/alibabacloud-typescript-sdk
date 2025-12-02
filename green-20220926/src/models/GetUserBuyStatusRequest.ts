@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserBuyStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Commodity code.
+   * 
+   * @example
+   * lvwang_public_cn
+   */
   commodityCode?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

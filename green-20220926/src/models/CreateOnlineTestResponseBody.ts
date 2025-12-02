@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOnlineTestResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Service Code
+   * 
    * @example
    * VideoModeration
    */
   serviceCode?: string;
   /**
+   * @remarks
+   * Detection Task ID
+   * 
    * @example
    * xxxxx-xxxxx
    */
   taskId?: string;
   /**
+   * @remarks
+   * Detection Status
+   * 
    * @example
    * SUCCESS
    */
   taskStatus?: string;
   /**
+   * @remarks
+   * Detection URL
+   * 
    * @example
    * https://xxxxxxxxxx.com/data/data.png
    */

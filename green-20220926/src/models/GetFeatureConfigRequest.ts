@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFeatureConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Query conditions.
+   * 
+   * @example
+   * {\\"Lang\\":\\"zh\\",\\"CategoryType\\":1,\\"Default\\":false,\\"ParentCategoryId\\":1720}
+   */
   query?: string;
   /**
    * @remarks

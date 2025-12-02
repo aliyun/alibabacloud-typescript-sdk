@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateImageLibFreeInspectionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code, consistent with the HTTP status.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Return result.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

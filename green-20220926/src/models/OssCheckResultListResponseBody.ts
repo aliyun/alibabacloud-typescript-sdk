@@ -4,74 +4,131 @@ import * as $dara from '@darabonba/typescript';
 
 export class OssCheckResultListResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Data of the current page.
+   * 
    * @example
    * tmp
    */
   bucket?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Primary service.
+   * 
    * @example
    * audio
    */
   contentType?: string;
   /**
+   * @remarks
+   * Whether to copy.
+   * 
    * @example
    * audio_media_detection
    */
   copyFrom?: string;
   /**
+   * @remarks
+   * Details of the result.
+   * 
    * @example
    * http://www.aliyuncs.com/test.jpg
    */
   imageUrl?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * true
    */
   isCopy?: boolean;
   /**
+   * @remarks
+   * Image URL.
+   * 
    * @example
    * dhT20X2310
    */
   jobName?: string;
+  /**
+   * @remarks
+   * Further description of the error code.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * Job name.
+   */
   labels2?: string[];
   /**
+   * @remarks
+   * Object name.
+   * 
    * @example
    * 54416c9b159df4a60ae03c04ccb94cb5
    */
   md5?: string;
   /**
+   * @remarks
+   * Status code. 200 indicates success.
+   * 
    * @example
    * success
    */
   msg?: string;
   /**
+   * @remarks
+   * OSS Bucket name.
+   * 
    * @example
    * 1713014531569_958.png.jpeg
    */
   object?: string;
   /**
+   * @remarks
+   * Image labels.
+   * 
    * @example
    * {}
    */
   scanResult?: string;
   /**
+   * @remarks
+   * File MD5.
+   * 
    * @example
    * audio_media_detection_01
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Task ID.
+   * 
+   * @example
+   * 服务名称
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * Task URL.
+   * 
    * @example
    * P_XHDUS
    */
   taskId?: string;
   /**
+   * @remarks
+   * Text labels.
+   * 
    * @example
    * http://www.aliyuncs.com/test.mp3
    */
@@ -137,27 +194,46 @@ export class OssCheckResultListResponseBodyItems extends $dara.Model {
 
 export class OssCheckResultListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Backend-assigned ID, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * OK
    */
   authStatus?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Current page number.
+   */
   items?: OssCheckResultListResponseBodyItems[];
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Task status.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Authorization status.
+   * 
    * @example
    * 10
    */

@@ -4,34 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Encryption algorithm.
+   * 
    * @example
    * SHA256
    */
   cryptType?: string;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2024-06-03 15:20:14
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2024-06-03 15:20:14
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Primary key ID.
+   * 
    * @example
    * 1697
    */
   id?: number;
+  /**
+   * @remarks
+   * Name.
+   * 
+   * @example
+   * 消息通知
+   */
   name?: string;
   /**
+   * @remarks
+   * Result scope.
+   * 
    * @example
    * all
    */
   scope?: string;
   /**
    * @remarks
-   * Seed。
+   * Seed.
    * 
    * @example
    * cb6gYS8GXj4Vn4Y4FN0Y8R5M-1x46Mq
@@ -39,13 +61,16 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID。
+   * UID.
    * 
    * @example
    * 12161*****398900
    */
   uid?: string;
   /**
+   * @remarks
+   * Callback URL.
+   * 
    * @example
    * https://console.aliyun.com/
    */
@@ -89,22 +114,38 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
 
 export class QueryCallbackByPageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Data of the current page.
+   */
   items?: QueryCallbackByPageResponseBodyItems[];
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 10
    */

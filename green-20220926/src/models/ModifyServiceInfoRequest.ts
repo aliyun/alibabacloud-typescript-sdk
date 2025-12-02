@@ -4,21 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyServiceInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * image
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * baselineCheck
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service description.
+   * 
+   * @example
+   * 描述
+   */
   serviceDesc?: string;
+  /**
+   * @remarks
+   * Service name.
+   * 
+   * @example
+   * 通用基线检测
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {

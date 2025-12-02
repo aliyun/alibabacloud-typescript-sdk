@@ -4,42 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStockOssCheckTasksListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 2023-06-18 02:08:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * Whether it is a scheduled scan task.
+   * 
    * @example
    * false
    */
   isInc?: boolean;
   /**
+   * @remarks
+   * Media type.
+   * 
    * @example
    * image
    */
   mediaType?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sort?: { [key: string]: string };
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 2023-06-17 02:08:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * Task type.
+   * 
    * @example
    * batch
    */

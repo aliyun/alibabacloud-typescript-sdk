@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CopyServiceConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data returned.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */

@@ -4,42 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetOssCheckFreezeResultShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 2025-05-19 10:05:11
    */
   endDate?: string;
   /**
+   * @remarks
+   * Number of completed tasks.
+   * 
    * @example
    * 0
    */
   finishNum?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Query condition.
+   * 
    * @example
    * {\\"TaskId\\":\\"P_O3SI0I\\"}
    */
   query?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sortShrink?: string;
   /**
+   * @remarks
+   * Start time.
+   * 
    * @example
    * 2025-01-09 10:28:54
    */
   startDate?: string;
   /**
+   * @remarks
+   * Task status.
+   * 
    * @example
    * 1
    */

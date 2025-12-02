@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRule extends $dara.Model {
+  /**
+   * @remarks
+   * Image services.
+   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +33,10 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRu
 }
 
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRule extends $dara.Model {
+  /**
+   * @remarks
+   * Text services.
+   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -55,12 +63,23 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRul
 }
 
 export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $dara.Model {
+  /**
+   * @remarks
+   * Image review rule.
+   */
   imageScanRule?: ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRule;
   /**
+   * @remarks
+   * Index.
+   * 
    * @example
    * 1
    */
   index?: number;
+  /**
+   * @remarks
+   * Text review rule.
+   */
   textScanRule?: ListServiceConfigsResponseBodyDataCustomServiceConfRulesTextScanRule;
   static names(): { [key: string]: string } {
     return {
@@ -95,14 +114,37 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $d
 
 export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.Model {
   /**
+   * @remarks
+   * Audio service.
+   * 
    * @example
    * audio_media_detection
    */
   audioService?: string;
+  /**
+   * @remarks
+   * Image services.
+   */
   imageService?: string[];
+  /**
+   * @remarks
+   * Ignored word libraries.
+   */
   keywordFilterLibs?: string[];
+  /**
+   * @remarks
+   * Hit word libraries.
+   */
   keywordHitLibs?: string[];
+  /**
+   * @remarks
+   * Service rules
+   */
   rules?: ListServiceConfigsResponseBodyDataCustomServiceConfRules[];
+  /**
+   * @remarks
+   * Hit similar text libraries.
+   */
   similarTextHitLibs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -151,48 +193,98 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
 }
 
 export class ListServiceConfigsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Category.
+   * 
+   * @example
+   * guard-scene
+   */
   classify?: string;
   /**
+   * @remarks
+   * Main service.
+   * 
    * @example
    * nickname_detection
    */
   copyFrom?: string;
+  /**
+   * @remarks
+   * Service configuration.
+   */
   customServiceConf?: ListServiceConfigsResponseBodyDataCustomServiceConf;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 2023-07-11 15:40:04
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Options.
+   * 
    * @example
    * {}
    */
   option?: { [key: string]: any };
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * text
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * nickname_detection
    */
   serviceCode?: string;
+  /**
+   * @remarks
+   * Service description.
+   * 
+   * @example
+   * 服务描述
+   */
   serviceDesc?: string;
+  /**
+   * @remarks
+   * Service name.
+   * 
+   * @example
+   * 服务名称
+   */
   serviceName?: string;
   /**
+   * @remarks
+   * Service type.
+   * 
    * @example
    * plus
    */
   serviceType?: string;
   /**
    * @remarks
-   * UID。
+   * UID.
    * 
    * @example
    * 1674*****0071291
    */
   uid?: string;
+  /**
+   * @remarks
+   * Usage status
+   * 
+   * @example
+   * in
+   */
   useStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,22 +337,38 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
 
 export class ListServiceConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 400
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: ListServiceConfigsResponseBodyData[];
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. Can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

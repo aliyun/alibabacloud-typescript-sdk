@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetJobNameListShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * End date.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Query condition.
+   * 
    * @example
    * {"TaskId":"P_11TL5T"}
    */
   query?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sortShrink?: string;
   /**
+   * @remarks
+   * Start date.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */

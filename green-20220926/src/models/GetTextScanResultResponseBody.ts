@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
   /**
+   * @remarks
+   * Confidence score, ranging from 0 to 100, with two decimal places retained.
+   * 
    * @example
    * 25.0
    */
   confidence?: number;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * 疑似色情内容
+   */
   description?: string;
   /**
+   * @remarks
+   * Label.
+   * 
    * @example
    * political_n
    */
@@ -40,61 +53,127 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
 }
 
 export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * Bailian Request ID
+   * 
+   * @example
+   * xxx
+   */
   bailianRequestId?: string;
+  /**
+   * @remarks
+   * Content.
+   * 
+   * @example
+   * 测试内容
+   */
   content?: string;
   /**
+   * @remarks
+   * Feedback information.
+   * 
    * @example
    * miss
    */
   extFeedback?: string;
   /**
+   * @remarks
+   * Spare parameters.
+   * 
    * @example
    * {}
    */
   extra?: { [key: string]: any };
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2023-07-11 14:21:36
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Labels.
+   * 
    * @example
    * nonLabel
    */
   labels?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Request time.
+   * 
    * @example
    * 2023-07-11 14:21:36
    */
   requestTime?: string;
+  /**
+   * @remarks
+   * Detection results.
+   */
   result?: GetTextScanResultResponseBodyDataItemsResult[];
+  /**
+   * @remarks
+   * Risk level, returned based on the set high and low risk scores. The return values include:
+   * 
+   * - high: High risk
+   * 
+   * - medium: Medium risk
+   *  
+   * - low: Low risk
+   * 
+   * - none: No risk detected
+   * 
+   * @example
+   * none
+   */
   riskLevel?: string;
   /**
+   * @remarks
+   * Details of the result.
+   * 
    * @example
    * {}
    */
   scanResult?: string;
   /**
+   * @remarks
+   * Score.
+   * 
    * @example
    * 20
    */
   score?: number;
   /**
+   * @remarks
+   * Service code.
+   * 
    * @example
    * nickname_detection
    */
   serviceCode?: string;
   /**
+   * @remarks
+   * Suggestion for handling.
+   * 
    * @example
    * review
    */
   suggestion?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * txtwkgb******AsYNXoJswy-1Aa1Qk
    */
@@ -156,17 +235,30 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
 
 export class GetTextScanResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * Data for the current page.
+   */
   items?: GetTextScanResultResponseBodyDataItems[];
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 5
    */
@@ -203,22 +295,38 @@ export class GetTextScanResultResponseBodyData extends $dara.Model {
 
 export class GetTextScanResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetTextScanResultResponseBodyData;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */

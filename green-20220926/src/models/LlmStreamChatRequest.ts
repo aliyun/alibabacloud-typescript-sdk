@@ -3,22 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LlmStreamChatRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Conversation information
+   * 
+   * @example
+   * [{\\"content\\":\\"你好\\",\\"role\\":\\"user\\"}]
+   */
   messages?: any;
   /**
+   * @remarks
+   * Temperature value for the large model
+   * 
    * @example
    * 0.5
    */
   temperature?: number;
   /**
+   * @remarks
+   * Top p parameter controlling the randomness of the large model\\"s output.
+   * 
    * @example
    * 0.5
    */
   topP?: number;
+  /**
+   * @remarks
+   * Type of conversation
+   * 
+   * @example
+   * image
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       messages: 'Messages',
       temperature: 'Temperature',
       topP: 'TopP',
+      type: 'Type',
     };
   }
 
@@ -27,6 +49,7 @@ export class LlmStreamChatRequest extends $dara.Model {
       messages: 'any',
       temperature: 'number',
       topP: 'number',
+      type: 'string',
     };
   }
 

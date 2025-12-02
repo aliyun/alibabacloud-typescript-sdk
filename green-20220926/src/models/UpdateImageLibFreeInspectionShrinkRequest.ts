@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration.
+   */
   configShrink?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */

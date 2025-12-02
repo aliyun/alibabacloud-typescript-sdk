@@ -4,37 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListImagesFromLibRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End date.
+   * 
    * @example
    * 2023-08-24 10:01:55
    */
   endDate?: string;
   /**
+   * @remarks
+   * Image ID.
+   * 
    * @example
    * 112
    */
   imgId?: string;
   /**
+   * @remarks
+   * Gallery ID.
+   * 
    * @example
    * custom_xxxx
    */
   libId?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Sort field.
+   */
   sort?: { [key: string]: string };
   /**
+   * @remarks
+   * Start date.
+   * 
    * @example
    * 2023-08-11 09:00:19
    */

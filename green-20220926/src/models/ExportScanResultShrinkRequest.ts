@@ -4,33 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportScanResultShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
+   * @remarks
+   * End time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2024-03-11 10:00:00
    */
   endDate?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Query content.
+   */
   queryShrink?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * text
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * Sort fields.
+   */
   sortShrink?: string;
   /**
+   * @remarks
+   * Start time of the query, in the format yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2024-03-10 10:00:00
    */

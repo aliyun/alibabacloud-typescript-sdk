@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUploadInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Upload name.
+   * 
+   * @example
+   * 测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * image
    */

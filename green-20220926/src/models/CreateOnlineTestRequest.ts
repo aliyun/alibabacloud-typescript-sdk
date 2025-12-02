@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateOnlineTestRequest extends $dara.Model {
   /**
+   * @remarks
+   * Data ID
+   * 
    * @example
    * xxxxxxx
    */
   dataId?: string;
   /**
+   * @remarks
+   * Resource Type
+   * 
    * @example
    * video
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Service Code
+   * 
    * @example
    * VideoModeration
    */
   serviceCode?: string;
   /**
+   * @remarks
+   * Detection URL
+   * 
    * @example
    * https://xxxxxxxxxx.com/data/data.png
    */

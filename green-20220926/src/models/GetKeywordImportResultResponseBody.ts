@@ -4,44 +4,80 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Internationalization key.
+   * 
    * @example
    * xxx
    */
   i18nKey?: string;
+  /**
+   * @remarks
+   * List of keywords with illegal length (too long or too short).
+   */
   illegalLengthKeywords?: string[];
   /**
+   * @remarks
+   * Invalid count.
+   * 
    * @example
    * 1
    */
   invalidCount?: number;
+  /**
+   * @remarks
+   * List of invalid keywords.
+   */
   invalidKeywords?: string[];
   /**
+   * @remarks
+   * Keyword library ID.
+   * 
    * @example
    * customxx_xxx
    */
   libId?: string;
   /**
+   * @remarks
+   * Task progress percentage.
+   * 
    * @example
    * 100
    */
   progress?: number;
   /**
+   * @remarks
+   * Repeat count.
+   * 
    * @example
    * 1
    */
   repeatCount?: number;
+  /**
+   * @remarks
+   * List of repeated keywords.
+   */
   repeatKeywords?: string[];
   /**
+   * @remarks
+   * Success count.
+   * 
    * @example
    * 8
    */
   successCount?: number;
   /**
+   * @remarks
+   * Tips message.
+   * 
    * @example
    * xxx
    */
   tips?: string;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -98,22 +134,38 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
 
 export class GetKeywordImportResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetKeywordImportResultResponseBodyData;
   /**
+   * @remarks
+   * Further description of the error code.
+   * 
    * @example
    * OK
    */
   msg?: string;
   /**
+   * @remarks
+   * ID assigned by the backend to uniquely identify a request, which can be used for troubleshooting.
+   * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success indicator.
+   * 
    * @example
    * True
    */
