@@ -1,0 +1,233 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+import { FieldInputConfig } from "./FieldInputConfig";
+import { FieldOutputConfig } from "./FieldOutputConfig";
+
+
+export class GetPlaybookResponseBodyPlaybook extends $dara.Model {
+  /**
+   * @remarks
+   * Creation time (in milliseconds).
+   * 
+   * @example
+   * 1731378251000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * Description of the playbook.
+   * 
+   * @example
+   * waf ip blocked
+   */
+  playbookDescription?: string;
+  /**
+   * @remarks
+   * Extended information of the playbook.
+   * 
+   * @example
+   * {"opCode":1}
+   */
+  playbookExtension?: string;
+  /**
+   * @remarks
+   * List of playbook input parameter configurations.
+   */
+  playbookInputConfigs?: FieldInputConfig[];
+  /**
+   * @remarks
+   * Name of the playbook, without special characters.
+   * 
+   * @example
+   * waftest
+   */
+  playbookName?: string;
+  /**
+   * @remarks
+   * List of playbook output parameter configurations.
+   */
+  playbookOutputConfigs?: FieldOutputConfig[];
+  /**
+   * @remarks
+   * Parameter type of the playbook, with the following values:
+   * 
+   * - **template-ip**: IP entity.
+   * - **template-file**: File entity.
+   * - **template-process**: Process entity.
+   * - **template-host**: Host entity.
+   * - **template-domain**: Domain entity.
+   * - **template-container**: Container entity.
+   * - **template-incident**: Security incident.
+   * - **template-alert**: Security alert.
+   * - **custom**: Custom.
+   * 
+   * @example
+   * template-ip
+   */
+  playbookParamType?: string;
+  /**
+   * @remarks
+   * Input example of the playbook.
+   * 
+   * @example
+   * {"ip":"1.*.*.1"}
+   */
+  playbookParamsExample?: string;
+  /**
+   * @remarks
+   * Publication status of the playbook, with the following values:
+   * 
+   * - **0**: Unpublished.
+   * - **1**: Published.
+   * 
+   * @example
+   * 1
+   */
+  playbookStatus?: number;
+  /**
+   * @remarks
+   * Workflow of the playbook.
+   * 
+   * @example
+   * []
+   */
+  playbookTaskFlow?: string;
+  /**
+   * @remarks
+   * UUID of the playbook workflow.
+   * 
+   * @example
+   * 8ea81047-****-4481-****-fcd8557bf242
+   */
+  playbookTaskFlowUuid?: string;
+  /**
+   * @remarks
+   * Type of the playbook, with values as follows:
+   * 
+   * - **preset**: Predefined playbook.
+   * - **user**: Custom playbook.
+   * - **component**: Security response component.
+   * 
+   * @example
+   * preset
+   */
+  playbookType?: string;
+  /**
+   * @remarks
+   * UUID of the playbook.
+   * 
+   * @example
+   * 8db257d3-e2b2-44fd-b2cc-xxxxx
+   */
+  playbookUuid?: string;
+  /**
+   * @remarks
+   * Version number of the playbook.
+   * 
+   * @example
+   * 36c9dcd6-****-4262-****-d508464ebd21
+   */
+  playbookVersion?: string;
+  /**
+   * @remarks
+   * Update time (in milliseconds).
+   * 
+   * @example
+   * 1731378251000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      playbookDescription: 'PlaybookDescription',
+      playbookExtension: 'PlaybookExtension',
+      playbookInputConfigs: 'PlaybookInputConfigs',
+      playbookName: 'PlaybookName',
+      playbookOutputConfigs: 'PlaybookOutputConfigs',
+      playbookParamType: 'PlaybookParamType',
+      playbookParamsExample: 'PlaybookParamsExample',
+      playbookStatus: 'PlaybookStatus',
+      playbookTaskFlow: 'PlaybookTaskFlow',
+      playbookTaskFlowUuid: 'PlaybookTaskFlowUuid',
+      playbookType: 'PlaybookType',
+      playbookUuid: 'PlaybookUuid',
+      playbookVersion: 'PlaybookVersion',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      playbookDescription: 'string',
+      playbookExtension: 'string',
+      playbookInputConfigs: { 'type': 'array', 'itemType': FieldInputConfig },
+      playbookName: 'string',
+      playbookOutputConfigs: { 'type': 'array', 'itemType': FieldOutputConfig },
+      playbookParamType: 'string',
+      playbookParamsExample: 'string',
+      playbookStatus: 'number',
+      playbookTaskFlow: 'string',
+      playbookTaskFlowUuid: 'string',
+      playbookType: 'string',
+      playbookUuid: 'string',
+      playbookVersion: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.playbookInputConfigs)) {
+      $dara.Model.validateArray(this.playbookInputConfigs);
+    }
+    if(Array.isArray(this.playbookOutputConfigs)) {
+      $dara.Model.validateArray(this.playbookOutputConfigs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPlaybookResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration information of the playbook.
+   */
+  playbook?: GetPlaybookResponseBodyPlaybook;
+  /**
+   * @remarks
+   * The ID of this request, a unique identifier generated by Alibaba Cloud for the request, which can be used for troubleshooting and problem localization.
+   * 
+   * @example
+   * BFEFB76D-DD0E-5529-BD57-0DAC10B9B30F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      playbook: 'Playbook',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      playbook: GetPlaybookResponseBodyPlaybook,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.playbook && typeof (this.playbook as any).validate === 'function') {
+      (this.playbook as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
