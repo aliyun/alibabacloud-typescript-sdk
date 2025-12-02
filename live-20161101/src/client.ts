@@ -27420,6 +27420,10 @@ export default class Client extends OpenApi {
       query["NotifyAuthKey"] = request.notifyAuthKey;
     }
 
+    if (!$dara.isNull(request.notifyFileUploadedFormat)) {
+      query["NotifyFileUploadedFormat"] = request.notifyFileUploadedFormat;
+    }
+
     if (!$dara.isNull(request.notifyUrl)) {
       query["NotifyUrl"] = request.notifyUrl;
     }

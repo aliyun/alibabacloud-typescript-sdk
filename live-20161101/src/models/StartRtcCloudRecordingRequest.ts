@@ -585,6 +585,7 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
   mixLayoutParams?: StartRtcCloudRecordingRequestMixLayoutParams;
   mixTranscodeParams?: StartRtcCloudRecordingRequestMixTranscodeParams;
   notifyAuthKey?: string;
+  notifyFileUploadedFormat?: string[];
   /**
    * @example
    * http://xxxx/test/mycallback
@@ -613,6 +614,7 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
       mixLayoutParams: 'MixLayoutParams',
       mixTranscodeParams: 'MixTranscodeParams',
       notifyAuthKey: 'NotifyAuthKey',
+      notifyFileUploadedFormat: 'NotifyFileUploadedFormat',
       notifyUrl: 'NotifyUrl',
       recordParams: 'RecordParams',
       storageParams: 'StorageParams',
@@ -628,6 +630,7 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
       mixLayoutParams: StartRtcCloudRecordingRequestMixLayoutParams,
       mixTranscodeParams: StartRtcCloudRecordingRequestMixTranscodeParams,
       notifyAuthKey: 'string',
+      notifyFileUploadedFormat: { 'type': 'array', 'itemType': 'string' },
       notifyUrl: 'string',
       recordParams: StartRtcCloudRecordingRequestRecordParams,
       storageParams: StartRtcCloudRecordingRequestStorageParams,
@@ -641,6 +644,9 @@ export class StartRtcCloudRecordingRequest extends $dara.Model {
     }
     if(this.mixTranscodeParams && typeof (this.mixTranscodeParams as any).validate === 'function') {
       (this.mixTranscodeParams as any).validate();
+    }
+    if(Array.isArray(this.notifyFileUploadedFormat)) {
+      $dara.Model.validateArray(this.notifyFileUploadedFormat);
     }
     if(this.recordParams && typeof (this.recordParams as any).validate === 'function') {
       (this.recordParams as any).validate();

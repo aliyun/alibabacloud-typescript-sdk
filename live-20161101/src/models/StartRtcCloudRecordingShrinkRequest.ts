@@ -23,6 +23,7 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
   mixLayoutParamsShrink?: string;
   mixTranscodeParamsShrink?: string;
   notifyAuthKey?: string;
+  notifyFileUploadedFormat?: string[];
   /**
    * @example
    * http://xxxx/test/mycallback
@@ -51,6 +52,7 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
       mixLayoutParamsShrink: 'MixLayoutParams',
       mixTranscodeParamsShrink: 'MixTranscodeParams',
       notifyAuthKey: 'NotifyAuthKey',
+      notifyFileUploadedFormat: 'NotifyFileUploadedFormat',
       notifyUrl: 'NotifyUrl',
       recordParamsShrink: 'RecordParams',
       storageParamsShrink: 'StorageParams',
@@ -66,6 +68,7 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
       mixLayoutParamsShrink: 'string',
       mixTranscodeParamsShrink: 'string',
       notifyAuthKey: 'string',
+      notifyFileUploadedFormat: { 'type': 'array', 'itemType': 'string' },
       notifyUrl: 'string',
       recordParamsShrink: 'string',
       storageParamsShrink: 'string',
@@ -74,6 +77,9 @@ export class StartRtcCloudRecordingShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.notifyFileUploadedFormat)) {
+      $dara.Model.validateArray(this.notifyFileUploadedFormat);
+    }
     super.validate();
   }
 
