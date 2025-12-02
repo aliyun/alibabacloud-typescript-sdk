@@ -1529,6 +1529,10 @@ export default class Client extends OpenApi {
       query["DesensitizationRule"] = request.desensitizationRule;
     }
 
+    if (!$dara.isNull(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
     if (!$dara.isNull(request.enableCodeInterpreter)) {
       query["EnableCodeInterpreter"] = request.enableCodeInterpreter;
     }
@@ -1543,6 +1547,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.includeUsage)) {
       query["IncludeUsage"] = request.includeUsage;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -1696,6 +1704,10 @@ export default class Client extends OpenApi {
       query["DesensitizationRule"] = request.desensitizationRule;
     }
 
+    if (!$dara.isNull(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
     if (!$dara.isNull(request.enableCodeInterpreter)) {
       query["EnableCodeInterpreter"] = request.enableCodeInterpreter;
     }
@@ -1710,6 +1722,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.includeUsage)) {
       query["IncludeUsage"] = request.includeUsage;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -3077,6 +3093,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.natGatewayOption)) {
       query["NatGatewayOption"] = request.natGatewayOption;
+    }
+
+    if (!$dara.isNull(request.onlyIntranet)) {
+      query["OnlyIntranet"] = request.onlyIntranet;
     }
 
     if (!$dara.isNull(request.ossPath)) {

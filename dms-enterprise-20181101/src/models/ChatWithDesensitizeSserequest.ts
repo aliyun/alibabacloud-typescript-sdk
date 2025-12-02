@@ -15,6 +15,11 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
   desensitizationRule?: string;
   /**
    * @example
+   * 256
+   */
+  dimensions?: number;
+  /**
+   * @example
    * false
    */
   enableCodeInterpreter?: boolean;
@@ -28,7 +33,16 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
    * true
    */
   enableThinking?: boolean;
+  /**
+   * @example
+   * true
+   */
   includeUsage?: boolean;
+  /**
+   * @example
+   * test
+   */
+  input?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -137,10 +151,12 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
     return {
       audioJson: 'AudioJson',
       desensitizationRule: 'DesensitizationRule',
+      dimensions: 'Dimensions',
       enableCodeInterpreter: 'EnableCodeInterpreter',
       enableSearch: 'EnableSearch',
       enableThinking: 'EnableThinking',
       includeUsage: 'IncludeUsage',
+      input: 'Input',
       instanceId: 'InstanceId',
       logprobs: 'Logprobs',
       maxTokens: 'MaxTokens',
@@ -168,10 +184,12 @@ export class ChatWithDesensitizeSSERequest extends $dara.Model {
     return {
       audioJson: 'string',
       desensitizationRule: 'string',
+      dimensions: 'number',
       enableCodeInterpreter: 'boolean',
       enableSearch: 'boolean',
       enableThinking: 'boolean',
       includeUsage: 'boolean',
+      input: 'string',
       instanceId: 'number',
       logprobs: 'boolean',
       maxTokens: 'number',

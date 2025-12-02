@@ -45,6 +45,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
    */
   modelOption?: string;
   natGatewayOption?: string;
+  onlyIntranet?: boolean;
   ossPath?: string;
   ossResourceId?: number;
   payPeriod?: number;
@@ -125,6 +126,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       modelId: 'ModelId',
       modelOption: 'ModelOption',
       natGatewayOption: 'NatGatewayOption',
+      onlyIntranet: 'OnlyIntranet',
       ossPath: 'OssPath',
       ossResourceId: 'OssResourceId',
       payPeriod: 'PayPeriod',
@@ -188,6 +190,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       modelId: 'string',
       modelOption: 'string',
       natGatewayOption: 'string',
+      onlyIntranet: 'boolean',
       ossPath: 'string',
       ossResourceId: 'number',
       payPeriod: 'number',
