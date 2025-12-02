@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,9 @@ export class CreateBackupRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hangzhou
    */

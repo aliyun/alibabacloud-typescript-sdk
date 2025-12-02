@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBClusterSSLResponseBody extends $dara.Model {
+export class DeleteMaterializedViewRecommendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request.
+   * Id of the request
    * 
    * @example
-   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   * 7B081A85-0568-5E54-82EF-6958C4A3D4B4
    */
   requestId?: string;
   static names(): { [key: string]: string } {

@@ -7,8 +7,12 @@ export class TableDetailModel extends $dara.Model {
   catalog?: string;
   columns?: ColDetailModel[];
   createTime?: string;
+  createdBySource?: string;
+  createdByUser?: string;
   description?: string;
+  location?: string;
   owner?: string;
+  parameters?: { [key: string]: string };
   schemaName?: string;
   tableName?: string;
   tableType?: string;
@@ -18,8 +22,12 @@ export class TableDetailModel extends $dara.Model {
       catalog: 'Catalog',
       columns: 'Columns',
       createTime: 'CreateTime',
+      createdBySource: 'CreatedBySource',
+      createdByUser: 'CreatedByUser',
       description: 'Description',
+      location: 'Location',
       owner: 'Owner',
+      parameters: 'Parameters',
       schemaName: 'SchemaName',
       tableName: 'TableName',
       tableType: 'TableType',
@@ -32,8 +40,12 @@ export class TableDetailModel extends $dara.Model {
       catalog: 'string',
       columns: { 'type': 'array', 'itemType': ColDetailModel },
       createTime: 'string',
+      createdBySource: 'string',
+      createdByUser: 'string',
       description: 'string',
+      location: 'string',
       owner: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       schemaName: 'string',
       tableName: 'string',
       tableType: 'string',
@@ -44,6 +56,9 @@ export class TableDetailModel extends $dara.Model {
   validate() {
     if(Array.isArray(this.columns)) {
       $dara.Model.validateArray(this.columns);
+    }
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
     }
     super.validate();
   }

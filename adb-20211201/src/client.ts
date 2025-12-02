@@ -618,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+   * Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
    * 
    * @param tmpReq - ConfigureResultExportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -675,7 +675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+   * Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
    * 
    * @param request - ConfigureResultExportRequest
    * @returns ConfigureResultExportResponse
@@ -1134,7 +1134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Kafka到Huid的APS链路
+   * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    * 
    * @param tmpReq - CreateApsKafkaHudiJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Kafka到Huid的APS链路
+   * Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    * 
    * @param request - CreateApsKafkaHudiJobRequest
    * @returns CreateApsKafkaHudiJobResponse
@@ -1474,7 +1474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateApsWebhook
+   * Creates a new webhook for the specified cluster or task type.
    * 
    * @param tmpReq - CreateApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1523,7 +1523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateApsWebhook
+   * Creates a new webhook for the specified cluster or task type.
    * 
    * @param request - CreateApsWebhookRequest
    * @returns CreateApsWebhookResponse
@@ -1534,7 +1534,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手动创建备份集
+   * Creates a data backup for an AnalyticDB for MySQL instance.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1585,7 +1588,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 手动创建备份集
+   * Creates a data backup for an AnalyticDB for MySQL instance.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -1773,6 +1779,10 @@ export default class Client extends OpenApi {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
     }
 
+    if (!$dara.isNull(tmpReq.gpuElasticPlan)) {
+      request.gpuElasticPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gpuElasticPlan, "GpuElasticPlan", "json");
+    }
+
     if (!$dara.isNull(tmpReq.rayConfig)) {
       request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
     }
@@ -1808,6 +1818,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engineParamsShrink)) {
       query["EngineParams"] = request.engineParamsShrink;
+    }
+
+    if (!$dara.isNull(request.gpuElasticPlanShrink)) {
+      query["GpuElasticPlan"] = request.gpuElasticPlanShrink;
     }
 
     if (!$dara.isNull(request.groupName)) {
@@ -2044,7 +2058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建物化视图自动推荐任务
+   * Creates a materialized view recommendation task.
    * 
    * @param request - CreateMaterializedViewRecommendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2131,7 +2145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建物化视图自动推荐任务
+   * Creates a materialized view recommendation task.
    * 
    * @param request - CreateMaterializedViewRecommendRequest
    * @returns CreateMaterializedViewRecommendResponse
@@ -2518,7 +2532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteApsWebhook
+   * Deletes a specific webhook in a specified cluster.
+   * 
+   * @remarks
+   * This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
    * 
    * @param request - DeleteApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2557,7 +2574,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteApsWebhook
+   * Deletes a specific webhook in a specified cluster.
+   * 
+   * @remarks
+   * This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
    * 
    * @param request - DeleteApsWebhookRequest
    * @returns DeleteApsWebhookResponse
@@ -2855,6 +2875,72 @@ export default class Client extends OpenApi {
   async deleteLakeStorage(request: $_model.DeleteLakeStorageRequest): Promise<$_model.DeleteLakeStorageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteLakeStorageWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a materialized view recommendation task.
+   * 
+   * @param request - DeleteMaterializedViewRecommendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaterializedViewRecommendResponse
+   */
+  async deleteMaterializedViewRecommendWithOptions(request: $_model.DeleteMaterializedViewRecommendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMaterializedViewRecommendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMaterializedViewRecommend",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMaterializedViewRecommendResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMaterializedViewRecommendResponse({}));
+  }
+
+  /**
+   * Deletes a materialized view recommendation task.
+   * 
+   * @param request - DeleteMaterializedViewRecommendRequest
+   * @returns DeleteMaterializedViewRecommendResponse
+   */
+  async deleteMaterializedViewRecommend(request: $_model.DeleteMaterializedViewRecommendRequest): Promise<$_model.DeleteMaterializedViewRecommendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMaterializedViewRecommendWithOptions(request, runtime);
   }
 
   /**
@@ -5494,7 +5580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SSL配置信息
+   * Queries the SSL configurations of a cluster.
    * 
    * @param request - DescribeDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5529,7 +5615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取SSL配置信息
+   * Queries the SSL configurations of a cluster.
    * 
    * @param request - DescribeDBClusterSSLRequest
    * @returns DescribeDBClusterSSLResponse
@@ -6612,7 +6698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务列表
+   * Retrieve historical task records.
+   * 
+   * @remarks
+   * Only supports viewing tasks within the last 30 days.
    * 
    * @param request - DescribeHistoryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6699,7 +6788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务列表
+   * Retrieve historical task records.
+   * 
+   * @remarks
+   * Only supports viewing tasks within the last 30 days.
    * 
    * @param request - DescribeHistoryTasksRequest
    * @returns DescribeHistoryTasksResponse
@@ -6710,7 +6802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务统计
+   * Queries task statistics.
    * 
    * @param request - DescribeHistoryTasksStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6793,7 +6885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务中心任务统计
+   * Queries task statistics.
    * 
    * @param request - DescribeHistoryTasksStatRequest
    * @returns DescribeHistoryTasksStatResponse
@@ -7310,6 +7402,230 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the result of a recommendation task for a materialized view.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * 
+   * @param request - DescribeMVRecommendResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMVRecommendResultsResponse
+   */
+  async describeMVRecommendResultsWithOptions(request: $_model.DescribeMVRecommendResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMVRecommendResultsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionInner)) {
+      query["ActionInner"] = request.actionInner;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.subQueryId)) {
+      query["SubQueryId"] = request.subQueryId;
+    }
+
+    if (!$dara.isNull(request.subtaskId)) {
+      query["SubtaskId"] = request.subtaskId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMVRecommendResults",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMVRecommendResultsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMVRecommendResultsResponse({}));
+  }
+
+  /**
+   * Retrieves the result of a recommendation task for a materialized view.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   * 
+   * @param request - DescribeMVRecommendResultsRequest
+   * @returns DescribeMVRecommendResultsResponse
+   */
+  async describeMVRecommendResults(request: $_model.DescribeMVRecommendResultsRequest): Promise<$_model.DescribeMVRecommendResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMVRecommendResultsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看物化视图子任务
+   * 
+   * @param request - DescribeMvRecommendSubTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMvRecommendSubTasksResponse
+   */
+  async describeMvRecommendSubTasksWithOptions(request: $_model.DescribeMvRecommendSubTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMvRecommendSubTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionInner)) {
+      query["ActionInner"] = request.actionInner;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.subtaskId)) {
+      query["SubtaskId"] = request.subtaskId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMvRecommendSubTasks",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMvRecommendSubTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMvRecommendSubTasksResponse({}));
+  }
+
+  /**
+   * 查看物化视图子任务
+   * 
+   * @param request - DescribeMvRecommendSubTasksRequest
+   * @returns DescribeMvRecommendSubTasksResponse
+   */
+  async describeMvRecommendSubTasks(request: $_model.DescribeMvRecommendSubTasksRequest): Promise<$_model.DescribeMvRecommendSubTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMvRecommendSubTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看物化视图推荐任务
+   * 
+   * @param request - DescribeMvRecommendTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMvRecommendTasksResponse
+   */
+  async describeMvRecommendTasksWithOptions(request: $_model.DescribeMvRecommendTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMvRecommendTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionInner)) {
+      query["ActionInner"] = request.actionInner;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMvRecommendTasks",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMvRecommendTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMvRecommendTasksResponse({}));
+  }
+
+  /**
+   * 查看物化视图推荐任务
+   * 
+   * @param request - DescribeMvRecommendTasksRequest
+   * @returns DescribeMvRecommendTasksResponse
+   */
+  async describeMvRecommendTasks(request: $_model.DescribeMvRecommendTasksRequest): Promise<$_model.DescribeMvRecommendTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMvRecommendTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the service account permissions of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeOperatorPermissionRequest
@@ -7776,7 +8092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户配置的导出信息
+   * Queries the user-configured result set export settings.
    * 
    * @param request - DescribeResultExportConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7815,7 +8131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户配置的导出信息
+   * Queries the user-configured result set export settings.
    * 
    * @param request - DescribeResultExportConfigRequest
    * @returns DescribeResultExportConfigResponse
@@ -8122,7 +8438,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Spark审计日志
+   * Queries the SQL audit logs for a Spark Interactive resource group.
+   * 
+   * @remarks
+   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+   * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
    * 
    * @param request - DescribeSparkAuditLogRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8233,7 +8553,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Spark审计日志
+   * Queries the SQL audit logs for a Spark Interactive resource group.
+   * 
+   * @remarks
+   * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+   * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
    * 
    * @param request - DescribeSparkAuditLogRecordsRequest
    * @returns DescribeSparkAuditLogRecordsResponse
@@ -9034,6 +9358,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves materialized view refresh tasks.
+   * 
+   * @param request - DescribeViewJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeViewJobsResponse
+   */
+  async describeViewJobsWithOptions(request: $_model.DescribeViewJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeViewJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.filterOwner)) {
+      query["FilterOwner"] = request.filterOwner;
+    }
+
+    if (!$dara.isNull(request.filterViewName)) {
+      query["FilterViewName"] = request.filterViewName;
+    }
+
+    if (!$dara.isNull(request.filterViewType)) {
+      query["FilterViewType"] = request.filterViewType;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeViewJobs",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeViewJobsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeViewJobsResponse({}));
+  }
+
+  /**
+   * Retrieves materialized view refresh tasks.
+   * 
+   * @param request - DescribeViewJobsRequest
+   * @returns DescribeViewJobsResponse
+   */
+  async describeViewJobs(request: $_model.DescribeViewJobsRequest): Promise<$_model.DescribeViewJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeViewJobsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the diagnostic results of the storage layer.
    * 
    * @param request - DescribeWorkerDetectionRequest
@@ -9695,7 +10093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Spark权限说明,失败时给出配置权限的帮助信息
+   * View the Spark basic permission diagnosis report of the current user.
+   * 
+   * @remarks
+   * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
    * 
    * @param request - GetADBSparkNecessaryRAMPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9726,7 +10127,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Spark权限说明,失败时给出配置权限的帮助信息
+   * View the Spark basic permission diagnosis report of the current user.
+   * 
+   * @remarks
+   * The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
    * 
    * @param request - GetADBSparkNecessaryRAMPermissionsRequest
    * @returns GetADBSparkNecessaryRAMPermissionsResponse
@@ -11691,7 +12095,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListApsWebhook
+   * Queries the Webhook configurations of a specified database cluster.
+   * 
+   * @remarks
+   * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+   * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
    * 
    * @param request - ListApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11730,7 +12138,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListApsWebhook
+   * Queries the Webhook configurations of a specified database cluster.
+   * 
+   * @remarks
+   * This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+   * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
    * 
    * @param request - ListApsWebhookRequest
    * @returns ListApsWebhookResponse
@@ -13367,7 +13779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置SSL
+   * Modifies the SSL link configuration of a cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13410,7 +13822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置SSL
+   * Modifies the SSL link configuration of a cluster.
    * 
    * @param request - ModifyDBClusterSSLRequest
    * @returns ModifyDBClusterSSLResponse
@@ -13492,6 +13904,10 @@ export default class Client extends OpenApi {
       request.engineParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.engineParams, "EngineParams", "json");
     }
 
+    if (!$dara.isNull(tmpReq.gpuElasticPlan)) {
+      request.gpuElasticPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.gpuElasticPlan, "GpuElasticPlan", "json");
+    }
+
     if (!$dara.isNull(tmpReq.rayConfig)) {
       request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
     }
@@ -13523,6 +13939,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.engineParamsShrink)) {
       query["EngineParams"] = request.engineParamsShrink;
+    }
+
+    if (!$dara.isNull(request.gpuElasticPlanShrink)) {
+      query["GpuElasticPlan"] = request.gpuElasticPlanShrink;
     }
 
     if (!$dara.isNull(request.groupName)) {
@@ -13781,7 +14201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改物化视图
+   * Modifies materialized views.
    * 
    * @param request - ModifyMaterializedViewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13860,7 +14280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改物化视图
+   * Modifies materialized views.
    * 
    * @param request - ModifyMaterializedViewRequest
    * @returns ModifyMaterializedViewResponse
@@ -13871,7 +14291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改物化视图自动推荐任务
+   * Modifies a materialized view recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13958,7 +14378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改物化视图自动推荐任务
+   * Modifies a materialized view recommendation task.
    * 
    * @param request - ModifyMaterializedViewRecommendRequest
    * @returns ModifyMaterializedViewRecommendResponse
@@ -14045,7 +14465,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改SQL脚本模板位置
+   * Modifies the directory location of SQL templates.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifySqlTemplatePositionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14088,7 +14511,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改SQL脚本模板位置
+   * Modifies the directory location of SQL templates.
+   * 
+   * @remarks
+   * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
    * @param request - ModifySqlTemplatePositionRequest
    * @returns ModifySqlTemplatePositionResponse
@@ -14988,7 +15414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateApsWebhook
+   * Updates the webhook configuration of a specified cluster.
    * 
    * @param tmpReq - UpdateApsWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15033,7 +15459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateApsWebhook
+   * Updates the webhook configuration of a specified cluster.
    * 
    * @param request - UpdateApsWebhookRequest
    * @returns UpdateApsWebhookResponse

@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules extends $dara.Model {
+  endCronExpression?: string;
+  startCronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endCronExpression: 'EndCronExpression',
+      startCronExpression: 'StartCronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endCronExpression: 'string',
+      startCronExpression: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan extends $dara.Model {
+  enabled?: boolean;
+  rules?: DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector extends $dara.Model {
   /**
    * @example
@@ -374,6 +429,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   enableSpot?: string;
   engine?: string;
   engineParams?: { [key: string]: any };
+  gpuElasticPlan?: DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan;
   /**
    * @remarks
    * The name of the resource group.
@@ -488,6 +544,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       enableSpot: 'EnableSpot',
       engine: 'Engine',
       engineParams: 'EngineParams',
+      gpuElasticPlan: 'GpuElasticPlan',
       groupName: 'GroupName',
       groupType: 'GroupType',
       groupUsers: 'GroupUsers',
@@ -518,6 +575,7 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
       enableSpot: 'string',
       engine: 'string',
       engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      gpuElasticPlan: DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan,
       groupName: 'string',
       groupType: 'string',
       groupUsers: 'string',
@@ -541,6 +599,9 @@ export class DescribeDBResourceGroupResponseBodyGroupsInfo extends $dara.Model {
   validate() {
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
+    }
+    if(this.gpuElasticPlan && typeof (this.gpuElasticPlan as any).validate === 'function') {
+      (this.gpuElasticPlan as any).validate();
     }
     if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
       (this.rayConfig as any).validate();

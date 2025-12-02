@@ -14,6 +14,8 @@ export class TableModel extends $dara.Model {
   comment?: string;
   compression?: string;
   createTime?: string;
+  createdBySource?: string;
+  createdByUser?: string;
   currentVersion?: number;
   dbName?: string;
   dictEncode?: boolean;
@@ -64,6 +66,8 @@ export class TableModel extends $dara.Model {
       comment: 'Comment',
       compression: 'Compression',
       createTime: 'CreateTime',
+      createdBySource: 'CreatedBySource',
+      createdByUser: 'CreatedByUser',
       currentVersion: 'CurrentVersion',
       dbName: 'DbName',
       dictEncode: 'DictEncode',
@@ -117,6 +121,8 @@ export class TableModel extends $dara.Model {
       comment: 'string',
       compression: 'string',
       createTime: 'string',
+      createdBySource: 'string',
+      createdByUser: 'string',
       currentVersion: 'number',
       dbName: 'string',
       dictEncode: 'boolean',

@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterSSLRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +16,11 @@ export class DescribeDBClusterSSLRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */

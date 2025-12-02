@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model {
+  endCronExpression?: string;
+  startCronExpression?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endCronExpression: 'EndCronExpression',
+      startCronExpression: 'StartCronExpression',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endCronExpression: 'string',
+      startCronExpression: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
+  enabled?: boolean;
+  rules?: ModifyDBResourceGroupRequestGpuElasticPlanRules[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      rules: { 'type': 'array', 'itemType': ModifyDBResourceGroupRequestGpuElasticPlanRules },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBResourceGroupRequestRayConfigAppConfigImageSelector extends $dara.Model {
   /**
    * @example
@@ -312,6 +367,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
    * {\\"spark.adb.version\\":\\"3.5\\"}
    */
   engineParams?: { [key: string]: any };
+  gpuElasticPlan?: ModifyDBResourceGroupRequestGpuElasticPlan;
   /**
    * @remarks
    * The name of the resource group.
@@ -410,6 +466,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
       engineParams: 'EngineParams',
+      gpuElasticPlan: 'GpuElasticPlan',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -435,6 +492,7 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
       DBClusterId: 'string',
       enableSpot: 'boolean',
       engineParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      gpuElasticPlan: ModifyDBResourceGroupRequestGpuElasticPlan,
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',
@@ -455,6 +513,9 @@ export class ModifyDBResourceGroupRequest extends $dara.Model {
   validate() {
     if(this.engineParams) {
       $dara.Model.validateMap(this.engineParams);
+    }
+    if(this.gpuElasticPlan && typeof (this.gpuElasticPlan as any).validate === 'function') {
+      (this.gpuElasticPlan as any).validate();
     }
     if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
       (this.rayConfig as any).validate();

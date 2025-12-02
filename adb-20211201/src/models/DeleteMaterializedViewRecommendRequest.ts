@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteApsWebhookRequest extends $dara.Model {
+export class DeleteMaterializedViewRecommendRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -10,42 +10,52 @@ export class DeleteApsWebhookRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * amv-uf63i4ij56b***
+   * amv-uf66*****
    */
   DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
   /**
    * @remarks
    * The region ID.
    * 
-   * This parameter is required.
-   * 
    * @example
-   * cn-hangzhou
+   * cn-beijing
    */
   regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the webhook to be deleted.
+   * The name of the recommendation task.
    * 
    * This parameter is required.
    * 
    * @example
-   * ***1*595*
+   * my_task_1
    */
-  webhookId?: string;
+  taskName?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
       regionId: 'RegionId',
-      webhookId: 'WebhookId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      taskName: 'TaskName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
       regionId: 'string',
-      webhookId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      taskName: 'string',
     };
   }
 

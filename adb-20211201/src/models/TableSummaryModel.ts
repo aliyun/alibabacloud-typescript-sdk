@@ -5,6 +5,8 @@ import { OpenStructMvDetailModel } from "./OpenStructMvDetailModel";
 
 export class TableSummaryModel extends $dara.Model {
   createTime?: string;
+  createdBySource?: string;
+  createdByUser?: string;
   description?: string;
   mvDetailModel?: OpenStructMvDetailModel;
   owner?: string;
@@ -17,6 +19,8 @@ export class TableSummaryModel extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      createdBySource: 'CreatedBySource',
+      createdByUser: 'CreatedByUser',
       description: 'Description',
       mvDetailModel: 'MvDetailModel',
       owner: 'Owner',
@@ -32,6 +36,8 @@ export class TableSummaryModel extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      createdBySource: 'string',
+      createdByUser: 'string',
       description: 'string',
       mvDetailModel: OpenStructMvDetailModel,
       owner: 'string',

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
   /**
+   * @remarks
+   * Signing key
+   * 
    * @example
    * your_secret_key
    */
   key?: string;
   /**
+   * @remarks
+   * The name of the webhook.
+   * 
    * @example
    * webhook_name
    */
   name?: string;
   /**
+   * @remarks
+   * The request URL.
+   * 
    * @example
    * https://example.com/webhook
    */
   url?: string;
   /**
+   * @remarks
+   * The ID of the webhook that you want to delete.
+   * 
    * @example
    * **35***
    */
   webhookId?: string;
   /**
+   * @remarks
+   * Webhook type.
+   * 
    * @example
    * dingtalk
    */
@@ -59,30 +74,49 @@ export class ListApsWebhookResponseBodyWebhook extends $dara.Model {
 
 export class ListApsWebhookResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status or POP error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * exampleRequestId
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The array of webhooks.
+   */
   webhook?: ListApsWebhookResponseBodyWebhook[];
   static names(): { [key: string]: string } {
     return {

@@ -4,23 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateApsWebhookRequestWebhook extends $dara.Model {
   /**
+   * @remarks
+   * Signed key.
+   * 
    * @example
    * ABC**
    */
   key?: string;
   /**
+   * @remarks
+   * The name of the webhook.
+   * 
    * @example
    * exampleWebhookName
    */
   name?: string;
   /**
+   * @remarks
+   * The URL of the request.
+   * 
    * @example
    * https://example.com/webhook
    */
   url?: string;
   /**
    * @remarks
-   * Webhook ID。
+   * The ID of the webhook.
    * 
    * This parameter is required.
    * 
@@ -29,6 +38,9 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
    */
   webhookId?: number;
   /**
+   * @remarks
+   * The notification method. Valid values: dingtalk. lark.
+   * 
    * @example
    * dingtalk
    */
@@ -65,6 +77,8 @@ export class UpdateApsWebhookRequestWebhook extends $dara.Model {
 export class UpdateApsWebhookRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,12 +87,18 @@ export class UpdateApsWebhookRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * exampleRegionId
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The array of webhooks.
+   */
   webhook?: UpdateApsWebhookRequestWebhook[];
   static names(): { [key: string]: string } {
     return {

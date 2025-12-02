@@ -50,6 +50,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
    * {\\"spark.adb.version\\":\\"3.5\\"}
    */
   engineParamsShrink?: string;
+  gpuElasticPlanShrink?: string;
   /**
    * @remarks
    * The name of the resource group.
@@ -148,6 +149,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
       DBClusterId: 'DBClusterId',
       enableSpot: 'EnableSpot',
       engineParamsShrink: 'EngineParams',
+      gpuElasticPlanShrink: 'GpuElasticPlan',
       groupName: 'GroupName',
       groupType: 'GroupType',
       maxClusterCount: 'MaxClusterCount',
@@ -173,6 +175,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
       DBClusterId: 'string',
       enableSpot: 'boolean',
       engineParamsShrink: 'string',
+      gpuElasticPlanShrink: 'string',
       groupName: 'string',
       groupType: 'string',
       maxClusterCount: 'number',

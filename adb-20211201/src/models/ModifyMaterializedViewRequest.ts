@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterializedViewRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The name of the database where the materialized view resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,21 +24,39 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * Enable the refresh delay alert. Valid values:
+   * 
+   * *   true: Enables alert.
+   * *   false: Disables alert.
+   * 
    * @example
    * false
    */
   enableDelayAlert?: boolean;
   /**
+   * @remarks
+   * Specifies whether to send alerts when the refresh task fails. Valid values:
+   * 
+   * *   true: Send alerts.
+   * *   false: Alerts disabled.
+   * 
    * @example
    * false
    */
   enableFailureAlert?: boolean;
   /**
+   * @remarks
+   * The name of the resource group to which the materialized view is bound.
+   * 
    * @example
    * res_1
    */
   groupName?: string;
   /**
+   * @remarks
+   * Refresh delay tolerance (in minutes).
+   * 
    * @example
    * 2
    */
@@ -42,11 +64,20 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Specifies whether to enable query rewrite. Valid values:
+   * 
+   * *   true: Enables query rewrite.
+   * *   false: Disables query rewrite.
+   * 
    * @example
    * true
    */
   queryWrite?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
@@ -55,6 +86,8 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The name of the materialized view.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,15 +14,35 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The description of the recommendation task.
+   * 
    * @example
    * task desc
    */
   description?: string;
+  /**
+   * @remarks
+   * Pattern匹配的最少慢查询个数
+   * 
+   * @example
+   * 3
+   */
   minRewriteQueryCount?: number;
+  /**
+   * @remarks
+   * 最小可加速的Pattern数量
+   * 
+   * @example
+   * 5
+   */
   minRewriteQueryPattern?: number;
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -28,26 +50,57 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The time range for scanning data. Unit: days. Default value: 3.
+   * 
    * @example
    * 3
    */
   scanQueriesRange?: number;
   /**
+   * @remarks
+   * This parameter is valid only when SchedulingPolicy is set to weekly. Valid values:
+   * 
+   * *   Monday
+   * *   Tuesday
+   * *   Wednesday
+   * *   Thursday
+   * *   Friday
+   * *   Saturday
+   * *   Sunday
+   * 
+   * Separate multiple days with commas (,).
+   * 
    * @example
    * Monday;Wednesday
    */
   schedulingDay?: string;
   /**
    * @remarks
+   * The scheduling policy of the recommendation task. Valid values:
+   * 
+   * daily
+   * 
+   * weekly
+   * 
    * This parameter is required.
    * 
    * @example
    * weekly
    */
   schedulingPolicy?: string;
+  /**
+   * @remarks
+   * 慢查询阈值
+   * 
+   * @example
+   * 2
+   */
   slowQueryThreshold?: number;
   /**
    * @remarks
+   * The execution time of the recommendation task. Specify the time in the HH:MM:SS format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +109,8 @@ export class CreateMaterializedViewRecommendRequest extends $dara.Model {
   specifiedTime?: string;
   /**
    * @remarks
+   * The name of the recommendation task.
+   * 
    * This parameter is required.
    * 
    * @example

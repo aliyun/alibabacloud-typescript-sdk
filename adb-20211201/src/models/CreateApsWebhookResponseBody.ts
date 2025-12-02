@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApsWebhookResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The code returned for the request.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * []
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * 1234567890abcdef
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

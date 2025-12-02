@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBClusterSSLRequest extends $dara.Model {
   /**
+   * @remarks
+   * The private or public endpoint for which the server certificate needs to be created or updated.
+   * 
    * @example
    * amv-***********.ads.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,11 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * Specifies whether to enable SSL encryption. Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +35,9 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    */
   enableSSL?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

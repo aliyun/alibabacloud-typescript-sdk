@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySqlTemplatePositionRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifySqlTemplatePositionRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifySqlTemplatePositionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the template group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifySqlTemplatePositionRequest extends $dara.Model {
   targetTemplateGroupId?: number;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example

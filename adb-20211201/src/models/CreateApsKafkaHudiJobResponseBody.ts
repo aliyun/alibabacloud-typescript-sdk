@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateApsKafkaHudiJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Same as HTTP status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Returns the ID of the created task.
+   * 
    * @example
    * xxx
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1A943417-5B0E-1DB9-A8**-A566****C3
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. true: The request is successful. false: The message group failed to be unmuted.
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApsWebhookRequest extends $dara.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,18 @@ export class ListApsWebhookRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * **JobType**\\
+   * Job type. SLS or OSS Export Task: ResultExport.
+   * 
    * @example
    * ResultExport
    */
   jobType?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
