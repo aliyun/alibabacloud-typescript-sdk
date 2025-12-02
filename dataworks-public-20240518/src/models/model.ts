@@ -1198,6 +1198,7 @@ export { ListDataQualityRulesRequest } from './ListDataQualityRulesRequest';
 export { ListDataQualityRulesResponseBody } from './ListDataQualityRulesResponseBody';
 export { ListDataQualityRulesResponse } from './ListDataQualityRulesResponse';
 export { ListDataQualityScanRunsRequest } from './ListDataQualityScanRunsRequest';
+export { ListDataQualityScanRunsShrinkRequest } from './ListDataQualityScanRunsShrinkRequest';
 export { ListDataQualityScanRunsResponseBody } from './ListDataQualityScanRunsResponseBody';
 export { ListDataQualityScanRunsResponse } from './ListDataQualityScanRunsResponse';
 export { ListDataQualityScansRequest } from './ListDataQualityScansRequest';

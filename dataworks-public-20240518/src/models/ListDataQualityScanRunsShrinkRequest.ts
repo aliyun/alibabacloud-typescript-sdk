@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListDataQualityScanRunsRequest extends $dara.Model {
+export class ListDataQualityScanRunsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The earliest time when the data quality monitor starts to run.
@@ -27,7 +27,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
    * 10001
    */
   dataQualityScanId?: number;
-  filter?: { [key: string]: any };
+  filterShrink?: string;
   /**
    * @remarks
    * The page number of the results. Default value: 1.
@@ -84,7 +84,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
       createTimeFrom: 'CreateTimeFrom',
       createTimeTo: 'CreateTimeTo',
       dataQualityScanId: 'DataQualityScanId',
-      filter: 'Filter',
+      filterShrink: 'Filter',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
@@ -98,7 +98,7 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
       createTimeFrom: 'number',
       createTimeTo: 'number',
       dataQualityScanId: 'number',
-      filter: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      filterShrink: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       projectId: 'number',
@@ -108,9 +108,6 @@ export class ListDataQualityScanRunsRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.filter) {
-      $dara.Model.validateMap(this.filter);
-    }
     super.validate();
   }
 

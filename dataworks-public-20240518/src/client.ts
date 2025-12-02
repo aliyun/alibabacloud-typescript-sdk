@@ -8493,12 +8493,18 @@ export default class Client extends OpenApi {
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
-   * @param request - ListDataQualityScanRunsRequest
+   * @param tmpReq - ListDataQualityScanRunsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataQualityScanRunsResponse
    */
-  async listDataQualityScanRunsWithOptions(request: $_model.ListDataQualityScanRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityScanRunsResponse> {
-    request.validate();
+  async listDataQualityScanRunsWithOptions(tmpReq: $_model.ListDataQualityScanRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataQualityScanRunsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataQualityScanRunsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.createTimeFrom)) {
       query["CreateTimeFrom"] = request.createTimeFrom;
@@ -8510,6 +8516,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataQualityScanId)) {
       query["DataQualityScanId"] = request.dataQualityScanId;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
