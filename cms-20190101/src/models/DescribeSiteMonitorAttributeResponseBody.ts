@@ -1260,6 +1260,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * false
    */
   emptyMessage?: boolean;
+  enablePacketCapture?: boolean;
   /**
    * @remarks
    * The string that is expected to exist on the page.
@@ -1578,6 +1579,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       dnsServer: 'dns_server',
       dnsType: 'dns_type',
       emptyMessage: 'empty_message',
+      enablePacketCapture: 'enable_packet_capture',
       expectExistString: 'expect_exist_string',
       expectNonExistString: 'expect_non_exist_string',
       expectValue: 'expect_value',
@@ -1641,6 +1643,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       dnsServer: 'string',
       dnsType: 'string',
       emptyMessage: 'boolean',
+      enablePacketCapture: 'boolean',
       expectExistString: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString,
       expectNonExistString: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString,
       expectValue: 'string',
