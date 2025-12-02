@@ -51,6 +51,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 1
    */
   backupSetId?: string;
+  category?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -188,6 +189,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupSetId: 'BackupSetId',
+      category: 'Category',
       clientToken: 'ClientToken',
       DBInstanceDescription: 'DBInstanceDescription',
       DBTimeZone: 'DBTimeZone',
@@ -214,6 +216,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupSetId: 'string',
+      category: 'string',
       clientToken: 'string',
       DBInstanceDescription: 'string',
       DBTimeZone: 'string',

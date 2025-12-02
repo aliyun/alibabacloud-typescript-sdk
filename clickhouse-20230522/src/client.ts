@@ -337,6 +337,10 @@ export default class Client extends OpenApi {
       query["BackupSetId"] = request.backupSetId;
     }
 
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
