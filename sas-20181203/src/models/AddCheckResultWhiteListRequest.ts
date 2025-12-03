@@ -10,6 +10,10 @@ export class AddCheckResultWhiteListRequest extends $dara.Model {
    * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
    */
   checkIds?: number[];
+  /**
+   * @remarks
+   * IDs of the cloud product instances that need to be whitelisted. Separate multiple IDs with a comma (,).
+   */
   instanceIds?: string[];
   /**
    * @remarks

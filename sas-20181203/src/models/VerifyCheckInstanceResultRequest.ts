@@ -13,6 +13,10 @@ export class VerifyCheckInstanceResultRequest extends $dara.Model {
    * 16
    */
   checkId?: number;
+  /**
+   * @remarks
+   * List of item IDs to be checked.
+   */
   checkIds?: number[];
   /**
    * @remarks

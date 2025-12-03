@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNoticeConfigRequest extends $dara.Model {
+  bizType?: string;
   /**
    * @remarks
    * The source IP address of the request.
@@ -13,12 +14,14 @@ export class DescribeNoticeConfigRequest extends $dara.Model {
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       sourceIp: 'SourceIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       sourceIp: 'string',
     };
   }

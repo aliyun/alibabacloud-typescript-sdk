@@ -16,6 +16,10 @@ export class RemoveCheckResultWhiteListRequest extends $dara.Model {
    * The IDs of the check items.
    */
   checkIds?: number[];
+  /**
+   * @remarks
+   * A set of cloud product instance IDs that require validation.
+   */
   instanceIds?: string[];
   /**
    * @remarks

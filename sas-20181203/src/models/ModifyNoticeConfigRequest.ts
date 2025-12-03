@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyNoticeConfigRequest extends $dara.Model {
+  bizType?: string;
   /**
    * @remarks
    * The identifier of the notification item. Valid values:
@@ -79,6 +80,7 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
   timeLimit?: number;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'BizType',
       project: 'Project',
       route: 'Route',
       sourceIp: 'SourceIp',
@@ -88,6 +90,7 @@ export class ModifyNoticeConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       project: 'string',
       route: 'number',
       sourceIp: 'string',

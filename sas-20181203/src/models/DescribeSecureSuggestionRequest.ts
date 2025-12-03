@@ -4,40 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSecureSuggestionRequest extends $dara.Model {
   /**
-   * @remarks
-   * The old or new version of the security score rule. If you set this parameter to **home_security_score**, the new version of the security score rule is returned. Otherwise, the old version of the security score rule is returned.
-   * 
    * @example
    * home_security_score
    */
   calType?: string;
   /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh**. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
    * @example
    * zh
    */
   lang?: string;
   /**
    * @remarks
-   * Source of security score, default is Cloud Security Center if left empty. Enum values: 
+   * The Alibaba Cloud account ID of the member in the resource directory.
    * 
-   * - 0:Cloud Security Center. 
+   * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
    * 
-   * - 1:Yaochi Console.
-   * 
+   * @example
+   * 1232428423234****
+   */
+  resourceDirectoryAccountId?: number;
+  /**
    * @example
    * 0
    */
   source?: number;
   /**
-   * @remarks
-   * The source IP address of the request.
-   * 
    * @example
    * 192.168.XX.XX
    */
@@ -46,6 +37,7 @@ export class DescribeSecureSuggestionRequest extends $dara.Model {
     return {
       calType: 'CalType',
       lang: 'Lang',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       source: 'Source',
       sourceIp: 'SourceIp',
     };
@@ -55,6 +47,7 @@ export class DescribeSecureSuggestionRequest extends $dara.Model {
     return {
       calType: 'string',
       lang: 'string',
+      resourceDirectoryAccountId: 'number',
       source: 'number',
       sourceIp: 'string',
     };

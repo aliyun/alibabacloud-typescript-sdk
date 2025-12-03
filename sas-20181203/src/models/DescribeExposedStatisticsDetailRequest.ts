@@ -19,7 +19,21 @@ export class DescribeExposedStatisticsDetailRequest extends $dara.Model {
    * 1
    */
   currentPage?: number;
+  /**
+   * @remarks
+   * The public IP address of the server or the cloud asset.
+   * 
+   * @example
+   * 116.12.XX.XX
+   */
   exposureIp?: string;
+  /**
+   * @remarks
+   * The instance ID of the asset.
+   * 
+   * @example
+   * s-bp1g6wxdwps7s9dz****
+   */
   instanceId?: string;
   /**
    * @remarks

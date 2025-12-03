@@ -15,15 +15,18 @@ export class DescribeExportInfoRequest extends $dara.Model {
    * 111
    */
   exportId?: number;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       exportId: 'ExportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       exportId: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

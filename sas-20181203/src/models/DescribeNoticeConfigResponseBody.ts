@@ -11,6 +11,7 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $dara.Mode
    * 12123414****
    */
   aliUid?: number;
+  category?: string;
   /**
    * @remarks
    * The page number of the returned page.
@@ -88,6 +89,7 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       aliUid: 'AliUid',
+      category: 'Category',
       currentPage: 'CurrentPage',
       project: 'Project',
       route: 'Route',
@@ -98,6 +100,7 @@ export class DescribeNoticeConfigResponseBodyNoticeConfigList extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       aliUid: 'number',
+      category: 'string',
       currentPage: 'number',
       project: 'string',
       route: 'number',

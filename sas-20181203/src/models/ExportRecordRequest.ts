@@ -72,12 +72,14 @@ export class ExportRecordRequest extends $dara.Model {
    * {"extend":"1","currentPage":1,"pageSize":10}
    */
   params?: string;
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       exportFileType: 'ExportFileType',
       exportType: 'ExportType',
       lang: 'Lang',
       params: 'Params',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
@@ -87,6 +89,7 @@ export class ExportRecordRequest extends $dara.Model {
       exportType: 'string',
       lang: 'string',
       params: 'string',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

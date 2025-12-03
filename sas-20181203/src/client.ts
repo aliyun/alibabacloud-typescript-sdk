@@ -13892,6 +13892,10 @@ export default class Client extends OpenApi {
       query["ExportId"] = request.exportId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18190,6 +18194,10 @@ export default class Client extends OpenApi {
   async describeNoticeConfigWithOptions(request: $_model.DescribeNoticeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNoticeConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
     if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
@@ -20621,6 +20629,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.source)) {
@@ -25885,6 +25897,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.params)) {
       query["Params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -41338,6 +41354,10 @@ export default class Client extends OpenApi {
   async modifyNoticeConfigWithOptions(request: $_model.ModifyNoticeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyNoticeConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
     if (!$dara.isNull(request.project)) {
       query["Project"] = request.project;
     }
@@ -47629,12 +47649,56 @@ export default class Client extends OpenApi {
   async updateFileProtectEventStatusWithOptions(request: $_model.UpdateFileProtectEventStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileProtectEventStatusResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alertLevels)) {
+      query["AlertLevels"] = request.alertLevels;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!$dara.isNull(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.selectAllAcrossPages)) {
+      query["SelectAllAcrossPages"] = request.selectAllAcrossPages;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -47675,12 +47739,60 @@ export default class Client extends OpenApi {
   async updateFileProtectRemarkWithOptions(request: $_model.UpdateFileProtectRemarkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileProtectRemarkResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.alertLevels)) {
+      query["AlertLevels"] = request.alertLevels;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!$dara.isNull(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
     if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.selectAllAcrossPages)) {
+      query["SelectAllAcrossPages"] = request.selectAllAcrossPages;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
