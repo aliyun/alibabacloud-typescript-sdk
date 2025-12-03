@@ -1,602 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateOrderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  paramStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramStr: 'paramStr',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      paramStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOrderResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCashDetailResponseBody extends $tea.Model {
-  amountOwed?: string;
-  availableCredit?: string;
-  balanceAmount?: string;
-  creditCardAmount?: string;
-  creditLimit?: string;
-  enableThresholdAlert?: string;
-  frozenAmount?: string;
-  miniAlertThreshold?: number;
-  remmitanceAmount?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amountOwed: 'AmountOwed',
-      availableCredit: 'AvailableCredit',
-      balanceAmount: 'BalanceAmount',
-      creditCardAmount: 'CreditCardAmount',
-      creditLimit: 'CreditLimit',
-      enableThresholdAlert: 'EnableThresholdAlert',
-      frozenAmount: 'FrozenAmount',
-      miniAlertThreshold: 'MiniAlertThreshold',
-      remmitanceAmount: 'RemmitanceAmount',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amountOwed: 'string',
-      availableCredit: 'string',
-      balanceAmount: 'string',
-      creditCardAmount: 'string',
-      creditLimit: 'string',
-      enableThresholdAlert: 'string',
-      frozenAmount: 'string',
-      miniAlertThreshold: 'number',
-      remmitanceAmount: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCashDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCashDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCashDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListRequest extends $tea.Model {
-  endDeliveryTime?: string;
-  pageNum?: number;
-  pageSize?: number;
-  startDeliveryTime?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endDeliveryTime: 'EndDeliveryTime',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      startDeliveryTime: 'StartDeliveryTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endDeliveryTime: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      startDeliveryTime: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponseBody extends $tea.Model {
-  coupons?: DescribeCouponListResponseBodyCoupons;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      coupons: 'Coupons',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coupons: DescribeCouponListResponseBodyCoupons,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCouponListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCouponListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCallbackRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  paramStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramStr: 'paramStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCallbackResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenCallbackResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenCallbackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenCallbackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryForCssOrderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  paramStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramStr: 'paramStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryForCssOrderResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryForCssOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryForCssOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryForCssOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VnoBatchRefundOrderRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  paramStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramStr: 'paramStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VnoBatchRefundOrderResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VnoBatchRefundOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VnoBatchRefundOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VnoBatchRefundOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponseBodyCouponsCouponProductCodes extends $tea.Model {
-  productCode?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      productCode: 'ProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productCode: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponseBodyCouponsCouponTradeTypes extends $tea.Model {
-  tradeType?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      tradeType: 'TradeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tradeType: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponseBodyCouponsCoupon extends $tea.Model {
-  application?: string;
-  balanceAmount?: string;
-  couponNumber?: string;
-  couponTemplateId?: number;
-  creationTime?: string;
-  deliveryTime?: string;
-  description?: string;
-  expiredAmount?: string;
-  expiredTime?: string;
-  frozenAmount?: string;
-  modificationTime?: string;
-  priceLimit?: string;
-  productCodes?: DescribeCouponListResponseBodyCouponsCouponProductCodes;
-  status?: string;
-  totalAmount?: string;
-  tradeTypes?: DescribeCouponListResponseBodyCouponsCouponTradeTypes;
-  static names(): { [key: string]: string } {
-    return {
-      application: 'Application',
-      balanceAmount: 'BalanceAmount',
-      couponNumber: 'CouponNumber',
-      couponTemplateId: 'CouponTemplateId',
-      creationTime: 'CreationTime',
-      deliveryTime: 'DeliveryTime',
-      description: 'Description',
-      expiredAmount: 'ExpiredAmount',
-      expiredTime: 'ExpiredTime',
-      frozenAmount: 'FrozenAmount',
-      modificationTime: 'ModificationTime',
-      priceLimit: 'PriceLimit',
-      productCodes: 'ProductCodes',
-      status: 'Status',
-      totalAmount: 'TotalAmount',
-      tradeTypes: 'TradeTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      application: 'string',
-      balanceAmount: 'string',
-      couponNumber: 'string',
-      couponTemplateId: 'number',
-      creationTime: 'string',
-      deliveryTime: 'string',
-      description: 'string',
-      expiredAmount: 'string',
-      expiredTime: 'string',
-      frozenAmount: 'string',
-      modificationTime: 'string',
-      priceLimit: 'string',
-      productCodes: DescribeCouponListResponseBodyCouponsCouponProductCodes,
-      status: 'string',
-      totalAmount: 'string',
-      tradeTypes: DescribeCouponListResponseBodyCouponsCouponTradeTypes,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCouponListResponseBodyCoupons extends $tea.Model {
-  coupon?: DescribeCouponListResponseBodyCouponsCoupon[];
-  static names(): { [key: string]: string } {
-    return {
-      coupon: 'Coupon',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coupon: { 'type': 'array', 'itemType': DescribeCouponListResponseBodyCouponsCoupon },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -605,33 +18,35 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
+   * 创建订单
+   * 
    * @param request - CreateOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOrderResponse
    */
-  async createOrderWithOptions(request: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
-    Util.validateModel(request);
+  async createOrderWithOptions(request: $_model.CreateOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.paramStr)) {
+    if (!$dara.isNull(request.paramStr)) {
       query["paramStr"] = request.paramStr;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOrder",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -642,15 +57,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOrderResponse>(await this.callApi(params, req, runtime), new CreateOrderResponse({}));
+    return $dara.cast<$_model.CreateOrderResponse>(await this.callApi(params, req, runtime), new $_model.CreateOrderResponse({}));
   }
 
   /**
+   * 创建订单
+   * 
    * @param request - CreateOrderRequest
    * @returns CreateOrderResponse
    */
-  async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createOrder(request: $_model.CreateOrderRequest): Promise<$_model.CreateOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOrderWithOptions(request, runtime);
   }
 
@@ -661,9 +78,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCashDetailResponse
    */
-  async describeCashDetailWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCashDetailResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeCashDetailWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCashDetailResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCashDetail",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -674,50 +91,52 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCashDetailResponse>(await this.callApi(params, req, runtime), new DescribeCashDetailResponse({}));
+    return $dara.cast<$_model.DescribeCashDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCashDetailResponse({}));
   }
 
   /**
    * 获取现金明细
    * @returns DescribeCashDetailResponse
    */
-  async describeCashDetail(): Promise<DescribeCashDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeCashDetail(): Promise<$_model.DescribeCashDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCashDetailWithOptions(runtime);
   }
 
   /**
+   * 查询卡券列表
+   * 
    * @param request - DescribeCouponListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCouponListResponse
    */
-  async describeCouponListWithOptions(request: DescribeCouponListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCouponListResponse> {
-    Util.validateModel(request);
+  async describeCouponListWithOptions(request: $_model.DescribeCouponListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCouponListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endDeliveryTime)) {
+    if (!$dara.isNull(request.endDeliveryTime)) {
       query["EndDeliveryTime"] = request.endDeliveryTime;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startDeliveryTime)) {
+    if (!$dara.isNull(request.startDeliveryTime)) {
       query["StartDeliveryTime"] = request.startDeliveryTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCouponList",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -728,36 +147,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCouponListResponse>(await this.callApi(params, req, runtime), new DescribeCouponListResponse({}));
+    return $dara.cast<$_model.DescribeCouponListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCouponListResponse({}));
   }
 
   /**
+   * 查询卡券列表
+   * 
    * @param request - DescribeCouponListRequest
    * @returns DescribeCouponListResponse
    */
-  async describeCouponList(request: DescribeCouponListRequest): Promise<DescribeCouponListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeCouponList(request: $_model.DescribeCouponListRequest): Promise<$_model.DescribeCouponListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCouponListWithOptions(request, runtime);
   }
 
   /**
-   * OpenCallback
+   * 生产开通回调接口
    * 
    * @param request - OpenCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenCallbackResponse
    */
-  async openCallbackWithOptions(request: OpenCallbackRequest, runtime: $Util.RuntimeOptions): Promise<OpenCallbackResponse> {
-    Util.validateModel(request);
+  async openCallbackWithOptions(request: $_model.OpenCallbackRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenCallbackResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.paramStr)) {
+    if (!$dara.isNull(request.paramStr)) {
       query["paramStr"] = request.paramStr;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OpenCallback",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -768,36 +189,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OpenCallbackResponse>(await this.callApi(params, req, runtime), new OpenCallbackResponse({}));
+    return $dara.cast<$_model.OpenCallbackResponse>(await this.callApi(params, req, runtime), new $_model.OpenCallbackResponse({}));
   }
 
   /**
-   * OpenCallback
+   * 生产开通回调接口
    * 
    * @param request - OpenCallbackRequest
    * @returns OpenCallbackResponse
    */
-  async openCallback(request: OpenCallbackRequest): Promise<OpenCallbackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async openCallback(request: $_model.OpenCallbackRequest): Promise<$_model.OpenCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.openCallbackWithOptions(request, runtime);
   }
 
   /**
+   * 订单询价
+   * 
    * @param request - QueryForCssOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryForCssOrderResponse
    */
-  async queryForCssOrderWithOptions(request: QueryForCssOrderRequest, runtime: $Util.RuntimeOptions): Promise<QueryForCssOrderResponse> {
-    Util.validateModel(request);
+  async queryForCssOrderWithOptions(request: $_model.QueryForCssOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryForCssOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.paramStr)) {
+    if (!$dara.isNull(request.paramStr)) {
       query["paramStr"] = request.paramStr;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryForCssOrder",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -808,34 +231,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryForCssOrderResponse>(await this.callApi(params, req, runtime), new QueryForCssOrderResponse({}));
+    return $dara.cast<$_model.QueryForCssOrderResponse>(await this.callApi(params, req, runtime), new $_model.QueryForCssOrderResponse({}));
   }
 
   /**
+   * 订单询价
+   * 
    * @param request - QueryForCssOrderRequest
    * @returns QueryForCssOrderResponse
    */
-  async queryForCssOrder(request: QueryForCssOrderRequest): Promise<QueryForCssOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async queryForCssOrder(request: $_model.QueryForCssOrderRequest): Promise<$_model.QueryForCssOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryForCssOrderWithOptions(request, runtime);
   }
 
   /**
+   * vnoBatchRefundOrder
+   * 
    * @param request - VnoBatchRefundOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VnoBatchRefundOrderResponse
    */
-  async vnoBatchRefundOrderWithOptions(request: VnoBatchRefundOrderRequest, runtime: $Util.RuntimeOptions): Promise<VnoBatchRefundOrderResponse> {
-    Util.validateModel(request);
+  async vnoBatchRefundOrderWithOptions(request: $_model.VnoBatchRefundOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VnoBatchRefundOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.paramStr)) {
+    if (!$dara.isNull(request.paramStr)) {
       query["paramStr"] = request.paramStr;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "vnoBatchRefundOrder",
       version: "2014-07-14",
       protocol: "HTTPS",
@@ -846,15 +273,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VnoBatchRefundOrderResponse>(await this.callApi(params, req, runtime), new VnoBatchRefundOrderResponse({}));
+    return $dara.cast<$_model.VnoBatchRefundOrderResponse>(await this.callApi(params, req, runtime), new $_model.VnoBatchRefundOrderResponse({}));
   }
 
   /**
+   * vnoBatchRefundOrder
+   * 
    * @param request - VnoBatchRefundOrderRequest
    * @returns VnoBatchRefundOrderResponse
    */
-  async vnoBatchRefundOrder(request: VnoBatchRefundOrderRequest): Promise<VnoBatchRefundOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async vnoBatchRefundOrder(request: $_model.VnoBatchRefundOrderRequest): Promise<$_model.VnoBatchRefundOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.vnoBatchRefundOrderWithOptions(request, runtime);
   }
 
