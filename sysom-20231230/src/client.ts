@@ -189,6 +189,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建宕机诊断任务
+   * 
+   * @param request - CreateVmcoreDiagnosisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVmcoreDiagnosisTaskResponse
+   */
+  async createVmcoreDiagnosisTaskWithOptions(request: $_model.CreateVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVmcoreDiagnosisTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.debuginfoCommonUrl)) {
+      body["debuginfoCommonUrl"] = request.debuginfoCommonUrl;
+    }
+
+    if (!$dara.isNull(request.debuginfoUrl)) {
+      body["debuginfoUrl"] = request.debuginfoUrl;
+    }
+
+    if (!$dara.isNull(request.dmesgUrl)) {
+      body["dmesgUrl"] = request.dmesgUrl;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["taskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.vmcoreUrl)) {
+      body["vmcoreUrl"] = request.vmcoreUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVmcoreDiagnosisTask",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/crashAgent/diagnosis/createDiagnosisTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVmcoreDiagnosisTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateVmcoreDiagnosisTaskResponse({}));
+  }
+
+  /**
+   * 创建宕机诊断任务
+   * 
+   * @param request - CreateVmcoreDiagnosisTaskRequest
+   * @returns CreateVmcoreDiagnosisTaskResponse
+   */
+  async createVmcoreDiagnosisTask(request: $_model.CreateVmcoreDiagnosisTaskRequest): Promise<$_model.CreateVmcoreDiagnosisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 用户删除推送告警的策略
    * 
    * @param request - DeleteAlertStrategyRequest
@@ -1598,6 +1659,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询宕机诊断任务结果
+   * 
+   * @param request - GetVmcoreDiagnosisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVmcoreDiagnosisTaskResponse
+   */
+  async getVmcoreDiagnosisTaskWithOptions(request: $_model.GetVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetVmcoreDiagnosisTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVmcoreDiagnosisTask",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/crashAgent/diagnosis/queryTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVmcoreDiagnosisTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetVmcoreDiagnosisTaskResponse({}));
+  }
+
+  /**
+   * 查询宕机诊断任务结果
+   * 
+   * @param request - GetVmcoreDiagnosisTaskRequest
+   * @returns GetVmcoreDiagnosisTaskResponse
+   */
+  async getVmcoreDiagnosisTask(request: $_model.GetVmcoreDiagnosisTaskRequest): Promise<$_model.GetVmcoreDiagnosisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 初始化SysOM，确保角色存在
    * 
    * @param request - InitialSysomRequest
@@ -2959,6 +3065,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRegionsWithOptions(headers, runtime);
+  }
+
+  /**
+   * 查询历史宕机诊断任务
+   * 
+   * @param request - ListVmcoreDiagnosisTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVmcoreDiagnosisTaskResponse
+   */
+  async listVmcoreDiagnosisTaskWithOptions(request: $_model.ListVmcoreDiagnosisTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVmcoreDiagnosisTaskResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.days)) {
+      query["days"] = request.days;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVmcoreDiagnosisTask",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/crashAgent/diagnosis/queryTaskList`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVmcoreDiagnosisTaskResponse>(await this.callApi(params, req, runtime), new $_model.ListVmcoreDiagnosisTaskResponse({}));
+  }
+
+  /**
+   * 查询历史宕机诊断任务
+   * 
+   * @param request - ListVmcoreDiagnosisTaskRequest
+   * @returns ListVmcoreDiagnosisTaskResponse
+   */
+  async listVmcoreDiagnosisTask(request: $_model.ListVmcoreDiagnosisTaskRequest): Promise<$_model.ListVmcoreDiagnosisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
   }
 
   /**
