@@ -216,6 +216,30 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
    * Normal
    */
   userGroupMode?: string;
+  /**
+   * @remarks
+   * The start time when the zero trust policy takes effect, represented as a timestamp in seconds.
+   * 
+   * @example
+   * 0
+   */
+  validFrom?: number;
+  /**
+   * @remarks
+   * Switch status for effective time. Values: - **Enabled**: On. - **Disabled**: Off.
+   * 
+   * @example
+   * Disabled
+   */
+  validTimeStatus?: string;
+  /**
+   * @remarks
+   * The expiration time of the zero trust policy, in seconds timestamp.
+   * 
+   * @example
+   * 1764727544
+   */
+  validUntil?: number;
   static names(): { [key: string]: string } {
     return {
       applicationIds: 'ApplicationIds',
@@ -235,6 +259,9 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
       trustedSoftwareIds: 'TrustedSoftwareIds',
       userGroupIds: 'UserGroupIds',
       userGroupMode: 'UserGroupMode',
+      validFrom: 'ValidFrom',
+      validTimeStatus: 'ValidTimeStatus',
+      validUntil: 'ValidUntil',
     };
   }
 
@@ -257,6 +284,9 @@ export class CreatePrivateAccessPolicyRequest extends $dara.Model {
       trustedSoftwareIds: { 'type': 'array', 'itemType': 'string' },
       userGroupIds: { 'type': 'array', 'itemType': 'string' },
       userGroupMode: 'string',
+      validFrom: 'number',
+      validTimeStatus: 'string',
+      validUntil: 'number',
     };
   }
 

@@ -4,6 +4,41 @@ import { IdpCustomField } from "./IdpCustomField";
 import { OpenStructSaseDepartment } from "./OpenStructSaseDepartment";
 
 
+export class OpenStructSaseUserUserTags extends $dara.Model {
+  aliuid?: string;
+  description?: string;
+  name?: string;
+  saseUserId?: string;
+  tagId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliuid: 'Aliuid',
+      description: 'Description',
+      name: 'Name',
+      saseUserId: 'SaseUserId',
+      tagId: 'TagId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliuid: 'string',
+      description: 'string',
+      name: 'string',
+      saseUserId: 'string',
+      tagId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenStructSaseUser extends $dara.Model {
   createTimeUnix?: number;
   customFields?: IdpCustomField[];
@@ -19,6 +54,7 @@ export class OpenStructSaseUser extends $dara.Model {
   telephone?: string;
   title?: string;
   updateTimeUnix?: number;
+  userTags?: OpenStructSaseUserUserTags[];
   username?: string;
   workStatus?: string;
   static names(): { [key: string]: string } {
@@ -37,6 +73,7 @@ export class OpenStructSaseUser extends $dara.Model {
       telephone: 'Telephone',
       title: 'Title',
       updateTimeUnix: 'UpdateTimeUnix',
+      userTags: 'UserTags',
       username: 'Username',
       workStatus: 'WorkStatus',
     };
@@ -58,6 +95,7 @@ export class OpenStructSaseUser extends $dara.Model {
       telephone: 'string',
       title: 'string',
       updateTimeUnix: 'number',
+      userTags: { 'type': 'array', 'itemType': OpenStructSaseUserUserTags },
       username: 'string',
       workStatus: 'string',
     };
@@ -69,6 +107,9 @@ export class OpenStructSaseUser extends $dara.Model {
     }
     if(Array.isArray(this.departments)) {
       $dara.Model.validateArray(this.departments);
+    }
+    if(Array.isArray(this.userTags)) {
+      $dara.Model.validateArray(this.userTags);
     }
     super.validate();
   }

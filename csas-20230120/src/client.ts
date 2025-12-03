@@ -697,6 +697,18 @@ export default class Client extends OpenApi {
       body["UserGroupMode"] = request.userGroupMode;
     }
 
+    if (!$dara.isNull(request.validFrom)) {
+      body["ValidFrom"] = request.validFrom;
+    }
+
+    if (!$dara.isNull(request.validTimeStatus)) {
+      body["ValidTimeStatus"] = request.validTimeStatus;
+    }
+
+    if (!$dara.isNull(request.validUntil)) {
+      body["ValidUntil"] = request.validUntil;
+    }
+
     body = {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
@@ -5332,6 +5344,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.userGroupMode)) {
       body["UserGroupMode"] = request.userGroupMode;
+    }
+
+    if (!$dara.isNull(request.validFrom)) {
+      body["ValidFrom"] = request.validFrom;
+    }
+
+    if (!$dara.isNull(request.validTimeStatus)) {
+      body["ValidTimeStatus"] = request.validTimeStatus;
+    }
+
+    if (!$dara.isNull(request.validUntil)) {
+      body["ValidUntil"] = request.validUntil;
     }
 
     body = {

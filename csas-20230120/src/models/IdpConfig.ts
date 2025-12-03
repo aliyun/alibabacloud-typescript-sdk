@@ -24,6 +24,7 @@ export class IdpConfig extends $dara.Model {
   lastSyncTimeUnix?: number;
   ldapConfig?: IdpLdapSubConfig;
   loginConfig?: IdpLoginConfig;
+  logoDirectory?: string;
   name?: string;
   syncConfig?: IdpSyncConfig;
   syncStatus?: string;
@@ -43,6 +44,7 @@ export class IdpConfig extends $dara.Model {
       lastSyncTimeUnix: 'LastSyncTimeUnix',
       ldapConfig: 'LdapConfig',
       loginConfig: 'LoginConfig',
+      logoDirectory: 'LogoDirectory',
       name: 'Name',
       syncConfig: 'SyncConfig',
       syncStatus: 'SyncStatus',
@@ -65,6 +67,7 @@ export class IdpConfig extends $dara.Model {
       lastSyncTimeUnix: 'number',
       ldapConfig: IdpLdapSubConfig,
       loginConfig: IdpLoginConfig,
+      logoDirectory: 'string',
       name: 'string',
       syncConfig: IdpSyncConfig,
       syncStatus: 'string',

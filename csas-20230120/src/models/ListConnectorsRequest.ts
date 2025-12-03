@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of Connector IDs. Up to 100 Connector IDs can be entered.
+   * Collection of ConnectorIDs. Up to 100 ConnectorIDs can be entered.
    */
   connectorIds?: string[];
   /**
    * @remarks
-   * The page number of the current page in a paginated query. Range: 1~10000.
+   * The page number of the current page in a paginated query. Value: 1~10000.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ListConnectorsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Connector name. Length: 1~128 characters, supporting Chinese and both uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+   * Connector name. Length: 1~128 characters, supporting Chinese and uppercase/lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * connector_name
@@ -28,7 +28,7 @@ export class ListConnectorsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of items per page in a paginated query. Range: 1~1000.
+   * The number of items per page in a paginated query. Value: 1~1000.
    * 
    * This parameter is required.
    * 

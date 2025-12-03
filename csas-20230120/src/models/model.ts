@@ -4,6 +4,7 @@ export { CommonConfigIdpIdaas2 } from './CommonConfig';
 export { CommonConfigIdpSaml } from './CommonConfig';
 export { CommonConfigIdp } from './CommonConfig';
 export { IdpSyncConfigIdpDepartmentInfos } from './IdpSyncConfig';
+export { OpenStructSaseUserUserTags } from './OpenStructSaseUser';
 export { OpenStructSaseUserSimpleDepartments } from './OpenStructSaseUserSimple';
 export { PAL7ConfigBypassConfigUrlBypassRules } from './Pal7config';
 export { PAL7ConfigBypassConfig } from './Pal7config';
@@ -269,6 +270,7 @@ export { UpdateUserDevicesStatusResponseBodyDevices } from './UpdateUserDevicesS
 export { UpdateUserGroupRequestAttributes } from './UpdateUserGroupRequest';
 export { AuthReportInterval } from './AuthReportInterval';
 export { CommonConfig } from './CommonConfig';
+export { DeviceGroupDynamicRule } from './DeviceGroupDynamicRule';
 export { DisposalContent } from './DisposalContent';
 export { IdpAttrMapConfig } from './IdpAttrMapConfig';
 export { IdpAttrMapConfigItem } from './IdpAttrMapConfigItem';
