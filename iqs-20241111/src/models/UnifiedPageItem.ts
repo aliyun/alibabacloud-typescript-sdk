@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnifiedPageItem extends $dara.Model {
+  correlationTag?: number;
   hostAuthorityScore?: number;
   hostLogo?: string;
   hostname?: string;
@@ -23,6 +24,7 @@ export class UnifiedPageItem extends $dara.Model {
   websiteAuthorityScore?: number;
   static names(): { [key: string]: string } {
     return {
+      correlationTag: 'correlationTag',
       hostAuthorityScore: 'hostAuthorityScore',
       hostLogo: 'hostLogo',
       hostname: 'hostname',
@@ -42,6 +44,7 @@ export class UnifiedPageItem extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      correlationTag: 'number',
       hostAuthorityScore: 'number',
       hostLogo: 'string',
       hostname: 'string',

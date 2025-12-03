@@ -12,6 +12,7 @@ export class ScorePageItem extends $dara.Model {
    * structure_web_info
    */
   cardType?: string;
+  correlationTag?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -109,6 +110,7 @@ export class ScorePageItem extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cardType: 'cardType',
+      correlationTag: 'correlationTag',
       displayLink: 'displayLink',
       hostAuthorityScore: 'hostAuthorityScore',
       hostLogo: 'hostLogo',
@@ -135,6 +137,7 @@ export class ScorePageItem extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cardType: 'string',
+      correlationTag: 'number',
       displayLink: 'string',
       hostAuthorityScore: 'number',
       hostLogo: 'string',
