@@ -14,11 +14,13 @@ export class JobStatusDetailValue extends $dara.Model {
    * 2022-06-13 17:11:34
    */
   timeStamps?: string;
+  errorMessage?: string;
   static names(): { [key: string]: string } {
     return {
       comment: 'comment',
       jobResult: 'jobResult',
       timeStamps: 'timeStamps',
+      errorMessage: 'errorMessage',
     };
   }
 
@@ -27,6 +29,7 @@ export class JobStatusDetailValue extends $dara.Model {
       comment: 'string',
       jobResult: 'string',
       timeStamps: 'string',
+      errorMessage: 'string',
     };
   }
 
