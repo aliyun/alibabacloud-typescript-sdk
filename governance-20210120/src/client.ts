@@ -605,6 +605,10 @@ export default class Client extends OpenApi {
       query["AccountId"] = request.accountId;
     }
 
+    if (!$dara.isNull(request.date)) {
+      query["Date"] = request.date;
+    }
+
     if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }

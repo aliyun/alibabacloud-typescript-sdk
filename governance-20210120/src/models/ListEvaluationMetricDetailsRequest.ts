@@ -11,6 +11,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
    * 103144549568****
    */
   accountId?: number;
+  date?: string;
   /**
    * @remarks
    * The ID of the check item.
@@ -50,6 +51,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      date: 'Date',
       id: 'Id',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -62,6 +64,7 @@ export class ListEvaluationMetricDetailsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      date: 'string',
       id: 'string',
       maxResults: 'number',
       nextToken: 'string',

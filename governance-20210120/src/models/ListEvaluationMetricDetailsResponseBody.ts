@@ -150,6 +150,7 @@ export class ListEvaluationMetricDetailsResponseBodyResources extends $dara.Mode
 }
 
 export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
+  date?: string;
   /**
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
@@ -173,6 +174,7 @@ export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
   resources?: ListEvaluationMetricDetailsResponseBodyResources[];
   static names(): { [key: string]: string } {
     return {
+      date: 'Date',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       resources: 'Resources',
@@ -181,6 +183,7 @@ export class ListEvaluationMetricDetailsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      date: 'string',
       nextToken: 'string',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': ListEvaluationMetricDetailsResponseBodyResources },
