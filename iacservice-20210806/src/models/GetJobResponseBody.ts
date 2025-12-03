@@ -53,6 +53,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
    * true
    */
   autoApply?: boolean;
+  hasConfigProactive?: string;
   /**
    * @example
    * fales
@@ -72,6 +73,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoApply: 'autoApply',
+      hasConfigProactive: 'hasConfigProactive',
       isDestroy: 'isDestroy',
       moduleVersion: 'moduleVersion',
       resourcesChanged: 'resourcesChanged',
@@ -82,6 +84,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoApply: 'boolean',
+      hasConfigProactive: 'string',
       isDestroy: 'boolean',
       moduleVersion: 'string',
       resourcesChanged: 'string',

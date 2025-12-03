@@ -150,6 +150,9 @@ export { ExecuteTerraformDestroyResponse } from './ExecuteTerraformDestroyRespon
 export { ExecuteTerraformPlanRequest } from './ExecuteTerraformPlanRequest';
 export { ExecuteTerraformPlanResponseBody } from './ExecuteTerraformPlanResponseBody';
 export { ExecuteTerraformPlanResponse } from './ExecuteTerraformPlanResponse';
+export { GenerateModuleRequest } from './GenerateModuleRequest';
+export { GenerateModuleResponseBody } from './GenerateModuleResponseBody';
+export { GenerateModuleResponse } from './GenerateModuleResponse';
 export { GetExecuteStateResponseBody } from './GetExecuteStateResponseBody';
 export { GetExecuteStateResponse } from './GetExecuteStateResponse';
 export { GetGroupResponseBody } from './GetGroupResponseBody';

@@ -1424,6 +1424,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成模板
+   * 
+   * @param request - GenerateModuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateModuleResponse
+   */
+  async generateModuleWithOptions(request: $_model.GenerateModuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateModuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.generateSource)) {
+      body["generateSource"] = request.generateSource;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.syntax)) {
+      body["syntax"] = request.syntax;
+    }
+
+    if (!$dara.isNull(request.template)) {
+      body["template"] = request.template;
+    }
+
+    if (!$dara.isNull(request.terraformProviderVersion)) {
+      body["terraformProviderVersion"] = request.terraformProviderVersion;
+    }
+
+    if (!$dara.isNull(request.terraformResourceType)) {
+      body["terraformResourceType"] = request.terraformResourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateModule",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/explorer/generate/module`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateModuleResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.GenerateModuleResponse({}));
+  }
+
+  /**
+   * 生成模板
+   * 
+   * @param request - GenerateModuleRequest
+   * @returns GenerateModuleResponse
+   */
+  async generateModule(request: $_model.GenerateModuleRequest): Promise<$_model.GenerateModuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateModuleWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取Terraform运行结果
    * 
    * @param headers - map
