@@ -35,6 +35,11 @@ export class UpdateVideoInfoRequest extends $dara.Model {
    */
   description?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The tags of the media file.
    * 
@@ -73,8 +78,6 @@ export class UpdateVideoInfoRequest extends $dara.Model {
    * *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to obtain the upload URL and credential.
    * *   View the value of the VideoId parameter returned by the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 2deda93265312baf9b0ed810d****
    */
@@ -84,6 +87,7 @@ export class UpdateVideoInfoRequest extends $dara.Model {
       cateId: 'CateId',
       coverURL: 'CoverURL',
       description: 'Description',
+      referenceId: 'ReferenceId',
       tags: 'Tags',
       title: 'Title',
       userData: 'UserData',
@@ -96,6 +100,7 @@ export class UpdateVideoInfoRequest extends $dara.Model {
       cateId: 'number',
       coverURL: 'string',
       description: 'string',
+      referenceId: 'string',
       tags: 'string',
       title: 'string',
       userData: 'string',

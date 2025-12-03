@@ -79,6 +79,11 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
    */
   modificationTime?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The period of time in which the audio file remains in the restored state.
    * 
@@ -188,6 +193,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
       downloadSwitch: 'DownloadSwitch',
       mediaId: 'MediaId',
       modificationTime: 'ModificationTime',
+      referenceId: 'ReferenceId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
       snapshots: 'Snapshots',
@@ -212,6 +218,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaInfo extends $dara.Mod
       downloadSwitch: 'string',
       mediaId: 'string',
       modificationTime: 'string',
+      referenceId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',
       snapshots: { 'type': 'array', 'itemType': 'string' },
@@ -1244,6 +1251,7 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
    * The IDs of the media assets that do not exist.
    */
   nonExistMediaIds?: string[];
+  nonExistReferenceIds?: string[];
   /**
    * @remarks
    * The request ID.
@@ -1257,6 +1265,7 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
       forbiddenMediaIds: 'ForbiddenMediaIds',
       mediaInfos: 'MediaInfos',
       nonExistMediaIds: 'NonExistMediaIds',
+      nonExistReferenceIds: 'NonExistReferenceIds',
       requestId: 'RequestId',
     };
   }
@@ -1266,6 +1275,7 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
       forbiddenMediaIds: { 'type': 'array', 'itemType': 'string' },
       mediaInfos: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfos },
       nonExistMediaIds: { 'type': 'array', 'itemType': 'string' },
+      nonExistReferenceIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -1279,6 +1289,9 @@ export class BatchGetMediaInfosResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.nonExistMediaIds)) {
       $dara.Model.validateArray(this.nonExistMediaIds);
+    }
+    if(Array.isArray(this.nonExistReferenceIds)) {
+      $dara.Model.validateArray(this.nonExistReferenceIds);
     }
     super.validate();
   }

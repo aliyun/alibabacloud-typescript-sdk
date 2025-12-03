@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMezzaninesResponseBody extends $dara.Model {
+  nonExistReferenceIds?: string[];
   /**
    * @remarks
    * The IDs of the audio or video files that do not exist.
@@ -25,6 +26,7 @@ export class DeleteMezzaninesResponseBody extends $dara.Model {
   unRemoveableVideoIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      nonExistReferenceIds: 'NonExistReferenceIds',
       nonExistVideoIds: 'NonExistVideoIds',
       requestId: 'RequestId',
       unRemoveableVideoIds: 'UnRemoveableVideoIds',
@@ -33,6 +35,7 @@ export class DeleteMezzaninesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nonExistReferenceIds: { 'type': 'array', 'itemType': 'string' },
       nonExistVideoIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       unRemoveableVideoIds: { 'type': 'array', 'itemType': 'string' },
@@ -40,6 +43,9 @@ export class DeleteMezzaninesResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.nonExistReferenceIds)) {
+      $dara.Model.validateArray(this.nonExistReferenceIds);
+    }
     if(Array.isArray(this.nonExistVideoIds)) {
       $dara.Model.validateArray(this.nonExistVideoIds);
     }

@@ -17,10 +17,13 @@ export class DeleteStreamRequest extends $dara.Model {
    */
   jobIds?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The ID of the video.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 95948ddba24446b6aed5db985e78****
@@ -29,6 +32,7 @@ export class DeleteStreamRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       jobIds: 'JobIds',
+      referenceId: 'ReferenceId',
       videoId: 'VideoId',
     };
   }
@@ -36,6 +40,7 @@ export class DeleteStreamRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       jobIds: 'string',
+      referenceId: 'string',
       videoId: 'string',
     };
   }

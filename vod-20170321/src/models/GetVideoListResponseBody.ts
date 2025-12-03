@@ -94,6 +94,11 @@ export class GetVideoListResponseBodyVideoListVideo extends $dara.Model {
    */
   modificationTime?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The period of time in which the audio or video file remains in the restored state.
    * 
@@ -207,6 +212,7 @@ export class GetVideoListResponseBodyVideoListVideo extends $dara.Model {
       description: 'Description',
       duration: 'Duration',
       modificationTime: 'ModificationTime',
+      referenceId: 'ReferenceId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
       size: 'Size',
@@ -231,6 +237,7 @@ export class GetVideoListResponseBodyVideoListVideo extends $dara.Model {
       description: 'string',
       duration: 'number',
       modificationTime: 'string',
+      referenceId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',
       size: 'number',

@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefreshUploadVideoRequest extends $dara.Model {
   ownerId?: number;
+  /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -14,8 +19,6 @@ export class RefreshUploadVideoRequest extends $dara.Model {
    * *   View the value of the VideoId parameter returned by the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to upload the audio or video file.
    * *   After an audio or video file is uploaded, obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the audio or video ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * c6a23a870c8c4ffcd40cbd381333****
    */
@@ -23,6 +26,7 @@ export class RefreshUploadVideoRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      referenceId: 'ReferenceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       videoId: 'VideoId',
@@ -32,6 +36,7 @@ export class RefreshUploadVideoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      referenceId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       videoId: 'string',

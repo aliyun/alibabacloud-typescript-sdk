@@ -52,10 +52,13 @@ export class GetMezzanineInfoRequest extends $dara.Model {
    */
   outputType?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The ID of the video.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 1f1a6fc03ca04814031b8a6559e****
@@ -66,6 +69,7 @@ export class GetMezzanineInfoRequest extends $dara.Model {
       additionType: 'AdditionType',
       authTimeout: 'AuthTimeout',
       outputType: 'OutputType',
+      referenceId: 'ReferenceId',
       videoId: 'VideoId',
     };
   }
@@ -75,6 +79,7 @@ export class GetMezzanineInfoRequest extends $dara.Model {
       additionType: 'string',
       authTimeout: 'number',
       outputType: 'string',
+      referenceId: 'string',
       videoId: 'string',
     };
   }

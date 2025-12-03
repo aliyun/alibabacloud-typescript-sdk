@@ -581,6 +581,11 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
    */
   preprocessStatus?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The period of time in which the audio file remains in the restored state.
    * 
@@ -698,6 +703,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
       mediaSource: 'MediaSource',
       modificationTime: 'ModificationTime',
       preprocessStatus: 'PreprocessStatus',
+      referenceId: 'ReferenceId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
       size: 'Size',
@@ -726,6 +732,7 @@ export class SearchMediaResponseBodyMediaListAudio extends $dara.Model {
       mediaSource: 'string',
       modificationTime: 'string',
       preprocessStatus: 'string',
+      referenceId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',
       size: 'number',
@@ -1002,6 +1009,11 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
    */
   preprocessStatus?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The period of time in which the video file remains in the restored state.
    * 
@@ -1130,6 +1142,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
       mediaSource: 'MediaSource',
       modificationTime: 'ModificationTime',
       preprocessStatus: 'PreprocessStatus',
+      referenceId: 'ReferenceId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
       size: 'Size',
@@ -1158,6 +1171,7 @@ export class SearchMediaResponseBodyMediaListVideo extends $dara.Model {
       mediaSource: 'string',
       modificationTime: 'string',
       preprocessStatus: 'string',
+      referenceId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',
       size: 'number',

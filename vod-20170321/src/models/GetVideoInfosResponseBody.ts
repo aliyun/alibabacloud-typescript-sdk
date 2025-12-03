@@ -79,6 +79,11 @@ export class GetVideoInfosResponseBodyVideoList extends $dara.Model {
    */
   modificationTime?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The period of time in which the audio file remains in the restored state.
    * 
@@ -204,6 +209,7 @@ export class GetVideoInfosResponseBodyVideoList extends $dara.Model {
       downloadSwitch: 'DownloadSwitch',
       duration: 'Duration',
       modificationTime: 'ModificationTime',
+      referenceId: 'ReferenceId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
       size: 'Size',
@@ -230,6 +236,7 @@ export class GetVideoInfosResponseBodyVideoList extends $dara.Model {
       downloadSwitch: 'string',
       duration: 'number',
       modificationTime: 'string',
+      referenceId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',
       size: 'number',
@@ -258,6 +265,7 @@ export class GetVideoInfosResponseBodyVideoList extends $dara.Model {
 }
 
 export class GetVideoInfosResponseBody extends $dara.Model {
+  nonExistReferenceIds?: string[];
   /**
    * @remarks
    * The IDs of the videos that do not exist.
@@ -278,6 +286,7 @@ export class GetVideoInfosResponseBody extends $dara.Model {
   videoList?: GetVideoInfosResponseBodyVideoList[];
   static names(): { [key: string]: string } {
     return {
+      nonExistReferenceIds: 'NonExistReferenceIds',
       nonExistVideoIds: 'NonExistVideoIds',
       requestId: 'RequestId',
       videoList: 'VideoList',
@@ -286,6 +295,7 @@ export class GetVideoInfosResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nonExistReferenceIds: { 'type': 'array', 'itemType': 'string' },
       nonExistVideoIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
       videoList: { 'type': 'array', 'itemType': GetVideoInfosResponseBodyVideoList },
@@ -293,6 +303,9 @@ export class GetVideoInfosResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.nonExistReferenceIds)) {
+      $dara.Model.validateArray(this.nonExistReferenceIds);
+    }
     if(Array.isArray(this.nonExistVideoIds)) {
       $dara.Model.validateArray(this.nonExistVideoIds);
     }

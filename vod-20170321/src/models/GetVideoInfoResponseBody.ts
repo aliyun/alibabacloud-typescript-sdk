@@ -124,6 +124,11 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
    */
   modificationTime?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The region where the media file is stored.
    * 
@@ -259,6 +264,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
       downloadSwitch: 'DownloadSwitch',
       duration: 'Duration',
       modificationTime: 'ModificationTime',
+      referenceId: 'ReferenceId',
       regionId: 'RegionId',
       restoreExpiration: 'RestoreExpiration',
       restoreStatus: 'RestoreStatus',
@@ -288,6 +294,7 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
       downloadSwitch: 'string',
       duration: 'number',
       modificationTime: 'string',
+      referenceId: 'string',
       regionId: 'string',
       restoreExpiration: 'string',
       restoreStatus: 'string',

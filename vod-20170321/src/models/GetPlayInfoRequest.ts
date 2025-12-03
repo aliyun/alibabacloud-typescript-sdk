@@ -116,6 +116,11 @@ export class GetPlayInfoRequest extends $dara.Model {
    */
   reAuthInfo?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The type of the data to return. Default value: Single. Valid values:
    * 
@@ -158,8 +163,6 @@ export class GetPlayInfoRequest extends $dara.Model {
    * *   Obtain the value of the VideoId parameter in the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to upload the audio or video file.
    * *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 93ab850b4f654b6e91d24d81d44****
    */
@@ -174,6 +177,7 @@ export class GetPlayInfoRequest extends $dara.Model {
       outputType: 'OutputType',
       playConfig: 'PlayConfig',
       reAuthInfo: 'ReAuthInfo',
+      referenceId: 'ReferenceId',
       resultType: 'ResultType',
       streamType: 'StreamType',
       trace: 'Trace',
@@ -191,6 +195,7 @@ export class GetPlayInfoRequest extends $dara.Model {
       outputType: 'string',
       playConfig: 'string',
       reAuthInfo: 'string',
+      referenceId: 'string',
       resultType: 'string',
       streamType: 'string',
       trace: 'string',

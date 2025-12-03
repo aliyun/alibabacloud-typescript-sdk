@@ -759,6 +759,10 @@ export default class Client extends OpenApi {
       query["MediaIds"] = request.mediaIds;
     }
 
+    if (!$dara.isNull(request.referenceIds)) {
+      query["ReferenceIds"] = request.referenceIds;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1412,6 +1416,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileSize)) {
       query["FileSize"] = request.fileSize;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.storageLocation)) {
@@ -2100,6 +2108,10 @@ export default class Client extends OpenApi {
       query["Force"] = request.force;
     }
 
+    if (!$dara.isNull(request.referenceIds)) {
+      query["ReferenceIds"] = request.referenceIds;
+    }
+
     if (!$dara.isNull(request.videoIds)) {
       query["VideoIds"] = request.videoIds;
     }
@@ -2209,6 +2221,10 @@ export default class Client extends OpenApi {
       query["JobIds"] = request.jobIds;
     }
 
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
+    }
+
     if (!$dara.isNull(request.videoId)) {
       query["VideoId"] = request.videoId;
     }
@@ -2314,6 +2330,10 @@ export default class Client extends OpenApi {
   async deleteVideoWithOptions(request: $_model.DeleteVideoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVideoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.referenceIds)) {
+      query["ReferenceIds"] = request.referenceIds;
+    }
+
     if (!$dara.isNull(request.videoIds)) {
       query["VideoIds"] = request.videoIds;
     }
@@ -7148,6 +7168,10 @@ export default class Client extends OpenApi {
       query["OutputType"] = request.outputType;
     }
 
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
+    }
+
     if (!$dara.isNull(request.videoId)) {
       query["VideoId"] = request.videoId;
     }
@@ -7228,6 +7252,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reAuthInfo)) {
       query["ReAuthInfo"] = request.reAuthInfo;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.resultType)) {
@@ -7568,6 +7596,10 @@ export default class Client extends OpenApi {
   async getVideoInfoWithOptions(request: $_model.GetVideoInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
+    }
+
     if (!$dara.isNull(request.videoId)) {
       query["VideoId"] = request.videoId;
     }
@@ -7617,6 +7649,10 @@ export default class Client extends OpenApi {
   async getVideoInfosWithOptions(request: $_model.GetVideoInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoInfosResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.referenceIds)) {
+      query["ReferenceIds"] = request.referenceIds;
+    }
+
     if (!$dara.isNull(request.videoIds)) {
       query["VideoIds"] = request.videoIds;
     }
@@ -7680,6 +7716,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.referenceIds)) {
+      query["ReferenceIds"] = request.referenceIds;
     }
 
     if (!$dara.isNull(request.sortBy)) {
@@ -7749,6 +7789,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.authInfoTimeout)) {
       query["AuthInfoTimeout"] = request.authInfoTimeout;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.videoId)) {
@@ -8990,6 +9034,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -10549,6 +10597,10 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
+    }
+
     if (!$dara.isNull(request.snapshotTemplateId)) {
       query["SnapshotTemplateId"] = request.snapshotTemplateId;
     }
@@ -10642,6 +10694,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.priority)) {
       query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.sessionId)) {
@@ -11249,6 +11305,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.referenceId)) {
+      query["ReferenceId"] = request.referenceId;
     }
 
     if (!$dara.isNull(request.tags)) {

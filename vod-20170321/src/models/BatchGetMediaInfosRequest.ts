@@ -17,15 +17,22 @@ export class BatchGetMediaInfosRequest extends $dara.Model {
    * 61ccbdb06fa83012be4d8083f6****,7d2fbc380b0e08e55f****
    */
   mediaIds?: string;
+  /**
+   * @example
+   * 123-123,1234-1234
+   */
+  referenceIds?: string;
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
+      referenceIds: 'ReferenceIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
+      referenceIds: 'string',
     };
   }
 

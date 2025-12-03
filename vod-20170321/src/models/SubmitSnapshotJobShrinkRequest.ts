@@ -32,6 +32,11 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
    */
   interval?: number;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The ID of the snapshot template.
    * 
@@ -101,6 +106,7 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
       count: 'Count',
       height: 'Height',
       interval: 'Interval',
+      referenceId: 'ReferenceId',
       snapshotTemplateId: 'SnapshotTemplateId',
       specifiedOffsetTime: 'SpecifiedOffsetTime',
       specifiedOffsetTimesShrink: 'SpecifiedOffsetTimes',
@@ -116,6 +122,7 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
       count: 'number',
       height: 'string',
       interval: 'number',
+      referenceId: 'string',
       snapshotTemplateId: 'string',
       specifiedOffsetTime: 'number',
       specifiedOffsetTimesShrink: 'string',

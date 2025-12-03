@@ -48,6 +48,11 @@ export class SubmitTranscodeJobsRequest extends $dara.Model {
    */
   priority?: string;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The custom identifier for deduplication. If you send a request, an error is returned if a request with the same identifier was sent in the last 7 days. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
    * 
@@ -93,6 +98,7 @@ export class SubmitTranscodeJobsRequest extends $dara.Model {
       overrideParams: 'OverrideParams',
       pipelineId: 'PipelineId',
       priority: 'Priority',
+      referenceId: 'ReferenceId',
       sessionId: 'SessionId',
       templateGroupId: 'TemplateGroupId',
       userData: 'UserData',
@@ -106,6 +112,7 @@ export class SubmitTranscodeJobsRequest extends $dara.Model {
       overrideParams: 'string',
       pipelineId: 'string',
       priority: 'string',
+      referenceId: 'string',
       sessionId: 'string',
       templateGroupId: 'string',
       userData: 'string',

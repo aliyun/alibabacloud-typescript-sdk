@@ -64,6 +64,11 @@ export class CreateUploadVideoRequest extends $dara.Model {
    */
   fileSize?: number;
   /**
+   * @example
+   * 123-123
+   */
+  referenceId?: string;
+  /**
    * @remarks
    * The storage address. Perform the following operations to obtain the storage address: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
    * 
@@ -145,6 +150,7 @@ export class CreateUploadVideoRequest extends $dara.Model {
       description: 'Description',
       fileName: 'FileName',
       fileSize: 'FileSize',
+      referenceId: 'ReferenceId',
       storageLocation: 'StorageLocation',
       tags: 'Tags',
       templateGroupId: 'TemplateGroupId',
@@ -162,6 +168,7 @@ export class CreateUploadVideoRequest extends $dara.Model {
       description: 'string',
       fileName: 'string',
       fileSize: 'number',
+      referenceId: 'string',
       storageLocation: 'string',
       tags: 'string',
       templateGroupId: 'string',

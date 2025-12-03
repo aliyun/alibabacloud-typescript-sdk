@@ -40,6 +40,11 @@ export class GetVideoListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * 123-123,1234-1234
+   */
+  referenceIds?: string;
+  /**
    * @remarks
    * The sorting method of the results. Valid values:
    * 
@@ -92,6 +97,7 @@ export class GetVideoListRequest extends $dara.Model {
       endTime: 'EndTime',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      referenceIds: 'ReferenceIds',
       sortBy: 'SortBy',
       startTime: 'StartTime',
       status: 'Status',
@@ -105,6 +111,7 @@ export class GetVideoListRequest extends $dara.Model {
       endTime: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      referenceIds: 'string',
       sortBy: 'string',
       startTime: 'string',
       status: 'string',
