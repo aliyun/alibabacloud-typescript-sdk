@@ -447,6 +447,21 @@ export class CreateIndexRequest extends $dara.Model {
    * The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
    */
   metaExtractColumns?: CreateIndexRequestMetaExtractColumns[];
+  /**
+   * @example
+   * 1
+   */
+  pipelineCommercialCu?: number;
+  /**
+   * @example
+   * standard
+   */
+  pipelineCommercialType?: string;
+  /**
+   * @example
+   * downgrade
+   */
+  pipelineRetrieveRateLimitStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       categoryIds: 'CategoryIds',
@@ -472,6 +487,9 @@ export class CreateIndexRequest extends $dara.Model {
       chunkMode: 'chunkMode',
       enableHeaders: 'enableHeaders',
       metaExtractColumns: 'metaExtractColumns',
+      pipelineCommercialCu: 'pipelineCommercialCu',
+      pipelineCommercialType: 'pipelineCommercialType',
+      pipelineRetrieveRateLimitStrategy: 'pipelineRetrieveRateLimitStrategy',
     };
   }
 
@@ -500,6 +518,9 @@ export class CreateIndexRequest extends $dara.Model {
       chunkMode: 'string',
       enableHeaders: 'boolean',
       metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
+      pipelineCommercialCu: 'number',
+      pipelineCommercialType: 'string',
+      pipelineRetrieveRateLimitStrategy: 'string',
     };
   }
 

@@ -641,6 +641,18 @@ export default class Client extends OpenApi {
       query["metaExtractColumns"] = request.metaExtractColumnsShrink;
     }
 
+    if (!$dara.isNull(request.pipelineCommercialCu)) {
+      query["pipelineCommercialCu"] = request.pipelineCommercialCu;
+    }
+
+    if (!$dara.isNull(request.pipelineCommercialType)) {
+      query["pipelineCommercialType"] = request.pipelineCommercialType;
+    }
+
+    if (!$dara.isNull(request.pipelineRetrieveRateLimitStrategy)) {
+      query["pipelineRetrieveRateLimitStrategy"] = request.pipelineRetrieveRateLimitStrategy;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
