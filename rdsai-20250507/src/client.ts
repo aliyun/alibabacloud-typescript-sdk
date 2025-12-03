@@ -30,6 +30,182 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发送对话消息
+   * 
+   * @param tmpReq - ChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatMessagesResponse
+   */
+  async *chatMessagesWithSSE(tmpReq: $_model.ChatMessagesRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatMessagesResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.ChatMessagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inputs)) {
+      request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      query["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.inputsShrink)) {
+      query["Inputs"] = request.inputsShrink;
+    }
+
+    if (!$dara.isNull(request.parentMessageId)) {
+      query["ParentMessageId"] = request.parentMessageId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatMessages",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.ChatMessagesResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.ChatMessagesResponse({}));
+    }
+  }
+
+  /**
+   * 发送对话消息
+   * 
+   * @param tmpReq - ChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatMessagesResponse
+   */
+  async chatMessagesWithOptions(tmpReq: $_model.ChatMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatMessagesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ChatMessagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inputs)) {
+      request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      query["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.inputsShrink)) {
+      query["Inputs"] = request.inputsShrink;
+    }
+
+    if (!$dara.isNull(request.parentMessageId)) {
+      query["ParentMessageId"] = request.parentMessageId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatMessages",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ChatMessagesResponse({}));
+  }
+
+  /**
+   * 发送对话消息
+   * 
+   * @param request - ChatMessagesRequest
+   * @returns ChatMessagesResponse
+   */
+  async chatMessages(request: $_model.ChatMessagesRequest): Promise<$_model.ChatMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatMessagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止对话
+   * 
+   * @param request - ChatMessagesTaskStopRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatMessagesTaskStopResponse
+   */
+  async chatMessagesTaskStopWithOptions(request: $_model.ChatMessagesTaskStopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatMessagesTaskStopResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatMessagesTaskStop",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatMessagesTaskStopResponse>(await this.callApi(params, req, runtime), new $_model.ChatMessagesTaskStopResponse({}));
+  }
+
+  /**
+   * 停止对话
+   * 
+   * @param request - ChatMessagesTaskStopRequest
+   * @returns ChatMessagesTaskStopResponse
+   */
+  async chatMessagesTaskStop(request: $_model.ChatMessagesTaskStopRequest): Promise<$_model.ChatMessagesTaskStopResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatMessagesTaskStopWithOptions(request, runtime);
+  }
+
+  /**
    * 创建应用服务实例
    * 
    * @param tmpReq - CreateAppInstanceRequest
@@ -130,6 +306,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义agent
+   * 
+   * @param tmpReq - CreateCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgentWithOptions(tmpReq: $_model.CreateCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tools)) {
+      request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.enableTools)) {
+      query["EnableTools"] = request.enableTools;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.systemPrompt)) {
+      query["SystemPrompt"] = request.systemPrompt;
+    }
+
+    if (!$dara.isNull(request.toolsShrink)) {
+      query["Tools"] = request.toolsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomAgent",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomAgentResponse({}));
+  }
+
+  /**
+   * 创建自定义agent
+   * 
+   * @param request - CreateCustomAgentRequest
+   * @returns CreateCustomAgentResponse
+   */
+  async createCustomAgent(request: $_model.CreateCustomAgentRequest): Promise<$_model.CreateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
    * 删除应用服务实例
    * 
    * @param request - DeleteAppInstanceRequest
@@ -177,6 +417,52 @@ export default class Client extends OpenApi {
   async deleteAppInstance(request: $_model.DeleteAppInstanceRequest): Promise<$_model.DeleteAppInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Custom Agent
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgentWithOptions(request: $_model.DeleteCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomAgent",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomAgentResponse({}));
+  }
+
+  /**
+   * 删除Custom Agent
+   * 
+   * @param request - DeleteCustomAgentRequest
+   * @returns DeleteCustomAgentResponse
+   */
+  async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomAgentWithOptions(request, runtime);
   }
 
   /**
@@ -281,6 +567,68 @@ export default class Client extends OpenApi {
   async describeAppInstances(request: $_model.DescribeAppInstancesRequest): Promise<$_model.DescribeAppInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询事件信息列表
+   * 
+   * @param request - DescribeEventsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventsListResponse
+   */
+  async describeEventsListWithOptions(request: $_model.DescribeEventsListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEventsListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEventsList",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEventsListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEventsListResponse({}));
+  }
+
+  /**
+   * 查询事件信息列表
+   * 
+   * @param request - DescribeEventsListRequest
+   * @returns DescribeEventsListResponse
+   */
+  async describeEventsList(request: $_model.DescribeEventsListRequest): Promise<$_model.DescribeEventsListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEventsListWithOptions(request, runtime);
   }
 
   /**
@@ -557,6 +905,256 @@ export default class Client extends OpenApi {
   async describeInstanceStorageConfig(request: $_model.DescribeInstanceStorageConfigRequest): Promise<$_model.DescribeInstanceStorageConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceStorageConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取会话列表
+   * 
+   * @param request - GetConversationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConversationsResponse
+   */
+  async getConversationsWithOptions(request: $_model.GetConversationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConversationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.lastId)) {
+      query["LastId"] = request.lastId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.pinned)) {
+      query["Pinned"] = request.pinned;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConversations",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConversationsResponse>(await this.callApi(params, req, runtime), new $_model.GetConversationsResponse({}));
+  }
+
+  /**
+   * 获取会话列表
+   * 
+   * @param request - GetConversationsRequest
+   * @returns GetConversationsResponse
+   */
+  async getConversations(request: $_model.GetConversationsRequest): Promise<$_model.GetConversationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getConversationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询CustomAgent
+   * 
+   * @param request - GetCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomAgentResponse
+   */
+  async getCustomAgentWithOptions(request: $_model.GetCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomAgent",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomAgentResponse({}));
+  }
+
+  /**
+   * 查询CustomAgent
+   * 
+   * @param request - GetCustomAgentRequest
+   * @returns GetCustomAgentResponse
+   */
+  async getCustomAgent(request: $_model.GetCustomAgentRequest): Promise<$_model.GetCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取会话历史消息
+   * 
+   * @param request - GetMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMessagesResponse
+   */
+  async getMessagesWithOptions(request: $_model.GetMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMessagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      query["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.firstId)) {
+      query["FirstId"] = request.firstId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMessages",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMessagesResponse>(await this.callApi(params, req, runtime), new $_model.GetMessagesResponse({}));
+  }
+
+  /**
+   * 获取会话历史消息
+   * 
+   * @param request - GetMessagesRequest
+   * @returns GetMessagesResponse
+   */
+  async getMessages(request: $_model.GetMessagesRequest): Promise<$_model.GetMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMessagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Custom Agent列表
+   * 
+   * @param request - ListCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentResponse
+   */
+  async listCustomAgentWithOptions(request: $_model.ListCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgent",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentResponse({}));
+  }
+
+  /**
+   * 获取Custom Agent列表
+   * 
+   * @param request - ListCustomAgentRequest
+   * @returns ListCustomAgentResponse
+   */
+  async listCustomAgent(request: $_model.ListCustomAgentRequest): Promise<$_model.ListCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取专属Agent可用工具
+   * 
+   * @param request - ListCustomAgentToolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentToolsResponse
+   */
+  async listCustomAgentToolsWithOptions(request: $_model.ListCustomAgentToolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentToolsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgentTools",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentToolsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentToolsResponse({}));
+  }
+
+  /**
+   * 获取专属Agent可用工具
+   * 
+   * @param request - ListCustomAgentToolsRequest
+   * @returns ListCustomAgentToolsResponse
+   */
+  async listCustomAgentTools(request: $_model.ListCustomAgentToolsRequest): Promise<$_model.ListCustomAgentToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAgentToolsWithOptions(request, runtime);
   }
 
   /**
@@ -922,6 +1520,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 消息终端用户反馈、点赞/点踩
+   * 
+   * @param request - ModifyMessagesFeedbacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMessagesFeedbacksResponse
+   */
+  async modifyMessagesFeedbacksWithOptions(request: $_model.ModifyMessagesFeedbacksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMessagesFeedbacksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    if (!$dara.isNull(request.rating)) {
+      query["Rating"] = request.rating;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyMessagesFeedbacks",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyMessagesFeedbacksResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMessagesFeedbacksResponse({}));
+  }
+
+  /**
+   * 消息终端用户反馈、点赞/点踩
+   * 
+   * @param request - ModifyMessagesFeedbacksRequest
+   * @returns ModifyMessagesFeedbacksResponse
+   */
+  async modifyMessagesFeedbacks(request: $_model.ModifyMessagesFeedbacksRequest): Promise<$_model.ModifyMessagesFeedbacksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyMessagesFeedbacksWithOptions(request, runtime);
+  }
+
+  /**
    * 重置实例密码
    * 
    * @param request - ResetInstancePasswordRequest
@@ -1111,6 +1763,74 @@ export default class Client extends OpenApi {
   async stopInstance(request: $_model.StopInstanceRequest): Promise<$_model.StopInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Custom Agent
+   * 
+   * @param tmpReq - UpdateCustomAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomAgentResponse
+   */
+  async updateCustomAgentWithOptions(tmpReq: $_model.UpdateCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCustomAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tools)) {
+      request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.customAgentId)) {
+      query["CustomAgentId"] = request.customAgentId;
+    }
+
+    if (!$dara.isNull(request.enableTools)) {
+      query["EnableTools"] = request.enableTools;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.systemPrompt)) {
+      query["SystemPrompt"] = request.systemPrompt;
+    }
+
+    if (!$dara.isNull(request.toolsShrink)) {
+      query["Tools"] = request.toolsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomAgent",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomAgentResponse({}));
+  }
+
+  /**
+   * 更新Custom Agent
+   * 
+   * @param request - UpdateCustomAgentRequest
+   * @returns UpdateCustomAgentResponse
+   */
+  async updateCustomAgent(request: $_model.UpdateCustomAgentRequest): Promise<$_model.UpdateCustomAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustomAgentWithOptions(request, runtime);
   }
 
 }
