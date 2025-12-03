@@ -3466,19 +3466,37 @@ export default class Client extends OpenApi {
   /**
    * Create Asset Category
    * 
-   * @param request - CreateMetaCategoryRequest
+   * @param tmpReq - CreateMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateMetaCategoryResponse
    */
-  async createMetaCategoryWithOptions(request: $_model.CreateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMetaCategoryResponse> {
-    request.validate();
+  async createMetaCategoryWithOptions(tmpReq: $_model.CreateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMetaCategoryResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMetaCategoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ownerIds)) {
+      request.ownerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ownerIds, "OwnerIds", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.ownerIdsShrink)) {
+      query["OwnerIds"] = request.ownerIdsShrink;
+    }
+
     if (!$dara.isNull(request.parentCategoryId)) {
       query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
     }
 
     if (!$dara.isNull(request.tid)) {
@@ -17716,19 +17734,37 @@ export default class Client extends OpenApi {
   /**
    * Updates asset category information.
    * 
-   * @param request - UpdateMetaCategoryRequest
+   * @param tmpReq - UpdateMetaCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateMetaCategoryResponse
    */
-  async updateMetaCategoryWithOptions(request: $_model.UpdateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaCategoryResponse> {
-    request.validate();
+  async updateMetaCategoryWithOptions(tmpReq: $_model.UpdateMetaCategoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaCategoryResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMetaCategoryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ownerIds)) {
+      request.ownerIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ownerIds, "OwnerIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerIdsShrink)) {
+      query["OwnerIds"] = request.ownerIdsShrink;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
     }
 
     if (!$dara.isNull(request.tid)) {

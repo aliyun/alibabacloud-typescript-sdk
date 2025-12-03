@@ -2,42 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMetaCategoryRequest extends $dara.Model {
-  description?: string;
+export class UpdateMetaCategoryShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the category.
+   * The category ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * default
+   * 30000181325
    */
-  name?: string;
-  ownerIds?: number[];
+  categoryId?: number;
+  description?: string;
   /**
    * @remarks
-   * The ID of the parent category. The new category is created under this parent category. If this value is left empty, the new category is of the first level.
-   * 
-   * @example
-   * 30000322682
+   * The updated name of the category.
    */
-  parentCategoryId?: number;
+  name?: string;
+  ownerIdsShrink?: string;
   remark?: string;
   /**
    * @remarks
    * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
    * 
    * @example
-   * 3***
+   * 23****
    */
   tid?: number;
   static names(): { [key: string]: string } {
     return {
+      categoryId: 'CategoryId',
       description: 'Description',
       name: 'Name',
-      ownerIds: 'OwnerIds',
-      parentCategoryId: 'ParentCategoryId',
+      ownerIdsShrink: 'OwnerIds',
       remark: 'Remark',
       tid: 'Tid',
     };
@@ -45,19 +42,16 @@ export class CreateMetaCategoryRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      categoryId: 'number',
       description: 'string',
       name: 'string',
-      ownerIds: { 'type': 'array', 'itemType': 'number' },
-      parentCategoryId: 'number',
+      ownerIdsShrink: 'string',
       remark: 'string',
       tid: 'number',
     };
   }
 
   validate() {
-    if(Array.isArray(this.ownerIds)) {
-      $dara.Model.validateArray(this.ownerIds);
-    }
     super.validate();
   }
 

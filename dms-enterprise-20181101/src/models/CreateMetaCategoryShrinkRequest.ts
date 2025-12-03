@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateMetaCategoryRequest extends $dara.Model {
+export class CreateMetaCategoryShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
@@ -14,7 +14,7 @@ export class CreateMetaCategoryRequest extends $dara.Model {
    * default
    */
   name?: string;
-  ownerIds?: number[];
+  ownerIdsShrink?: string;
   /**
    * @remarks
    * The ID of the parent category. The new category is created under this parent category. If this value is left empty, the new category is of the first level.
@@ -36,7 +36,7 @@ export class CreateMetaCategoryRequest extends $dara.Model {
     return {
       description: 'Description',
       name: 'Name',
-      ownerIds: 'OwnerIds',
+      ownerIdsShrink: 'OwnerIds',
       parentCategoryId: 'ParentCategoryId',
       remark: 'Remark',
       tid: 'Tid',
@@ -47,7 +47,7 @@ export class CreateMetaCategoryRequest extends $dara.Model {
     return {
       description: 'string',
       name: 'string',
-      ownerIds: { 'type': 'array', 'itemType': 'number' },
+      ownerIdsShrink: 'string',
       parentCategoryId: 'number',
       remark: 'string',
       tid: 'number',
@@ -55,9 +55,6 @@ export class CreateMetaCategoryRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.ownerIds)) {
-      $dara.Model.validateArray(this.ownerIds);
-    }
     super.validate();
   }
 

@@ -13,11 +13,14 @@ export class UpdateMetaCategoryRequest extends $dara.Model {
    * 30000181325
    */
   categoryId?: number;
+  description?: string;
   /**
    * @remarks
    * The updated name of the category.
    */
   name?: string;
+  ownerIds?: number[];
+  remark?: string;
   /**
    * @remarks
    * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
@@ -29,7 +32,10 @@ export class UpdateMetaCategoryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
+      description: 'Description',
       name: 'Name',
+      ownerIds: 'OwnerIds',
+      remark: 'Remark',
       tid: 'Tid',
     };
   }
@@ -37,12 +43,18 @@ export class UpdateMetaCategoryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'number',
+      description: 'string',
       name: 'string',
+      ownerIds: { 'type': 'array', 'itemType': 'number' },
+      remark: 'string',
       tid: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.ownerIds)) {
+      $dara.Model.validateArray(this.ownerIds);
+    }
     super.validate();
   }
 

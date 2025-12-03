@@ -538,6 +538,7 @@ export { CreateLogicDatabaseShrinkRequest } from './CreateLogicDatabaseShrinkReq
 export { CreateLogicDatabaseResponseBody } from './CreateLogicDatabaseResponseBody';
 export { CreateLogicDatabaseResponse } from './CreateLogicDatabaseResponse';
 export { CreateMetaCategoryRequest } from './CreateMetaCategoryRequest';
+export { CreateMetaCategoryShrinkRequest } from './CreateMetaCategoryShrinkRequest';
 export { CreateMetaCategoryResponseBody } from './CreateMetaCategoryResponseBody';
 export { CreateMetaCategoryResponse } from './CreateMetaCategoryResponse';
 export { CreateOrderRequest } from './CreateOrderRequest';
@@ -1297,6 +1298,7 @@ export { UpdateInstanceRequest } from './UpdateInstanceRequest';
 export { UpdateInstanceResponseBody } from './UpdateInstanceResponseBody';
 export { UpdateInstanceResponse } from './UpdateInstanceResponse';
 export { UpdateMetaCategoryRequest } from './UpdateMetaCategoryRequest';
+export { UpdateMetaCategoryShrinkRequest } from './UpdateMetaCategoryShrinkRequest';
 export { UpdateMetaCategoryResponseBody } from './UpdateMetaCategoryResponseBody';
 export { UpdateMetaCategoryResponse } from './UpdateMetaCategoryResponse';
 export { UpdateSLARulesRequest } from './UpdateSlarulesRequest';
