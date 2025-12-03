@@ -1,3119 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AttachVscMountPointRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIds?: string[];
-  mountPointId?: string;
-  vscIds?: string[];
-  vscType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIds: 'InstanceIds',
-      mountPointId: 'MountPointId',
-      vscIds: 'VscIds',
-      vscType: 'VscType',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      mountPointId: 'string',
-      vscIds: { 'type': 'array', 'itemType': 'string' },
-      vscType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachVscMountPointShrinkRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIdsShrink?: string;
-  mountPointId?: string;
-  vscIdsShrink?: string;
-  vscType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIdsShrink: 'InstanceIds',
-      mountPointId: 'MountPointId',
-      vscIdsShrink: 'VscIds',
-      vscType: 'VscType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIdsShrink: 'string',
-      mountPointId: 'string',
-      vscIdsShrink: 'string',
-      vscType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachVscMountPointResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachVscMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachVscMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachVscMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindVscMountPointAliasRequest extends $tea.Model {
-  aliasPrefix?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  mountPointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasPrefix: 'AliasPrefix',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      mountPointId: 'MountPointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasPrefix: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      mountPointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindVscMountPointAliasResponseBody extends $tea.Model {
-  mountPointAlias?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPointAlias: 'MountPointAlias',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPointAlias: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindVscMountPointAliasResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindVscMountPointAliasResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindVscMountPointAliasResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessGroupRequest extends $tea.Model {
-  accessGroupName?: string;
-  description?: string;
-  inputRegionId?: string;
-  networkType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupName: 'AccessGroupName',
-      description: 'Description',
-      inputRegionId: 'InputRegionId',
-      networkType: 'NetworkType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupName: 'string',
-      description: 'string',
-      inputRegionId: 'string',
-      networkType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessGroupResponseBody extends $tea.Model {
-  accessGroupId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccessGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccessGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessRuleRequest extends $tea.Model {
-  accessGroupId?: string;
-  description?: string;
-  inputRegionId?: string;
-  networkSegment?: string;
-  priority?: number;
-  RWAccessType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      description: 'Description',
-      inputRegionId: 'InputRegionId',
-      networkSegment: 'NetworkSegment',
-      priority: 'Priority',
-      RWAccessType: 'RWAccessType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      description: 'string',
-      inputRegionId: 'string',
-      networkSegment: 'string',
-      priority: 'number',
-      RWAccessType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessRuleResponseBody extends $tea.Model {
-  accessRuleId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessRuleId: 'AccessRuleId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessRuleId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccessRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccessRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccessRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFileSystemRequest extends $tea.Model {
-  dataRedundancyType?: string;
-  description?: string;
-  fileSystemName?: string;
-  inputRegionId?: string;
-  partitionNumber?: number;
-  protocolType?: string;
-  provisionedThroughputInMiBps?: number;
-  spaceCapacity?: number;
-  storageSetName?: string;
-  storageType?: string;
-  throughputMode?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataRedundancyType: 'DataRedundancyType',
-      description: 'Description',
-      fileSystemName: 'FileSystemName',
-      inputRegionId: 'InputRegionId',
-      partitionNumber: 'PartitionNumber',
-      protocolType: 'ProtocolType',
-      provisionedThroughputInMiBps: 'ProvisionedThroughputInMiBps',
-      spaceCapacity: 'SpaceCapacity',
-      storageSetName: 'StorageSetName',
-      storageType: 'StorageType',
-      throughputMode: 'ThroughputMode',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataRedundancyType: 'string',
-      description: 'string',
-      fileSystemName: 'string',
-      inputRegionId: 'string',
-      partitionNumber: 'number',
-      protocolType: 'string',
-      provisionedThroughputInMiBps: 'number',
-      spaceCapacity: 'number',
-      storageSetName: 'string',
-      storageType: 'string',
-      throughputMode: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFileSystemResponseBody extends $tea.Model {
-  fileSystemId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFileSystemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFileSystemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFileSystemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMountPointRequest extends $tea.Model {
-  accessGroupId?: string;
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  networkType?: string;
-  vSwitchId?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      networkType: 'NetworkType',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      networkType: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMountPointResponseBody extends $tea.Model {
-  mountPointId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPointId: 'MountPointId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPointId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupsMappingRequest extends $tea.Model {
-  fileSystemId?: string;
-  groupNames?: string[];
-  inputRegionId?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      groupNames: 'GroupNames',
-      inputRegionId: 'InputRegionId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      groupNames: { 'type': 'array', 'itemType': 'string' },
-      inputRegionId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupsMappingShrinkRequest extends $tea.Model {
-  fileSystemId?: string;
-  groupNamesShrink?: string;
-  inputRegionId?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      groupNamesShrink: 'GroupNames',
-      inputRegionId: 'InputRegionId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      groupNamesShrink: 'string',
-      inputRegionId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupsMappingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserGroupsMappingResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUserGroupsMappingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUserGroupsMappingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVscMountPointRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIds: 'InstanceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVscMountPointShrinkRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIdsShrink: 'InstanceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVscMountPointResponseBody extends $tea.Model {
-  mountPointId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPointId: 'MountPointId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPointId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVscMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateVscMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateVscMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessGroupRequest extends $tea.Model {
-  accessGroupId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccessGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccessGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessRuleRequest extends $tea.Model {
-  accessGroupId?: string;
-  accessRuleId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessRuleId: 'AccessRuleId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessRuleId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessRuleResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccessRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccessRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccessRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileSystemRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileSystemResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileSystemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFileSystemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFileSystemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMountPointRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  mountPointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      mountPointId: 'MountPointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      mountPointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMountPointResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupsMappingRequest extends $tea.Model {
-  fileSystemId?: string;
-  groupNames?: { [key: string]: any };
-  inputRegionId?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      groupNames: 'GroupNames',
-      inputRegionId: 'InputRegionId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      groupNames: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      inputRegionId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupsMappingShrinkRequest extends $tea.Model {
-  fileSystemId?: string;
-  groupNamesShrink?: string;
-  inputRegionId?: string;
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      groupNamesShrink: 'GroupNames',
-      inputRegionId: 'InputRegionId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      groupNamesShrink: 'string',
-      inputRegionId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupsMappingResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserGroupsMappingResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUserGroupsMappingResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUserGroupsMappingResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVscMountPointRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  mountPointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      mountPointId: 'MountPointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      mountPointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVscMountPointResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteVscMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteVscMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteVscMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  regions?: DescribeRegionsResponseBodyRegions;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceId?: string;
-  mountPointId?: string;
-  status?: string;
-  vscId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceId: 'InstanceId',
-      mountPointId: 'MountPointId',
-      status: 'Status',
-      vscId: 'VscId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceId: 'string',
-      mountPointId: 'string',
-      status: 'string',
-      vscId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsResponseBody extends $tea.Model {
-  mountPoints?: DescribeVscMountPointsResponseBodyMountPoints[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      mountPoints: 'MountPoints',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPoints: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPoints },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeVscMountPointsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeVscMountPointsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachVscMountPointRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIds?: string[];
-  mountPointId?: string;
-  vscIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIds: 'InstanceIds',
-      mountPointId: 'MountPointId',
-      vscIds: 'VscIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      mountPointId: 'string',
-      vscIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachVscMountPointShrinkRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  instanceIdsShrink?: string;
-  mountPointId?: string;
-  vscIdsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      instanceIdsShrink: 'InstanceIds',
-      mountPointId: 'MountPointId',
-      vscIdsShrink: 'VscIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      instanceIdsShrink: 'string',
-      mountPointId: 'string',
-      vscIdsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachVscMountPointResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachVscMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachVscMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachVscMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessGroupRequest extends $tea.Model {
-  accessGroupId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessGroupResponseBody extends $tea.Model {
-  accessGroup?: GetAccessGroupResponseBodyAccessGroup;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroup: 'AccessGroup',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroup: GetAccessGroupResponseBodyAccessGroup,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccessGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessRuleRequest extends $tea.Model {
-  accessGroupId?: string;
-  accessRuleId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessRuleId: 'AccessRuleId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessRuleId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessRuleResponseBody extends $tea.Model {
-  accessRule?: GetAccessRuleResponseBodyAccessRule;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessRule: 'AccessRule',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessRule: GetAccessRuleResponseBodyAccessRule,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAccessRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAccessRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSystemRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSystemResponseBody extends $tea.Model {
-  fileSystem?: GetFileSystemResponseBodyFileSystem;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystem: 'FileSystem',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystem: GetFileSystemResponseBodyFileSystem,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSystemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFileSystemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFileSystemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMountPointRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  mountPointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      mountPointId: 'MountPointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      mountPointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMountPointResponseBody extends $tea.Model {
-  mountPoint?: GetMountPointResponseBodyMountPoint;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountPoint: 'MountPoint',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPoint: GetMountPointResponseBodyMountPoint,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionRequest extends $tea.Model {
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionResponseBody extends $tea.Model {
-  availableZones?: GetRegionResponseBodyAvailableZones[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableZones: 'AvailableZones',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableZones: { 'type': 'array', 'itemType': GetRegionResponseBodyAvailableZones },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRegionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRegionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessGroupsRequest extends $tea.Model {
-  inputRegionId?: string;
-  limit?: number;
-  orderBy?: string;
-  orderType?: string;
-  startOffset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputRegionId: 'InputRegionId',
-      limit: 'Limit',
-      orderBy: 'OrderBy',
-      orderType: 'OrderType',
-      startOffset: 'StartOffset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputRegionId: 'string',
-      limit: 'number',
-      orderBy: 'string',
-      orderType: 'string',
-      startOffset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessGroupsResponseBody extends $tea.Model {
-  accessGroups?: ListAccessGroupsResponseBodyAccessGroups[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroups: 'AccessGroups',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroups: { 'type': 'array', 'itemType': ListAccessGroupsResponseBodyAccessGroups },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccessGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccessGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessRulesRequest extends $tea.Model {
-  accessGroupId?: string;
-  inputRegionId?: string;
-  limit?: number;
-  orderBy?: string;
-  orderType?: string;
-  startOffset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      inputRegionId: 'InputRegionId',
-      limit: 'Limit',
-      orderBy: 'OrderBy',
-      orderType: 'OrderType',
-      startOffset: 'StartOffset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      inputRegionId: 'string',
-      limit: 'number',
-      orderBy: 'string',
-      orderType: 'string',
-      startOffset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessRulesResponseBody extends $tea.Model {
-  accessRules?: ListAccessRulesResponseBodyAccessRules[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessRules: 'AccessRules',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessRules: { 'type': 'array', 'itemType': ListAccessRulesResponseBodyAccessRules },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAccessRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAccessRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileSystemsRequest extends $tea.Model {
-  inputRegionId?: string;
-  limit?: number;
-  orderBy?: string;
-  orderType?: string;
-  startOffset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputRegionId: 'InputRegionId',
-      limit: 'Limit',
-      orderBy: 'OrderBy',
-      orderType: 'OrderType',
-      startOffset: 'StartOffset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputRegionId: 'string',
-      limit: 'number',
-      orderBy: 'string',
-      orderType: 'string',
-      startOffset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileSystemsResponseBody extends $tea.Model {
-  fileSystems?: ListFileSystemsResponseBodyFileSystems[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystems: 'FileSystems',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystems: { 'type': 'array', 'itemType': ListFileSystemsResponseBodyFileSystems },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileSystemsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFileSystemsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFileSystemsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMountPointsRequest extends $tea.Model {
-  fileSystemId?: string;
-  inputRegionId?: string;
-  limit?: number;
-  orderBy?: string;
-  orderType?: string;
-  startOffset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      limit: 'Limit',
-      orderBy: 'OrderBy',
-      orderType: 'OrderType',
-      startOffset: 'StartOffset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      limit: 'number',
-      orderBy: 'string',
-      orderType: 'string',
-      startOffset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMountPointsResponseBody extends $tea.Model {
-  mountPoints?: ListMountPointsResponseBodyMountPoints[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      mountPoints: 'MountPoints',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountPoints: { 'type': 'array', 'itemType': ListMountPointsResponseBodyMountPoints },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMountPointsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMountPointsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMountPointsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsMappingsRequest extends $tea.Model {
-  filesystemId?: string;
-  inputRegionId?: string;
-  limit?: number;
-  nextToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filesystemId: 'FilesystemId',
-      inputRegionId: 'InputRegionId',
-      limit: 'Limit',
-      nextToken: 'NextToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filesystemId: 'string',
-      inputRegionId: 'string',
-      limit: 'number',
-      nextToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsMappingsResponseBody extends $tea.Model {
-  hasMore?: boolean;
-  nextToken?: string;
-  requestId?: string;
-  userGroupsMappings?: ListUserGroupsMappingsResponseBodyUserGroupsMappings[];
-  static names(): { [key: string]: string } {
-    return {
-      hasMore: 'HasMore',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      userGroupsMappings: 'UserGroupsMappings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hasMore: 'boolean',
-      nextToken: 'string',
-      requestId: 'string',
-      userGroupsMappings: { 'type': 'array', 'itemType': ListUserGroupsMappingsResponseBodyUserGroupsMappings },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsMappingsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListUserGroupsMappingsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListUserGroupsMappingsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessGroupRequest extends $tea.Model {
-  accessGroupId?: string;
-  accessGroupName?: string;
-  description?: string;
-  inputRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessGroupName: 'AccessGroupName',
-      description: 'Description',
-      inputRegionId: 'InputRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessGroupName: 'string',
-      description: 'string',
-      inputRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccessGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccessGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessRuleRequest extends $tea.Model {
-  accessGroupId?: string;
-  accessRuleId?: string;
-  description?: string;
-  inputRegionId?: string;
-  priority?: number;
-  RWAccessType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessRuleId: 'AccessRuleId',
-      description: 'Description',
-      inputRegionId: 'InputRegionId',
-      priority: 'Priority',
-      RWAccessType: 'RWAccessType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessRuleId: 'string',
-      description: 'string',
-      inputRegionId: 'string',
-      priority: 'number',
-      RWAccessType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessRuleResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccessRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccessRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccessRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyFileSystemRequest extends $tea.Model {
-  description?: string;
-  fileSystemId?: string;
-  fileSystemName?: string;
-  inputRegionId?: string;
-  provisionedThroughputInMiBps?: number;
-  spaceCapacity?: number;
-  throughputMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      fileSystemName: 'FileSystemName',
-      inputRegionId: 'InputRegionId',
-      provisionedThroughputInMiBps: 'ProvisionedThroughputInMiBps',
-      spaceCapacity: 'SpaceCapacity',
-      throughputMode: 'ThroughputMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      fileSystemId: 'string',
-      fileSystemName: 'string',
-      inputRegionId: 'string',
-      provisionedThroughputInMiBps: 'number',
-      spaceCapacity: 'number',
-      throughputMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyFileSystemResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyFileSystemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyFileSystemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyFileSystemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyMountPointRequest extends $tea.Model {
-  accessGroupId?: string;
-  description?: string;
-  fileSystemId?: string;
-  inputRegionId?: string;
-  mountPointId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      inputRegionId: 'InputRegionId',
-      mountPointId: 'MountPointId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      inputRegionId: 'string',
-      mountPointId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyMountPointResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyMountPointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyMountPointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyMountPointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  localName?: string;
-  regionEndpoint?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsResponseBodyMountPointsInstancesVscs extends $tea.Model {
-  vscId?: string;
-  vscStatus?: string;
-  vscType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vscId: 'VscId',
-      vscStatus: 'VscStatus',
-      vscType: 'VscType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vscId: 'string',
-      vscStatus: 'string',
-      vscType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsResponseBodyMountPointsInstances extends $tea.Model {
-  instanceId?: string;
-  status?: string;
-  vscs?: DescribeVscMountPointsResponseBodyMountPointsInstancesVscs[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      status: 'Status',
-      vscs: 'Vscs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      status: 'string',
-      vscs: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPointsInstancesVscs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVscMountPointsResponseBodyMountPoints extends $tea.Model {
-  description?: string;
-  instanceTotalCount?: number;
-  instances?: DescribeVscMountPointsResponseBodyMountPointsInstances[];
-  mountPointAlias?: string;
-  mountPointId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      instanceTotalCount: 'InstanceTotalCount',
-      instances: 'Instances',
-      mountPointAlias: 'MountPointAlias',
-      mountPointId: 'MountPointId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      instanceTotalCount: 'number',
-      instances: { 'type': 'array', 'itemType': DescribeVscMountPointsResponseBodyMountPointsInstances },
-      mountPointAlias: 'string',
-      mountPointId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessGroupResponseBodyAccessGroup extends $tea.Model {
-  accessGroupId?: string;
-  accessGroupName?: string;
-  createTime?: string;
-  description?: string;
-  isDefault?: boolean;
-  mountPointCount?: number;
-  networkType?: string;
-  regionId?: string;
-  ruleCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessGroupName: 'AccessGroupName',
-      createTime: 'CreateTime',
-      description: 'Description',
-      isDefault: 'IsDefault',
-      mountPointCount: 'MountPointCount',
-      networkType: 'NetworkType',
-      regionId: 'RegionId',
-      ruleCount: 'RuleCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessGroupName: 'string',
-      createTime: 'string',
-      description: 'string',
-      isDefault: 'boolean',
-      mountPointCount: 'number',
-      networkType: 'string',
-      regionId: 'string',
-      ruleCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAccessRuleResponseBodyAccessRule extends $tea.Model {
-  accessGroupId?: string;
-  accessRuleId?: string;
-  createTime?: string;
-  description?: string;
-  networkSegment?: string;
-  priority?: number;
-  RWAccessType?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessRuleId: 'AccessRuleId',
-      createTime: 'CreateTime',
-      description: 'Description',
-      networkSegment: 'NetworkSegment',
-      priority: 'Priority',
-      RWAccessType: 'RWAccessType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessRuleId: 'string',
-      createTime: 'string',
-      description: 'string',
-      networkSegment: 'string',
-      priority: 'number',
-      RWAccessType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSystemResponseBodyFileSystem extends $tea.Model {
-  createTime?: string;
-  description?: string;
-  fileSystemId?: string;
-  fileSystemName?: string;
-  meteringSpaceSize?: number;
-  mountPointCount?: number;
-  numberOfDirectories?: number;
-  numberOfFiles?: number;
-  protocolType?: string;
-  provisionedThroughputInMiBps?: number;
-  regionId?: string;
-  spaceCapacity?: number;
-  storagePackageId?: string;
-  storageType?: string;
-  throughputMode?: string;
-  usedSpaceSize?: number;
-  version?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      fileSystemName: 'FileSystemName',
-      meteringSpaceSize: 'MeteringSpaceSize',
-      mountPointCount: 'MountPointCount',
-      numberOfDirectories: 'NumberOfDirectories',
-      numberOfFiles: 'NumberOfFiles',
-      protocolType: 'ProtocolType',
-      provisionedThroughputInMiBps: 'ProvisionedThroughputInMiBps',
-      regionId: 'RegionId',
-      spaceCapacity: 'SpaceCapacity',
-      storagePackageId: 'StoragePackageId',
-      storageType: 'StorageType',
-      throughputMode: 'ThroughputMode',
-      usedSpaceSize: 'UsedSpaceSize',
-      version: 'Version',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      fileSystemName: 'string',
-      meteringSpaceSize: 'number',
-      mountPointCount: 'number',
-      numberOfDirectories: 'number',
-      numberOfFiles: 'number',
-      protocolType: 'string',
-      provisionedThroughputInMiBps: 'number',
-      regionId: 'string',
-      spaceCapacity: 'number',
-      storagePackageId: 'string',
-      storageType: 'string',
-      throughputMode: 'string',
-      usedSpaceSize: 'number',
-      version: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMountPointResponseBodyMountPoint extends $tea.Model {
-  accessGroupId?: string;
-  createTime?: string;
-  description?: string;
-  fileSystemId?: string;
-  mountPointDomain?: string;
-  mountPointId?: string;
-  networkType?: string;
-  regionId?: string;
-  status?: string;
-  vSwitchId?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      createTime: 'CreateTime',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      mountPointDomain: 'MountPointDomain',
-      mountPointId: 'MountPointId',
-      networkType: 'NetworkType',
-      regionId: 'RegionId',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      createTime: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      mountPointDomain: 'string',
-      mountPointId: 'string',
-      networkType: 'string',
-      regionId: 'string',
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionResponseBodyAvailableZonesOptions extends $tea.Model {
-  protocolType?: string;
-  storageType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      protocolType: 'ProtocolType',
-      storageType: 'StorageType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protocolType: 'string',
-      storageType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRegionResponseBodyAvailableZones extends $tea.Model {
-  options?: GetRegionResponseBodyAvailableZonesOptions[];
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      options: 'Options',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      options: { 'type': 'array', 'itemType': GetRegionResponseBodyAvailableZonesOptions },
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessGroupsResponseBodyAccessGroups extends $tea.Model {
-  accessGroupId?: string;
-  accessGroupName?: string;
-  createTime?: string;
-  description?: string;
-  isDefault?: boolean;
-  mountPointCount?: number;
-  networkType?: string;
-  regionId?: string;
-  ruleCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessGroupName: 'AccessGroupName',
-      createTime: 'CreateTime',
-      description: 'Description',
-      isDefault: 'IsDefault',
-      mountPointCount: 'MountPointCount',
-      networkType: 'NetworkType',
-      regionId: 'RegionId',
-      ruleCount: 'RuleCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessGroupName: 'string',
-      createTime: 'string',
-      description: 'string',
-      isDefault: 'boolean',
-      mountPointCount: 'number',
-      networkType: 'string',
-      regionId: 'string',
-      ruleCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAccessRulesResponseBodyAccessRules extends $tea.Model {
-  accessGroupId?: string;
-  accessRuleId?: string;
-  createTime?: string;
-  description?: string;
-  networkSegment?: string;
-  priority?: number;
-  RWAccessType?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      accessRuleId: 'AccessRuleId',
-      createTime: 'CreateTime',
-      description: 'Description',
-      networkSegment: 'NetworkSegment',
-      priority: 'Priority',
-      RWAccessType: 'RWAccessType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      accessRuleId: 'string',
-      createTime: 'string',
-      description: 'string',
-      networkSegment: 'string',
-      priority: 'number',
-      RWAccessType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileSystemsResponseBodyFileSystems extends $tea.Model {
-  createTime?: string;
-  description?: string;
-  fileSystemId?: string;
-  fileSystemName?: string;
-  meteringSpaceSize?: number;
-  mountPointCount?: number;
-  numberOfDirectories?: number;
-  numberOfFiles?: number;
-  protocolType?: string;
-  provisionedThroughputInMiBps?: number;
-  regionId?: string;
-  spaceCapacity?: number;
-  storagePackageId?: string;
-  storageType?: string;
-  throughputMode?: string;
-  usedSpaceSize?: number;
-  version?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      fileSystemName: 'FileSystemName',
-      meteringSpaceSize: 'MeteringSpaceSize',
-      mountPointCount: 'MountPointCount',
-      numberOfDirectories: 'NumberOfDirectories',
-      numberOfFiles: 'NumberOfFiles',
-      protocolType: 'ProtocolType',
-      provisionedThroughputInMiBps: 'ProvisionedThroughputInMiBps',
-      regionId: 'RegionId',
-      spaceCapacity: 'SpaceCapacity',
-      storagePackageId: 'StoragePackageId',
-      storageType: 'StorageType',
-      throughputMode: 'ThroughputMode',
-      usedSpaceSize: 'UsedSpaceSize',
-      version: 'Version',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      fileSystemName: 'string',
-      meteringSpaceSize: 'number',
-      mountPointCount: 'number',
-      numberOfDirectories: 'number',
-      numberOfFiles: 'number',
-      protocolType: 'string',
-      provisionedThroughputInMiBps: 'number',
-      regionId: 'string',
-      spaceCapacity: 'number',
-      storagePackageId: 'string',
-      storageType: 'string',
-      throughputMode: 'string',
-      usedSpaceSize: 'number',
-      version: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMountPointsResponseBodyMountPoints extends $tea.Model {
-  accessGroupId?: string;
-  createTime?: string;
-  description?: string;
-  fileSystemId?: string;
-  mountPointDomain?: string;
-  mountPointId?: string;
-  networkType?: string;
-  regionId?: string;
-  status?: string;
-  vSwitchId?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessGroupId: 'AccessGroupId',
-      createTime: 'CreateTime',
-      description: 'Description',
-      fileSystemId: 'FileSystemId',
-      mountPointDomain: 'MountPointDomain',
-      mountPointId: 'MountPointId',
-      networkType: 'NetworkType',
-      regionId: 'RegionId',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessGroupId: 'string',
-      createTime: 'string',
-      description: 'string',
-      fileSystemId: 'string',
-      mountPointDomain: 'string',
-      mountPointId: 'string',
-      networkType: 'string',
-      regionId: 'string',
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUserGroupsMappingsResponseBodyUserGroupsMappings extends $tea.Model {
-  groupNames?: string[];
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupNames: 'GroupNames',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupNames: { 'type': 'array', 'itemType': 'string' },
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -3122,69 +18,80 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-    * ****
-    *
-    * @param tmpReq AttachVscMountPointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachVscMountPointResponse
+   * 挂载VSC挂载点
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param tmpReq - AttachVscMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachVscMountPointResponse
    */
-  async attachVscMountPointWithOptions(tmpReq: AttachVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<AttachVscMountPointResponse> {
-    Util.validateModel(tmpReq);
-    let request = new AttachVscMountPointShrinkRequest({ });
+  async attachVscMountPointWithOptions(tmpReq: $_model.AttachVscMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachVscMountPointResponse> {
+    tmpReq.validate();
+    let request = new $_model.AttachVscMountPointShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
+    if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vscIds)) {
+    if (!$dara.isNull(tmpReq.vscIds)) {
       request.vscIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vscIds, "VscIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.instanceIdsShrink)) {
+    if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    if (!Util.isUnset(request.vscIdsShrink)) {
+    if (!$dara.isNull(request.useAssumeRoleChkServerPerm)) {
+      query["UseAssumeRoleChkServerPerm"] = request.useAssumeRoleChkServerPerm;
+    }
+
+    if (!$dara.isNull(request.vscIdsShrink)) {
       query["VscIds"] = request.vscIdsShrink;
     }
 
-    if (!Util.isUnset(request.vscType)) {
+    if (!$dara.isNull(request.vscName)) {
+      query["VscName"] = request.vscName;
+    }
+
+    if (!$dara.isNull(request.vscType)) {
       query["VscType"] = request.vscType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachVscMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3195,43 +102,107 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachVscMountPointResponse>(await this.callApi(params, req, runtime), new AttachVscMountPointResponse({}));
+    return $dara.cast<$_model.AttachVscMountPointResponse>(await this.callApi(params, req, runtime), new $_model.AttachVscMountPointResponse({}));
   }
 
   /**
-    * ****
-    *
-    * @param request AttachVscMountPointRequest
-    * @return AttachVscMountPointResponse
+   * 挂载VSC挂载点
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - AttachVscMountPointRequest
+   * @returns AttachVscMountPointResponse
    */
-  async attachVscMountPoint(request: AttachVscMountPointRequest): Promise<AttachVscMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async attachVscMountPoint(request: $_model.AttachVscMountPointRequest): Promise<$_model.AttachVscMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachVscMountPointWithOptions(request, runtime);
   }
 
-  async bindVscMountPointAliasWithOptions(request: BindVscMountPointAliasRequest, runtime: $Util.RuntimeOptions): Promise<BindVscMountPointAliasResponse> {
-    Util.validateModel(request);
+  /**
+   * 批量挂载VSC挂载点
+   * 
+   * @param tmpReq - AttachVscToMountPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachVscToMountPointsResponse
+   */
+  async attachVscToMountPointsWithOptions(tmpReq: $_model.AttachVscToMountPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachVscToMountPointsResponse> {
+    tmpReq.validate();
+    let request = new $_model.AttachVscToMountPointsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attachInfos)) {
+      request.attachInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attachInfos, "AttachInfos", "json");
+    }
+
     let query = { };
-    if (!Util.isUnset(request.aliasPrefix)) {
-      query["AliasPrefix"] = request.aliasPrefix;
+    if (!$dara.isNull(request.attachInfosShrink)) {
+      query["AttachInfos"] = request.attachInfosShrink;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
-      query["FileSystemId"] = request.fileSystemId;
-    }
-
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.useAssumeRoleChkServerPerm)) {
+      query["UseAssumeRoleChkServerPerm"] = request.useAssumeRoleChkServerPerm;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachVscToMountPoints",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachVscToMountPointsResponse>(await this.callApi(params, req, runtime), new $_model.AttachVscToMountPointsResponse({}));
+  }
+
+  /**
+   * 批量挂载VSC挂载点
+   * 
+   * @param request - AttachVscToMountPointsRequest
+   * @returns AttachVscToMountPointsResponse
+   */
+  async attachVscToMountPoints(request: $_model.AttachVscToMountPointsRequest): Promise<$_model.AttachVscToMountPointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachVscToMountPointsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - BindVscMountPointAliasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindVscMountPointAliasResponse
+   */
+  async bindVscMountPointAliasWithOptions(request: $_model.BindVscMountPointAliasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BindVscMountPointAliasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aliasPrefix)) {
+      query["AliasPrefix"] = request.aliasPrefix;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindVscMountPointAlias",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3242,37 +213,46 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindVscMountPointAliasResponse>(await this.callApi(params, req, runtime), new BindVscMountPointAliasResponse({}));
+    return $dara.cast<$_model.BindVscMountPointAliasResponse>(await this.callApi(params, req, runtime), new $_model.BindVscMountPointAliasResponse({}));
   }
 
-  async bindVscMountPointAlias(request: BindVscMountPointAliasRequest): Promise<BindVscMountPointAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - BindVscMountPointAliasRequest
+   * @returns BindVscMountPointAliasResponse
+   */
+  async bindVscMountPointAlias(request: $_model.BindVscMountPointAliasRequest): Promise<$_model.BindVscMountPointAliasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindVscMountPointAliasWithOptions(request, runtime);
   }
 
-  async createAccessGroupWithOptions(request: CreateAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessGroupResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateAccessGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccessGroupResponse
+   */
+  async createAccessGroupWithOptions(request: $_model.CreateAccessGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccessGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupName)) {
+    if (!$dara.isNull(request.accessGroupName)) {
       query["AccessGroupName"] = request.accessGroupName;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccessGroup",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3283,45 +263,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccessGroupResponse>(await this.callApi(params, req, runtime), new CreateAccessGroupResponse({}));
+    return $dara.cast<$_model.CreateAccessGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateAccessGroupResponse({}));
   }
 
-  async createAccessGroup(request: CreateAccessGroupRequest): Promise<CreateAccessGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateAccessGroupRequest
+   * @returns CreateAccessGroupResponse
+   */
+  async createAccessGroup(request: $_model.CreateAccessGroupRequest): Promise<$_model.CreateAccessGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccessGroupWithOptions(request, runtime);
   }
 
-  async createAccessRuleWithOptions(request: CreateAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessRuleResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccessRuleResponse
+   */
+  async createAccessRuleWithOptions(request: $_model.CreateAccessRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAccessRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.networkSegment)) {
+    if (!$dara.isNull(request.networkSegment)) {
       query["NetworkSegment"] = request.networkSegment;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       query["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.RWAccessType)) {
+    if (!$dara.isNull(request.RWAccessType)) {
       query["RWAccessType"] = request.RWAccessType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccessRule",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3332,69 +321,82 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccessRuleResponse>(await this.callApi(params, req, runtime), new CreateAccessRuleResponse({}));
+    return $dara.cast<$_model.CreateAccessRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateAccessRuleResponse({}));
   }
 
-  async createAccessRule(request: CreateAccessRuleRequest): Promise<CreateAccessRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateAccessRuleRequest
+   * @returns CreateAccessRuleResponse
+   */
+  async createAccessRule(request: $_model.CreateAccessRuleRequest): Promise<$_model.CreateAccessRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccessRuleWithOptions(request, runtime);
   }
 
-  async createFileSystemWithOptions(request: CreateFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileSystemResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateFileSystemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileSystemResponse
+   */
+  async createFileSystemWithOptions(request: $_model.CreateFileSystemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFileSystemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dataRedundancyType)) {
+    if (!$dara.isNull(request.dataRedundancyType)) {
       query["DataRedundancyType"] = request.dataRedundancyType;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.dedicatedClusterId)) {
+      query["DedicatedClusterId"] = request.dedicatedClusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemName)) {
+    if (!$dara.isNull(request.fileSystemName)) {
       query["FileSystemName"] = request.fileSystemName;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.partitionNumber)) {
+    if (!$dara.isNull(request.partitionNumber)) {
       query["PartitionNumber"] = request.partitionNumber;
     }
 
-    if (!Util.isUnset(request.protocolType)) {
+    if (!$dara.isNull(request.protocolType)) {
       query["ProtocolType"] = request.protocolType;
     }
 
-    if (!Util.isUnset(request.provisionedThroughputInMiBps)) {
+    if (!$dara.isNull(request.provisionedThroughputInMiBps)) {
       query["ProvisionedThroughputInMiBps"] = request.provisionedThroughputInMiBps;
     }
 
-    if (!Util.isUnset(request.spaceCapacity)) {
+    if (!$dara.isNull(request.spaceCapacity)) {
       query["SpaceCapacity"] = request.spaceCapacity;
     }
 
-    if (!Util.isUnset(request.storageSetName)) {
+    if (!$dara.isNull(request.storageSetName)) {
       query["StorageSetName"] = request.storageSetName;
     }
 
-    if (!Util.isUnset(request.storageType)) {
+    if (!$dara.isNull(request.storageType)) {
       query["StorageType"] = request.storageType;
     }
 
-    if (!Util.isUnset(request.throughputMode)) {
+    if (!$dara.isNull(request.throughputMode)) {
       query["ThroughputMode"] = request.throughputMode;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFileSystem",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3405,49 +407,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateFileSystemResponse>(await this.callApi(params, req, runtime), new CreateFileSystemResponse({}));
+    return $dara.cast<$_model.CreateFileSystemResponse>(await this.callApi(params, req, runtime), new $_model.CreateFileSystemResponse({}));
   }
 
-  async createFileSystem(request: CreateFileSystemRequest): Promise<CreateFileSystemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateFileSystemRequest
+   * @returns CreateFileSystemResponse
+   */
+  async createFileSystem(request: $_model.CreateFileSystemRequest): Promise<$_model.CreateFileSystemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createFileSystemWithOptions(request, runtime);
   }
 
-  async createMountPointWithOptions(request: CreateMountPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateMountPointResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMountPointResponse
+   */
+  async createMountPointWithOptions(request: $_model.CreateMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMountPointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.usePerformanceMode)) {
+      query["UsePerformanceMode"] = request.usePerformanceMode;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3458,27 +473,130 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateMountPointResponse>(await this.callApi(params, req, runtime), new CreateMountPointResponse({}));
+    return $dara.cast<$_model.CreateMountPointResponse>(await this.callApi(params, req, runtime), new $_model.CreateMountPointResponse({}));
   }
 
-  async createMountPoint(request: CreateMountPointRequest): Promise<CreateMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateMountPointRequest
+   * @returns CreateMountPointResponse
+   */
+  async createMountPoint(request: $_model.CreateMountPointRequest): Promise<$_model.CreateMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createMountPointWithOptions(request, runtime);
   }
 
-  async createUserGroupsMappingWithOptions(tmpReq: CreateUserGroupsMappingRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserGroupsMappingResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateUserGroupsMappingShrinkRequest({ });
+  /**
+   * CreateQosPolicy
+   * 
+   * @param tmpReq - CreateQosPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQosPolicyResponse
+   */
+  async createQosPolicyWithOptions(tmpReq: $_model.CreateQosPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateQosPolicyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateQosPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.groupNames)) {
+    if (!$dara.isNull(tmpReq.flowIds)) {
+      request.flowIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.flowIds, "FlowIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.reqTags)) {
+      request.reqTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reqTags, "ReqTags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.zoneIds)) {
+      request.zoneIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.zoneIds, "ZoneIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.federationId)) {
+      query["FederationId"] = request.federationId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.flowIdsShrink)) {
+      query["FlowIds"] = request.flowIdsShrink;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.maxIOBandWidth)) {
+      query["MaxIOBandWidth"] = request.maxIOBandWidth;
+    }
+
+    if (!$dara.isNull(request.maxIOps)) {
+      query["MaxIOps"] = request.maxIOps;
+    }
+
+    if (!$dara.isNull(request.maxMetaQps)) {
+      query["MaxMetaQps"] = request.maxMetaQps;
+    }
+
+    if (!$dara.isNull(request.reqTagsShrink)) {
+      query["ReqTags"] = request.reqTagsShrink;
+    }
+
+    if (!$dara.isNull(request.zoneIdsShrink)) {
+      query["ZoneIds"] = request.zoneIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateQosPolicy",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateQosPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateQosPolicyResponse({}));
+  }
+
+  /**
+   * CreateQosPolicy
+   * 
+   * @param request - CreateQosPolicyRequest
+   * @returns CreateQosPolicyResponse
+   */
+  async createQosPolicy(request: $_model.CreateQosPolicyRequest): Promise<$_model.CreateQosPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createQosPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 ugo
+   * 
+   * @param tmpReq - CreateUserGroupsMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserGroupsMappingResponse
+   */
+  async createUserGroupsMappingWithOptions(tmpReq: $_model.CreateUserGroupsMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserGroupsMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateUserGroupsMappingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.groupNames)) {
       request.groupNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupNames, "GroupNames", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateUserGroupsMapping",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3489,43 +607,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateUserGroupsMappingResponse>(await this.callApi(params, req, runtime), new CreateUserGroupsMappingResponse({}));
+    return $dara.cast<$_model.CreateUserGroupsMappingResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserGroupsMappingResponse({}));
   }
 
-  async createUserGroupsMapping(request: CreateUserGroupsMappingRequest): Promise<CreateUserGroupsMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 创建 ugo
+   * 
+   * @param request - CreateUserGroupsMappingRequest
+   * @returns CreateUserGroupsMappingResponse
+   */
+  async createUserGroupsMapping(request: $_model.CreateUserGroupsMappingRequest): Promise<$_model.CreateUserGroupsMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserGroupsMappingWithOptions(request, runtime);
   }
 
-  async createVscMountPointWithOptions(tmpReq: CreateVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVscMountPointResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateVscMountPointShrinkRequest({ });
+  /**
+   * @param tmpReq - CreateVscMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVscMountPointResponse
+   */
+  async createVscMountPointWithOptions(tmpReq: $_model.CreateVscMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVscMountPointResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateVscMountPointShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
+    if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.instanceIdsShrink)) {
+    if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVscMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3536,29 +665,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateVscMountPointResponse>(await this.callApi(params, req, runtime), new CreateVscMountPointResponse({}));
+    return $dara.cast<$_model.CreateVscMountPointResponse>(await this.callApi(params, req, runtime), new $_model.CreateVscMountPointResponse({}));
   }
 
-  async createVscMountPoint(request: CreateVscMountPointRequest): Promise<CreateVscMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateVscMountPointRequest
+   * @returns CreateVscMountPointResponse
+   */
+  async createVscMountPoint(request: $_model.CreateVscMountPointRequest): Promise<$_model.CreateVscMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createVscMountPointWithOptions(request, runtime);
   }
 
-  async deleteAccessGroupWithOptions(request: DeleteAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessGroupResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteAccessGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccessGroupResponse
+   */
+  async deleteAccessGroupWithOptions(request: $_model.DeleteAccessGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAccessGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccessGroup",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3569,33 +707,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccessGroupResponse>(await this.callApi(params, req, runtime), new DeleteAccessGroupResponse({}));
+    return $dara.cast<$_model.DeleteAccessGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAccessGroupResponse({}));
   }
 
-  async deleteAccessGroup(request: DeleteAccessGroupRequest): Promise<DeleteAccessGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteAccessGroupRequest
+   * @returns DeleteAccessGroupResponse
+   */
+  async deleteAccessGroup(request: $_model.DeleteAccessGroupRequest): Promise<$_model.DeleteAccessGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccessGroupWithOptions(request, runtime);
   }
 
-  async deleteAccessRuleWithOptions(request: DeleteAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessRuleResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccessRuleResponse
+   */
+  async deleteAccessRuleWithOptions(request: $_model.DeleteAccessRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAccessRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.accessRuleId)) {
+    if (!$dara.isNull(request.accessRuleId)) {
       query["AccessRuleId"] = request.accessRuleId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccessRule",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3606,29 +753,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccessRuleResponse>(await this.callApi(params, req, runtime), new DeleteAccessRuleResponse({}));
+    return $dara.cast<$_model.DeleteAccessRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAccessRuleResponse({}));
   }
 
-  async deleteAccessRule(request: DeleteAccessRuleRequest): Promise<DeleteAccessRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteAccessRuleRequest
+   * @returns DeleteAccessRuleResponse
+   */
+  async deleteAccessRule(request: $_model.DeleteAccessRuleRequest): Promise<$_model.DeleteAccessRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccessRuleWithOptions(request, runtime);
   }
 
-  async deleteFileSystemWithOptions(request: DeleteFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileSystemResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteFileSystemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileSystemResponse
+   */
+  async deleteFileSystemWithOptions(request: $_model.DeleteFileSystemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileSystemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFileSystem",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3639,33 +795,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFileSystemResponse>(await this.callApi(params, req, runtime), new DeleteFileSystemResponse({}));
+    return $dara.cast<$_model.DeleteFileSystemResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFileSystemResponse({}));
   }
 
-  async deleteFileSystem(request: DeleteFileSystemRequest): Promise<DeleteFileSystemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteFileSystemRequest
+   * @returns DeleteFileSystemResponse
+   */
+  async deleteFileSystem(request: $_model.DeleteFileSystemRequest): Promise<$_model.DeleteFileSystemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFileSystemWithOptions(request, runtime);
   }
 
-  async deleteMountPointWithOptions(request: DeleteMountPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMountPointResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMountPointResponse
+   */
+  async deleteMountPointWithOptions(request: $_model.DeleteMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMountPointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3676,27 +841,92 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMountPointResponse>(await this.callApi(params, req, runtime), new DeleteMountPointResponse({}));
+    return $dara.cast<$_model.DeleteMountPointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMountPointResponse({}));
   }
 
-  async deleteMountPoint(request: DeleteMountPointRequest): Promise<DeleteMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteMountPointRequest
+   * @returns DeleteMountPointResponse
+   */
+  async deleteMountPoint(request: $_model.DeleteMountPointRequest): Promise<$_model.DeleteMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMountPointWithOptions(request, runtime);
   }
 
-  async deleteUserGroupsMappingWithOptions(tmpReq: DeleteUserGroupsMappingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserGroupsMappingResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DeleteUserGroupsMappingShrinkRequest({ });
+  /**
+   * DeleteQosPolicy
+   * 
+   * @param request - DeleteQosPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQosPolicyResponse
+   */
+  async deleteQosPolicyWithOptions(request: $_model.DeleteQosPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteQosPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.federationId)) {
+      query["FederationId"] = request.federationId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.qosPolicyId)) {
+      query["QosPolicyId"] = request.qosPolicyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteQosPolicy",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteQosPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteQosPolicyResponse({}));
+  }
+
+  /**
+   * DeleteQosPolicy
+   * 
+   * @param request - DeleteQosPolicyRequest
+   * @returns DeleteQosPolicyResponse
+   */
+  async deleteQosPolicy(request: $_model.DeleteQosPolicyRequest): Promise<$_model.DeleteQosPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteQosPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除 ugo
+   * 
+   * @param tmpReq - DeleteUserGroupsMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserGroupsMappingResponse
+   */
+  async deleteUserGroupsMappingWithOptions(tmpReq: $_model.DeleteUserGroupsMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserGroupsMappingResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteUserGroupsMappingShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.groupNames)) {
+    if (!$dara.isNull(tmpReq.groupNames)) {
       request.groupNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupNames, "GroupNames", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteUserGroupsMapping",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3707,33 +937,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteUserGroupsMappingResponse>(await this.callApi(params, req, runtime), new DeleteUserGroupsMappingResponse({}));
+    return $dara.cast<$_model.DeleteUserGroupsMappingResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUserGroupsMappingResponse({}));
   }
 
-  async deleteUserGroupsMapping(request: DeleteUserGroupsMappingRequest): Promise<DeleteUserGroupsMappingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 删除 ugo
+   * 
+   * @param request - DeleteUserGroupsMappingRequest
+   * @returns DeleteUserGroupsMappingResponse
+   */
+  async deleteUserGroupsMapping(request: $_model.DeleteUserGroupsMappingRequest): Promise<$_model.DeleteUserGroupsMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserGroupsMappingWithOptions(request, runtime);
   }
 
-  async deleteVscMountPointWithOptions(request: DeleteVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVscMountPointResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteVscMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVscMountPointResponse
+   */
+  async deleteVscMountPointWithOptions(request: $_model.DeleteVscMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVscMountPointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVscMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3744,29 +985,102 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVscMountPointResponse>(await this.callApi(params, req, runtime), new DeleteVscMountPointResponse({}));
+    return $dara.cast<$_model.DeleteVscMountPointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVscMountPointResponse({}));
   }
 
-  async deleteVscMountPoint(request: DeleteVscMountPointRequest): Promise<DeleteVscMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteVscMountPointRequest
+   * @returns DeleteVscMountPointResponse
+   */
+  async deleteVscMountPoint(request: $_model.DeleteVscMountPointRequest): Promise<$_model.DeleteVscMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVscMountPointWithOptions(request, runtime);
   }
 
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
-      query["AcceptLanguage"] = request.acceptLanguage;
+  /**
+   * 批量挂载VSC挂载点
+   * 
+   * @param tmpReq - DescribeMountPointsVscAttachInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMountPointsVscAttachInfoResponse
+   */
+  async describeMountPointsVscAttachInfoWithOptions(tmpReq: $_model.DescribeMountPointsVscAttachInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMountPointsVscAttachInfoResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeMountPointsVscAttachInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queryInfos)) {
+      request.queryInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryInfos, "QueryInfos", "json");
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    let query = { };
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.queryInfosShrink)) {
+      query["QueryInfos"] = request.queryInfosShrink;
+    }
+
+    if (!$dara.isNull(request.useAssumeRoleChkServerPerm)) {
+      query["UseAssumeRoleChkServerPerm"] = request.useAssumeRoleChkServerPerm;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMountPointsVscAttachInfo",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMountPointsVscAttachInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMountPointsVscAttachInfoResponse({}));
+  }
+
+  /**
+   * 批量挂载VSC挂载点
+   * 
+   * @param request - DescribeMountPointsVscAttachInfoRequest
+   * @returns DescribeMountPointsVscAttachInfoResponse
+   */
+  async describeMountPointsVscAttachInfo(request: $_model.DescribeMountPointsVscAttachInfoRequest): Promise<$_model.DescribeMountPointsVscAttachInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMountPointsVscAttachInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3777,45 +1091,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
-  async describeVscMountPointsWithOptions(request: DescribeVscMountPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVscMountPointsResponse> {
-    Util.validateModel(request);
+  /**
+   * 查询VSC挂载信息
+   * 
+   * @param request - DescribeVscMountPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVscMountPointsResponse
+   */
+  async describeVscMountPointsWithOptions(request: $_model.DescribeVscMountPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVscMountPointsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.vscId)) {
+    if (!$dara.isNull(request.vscId)) {
       query["VscId"] = request.vscId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeVscMountPoints",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3826,55 +1151,70 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeVscMountPointsResponse>(await this.callApi(params, req, runtime), new DescribeVscMountPointsResponse({}));
+    return $dara.cast<$_model.DescribeVscMountPointsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVscMountPointsResponse({}));
   }
 
-  async describeVscMountPoints(request: DescribeVscMountPointsRequest): Promise<DescribeVscMountPointsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 查询VSC挂载信息
+   * 
+   * @param request - DescribeVscMountPointsRequest
+   * @returns DescribeVscMountPointsResponse
+   */
+  async describeVscMountPoints(request: $_model.DescribeVscMountPointsRequest): Promise<$_model.DescribeVscMountPointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVscMountPointsWithOptions(request, runtime);
   }
 
-  async detachVscMountPointWithOptions(tmpReq: DetachVscMountPointRequest, runtime: $Util.RuntimeOptions): Promise<DetachVscMountPointResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DetachVscMountPointShrinkRequest({ });
+  /**
+   * @param tmpReq - DetachVscMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachVscMountPointResponse
+   */
+  async detachVscMountPointWithOptions(tmpReq: $_model.DetachVscMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachVscMountPointResponse> {
+    tmpReq.validate();
+    let request = new $_model.DetachVscMountPointShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
+    if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vscIds)) {
+    if (!$dara.isNull(tmpReq.vscIds)) {
       request.vscIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vscIds, "VscIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.instanceIdsShrink)) {
+    if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    if (!Util.isUnset(request.vscIdsShrink)) {
+    if (!$dara.isNull(request.useAssumeRoleChkServerPerm)) {
+      query["UseAssumeRoleChkServerPerm"] = request.useAssumeRoleChkServerPerm;
+    }
+
+    if (!$dara.isNull(request.vscIdsShrink)) {
       query["VscIds"] = request.vscIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachVscMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3885,29 +1225,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachVscMountPointResponse>(await this.callApi(params, req, runtime), new DetachVscMountPointResponse({}));
+    return $dara.cast<$_model.DetachVscMountPointResponse>(await this.callApi(params, req, runtime), new $_model.DetachVscMountPointResponse({}));
   }
 
-  async detachVscMountPoint(request: DetachVscMountPointRequest): Promise<DetachVscMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetachVscMountPointRequest
+   * @returns DetachVscMountPointResponse
+   */
+  async detachVscMountPoint(request: $_model.DetachVscMountPointRequest): Promise<$_model.DetachVscMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachVscMountPointWithOptions(request, runtime);
   }
 
-  async getAccessGroupWithOptions(request: GetAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessGroupResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetAccessGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessGroupResponse
+   */
+  async getAccessGroupWithOptions(request: $_model.GetAccessGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessGroup",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3918,33 +1267,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessGroupResponse>(await this.callApi(params, req, runtime), new GetAccessGroupResponse({}));
+    return $dara.cast<$_model.GetAccessGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessGroupResponse({}));
   }
 
-  async getAccessGroup(request: GetAccessGroupRequest): Promise<GetAccessGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetAccessGroupRequest
+   * @returns GetAccessGroupResponse
+   */
+  async getAccessGroup(request: $_model.GetAccessGroupRequest): Promise<$_model.GetAccessGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessGroupWithOptions(request, runtime);
   }
 
-  async getAccessRuleWithOptions(request: GetAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessRuleResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessRuleResponse
+   */
+  async getAccessRuleWithOptions(request: $_model.GetAccessRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAccessRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.accessRuleId)) {
+    if (!$dara.isNull(request.accessRuleId)) {
       query["AccessRuleId"] = request.accessRuleId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAccessRule",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3955,29 +1313,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAccessRuleResponse>(await this.callApi(params, req, runtime), new GetAccessRuleResponse({}));
+    return $dara.cast<$_model.GetAccessRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetAccessRuleResponse({}));
   }
 
-  async getAccessRule(request: GetAccessRuleRequest): Promise<GetAccessRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetAccessRuleRequest
+   * @returns GetAccessRuleResponse
+   */
+  async getAccessRule(request: $_model.GetAccessRuleRequest): Promise<$_model.GetAccessRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAccessRuleWithOptions(request, runtime);
   }
 
-  async getFileSystemWithOptions(request: GetFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<GetFileSystemResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetFileSystemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileSystemResponse
+   */
+  async getFileSystemWithOptions(request: $_model.GetFileSystemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileSystemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFileSystem",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -3988,33 +1355,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFileSystemResponse>(await this.callApi(params, req, runtime), new GetFileSystemResponse({}));
+    return $dara.cast<$_model.GetFileSystemResponse>(await this.callApi(params, req, runtime), new $_model.GetFileSystemResponse({}));
   }
 
-  async getFileSystem(request: GetFileSystemRequest): Promise<GetFileSystemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetFileSystemRequest
+   * @returns GetFileSystemResponse
+   */
+  async getFileSystem(request: $_model.GetFileSystemRequest): Promise<$_model.GetFileSystemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFileSystemWithOptions(request, runtime);
   }
 
-  async getMountPointWithOptions(request: GetMountPointRequest, runtime: $Util.RuntimeOptions): Promise<GetMountPointResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMountPointResponse
+   */
+  async getMountPointWithOptions(request: $_model.GetMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMountPointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4025,25 +1401,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMountPointResponse>(await this.callApi(params, req, runtime), new GetMountPointResponse({}));
+    return $dara.cast<$_model.GetMountPointResponse>(await this.callApi(params, req, runtime), new $_model.GetMountPointResponse({}));
   }
 
-  async getMountPoint(request: GetMountPointRequest): Promise<GetMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetMountPointRequest
+   * @returns GetMountPointResponse
+   */
+  async getMountPoint(request: $_model.GetMountPointRequest): Promise<$_model.GetMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMountPointWithOptions(request, runtime);
   }
 
-  async getRegionWithOptions(request: GetRegionRequest, runtime: $Util.RuntimeOptions): Promise<GetRegionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRegionResponse
+   */
+  async getRegionWithOptions(request: $_model.GetRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRegion",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4054,41 +1439,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRegionResponse>(await this.callApi(params, req, runtime), new GetRegionResponse({}));
+    return $dara.cast<$_model.GetRegionResponse>(await this.callApi(params, req, runtime), new $_model.GetRegionResponse({}));
   }
 
-  async getRegion(request: GetRegionRequest): Promise<GetRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetRegionRequest
+   * @returns GetRegionResponse
+   */
+  async getRegion(request: $_model.GetRegionRequest): Promise<$_model.GetRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRegionWithOptions(request, runtime);
   }
 
-  async listAccessGroupsWithOptions(request: ListAccessGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessGroupsResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListAccessGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccessGroupsResponse
+   */
+  async listAccessGroupsWithOptions(request: $_model.ListAccessGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAccessGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.startOffset)) {
+    if (!$dara.isNull(request.startOffset)) {
       query["StartOffset"] = request.startOffset;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccessGroups",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4099,45 +1497,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccessGroupsResponse>(await this.callApi(params, req, runtime), new ListAccessGroupsResponse({}));
+    return $dara.cast<$_model.ListAccessGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListAccessGroupsResponse({}));
   }
 
-  async listAccessGroups(request: ListAccessGroupsRequest): Promise<ListAccessGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListAccessGroupsRequest
+   * @returns ListAccessGroupsResponse
+   */
+  async listAccessGroups(request: $_model.ListAccessGroupsRequest): Promise<$_model.ListAccessGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccessGroupsWithOptions(request, runtime);
   }
 
-  async listAccessRulesWithOptions(request: ListAccessRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessRulesResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListAccessRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccessRulesResponse
+   */
+  async listAccessRulesWithOptions(request: $_model.ListAccessRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAccessRulesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.startOffset)) {
+    if (!$dara.isNull(request.startOffset)) {
       query["StartOffset"] = request.startOffset;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAccessRules",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4148,41 +1559,112 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAccessRulesResponse>(await this.callApi(params, req, runtime), new ListAccessRulesResponse({}));
+    return $dara.cast<$_model.ListAccessRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListAccessRulesResponse({}));
   }
 
-  async listAccessRules(request: ListAccessRulesRequest): Promise<ListAccessRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListAccessRulesRequest
+   * @returns ListAccessRulesResponse
+   */
+  async listAccessRules(request: $_model.ListAccessRulesRequest): Promise<$_model.ListAccessRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAccessRulesWithOptions(request, runtime);
   }
 
-  async listFileSystemsWithOptions(request: ListFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<ListFileSystemsResponse> {
-    Util.validateModel(request);
+  /**
+   * 查询Federation
+   * 
+   * @param request - ListFederationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFederationsResponse
+   */
+  async listFederationsWithOptions(request: $_model.ListFederationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFederationsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.federationId)) {
+      query["FederationId"] = request.federationId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFederations",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFederationsResponse>(await this.callApi(params, req, runtime), new $_model.ListFederationsResponse({}));
+  }
+
+  /**
+   * 查询Federation
+   * 
+   * @param request - ListFederationsRequest
+   * @returns ListFederationsResponse
+   */
+  async listFederations(request: $_model.ListFederationsRequest): Promise<$_model.ListFederationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFederationsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListFileSystemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileSystemsResponse
+   */
+  async listFileSystemsWithOptions(request: $_model.ListFileSystemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileSystemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.startOffset)) {
+    if (!$dara.isNull(request.startOffset)) {
       query["StartOffset"] = request.startOffset;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFileSystems",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4193,45 +1675,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFileSystemsResponse>(await this.callApi(params, req, runtime), new ListFileSystemsResponse({}));
+    return $dara.cast<$_model.ListFileSystemsResponse>(await this.callApi(params, req, runtime), new $_model.ListFileSystemsResponse({}));
   }
 
-  async listFileSystems(request: ListFileSystemsRequest): Promise<ListFileSystemsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListFileSystemsRequest
+   * @returns ListFileSystemsResponse
+   */
+  async listFileSystems(request: $_model.ListFileSystemsRequest): Promise<$_model.ListFileSystemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFileSystemsWithOptions(request, runtime);
   }
 
-  async listMountPointsWithOptions(request: ListMountPointsRequest, runtime: $Util.RuntimeOptions): Promise<ListMountPointsResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListMountPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMountPointsResponse
+   */
+  async listMountPointsWithOptions(request: $_model.ListMountPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMountPointsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.orderBy)) {
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
       query["OrderBy"] = request.orderBy;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.startOffset)) {
+    if (!$dara.isNull(request.startOffset)) {
       query["StartOffset"] = request.startOffset;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMountPoints",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4242,37 +1737,106 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMountPointsResponse>(await this.callApi(params, req, runtime), new ListMountPointsResponse({}));
+    return $dara.cast<$_model.ListMountPointsResponse>(await this.callApi(params, req, runtime), new $_model.ListMountPointsResponse({}));
   }
 
-  async listMountPoints(request: ListMountPointsRequest): Promise<ListMountPointsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListMountPointsRequest
+   * @returns ListMountPointsResponse
+   */
+  async listMountPoints(request: $_model.ListMountPointsRequest): Promise<$_model.ListMountPointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listMountPointsWithOptions(request, runtime);
   }
 
-  async listUserGroupsMappingsWithOptions(request: ListUserGroupsMappingsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserGroupsMappingsResponse> {
-    Util.validateModel(request);
+  /**
+   * 查询QosPolicies
+   * 
+   * @param request - ListQosPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQosPoliciesResponse
+   */
+  async listQosPoliciesWithOptions(request: $_model.ListQosPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListQosPoliciesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.filesystemId)) {
-      query["FilesystemId"] = request.filesystemId;
+    if (!$dara.isNull(request.federationId)) {
+      query["FederationId"] = request.federationId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.limit)) {
-      query["Limit"] = request.limit;
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "ListQosPolicies",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListQosPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListQosPoliciesResponse({}));
+  }
+
+  /**
+   * 查询QosPolicies
+   * 
+   * @param request - ListQosPoliciesRequest
+   * @returns ListQosPoliciesResponse
+   */
+  async listQosPolicies(request: $_model.ListQosPoliciesRequest): Promise<$_model.ListQosPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listQosPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * list ugm
+   * 
+   * @param request - ListUserGroupsMappingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserGroupsMappingsResponse
+   */
+  async listUserGroupsMappingsWithOptions(request: $_model.ListUserGroupsMappingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserGroupsMappingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filesystemId)) {
+      query["FilesystemId"] = request.filesystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "ListUserGroupsMappings",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4283,37 +1847,48 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUserGroupsMappingsResponse>(await this.callApi(params, req, runtime), new ListUserGroupsMappingsResponse({}));
+    return $dara.cast<$_model.ListUserGroupsMappingsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserGroupsMappingsResponse({}));
   }
 
-  async listUserGroupsMappings(request: ListUserGroupsMappingsRequest): Promise<ListUserGroupsMappingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * list ugm
+   * 
+   * @param request - ListUserGroupsMappingsRequest
+   * @returns ListUserGroupsMappingsResponse
+   */
+  async listUserGroupsMappings(request: $_model.ListUserGroupsMappingsRequest): Promise<$_model.ListUserGroupsMappingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUserGroupsMappingsWithOptions(request, runtime);
   }
 
-  async modifyAccessGroupWithOptions(request: ModifyAccessGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessGroupResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ModifyAccessGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccessGroupResponse
+   */
+  async modifyAccessGroupWithOptions(request: $_model.ModifyAccessGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccessGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.accessGroupName)) {
+    if (!$dara.isNull(request.accessGroupName)) {
       query["AccessGroupName"] = request.accessGroupName;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAccessGroup",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4324,45 +1899,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAccessGroupResponse>(await this.callApi(params, req, runtime), new ModifyAccessGroupResponse({}));
+    return $dara.cast<$_model.ModifyAccessGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccessGroupResponse({}));
   }
 
-  async modifyAccessGroup(request: ModifyAccessGroupRequest): Promise<ModifyAccessGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ModifyAccessGroupRequest
+   * @returns ModifyAccessGroupResponse
+   */
+  async modifyAccessGroup(request: $_model.ModifyAccessGroupRequest): Promise<$_model.ModifyAccessGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccessGroupWithOptions(request, runtime);
   }
 
-  async modifyAccessRuleWithOptions(request: ModifyAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccessRuleResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ModifyAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccessRuleResponse
+   */
+  async modifyAccessRuleWithOptions(request: $_model.ModifyAccessRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAccessRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.accessRuleId)) {
+    if (!$dara.isNull(request.accessRuleId)) {
       query["AccessRuleId"] = request.accessRuleId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       query["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.RWAccessType)) {
+    if (!$dara.isNull(request.RWAccessType)) {
       query["RWAccessType"] = request.RWAccessType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAccessRule",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4373,49 +1957,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAccessRuleResponse>(await this.callApi(params, req, runtime), new ModifyAccessRuleResponse({}));
+    return $dara.cast<$_model.ModifyAccessRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAccessRuleResponse({}));
   }
 
-  async modifyAccessRule(request: ModifyAccessRuleRequest): Promise<ModifyAccessRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ModifyAccessRuleRequest
+   * @returns ModifyAccessRuleResponse
+   */
+  async modifyAccessRule(request: $_model.ModifyAccessRuleRequest): Promise<$_model.ModifyAccessRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccessRuleWithOptions(request, runtime);
   }
 
-  async modifyFileSystemWithOptions(request: ModifyFileSystemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFileSystemResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ModifyFileSystemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFileSystemResponse
+   */
+  async modifyFileSystemWithOptions(request: $_model.ModifyFileSystemRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFileSystemResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.fileSystemName)) {
+    if (!$dara.isNull(request.fileSystemName)) {
       query["FileSystemName"] = request.fileSystemName;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.provisionedThroughputInMiBps)) {
+    if (!$dara.isNull(request.provisionedThroughputInMiBps)) {
       query["ProvisionedThroughputInMiBps"] = request.provisionedThroughputInMiBps;
     }
 
-    if (!Util.isUnset(request.spaceCapacity)) {
+    if (!$dara.isNull(request.spaceCapacity)) {
       query["SpaceCapacity"] = request.spaceCapacity;
     }
 
-    if (!Util.isUnset(request.throughputMode)) {
+    if (!$dara.isNull(request.throughputMode)) {
       query["ThroughputMode"] = request.throughputMode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyFileSystem",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4426,45 +2019,54 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new ModifyFileSystemResponse({}));
+    return $dara.cast<$_model.ModifyFileSystemResponse>(await this.callApi(params, req, runtime), new $_model.ModifyFileSystemResponse({}));
   }
 
-  async modifyFileSystem(request: ModifyFileSystemRequest): Promise<ModifyFileSystemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ModifyFileSystemRequest
+   * @returns ModifyFileSystemResponse
+   */
+  async modifyFileSystem(request: $_model.ModifyFileSystemRequest): Promise<$_model.ModifyFileSystemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyFileSystemWithOptions(request, runtime);
   }
 
-  async modifyMountPointWithOptions(request: ModifyMountPointRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMountPointResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ModifyMountPointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMountPointResponse
+   */
+  async modifyMountPointWithOptions(request: $_model.ModifyMountPointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMountPointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accessGroupId)) {
+    if (!$dara.isNull(request.accessGroupId)) {
       query["AccessGroupId"] = request.accessGroupId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.inputRegionId)) {
+    if (!$dara.isNull(request.inputRegionId)) {
       query["InputRegionId"] = request.inputRegionId;
     }
 
-    if (!Util.isUnset(request.mountPointId)) {
+    if (!$dara.isNull(request.mountPointId)) {
       query["MountPointId"] = request.mountPointId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyMountPoint",
       version: "2018-06-20",
       protocol: "HTTPS",
@@ -4475,12 +2077,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyMountPointResponse>(await this.callApi(params, req, runtime), new ModifyMountPointResponse({}));
+    return $dara.cast<$_model.ModifyMountPointResponse>(await this.callApi(params, req, runtime), new $_model.ModifyMountPointResponse({}));
   }
 
-  async modifyMountPoint(request: ModifyMountPointRequest): Promise<ModifyMountPointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ModifyMountPointRequest
+   * @returns ModifyMountPointResponse
+   */
+  async modifyMountPoint(request: $_model.ModifyMountPointRequest): Promise<$_model.ModifyMountPointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyMountPointWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyQosPolicy
+   * 
+   * @param request - ModifyQosPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyQosPolicyResponse
+   */
+  async modifyQosPolicyWithOptions(request: $_model.ModifyQosPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyQosPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.federationId)) {
+      query["FederationId"] = request.federationId;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.maxIOBandWidth)) {
+      query["MaxIOBandWidth"] = request.maxIOBandWidth;
+    }
+
+    if (!$dara.isNull(request.maxIOps)) {
+      query["MaxIOps"] = request.maxIOps;
+    }
+
+    if (!$dara.isNull(request.maxMetaQps)) {
+      query["MaxMetaQps"] = request.maxMetaQps;
+    }
+
+    if (!$dara.isNull(request.qosPolicyId)) {
+      query["QosPolicyId"] = request.qosPolicyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyQosPolicy",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyQosPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyQosPolicyResponse({}));
+  }
+
+  /**
+   * ModifyQosPolicy
+   * 
+   * @param request - ModifyQosPolicyRequest
+   * @returns ModifyQosPolicyResponse
+   */
+  async modifyQosPolicy(request: $_model.ModifyQosPolicyRequest): Promise<$_model.ModifyQosPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyQosPolicyWithOptions(request, runtime);
   }
 
 }
