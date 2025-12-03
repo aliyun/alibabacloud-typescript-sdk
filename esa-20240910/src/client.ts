@@ -1365,6 +1365,18 @@ export default class Client extends OpenApi {
       query["IncludeHeader"] = request.includeHeader;
     }
 
+    if (!$dara.isNull(request.postBodyCacheKey)) {
+      query["PostBodyCacheKey"] = request.postBodyCacheKey;
+    }
+
+    if (!$dara.isNull(request.postBodySizeLimit)) {
+      query["PostBodySizeLimit"] = request.postBodySizeLimit;
+    }
+
+    if (!$dara.isNull(request.postCache)) {
+      query["PostCache"] = request.postCache;
+    }
+
     if (!$dara.isNull(request.queryString)) {
       query["QueryString"] = request.queryString;
     }
@@ -15499,6 +15511,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.includeHeader)) {
       query["IncludeHeader"] = request.includeHeader;
+    }
+
+    if (!$dara.isNull(request.postBodyCacheKey)) {
+      query["PostBodyCacheKey"] = request.postBodyCacheKey;
+    }
+
+    if (!$dara.isNull(request.postBodySizeLimit)) {
+      query["PostBodySizeLimit"] = request.postBodySizeLimit;
+    }
+
+    if (!$dara.isNull(request.postCache)) {
+      query["PostCache"] = request.postCache;
     }
 
     if (!$dara.isNull(request.queryString)) {

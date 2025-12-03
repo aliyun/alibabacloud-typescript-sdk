@@ -139,6 +139,17 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
    */
   includeHeader?: string;
   /**
+   * @example
+   * ignore
+   */
+  postBodyCacheKey?: string;
+  postBodySizeLimit?: string;
+  /**
+   * @example
+   * on
+   */
+  postCache?: string;
+  /**
    * @remarks
    * The query strings to be reserved or excluded. Multiple values are supported, separated by spaces.
    * 
@@ -269,6 +280,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
       edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
       includeCookie: 'IncludeCookie',
       includeHeader: 'IncludeHeader',
+      postBodyCacheKey: 'PostBodyCacheKey',
+      postBodySizeLimit: 'PostBodySizeLimit',
+      postCache: 'PostCache',
       queryString: 'QueryString',
       queryStringMode: 'QueryStringMode',
       rule: 'Rule',
@@ -301,6 +315,9 @@ export class ListCacheRulesResponseBodyConfigs extends $dara.Model {
       edgeStatusCodeCacheTtl: 'string',
       includeCookie: 'string',
       includeHeader: 'string',
+      postBodyCacheKey: 'string',
+      postBodySizeLimit: 'string',
+      postCache: 'string',
       queryString: 'string',
       queryStringMode: 'string',
       rule: 'string',

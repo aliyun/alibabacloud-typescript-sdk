@@ -131,6 +131,17 @@ export class UpdateCacheRuleRequest extends $dara.Model {
    */
   includeHeader?: string;
   /**
+   * @example
+   * ignore
+   */
+  postBodyCacheKey?: string;
+  postBodySizeLimit?: string;
+  /**
+   * @example
+   * on
+   */
+  postCache?: string;
+  /**
    * @remarks
    * Query strings to be retained or excluded, supporting multiple values separated by spaces.
    * 
@@ -255,6 +266,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
       edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
       includeCookie: 'IncludeCookie',
       includeHeader: 'IncludeHeader',
+      postBodyCacheKey: 'PostBodyCacheKey',
+      postBodySizeLimit: 'PostBodySizeLimit',
+      postCache: 'PostCache',
       queryString: 'QueryString',
       queryStringMode: 'QueryStringMode',
       rule: 'Rule',
@@ -286,6 +300,9 @@ export class UpdateCacheRuleRequest extends $dara.Model {
       edgeStatusCodeCacheTtl: 'string',
       includeCookie: 'string',
       includeHeader: 'string',
+      postBodyCacheKey: 'string',
+      postBodySizeLimit: 'string',
+      postCache: 'string',
       queryString: 'string',
       queryStringMode: 'string',
       rule: 'string',
