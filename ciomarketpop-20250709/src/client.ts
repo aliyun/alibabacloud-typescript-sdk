@@ -11,7 +11,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ciomarketpop", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -54,7 +53,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "array",
     });
-    return $dara.cast<$_model.GetEveryOneSellsFormListResponse>(await this.callApi(params, req, runtime), new $_model.GetEveryOneSellsFormListResponse({}));
+    return $dara.cast<$_model.GetEveryOneSellsFormListResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.GetEveryOneSellsFormListResponse({}));
   }
 
   /**
@@ -110,7 +109,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "string",
     });
-    return $dara.cast<$_model.PushEveryOneSellMsgResponse>(await this.callApi(params, req, runtime), new $_model.PushEveryOneSellMsgResponse({}));
+    return $dara.cast<$_model.PushEveryOneSellMsgResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.PushEveryOneSellMsgResponse({}));
   }
 
   /**
