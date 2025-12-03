@@ -61,6 +61,7 @@ export class DatasetFileMeta extends $dara.Model {
    * 2021-01-12T14:36:01.000Z
    */
   semanticIndexUpdateTime?: string;
+  status?: string;
   tags?: string;
   thumbnailUrl?: string;
   /**
@@ -83,6 +84,7 @@ export class DatasetFileMeta extends $dara.Model {
       score: 'Score',
       semanticIndexJobId: 'SemanticIndexJobId',
       semanticIndexUpdateTime: 'SemanticIndexUpdateTime',
+      status: 'Status',
       tags: 'Tags',
       thumbnailUrl: 'ThumbnailUrl',
       uri: 'Uri',
@@ -104,6 +106,7 @@ export class DatasetFileMeta extends $dara.Model {
       score: 'number',
       semanticIndexJobId: 'string',
       semanticIndexUpdateTime: 'string',
+      status: 'string',
       tags: 'string',
       thumbnailUrl: 'string',
       uri: 'string',

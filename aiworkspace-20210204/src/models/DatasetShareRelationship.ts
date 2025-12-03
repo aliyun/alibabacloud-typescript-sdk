@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DatasetShareRelationship extends $dara.Model {
   allowedMountAccessLevels?: string[];
   expiresAt?: string;
+  extra?: string;
   isSecureMode?: boolean;
   sharedAt?: string;
   sourceTenantId?: string;
@@ -16,6 +17,7 @@ export class DatasetShareRelationship extends $dara.Model {
     return {
       allowedMountAccessLevels: 'AllowedMountAccessLevels',
       expiresAt: 'ExpiresAt',
+      extra: 'Extra',
       isSecureMode: 'IsSecureMode',
       sharedAt: 'SharedAt',
       sourceTenantId: 'SourceTenantId',
@@ -30,6 +32,7 @@ export class DatasetShareRelationship extends $dara.Model {
     return {
       allowedMountAccessLevels: { 'type': 'array', 'itemType': 'string' },
       expiresAt: 'string',
+      extra: 'string',
       isSecureMode: 'boolean',
       sharedAt: 'string',
       sourceTenantId: 'string',

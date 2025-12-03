@@ -141,6 +141,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
    * 2025-01-12T14:36:01.000Z
    */
   startTagUpdateTime?: string;
+  status?: string;
   /**
    * @example
    * w_100
@@ -188,6 +189,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
       sortBy: 'SortBy',
       startFileUpdateTime: 'StartFileUpdateTime',
       startTagUpdateTime: 'StartTagUpdateTime',
+      status: 'Status',
       thumbnailMode: 'ThumbnailMode',
       topK: 'TopK',
       workspaceId: 'WorkspaceId',
@@ -218,6 +220,7 @@ export class ListDatasetFileMetasShrinkRequest extends $dara.Model {
       sortBy: 'string',
       startFileUpdateTime: 'string',
       startTagUpdateTime: 'string',
+      status: 'string',
       thumbnailMode: 'string',
       topK: 'number',
       workspaceId: 'string',

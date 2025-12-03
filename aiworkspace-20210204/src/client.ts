@@ -3778,6 +3778,10 @@ export default class Client extends OpenApi {
       query["StartTagUpdateTime"] = request.startTagUpdateTime;
     }
 
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
     if (!$dara.isNull(request.thumbnailMode)) {
       query["ThumbnailMode"] = request.thumbnailMode;
     }

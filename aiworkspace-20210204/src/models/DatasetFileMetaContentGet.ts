@@ -37,6 +37,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
    * 2021-01-12T14:36:01.000Z
    */
   semanticIndexUpdateTime?: string;
+  status?: string;
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
@@ -62,6 +63,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
       metaAttributes: 'MetaAttributes',
       semanticIndexJobId: 'SemanticIndexJobId',
       semanticIndexUpdateTime: 'SemanticIndexUpdateTime',
+      status: 'Status',
       tagUpdateTime: 'TagUpdateTime',
       tags: 'Tags',
       uri: 'Uri',
@@ -83,6 +85,7 @@ export class DatasetFileMetaContentGet extends $dara.Model {
       metaAttributes: 'string',
       semanticIndexJobId: 'string',
       semanticIndexUpdateTime: 'string',
+      status: 'string',
       tagUpdateTime: 'string',
       tags: 'string',
       uri: 'string',
