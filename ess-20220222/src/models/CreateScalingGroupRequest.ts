@@ -491,7 +491,7 @@ export class CreateScalingGroupRequestServerGroups extends $dara.Model {
 export class CreateScalingGroupRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key that you want to add to the scaling group.
+   * The tag key of the scaling group.
    * 
    * @example
    * Department
@@ -499,7 +499,7 @@ export class CreateScalingGroupRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
+   * Identifies whether the tag is a propagatable tag. Valid values:
    * 
    * *   true: propagates the tag to only instances that are newly created.
    * *   false: does not propagate the tag to any instances.
@@ -512,7 +512,7 @@ export class CreateScalingGroupRequestTags extends $dara.Model {
   propagate?: boolean;
   /**
    * @remarks
-   * The tag value that you want to add to the scaling group.
+   * The tag value of the scaling group.
    * 
    * @example
    * Finance
@@ -654,6 +654,18 @@ export class CreateScalingGroupRequest extends $dara.Model {
    * priority
    */
   allocationStrategy?: string;
+  /**
+   * @remarks
+   * Whether to enable automatic rebalancing for the scaling group. This takes effect only when BalancedOnly is enabled for the scaling group. Valid values:
+   * 
+   * *   false: Auto rebalancing is disabled for the scaling group.
+   * *   true: If Auto rebalancing is enabled, the scaling group automatically detects the capacity of the zone. If the capacity of the zone is unbalanced, the scaling group actively scales out the zone and re-balances the capacity of the zone.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   autoRebalance?: boolean;
   /**
    * @remarks
@@ -670,6 +682,18 @@ export class CreateScalingGroupRequest extends $dara.Model {
    * false
    */
   azBalance?: boolean;
+  /**
+   * @remarks
+   * The zone balancing mode. This mode takes effect only when the zone balancing mode is enabled. Valid values:
+   * 
+   * *   BalancedBestEffort: If a resource fails to be created in a zone, it is downgraded to another zone to ensure best-effort delivery of the resource.
+   * *   BalancedOnly: If a resource fails to be created in a zone, it is not downgraded to another zone. The scale-out activity is partially successful to avoid excessive imbalance of resources in different zones.
+   * 
+   * Default value: BalancedBestEffort.
+   * 
+   * @example
+   * BalancedBestEffort
+   */
   balanceMode?: string;
   /**
    * @remarks
@@ -1069,7 +1093,7 @@ export class CreateScalingGroupRequest extends $dara.Model {
   syncAlarmRuleToCms?: boolean;
   /**
    * @remarks
-   * The tags that you want to add to the scaling group.
+   * The information about the tags of the scaling group.
    */
   tags?: CreateScalingGroupRequestTags[];
   /**

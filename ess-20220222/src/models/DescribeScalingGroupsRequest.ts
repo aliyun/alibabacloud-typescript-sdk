@@ -58,7 +58,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Page starts from page 1.
    * 
    * Default value: 1.
    * 
@@ -68,7 +68,7 @@ export class DescribeScalingGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 50.
+   * The number of entries to return on each page. Maximum value: 50.
    * 
    * Default value: 10.
    * 

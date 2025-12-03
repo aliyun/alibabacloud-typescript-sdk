@@ -2119,6 +2119,7 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
    * The endpoints of Network Time Protocol (NTP) servers.
    */
   ntpServers?: string[];
+  override?: boolean;
   ownerId?: number;
   /**
    * @remarks
@@ -2267,6 +2268,7 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
       loadBalancerWeight: 'LoadBalancerWeight',
       memory: 'Memory',
       ntpServers: 'NtpServers',
+      override: 'Override',
       ownerId: 'OwnerId',
       ramRoleName: 'RamRoleName',
       resourceGroupId: 'ResourceGroupId',
@@ -2323,6 +2325,7 @@ export class ModifyEciScalingConfigurationRequest extends $dara.Model {
       loadBalancerWeight: 'number',
       memory: 'number',
       ntpServers: { 'type': 'array', 'itemType': 'string' },
+      override: 'boolean',
       ownerId: 'number',
       ramRoleName: 'string',
       resourceGroupId: 'string',

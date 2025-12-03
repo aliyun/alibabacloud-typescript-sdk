@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
   percentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26,8 +30,20 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoint
 }
 
 export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars extends $dara.Model {
+  /**
+   * @example
+   * fieldPath
+   */
   fieldRefFieldPath?: string;
+  /**
+   * @example
+   * PATH
+   */
   key?: string;
+  /**
+   * @example
+   * /usr/local/bin
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +74,15 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredCon
   args?: string[];
   commands?: string[];
   environmentVars?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationContainersEnvironmentVars[];
+  /**
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:latest
+   */
   image?: string;
+  /**
+   * @example
+   * name
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,6 +123,10 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredCon
 }
 
 export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides extends $dara.Model {
+  /**
+   * @example
+   * ecs.sn1ne.large
+   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,8 +159,16 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredCon
    * m-uf6g5noisr****
    */
   imageId?: string;
+  /**
+   * @example
+   * lt-2ze5x4mp*****
+   */
   launchTemplateId?: string;
   launchTemplateOverrides?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredConfigurationLaunchTemplateOverrides[];
+  /**
+   * @example
+   * Latest
+   */
   launchTemplateVersion?: string;
   /**
    * @remarks
@@ -180,6 +216,10 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksDesiredCon
 }
 
 export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
   checkpointPauseTime?: number;
   checkpoints?: DescribeInstanceRefreshesResponseBodyInstanceRefreshTasksCheckpoints[];
   /**

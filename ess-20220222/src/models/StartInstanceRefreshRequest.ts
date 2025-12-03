@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartInstanceRefreshRequestCheckpoints extends $dara.Model {
+  /**
+   * @remarks
+   * The percentage of new instances in the scaling group to the total number of instances. When this percentage is reached, the task is automatically suspended. Valid values: 1 to 100 (%).
+   * 
+   * >  Requires a small to large setting, and the last progress percentage needs to be 100.
+   * 
+   * @example
+   * 20
+   */
   percentage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26,8 +35,29 @@ export class StartInstanceRefreshRequestCheckpoints extends $dara.Model {
 }
 
 export class StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars extends $dara.Model {
+  /**
+   * @remarks
+   * >  This parameter is unavailable for use.
+   * 
+   * @example
+   * fieldPath
+   */
   fieldRefFieldPath?: string;
+  /**
+   * @remarks
+   * The name of the environment variable. It can be 1 to 128 characters in length. Format requirement:[0-9a-zA-Z], and underscores, cannot start with a number.
+   * 
+   * @example
+   * PATH
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the environment variable. The value must be 0 to 256 bits in length.
+   * 
+   * @example
+   * /usr/local/bin
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,10 +85,36 @@ export class StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmen
 }
 
 export class StartInstanceRefreshRequestDesiredConfigurationContainers extends $dara.Model {
+  /**
+   * @remarks
+   * The argument that corresponds to the startup command of the container. You can specify up to 10 arguments.
+   */
   args?: string[];
+  /**
+   * @remarks
+   * The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
+   */
   commands?: string[];
+  /**
+   * @remarks
+   * The environment variables.
+   */
   environmentVars?: StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars[];
+  /**
+   * @remarks
+   * The image in the container.
+   * 
+   * @example
+   * registry-vpc.cn-hangzhou.aliyuncs.com/eci_open/nginx:latest
+   */
   image?: string;
+  /**
+   * @remarks
+   * The custom name of the container.
+   * 
+   * @example
+   * nginx
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,6 +155,15 @@ export class StartInstanceRefreshRequestDesiredConfigurationContainers extends $
 }
 
 export class StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type specified by using this parameter overwrites the instance type of the launch template.
+   * 
+   * >  This parameter takes effect only if you specify LaunchTemplateId.
+   * 
+   * @example
+   * ecs.c5.2xlarge
+   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -122,6 +187,16 @@ export class StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverri
 }
 
 export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The containers in the elastic container instance.
+   * 
+   * > 
+   * 
+   * *   This parameter supports only scaling groups of the ECI type.
+   * 
+   * *   Only the containers in the scaling configuration list that are the same as those in the `Container.Name` are refreshed.
+   */
   containers?: StartInstanceRefreshRequestDesiredConfigurationContainers[];
   /**
    * @remarks
@@ -137,14 +212,36 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model
    * m-2ze8cqacj7opnf***
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The ID of the launch template that you want to enable in the scaling group.
+   * 
+   * @example
+   * lt-2ze2qli30u***
+   */
   launchTemplateId?: string;
+  /**
+   * @remarks
+   * The information about the instance types that are extended in the launch template.
+   */
   launchTemplateOverrides?: StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides[];
+  /**
+   * @remarks
+   * The version number of the launch template. Valid value:
+   * 
+   * *   A fixed template version number.
+   * *   Default: the default version of the template.
+   * *   Latest: the latest version of the template.
+   * 
+   * >  If you set the version to Default or Latest, the instance refresh task cannot be rolled back.
+   * 
+   * @example
+   * 8
+   */
   launchTemplateVersion?: string;
   /**
    * @remarks
    * The ID of the scaling configuration.
-   * 
-   * >  After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
    * 
    * @example
    * asc-2zed7lqn4ts4****
@@ -188,7 +285,22 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $dara.Model
 }
 
 export class StartInstanceRefreshRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The duration of the pause when the refresh task checkpoint is entered.
+   * 
+   * *   Unit: minutes
+   * *   Valid values: 1 to 2880.
+   * *   Default: 60.
+   * 
+   * @example
+   * 10
+   */
   checkpointPauseTime?: number;
+  /**
+   * @remarks
+   * Refresh Task Checkpoint: specifies that the task is automatically suspended for CheckpointPauseTime minutes when the proportion of new instances reaches the specified value during instance refresh.
+   */
   checkpoints?: StartInstanceRefreshRequestCheckpoints[];
   /**
    * @remarks
@@ -204,9 +316,9 @@ export class StartInstanceRefreshRequest extends $dara.Model {
    * 
    * > 
    * 
-   * *   When you call this operation, you must specify one of the following parameters: ScalingConfigurationId and ImageId.
+   * *   ScalingConfigurationId, ImageId, LaunchTemplateId, and Containers cannot be set at the same time. If you do not specify this parameter, the scaling group is refreshed based on the configurations that are in effect.
    * 
-   * *   Instances whose configurations match the desired configurations of the task are ignored during instance refresh.
+   * *   After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
    */
   desiredConfiguration?: StartInstanceRefreshRequestDesiredConfiguration;
   /**

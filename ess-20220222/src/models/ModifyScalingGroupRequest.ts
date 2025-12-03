@@ -183,6 +183,18 @@ export class ModifyScalingGroupRequest extends $dara.Model {
    * priority
    */
   allocationStrategy?: string;
+  /**
+   * @remarks
+   * Whether to enable automatic rebalancing for the scaling group. This takes effect only when BalancedOnly is enabled for the scaling group. Valid values:
+   * 
+   * *   false: Auto rebalancing is disabled for the scaling group.
+   * *   true: If Auto rebalancing is enabled, the scaling group automatically detects the capacity of the zone. If the capacity of the zone is unbalanced, the scaling group actively scales out the zone and re-balances the capacity of the zone.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   autoRebalance?: boolean;
   /**
    * @remarks
@@ -197,6 +209,18 @@ export class ModifyScalingGroupRequest extends $dara.Model {
    * false
    */
   azBalance?: boolean;
+  /**
+   * @remarks
+   * The zone balancing mode. This mode takes effect only when the zone balancing mode is enabled. Valid values:
+   * 
+   * *   BalancedBestEffort: If a resource fails to be created in a zone, the resource is downgraded to another zone. This ensures best-effort delivery of the resource.
+   * *   BalancedOnly: If a resource fails to be created in a zone, the resource is not downgraded to another zone. The scale-out activity is partially successful to avoid excessive imbalance of resources in different zones.
+   * 
+   * Default value: BalancedBestEffort.
+   * 
+   * @example
+   * BalancedBestEffort
+   */
   balanceMode?: string;
   /**
    * @remarks

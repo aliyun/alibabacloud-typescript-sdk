@@ -6143,6 +6143,10 @@ export default class Client extends OpenApi {
       query["NtpServers"] = request.ntpServers;
     }
 
+    if (!$dara.isNull(request.override)) {
+      query["Override"] = request.override;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
