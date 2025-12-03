@@ -106,6 +106,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  dataFormatType?: string;
   /**
    * @remarks
    * Enumeration value and description. Single: The source is a single-row JSON record. Multi: source is a JSON array. Output a single JSON record.
@@ -311,6 +312,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
       advancedConfig: 'AdvancedConfig',
       columns: 'Columns',
       DBClusterId: 'DBClusterId',
+      dataFormatType: 'DataFormatType',
       dataOutputFormat: 'DataOutputFormat',
       datasourceId: 'DatasourceId',
       dbName: 'DbName',
@@ -344,6 +346,7 @@ export class CreateApsKafkaHudiJobRequest extends $dara.Model {
       advancedConfig: 'string',
       columns: { 'type': 'array', 'itemType': CreateApsKafkaHudiJobRequestColumns },
       DBClusterId: 'string',
+      dataFormatType: 'string',
       dataOutputFormat: 'string',
       datasourceId: 'number',
       dbName: 'string',

@@ -1173,6 +1173,10 @@ export default class Client extends OpenApi {
       body["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.dataFormatType)) {
+      body["DataFormatType"] = request.dataFormatType;
+    }
+
     if (!$dara.isNull(request.dataOutputFormat)) {
       body["DataOutputFormat"] = request.dataOutputFormat;
     }
