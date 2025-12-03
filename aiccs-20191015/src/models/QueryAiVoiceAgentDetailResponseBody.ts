@@ -67,6 +67,31 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigEventC
 export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigTtsConfig extends $dara.Model {
   /**
    * @example
+   * true
+   */
+  backgroundEnabled?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  backgroundSound?: number;
+  /**
+   * @example
+   * 1
+   */
+  backgroundVolume?: number;
+  /**
+   * @example
+   * true
+   */
+  mixingEnabled?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  mixingTemplate?: number;
+  /**
+   * @example
    * 34
    */
   ttsSpeed?: number;
@@ -80,19 +105,43 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentCallConfigTtsCon
    * 72
    */
   ttsVolume?: number;
+  /**
+   * @example
+   * 示例值
+   */
+  voiceCode?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  voiceType?: string;
   static names(): { [key: string]: string } {
     return {
+      backgroundEnabled: 'BackgroundEnabled',
+      backgroundSound: 'BackgroundSound',
+      backgroundVolume: 'BackgroundVolume',
+      mixingEnabled: 'MixingEnabled',
+      mixingTemplate: 'MixingTemplate',
       ttsSpeed: 'TtsSpeed',
       ttsStyle: 'TtsStyle',
       ttsVolume: 'TtsVolume',
+      voiceCode: 'VoiceCode',
+      voiceType: 'VoiceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backgroundEnabled: 'boolean',
+      backgroundSound: 'number',
+      backgroundVolume: 'number',
+      mixingEnabled: 'boolean',
+      mixingTemplate: 'number',
       ttsSpeed: 'number',
       ttsStyle: 'string',
       ttsVolume: 'number',
+      voiceCode: 'string',
+      voiceType: 'string',
     };
   }
 
@@ -493,6 +542,11 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
   phoneTagRequired?: boolean;
   /**
    * @example
+   * 示例值示例值示例值
+   */
+  phoneTagSource?: string;
+  /**
+   * @example
    * ENUM
    */
   phoneTagType?: string;
@@ -504,6 +558,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
       phoneTagKey: 'PhoneTagKey',
       phoneTagName: 'PhoneTagName',
       phoneTagRequired: 'PhoneTagRequired',
+      phoneTagSource: 'PhoneTagSource',
       phoneTagType: 'PhoneTagType',
     };
   }
@@ -516,6 +571,7 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhone
       phoneTagKey: 'string',
       phoneTagName: 'string',
       phoneTagRequired: 'boolean',
+      phoneTagSource: 'string',
       phoneTagType: 'string',
     };
   }
@@ -600,6 +656,16 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
    * @example
    * 示例值示例值
    */
+  recordingFile?: string;
+  /**
+   * @example
+   * 1
+   */
+  startWordType?: number;
+  /**
+   * @example
+   * 示例值示例值
+   */
   sysRole?: string;
   /**
    * @example
@@ -632,6 +698,8 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
       outputTagConfig: 'OutputTagConfig',
       phoneTagConfig: 'PhoneTagConfig',
       prologue: 'Prologue',
+      recordingFile: 'RecordingFile',
+      startWordType: 'StartWordType',
       sysRole: 'SysRole',
       taskType: 'TaskType',
       userRole: 'UserRole',
@@ -659,6 +727,8 @@ export class QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig exte
       outputTagConfig: { 'type': 'array', 'itemType': QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutputTagConfig },
       phoneTagConfig: { 'type': 'array', 'itemType': QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig },
       prologue: 'string',
+      recordingFile: 'string',
+      startWordType: 'number',
       sysRole: 'string',
       taskType: 'string',
       userRole: 'string',

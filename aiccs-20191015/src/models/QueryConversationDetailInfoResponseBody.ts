@@ -75,6 +75,11 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
    * @example
    * 示例值示例值
    */
+  source?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,6 +87,7 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
       key: 'Key',
       name: 'Name',
       required: 'Required',
+      source: 'Source',
       value: 'Value',
     };
   }
@@ -92,6 +98,7 @@ export class QueryConversationDetailInfoResponseBodyDataVariables extends $dara.
       key: 'string',
       name: 'string',
       required: 'boolean',
+      source: 'string',
       value: 'string',
     };
   }
