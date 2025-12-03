@@ -694,6 +694,90 @@ export class DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets extends 
   }
 }
 
+export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS extends $dara.Model {
+  /**
+   * @example
+   * 50000
+   */
+  bandwidthRx?: number;
+  /**
+   * @example
+   * 50000
+   */
+  bandwidthTx?: number;
+  /**
+   * @example
+   * 50000
+   */
+  concurrentConnections?: number;
+  /**
+   * @example
+   * 50000
+   */
+  ppsRx?: number;
+  /**
+   * @example
+   * 50000
+   */
+  ppsTx?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthRx: 'BandwidthRx',
+      bandwidthTx: 'BandwidthTx',
+      concurrentConnections: 'ConcurrentConnections',
+      ppsRx: 'PpsRx',
+      ppsTx: 'PpsTx',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthRx: 'number',
+      bandwidthTx: 'number',
+      concurrentConnections: 'number',
+      ppsRx: 'number',
+      ppsTx: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetworkInterfaceAttributeResponseBodyQoSConfig extends $dara.Model {
+  enableQoS?: boolean;
+  qoS?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS;
+  static names(): { [key: string]: string } {
+    return {
+      enableQoS: 'EnableQoS',
+      qoS: 'QoS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableQoS: 'boolean',
+      qoS: DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS,
+    };
+  }
+
+  validate() {
+    if(this.qoS && typeof (this.qoS as any).validate === 'function') {
+      (this.qoS as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds extends $dara.Model {
   securityGroupId?: string[];
   static names(): { [key: string]: string } {
@@ -981,6 +1065,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
    * The private IP addresses of the ENI.
    */
   privateIpSets?: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets;
+  qoSConfig?: DescribeNetworkInterfaceAttributeResponseBodyQoSConfig;
   /**
    * @remarks
    * The number of queues supported by the ENI.
@@ -1149,6 +1234,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
       ownerId: 'OwnerId',
       privateIpAddress: 'PrivateIpAddress',
       privateIpSets: 'PrivateIpSets',
+      qoSConfig: 'QoSConfig',
       queueNumber: 'QueueNumber',
       queuePairNumber: 'QueuePairNumber',
       requestId: 'RequestId',
@@ -1190,6 +1276,7 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
       ownerId: 'string',
       privateIpAddress: 'string',
       privateIpSets: DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets,
+      qoSConfig: DescribeNetworkInterfaceAttributeResponseBodyQoSConfig,
       queueNumber: 'number',
       queuePairNumber: 'number',
       requestId: 'string',
@@ -1239,6 +1326,9 @@ export class DescribeNetworkInterfaceAttributeResponseBody extends $dara.Model {
     }
     if(this.privateIpSets && typeof (this.privateIpSets as any).validate === 'function') {
       (this.privateIpSets as any).validate();
+    }
+    if(this.qoSConfig && typeof (this.qoSConfig as any).validate === 'function') {
+      (this.qoSConfig as any).validate();
     }
     if(this.securityGroupIds && typeof (this.securityGroupIds as any).validate === 'function') {
       (this.securityGroupIds as any).validate();

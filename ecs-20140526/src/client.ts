@@ -21915,6 +21915,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用弹性网卡QoS限速设置
+   * 
+   * @param request - DisableNetworkInterfaceQoSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableNetworkInterfaceQoSResponse
+   */
+  async disableNetworkInterfaceQoSWithOptions(request: $_model.DisableNetworkInterfaceQoSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableNetworkInterfaceQoSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableNetworkInterfaceQoS",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableNetworkInterfaceQoSResponse>(await this.callApi(params, req, runtime), new $_model.DisableNetworkInterfaceQoSResponse({}));
+  }
+
+  /**
+   * 禁用弹性网卡QoS限速设置
+   * 
+   * @param request - DisableNetworkInterfaceQoSRequest
+   * @returns DisableNetworkInterfaceQoSResponse
+   */
+  async disableNetworkInterfaceQoS(request: $_model.DisableNetworkInterfaceQoSRequest): Promise<$_model.DisableNetworkInterfaceQoSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableNetworkInterfaceQoSWithOptions(request, runtime);
+  }
+
+  /**
    * Enables the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
    * 
    * @remarks
@@ -21998,6 +22064,76 @@ export default class Client extends OpenApi {
   async enableDiskEncryptionByDefault(request: $_model.EnableDiskEncryptionByDefaultRequest): Promise<$_model.EnableDiskEncryptionByDefaultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.enableDiskEncryptionByDefaultWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用或修改弹性网卡QoS限速设置
+   * 
+   * @param request - EnableNetworkInterfaceQoSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableNetworkInterfaceQoSResponse
+   */
+  async enableNetworkInterfaceQoSWithOptions(request: $_model.EnableNetworkInterfaceQoSRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableNetworkInterfaceQoSResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkInterfaceId)) {
+      query["NetworkInterfaceId"] = request.networkInterfaceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qoS)) {
+      query["QoS"] = request.qoS;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableNetworkInterfaceQoS",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableNetworkInterfaceQoSResponse>(await this.callApi(params, req, runtime), new $_model.EnableNetworkInterfaceQoSResponse({}));
+  }
+
+  /**
+   * 启用或修改弹性网卡QoS限速设置
+   * 
+   * @param request - EnableNetworkInterfaceQoSRequest
+   * @returns EnableNetworkInterfaceQoSResponse
+   */
+  async enableNetworkInterfaceQoS(request: $_model.EnableNetworkInterfaceQoSRequest): Promise<$_model.EnableNetworkInterfaceQoSResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableNetworkInterfaceQoSWithOptions(request, runtime);
   }
 
   /**
