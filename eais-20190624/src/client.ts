@@ -1,4222 +1,11 @@
 // This file is auto-generated, don't edit it
-/**
- */
-import OpenApi from '@alicloud/openapi-core';
-import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateEaiRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciRequestEciContainer extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
-  arg?: string;
-  /**
-   * @example
-   * sleep
-   */
-  command?: string;
-  /**
-   * @example
-   * nginx
-   */
-  image?: string;
-  /**
-   * @example
-   * test1
-   */
-  name?: string;
-  /**
-   * @example
-   * /mnt/eais=eais,/models=eais/models
-   */
-  volumes?: string;
-  static names(): { [key: string]: string } {
-    return {
-      arg: 'Arg',
-      command: 'Command',
-      image: 'Image',
-      name: 'Name',
-      volumes: 'Volumes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arg: 'string',
-      command: 'string',
-      image: 'string',
-      name: 'string',
-      volumes: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciRequestEci extends $dara.Model {
-  container?: CreateEaiEciRequestEciContainer;
-  /**
-   * @example
-   * eip-uf66jeqopgqa9hdn****
-   */
-  eipId?: string;
-  /**
-   * @example
-   * test-nginx
-   */
-  name?: string;
-  /**
-   * @example
-   * ecs.c5.xlarge
-   */
-  type?: string;
-  /**
-   * @example
-   * 00c7****-rivj.cn-hangzhou.extreme.nas.aliyuncs.com:/share
-   */
-  volume?: string;
-  static names(): { [key: string]: string } {
-    return {
-      container: 'Container',
-      eipId: 'EipId',
-      name: 'Name',
-      type: 'Type',
-      volume: 'Volume',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      container: CreateEaiEciRequestEciContainer,
-      eipId: 'string',
-      name: 'string',
-      type: 'string',
-      volume: 'string',
-    };
-  }
-
-  validate() {
-    if(this.container && typeof (this.container as any).validate === 'function') {
-      (this.container as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciShrinkRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsRequestEcs extends $dara.Model {
-  /**
-   * @example
-   * aliyun_2_1903_x64_20G_alibase_20200324.vhd
-   */
-  imageId?: string;
-  /**
-   * @example
-   * 10
-   */
-  internetMaxBandwidthIn?: string;
-  /**
-   * @example
-   * 10
-   */
-  internetMaxBandwidthOut?: string;
-  /**
-   * @example
-   * test1
-   */
-  name?: string;
-  /**
-   * @example
-   * EcsV587!
-   */
-  password?: string;
-  /**
-   * @example
-   * cloud_ssd
-   */
-  systemDiskCategory?: string;
-  /**
-   * @example
-   * 40
-   */
-  systemDiskSize?: number;
-  /**
-   * @example
-   * ecs.g7.4xlarge
-   */
-  type?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageId: 'ImageId',
-      internetMaxBandwidthIn: 'InternetMaxBandwidthIn',
-      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
-      name: 'Name',
-      password: 'Password',
-      systemDiskCategory: 'SystemDiskCategory',
-      systemDiskSize: 'SystemDiskSize',
-      type: 'Type',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageId: 'string',
-      internetMaxBandwidthIn: 'string',
-      internetMaxBandwidthOut: 'string',
-      name: 'string',
-      password: 'string',
-      systemDiskCategory: 'string',
-      systemDiskSize: 'number',
-      type: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsShrinkRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterRequestEnvironmentVar extends $dara.Model {
-  /**
-   * @example
-   * MY_USER_NAME
-   */
-  key?: string;
-  /**
-   * @example
-   * test123
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterShrinkRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaisEiRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisRequestTag extends $dara.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponseBodyInstancesInstanceTagsTag extends $dara.Model {
-  /**
-   * @example
-   * TestKey
-   */
-  tagKey?: string;
-  /**
-   * @example
-   * TestValue
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponseBodyInstancesInstanceTags extends $dara.Model {
-  tag?: DescribeEaisResponseBodyInstancesInstanceTagsTag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': DescribeEaisResponseBodyInstancesInstanceTagsTag },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @example
-   * jupyter
-   */
-  category?: string;
-  /**
-   * @example
-   * i-wz93g6pyat2g****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * test1
-   */
-  clientInstanceName?: string;
-  /**
-   * @example
-   * ecs.g5ne.large
-   */
-  clientInstanceType?: string;
-  /**
-   * @example
-   * 2020-11-11T03:11Z
-   */
-  creationTime?: string;
-  /**
-   * @example
-   * testDescription
-   */
-  description?: string;
-  /**
-   * @example
-   * eais-sz8t15a7gt7****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * testName
-   */
-  instanceName?: string;
-  /**
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  instanceType?: string;
-  /**
-   * @example
-   * http://121.41.**.24:8888
-   */
-  jupyterUrl?: string;
-  paymentType?: string;
-  /**
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @example
-   * sg-bp1gppir818lx4******
-   */
-  securityGroupId?: string;
-  startTime?: string;
-  /**
-   * @example
-   * InUse
-   */
-  status?: string;
-  tags?: DescribeEaisResponseBodyInstancesInstanceTags;
-  /**
-   * @example
-   * vsw-bp1sd131hfmd76r******
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      clientInstanceId: 'ClientInstanceId',
-      clientInstanceName: 'ClientInstanceName',
-      clientInstanceType: 'ClientInstanceType',
-      creationTime: 'CreationTime',
-      description: 'Description',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      instanceName: 'InstanceName',
-      instanceType: 'InstanceType',
-      jupyterUrl: 'JupyterUrl',
-      paymentType: 'PaymentType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      startTime: 'StartTime',
-      status: 'Status',
-      tags: 'Tags',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      clientInstanceId: 'string',
-      clientInstanceName: 'string',
-      clientInstanceType: 'string',
-      creationTime: 'string',
-      description: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      instanceName: 'string',
-      instanceType: 'string',
-      jupyterUrl: 'string',
-      paymentType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      startTime: 'string',
-      status: 'string',
-      tags: DescribeEaisResponseBodyInstancesInstanceTags,
-      vSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.tags && typeof (this.tags as any).validate === 'function') {
-      (this.tags as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponseBodyInstances extends $dara.Model {
-  instance?: DescribeEaisResponseBodyInstancesInstance[];
-  static names(): { [key: string]: string } {
-    return {
-      instance: 'Instance',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instance: { 'type': 'array', 'itemType': DescribeEaisResponseBodyInstancesInstance },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.instance)) {
-      $dara.Model.validateArray(this.instance);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  localName?: string;
-  /**
-   * @example
-   * eais.cn-shenzhen.aliyuncs.com
-   */
-  regionEndpoint?: string;
-  /**
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $dara.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.region)) {
-      $dara.Model.validateArray(this.region);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $dara.Model {
-  /**
-   * @example
-   * 1669107528450
-   */
-  time?: string;
-  /**
-   * @example
-   * 4.536552540058814
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      time: 'Time',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      time: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponseBodyPodMetrics extends $dara.Model {
-  metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
-  /**
-   * @remarks
-   * Pod ID。
-   * 
-   * @example
-   * eais-hznzre6ffmz9num4****-579b587ddf-9txr6
-   */
-  podId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      metrics: 'Metrics',
-      podId: 'PodId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetricsMetrics },
-      podId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.metrics)) {
-      $dara.Model.validateArray(this.metrics);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $dara.Model {
-  /**
-   * @example
-   * TestKey
-   */
-  key?: string;
-  /**
-   * @example
-   * TestValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
-  /**
-   * @example
-   * eais-hzs4h26yyt5xkcke****
-   */
-  resourceId?: string;
-  /**
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * TestKey
-   */
-  tagKey?: string;
-  /**
-   * @example
-   * TestValue
-   */
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaiJupyterResponseBodyAccessDeniedDetail extends $dara.Model {
-  /**
-   * @example
-   * eais:StartEaiJupyter
-   */
-  authAction?: string;
-  /**
-   * @example
-   * 20560152949032****
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @example
-   * 170718266783****
-   */
-  authPrincipalOwnerId?: string;
-  /**
-   * @example
-   * SubUser
-   */
-  authPrincipalType?: string;
-  /**
-   * @example
-   * AQFmfh3BZn4dwUQyNzY4MDVELTgzQkUtNTBEOC04QjQyLTNGM0U1QUI5MjhBRA==
-   */
-  encodedDiagnosticMessage?: string;
-  /**
-   * @example
-   * ExplicitDeny
-   */
-  noPermissionType?: string;
-  /**
-   * @example
-   * AccountLevelIdentityBasedPolicy
-   */
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
-      authPrincipalType: 'AuthPrincipalType',
-      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
-      noPermissionType: 'NoPermissionType',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
-      authPrincipalType: 'string',
-      encodedDiagnosticMessage: 'string',
-      noPermissionType: 'string',
-      policyType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaiJupyterResponseBodyAccessDeniedDetail extends $dara.Model {
-  /**
-   * @example
-   * eais:StopEaiJupyter
-   */
-  authAction?: string;
-  /**
-   * @example
-   * 20560152949032****
-   */
-  authPrincipalDisplayName?: string;
-  /**
-   * @example
-   * 170718266783****
-   */
-  authPrincipalOwnerId?: string;
-  /**
-   * @example
-   * SubUser
-   */
-  authPrincipalType?: string;
-  /**
-   * @example
-   * AQFmj0FOZo9BTjMyQTFDRkIzLUE5MTItNUIwNC1BQzkxLTcyMUFFQTUyQjhGQQ==
-   */
-  encodedDiagnosticMessage?: string;
-  /**
-   * @example
-   * ExplicitDeny
-   */
-  noPermissionType?: string;
-  /**
-   * @example
-   * AccountLevelIdentityBasedPolicy
-   */
-  policyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authAction: 'AuthAction',
-      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
-      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
-      authPrincipalType: 'AuthPrincipalType',
-      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
-      noPermissionType: 'NoPermissionType',
-      policyType: 'PolicyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authAction: 'string',
-      authPrincipalDisplayName: 'string',
-      authPrincipalOwnerId: 'string',
-      authPrincipalType: 'string',
-      encodedDiagnosticMessage: 'string',
-      noPermissionType: 'string',
-      policyType: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $dara.Model {
-  /**
-   * @example
-   * TestKey
-   */
-  key?: string;
-  /**
-   * @example
-   * TestValue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * i-wz93g6pyat2g7t7o****
-   */
-  clientInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * i-wz93g6pyat2g7t7o****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * C3BCB7DA-BEB6-4982-A765-6EA61EC84474
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachEaiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachEaiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaisEiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * i-bp14ws9hbt1oe0u9****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eiInstanceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      eiInstanceId: 'EiInstanceId',
-      eiInstanceType: 'EiInstanceType',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      eiInstanceId: 'string',
-      eiInstanceType: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * i-bp14ws9hbt1oe0u9****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @example
-   * C3BCB7DA-BEB6-4982-A765-6EA61EC8****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      eiInstanceId: 'EiInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      eiInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AttachEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AttachEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hzs4h26yyt5xkcke****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  resourceRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceGroupId: 'ResourceGroupId',
-      resourceId: 'ResourceId',
-      resourceRegionId: 'ResourceRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceGroupId: 'string',
-      resourceId: 'string',
-      resourceRegionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $dara.Model {
-  /**
-   * @example
-   * C3BCB7DA-BEB6-4982-A765-6EA61EC8****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  image?: string;
-  /**
-   * @example
-   * eais-test01
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiRequestTag[];
-  /**
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      image: 'Image',
-      instanceName: 'InstanceName',
-      instanceType: 'InstanceType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      image: 'string',
-      instanceName: 'string',
-      instanceType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * A655AB0E-31BB-45AD-9255-FCE93F6*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEaiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * eais-test01
-   */
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  eci?: CreateEaiEciRequestEci;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiEciRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      eci: 'Eci',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      eci: CreateEaiEciRequestEci,
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiEciRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.eci && typeof (this.eci as any).validate === 'function') {
-      (this.eci as any).validate();
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * eais-test01
-   */
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  eciShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiEciShrinkRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      eciShrink: 'Eci',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      eciShrink: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiEciShrinkRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciResponseBody extends $dara.Model {
-  /**
-   * @example
-   * eci-2zeh03ygxlrzmfi6****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * F5FEB9AA-C108-577C-AB3D-D13524AF****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEciResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEaiEciResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaiEciResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * eais-test01
-   */
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  ecs?: CreateEaiEcsRequestEcs;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiEcsRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      ecs: 'Ecs',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      ecs: CreateEaiEcsRequestEcs,
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiEcsRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.ecs && typeof (this.ecs as any).validate === 'function') {
-      (this.ecs as any).validate();
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * eais-test01
-   */
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  ecsShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiEcsShrinkRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      ecsShrink: 'Ecs',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      ecsShrink: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiEcsShrinkRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * i-bp1hjrvleawl4ogb****
-   */
-  clientInstanceId?: string;
-  /**
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * F5FEB9AA-C108-577C-AB3D-D13524AF****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiEcsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEaiEcsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaiEcsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  environmentVar?: CreateEaiJupyterRequestEnvironmentVar[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiJupyterRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      environmentVar: 'EnvironmentVar',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      environmentVar: { 'type': 'array', 'itemType': CreateEaiJupyterRequestEnvironmentVar },
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiJupyterRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.environmentVar)) {
-      $dara.Model.validateArray(this.environmentVar);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterShrinkRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  eaisName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  eaisType?: string;
-  environmentVarShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-uf66jeqopgqa9hdn****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaiJupyterShrinkRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-uf6h3rbwbm90urjwa****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      eaisName: 'EaisName',
-      eaisType: 'EaisType',
-      environmentVarShrink: 'EnvironmentVar',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      eaisName: 'string',
-      eaisType: 'string',
-      environmentVarShrink: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaiJupyterShrinkRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterResponseBody extends $dara.Model {
-  /**
-   * @example
-   * eais-hz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * A655AB0E-31BB-45AD-9255-FCE93F6*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticAcceleratedInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaiJupyterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEaiJupyterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaiJupyterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaisEiRequest extends $dara.Model {
-  /**
-   * @example
-   * 123e4567-e89b-12d3-a456-426655440000
-   */
-  clientToken?: string;
-  /**
-   * @example
-   * test_ei
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmvpuy4a5****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-bp16jgp51ttnkbdr****
-   */
-  securityGroupId?: string;
-  tag?: CreateEaisEiRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-bp17wmd1wb6fwlimk****
-   */
-  vSwitchId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      instanceName: 'InstanceName',
-      instanceType: 'InstanceType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      tag: 'Tag',
-      vSwitchId: 'VSwitchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      instanceName: 'string',
-      instanceType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEaisEiRequestTag },
-      vSwitchId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @example
-   * F5FEB9AA-C108-577C-AB3D-D13524AF****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eiInstanceId: 'EiInstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eiInstanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @example
-   * false
-   */
-  force?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      force: 'Force',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticAcceleratedInstanceId: 'string',
-      force: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * F23AEEC7-4D98-4657-A104-0269270*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEaiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEaiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiAllRequest extends $dara.Model {
-  /**
-   * @example
-   * i-bp1fvhi60e1zizsp****
-   */
-  clientInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hza1ahi0uuw0re33****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiAllResponseBody extends $dara.Model {
-  /**
-   * @example
-   * AD4EA714-A35B-4710-BF92-8275BCDDB69F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaiAllResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEaiAllResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEaiAllResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaisEiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @example
-   * false
-   */
-  force?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eiInstanceId: 'EiInstanceId',
-      force: 'Force',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eiInstanceId: 'string',
-      force: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * F23AEEC7-4D98-4657-A104-02692701****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisRequest extends $dara.Model {
-  clientInstanceId?: string;
-  /**
-   * @example
-   * ["eais-id1", "eais-id2"]
-   */
-  elasticAcceleratedInstanceIds?: string;
-  /**
-   * @example
-   * eais*
-   */
-  instanceName?: string;
-  /**
-   * @example
-   * eais.ei-a6.2xlarge
-   */
-  instanceType?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 200
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  resourceGroupId?: string;
-  /**
-   * @example
-   * InUse
-   */
-  status?: string;
-  tag?: DescribeEaisRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clientInstanceId: 'ClientInstanceId',
-      elasticAcceleratedInstanceIds: 'ElasticAcceleratedInstanceIds',
-      instanceName: 'InstanceName',
-      instanceType: 'InstanceType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientInstanceId: 'string',
-      elasticAcceleratedInstanceIds: 'string',
-      instanceName: 'string',
-      instanceType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeEaisRequestTag },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponseBody extends $dara.Model {
-  instances?: DescribeEaisResponseBodyInstances;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1E23D585-BBD8-436F-9615-54CACD6*****
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instances: 'Instances',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instances: DescribeEaisResponseBodyInstances,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  validate() {
-    if(this.instances && typeof (this.instances as any).validate === 'function') {
-      (this.instances as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEaisResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEaisResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEaisResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $dara.Model {
-  regions?: DescribeRegionsResponseBodyRegions;
-  /**
-   * @example
-   * F5FEB9AA-C108-577C-AB3D-D13524AF1840
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.regions && typeof (this.regions as any).validate === 'function') {
-      (this.regions as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-sz8t15a7gt7z7j7i****
-   */
-  elasticAcceleratedInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elasticAcceleratedInstanceId: 'ElasticAcceleratedInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elasticAcceleratedInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 04DEB304-2436-4CB9-BB63-468BCEA03D9D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachEaiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachEaiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaisEiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eiInstanceId: 'EiInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eiInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 04DEB304-2436-4CB9-BB63-468BCEA0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetachEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetachEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsRequest extends $dara.Model {
-  /**
-   * @example
-   * 2022-11-22T16:30:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hznzre6ffmz9num4****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * MemoryUsage
-   */
-  metricType?: string;
-  regionId?: string;
-  /**
-   * @example
-   * 2022-11-22T16:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @example
-   * 5m
-   */
-  timeStep?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      metricType: 'MetricType',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-      timeStep: 'TimeStep',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      instanceId: 'string',
-      metricType: 'string',
-      regionId: 'string',
-      startTime: 'string',
-      timeStep: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * eais-bj8b53it29hfhj******
-   */
-  instanceId?: string;
-  podMetrics?: GetInstanceMetricsResponseBodyPodMetrics[];
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      podMetrics: 'PodMetrics',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      podMetrics: { 'type': 'array', 'itemType': GetInstanceMetricsResponseBodyPodMetrics },
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.podMetrics)) {
-      $dara.Model.validateArray(this.podMetrics);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceMetricsResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetInstanceMetricsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetInstanceMetricsResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $dara.Model {
-  /**
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a4884
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a4885
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * F23AEEC7-4D98-4657-A104-02692701****
-   */
-  requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.tagResources)) {
-      $dara.Model.validateArray(this.tagResources);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaiJupyterRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hze3x2gv9wimdj0k****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaiJupyterResponseBody extends $dara.Model {
-  accessDeniedDetail?: StartEaiJupyterResponseBodyAccessDeniedDetail;
-  /**
-   * @example
-   * 04DEB304-2436-4CB9-BB63-468BCEA0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'AccessDeniedDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: StartEaiJupyterResponseBodyAccessDeniedDetail,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
-      (this.accessDeniedDetail as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaiJupyterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartEaiJupyterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartEaiJupyterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaisEiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eiInstanceId: 'EiInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eiInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * F23AEEC7-4D98-4657-A104-02692701****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaiJupyterRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hze3x2gv9wimdj0k****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaiJupyterResponseBody extends $dara.Model {
-  accessDeniedDetail?: StopEaiJupyterResponseBodyAccessDeniedDetail;
-  /**
-   * @example
-   * F5FEB9AA-C108-577C-AB3D-D13524AF****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'AccessDeniedDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: StopEaiJupyterResponseBodyAccessDeniedDetail,
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
-      (this.accessDeniedDetail as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaiJupyterResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopEaiJupyterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopEaiJupyterResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaisEiRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * eais-hzu00xufs1c8j5nn****
-   */
-  eiInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eiInstanceId: 'EiInstanceId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eiInstanceId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaisEiResponseBody extends $dara.Model {
-  /**
-   * @example
-   * F23AEEC7-4D98-4657-A104-02692701****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopEaisEiResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopEaisEiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopEaisEiResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tag)) {
-      $dara.Model.validateArray(this.tag);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.resourceId)) {
-      $dara.Model.validateArray(this.resourceId);
-    }
-    if(Array.isArray(this.tagKey)) {
-      $dara.Model.validateArray(this.tagKey);
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1E23D585-BBD8-436F-9615-54CACD67****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
@@ -4300,7 +89,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachEaiResponse
    */
-  async attachEaiWithOptions(request: AttachEaiRequest, runtime: $dara.RuntimeOptions): Promise<AttachEaiResponse> {
+  async attachEaiWithOptions(request: $_model.AttachEaiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachEaiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientInstanceId)) {
@@ -4329,12 +118,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AttachEaiResponse>(await this.callApi(params, req, runtime), new AttachEaiResponse({}));
-    } else {
-      return $dara.cast<AttachEaiResponse>(await this.execute(params, req, runtime), new AttachEaiResponse({}));
-    }
-
+    return $dara.cast<$_model.AttachEaiResponse>(await this.callApi(params, req, runtime), new $_model.AttachEaiResponse({}));
   }
 
   /**
@@ -4343,7 +127,7 @@ export default class Client extends OpenApi {
    * @param request - AttachEaiRequest
    * @returns AttachEaiResponse
    */
-  async attachEai(request: AttachEaiRequest): Promise<AttachEaiResponse> {
+  async attachEai(request: $_model.AttachEaiRequest): Promise<$_model.AttachEaiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachEaiWithOptions(request, runtime);
   }
@@ -4355,7 +139,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachEaisEiResponse
    */
-  async attachEaisEiWithOptions(request: AttachEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<AttachEaisEiResponse> {
+  async attachEaisEiWithOptions(request: $_model.AttachEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientInstanceId)) {
@@ -4388,12 +172,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<AttachEaisEiResponse>(await this.callApi(params, req, runtime), new AttachEaisEiResponse({}));
-    } else {
-      return $dara.cast<AttachEaisEiResponse>(await this.execute(params, req, runtime), new AttachEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.AttachEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.AttachEaisEiResponse({}));
   }
 
   /**
@@ -4402,7 +181,7 @@ export default class Client extends OpenApi {
    * @param request - AttachEaisEiRequest
    * @returns AttachEaisEiResponse
    */
-  async attachEaisEi(request: AttachEaisEiRequest): Promise<AttachEaisEiResponse> {
+  async attachEaisEi(request: $_model.AttachEaisEiRequest): Promise<$_model.AttachEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachEaisEiWithOptions(request, runtime);
   }
@@ -4414,7 +193,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -4443,12 +222,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
-    } else {
-      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
-    }
-
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
   }
 
   /**
@@ -4457,7 +231,7 @@ export default class Client extends OpenApi {
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
@@ -4469,7 +243,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEaiResponse
    */
-  async createEaiWithOptions(request: CreateEaiRequest, runtime: $dara.RuntimeOptions): Promise<CreateEaiResponse> {
+  async createEaiWithOptions(request: $_model.CreateEaiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEaiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
@@ -4522,12 +296,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEaiResponse>(await this.callApi(params, req, runtime), new CreateEaiResponse({}));
-    } else {
-      return $dara.cast<CreateEaiResponse>(await this.execute(params, req, runtime), new CreateEaiResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEaiResponse>(await this.callApi(params, req, runtime), new $_model.CreateEaiResponse({}));
   }
 
   /**
@@ -4536,7 +305,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEaiRequest
    * @returns CreateEaiResponse
    */
-  async createEai(request: CreateEaiRequest): Promise<CreateEaiResponse> {
+  async createEai(request: $_model.CreateEaiRequest): Promise<$_model.CreateEaiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEaiWithOptions(request, runtime);
   }
@@ -4548,9 +317,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEaiEciResponse
    */
-  async createEaiEciWithOptions(tmpReq: CreateEaiEciRequest, runtime: $dara.RuntimeOptions): Promise<CreateEaiEciResponse> {
+  async createEaiEciWithOptions(tmpReq: $_model.CreateEaiEciRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEaiEciResponse> {
     tmpReq.validate();
-    let request = new CreateEaiEciShrinkRequest({ });
+    let request = new $_model.CreateEaiEciShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.eci)) {
       request.eciShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eci, "Eci", "json");
@@ -4607,12 +376,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEaiEciResponse>(await this.callApi(params, req, runtime), new CreateEaiEciResponse({}));
-    } else {
-      return $dara.cast<CreateEaiEciResponse>(await this.execute(params, req, runtime), new CreateEaiEciResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEaiEciResponse>(await this.callApi(params, req, runtime), new $_model.CreateEaiEciResponse({}));
   }
 
   /**
@@ -4621,7 +385,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEaiEciRequest
    * @returns CreateEaiEciResponse
    */
-  async createEaiEci(request: CreateEaiEciRequest): Promise<CreateEaiEciResponse> {
+  async createEaiEci(request: $_model.CreateEaiEciRequest): Promise<$_model.CreateEaiEciResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEaiEciWithOptions(request, runtime);
   }
@@ -4633,9 +397,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEaiEcsResponse
    */
-  async createEaiEcsWithOptions(tmpReq: CreateEaiEcsRequest, runtime: $dara.RuntimeOptions): Promise<CreateEaiEcsResponse> {
+  async createEaiEcsWithOptions(tmpReq: $_model.CreateEaiEcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEaiEcsResponse> {
     tmpReq.validate();
-    let request = new CreateEaiEcsShrinkRequest({ });
+    let request = new $_model.CreateEaiEcsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.ecs)) {
       request.ecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecs, "Ecs", "json");
@@ -4692,12 +456,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEaiEcsResponse>(await this.callApi(params, req, runtime), new CreateEaiEcsResponse({}));
-    } else {
-      return $dara.cast<CreateEaiEcsResponse>(await this.execute(params, req, runtime), new CreateEaiEcsResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEaiEcsResponse>(await this.callApi(params, req, runtime), new $_model.CreateEaiEcsResponse({}));
   }
 
   /**
@@ -4706,7 +465,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEaiEcsRequest
    * @returns CreateEaiEcsResponse
    */
-  async createEaiEcs(request: CreateEaiEcsRequest): Promise<CreateEaiEcsResponse> {
+  async createEaiEcs(request: $_model.CreateEaiEcsRequest): Promise<$_model.CreateEaiEcsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEaiEcsWithOptions(request, runtime);
   }
@@ -4718,9 +477,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEaiJupyterResponse
    */
-  async createEaiJupyterWithOptions(tmpReq: CreateEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<CreateEaiJupyterResponse> {
+  async createEaiJupyterWithOptions(tmpReq: $_model.CreateEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEaiJupyterResponse> {
     tmpReq.validate();
-    let request = new CreateEaiJupyterShrinkRequest({ });
+    let request = new $_model.CreateEaiJupyterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.environmentVar)) {
       request.environmentVarShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.environmentVar, "EnvironmentVar", "json");
@@ -4777,12 +536,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEaiJupyterResponse>(await this.callApi(params, req, runtime), new CreateEaiJupyterResponse({}));
-    } else {
-      return $dara.cast<CreateEaiJupyterResponse>(await this.execute(params, req, runtime), new CreateEaiJupyterResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEaiJupyterResponse>(await this.callApi(params, req, runtime), new $_model.CreateEaiJupyterResponse({}));
   }
 
   /**
@@ -4791,7 +545,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEaiJupyterRequest
    * @returns CreateEaiJupyterResponse
    */
-  async createEaiJupyter(request: CreateEaiJupyterRequest): Promise<CreateEaiJupyterResponse> {
+  async createEaiJupyter(request: $_model.CreateEaiJupyterRequest): Promise<$_model.CreateEaiJupyterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEaiJupyterWithOptions(request, runtime);
   }
@@ -4803,7 +557,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEaisEiResponse
    */
-  async createEaisEiWithOptions(request: CreateEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<CreateEaisEiResponse> {
+  async createEaisEiWithOptions(request: $_model.CreateEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
@@ -4852,12 +606,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<CreateEaisEiResponse>(await this.callApi(params, req, runtime), new CreateEaisEiResponse({}));
-    } else {
-      return $dara.cast<CreateEaisEiResponse>(await this.execute(params, req, runtime), new CreateEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.CreateEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.CreateEaisEiResponse({}));
   }
 
   /**
@@ -4866,7 +615,7 @@ export default class Client extends OpenApi {
    * @param request - CreateEaisEiRequest
    * @returns CreateEaisEiResponse
    */
-  async createEaisEi(request: CreateEaisEiRequest): Promise<CreateEaisEiResponse> {
+  async createEaisEi(request: $_model.CreateEaisEiRequest): Promise<$_model.CreateEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEaisEiWithOptions(request, runtime);
   }
@@ -4878,7 +627,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEaiResponse
    */
-  async deleteEaiWithOptions(request: DeleteEaiRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEaiResponse> {
+  async deleteEaiWithOptions(request: $_model.DeleteEaiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEaiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.elasticAcceleratedInstanceId)) {
@@ -4907,12 +656,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEaiResponse>(await this.callApi(params, req, runtime), new DeleteEaiResponse({}));
-    } else {
-      return $dara.cast<DeleteEaiResponse>(await this.execute(params, req, runtime), new DeleteEaiResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteEaiResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEaiResponse({}));
   }
 
   /**
@@ -4921,7 +665,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteEaiRequest
    * @returns DeleteEaiResponse
    */
-  async deleteEai(request: DeleteEaiRequest): Promise<DeleteEaiResponse> {
+  async deleteEai(request: $_model.DeleteEaiRequest): Promise<$_model.DeleteEaiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEaiWithOptions(request, runtime);
   }
@@ -4933,7 +677,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEaiAllResponse
    */
-  async deleteEaiAllWithOptions(request: DeleteEaiAllRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEaiAllResponse> {
+  async deleteEaiAllWithOptions(request: $_model.DeleteEaiAllRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEaiAllResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientInstanceId)) {
@@ -4962,12 +706,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEaiAllResponse>(await this.callApi(params, req, runtime), new DeleteEaiAllResponse({}));
-    } else {
-      return $dara.cast<DeleteEaiAllResponse>(await this.execute(params, req, runtime), new DeleteEaiAllResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteEaiAllResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEaiAllResponse({}));
   }
 
   /**
@@ -4976,7 +715,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteEaiAllRequest
    * @returns DeleteEaiAllResponse
    */
-  async deleteEaiAll(request: DeleteEaiAllRequest): Promise<DeleteEaiAllResponse> {
+  async deleteEaiAll(request: $_model.DeleteEaiAllRequest): Promise<$_model.DeleteEaiAllResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEaiAllWithOptions(request, runtime);
   }
@@ -4988,7 +727,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEaisEiResponse
    */
-  async deleteEaisEiWithOptions(request: DeleteEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEaisEiResponse> {
+  async deleteEaisEiWithOptions(request: $_model.DeleteEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.eiInstanceId)) {
@@ -5017,12 +756,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DeleteEaisEiResponse>(await this.callApi(params, req, runtime), new DeleteEaisEiResponse({}));
-    } else {
-      return $dara.cast<DeleteEaisEiResponse>(await this.execute(params, req, runtime), new DeleteEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.DeleteEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEaisEiResponse({}));
   }
 
   /**
@@ -5031,7 +765,7 @@ export default class Client extends OpenApi {
    * @param request - DeleteEaisEiRequest
    * @returns DeleteEaisEiResponse
    */
-  async deleteEaisEi(request: DeleteEaisEiRequest): Promise<DeleteEaisEiResponse> {
+  async deleteEaisEi(request: $_model.DeleteEaisEiRequest): Promise<$_model.DeleteEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEaisEiWithOptions(request, runtime);
   }
@@ -5043,7 +777,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEaisResponse
    */
-  async describeEaisWithOptions(request: DescribeEaisRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEaisResponse> {
+  async describeEaisWithOptions(request: $_model.DescribeEaisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEaisResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.clientInstanceId)) {
@@ -5100,12 +834,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeEaisResponse>(await this.callApi(params, req, runtime), new DescribeEaisResponse({}));
-    } else {
-      return $dara.cast<DescribeEaisResponse>(await this.execute(params, req, runtime), new DescribeEaisResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeEaisResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEaisResponse({}));
   }
 
   /**
@@ -5114,7 +843,7 @@ export default class Client extends OpenApi {
    * @param request - DescribeEaisRequest
    * @returns DescribeEaisResponse
    */
-  async describeEais(request: DescribeEaisRequest): Promise<DescribeEaisResponse> {
+  async describeEais(request: $_model.DescribeEaisRequest): Promise<$_model.DescribeEaisResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEaisWithOptions(request, runtime);
   }
@@ -5126,7 +855,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({ });
     let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
@@ -5139,19 +868,14 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
-    } else {
-      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
-    }
-
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
    * 查询您可以使用的阿里云地域
    * @returns DescribeRegionsResponse
    */
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
   }
@@ -5163,7 +887,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachEaiResponse
    */
-  async detachEaiWithOptions(request: DetachEaiRequest, runtime: $dara.RuntimeOptions): Promise<DetachEaiResponse> {
+  async detachEaiWithOptions(request: $_model.DetachEaiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachEaiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.elasticAcceleratedInstanceId)) {
@@ -5188,12 +912,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DetachEaiResponse>(await this.callApi(params, req, runtime), new DetachEaiResponse({}));
-    } else {
-      return $dara.cast<DetachEaiResponse>(await this.execute(params, req, runtime), new DetachEaiResponse({}));
-    }
-
+    return $dara.cast<$_model.DetachEaiResponse>(await this.callApi(params, req, runtime), new $_model.DetachEaiResponse({}));
   }
 
   /**
@@ -5202,7 +921,7 @@ export default class Client extends OpenApi {
    * @param request - DetachEaiRequest
    * @returns DetachEaiResponse
    */
-  async detachEai(request: DetachEaiRequest): Promise<DetachEaiResponse> {
+  async detachEai(request: $_model.DetachEaiRequest): Promise<$_model.DetachEaiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachEaiWithOptions(request, runtime);
   }
@@ -5214,7 +933,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachEaisEiResponse
    */
-  async detachEaisEiWithOptions(request: DetachEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<DetachEaisEiResponse> {
+  async detachEaisEiWithOptions(request: $_model.DetachEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.eiInstanceId)) {
@@ -5239,12 +958,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<DetachEaisEiResponse>(await this.callApi(params, req, runtime), new DetachEaisEiResponse({}));
-    } else {
-      return $dara.cast<DetachEaisEiResponse>(await this.execute(params, req, runtime), new DetachEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.DetachEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.DetachEaisEiResponse({}));
   }
 
   /**
@@ -5253,7 +967,7 @@ export default class Client extends OpenApi {
    * @param request - DetachEaisEiRequest
    * @returns DetachEaisEiResponse
    */
-  async detachEaisEi(request: DetachEaisEiRequest): Promise<DetachEaisEiResponse> {
+  async detachEaisEi(request: $_model.DetachEaisEiRequest): Promise<$_model.DetachEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachEaisEiWithOptions(request, runtime);
   }
@@ -5265,7 +979,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceMetricsResponse
    */
-  async getInstanceMetricsWithOptions(request: GetInstanceMetricsRequest, runtime: $dara.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
+  async getInstanceMetricsWithOptions(request: $_model.GetInstanceMetricsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceMetricsResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.endTime)) {
@@ -5306,12 +1020,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new GetInstanceMetricsResponse({}));
-    } else {
-      return $dara.cast<GetInstanceMetricsResponse>(await this.execute(params, req, runtime), new GetInstanceMetricsResponse({}));
-    }
-
+    return $dara.cast<$_model.GetInstanceMetricsResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceMetricsResponse({}));
   }
 
   /**
@@ -5320,7 +1029,7 @@ export default class Client extends OpenApi {
    * @param request - GetInstanceMetricsRequest
    * @returns GetInstanceMetricsResponse
    */
-  async getInstanceMetrics(request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
+  async getInstanceMetrics(request: $_model.GetInstanceMetricsRequest): Promise<$_model.GetInstanceMetricsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceMetricsWithOptions(request, runtime);
   }
@@ -5332,7 +1041,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.nextToken)) {
@@ -5369,12 +1078,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
-    } else {
-      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
   }
 
   /**
@@ -5383,7 +1087,7 @@ export default class Client extends OpenApi {
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
@@ -5395,7 +1099,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartEaiJupyterResponse
    */
-  async startEaiJupyterWithOptions(request: StartEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<StartEaiJupyterResponse> {
+  async startEaiJupyterWithOptions(request: $_model.StartEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartEaiJupyterResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
@@ -5420,12 +1124,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartEaiJupyterResponse>(await this.callApi(params, req, runtime), new StartEaiJupyterResponse({}));
-    } else {
-      return $dara.cast<StartEaiJupyterResponse>(await this.execute(params, req, runtime), new StartEaiJupyterResponse({}));
-    }
-
+    return $dara.cast<$_model.StartEaiJupyterResponse>(await this.callApi(params, req, runtime), new $_model.StartEaiJupyterResponse({}));
   }
 
   /**
@@ -5434,7 +1133,7 @@ export default class Client extends OpenApi {
    * @param request - StartEaiJupyterRequest
    * @returns StartEaiJupyterResponse
    */
-  async startEaiJupyter(request: StartEaiJupyterRequest): Promise<StartEaiJupyterResponse> {
+  async startEaiJupyter(request: $_model.StartEaiJupyterRequest): Promise<$_model.StartEaiJupyterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startEaiJupyterWithOptions(request, runtime);
   }
@@ -5446,7 +1145,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartEaisEiResponse
    */
-  async startEaisEiWithOptions(request: StartEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<StartEaisEiResponse> {
+  async startEaisEiWithOptions(request: $_model.StartEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.eiInstanceId)) {
@@ -5471,12 +1170,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StartEaisEiResponse>(await this.callApi(params, req, runtime), new StartEaisEiResponse({}));
-    } else {
-      return $dara.cast<StartEaisEiResponse>(await this.execute(params, req, runtime), new StartEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.StartEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.StartEaisEiResponse({}));
   }
 
   /**
@@ -5485,7 +1179,7 @@ export default class Client extends OpenApi {
    * @param request - StartEaisEiRequest
    * @returns StartEaisEiResponse
    */
-  async startEaisEi(request: StartEaisEiRequest): Promise<StartEaisEiResponse> {
+  async startEaisEi(request: $_model.StartEaisEiRequest): Promise<$_model.StartEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startEaisEiWithOptions(request, runtime);
   }
@@ -5497,7 +1191,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopEaiJupyterResponse
    */
-  async stopEaiJupyterWithOptions(request: StopEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<StopEaiJupyterResponse> {
+  async stopEaiJupyterWithOptions(request: $_model.StopEaiJupyterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopEaiJupyterResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
@@ -5522,12 +1216,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopEaiJupyterResponse>(await this.callApi(params, req, runtime), new StopEaiJupyterResponse({}));
-    } else {
-      return $dara.cast<StopEaiJupyterResponse>(await this.execute(params, req, runtime), new StopEaiJupyterResponse({}));
-    }
-
+    return $dara.cast<$_model.StopEaiJupyterResponse>(await this.callApi(params, req, runtime), new $_model.StopEaiJupyterResponse({}));
   }
 
   /**
@@ -5536,7 +1225,7 @@ export default class Client extends OpenApi {
    * @param request - StopEaiJupyterRequest
    * @returns StopEaiJupyterResponse
    */
-  async stopEaiJupyter(request: StopEaiJupyterRequest): Promise<StopEaiJupyterResponse> {
+  async stopEaiJupyter(request: $_model.StopEaiJupyterRequest): Promise<$_model.StopEaiJupyterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopEaiJupyterWithOptions(request, runtime);
   }
@@ -5548,7 +1237,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopEaisEiResponse
    */
-  async stopEaisEiWithOptions(request: StopEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<StopEaisEiResponse> {
+  async stopEaisEiWithOptions(request: $_model.StopEaisEiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopEaisEiResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.eiInstanceId)) {
@@ -5573,12 +1262,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<StopEaisEiResponse>(await this.callApi(params, req, runtime), new StopEaisEiResponse({}));
-    } else {
-      return $dara.cast<StopEaisEiResponse>(await this.execute(params, req, runtime), new StopEaisEiResponse({}));
-    }
-
+    return $dara.cast<$_model.StopEaisEiResponse>(await this.callApi(params, req, runtime), new $_model.StopEaisEiResponse({}));
   }
 
   /**
@@ -5587,7 +1271,7 @@ export default class Client extends OpenApi {
    * @param request - StopEaisEiRequest
    * @returns StopEaisEiResponse
    */
-  async stopEaisEi(request: StopEaisEiRequest): Promise<StopEaisEiResponse> {
+  async stopEaisEi(request: $_model.StopEaisEiRequest): Promise<$_model.StopEaisEiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopEaisEiWithOptions(request, runtime);
   }
@@ -5599,7 +1283,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.regionId)) {
@@ -5632,12 +1316,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
-    } else {
-      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
   }
 
   /**
@@ -5646,7 +1325,7 @@ export default class Client extends OpenApi {
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
    */
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
@@ -5658,7 +1337,7 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
     request.validate();
     let query = { };
     if (!$dara.isNull(request.all)) {
@@ -5695,12 +1374,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
-    } else {
-      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
-    }
-
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
   }
 
   /**
@@ -5709,7 +1383,7 @@ export default class Client extends OpenApi {
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
    */
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
