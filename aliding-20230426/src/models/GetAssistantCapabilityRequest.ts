@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetAssistantCapabilityRequestExtLoginUser extends $dara.Model {
+  /**
+   * @example
+   * mozi
+   */
+  extLoginUserDomain?: string;
+  /**
+   * @example
+   * outeruserId123
+   */
+  extLoginUserId?: string;
+  /**
+   * @example
+   * 外部游客1
+   */
+  extLoginUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extLoginUserDomain: 'extLoginUserDomain',
+      extLoginUserId: 'extLoginUserId',
+      extLoginUserName: 'extLoginUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extLoginUserDomain: 'string',
+      extLoginUserId: 'string',
+      extLoginUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAssistantCapabilityRequestMessagesContentCardCallback extends $dara.Model {
   /**
    * @remarks
@@ -835,6 +876,7 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
    * assistantId1
    */
   assistantId?: string;
+  extLoginUser?: GetAssistantCapabilityRequestExtLoginUser;
   /**
    * @remarks
    * This parameter is required.
@@ -873,6 +915,7 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
+      extLoginUser: 'extLoginUser',
       messages: 'messages',
       originalAssistantId: 'originalAssistantId',
       protocol: 'protocol',
@@ -886,6 +929,7 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
+      extLoginUser: GetAssistantCapabilityRequestExtLoginUser,
       messages: { 'type': 'array', 'itemType': GetAssistantCapabilityRequestMessages },
       originalAssistantId: 'string',
       protocol: 'string',
@@ -897,6 +941,9 @@ export class GetAssistantCapabilityRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.extLoginUser && typeof (this.extLoginUser as any).validate === 'function') {
+      (this.extLoginUser as any).validate();
+    }
     if(Array.isArray(this.messages)) {
       $dara.Model.validateArray(this.messages);
     }

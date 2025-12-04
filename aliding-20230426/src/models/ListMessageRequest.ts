@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListMessageRequestExtLoginUser extends $dara.Model {
+  /**
+   * @example
+   * mozi
+   */
+  extLoginUserDomain?: string;
+  /**
+   * @example
+   * outeruserId123
+   */
+  extLoginUserId?: string;
+  /**
+   * @example
+   * 外部游客1
+   */
+  extLoginUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extLoginUserDomain: 'extLoginUserDomain',
+      extLoginUserId: 'extLoginUserId',
+      extLoginUserName: 'extLoginUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extLoginUserDomain: 'string',
+      extLoginUserId: 'string',
+      extLoginUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMessageRequest extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +52,7 @@ export class ListMessageRequest extends $dara.Model {
    * assistantId1
    */
   assistantId?: string;
+  extLoginUser?: ListMessageRequestExtLoginUser;
   /**
    * @example
    * 20
@@ -52,6 +94,7 @@ export class ListMessageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
+      extLoginUser: 'extLoginUser',
       limit: 'limit',
       order: 'order',
       originalAssistantId: 'originalAssistantId',
@@ -65,6 +108,7 @@ export class ListMessageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
+      extLoginUser: ListMessageRequestExtLoginUser,
       limit: 'number',
       order: 'string',
       originalAssistantId: 'string',
@@ -76,6 +120,9 @@ export class ListMessageRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.extLoginUser && typeof (this.extLoginUser as any).validate === 'function') {
+      (this.extLoginUser as any).validate();
+    }
     super.validate();
   }
 

@@ -134,6 +134,7 @@ export { CreateMeetingRoomRequestRoomLocation } from './CreateMeetingRoomRequest
 export { CreateMeetingRoomRequestTenantContext } from './CreateMeetingRoomRequest';
 export { CreateMeetingRoomGroupHeadersAccountContext } from './CreateMeetingRoomGroupHeaders';
 export { CreateMeetingRoomGroupRequestTenantContext } from './CreateMeetingRoomGroupRequest';
+export { CreateMessageRequestExtLoginUser } from './CreateMessageRequest';
 export { CreateMessageRequestMessagesContentCardCallback } from './CreateMessageRequest';
 export { CreateMessageRequestMessagesContentDingCard } from './CreateMessageRequest';
 export { CreateMessageRequestMessagesContentDingNormalCardCardData } from './CreateMessageRequest';
@@ -185,6 +186,7 @@ export { CreatePersonalTodoTaskRequestTenantContext } from './CreatePersonalTodo
 export { CreateReportHeadersAccountContext } from './CreateReportHeaders';
 export { CreateReportRequestContents } from './CreateReportRequest';
 export { CreateReportRequestTenantContext } from './CreateReportRequest';
+export { CreateRunRequestExtLoginUser } from './CreateRunRequest';
 export { CreateRunResponseBodyMessagesContentCardCallback } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentDingCard } from './CreateRunResponseBody';
 export { CreateRunResponseBodyMessagesContentDingNormalCardCardData } from './CreateRunResponseBody';
@@ -230,6 +232,7 @@ export { CreateSheetHeadersAccountContext } from './CreateSheetHeaders';
 export { CreateSheetRequestTenantContext } from './CreateSheetRequest';
 export { CreateSubscribedCalendarHeadersAccountContext } from './CreateSubscribedCalendarHeaders';
 export { CreateSubscribedCalendarRequestSubscribeScope } from './CreateSubscribedCalendarRequest';
+export { CreateThreadRequestExtLoginUser } from './CreateThreadRequest';
 export { CreateThreadResponseBodyThread } from './CreateThreadResponseBody';
 export { CreateTicketHeadersAccountContext } from './CreateTicketHeaders';
 export { CreateTicketRequestNotify } from './CreateTicketRequest';
@@ -317,6 +320,7 @@ export { GetAlidingAssistantInfoRequestTenantContext } from './GetAlidingAssista
 export { GetAllSheetsHeadersAccountContext } from './GetAllSheetsHeaders';
 export { GetAllSheetsRequestTenantContext } from './GetAllSheetsRequest';
 export { GetAllSheetsResponseBodyValue } from './GetAllSheetsResponseBody';
+export { GetAssistantCapabilityRequestExtLoginUser } from './GetAssistantCapabilityRequest';
 export { GetAssistantCapabilityRequestMessagesContentCardCallback } from './GetAssistantCapabilityRequest';
 export { GetAssistantCapabilityRequestMessagesContentDingCard } from './GetAssistantCapabilityRequest';
 export { GetAssistantCapabilityRequestMessagesContentDingNormalCardCardData } from './GetAssistantCapabilityRequest';
@@ -587,6 +591,7 @@ export { InviteUsersHeadersAccountContext } from './InviteUsersHeaders';
 export { InviteUsersRequestInviteeList } from './InviteUsersRequest';
 export { InviteUsersRequestTenantContext } from './InviteUsersRequest';
 export { InviteUsersRequestPhoneInviteeList } from './InviteUsersRequest';
+export { InvokeAssistantRequestExtLoginUser } from './InvokeAssistantRequest';
 export { InvokeAssistantRequestMessagesContentCardCallback } from './InvokeAssistantRequest';
 export { InvokeAssistantRequestMessagesContentDingCard } from './InvokeAssistantRequest';
 export { InvokeAssistantRequestMessagesContentDingNormalCardCardData } from './InvokeAssistantRequest';
@@ -677,6 +682,7 @@ export { ListEventsViewResponseBodyEventsRichTextDescription } from './ListEvent
 export { ListEventsViewResponseBodyEventsStart } from './ListEventsViewResponseBody';
 export { ListEventsViewResponseBodyEvents } from './ListEventsViewResponseBody';
 export { ListFormRemarksHeadersAccountContext } from './ListFormRemarksHeaders';
+export { ListMessageRequestExtLoginUser } from './ListMessageRequest';
 export { ListMessageResponseBodyMessagesContentCardCallback } from './ListMessageResponseBody';
 export { ListMessageResponseBodyMessagesContentDingCard } from './ListMessageResponseBody';
 export { ListMessageResponseBodyMessagesContentDingNormalCardCardData } from './ListMessageResponseBody';
@@ -880,6 +886,7 @@ export { RemoveMeetingRoomsHeadersAccountContext } from './RemoveMeetingRoomsHea
 export { RemoveMeetingRoomsRequestMeetingRoomsToRemove } from './RemoveMeetingRoomsRequest';
 export { RespondEventHeadersAccountContext } from './RespondEventHeaders';
 export { RespondEventRequestTenantContext } from './RespondEventRequest';
+export { RetrieveRunRequestExtLoginUser } from './RetrieveRunRequest';
 export { RetrieveRunResponseBodyRun } from './RetrieveRunResponseBody';
 export { SaveContentHeadersAccountContext } from './SaveContentHeaders';
 export { SaveContentRequestContents } from './SaveContentRequest';

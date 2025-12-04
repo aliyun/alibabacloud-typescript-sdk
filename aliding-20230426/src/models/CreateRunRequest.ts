@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateRunRequestExtLoginUser extends $dara.Model {
+  /**
+   * @example
+   * mozi
+   */
+  extLoginUserDomain?: string;
+  /**
+   * @example
+   * outeruserId123
+   */
+  extLoginUserId?: string;
+  /**
+   * @example
+   * 外部游客1
+   */
+  extLoginUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extLoginUserDomain: 'extLoginUserDomain',
+      extLoginUserId: 'extLoginUserId',
+      extLoginUserName: 'extLoginUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extLoginUserDomain: 'string',
+      extLoginUserId: 'string',
+      extLoginUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRunRequest extends $dara.Model {
   allowStructViewContent?: boolean;
   /**
@@ -12,6 +53,7 @@ export class CreateRunRequest extends $dara.Model {
    * assistantId1
    */
   assistantId?: string;
+  extLoginUser?: CreateRunRequestExtLoginUser;
   /**
    * @example
    * assistantId
@@ -44,6 +86,7 @@ export class CreateRunRequest extends $dara.Model {
     return {
       allowStructViewContent: 'allowStructViewContent',
       assistantId: 'assistantId',
+      extLoginUser: 'extLoginUser',
       originalAssistantId: 'originalAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
@@ -56,6 +99,7 @@ export class CreateRunRequest extends $dara.Model {
     return {
       allowStructViewContent: 'boolean',
       assistantId: 'string',
+      extLoginUser: CreateRunRequestExtLoginUser,
       originalAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
       sourceTypeOfOriginalAssistantId: 'string',
@@ -65,6 +109,9 @@ export class CreateRunRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.extLoginUser && typeof (this.extLoginUser as any).validate === 'function') {
+      (this.extLoginUser as any).validate();
+    }
     super.validate();
   }
 

@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateThreadRequestExtLoginUser extends $dara.Model {
+  /**
+   * @example
+   * mozi
+   */
+  extLoginUserDomain?: string;
+  /**
+   * @example
+   * outeruserId123
+   */
+  extLoginUserId?: string;
+  /**
+   * @example
+   * 外部游客1
+   */
+  extLoginUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extLoginUserDomain: 'extLoginUserDomain',
+      extLoginUserId: 'extLoginUserId',
+      extLoginUserName: 'extLoginUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extLoginUserDomain: 'string',
+      extLoginUserId: 'string',
+      extLoginUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateThreadRequest extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +52,7 @@ export class CreateThreadRequest extends $dara.Model {
    * assistantId1
    */
   assistantId?: string;
+  extLoginUser?: CreateThreadRequestExtLoginUser;
   /**
    * @example
    * assistantId
@@ -25,6 +67,7 @@ export class CreateThreadRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       assistantId: 'assistantId',
+      extLoginUser: 'extLoginUser',
       originalAssistantId: 'originalAssistantId',
       sourceIdOfOriginalAssistantId: 'sourceIdOfOriginalAssistantId',
       sourceTypeOfOriginalAssistantId: 'sourceTypeOfOriginalAssistantId',
@@ -34,6 +77,7 @@ export class CreateThreadRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       assistantId: 'string',
+      extLoginUser: CreateThreadRequestExtLoginUser,
       originalAssistantId: 'string',
       sourceIdOfOriginalAssistantId: 'string',
       sourceTypeOfOriginalAssistantId: 'number',
@@ -41,6 +85,9 @@ export class CreateThreadRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.extLoginUser && typeof (this.extLoginUser as any).validate === 'function') {
+      (this.extLoginUser as any).validate();
+    }
     super.validate();
   }
 

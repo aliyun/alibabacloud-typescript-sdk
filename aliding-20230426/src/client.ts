@@ -3198,6 +3198,10 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
+    }
+
     if (!$dara.isNull(request.messages)) {
       body["messages"] = request.messages;
     }
@@ -3752,6 +3756,10 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
+    }
+
     if (!$dara.isNull(request.originalAssistantId)) {
       body["originalAssistantId"] = request.originalAssistantId;
     }
@@ -3829,6 +3837,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.originalAssistantId)) {
@@ -4461,6 +4473,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.originalAssistantId)) {
@@ -7453,6 +7469,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.messages)) {
@@ -12833,6 +12853,10 @@ export default class Client extends OpenApi {
       body["assistantId"] = request.assistantId;
     }
 
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
+    }
+
     if (!$dara.isNull(request.messages)) {
       body["messages"] = request.messages;
     }
@@ -12910,6 +12934,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.messages)) {
@@ -13713,6 +13741,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.limit)) {
@@ -17237,6 +17269,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.assistantId)) {
       body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.extLoginUser)) {
+      body["extLoginUser"] = request.extLoginUser;
     }
 
     if (!$dara.isNull(request.originalAssistantId)) {
