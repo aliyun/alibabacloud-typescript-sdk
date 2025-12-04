@@ -220,6 +220,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CancelCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelCallResponse
+   */
+  async cancelCallWithOptions(request: $_model.CancelCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelCall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelCallResponse>(await this.callApi(params, req, runtime), new $_model.CancelCallResponse({}));
+  }
+
+  /**
+   * @param request - CancelCallRequest
+   * @returns CancelCallResponse
+   */
+  async cancelCall(request: $_model.CancelCallRequest): Promise<$_model.CancelCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelCallWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels a robocall task that has not been started.
    * 
    * @remarks
@@ -2551,6 +2601,146 @@ export default class Client extends OpenApi {
   async queryVirtualNumberRelation(request: $_model.QueryVirtualNumberRelationRequest): Promise<$_model.QueryVirtualNumberRelationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryVirtualNumberRelationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询真实号接通率
+   * 
+   * @param request - QueryVmsRealNumberCallConnectionRateInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVmsRealNumberCallConnectionRateInfoResponse
+   */
+  async queryVmsRealNumberCallConnectionRateInfoWithOptions(request: $_model.QueryVmsRealNumberCallConnectionRateInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVmsRealNumberCallConnectionRateInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.realNumber)) {
+      query["RealNumber"] = request.realNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.timePeriod)) {
+      query["TimePeriod"] = request.timePeriod;
+    }
+
+    if (!$dara.isNull(request.virtualNumber)) {
+      query["VirtualNumber"] = request.virtualNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVmsRealNumberCallConnectionRateInfo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVmsRealNumberCallConnectionRateInfoResponse>(await this.callApi(params, req, runtime), new $_model.QueryVmsRealNumberCallConnectionRateInfoResponse({}));
+  }
+
+  /**
+   * 查询真实号接通率
+   * 
+   * @param request - QueryVmsRealNumberCallConnectionRateInfoRequest
+   * @returns QueryVmsRealNumberCallConnectionRateInfoResponse
+   */
+  async queryVmsRealNumberCallConnectionRateInfo(request: $_model.QueryVmsRealNumberCallConnectionRateInfoRequest): Promise<$_model.QueryVmsRealNumberCallConnectionRateInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVmsRealNumberCallConnectionRateInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询虚拟号码与真实号码绑定关系列表
+   * 
+   * @param request - QueryVmsVirtualNumberRelationByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryVmsVirtualNumberRelationByPageResponse
+   */
+  async queryVmsVirtualNumberRelationByPageWithOptions(request: $_model.QueryVmsVirtualNumberRelationByPageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVmsVirtualNumberRelationByPageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.numberCity)) {
+      query["NumberCity"] = request.numberCity;
+    }
+
+    if (!$dara.isNull(request.numberProvince)) {
+      query["NumberProvince"] = request.numberProvince;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.realNumber)) {
+      query["RealNumber"] = request.realNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!$dara.isNull(request.virtualNumber)) {
+      query["VirtualNumber"] = request.virtualNumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryVmsVirtualNumberRelationByPage",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryVmsVirtualNumberRelationByPageResponse>(await this.callApi(params, req, runtime), new $_model.QueryVmsVirtualNumberRelationByPageResponse({}));
+  }
+
+  /**
+   * 查询虚拟号码与真实号码绑定关系列表
+   * 
+   * @param request - QueryVmsVirtualNumberRelationByPageRequest
+   * @returns QueryVmsVirtualNumberRelationByPageResponse
+   */
+  async queryVmsVirtualNumberRelationByPage(request: $_model.QueryVmsVirtualNumberRelationByPageRequest): Promise<$_model.QueryVmsVirtualNumberRelationByPageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryVmsVirtualNumberRelationByPageWithOptions(request, runtime);
   }
 
   /**
