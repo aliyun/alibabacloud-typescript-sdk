@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsRequest extends $dara.Model {
   /**
    * @example
+   * Default
+   */
+  jobType?: string;
+  /**
+   * @example
    * 1
    */
   pageNumber?: number;
@@ -21,6 +26,7 @@ export class ListJobsRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      jobType: 'jobType',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       status: 'status',
@@ -30,6 +36,7 @@ export class ListJobsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       status: 'string',

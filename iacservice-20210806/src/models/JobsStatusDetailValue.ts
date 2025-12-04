@@ -7,12 +7,12 @@ export class JobsStatusDetailValue extends $dara.Model {
    * @example
    * ""
    */
-  jobResult?: string;
+  comment?: string;
   /**
    * @example
    * ""
    */
-  comment?: string;
+  jobResult?: string;
   /**
    * @example
    * 2022-06-13 17:11:34
@@ -20,16 +20,16 @@ export class JobsStatusDetailValue extends $dara.Model {
   timeStamps?: string;
   static names(): { [key: string]: string } {
     return {
-      jobResult: 'jobResult',
       comment: 'comment',
+      jobResult: 'jobResult',
       timeStamps: 'timeStamps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobResult: 'string',
       comment: 'string',
+      jobResult: 'string',
       timeStamps: 'string',
     };
   }

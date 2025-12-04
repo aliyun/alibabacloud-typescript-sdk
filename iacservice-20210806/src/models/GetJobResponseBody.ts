@@ -127,6 +127,11 @@ export class GetJobResponseBodyJob extends $dara.Model {
    * job-518855d9a058cfff0dc933e6b5767
    */
   jobId?: string;
+  /**
+   * @example
+   * Default
+   */
+  jobType?: string;
   logFile?: { [key: string]: any };
   /**
    * @example
@@ -159,6 +164,7 @@ export class GetJobResponseBodyJob extends $dara.Model {
       executeType: 'executeType',
       isPassAssertCheck: 'isPassAssertCheck',
       jobId: 'jobId',
+      jobType: 'jobType',
       logFile: 'logFile',
       output: 'output',
       outputJsonPlan: 'outputJsonPlan',
@@ -182,6 +188,7 @@ export class GetJobResponseBodyJob extends $dara.Model {
       executeType: 'string',
       isPassAssertCheck: 'boolean',
       jobId: 'string',
+      jobType: 'string',
       logFile: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       output: 'string',
       outputJsonPlan: 'any',

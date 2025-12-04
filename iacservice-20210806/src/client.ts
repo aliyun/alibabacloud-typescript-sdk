@@ -2223,6 +2223,10 @@ export default class Client extends OpenApi {
   async listJobsWithOptions(taskId: string, request: $_model.ListJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobType)) {
+      query["jobType"] = request.jobType;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
