@@ -29,6 +29,11 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
   corpId?: string;
   /**
    * @remarks
+   * IDaaS EIAM 钉钉扫码登录版本
+   */
+  dingtalkLoginVersion?: string;
+  /**
+   * @remarks
    * DingTalk Version.
    * 
    * @example
@@ -56,6 +61,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
       appKey: 'AppKey',
       appSecret: 'AppSecret',
       corpId: 'CorpId',
+      dingtalkLoginVersion: 'DingtalkLoginVersion',
       dingtalkVersion: 'DingtalkVersion',
       encryptKey: 'EncryptKey',
       verificationToken: 'VerificationToken',
@@ -67,6 +73,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppCon
       appKey: 'string',
       appSecret: 'string',
       corpId: 'string',
+      dingtalkLoginVersion: 'string',
       dingtalkVersion: 'string',
       encryptKey: 'string',
       verificationToken: 'string',

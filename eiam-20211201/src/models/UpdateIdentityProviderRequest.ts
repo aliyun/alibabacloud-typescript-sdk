@@ -19,12 +19,18 @@ export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
    * 86nozWFL2CxgwnhKiXaG8dN4keLPkUNc5xxxx
    */
   appSecret?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  dingtalkLoginVersion?: string;
   encryptKey?: string;
   verificationToken?: string;
   static names(): { [key: string]: string } {
     return {
       appKey: 'AppKey',
       appSecret: 'AppSecret',
+      dingtalkLoginVersion: 'DingtalkLoginVersion',
       encryptKey: 'EncryptKey',
       verificationToken: 'VerificationToken',
     };
@@ -34,6 +40,7 @@ export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
     return {
       appKey: 'string',
       appSecret: 'string',
+      dingtalkLoginVersion: 'string',
       encryptKey: 'string',
       verificationToken: 'string',
     };
