@@ -29,6 +29,32 @@ export class DescribeNodeGroupsResponseBodyDataNodeInfo extends $dara.Model {
   }
 }
 
+export class DescribeNodeGroupsResponseBodyDataTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -172,6 +198,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
    * 100
    */
   storageSize?: number;
+  tags?: DescribeNodeGroupsResponseBodyDataTags[];
   /**
    * @example
    * 3
@@ -214,6 +241,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
       status: 'Status',
       storagePerformanceLevel: 'StoragePerformanceLevel',
       storageSize: 'StorageSize',
+      tags: 'Tags',
       targetElasticNodeNumber: 'TargetElasticNodeNumber',
       zoneId: 'ZoneId',
     };
@@ -251,6 +279,7 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
       status: 'string',
       storagePerformanceLevel: 'string',
       storageSize: 'number',
+      tags: { 'type': 'array', 'itemType': DescribeNodeGroupsResponseBodyDataTags },
       targetElasticNodeNumber: 'number',
       zoneId: 'string',
     };
@@ -259,6 +288,9 @@ export class DescribeNodeGroupsResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.nodeInfo)) {
       $dara.Model.validateArray(this.nodeInfo);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

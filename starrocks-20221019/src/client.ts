@@ -121,6 +121,14 @@ export default class Client extends OpenApi {
       body["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dlfCatalogName)) {
+      body["DlfCatalogName"] = request.dlfCatalogName;
+    }
+
+    if (!$dara.isNull(request.dlfCatalogType)) {
+      body["DlfCatalogType"] = request.dlfCatalogType;
+    }
+
     if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
@@ -145,6 +153,10 @@ export default class Client extends OpenApi {
       body["KmsKeyId"] = request.kmsKeyId;
     }
 
+    if (!$dara.isNull(request.linkedRamUserName)) {
+      body["LinkedRamUserName"] = request.linkedRamUserName;
+    }
+
     if (!$dara.isNull(request.observerNodeGroups)) {
       body["ObserverNodeGroups"] = request.observerNodeGroups;
     }
@@ -165,8 +177,16 @@ export default class Client extends OpenApi {
       body["PricingCycle"] = request.pricingCycle;
     }
 
+    if (!$dara.isNull(request.principalType)) {
+      body["PrincipalType"] = request.principalType;
+    }
+
     if (!$dara.isNull(request.promotionOptionNo)) {
       body["PromotionOptionNo"] = request.promotionOptionNo;
+    }
+
+    if (!$dara.isNull(request.ramUserId)) {
+      body["RamUserId"] = request.ramUserId;
     }
 
     if (!$dara.isNull(request.regionId)) {

@@ -353,6 +353,16 @@ export class CreateInstanceV1Request extends $dara.Model {
   clientToken?: string;
   /**
    * @example
+   * paimon_test
+   */
+  dlfCatalogName?: string;
+  /**
+   * @example
+   * paimon
+   */
+  dlfCatalogType?: string;
+  /**
+   * @example
    * 1
    */
   duration?: number;
@@ -376,6 +386,11 @@ export class CreateInstanceV1Request extends $dara.Model {
    * fdsdf****
    */
   kmsKeyId?: string;
+  /**
+   * @example
+   * aliyun.test1
+   */
+  linkedRamUserName?: string;
   observerNodeGroups?: CreateInstanceV1RequestObserverNodeGroups[];
   /**
    * @example
@@ -405,9 +420,19 @@ export class CreateInstanceV1Request extends $dara.Model {
   pricingCycle?: string;
   /**
    * @example
+   * RR
+   */
+  principalType?: string;
+  /**
+   * @example
    * 165445235634
    */
   promotionOptionNo?: string;
+  /**
+   * @example
+   * 123456
+   */
+  ramUserId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -465,18 +490,23 @@ export class CreateInstanceV1Request extends $dara.Model {
       autoRenew: 'AutoRenew',
       backendNodeGroups: 'BackendNodeGroups',
       clientToken: 'ClientToken',
+      dlfCatalogName: 'DlfCatalogName',
+      dlfCatalogType: 'DlfCatalogType',
       duration: 'Duration',
       encrypted: 'Encrypted',
       frontendNodeGroups: 'FrontendNodeGroups',
       gatewayType: 'GatewayType',
       instanceName: 'InstanceName',
       kmsKeyId: 'KmsKeyId',
+      linkedRamUserName: 'LinkedRamUserName',
       observerNodeGroups: 'ObserverNodeGroups',
       ossAccessingRoleName: 'OssAccessingRoleName',
       packageType: 'PackageType',
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
+      principalType: 'PrincipalType',
       promotionOptionNo: 'PromotionOptionNo',
+      ramUserId: 'RamUserId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       runMode: 'RunMode',
@@ -496,18 +526,23 @@ export class CreateInstanceV1Request extends $dara.Model {
       autoRenew: 'boolean',
       backendNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestBackendNodeGroups },
       clientToken: 'string',
+      dlfCatalogName: 'string',
+      dlfCatalogType: 'string',
       duration: 'number',
       encrypted: 'boolean',
       frontendNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestFrontendNodeGroups },
       gatewayType: 'string',
       instanceName: 'string',
       kmsKeyId: 'string',
+      linkedRamUserName: 'string',
       observerNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestObserverNodeGroups },
       ossAccessingRoleName: 'string',
       packageType: 'string',
       payType: 'string',
       pricingCycle: 'string',
+      principalType: 'string',
       promotionOptionNo: 'string',
+      ramUserId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       runMode: 'string',

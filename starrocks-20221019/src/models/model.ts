@@ -10,6 +10,7 @@ export { DescribeInstancesResponseBodyDataTags } from './DescribeInstancesRespon
 export { DescribeInstancesResponseBodyDataVSwitches } from './DescribeInstancesResponseBody';
 export { DescribeInstancesResponseBodyData } from './DescribeInstancesResponseBody';
 export { DescribeNodeGroupsResponseBodyDataNodeInfo } from './DescribeNodeGroupsResponseBody';
+export { DescribeNodeGroupsResponseBodyDataTags } from './DescribeNodeGroupsResponseBody';
 export { DescribeNodeGroupsResponseBodyData } from './DescribeNodeGroupsResponseBody';
 export { ModifyCuPreCheckResponseBodyData } from './ModifyCuPreCheckResponseBody';
 export { ModifyNodeNumberPreCheckResponseBodyData } from './ModifyNodeNumberPreCheckResponseBody';
