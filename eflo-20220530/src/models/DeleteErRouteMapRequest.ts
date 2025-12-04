@@ -13,11 +13,10 @@ export class DeleteErRouteMapRequest extends $dara.Model {
    * er-kkopgtne
    */
   erId?: string;
+  erRouteMapId?: string;
   /**
    * @remarks
    * routing policy Instance ID List
-   * 
-   * This parameter is required.
    */
   erRouteMapIds?: string[];
   /**
@@ -33,6 +32,7 @@ export class DeleteErRouteMapRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       erId: 'ErId',
+      erRouteMapId: 'ErRouteMapId',
       erRouteMapIds: 'ErRouteMapIds',
       regionId: 'RegionId',
     };
@@ -41,6 +41,7 @@ export class DeleteErRouteMapRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       erId: 'string',
+      erRouteMapId: 'string',
       erRouteMapIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };

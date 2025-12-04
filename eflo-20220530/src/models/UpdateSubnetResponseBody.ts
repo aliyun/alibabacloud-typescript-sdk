@@ -1,7 +1,36 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateSubnetResponseBodyContent } from "./UpdateSubnetResponseBodyContent";
 
+
+export class UpdateSubnetResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * The subnet instance ID.
+   * 
+   * @example
+   * subnet-yuvn29bn
+   */
+  subnetId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subnetId: 'SubnetId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subnetId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class UpdateSubnetResponseBody extends $dara.Model {
   /**

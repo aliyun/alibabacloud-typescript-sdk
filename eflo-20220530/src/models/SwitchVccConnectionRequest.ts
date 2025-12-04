@@ -2,26 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListVccFlowInfosResponseBodyContentData extends $dara.Model {
+export class SwitchVccConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction.
+   * CEN
    * 
    * @example
-   * OUT
+   * cen-bkiw0x1347roek****
    */
-  direction?: string;
+  cenId?: string;
   /**
    * @remarks
-   * The metric. Valid values:
+   * Connection type, CENTR/VPC
    * 
    * @example
-   * passBytesRate
+   * CENTR
    */
-  metricName?: string;
+  connectionType?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-wulanchabu
@@ -29,47 +31,49 @@ export class ListVccFlowInfosResponseBodyContentData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Time
+   * vSwitch ID
    * 
    * @example
-   * 1689749749000
+   * vsw-t4nahb0pxckgktxfv****
    */
-  timestamp?: number;
+  vSwitchId?: string;
   /**
    * @remarks
-   * Value
+   * Cloud Connect Network (CCN) ID
+   * 
+   * This parameter is required.
    * 
    * @example
-   * 123
-   */
-  value?: number;
-  /**
-   * @remarks
-   * Lingjun Connection ID
-   * 
-   * @example
-   * vcc-cn-zvp2w******
+   * vcc-cn-zvp2w22****
    */
   vccId?: string;
+  /**
+   * @remarks
+   * VPC ID
+   * 
+   * @example
+   * vpc-uf6aa4ddo97frj22t****
+   */
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      direction: 'Direction',
-      metricName: 'MetricName',
+      cenId: 'CenId',
+      connectionType: 'ConnectionType',
       regionId: 'RegionId',
-      timestamp: 'Timestamp',
-      value: 'Value',
+      vSwitchId: 'VSwitchId',
       vccId: 'VccId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      direction: 'string',
-      metricName: 'string',
+      cenId: 'string',
+      connectionType: 'string',
       regionId: 'string',
-      timestamp: 'number',
-      value: 'number',
+      vSwitchId: 'string',
       vccId: 'string',
+      vpcId: 'string',
     };
   }
 

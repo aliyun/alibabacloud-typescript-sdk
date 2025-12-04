@@ -1318,6 +1318,10 @@ export default class Client extends OpenApi {
       body["ErId"] = request.erId;
     }
 
+    if (!$dara.isNull(request.erRouteMapId)) {
+      body["ErRouteMapId"] = request.erRouteMapId;
+    }
+
     if (!$dara.isNull(request.erRouteMapIds)) {
       body["ErRouteMapIds"] = request.erRouteMapIds;
     }
@@ -4363,6 +4367,68 @@ export default class Client extends OpenApi {
   async retryVcc(request: $_model.RetryVccRequest): Promise<$_model.RetryVccResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.retryVccWithOptions(request, runtime);
+  }
+
+  /**
+   * Switch the VCC connection instance or type
+   * 
+   * @param request - SwitchVccConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchVccConnectionResponse
+   */
+  async switchVccConnectionWithOptions(request: $_model.SwitchVccConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchVccConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cenId)) {
+      body["CenId"] = request.cenId;
+    }
+
+    if (!$dara.isNull(request.connectionType)) {
+      body["ConnectionType"] = request.connectionType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      body["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vccId)) {
+      body["VccId"] = request.vccId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SwitchVccConnection",
+      version: "2022-05-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SwitchVccConnectionResponse>(await this.callApi(params, req, runtime), new $_model.SwitchVccConnectionResponse({}));
+  }
+
+  /**
+   * Switch the VCC connection instance or type
+   * 
+   * @param request - SwitchVccConnectionRequest
+   * @returns SwitchVccConnectionResponse
+   */
+  async switchVccConnection(request: $_model.SwitchVccConnectionRequest): Promise<$_model.SwitchVccConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.switchVccConnectionWithOptions(request, runtime);
   }
 
   /**
