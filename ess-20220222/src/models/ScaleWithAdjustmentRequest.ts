@@ -19,10 +19,12 @@ export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model 
    * The IDs of the lifecycle hooks that you want to disable.
    */
   ignoredLifecycleHookIds?: string[];
+  lifecycleHookResult?: string;
   static names(): { [key: string]: string } {
     return {
       disableLifecycleHook: 'DisableLifecycleHook',
       ignoredLifecycleHookIds: 'IgnoredLifecycleHookIds',
+      lifecycleHookResult: 'LifecycleHookResult',
     };
   }
 
@@ -30,6 +32,7 @@ export class ScaleWithAdjustmentRequestLifecycleHookContext extends $dara.Model 
     return {
       disableLifecycleHook: 'boolean',
       ignoredLifecycleHookIds: { 'type': 'array', 'itemType': 'string' },
+      lifecycleHookResult: 'string',
     };
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/ess20220222",
-  "version": "1.8.22",
+  "version": "1.8.23",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

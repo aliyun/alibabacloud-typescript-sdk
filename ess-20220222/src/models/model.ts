@@ -248,6 +248,7 @@ export { ModifyScalingRuleRequestHybridMetricsDimensions } from './ModifyScaling
 export { ModifyScalingRuleRequestHybridMetrics } from './ModifyScalingRuleRequest';
 export { ModifyScalingRuleRequestStepAdjustments } from './ModifyScalingRuleRequest';
 export { RemoveInstancesRequestLifecycleHookContext } from './RemoveInstancesRequest';
+export { RemoveInstancesResponseBodyIgnoredInstances } from './RemoveInstancesResponseBody';
 export { ScaleWithAdjustmentRequestLifecycleHookContext } from './ScaleWithAdjustmentRequest';
 export { ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars } from './ScaleWithAdjustmentRequest';
 export { ScaleWithAdjustmentRequestOverridesContainerOverrides } from './ScaleWithAdjustmentRequest';

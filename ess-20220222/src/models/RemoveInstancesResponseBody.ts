@@ -2,7 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RemoveInstancesResponseBodyIgnoredInstances extends $dara.Model {
+  code?: string;
+  instanceId?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      instanceId: 'InstanceId',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      instanceId: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RemoveInstancesResponseBody extends $dara.Model {
+  ignoredInstances?: RemoveInstancesResponseBodyIgnoredInstances[];
   /**
    * @remarks
    * The request ID.
@@ -21,6 +51,7 @@ export class RemoveInstancesResponseBody extends $dara.Model {
   scalingActivityId?: string;
   static names(): { [key: string]: string } {
     return {
+      ignoredInstances: 'IgnoredInstances',
       requestId: 'RequestId',
       scalingActivityId: 'ScalingActivityId',
     };
@@ -28,12 +59,16 @@ export class RemoveInstancesResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ignoredInstances: { 'type': 'array', 'itemType': RemoveInstancesResponseBodyIgnoredInstances },
       requestId: 'string',
       scalingActivityId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.ignoredInstances)) {
+      $dara.Model.validateArray(this.ignoredInstances);
+    }
     super.validate();
   }
 
