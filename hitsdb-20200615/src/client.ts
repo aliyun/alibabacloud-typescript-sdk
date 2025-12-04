@@ -1,3385 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class CreateLdpsComputeGroupRequest extends $tea.Model {
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  properties?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      properties: 'Properties',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      properties: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLdpsComputeGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLdpsComputeGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateLdpsComputeGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateLdpsComputeGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLdpsNamespaceRequest extends $tea.Model {
-  instanceId?: string;
-  namespace?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLdpsNamespaceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLdpsNamespaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateLdpsNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateLdpsNamespaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLindormInstanceRequest extends $tea.Model {
-  arbiterVSwitchId?: string;
-  arbiterZoneId?: string;
-  archVersion?: string;
-  autoRenewDuration?: string;
-  autoRenewal?: boolean;
-  coldStorage?: number;
-  coreSingleStorage?: number;
-  coreSpec?: string;
-  diskCategory?: string;
-  duration?: string;
-  filestoreNum?: number;
-  filestoreSpec?: string;
-  instanceAlias?: string;
-  instanceStorage?: string;
-  lindormNum?: number;
-  lindormSpec?: string;
-  logDiskCategory?: string;
-  logNum?: number;
-  logSingleStorage?: number;
-  logSpec?: string;
-  ltsNum?: string;
-  ltsSpec?: string;
-  multiZoneCombination?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  payType?: string;
-  pricingCycle?: string;
-  primaryVSwitchId?: string;
-  primaryZoneId?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  solrNum?: number;
-  solrSpec?: string;
-  standbyVSwitchId?: string;
-  standbyZoneId?: string;
-  streamNum?: number;
-  streamSpec?: string;
-  tsdbNum?: number;
-  tsdbSpec?: string;
-  VPCId?: string;
-  vSwitchId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      arbiterVSwitchId: 'ArbiterVSwitchId',
-      arbiterZoneId: 'ArbiterZoneId',
-      archVersion: 'ArchVersion',
-      autoRenewDuration: 'AutoRenewDuration',
-      autoRenewal: 'AutoRenewal',
-      coldStorage: 'ColdStorage',
-      coreSingleStorage: 'CoreSingleStorage',
-      coreSpec: 'CoreSpec',
-      diskCategory: 'DiskCategory',
-      duration: 'Duration',
-      filestoreNum: 'FilestoreNum',
-      filestoreSpec: 'FilestoreSpec',
-      instanceAlias: 'InstanceAlias',
-      instanceStorage: 'InstanceStorage',
-      lindormNum: 'LindormNum',
-      lindormSpec: 'LindormSpec',
-      logDiskCategory: 'LogDiskCategory',
-      logNum: 'LogNum',
-      logSingleStorage: 'LogSingleStorage',
-      logSpec: 'LogSpec',
-      ltsNum: 'LtsNum',
-      ltsSpec: 'LtsSpec',
-      multiZoneCombination: 'MultiZoneCombination',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      payType: 'PayType',
-      pricingCycle: 'PricingCycle',
-      primaryVSwitchId: 'PrimaryVSwitchId',
-      primaryZoneId: 'PrimaryZoneId',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      solrNum: 'SolrNum',
-      solrSpec: 'SolrSpec',
-      standbyVSwitchId: 'StandbyVSwitchId',
-      standbyZoneId: 'StandbyZoneId',
-      streamNum: 'StreamNum',
-      streamSpec: 'StreamSpec',
-      tsdbNum: 'TsdbNum',
-      tsdbSpec: 'TsdbSpec',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arbiterVSwitchId: 'string',
-      arbiterZoneId: 'string',
-      archVersion: 'string',
-      autoRenewDuration: 'string',
-      autoRenewal: 'boolean',
-      coldStorage: 'number',
-      coreSingleStorage: 'number',
-      coreSpec: 'string',
-      diskCategory: 'string',
-      duration: 'string',
-      filestoreNum: 'number',
-      filestoreSpec: 'string',
-      instanceAlias: 'string',
-      instanceStorage: 'string',
-      lindormNum: 'number',
-      lindormSpec: 'string',
-      logDiskCategory: 'string',
-      logNum: 'number',
-      logSingleStorage: 'number',
-      logSpec: 'string',
-      ltsNum: 'string',
-      ltsSpec: 'string',
-      multiZoneCombination: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      payType: 'string',
-      pricingCycle: 'string',
-      primaryVSwitchId: 'string',
-      primaryZoneId: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      solrNum: 'number',
-      solrSpec: 'string',
-      standbyVSwitchId: 'string',
-      standbyZoneId: 'string',
-      streamNum: 'number',
-      streamSpec: 'string',
-      tsdbNum: 'number',
-      tsdbSpec: 'string',
-      VPCId: 'string',
-      vSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLindormInstanceResponseBody extends $tea.Model {
-  instanceId?: string;
-  orderId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      orderId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateLindormInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateLindormInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateLindormInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLdpsComputeGroupRequest extends $tea.Model {
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLdpsComputeGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteLdpsComputeGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteLdpsComputeGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteLdpsComputeGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  acceptLanguage?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  regions?: DescribeRegionsResponseBodyRegions[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientSourceIpRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientSourceIpResponseBody extends $tea.Model {
-  clientIp?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientIp: 'ClientIp',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientIp: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClientSourceIpResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetClientSourceIpResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetClientSourceIpResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEngineDefaultAuthRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEngineDefaultAuthResponseBody extends $tea.Model {
-  authInfos?: GetEngineDefaultAuthResponseBodyAuthInfos[];
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authInfos: 'AuthInfos',
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authInfos: { 'type': 'array', 'itemType': GetEngineDefaultAuthResponseBodyAuthInfos },
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEngineDefaultAuthResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetEngineDefaultAuthResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetEngineDefaultAuthResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceIpWhiteListRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
-  groupList?: GetInstanceIpWhiteListResponseBodyGroupList[];
-  instanceId?: string;
-  ipList?: string[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupList: 'GroupList',
-      instanceId: 'InstanceId',
-      ipList: 'IpList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupList: { 'type': 'array', 'itemType': GetInstanceIpWhiteListResponseBodyGroupList },
-      instanceId: 'string',
-      ipList: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceIpWhiteListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetInstanceIpWhiteListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetInstanceIpWhiteListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceSecurityGroupsRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceSecurityGroupsResponseBody extends $tea.Model {
-  instanceId?: string;
-  requestId?: string;
-  securityGroups?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-      securityGroups: 'SecurityGroups',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      requestId: 'string',
-      securityGroups: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceSecurityGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetInstanceSecurityGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetInstanceSecurityGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsComputeGroupRequest extends $tea.Model {
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsComputeGroupResponseBody extends $tea.Model {
-  groupName?: string;
-  properties?: { [key: string]: any };
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      properties: 'Properties',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsComputeGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLdpsComputeGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLdpsComputeGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsNamespacedQuotaRequest extends $tea.Model {
-  instanceId?: string;
-  namespace?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsNamespacedQuotaResponseBody extends $tea.Model {
-  namespacedQuotas?: GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      namespacedQuotas: 'NamespacedQuotas',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespacedQuotas: { 'type': 'array', 'itemType': GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsNamespacedQuotaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLdpsNamespacedQuotaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLdpsNamespacedQuotaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsResourceCostRequest extends $tea.Model {
-  endTime?: number;
-  instanceId?: string;
-  jobId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      jobId: 'JobId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      instanceId: 'string',
-      jobId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsResourceCostResponseBody extends $tea.Model {
-  endTime?: number;
-  instanceId?: string;
-  jobId?: string;
-  requestId?: string;
-  startTime?: number;
-  totalResource?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      instanceId: 'InstanceId',
-      jobId: 'JobId',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-      totalResource: 'TotalResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      instanceId: 'string',
-      jobId: 'string',
-      requestId: 'string',
-      startTime: 'number',
-      totalResource: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsResourceCostResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLdpsResourceCostResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLdpsResourceCostResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceResponseBody extends $tea.Model {
-  aliUid?: number;
-  arbiterVSwitchId?: string;
-  arbiterZoneId?: string;
-  archVersion?: string;
-  autoRenew?: boolean;
-  coldStorage?: number;
-  coreDiskCategory?: string;
-  coreNum?: number;
-  coreSingleStorage?: number;
-  coreSpec?: string;
-  createMilliseconds?: number;
-  createTime?: string;
-  deletionProtection?: string;
-  diskCategory?: string;
-  diskThreshold?: string;
-  diskUsage?: string;
-  enableBlob?: boolean;
-  enableCdc?: boolean;
-  enableCompute?: boolean;
-  enableKms?: boolean;
-  enableLProxy?: boolean;
-  enableLTS?: boolean;
-  enableLsqlVersionV3?: boolean;
-  enableMLCtrl?: boolean;
-  enableSSL?: boolean;
-  enableShs?: boolean;
-  enableStream?: boolean;
-  engineList?: GetLindormInstanceResponseBodyEngineList[];
-  engineType?: number;
-  expireTime?: string;
-  expiredMilliseconds?: number;
-  instanceAlias?: string;
-  instanceId?: string;
-  instanceStatus?: string;
-  instanceStorage?: string;
-  logDiskCategory?: string;
-  logNum?: number;
-  logSingleStorage?: number;
-  logSpec?: string;
-  maintainEndTime?: string;
-  maintainStartTime?: string;
-  multiZoneCombination?: string;
-  networkType?: string;
-  payType?: string;
-  primaryVSwitchId?: string;
-  primaryZoneId?: string;
-  regionId?: string;
-  requestId?: string;
-  resourceGroupId?: string;
-  serviceType?: string;
-  standbyVSwitchId?: string;
-  standbyZoneId?: string;
-  vpcId?: string;
-  vswitchId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      arbiterVSwitchId: 'ArbiterVSwitchId',
-      arbiterZoneId: 'ArbiterZoneId',
-      archVersion: 'ArchVersion',
-      autoRenew: 'AutoRenew',
-      coldStorage: 'ColdStorage',
-      coreDiskCategory: 'CoreDiskCategory',
-      coreNum: 'CoreNum',
-      coreSingleStorage: 'CoreSingleStorage',
-      coreSpec: 'CoreSpec',
-      createMilliseconds: 'CreateMilliseconds',
-      createTime: 'CreateTime',
-      deletionProtection: 'DeletionProtection',
-      diskCategory: 'DiskCategory',
-      diskThreshold: 'DiskThreshold',
-      diskUsage: 'DiskUsage',
-      enableBlob: 'EnableBlob',
-      enableCdc: 'EnableCdc',
-      enableCompute: 'EnableCompute',
-      enableKms: 'EnableKms',
-      enableLProxy: 'EnableLProxy',
-      enableLTS: 'EnableLTS',
-      enableLsqlVersionV3: 'EnableLsqlVersionV3',
-      enableMLCtrl: 'EnableMLCtrl',
-      enableSSL: 'EnableSSL',
-      enableShs: 'EnableShs',
-      enableStream: 'EnableStream',
-      engineList: 'EngineList',
-      engineType: 'EngineType',
-      expireTime: 'ExpireTime',
-      expiredMilliseconds: 'ExpiredMilliseconds',
-      instanceAlias: 'InstanceAlias',
-      instanceId: 'InstanceId',
-      instanceStatus: 'InstanceStatus',
-      instanceStorage: 'InstanceStorage',
-      logDiskCategory: 'LogDiskCategory',
-      logNum: 'LogNum',
-      logSingleStorage: 'LogSingleStorage',
-      logSpec: 'LogSpec',
-      maintainEndTime: 'MaintainEndTime',
-      maintainStartTime: 'MaintainStartTime',
-      multiZoneCombination: 'MultiZoneCombination',
-      networkType: 'NetworkType',
-      payType: 'PayType',
-      primaryVSwitchId: 'PrimaryVSwitchId',
-      primaryZoneId: 'PrimaryZoneId',
-      regionId: 'RegionId',
-      requestId: 'RequestId',
-      resourceGroupId: 'ResourceGroupId',
-      serviceType: 'ServiceType',
-      standbyVSwitchId: 'StandbyVSwitchId',
-      standbyZoneId: 'StandbyZoneId',
-      vpcId: 'VpcId',
-      vswitchId: 'VswitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      arbiterVSwitchId: 'string',
-      arbiterZoneId: 'string',
-      archVersion: 'string',
-      autoRenew: 'boolean',
-      coldStorage: 'number',
-      coreDiskCategory: 'string',
-      coreNum: 'number',
-      coreSingleStorage: 'number',
-      coreSpec: 'string',
-      createMilliseconds: 'number',
-      createTime: 'string',
-      deletionProtection: 'string',
-      diskCategory: 'string',
-      diskThreshold: 'string',
-      diskUsage: 'string',
-      enableBlob: 'boolean',
-      enableCdc: 'boolean',
-      enableCompute: 'boolean',
-      enableKms: 'boolean',
-      enableLProxy: 'boolean',
-      enableLTS: 'boolean',
-      enableLsqlVersionV3: 'boolean',
-      enableMLCtrl: 'boolean',
-      enableSSL: 'boolean',
-      enableShs: 'boolean',
-      enableStream: 'boolean',
-      engineList: { 'type': 'array', 'itemType': GetLindormInstanceResponseBodyEngineList },
-      engineType: 'number',
-      expireTime: 'string',
-      expiredMilliseconds: 'number',
-      instanceAlias: 'string',
-      instanceId: 'string',
-      instanceStatus: 'string',
-      instanceStorage: 'string',
-      logDiskCategory: 'string',
-      logNum: 'number',
-      logSingleStorage: 'number',
-      logSpec: 'string',
-      maintainEndTime: 'string',
-      maintainStartTime: 'string',
-      multiZoneCombination: 'string',
-      networkType: 'string',
-      payType: 'string',
-      primaryVSwitchId: 'string',
-      primaryZoneId: 'string',
-      regionId: 'string',
-      requestId: 'string',
-      resourceGroupId: 'string',
-      serviceType: 'string',
-      standbyVSwitchId: 'string',
-      standbyZoneId: 'string',
-      vpcId: 'string',
-      vswitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLindormInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLindormInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceEngineListRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceEngineListResponseBody extends $tea.Model {
-  engineList?: GetLindormInstanceEngineListResponseBodyEngineList[];
-  instanceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      engineList: 'EngineList',
-      instanceId: 'InstanceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engineList: { 'type': 'array', 'itemType': GetLindormInstanceEngineListResponseBodyEngineList },
-      instanceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceEngineListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLindormInstanceEngineListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLindormInstanceEngineListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  pageNumber?: number;
-  pageSize?: number;
-  queryStr?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  serviceType?: string;
-  supportEngine?: number;
-  tag?: GetLindormInstanceListRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      queryStr: 'QueryStr',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      serviceType: 'ServiceType',
-      supportEngine: 'SupportEngine',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryStr: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      serviceType: 'string',
-      supportEngine: 'number',
-      tag: { 'type': 'array', 'itemType': GetLindormInstanceListRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListResponseBody extends $tea.Model {
-  instanceList?: GetLindormInstanceListResponseBodyInstanceList[];
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceList: 'InstanceList',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceList: { 'type': 'array', 'itemType': GetLindormInstanceListResponseBodyInstanceList },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetLindormInstanceListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetLindormInstanceListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLdpsComputeGroupsRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLdpsComputeGroupsResponseBody extends $tea.Model {
-  groupList?: ListLdpsComputeGroupsResponseBodyGroupList[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupList: 'GroupList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupList: { 'type': 'array', 'itemType': ListLdpsComputeGroupsResponseBodyGroupList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLdpsComputeGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListLdpsComputeGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListLdpsComputeGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  nextToken?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceId?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  securityToken?: string;
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      securityToken: 'SecurityToken',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      securityToken: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstancePayTypeRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  payType?: string;
-  pricingCycle?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      payType: 'PayType',
-      pricingCycle: 'PricingCycle',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      payType: 'string',
-      pricingCycle: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstancePayTypeResponseBody extends $tea.Model {
-  instanceId?: string;
-  orderId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      orderId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyInstancePayTypeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyInstancePayTypeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyInstancePayTypeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputeEngineRequest extends $tea.Model {
-  cpuLimit?: string;
-  instanceId?: string;
-  memoryLimit?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpuLimit: 'CpuLimit',
-      instanceId: 'InstanceId',
-      memoryLimit: 'MemoryLimit',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuLimit: 'string',
-      instanceId: 'string',
-      memoryLimit: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputeEngineResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputeEngineResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenComputeEngineResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenComputeEngineResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputePreCheckRequest extends $tea.Model {
-  cpuLimit?: string;
-  instanceId?: string;
-  memoryLimit?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpuLimit: 'CpuLimit',
-      instanceId: 'InstanceId',
-      memoryLimit: 'MemoryLimit',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuLimit: 'string',
-      instanceId: 'string',
-      memoryLimit: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputePreCheckResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenComputePreCheckResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OpenComputePreCheckResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OpenComputePreCheckResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseLindormInstanceRequest extends $tea.Model {
-  immediately?: boolean;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      immediately: 'Immediately',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      immediately: 'boolean',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseLindormInstanceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseLindormInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseLindormInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseLindormInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewLindormInstanceRequest extends $tea.Model {
-  duration?: number;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  pricingCycle?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pricingCycle: 'PricingCycle',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pricingCycle: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewLindormInstanceResponseBody extends $tea.Model {
-  instanceId?: string;
-  orderId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      orderId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewLindormInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewLindormInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewLindormInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartLdpsComputeGroupRequest extends $tea.Model {
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartLdpsComputeGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartLdpsComputeGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartLdpsComputeGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartLdpsComputeGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchLSQLV3MySQLServiceRequest extends $tea.Model {
-  actionType?: number;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionType: 'ActionType',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionType: 'number',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchLSQLV3MySQLServiceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchLSQLV3MySQLServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SwitchLSQLV3MySQLServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SwitchLSQLV3MySQLServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceId?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  securityToken?: string;
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      securityToken: 'SecurityToken',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      securityToken: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  all?: boolean;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceId?: string[];
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  resourceType?: string;
-  securityToken?: string;
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceId: 'ResourceId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      resourceType: 'ResourceType',
-      securityToken: 'SecurityToken',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      resourceType: 'string',
-      securityToken: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
-  delete?: boolean;
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityIpList?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      delete: 'Delete',
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityIpList: 'SecurityIpList',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      delete: 'boolean',
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityIpList: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceIpWhiteListResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceIpWhiteListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceIpWhiteListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceSecurityGroupsRequest extends $tea.Model {
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityGroups?: string;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityGroups: 'SecurityGroups',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityGroups: 'string',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceSecurityGroupsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceSecurityGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceSecurityGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceSecurityGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLdpsComputeGroupRequest extends $tea.Model {
-  groupName?: string;
-  instanceId?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  properties?: string;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      instanceId: 'InstanceId',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      properties: 'Properties',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      instanceId: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      properties: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLdpsComputeGroupResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLdpsComputeGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateLdpsComputeGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateLdpsComputeGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeLindormInstanceRequest extends $tea.Model {
-  clusterStorage?: number;
-  coldStorage?: number;
-  coreSingleStorage?: number;
-  filestoreNum?: number;
-  filestoreSpec?: string;
-  instanceId?: string;
-  lindormNum?: number;
-  lindormSpec?: string;
-  logNum?: number;
-  logSingleStorage?: number;
-  logSpec?: string;
-  ltsCoreNum?: number;
-  ltsCoreSpec?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  securityToken?: string;
-  solrNum?: number;
-  solrSpec?: string;
-  streamNum?: number;
-  streamSpec?: string;
-  tsdbNum?: number;
-  tsdbSpec?: string;
-  upgradeType?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterStorage: 'ClusterStorage',
-      coldStorage: 'ColdStorage',
-      coreSingleStorage: 'CoreSingleStorage',
-      filestoreNum: 'FilestoreNum',
-      filestoreSpec: 'FilestoreSpec',
-      instanceId: 'InstanceId',
-      lindormNum: 'LindormNum',
-      lindormSpec: 'LindormSpec',
-      logNum: 'LogNum',
-      logSingleStorage: 'LogSingleStorage',
-      logSpec: 'LogSpec',
-      ltsCoreNum: 'LtsCoreNum',
-      ltsCoreSpec: 'LtsCoreSpec',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      securityToken: 'SecurityToken',
-      solrNum: 'SolrNum',
-      solrSpec: 'SolrSpec',
-      streamNum: 'StreamNum',
-      streamSpec: 'StreamSpec',
-      tsdbNum: 'TsdbNum',
-      tsdbSpec: 'TsdbSpec',
-      upgradeType: 'UpgradeType',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterStorage: 'number',
-      coldStorage: 'number',
-      coreSingleStorage: 'number',
-      filestoreNum: 'number',
-      filestoreSpec: 'string',
-      instanceId: 'string',
-      lindormNum: 'number',
-      lindormSpec: 'string',
-      logNum: 'number',
-      logSingleStorage: 'number',
-      logSpec: 'string',
-      ltsCoreNum: 'number',
-      ltsCoreSpec: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      securityToken: 'string',
-      solrNum: 'number',
-      solrSpec: 'string',
-      streamNum: 'number',
-      streamSpec: 'string',
-      tsdbNum: 'number',
-      tsdbSpec: 'string',
-      upgradeType: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeLindormInstanceResponseBody extends $tea.Model {
-  orderId?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeLindormInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpgradeLindormInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpgradeLindormInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  localName?: string;
-  regionEndpoint?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEngineDefaultAuthResponseBodyAuthInfos extends $tea.Model {
-  engine?: string;
-  password?: string;
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      engine: 'Engine',
-      password: 'Password',
-      username: 'Username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engine: 'string',
-      password: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceIpWhiteListResponseBodyGroupList extends $tea.Model {
-  groupName?: string;
-  securityIpList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      securityIpList: 'SecurityIpList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      securityIpList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas extends $tea.Model {
-  cpuAmount?: string;
-  memoryAmount?: string;
-  name?: string;
-  usedCpu?: string;
-  usedMemory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpuAmount: 'CpuAmount',
-      memoryAmount: 'MemoryAmount',
-      name: 'Name',
-      usedCpu: 'UsedCpu',
-      usedMemory: 'UsedMemory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpuAmount: 'string',
-      memoryAmount: 'string',
-      name: 'string',
-      usedCpu: 'string',
-      usedMemory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceResponseBodyEngineList extends $tea.Model {
-  coreCount?: string;
-  cpuCount?: string;
-  engine?: string;
-  isLastVersion?: boolean;
-  latestVersion?: string;
-  memorySize?: string;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      coreCount: 'CoreCount',
-      cpuCount: 'CpuCount',
-      engine: 'Engine',
-      isLastVersion: 'IsLastVersion',
-      latestVersion: 'LatestVersion',
-      memorySize: 'MemorySize',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coreCount: 'string',
-      cpuCount: 'string',
-      engine: 'string',
-      isLastVersion: 'boolean',
-      latestVersion: 'string',
-      memorySize: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceEngineListResponseBodyEngineListNetInfoList extends $tea.Model {
-  accessType?: number;
-  connectionString?: string;
-  netType?: string;
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accessType: 'AccessType',
-      connectionString: 'ConnectionString',
-      netType: 'NetType',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessType: 'number',
-      connectionString: 'string',
-      netType: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceEngineListResponseBodyEngineList extends $tea.Model {
-  engineType?: string;
-  netInfoList?: GetLindormInstanceEngineListResponseBodyEngineListNetInfoList[];
-  static names(): { [key: string]: string } {
-    return {
-      engineType: 'EngineType',
-      netInfoList: 'NetInfoList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      engineType: 'string',
-      netInfoList: { 'type': 'array', 'itemType': GetLindormInstanceEngineListResponseBodyEngineListNetInfoList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListResponseBodyInstanceListTags extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
-  aliUid?: number;
-  createMilliseconds?: number;
-  createTime?: string;
-  enableColumn?: boolean;
-  enableCompute?: boolean;
-  enableLts?: boolean;
-  enableMessage?: boolean;
-  enableStream?: boolean;
-  enableVector?: boolean;
-  engineType?: string;
-  expireTime?: string;
-  expiredMilliseconds?: number;
-  instanceAlias?: string;
-  instanceId?: string;
-  instanceStatus?: string;
-  instanceStorage?: string;
-  networkType?: string;
-  payType?: string;
-  regionId?: string;
-  resourceGroupId?: string;
-  serviceType?: string;
-  tags?: GetLindormInstanceListResponseBodyInstanceListTags[];
-  vpcId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      createMilliseconds: 'CreateMilliseconds',
-      createTime: 'CreateTime',
-      enableColumn: 'EnableColumn',
-      enableCompute: 'EnableCompute',
-      enableLts: 'EnableLts',
-      enableMessage: 'EnableMessage',
-      enableStream: 'EnableStream',
-      enableVector: 'EnableVector',
-      engineType: 'EngineType',
-      expireTime: 'ExpireTime',
-      expiredMilliseconds: 'ExpiredMilliseconds',
-      instanceAlias: 'InstanceAlias',
-      instanceId: 'InstanceId',
-      instanceStatus: 'InstanceStatus',
-      instanceStorage: 'InstanceStorage',
-      networkType: 'NetworkType',
-      payType: 'PayType',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      serviceType: 'ServiceType',
-      tags: 'Tags',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      createMilliseconds: 'number',
-      createTime: 'string',
-      enableColumn: 'boolean',
-      enableCompute: 'boolean',
-      enableLts: 'boolean',
-      enableMessage: 'boolean',
-      enableStream: 'boolean',
-      enableVector: 'boolean',
-      engineType: 'string',
-      expireTime: 'string',
-      expiredMilliseconds: 'number',
-      instanceAlias: 'string',
-      instanceId: 'string',
-      instanceStatus: 'string',
-      instanceStorage: 'string',
-      networkType: 'string',
-      payType: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      serviceType: 'string',
-      tags: { 'type': 'array', 'itemType': GetLindormInstanceListResponseBodyInstanceListTags },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListLdpsComputeGroupsResponseBodyGroupList extends $tea.Model {
-  groupName?: string;
-  properties?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      properties: 'Properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  resourceId?: string;
-  resourceType?: string;
-  tagKey?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequestTag extends $tea.Model {
-  key?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -3388,65 +18,399 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-   * @param request CreateLdpsComputeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLdpsComputeGroupResponse
+   * Changes a resource group to another.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
    */
-  async createLdpsComputeGroupWithOptions(request: CreateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsComputeGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
-      query["GroupName"] = request.groupName;
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * Changes a resource group to another.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CheckLdpsColumnarIndexStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckLdpsColumnarIndexStatusResponse
+   */
+  async checkLdpsColumnarIndexStatusWithOptions(request: $_model.CheckLdpsColumnarIndexStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckLdpsColumnarIndexStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.properties)) {
-      query["Properties"] = request.properties;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "CheckLdpsColumnarIndexStatus",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckLdpsColumnarIndexStatusResponse>(await this.callApi(params, req, runtime), new $_model.CheckLdpsColumnarIndexStatusResponse({}));
+  }
+
+  /**
+   * @param request - CheckLdpsColumnarIndexStatusRequest
+   * @returns CheckLdpsColumnarIndexStatusResponse
+   */
+  async checkLdpsColumnarIndexStatus(request: $_model.CheckLdpsColumnarIndexStatusRequest): Promise<$_model.CheckLdpsColumnarIndexStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkLdpsColumnarIndexStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - CreateAutoScalingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoScalingConfigResponse
+   */
+  async createAutoScalingConfigWithOptions(tmpReq: $_model.CreateAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAutoScalingConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAutoScalingConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scaleRuleList)) {
+      request.scaleRuleListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scaleRuleList, "ScaleRuleList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.effectiveTimeEnd)) {
+      query["EffectiveTimeEnd"] = request.effectiveTimeEnd;
+    }
+
+    if (!$dara.isNull(request.effectiveTimeStart)) {
+      query["EffectiveTimeStart"] = request.effectiveTimeStart;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodesMax)) {
+      query["NodesMax"] = request.nodesMax;
+    }
+
+    if (!$dara.isNull(request.nodesMin)) {
+      query["NodesMin"] = request.nodesMin;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleRuleListShrink)) {
+      query["ScaleRuleList"] = request.scaleRuleListShrink;
+    }
+
+    if (!$dara.isNull(request.scaleType)) {
+      query["ScaleType"] = request.scaleType;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.specId)) {
+      query["SpecId"] = request.specId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAutoScalingConfig",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAutoScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateAutoScalingConfigResponse({}));
+  }
+
+  /**
+   * @param request - CreateAutoScalingConfigRequest
+   * @returns CreateAutoScalingConfigResponse
+   */
+  async createAutoScalingConfig(request: $_model.CreateAutoScalingConfigRequest): Promise<$_model.CreateAutoScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateAutoScalingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoScalingRuleResponse
+   */
+  async createAutoScalingRuleWithOptions(request: $_model.CreateAutoScalingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAutoScalingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.observationWindow)) {
+      query["ObservationWindow"] = request.observationWindow;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!$dara.isNull(request.scaleInStep)) {
+      query["ScaleInStep"] = request.scaleInStep;
+    }
+
+    if (!$dara.isNull(request.scaleOutStep)) {
+      query["ScaleOutStep"] = request.scaleOutStep;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.silenceTime)) {
+      query["SilenceTime"] = request.silenceTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.targetMetric)) {
+      query["TargetMetric"] = request.targetMetric;
+    }
+
+    if (!$dara.isNull(request.targetNodes)) {
+      query["TargetNodes"] = request.targetNodes;
+    }
+
+    if (!$dara.isNull(request.thresholdLower)) {
+      query["ThresholdLower"] = request.thresholdLower;
+    }
+
+    if (!$dara.isNull(request.thresholdUpper)) {
+      query["ThresholdUpper"] = request.thresholdUpper;
+    }
+
+    if (!$dara.isNull(request.triggerCronExpr)) {
+      query["TriggerCronExpr"] = request.triggerCronExpr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAutoScalingRule",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAutoScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateAutoScalingRuleResponse({}));
+  }
+
+  /**
+   * @param request - CreateAutoScalingRuleRequest
+   * @returns CreateAutoScalingRuleResponse
+   */
+  async createAutoScalingRule(request: $_model.CreateAutoScalingRuleRequest): Promise<$_model.CreateAutoScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAutoScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CreateLdpsComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLdpsComputeGroupResponse
+   */
+  async createLdpsComputeGroupWithOptions(request: $_model.CreateLdpsComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLdpsComputeGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.properties)) {
+      query["Properties"] = request.properties;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "CreateLdpsComputeGroup",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3457,280 +421,219 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new CreateLdpsComputeGroupResponse({}));
+    return $dara.cast<$_model.CreateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateLdpsComputeGroupResponse({}));
   }
 
   /**
-   * @param request CreateLdpsComputeGroupRequest
-   * @return CreateLdpsComputeGroupResponse
+   * @param request - CreateLdpsComputeGroupRequest
+   * @returns CreateLdpsComputeGroupResponse
    */
-  async createLdpsComputeGroup(request: CreateLdpsComputeGroupRequest): Promise<CreateLdpsComputeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createLdpsComputeGroup(request: $_model.CreateLdpsComputeGroupRequest): Promise<$_model.CreateLdpsComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-   * @param request CreateLdpsNamespaceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLdpsNamespaceResponse
+   * Creates a Lindorm instance.
+   * 
+   * @remarks
+   * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   * 
+   * @param request - CreateLindormInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLindormInstanceResponse
    */
-  async createLdpsNamespaceWithOptions(request: CreateLdpsNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLdpsNamespaceResponse> {
-    Util.validateModel(request);
+  async createLindormInstanceWithOptions(request: $_model.CreateLindormInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLindormInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
-      query["OwnerAccount"] = request.ownerAccount;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.securityToken)) {
-      query["SecurityToken"] = request.securityToken;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateLdpsNamespace",
-      version: "2020-06-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateLdpsNamespaceResponse>(await this.callApi(params, req, runtime), new CreateLdpsNamespaceResponse({}));
-  }
-
-  /**
-   * @param request CreateLdpsNamespaceRequest
-   * @return CreateLdpsNamespaceResponse
-   */
-  async createLdpsNamespace(request: CreateLdpsNamespaceRequest): Promise<CreateLdpsNamespaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createLdpsNamespaceWithOptions(request, runtime);
-  }
-
-  /**
-   * @summary Creates a Lindorm instance.
-   *
-   * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
-   *
-   * @param request CreateLindormInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLindormInstanceResponse
-   */
-  async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.arbiterVSwitchId)) {
+    if (!$dara.isNull(request.arbiterVSwitchId)) {
       query["ArbiterVSwitchId"] = request.arbiterVSwitchId;
     }
 
-    if (!Util.isUnset(request.arbiterZoneId)) {
+    if (!$dara.isNull(request.arbiterZoneId)) {
       query["ArbiterZoneId"] = request.arbiterZoneId;
     }
 
-    if (!Util.isUnset(request.archVersion)) {
+    if (!$dara.isNull(request.archVersion)) {
       query["ArchVersion"] = request.archVersion;
     }
 
-    if (!Util.isUnset(request.autoRenewDuration)) {
+    if (!$dara.isNull(request.autoRenewDuration)) {
       query["AutoRenewDuration"] = request.autoRenewDuration;
     }
 
-    if (!Util.isUnset(request.autoRenewal)) {
+    if (!$dara.isNull(request.autoRenewal)) {
       query["AutoRenewal"] = request.autoRenewal;
     }
 
-    if (!Util.isUnset(request.coldStorage)) {
+    if (!$dara.isNull(request.coldStorage)) {
       query["ColdStorage"] = request.coldStorage;
     }
 
-    if (!Util.isUnset(request.coreSingleStorage)) {
+    if (!$dara.isNull(request.coreSingleStorage)) {
       query["CoreSingleStorage"] = request.coreSingleStorage;
     }
 
-    if (!Util.isUnset(request.coreSpec)) {
+    if (!$dara.isNull(request.coreSpec)) {
       query["CoreSpec"] = request.coreSpec;
     }
 
-    if (!Util.isUnset(request.diskCategory)) {
+    if (!$dara.isNull(request.diskCategory)) {
       query["DiskCategory"] = request.diskCategory;
     }
 
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       query["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.filestoreNum)) {
+    if (!$dara.isNull(request.filestoreNum)) {
       query["FilestoreNum"] = request.filestoreNum;
     }
 
-    if (!Util.isUnset(request.filestoreSpec)) {
+    if (!$dara.isNull(request.filestoreSpec)) {
       query["FilestoreSpec"] = request.filestoreSpec;
     }
 
-    if (!Util.isUnset(request.instanceAlias)) {
+    if (!$dara.isNull(request.instanceAlias)) {
       query["InstanceAlias"] = request.instanceAlias;
     }
 
-    if (!Util.isUnset(request.instanceStorage)) {
+    if (!$dara.isNull(request.instanceStorage)) {
       query["InstanceStorage"] = request.instanceStorage;
     }
 
-    if (!Util.isUnset(request.lindormNum)) {
+    if (!$dara.isNull(request.lindormNum)) {
       query["LindormNum"] = request.lindormNum;
     }
 
-    if (!Util.isUnset(request.lindormSpec)) {
+    if (!$dara.isNull(request.lindormSpec)) {
       query["LindormSpec"] = request.lindormSpec;
     }
 
-    if (!Util.isUnset(request.logDiskCategory)) {
+    if (!$dara.isNull(request.logDiskCategory)) {
       query["LogDiskCategory"] = request.logDiskCategory;
     }
 
-    if (!Util.isUnset(request.logNum)) {
+    if (!$dara.isNull(request.logNum)) {
       query["LogNum"] = request.logNum;
     }
 
-    if (!Util.isUnset(request.logSingleStorage)) {
+    if (!$dara.isNull(request.logSingleStorage)) {
       query["LogSingleStorage"] = request.logSingleStorage;
     }
 
-    if (!Util.isUnset(request.logSpec)) {
+    if (!$dara.isNull(request.logSpec)) {
       query["LogSpec"] = request.logSpec;
     }
 
-    if (!Util.isUnset(request.ltsNum)) {
+    if (!$dara.isNull(request.ltsNum)) {
       query["LtsNum"] = request.ltsNum;
     }
 
-    if (!Util.isUnset(request.ltsSpec)) {
+    if (!$dara.isNull(request.ltsSpec)) {
       query["LtsSpec"] = request.ltsSpec;
     }
 
-    if (!Util.isUnset(request.multiZoneCombination)) {
+    if (!$dara.isNull(request.multiZoneCombination)) {
       query["MultiZoneCombination"] = request.multiZoneCombination;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.payType)) {
+    if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       query["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.primaryVSwitchId)) {
+    if (!$dara.isNull(request.primaryVSwitchId)) {
       query["PrimaryVSwitchId"] = request.primaryVSwitchId;
     }
 
-    if (!Util.isUnset(request.primaryZoneId)) {
+    if (!$dara.isNull(request.primaryZoneId)) {
       query["PrimaryZoneId"] = request.primaryZoneId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.solrNum)) {
+    if (!$dara.isNull(request.solrNum)) {
       query["SolrNum"] = request.solrNum;
     }
 
-    if (!Util.isUnset(request.solrSpec)) {
+    if (!$dara.isNull(request.solrSpec)) {
       query["SolrSpec"] = request.solrSpec;
     }
 
-    if (!Util.isUnset(request.standbyVSwitchId)) {
+    if (!$dara.isNull(request.standbyVSwitchId)) {
       query["StandbyVSwitchId"] = request.standbyVSwitchId;
     }
 
-    if (!Util.isUnset(request.standbyZoneId)) {
+    if (!$dara.isNull(request.standbyZoneId)) {
       query["StandbyZoneId"] = request.standbyZoneId;
     }
 
-    if (!Util.isUnset(request.streamNum)) {
+    if (!$dara.isNull(request.streamNum)) {
       query["StreamNum"] = request.streamNum;
     }
 
-    if (!Util.isUnset(request.streamSpec)) {
+    if (!$dara.isNull(request.streamSpec)) {
       query["StreamSpec"] = request.streamSpec;
     }
 
-    if (!Util.isUnset(request.tsdbNum)) {
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.tsdbNum)) {
       query["TsdbNum"] = request.tsdbNum;
     }
 
-    if (!Util.isUnset(request.tsdbSpec)) {
+    if (!$dara.isNull(request.tsdbSpec)) {
       query["TsdbSpec"] = request.tsdbSpec;
     }
 
-    if (!Util.isUnset(request.VPCId)) {
+    if (!$dara.isNull(request.VPCId)) {
       query["VPCId"] = request.VPCId;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateLindormInstance",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3741,66 +644,419 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateLindormInstanceResponse>(await this.callApi(params, req, runtime), new CreateLindormInstanceResponse({}));
+    return $dara.cast<$_model.CreateLindormInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateLindormInstanceResponse({}));
   }
 
   /**
-   * @summary Creates a Lindorm instance.
-   *
-   * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
-   *
-   * @param request CreateLindormInstanceRequest
-   * @return CreateLindormInstanceResponse
+   * Creates a Lindorm instance.
+   * 
+   * @remarks
+   * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   * 
+   * @param request - CreateLindormInstanceRequest
+   * @returns CreateLindormInstanceResponse
    */
-  async createLindormInstance(request: CreateLindormInstanceRequest): Promise<CreateLindormInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async createLindormInstance(request: $_model.CreateLindormInstanceRequest): Promise<$_model.CreateLindormInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createLindormInstanceWithOptions(request, runtime);
   }
 
   /**
-   * @param request DeleteLdpsComputeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLdpsComputeGroupResponse
+   * 创建Lindorm实例
+   * 
+   * @param request - CreateLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLindormV2InstanceResponse
    */
-  async deleteLdpsComputeGroupWithOptions(request: DeleteLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLdpsComputeGroupResponse> {
-    Util.validateModel(request);
+  async createLindormV2InstanceWithOptions(request: $_model.CreateLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLindormV2InstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
-      query["GroupName"] = request.groupName;
+    if (!$dara.isNull(request.arbiterVSwitchId)) {
+      query["ArbiterVSwitchId"] = request.arbiterVSwitchId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
-      query["InstanceId"] = request.instanceId;
+    if (!$dara.isNull(request.arbiterZoneId)) {
+      query["ArbiterZoneId"] = request.arbiterZoneId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.archVersion)) {
+      query["ArchVersion"] = request.archVersion;
+    }
+
+    if (!$dara.isNull(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
+    if (!$dara.isNull(request.autoRenewal)) {
+      query["AutoRenewal"] = request.autoRenewal;
+    }
+
+    if (!$dara.isNull(request.capacityStorageSize)) {
+      query["CapacityStorageSize"] = request.capacityStorageSize;
+    }
+
+    if (!$dara.isNull(request.cloudStorageSize)) {
+      query["CloudStorageSize"] = request.cloudStorageSize;
+    }
+
+    if (!$dara.isNull(request.cloudStorageType)) {
+      query["CloudStorageType"] = request.cloudStorageType;
+    }
+
+    if (!$dara.isNull(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!$dara.isNull(request.clusterPattern)) {
+      query["ClusterPattern"] = request.clusterPattern;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.enableCapacityStorage)) {
+      query["EnableCapacityStorage"] = request.enableCapacityStorage;
+    }
+
+    if (!$dara.isNull(request.engineList)) {
+      query["EngineList"] = request.engineList;
+    }
+
+    if (!$dara.isNull(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.primaryVSwitchId)) {
+      query["PrimaryVSwitchId"] = request.primaryVSwitchId;
+    }
+
+    if (!$dara.isNull(request.primaryZoneId)) {
+      query["PrimaryZoneId"] = request.primaryZoneId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!$dara.isNull(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * 创建Lindorm实例
+   * 
+   * @param request - CreateLindormV2InstanceRequest
+   * @returns CreateLindormV2InstanceResponse
+   */
+  async createLindormV2Instance(request: $_model.CreateLindormV2InstanceRequest): Promise<$_model.CreateLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteAutoScalingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoScalingConfigResponse
+   */
+  async deleteAutoScalingConfigWithOptions(request: $_model.DeleteAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAutoScalingConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAutoScalingConfig",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAutoScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAutoScalingConfigResponse({}));
+  }
+
+  /**
+   * @param request - DeleteAutoScalingConfigRequest
+   * @returns DeleteAutoScalingConfigResponse
+   */
+  async deleteAutoScalingConfig(request: $_model.DeleteAutoScalingConfigRequest): Promise<$_model.DeleteAutoScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteAutoScalingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoScalingRuleResponse
+   */
+  async deleteAutoScalingRuleWithOptions(request: $_model.DeleteAutoScalingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAutoScalingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAutoScalingRule",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAutoScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAutoScalingRuleResponse({}));
+  }
+
+  /**
+   * @param request - DeleteAutoScalingRuleRequest
+   * @returns DeleteAutoScalingRuleResponse
+   */
+  async deleteAutoScalingRule(request: $_model.DeleteAutoScalingRuleRequest): Promise<$_model.DeleteAutoScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAutoScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteCustomResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomResourceResponse
+   */
+  async deleteCustomResourceWithOptions(request: $_model.DeleteCustomResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomResource",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomResourceResponse({}));
+  }
+
+  /**
+   * @param request - DeleteCustomResourceRequest
+   * @returns DeleteCustomResourceResponse
+   */
+  async deleteCustomResource(request: $_model.DeleteCustomResourceRequest): Promise<$_model.DeleteCustomResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteLdpsComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLdpsComputeGroupResponse
+   */
+  async deleteLdpsComputeGroupWithOptions(request: $_model.DeleteLdpsComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLdpsComputeGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "DeleteLdpsComputeGroup",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3811,56 +1067,122 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new DeleteLdpsComputeGroupResponse({}));
+    return $dara.cast<$_model.DeleteLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLdpsComputeGroupResponse({}));
   }
 
   /**
-   * @param request DeleteLdpsComputeGroupRequest
-   * @return DeleteLdpsComputeGroupResponse
+   * @param request - DeleteLdpsComputeGroupRequest
+   * @returns DeleteLdpsComputeGroupResponse
    */
-  async deleteLdpsComputeGroup(request: DeleteLdpsComputeGroupRequest): Promise<DeleteLdpsComputeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async deleteLdpsComputeGroup(request: $_model.DeleteLdpsComputeGroupRequest): Promise<$_model.DeleteLdpsComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-   * @summary Obtains the regions supported by Lindorm.
-   *
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * @param request - DeployLdpsSemiManagedComponentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployLdpsSemiManagedComponentResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async deployLdpsSemiManagedComponentWithOptions(request: $_model.DeployLdpsSemiManagedComponentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeployLdpsSemiManagedComponentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
-      query["AcceptLanguage"] = request.acceptLanguage;
+    if (!$dara.isNull(request.componentName)) {
+      query["ComponentName"] = request.componentName;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "DeployLdpsSemiManagedComponent",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeployLdpsSemiManagedComponentResponse>(await this.callApi(params, req, runtime), new $_model.DeployLdpsSemiManagedComponentResponse({}));
+  }
+
+  /**
+   * @param request - DeployLdpsSemiManagedComponentRequest
+   * @returns DeployLdpsSemiManagedComponentResponse
+   */
+  async deployLdpsSemiManagedComponent(request: $_model.DeployLdpsSemiManagedComponentRequest): Promise<$_model.DeployLdpsSemiManagedComponentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deployLdpsSemiManagedComponentWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains the regions supported by Lindorm.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3871,60 +1193,188 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
   }
 
   /**
-   * @summary Obtains the regions supported by Lindorm.
-   *
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * Obtains the regions supported by Lindorm.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetClientSourceIpRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetClientSourceIpResponse
+   * @param request - GetAutoScalingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoScalingConfigResponse
    */
-  async getClientSourceIpWithOptions(request: GetClientSourceIpRequest, runtime: $Util.RuntimeOptions): Promise<GetClientSourceIpResponse> {
-    Util.validateModel(request);
+  async getAutoScalingConfigWithOptions(request: $_model.GetAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutoScalingConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutoScalingConfig",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutoScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetAutoScalingConfigResponse({}));
+  }
+
+  /**
+   * @param request - GetAutoScalingConfigRequest
+   * @returns GetAutoScalingConfigResponse
+   */
+  async getAutoScalingConfig(request: $_model.GetAutoScalingConfigRequest): Promise<$_model.GetAutoScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetAutoScalingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoScalingRuleResponse
+   */
+  async getAutoScalingRuleWithOptions(request: $_model.GetAutoScalingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutoScalingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutoScalingRule",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutoScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetAutoScalingRuleResponse({}));
+  }
+
+  /**
+   * @param request - GetAutoScalingRuleRequest
+   * @returns GetAutoScalingRuleResponse
+   */
+  async getAutoScalingRule(request: $_model.GetAutoScalingRuleRequest): Promise<$_model.GetAutoScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAutoScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetClientSourceIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientSourceIpResponse
+   */
+  async getClientSourceIpWithOptions(request: $_model.GetClientSourceIpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClientSourceIpResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "GetClientSourceIp",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3935,58 +1385,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetClientSourceIpResponse>(await this.callApi(params, req, runtime), new GetClientSourceIpResponse({}));
+    return $dara.cast<$_model.GetClientSourceIpResponse>(await this.callApi(params, req, runtime), new $_model.GetClientSourceIpResponse({}));
   }
 
   /**
-   * @param request GetClientSourceIpRequest
-   * @return GetClientSourceIpResponse
+   * @param request - GetClientSourceIpRequest
+   * @returns GetClientSourceIpResponse
    */
-  async getClientSourceIp(request: GetClientSourceIpRequest): Promise<GetClientSourceIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getClientSourceIp(request: $_model.GetClientSourceIpRequest): Promise<$_model.GetClientSourceIpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getClientSourceIpWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetEngineDefaultAuthRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEngineDefaultAuthResponse
+   * @param request - GetEngineDefaultAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEngineDefaultAuthResponse
    */
-  async getEngineDefaultAuthWithOptions(request: GetEngineDefaultAuthRequest, runtime: $Util.RuntimeOptions): Promise<GetEngineDefaultAuthResponse> {
-    Util.validateModel(request);
+  async getEngineDefaultAuthWithOptions(request: $_model.GetEngineDefaultAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEngineDefaultAuthResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetEngineDefaultAuth",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -3997,56 +1447,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetEngineDefaultAuthResponse>(await this.callApi(params, req, runtime), new GetEngineDefaultAuthResponse({}));
+    return $dara.cast<$_model.GetEngineDefaultAuthResponse>(await this.callApi(params, req, runtime), new $_model.GetEngineDefaultAuthResponse({}));
   }
 
   /**
-   * @param request GetEngineDefaultAuthRequest
-   * @return GetEngineDefaultAuthResponse
+   * @param request - GetEngineDefaultAuthRequest
+   * @returns GetEngineDefaultAuthResponse
    */
-  async getEngineDefaultAuth(request: GetEngineDefaultAuthRequest): Promise<GetEngineDefaultAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getEngineDefaultAuth(request: $_model.GetEngineDefaultAuthRequest): Promise<$_model.GetEngineDefaultAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getEngineDefaultAuthWithOptions(request, runtime);
   }
 
   /**
-   * @summary Queries the whitelists configured for a Lindorm instance.
-   *
-   * @param request GetInstanceIpWhiteListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceIpWhiteListResponse
+   * Queries the whitelists configured for a Lindorm instance.
+   * 
+   * @param request - GetInstanceIpWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceIpWhiteListResponse
    */
-  async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
-    Util.validateModel(request);
+  async getInstanceIpWhiteListWithOptions(request: $_model.GetInstanceIpWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceIpWhiteListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceIpWhiteList",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4057,56 +1507,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new GetInstanceIpWhiteListResponse({}));
+    return $dara.cast<$_model.GetInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceIpWhiteListResponse({}));
   }
 
   /**
-   * @summary Queries the whitelists configured for a Lindorm instance.
-   *
-   * @param request GetInstanceIpWhiteListRequest
-   * @return GetInstanceIpWhiteListResponse
+   * Queries the whitelists configured for a Lindorm instance.
+   * 
+   * @param request - GetInstanceIpWhiteListRequest
+   * @returns GetInstanceIpWhiteListResponse
    */
-  async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getInstanceIpWhiteList(request: $_model.GetInstanceIpWhiteListRequest): Promise<$_model.GetInstanceIpWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceIpWhiteListWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetInstanceSecurityGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceSecurityGroupsResponse
+   * @param request - GetInstanceSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceSecurityGroupsResponse
    */
-  async getInstanceSecurityGroupsWithOptions(request: GetInstanceSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceSecurityGroupsResponse> {
-    Util.validateModel(request);
+  async getInstanceSecurityGroupsWithOptions(request: $_model.GetInstanceSecurityGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceSecurityGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceSecurityGroups",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4117,62 +1567,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new GetInstanceSecurityGroupsResponse({}));
+    return $dara.cast<$_model.GetInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceSecurityGroupsResponse({}));
   }
 
   /**
-   * @param request GetInstanceSecurityGroupsRequest
-   * @return GetInstanceSecurityGroupsResponse
+   * @param request - GetInstanceSecurityGroupsRequest
+   * @returns GetInstanceSecurityGroupsResponse
    */
-  async getInstanceSecurityGroups(request: GetInstanceSecurityGroupsRequest): Promise<GetInstanceSecurityGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getInstanceSecurityGroups(request: $_model.GetInstanceSecurityGroupsRequest): Promise<$_model.GetInstanceSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceSecurityGroupsWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLdpsComputeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLdpsComputeGroupResponse
+   * @param request - GetLdpsComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLdpsComputeGroupResponse
    */
-  async getLdpsComputeGroupWithOptions(request: GetLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsComputeGroupResponse> {
-    Util.validateModel(request);
+  async getLdpsComputeGroupWithOptions(request: $_model.GetLdpsComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLdpsComputeGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLdpsComputeGroup",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4183,62 +1633,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new GetLdpsComputeGroupResponse({}));
+    return $dara.cast<$_model.GetLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetLdpsComputeGroupResponse({}));
   }
 
   /**
-   * @param request GetLdpsComputeGroupRequest
-   * @return GetLdpsComputeGroupResponse
+   * @param request - GetLdpsComputeGroupRequest
+   * @returns GetLdpsComputeGroupResponse
    */
-  async getLdpsComputeGroup(request: GetLdpsComputeGroupRequest): Promise<GetLdpsComputeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLdpsComputeGroup(request: $_model.GetLdpsComputeGroupRequest): Promise<$_model.GetLdpsComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLdpsNamespacedQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLdpsNamespacedQuotaResponse
+   * @param request - GetLdpsNamespacedQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLdpsNamespacedQuotaResponse
    */
-  async getLdpsNamespacedQuotaWithOptions(request: GetLdpsNamespacedQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsNamespacedQuotaResponse> {
-    Util.validateModel(request);
+  async getLdpsNamespacedQuotaWithOptions(request: $_model.GetLdpsNamespacedQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLdpsNamespacedQuotaResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.namespace)) {
+    if (!$dara.isNull(request.namespace)) {
       query["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLdpsNamespacedQuota",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4249,70 +1699,70 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLdpsNamespacedQuotaResponse>(await this.callApi(params, req, runtime), new GetLdpsNamespacedQuotaResponse({}));
+    return $dara.cast<$_model.GetLdpsNamespacedQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetLdpsNamespacedQuotaResponse({}));
   }
 
   /**
-   * @param request GetLdpsNamespacedQuotaRequest
-   * @return GetLdpsNamespacedQuotaResponse
+   * @param request - GetLdpsNamespacedQuotaRequest
+   * @returns GetLdpsNamespacedQuotaResponse
    */
-  async getLdpsNamespacedQuota(request: GetLdpsNamespacedQuotaRequest): Promise<GetLdpsNamespacedQuotaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLdpsNamespacedQuota(request: $_model.GetLdpsNamespacedQuotaRequest): Promise<$_model.GetLdpsNamespacedQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLdpsNamespacedQuotaWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLdpsResourceCostRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLdpsResourceCostResponse
+   * @param request - GetLdpsResourceCostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLdpsResourceCostResponse
    */
-  async getLdpsResourceCostWithOptions(request: GetLdpsResourceCostRequest, runtime: $Util.RuntimeOptions): Promise<GetLdpsResourceCostResponse> {
-    Util.validateModel(request);
+  async getLdpsResourceCostWithOptions(request: $_model.GetLdpsResourceCostRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLdpsResourceCostResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLdpsResourceCost",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4323,56 +1773,198 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLdpsResourceCostResponse>(await this.callApi(params, req, runtime), new GetLdpsResourceCostResponse({}));
+    return $dara.cast<$_model.GetLdpsResourceCostResponse>(await this.callApi(params, req, runtime), new $_model.GetLdpsResourceCostResponse({}));
   }
 
   /**
-   * @param request GetLdpsResourceCostRequest
-   * @return GetLdpsResourceCostResponse
+   * @param request - GetLdpsResourceCostRequest
+   * @returns GetLdpsResourceCostResponse
    */
-  async getLdpsResourceCost(request: GetLdpsResourceCostRequest): Promise<GetLdpsResourceCostResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLdpsResourceCost(request: $_model.GetLdpsResourceCostRequest): Promise<$_model.GetLdpsResourceCostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLdpsResourceCostWithOptions(request, runtime);
   }
 
   /**
-   * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
-   *
-   * @param request GetLindormInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLindormInstanceResponse
+   * 获取Lindorm引擎配置
+   * 
+   * @param request - GetLindormEngineConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormEngineConfigResponse
    */
-  async getLindormInstanceWithOptions(request: GetLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceResponse> {
-    Util.validateModel(request);
+  async getLindormEngineConfigWithOptions(request: $_model.GetLindormEngineConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormEngineConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormEngineConfig",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormEngineConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormEngineConfigResponse({}));
+  }
+
+  /**
+   * 获取Lindorm引擎配置
+   * 
+   * @param request - GetLindormEngineConfigRequest
+   * @returns GetLindormEngineConfigResponse
+   */
+  async getLindormEngineConfig(request: $_model.GetLindormEngineConfigRequest): Promise<$_model.GetLindormEngineConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormEngineConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of each storage type in a Lindorm instance.
+   * 
+   * @remarks
+   * If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+   * 
+   * @param request - GetLindormFsUsedDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormFsUsedDetailResponse
+   */
+  async getLindormFsUsedDetailWithOptions(request: $_model.GetLindormFsUsedDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormFsUsedDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormFsUsedDetail",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormFsUsedDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormFsUsedDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of each storage type in a Lindorm instance.
+   * 
+   * @remarks
+   * If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+   * 
+   * @param request - GetLindormFsUsedDetailRequest
+   * @returns GetLindormFsUsedDetailResponse
+   */
+  async getLindormFsUsedDetail(request: $_model.GetLindormFsUsedDetailRequest): Promise<$_model.GetLindormFsUsedDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormFsUsedDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+   * 
+   * @param request - GetLindormInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormInstanceResponse
+   */
+  async getLindormInstanceWithOptions(request: $_model.GetLindormInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "GetLindormInstance",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4383,60 +1975,62 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLindormInstanceResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceResponse({}));
+    return $dara.cast<$_model.GetLindormInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormInstanceResponse({}));
   }
 
   /**
-   * @summary Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
-   *
-   * @param request GetLindormInstanceRequest
-   * @return GetLindormInstanceResponse
+   * Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+   * 
+   * @param request - GetLindormInstanceRequest
+   * @returns GetLindormInstanceResponse
    */
-  async getLindormInstance(request: GetLindormInstanceRequest): Promise<GetLindormInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLindormInstance(request: $_model.GetLindormInstanceRequest): Promise<$_model.GetLindormInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLindormInstanceWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLindormInstanceEngineListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLindormInstanceEngineListResponse
+   * Obtains the engine types supported by the specified Lindorm instance.
+   * 
+   * @param request - GetLindormInstanceEngineListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormInstanceEngineListResponse
    */
-  async getLindormInstanceEngineListWithOptions(request: GetLindormInstanceEngineListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceEngineListResponse> {
-    Util.validateModel(request);
+  async getLindormInstanceEngineListWithOptions(request: $_model.GetLindormInstanceEngineListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormInstanceEngineListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLindormInstanceEngineList",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4447,82 +2041,86 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLindormInstanceEngineListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceEngineListResponse({}));
+    return $dara.cast<$_model.GetLindormInstanceEngineListResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormInstanceEngineListResponse({}));
   }
 
   /**
-   * @param request GetLindormInstanceEngineListRequest
-   * @return GetLindormInstanceEngineListResponse
+   * Obtains the engine types supported by the specified Lindorm instance.
+   * 
+   * @param request - GetLindormInstanceEngineListRequest
+   * @returns GetLindormInstanceEngineListResponse
    */
-  async getLindormInstanceEngineList(request: GetLindormInstanceEngineListRequest): Promise<GetLindormInstanceEngineListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLindormInstanceEngineList(request: $_model.GetLindormInstanceEngineListRequest): Promise<$_model.GetLindormInstanceEngineListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLindormInstanceEngineListWithOptions(request, runtime);
   }
 
   /**
-   * @param request GetLindormInstanceListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLindormInstanceListResponse
+   * Queries the instances that meet the specified conditions.
+   * 
+   * @param request - GetLindormInstanceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormInstanceListResponse
    */
-  async getLindormInstanceListWithOptions(request: GetLindormInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceListResponse> {
-    Util.validateModel(request);
+  async getLindormInstanceListWithOptions(request: $_model.GetLindormInstanceListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormInstanceListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queryStr)) {
+    if (!$dara.isNull(request.queryStr)) {
       query["QueryStr"] = request.queryStr;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.serviceType)) {
+    if (!$dara.isNull(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
     }
 
-    if (!Util.isUnset(request.supportEngine)) {
+    if (!$dara.isNull(request.supportEngine)) {
       query["SupportEngine"] = request.supportEngine;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLindormInstanceList",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4533,58 +2131,676 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetLindormInstanceListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceListResponse({}));
+    return $dara.cast<$_model.GetLindormInstanceListResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormInstanceListResponse({}));
   }
 
   /**
-   * @param request GetLindormInstanceListRequest
-   * @return GetLindormInstanceListResponse
+   * Queries the instances that meet the specified conditions.
+   * 
+   * @param request - GetLindormInstanceListRequest
+   * @returns GetLindormInstanceListResponse
    */
-  async getLindormInstanceList(request: GetLindormInstanceListRequest): Promise<GetLindormInstanceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getLindormInstanceList(request: $_model.GetLindormInstanceListRequest): Promise<$_model.GetLindormInstanceListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getLindormInstanceListWithOptions(request, runtime);
   }
 
   /**
-   * @param request ListLdpsComputeGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLdpsComputeGroupsResponse
+   * 查询实例详情
+   * 
+   * @param request - GetLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2InstanceResponse
    */
-  async listLdpsComputeGroupsWithOptions(request: ListLdpsComputeGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListLdpsComputeGroupsResponse> {
-    Util.validateModel(request);
+  async getLindormV2InstanceWithOptions(request: $_model.GetLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2InstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * 查询实例详情
+   * 
+   * @param request - GetLindormV2InstanceRequest
+   * @returns GetLindormV2InstanceResponse
+   */
+  async getLindormV2Instance(request: $_model.GetLindormV2InstanceRequest): Promise<$_model.GetLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询新架构实例详情
+   * 
+   * @param request - GetLindormV2InstanceDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2InstanceDetailsResponse
+   */
+  async getLindormV2InstanceDetailsWithOptions(request: $_model.GetLindormV2InstanceDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2InstanceDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2InstanceDetails",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2InstanceDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2InstanceDetailsResponse({}));
+  }
+
+  /**
+   * 查询新架构实例详情
+   * 
+   * @param request - GetLindormV2InstanceDetailsRequest
+   * @returns GetLindormV2InstanceDetailsResponse
+   */
+  async getLindormV2InstanceDetails(request: $_model.GetLindormV2InstanceDetailsRequest): Promise<$_model.GetLindormV2InstanceDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2InstanceDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetLindormV2InstanceEngineListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2InstanceEngineListResponse
+   */
+  async getLindormV2InstanceEngineListWithOptions(request: $_model.GetLindormV2InstanceEngineListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2InstanceEngineListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2InstanceEngineList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2InstanceEngineListResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2InstanceEngineListResponse({}));
+  }
+
+  /**
+   * @param request - GetLindormV2InstanceEngineListRequest
+   * @returns GetLindormV2InstanceEngineListResponse
+   */
+  async getLindormV2InstanceEngineList(request: $_model.GetLindormV2InstanceEngineListRequest): Promise<$_model.GetLindormV2InstanceEngineListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2InstanceEngineListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询新架构实例详情
+   * 
+   * @param request - GetLindormV2InstanceForTerraformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2InstanceForTerraformResponse
+   */
+  async getLindormV2InstanceForTerraformWithOptions(request: $_model.GetLindormV2InstanceForTerraformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2InstanceForTerraformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2InstanceForTerraform",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2InstanceForTerraformResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2InstanceForTerraformResponse({}));
+  }
+
+  /**
+   * 查询新架构实例详情
+   * 
+   * @param request - GetLindormV2InstanceForTerraformRequest
+   * @returns GetLindormV2InstanceForTerraformResponse
+   */
+  async getLindormV2InstanceForTerraform(request: $_model.GetLindormV2InstanceForTerraformRequest): Promise<$_model.GetLindormV2InstanceForTerraformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2InstanceForTerraformWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询新架构实例安全组信息
+   * 
+   * @param request - GetLindormV2InstanceSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2InstanceSecurityGroupsResponse
+   */
+  async getLindormV2InstanceSecurityGroupsWithOptions(request: $_model.GetLindormV2InstanceSecurityGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2InstanceSecurityGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2InstanceSecurityGroups",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2InstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2InstanceSecurityGroupsResponse({}));
+  }
+
+  /**
+   * 查询新架构实例安全组信息
+   * 
+   * @param request - GetLindormV2InstanceSecurityGroupsRequest
+   * @returns GetLindormV2InstanceSecurityGroupsResponse
+   */
+  async getLindormV2InstanceSecurityGroups(request: $_model.GetLindormV2InstanceSecurityGroupsRequest): Promise<$_model.GetLindormV2InstanceSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2InstanceSecurityGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetLindormV2StorageUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2StorageUsageResponse
+   */
+  async getLindormV2StorageUsageWithOptions(request: $_model.GetLindormV2StorageUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2StorageUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2StorageUsage",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2StorageUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2StorageUsageResponse({}));
+  }
+
+  /**
+   * @param request - GetLindormV2StorageUsageRequest
+   * @returns GetLindormV2StorageUsageResponse
+   */
+  async getLindormV2StorageUsage(request: $_model.GetLindormV2StorageUsageRequest): Promise<$_model.GetLindormV2StorageUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2StorageUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取流引擎信息
+   * 
+   * @param request - GetLindormV2StreamEngineInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLindormV2StreamEngineInfoResponse
+   */
+  async getLindormV2StreamEngineInfoWithOptions(request: $_model.GetLindormV2StreamEngineInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLindormV2StreamEngineInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLindormV2StreamEngineInfo",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLindormV2StreamEngineInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetLindormV2StreamEngineInfoResponse({}));
+  }
+
+  /**
+   * 获取流引擎信息
+   * 
+   * @param request - GetLindormV2StreamEngineInfoRequest
+   * @returns GetLindormV2StreamEngineInfoResponse
+   */
+  async getLindormV2StreamEngineInfo(request: $_model.GetLindormV2StreamEngineInfoRequest): Promise<$_model.GetLindormV2StreamEngineInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLindormV2StreamEngineInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListAutoScalingConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoScalingConfigsResponse
+   */
+  async listAutoScalingConfigsWithOptions(request: $_model.ListAutoScalingConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoScalingConfigs",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoScalingConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoScalingConfigsResponse({}));
+  }
+
+  /**
+   * @param request - ListAutoScalingConfigsRequest
+   * @returns ListAutoScalingConfigsResponse
+   */
+  async listAutoScalingConfigs(request: $_model.ListAutoScalingConfigsRequest): Promise<$_model.ListAutoScalingConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAutoScalingConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListAutoScalingRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoScalingRecordsResponse
+   */
+  async listAutoScalingRecordsWithOptions(request: $_model.ListAutoScalingRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoScalingRecords",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoScalingRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoScalingRecordsResponse({}));
+  }
+
+  /**
+   * @param request - ListAutoScalingRecordsRequest
+   * @returns ListAutoScalingRecordsResponse
+   */
+  async listAutoScalingRecords(request: $_model.ListAutoScalingRecordsRequest): Promise<$_model.ListAutoScalingRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAutoScalingRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListAutoScalingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoScalingRulesResponse
+   */
+  async listAutoScalingRulesWithOptions(request: $_model.ListAutoScalingRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoScalingRules",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoScalingRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoScalingRulesResponse({}));
+  }
+
+  /**
+   * @param request - ListAutoScalingRulesRequest
+   * @returns ListAutoScalingRulesResponse
+   */
+  async listAutoScalingRules(request: $_model.ListAutoScalingRulesRequest): Promise<$_model.ListAutoScalingRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAutoScalingRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListLdpsComputeGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLdpsComputeGroupsResponse
+   */
+  async listLdpsComputeGroupsWithOptions(request: $_model.ListLdpsComputeGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLdpsComputeGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "ListLdpsComputeGroups",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4595,72 +2811,72 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListLdpsComputeGroupsResponse>(await this.callApi(params, req, runtime), new ListLdpsComputeGroupsResponse({}));
+    return $dara.cast<$_model.ListLdpsComputeGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListLdpsComputeGroupsResponse({}));
   }
 
   /**
-   * @param request ListLdpsComputeGroupsRequest
-   * @return ListLdpsComputeGroupsResponse
+   * @param request - ListLdpsComputeGroupsRequest
+   * @returns ListLdpsComputeGroupsResponse
    */
-  async listLdpsComputeGroups(request: ListLdpsComputeGroupsRequest): Promise<ListLdpsComputeGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listLdpsComputeGroups(request: $_model.ListLdpsComputeGroupsRequest): Promise<$_model.ListLdpsComputeGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listLdpsComputeGroupsWithOptions(request, runtime);
   }
 
   /**
-   * @summary Queries the tags associated with the specified Lindorm instance.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the tags associated with the specified Lindorm instance.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4671,73 +2887,380 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
   }
 
   /**
-   * @summary Queries the tags associated with the specified Lindorm instance.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the tags associated with the specified Lindorm instance.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
-   * @summary Changes the billing method of the specified Lindorm instance.
-   *
-   * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-   *
-   * @param request ModifyInstancePayTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstancePayTypeResponse
+   * 单可用区迁移多可用区基础版
+   * 
+   * @param request - MigrateSingleZoneToMultiZoneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateSingleZoneToMultiZoneResponse
    */
-  async modifyInstancePayTypeWithOptions(request: ModifyInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstancePayTypeResponse> {
-    Util.validateModel(request);
+  async migrateSingleZoneToMultiZoneWithOptions(request: $_model.MigrateSingleZoneToMultiZoneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MigrateSingleZoneToMultiZoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.duration)) {
-      query["Duration"] = request.duration;
+    if (!$dara.isNull(request.arbitraryVSwitchId)) {
+      query["ArbitraryVSwitchId"] = request.arbitraryVSwitchId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.arbitraryZoneId)) {
+      query["ArbitraryZoneId"] = request.arbitraryZoneId;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.payType)) {
-      query["PayType"] = request.payType;
-    }
-
-    if (!Util.isUnset(request.pricingCycle)) {
-      query["PricingCycle"] = request.pricingCycle;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!$dara.isNull(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "MigrateSingleZoneToMultiZone",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MigrateSingleZoneToMultiZoneResponse>(await this.callApi(params, req, runtime), new $_model.MigrateSingleZoneToMultiZoneResponse({}));
+  }
+
+  /**
+   * 单可用区迁移多可用区基础版
+   * 
+   * @param request - MigrateSingleZoneToMultiZoneRequest
+   * @returns MigrateSingleZoneToMultiZoneResponse
+   */
+  async migrateSingleZoneToMultiZone(request: $_model.MigrateSingleZoneToMultiZoneRequest): Promise<$_model.MigrateSingleZoneToMultiZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.migrateSingleZoneToMultiZoneWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyAutoScalingConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoScalingConfigResponse
+   */
+  async modifyAutoScalingConfigWithOptions(request: $_model.ModifyAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoScalingConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!$dara.isNull(request.effectiveTimeEnd)) {
+      query["EffectiveTimeEnd"] = request.effectiveTimeEnd;
+    }
+
+    if (!$dara.isNull(request.effectiveTimeStart)) {
+      query["EffectiveTimeStart"] = request.effectiveTimeStart;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodesMax)) {
+      query["NodesMax"] = request.nodesMax;
+    }
+
+    if (!$dara.isNull(request.nodesMin)) {
+      query["NodesMin"] = request.nodesMin;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleType)) {
+      query["ScaleType"] = request.scaleType;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.specId)) {
+      query["SpecId"] = request.specId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAutoScalingConfig",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAutoScalingConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAutoScalingConfigResponse({}));
+  }
+
+  /**
+   * @param request - ModifyAutoScalingConfigRequest
+   * @returns ModifyAutoScalingConfigResponse
+   */
+  async modifyAutoScalingConfig(request: $_model.ModifyAutoScalingConfigRequest): Promise<$_model.ModifyAutoScalingConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAutoScalingConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyAutoScalingRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoScalingRuleResponse
+   */
+  async modifyAutoScalingRuleWithOptions(request: $_model.ModifyAutoScalingRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoScalingRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.observationWindow)) {
+      query["ObservationWindow"] = request.observationWindow;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!$dara.isNull(request.scaleInStep)) {
+      query["ScaleInStep"] = request.scaleInStep;
+    }
+
+    if (!$dara.isNull(request.scaleOutStep)) {
+      query["ScaleOutStep"] = request.scaleOutStep;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.silenceTime)) {
+      query["SilenceTime"] = request.silenceTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.targetMetric)) {
+      query["TargetMetric"] = request.targetMetric;
+    }
+
+    if (!$dara.isNull(request.targetNodes)) {
+      query["TargetNodes"] = request.targetNodes;
+    }
+
+    if (!$dara.isNull(request.thresholdLower)) {
+      query["ThresholdLower"] = request.thresholdLower;
+    }
+
+    if (!$dara.isNull(request.thresholdUpper)) {
+      query["ThresholdUpper"] = request.thresholdUpper;
+    }
+
+    if (!$dara.isNull(request.triggerCronExpr)) {
+      query["TriggerCronExpr"] = request.triggerCronExpr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAutoScalingRule",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAutoScalingRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAutoScalingRuleResponse({}));
+  }
+
+  /**
+   * @param request - ModifyAutoScalingRuleRequest
+   * @returns ModifyAutoScalingRuleResponse
+   */
+  async modifyAutoScalingRule(request: $_model.ModifyAutoScalingRuleRequest): Promise<$_model.ModifyAutoScalingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAutoScalingRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the billing method of the specified Lindorm instance.
+   * 
+   * @remarks
+   * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+   * 
+   * @param request - ModifyInstancePayTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstancePayTypeResponse
+   */
+  async modifyInstancePayTypeWithOptions(request: $_model.ModifyInstancePayTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyInstancePayTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "ModifyInstancePayType",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4748,67 +3271,300 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyInstancePayTypeResponse({}));
+    return $dara.cast<$_model.ModifyInstancePayTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyInstancePayTypeResponse({}));
   }
 
   /**
-   * @summary Changes the billing method of the specified Lindorm instance.
-   *
-   * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-   *
-   * @param request ModifyInstancePayTypeRequest
-   * @return ModifyInstancePayTypeResponse
+   * Changes the billing method of the specified Lindorm instance.
+   * 
+   * @remarks
+   * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+   * 
+   * @param request - ModifyInstancePayTypeRequest
+   * @returns ModifyInstancePayTypeResponse
    */
-  async modifyInstancePayType(request: ModifyInstancePayTypeRequest): Promise<ModifyInstancePayTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async modifyInstancePayType(request: $_model.ModifyInstancePayTypeRequest): Promise<$_model.ModifyInstancePayTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstancePayTypeWithOptions(request, runtime);
   }
 
   /**
-   * @param request OpenComputeEngineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenComputeEngineResponse
+   * 变配实例
+   * 
+   * @param request - ModifyLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLindormV2InstanceResponse
    */
-  async openComputeEngineWithOptions(request: OpenComputeEngineRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputeEngineResponse> {
-    Util.validateModel(request);
+  async modifyLindormV2InstanceWithOptions(request: $_model.ModifyLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLindormV2InstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cpuLimit)) {
-      query["CpuLimit"] = request.cpuLimit;
+    if (!$dara.isNull(request.cloudStorageSize)) {
+      query["CloudStorageSize"] = request.cloudStorageSize;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.cloudStorageType)) {
+      query["CloudStorageType"] = request.cloudStorageType;
+    }
+
+    if (!$dara.isNull(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memoryLimit)) {
-      query["MemoryLimit"] = request.memoryLimit;
+    if (!$dara.isNull(request.nodeGroupList)) {
+      query["NodeGroupList"] = request.nodeGroupList;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.upgradeType)) {
+      query["UpgradeType"] = request.upgradeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * 变配实例
+   * 
+   * @param request - ModifyLindormV2InstanceRequest
+   * @returns ModifyLindormV2InstanceResponse
+   */
+  async modifyLindormV2Instance(request: $_model.ModifyLindormV2InstanceRequest): Promise<$_model.ModifyLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 新架构修改安全组接口
+   * 
+   * @param request - ModifyLindormV2InstanceSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLindormV2InstanceSecurityGroupsResponse
+   */
+  async modifyLindormV2InstanceSecurityGroupsWithOptions(request: $_model.ModifyLindormV2InstanceSecurityGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLindormV2InstanceSecurityGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityGroups)) {
+      query["SecurityGroups"] = request.securityGroups;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLindormV2InstanceSecurityGroups",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLindormV2InstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLindormV2InstanceSecurityGroupsResponse({}));
+  }
+
+  /**
+   * 新架构修改安全组接口
+   * 
+   * @param request - ModifyLindormV2InstanceSecurityGroupsRequest
+   * @returns ModifyLindormV2InstanceSecurityGroupsResponse
+   */
+  async modifyLindormV2InstanceSecurityGroups(request: $_model.ModifyLindormV2InstanceSecurityGroupsRequest): Promise<$_model.ModifyLindormV2InstanceSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLindormV2InstanceSecurityGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Lindorm新版实例白名单
+   * 
+   * @param request - ModifyLindormV2WhiteIpListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLindormV2WhiteIpListResponse
+   */
+  async modifyLindormV2WhiteIpListWithOptions(request: $_model.ModifyLindormV2WhiteIpListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLindormV2WhiteIpListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deleteGroup)) {
+      query["DeleteGroup"] = request.deleteGroup;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.whiteIpList)) {
+      query["WhiteIpList"] = request.whiteIpList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLindormV2WhiteIpList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLindormV2WhiteIpListResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLindormV2WhiteIpListResponse({}));
+  }
+
+  /**
+   * 修改Lindorm新版实例白名单
+   * 
+   * @param request - ModifyLindormV2WhiteIpListRequest
+   * @returns ModifyLindormV2WhiteIpListResponse
+   */
+  async modifyLindormV2WhiteIpList(request: $_model.ModifyLindormV2WhiteIpListRequest): Promise<$_model.ModifyLindormV2WhiteIpListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLindormV2WhiteIpListWithOptions(request, runtime);
+  }
+
+  /**
+   * 开通计算引擎
+   * 
+   * @param request - OpenComputeEngineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenComputeEngineResponse
+   */
+  async openComputeEngineWithOptions(request: $_model.OpenComputeEngineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenComputeEngineResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cpuLimit)) {
+      query["CpuLimit"] = request.cpuLimit;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.memoryLimit)) {
+      query["MemoryLimit"] = request.memoryLimit;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "OpenComputeEngine",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4819,62 +3575,66 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OpenComputeEngineResponse>(await this.callApi(params, req, runtime), new OpenComputeEngineResponse({}));
+    return $dara.cast<$_model.OpenComputeEngineResponse>(await this.callApi(params, req, runtime), new $_model.OpenComputeEngineResponse({}));
   }
 
   /**
-   * @param request OpenComputeEngineRequest
-   * @return OpenComputeEngineResponse
+   * 开通计算引擎
+   * 
+   * @param request - OpenComputeEngineRequest
+   * @returns OpenComputeEngineResponse
    */
-  async openComputeEngine(request: OpenComputeEngineRequest): Promise<OpenComputeEngineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async openComputeEngine(request: $_model.OpenComputeEngineRequest): Promise<$_model.OpenComputeEngineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.openComputeEngineWithOptions(request, runtime);
   }
 
   /**
-   * @param request OpenComputePreCheckRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenComputePreCheckResponse
+   * 开通计算引擎前置校验
+   * 
+   * @param request - OpenComputePreCheckRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenComputePreCheckResponse
    */
-  async openComputePreCheckWithOptions(request: OpenComputePreCheckRequest, runtime: $Util.RuntimeOptions): Promise<OpenComputePreCheckResponse> {
-    Util.validateModel(request);
+  async openComputePreCheckWithOptions(request: $_model.OpenComputePreCheckRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenComputePreCheckResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cpuLimit)) {
+    if (!$dara.isNull(request.cpuLimit)) {
       query["CpuLimit"] = request.cpuLimit;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memoryLimit)) {
+    if (!$dara.isNull(request.memoryLimit)) {
       query["MemoryLimit"] = request.memoryLimit;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OpenComputePreCheck",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4885,58 +3645,124 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OpenComputePreCheckResponse>(await this.callApi(params, req, runtime), new OpenComputePreCheckResponse({}));
+    return $dara.cast<$_model.OpenComputePreCheckResponse>(await this.callApi(params, req, runtime), new $_model.OpenComputePreCheckResponse({}));
   }
 
   /**
-   * @param request OpenComputePreCheckRequest
-   * @return OpenComputePreCheckResponse
+   * 开通计算引擎前置校验
+   * 
+   * @param request - OpenComputePreCheckRequest
+   * @returns OpenComputePreCheckResponse
    */
-  async openComputePreCheck(request: OpenComputePreCheckRequest): Promise<OpenComputePreCheckResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async openComputePreCheck(request: $_model.OpenComputePreCheckRequest): Promise<$_model.OpenComputePreCheckResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.openComputePreCheckWithOptions(request, runtime);
   }
 
   /**
-   * @param request ReleaseLindormInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseLindormInstanceResponse
+   * 开通列存索引
+   * 
+   * @param request - OpenLdpsColumnarIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenLdpsColumnarIndexResponse
    */
-  async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
-    Util.validateModel(request);
+  async openLdpsColumnarIndexWithOptions(request: $_model.OpenLdpsColumnarIndexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenLdpsColumnarIndexResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.immediately)) {
-      query["Immediately"] = request.immediately;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "OpenLdpsColumnarIndex",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenLdpsColumnarIndexResponse>(await this.callApi(params, req, runtime), new $_model.OpenLdpsColumnarIndexResponse({}));
+  }
+
+  /**
+   * 开通列存索引
+   * 
+   * @param request - OpenLdpsColumnarIndexRequest
+   * @returns OpenLdpsColumnarIndexResponse
+   */
+  async openLdpsColumnarIndex(request: $_model.OpenLdpsColumnarIndexRequest): Promise<$_model.OpenLdpsColumnarIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.openLdpsColumnarIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases a Lindorm instance.
+   * 
+   * @param request - ReleaseLindormInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseLindormInstanceResponse
+   */
+  async releaseLindormInstanceWithOptions(request: $_model.ReleaseLindormInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseLindormInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.immediately)) {
+      query["Immediately"] = request.immediately;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseLindormInstance",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -4947,71 +3773,140 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseLindormInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseLindormInstanceResponse({}));
+    return $dara.cast<$_model.ReleaseLindormInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseLindormInstanceResponse({}));
   }
 
   /**
-   * @param request ReleaseLindormInstanceRequest
-   * @return ReleaseLindormInstanceResponse
+   * Releases a Lindorm instance.
+   * 
+   * @param request - ReleaseLindormInstanceRequest
+   * @returns ReleaseLindormInstanceResponse
    */
-  async releaseLindormInstance(request: ReleaseLindormInstanceRequest): Promise<ReleaseLindormInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async releaseLindormInstance(request: $_model.ReleaseLindormInstanceRequest): Promise<$_model.ReleaseLindormInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseLindormInstanceWithOptions(request, runtime);
   }
 
   /**
-   * @summary Renews a subscription Lindorm instance.
-   *
-   * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
-   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-   *
-   * @param request RenewLindormInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewLindormInstanceResponse
+   * 释放实例
+   * 
+   * @param request - ReleaseLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseLindormV2InstanceResponse
    */
-  async renewLindormInstanceWithOptions(request: RenewLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewLindormInstanceResponse> {
-    Util.validateModel(request);
+  async releaseLindormV2InstanceWithOptions(request: $_model.ReleaseLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseLindormV2InstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.duration)) {
-      query["Duration"] = request.duration;
+    if (!$dara.isNull(request.immediately)) {
+      query["Immediately"] = request.immediately;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
-      query["PricingCycle"] = request.pricingCycle;
-    }
-
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * 释放实例
+   * 
+   * @param request - ReleaseLindormV2InstanceRequest
+   * @returns ReleaseLindormV2InstanceResponse
+   */
+  async releaseLindormV2Instance(request: $_model.ReleaseLindormV2InstanceRequest): Promise<$_model.ReleaseLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Renews a subscription Lindorm instance.
+   * 
+   * @remarks
+   * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+   * 
+   * @param request - RenewLindormInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewLindormInstanceResponse
+   */
+  async renewLindormInstanceWithOptions(request: $_model.RenewLindormInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewLindormInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "RenewLindormInstance",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5022,67 +3917,68 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RenewLindormInstanceResponse>(await this.callApi(params, req, runtime), new RenewLindormInstanceResponse({}));
+    return $dara.cast<$_model.RenewLindormInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RenewLindormInstanceResponse({}));
   }
 
   /**
-   * @summary Renews a subscription Lindorm instance.
-   *
-   * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+   * Renews a subscription Lindorm instance.
+   * 
+   * @remarks
+   * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-   *
-   * @param request RenewLindormInstanceRequest
-   * @return RenewLindormInstanceResponse
+   * 
+   * @param request - RenewLindormInstanceRequest
+   * @returns RenewLindormInstanceResponse
    */
-  async renewLindormInstance(request: RenewLindormInstanceRequest): Promise<RenewLindormInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async renewLindormInstance(request: $_model.RenewLindormInstanceRequest): Promise<$_model.RenewLindormInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.renewLindormInstanceWithOptions(request, runtime);
   }
 
   /**
-   * @param request RestartLdpsComputeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartLdpsComputeGroupResponse
+   * @param request - RestartLdpsComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartLdpsComputeGroupResponse
    */
-  async restartLdpsComputeGroupWithOptions(request: RestartLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<RestartLdpsComputeGroupResponse> {
-    Util.validateModel(request);
+  async restartLdpsComputeGroupWithOptions(request: $_model.RestartLdpsComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartLdpsComputeGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RestartLdpsComputeGroup",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5093,65 +3989,136 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RestartLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new RestartLdpsComputeGroupResponse({}));
+    return $dara.cast<$_model.RestartLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.RestartLdpsComputeGroupResponse({}));
   }
 
   /**
-   * @param request RestartLdpsComputeGroupRequest
-   * @return RestartLdpsComputeGroupResponse
+   * @param request - RestartLdpsComputeGroupRequest
+   * @returns RestartLdpsComputeGroupResponse
    */
-  async restartLdpsComputeGroup(request: RestartLdpsComputeGroupRequest): Promise<RestartLdpsComputeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async restartLdpsComputeGroup(request: $_model.RestartLdpsComputeGroupRequest): Promise<$_model.RestartLdpsComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.restartLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-   * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
-   *
-   * @description Prerequisites
-   * *   The LindormTable version of your instance is 2.6.0 or later.
-   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-   *
-   * @param request SwitchLSQLV3MySQLServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchLSQLV3MySQLServiceResponse
+   * @param request - SetDefaultOlapComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDefaultOlapComputeGroupResponse
    */
-  async switchLSQLV3MySQLServiceWithOptions(request: SwitchLSQLV3MySQLServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchLSQLV3MySQLServiceResponse> {
-    Util.validateModel(request);
+  async setDefaultOlapComputeGroupWithOptions(request: $_model.SetDefaultOlapComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetDefaultOlapComputeGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.actionType)) {
-      query["ActionType"] = request.actionType;
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
+      action: "SetDefaultOlapComputeGroup",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetDefaultOlapComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.SetDefaultOlapComputeGroupResponse({}));
+  }
+
+  /**
+   * @param request - SetDefaultOlapComputeGroupRequest
+   * @returns SetDefaultOlapComputeGroupResponse
+   */
+  async setDefaultOlapComputeGroup(request: $_model.SetDefaultOlapComputeGroupRequest): Promise<$_model.SetDefaultOlapComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setDefaultOlapComputeGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables or disables the MySQL compatibility feature for a Lindorm instance.
+   * 
+   * @remarks
+   * Prerequisites
+   * *   The LindormTable version of your instance is 2.6.0 or later.
+   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+   * 
+   * @param request - SwitchLSQLV3MySQLServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchLSQLV3MySQLServiceResponse
+   */
+  async switchLSQLV3MySQLServiceWithOptions(request: $_model.SwitchLSQLV3MySQLServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SwitchLSQLV3MySQLServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
       action: "SwitchLSQLV3MySQLService",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5162,75 +4129,76 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SwitchLSQLV3MySQLServiceResponse>(await this.callApi(params, req, runtime), new SwitchLSQLV3MySQLServiceResponse({}));
+    return $dara.cast<$_model.SwitchLSQLV3MySQLServiceResponse>(await this.callApi(params, req, runtime), new $_model.SwitchLSQLV3MySQLServiceResponse({}));
   }
 
   /**
-   * @summary Enables or disables the MySQL compatibility feature for a Lindorm instance.
-   *
-   * @description Prerequisites
+   * Enables or disables the MySQL compatibility feature for a Lindorm instance.
+   * 
+   * @remarks
+   * Prerequisites
    * *   The LindormTable version of your instance is 2.6.0 or later.
    * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
    * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-   *
-   * @param request SwitchLSQLV3MySQLServiceRequest
-   * @return SwitchLSQLV3MySQLServiceResponse
+   * 
+   * @param request - SwitchLSQLV3MySQLServiceRequest
+   * @returns SwitchLSQLV3MySQLServiceResponse
    */
-  async switchLSQLV3MySQLService(request: SwitchLSQLV3MySQLServiceRequest): Promise<SwitchLSQLV3MySQLServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async switchLSQLV3MySQLService(request: $_model.SwitchLSQLV3MySQLServiceRequest): Promise<$_model.SwitchLSQLV3MySQLServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.switchLSQLV3MySQLServiceWithOptions(request, runtime);
   }
 
   /**
-   * @summary Associates tags with a single or multiple Lindorm instances.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Associates tags with a single or multiple Lindorm instances.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5241,72 +4209,73 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
   }
 
   /**
-   * @summary Associates tags with a single or multiple Lindorm instances.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Associates tags with a single or multiple Lindorm instances.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
-  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
   /**
-   * @summary Removes tags from a Lindorm instance.
-   *
-   * @description If a tag is not added to any Lindorm instance, it is deleted.
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from a Lindorm instance.
+   * 
+   * @remarks
+   * If a tag is not added to any Lindorm instance, it is deleted.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5317,72 +4286,73 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
   }
 
   /**
-   * @summary Removes tags from a Lindorm instance.
-   *
-   * @description If a tag is not added to any Lindorm instance, it is deleted.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from a Lindorm instance.
+   * 
+   * @remarks
+   * If a tag is not added to any Lindorm instance, it is deleted.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
-  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-   * @summary Configures an IP address whitelist for a Lindorm instance.
-   *
-   * @param request UpdateInstanceIpWhiteListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceIpWhiteListResponse
+   * Configures an IP address whitelist for a Lindorm instance.
+   * 
+   * @param request - UpdateInstanceIpWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceIpWhiteListResponse
    */
-  async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
-    Util.validateModel(request);
+  async updateInstanceIpWhiteListWithOptions(request: $_model.UpdateInstanceIpWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceIpWhiteListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.delete)) {
+    if (!$dara.isNull(request.delete)) {
       query["Delete"] = request.delete;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityIpList)) {
+    if (!$dara.isNull(request.securityIpList)) {
       query["SecurityIpList"] = request.securityIpList;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceIpWhiteList",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5393,60 +4363,60 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateInstanceIpWhiteListResponse({}));
+    return $dara.cast<$_model.UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceIpWhiteListResponse({}));
   }
 
   /**
-   * @summary Configures an IP address whitelist for a Lindorm instance.
-   *
-   * @param request UpdateInstanceIpWhiteListRequest
-   * @return UpdateInstanceIpWhiteListResponse
+   * Configures an IP address whitelist for a Lindorm instance.
+   * 
+   * @param request - UpdateInstanceIpWhiteListRequest
+   * @returns UpdateInstanceIpWhiteListResponse
    */
-  async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateInstanceIpWhiteList(request: $_model.UpdateInstanceIpWhiteListRequest): Promise<$_model.UpdateInstanceIpWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
   }
 
   /**
-   * @param request UpdateInstanceSecurityGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceSecurityGroupsResponse
+   * @param request - UpdateInstanceSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceSecurityGroupsResponse
    */
-  async updateInstanceSecurityGroupsWithOptions(request: UpdateInstanceSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceSecurityGroupsResponse> {
-    Util.validateModel(request);
+  async updateInstanceSecurityGroupsWithOptions(request: $_model.UpdateInstanceSecurityGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceSecurityGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityGroups)) {
+    if (!$dara.isNull(request.securityGroups)) {
       query["SecurityGroups"] = request.securityGroups;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceSecurityGroups",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5457,66 +4427,66 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSecurityGroupsResponse({}));
+    return $dara.cast<$_model.UpdateInstanceSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceSecurityGroupsResponse({}));
   }
 
   /**
-   * @param request UpdateInstanceSecurityGroupsRequest
-   * @return UpdateInstanceSecurityGroupsResponse
+   * @param request - UpdateInstanceSecurityGroupsRequest
+   * @returns UpdateInstanceSecurityGroupsResponse
    */
-  async updateInstanceSecurityGroups(request: UpdateInstanceSecurityGroupsRequest): Promise<UpdateInstanceSecurityGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateInstanceSecurityGroups(request: $_model.UpdateInstanceSecurityGroupsRequest): Promise<$_model.UpdateInstanceSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceSecurityGroupsWithOptions(request, runtime);
   }
 
   /**
-   * @param request UpdateLdpsComputeGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLdpsComputeGroupResponse
+   * @param request - UpdateLdpsComputeGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLdpsComputeGroupResponse
    */
-  async updateLdpsComputeGroupWithOptions(request: UpdateLdpsComputeGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLdpsComputeGroupResponse> {
-    Util.validateModel(request);
+  async updateLdpsComputeGroupWithOptions(request: $_model.UpdateLdpsComputeGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLdpsComputeGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.properties)) {
+    if (!$dara.isNull(request.properties)) {
       query["Properties"] = request.properties;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateLdpsComputeGroup",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5527,142 +4497,369 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new UpdateLdpsComputeGroupResponse({}));
+    return $dara.cast<$_model.UpdateLdpsComputeGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLdpsComputeGroupResponse({}));
   }
 
   /**
-   * @param request UpdateLdpsComputeGroupRequest
-   * @return UpdateLdpsComputeGroupResponse
+   * @param request - UpdateLdpsComputeGroupRequest
+   * @returns UpdateLdpsComputeGroupResponse
    */
-  async updateLdpsComputeGroup(request: UpdateLdpsComputeGroupRequest): Promise<UpdateLdpsComputeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async updateLdpsComputeGroup(request: $_model.UpdateLdpsComputeGroupRequest): Promise<$_model.UpdateLdpsComputeGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLdpsComputeGroupWithOptions(request, runtime);
   }
 
   /**
-   * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
-   *
-   * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
-   *
-   * @param request UpgradeLindormInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpgradeLindormInstanceResponse
+   * 更新实例名称或删除保护
+   * 
+   * @param request - UpdateLindormInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLindormInstanceAttributeResponse
    */
-  async upgradeLindormInstanceWithOptions(request: UpgradeLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeLindormInstanceResponse> {
-    Util.validateModel(request);
+  async updateLindormInstanceAttributeWithOptions(request: $_model.UpdateLindormInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLindormInstanceAttributeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterStorage)) {
-      query["ClusterStorage"] = request.clusterStorage;
+    if (!$dara.isNull(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
     }
 
-    if (!Util.isUnset(request.coldStorage)) {
-      query["ColdStorage"] = request.coldStorage;
+    if (!$dara.isNull(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
     }
 
-    if (!Util.isUnset(request.coreSingleStorage)) {
-      query["CoreSingleStorage"] = request.coreSingleStorage;
-    }
-
-    if (!Util.isUnset(request.filestoreNum)) {
-      query["FilestoreNum"] = request.filestoreNum;
-    }
-
-    if (!Util.isUnset(request.filestoreSpec)) {
-      query["FilestoreSpec"] = request.filestoreSpec;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lindormNum)) {
-      query["LindormNum"] = request.lindormNum;
-    }
-
-    if (!Util.isUnset(request.lindormSpec)) {
-      query["LindormSpec"] = request.lindormSpec;
-    }
-
-    if (!Util.isUnset(request.logNum)) {
-      query["LogNum"] = request.logNum;
-    }
-
-    if (!Util.isUnset(request.logSingleStorage)) {
-      query["LogSingleStorage"] = request.logSingleStorage;
-    }
-
-    if (!Util.isUnset(request.logSpec)) {
-      query["LogSpec"] = request.logSpec;
-    }
-
-    if (!Util.isUnset(request.ltsCoreNum)) {
-      query["LtsCoreNum"] = request.ltsCoreNum;
-    }
-
-    if (!Util.isUnset(request.ltsCoreSpec)) {
-      query["LtsCoreSpec"] = request.ltsCoreSpec;
-    }
-
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.securityToken)) {
+    if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
 
-    if (!Util.isUnset(request.solrNum)) {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLindormInstanceAttribute",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLindormInstanceAttributeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLindormInstanceAttributeResponse({}));
+  }
+
+  /**
+   * 更新实例名称或删除保护
+   * 
+   * @param request - UpdateLindormInstanceAttributeRequest
+   * @returns UpdateLindormInstanceAttributeResponse
+   */
+  async updateLindormInstanceAttribute(request: $_model.UpdateLindormInstanceAttributeRequest): Promise<$_model.UpdateLindormInstanceAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLindormInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新LindormV2Instance
+   * 
+   * @param request - UpdateLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLindormV2InstanceResponse
+   */
+  async updateLindormV2InstanceWithOptions(request: $_model.UpdateLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLindormV2InstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.capacityStorageSize)) {
+      query["CapacityStorageSize"] = request.capacityStorageSize;
+    }
+
+    if (!$dara.isNull(request.cloudStorageSize)) {
+      query["CloudStorageSize"] = request.cloudStorageSize;
+    }
+
+    if (!$dara.isNull(request.cloudStorageType)) {
+      query["CloudStorageType"] = request.cloudStorageType;
+    }
+
+    if (!$dara.isNull(request.enableCapacityStorage)) {
+      query["EnableCapacityStorage"] = request.enableCapacityStorage;
+    }
+
+    if (!$dara.isNull(request.engineList)) {
+      query["EngineList"] = request.engineList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * 更新LindormV2Instance
+   * 
+   * @param request - UpdateLindormV2InstanceRequest
+   * @returns UpdateLindormV2InstanceResponse
+   */
+  async updateLindormV2Instance(request: $_model.UpdateLindormV2InstanceRequest): Promise<$_model.UpdateLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateLindormV2InstanceParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLindormV2InstanceParameterResponse
+   */
+  async updateLindormV2InstanceParameterWithOptions(request: $_model.UpdateLindormV2InstanceParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLindormV2InstanceParameterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.parameterKey)) {
+      query["ParameterKey"] = request.parameterKey;
+    }
+
+    if (!$dara.isNull(request.parameterValue)) {
+      query["ParameterValue"] = request.parameterValue;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.updateType)) {
+      query["UpdateType"] = request.updateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLindormV2InstanceParameter",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLindormV2InstanceParameterResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLindormV2InstanceParameterResponse({}));
+  }
+
+  /**
+   * @param request - UpdateLindormV2InstanceParameterRequest
+   * @returns UpdateLindormV2InstanceParameterResponse
+   */
+  async updateLindormV2InstanceParameter(request: $_model.UpdateLindormV2InstanceParameterRequest): Promise<$_model.UpdateLindormV2InstanceParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLindormV2InstanceParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+   * 
+   * @remarks
+   * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   * 
+   * @param request - UpgradeLindormInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeLindormInstanceResponse
+   */
+  async upgradeLindormInstanceWithOptions(request: $_model.UpgradeLindormInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeLindormInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterStorage)) {
+      query["ClusterStorage"] = request.clusterStorage;
+    }
+
+    if (!$dara.isNull(request.coldStorage)) {
+      query["ColdStorage"] = request.coldStorage;
+    }
+
+    if (!$dara.isNull(request.coreSingleStorage)) {
+      query["CoreSingleStorage"] = request.coreSingleStorage;
+    }
+
+    if (!$dara.isNull(request.filestoreNum)) {
+      query["FilestoreNum"] = request.filestoreNum;
+    }
+
+    if (!$dara.isNull(request.filestoreSpec)) {
+      query["FilestoreSpec"] = request.filestoreSpec;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.lindormNum)) {
+      query["LindormNum"] = request.lindormNum;
+    }
+
+    if (!$dara.isNull(request.lindormSpec)) {
+      query["LindormSpec"] = request.lindormSpec;
+    }
+
+    if (!$dara.isNull(request.logNum)) {
+      query["LogNum"] = request.logNum;
+    }
+
+    if (!$dara.isNull(request.logSingleStorage)) {
+      query["LogSingleStorage"] = request.logSingleStorage;
+    }
+
+    if (!$dara.isNull(request.logSpec)) {
+      query["LogSpec"] = request.logSpec;
+    }
+
+    if (!$dara.isNull(request.ltsCoreNum)) {
+      query["LtsCoreNum"] = request.ltsCoreNum;
+    }
+
+    if (!$dara.isNull(request.ltsCoreSpec)) {
+      query["LtsCoreSpec"] = request.ltsCoreSpec;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.solrNum)) {
       query["SolrNum"] = request.solrNum;
     }
 
-    if (!Util.isUnset(request.solrSpec)) {
+    if (!$dara.isNull(request.solrSpec)) {
       query["SolrSpec"] = request.solrSpec;
     }
 
-    if (!Util.isUnset(request.streamNum)) {
+    if (!$dara.isNull(request.streamNum)) {
       query["StreamNum"] = request.streamNum;
     }
 
-    if (!Util.isUnset(request.streamSpec)) {
+    if (!$dara.isNull(request.streamSpec)) {
       query["StreamSpec"] = request.streamSpec;
     }
 
-    if (!Util.isUnset(request.tsdbNum)) {
+    if (!$dara.isNull(request.tsdbNum)) {
       query["TsdbNum"] = request.tsdbNum;
     }
 
-    if (!Util.isUnset(request.tsdbSpec)) {
+    if (!$dara.isNull(request.tsdbSpec)) {
       query["TsdbSpec"] = request.tsdbSpec;
     }
 
-    if (!Util.isUnset(request.upgradeType)) {
+    if (!$dara.isNull(request.upgradeType)) {
       query["UpgradeType"] = request.upgradeType;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpgradeLindormInstance",
       version: "2020-06-15",
       protocol: "HTTPS",
@@ -5673,20 +4870,103 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpgradeLindormInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeLindormInstanceResponse({}));
+    return $dara.cast<$_model.UpgradeLindormInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeLindormInstanceResponse({}));
   }
 
   /**
-   * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
-   *
-   * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
-   *
-   * @param request UpgradeLindormInstanceRequest
-   * @return UpgradeLindormInstanceResponse
+   * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+   * 
+   * @remarks
+   * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+   * 
+   * @param request - UpgradeLindormInstanceRequest
+   * @returns UpgradeLindormInstanceResponse
    */
-  async upgradeLindormInstance(request: UpgradeLindormInstanceRequest): Promise<UpgradeLindormInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async upgradeLindormInstance(request: $_model.UpgradeLindormInstanceRequest): Promise<$_model.UpgradeLindormInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeLindormInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpgradeLindormV2StreamEngineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeLindormV2StreamEngineResponse
+   */
+  async upgradeLindormV2StreamEngineWithOptions(request: $_model.UpgradeLindormV2StreamEngineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeLindormV2StreamEngineResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customConfig)) {
+      query["CustomConfig"] = request.customConfig;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      query["Spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.specId)) {
+      query["SpecId"] = request.specId;
+    }
+
+    if (!$dara.isNull(request.upgradeType)) {
+      query["UpgradeType"] = request.upgradeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeLindormV2StreamEngine",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeLindormV2StreamEngineResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeLindormV2StreamEngineResponse({}));
+  }
+
+  /**
+   * @param request - UpgradeLindormV2StreamEngineRequest
+   * @returns UpgradeLindormV2StreamEngineResponse
+   */
+  async upgradeLindormV2StreamEngine(request: $_model.UpgradeLindormV2StreamEngineRequest): Promise<$_model.UpgradeLindormV2StreamEngineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upgradeLindormV2StreamEngineWithOptions(request, runtime);
   }
 
 }
