@@ -420,6 +420,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据事件选择器
+   * 
+   * @param request - DeleteDataEventSelectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataEventSelectorResponse
+   */
+  async deleteDataEventSelectorWithOptions(request: $_model.DeleteDataEventSelectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataEventSelectorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataEventSelector",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataEventSelectorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataEventSelectorResponse({}));
+  }
+
+  /**
+   * 删除数据事件选择器
+   * 
+   * @param request - DeleteDataEventSelectorRequest
+   * @returns DeleteDataEventSelectorResponse
+   */
+  async deleteDataEventSelector(request: $_model.DeleteDataEventSelectorRequest): Promise<$_model.DeleteDataEventSelectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataEventSelectorWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a data backfill task.
    * 
    * @remarks
@@ -1292,6 +1334,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询事件选择器
+   * 
+   * @param request - GetDataEventSelectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataEventSelectorResponse
+   */
+  async getDataEventSelectorWithOptions(request: $_model.GetDataEventSelectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataEventSelectorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataEventSelector",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataEventSelectorResponse>(await this.callApi(params, req, runtime), new $_model.GetDataEventSelectorResponse({}));
+  }
+
+  /**
+   * 查询事件选择器
+   * 
+   * @param request - GetDataEventSelectorRequest
+   * @returns GetDataEventSelectorResponse
+   */
+  async getDataEventSelector(request: $_model.GetDataEventSelectorRequest): Promise<$_model.GetDataEventSelectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataEventSelectorWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a data backfill task.
    * 
    * @remarks
@@ -1464,6 +1548,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量查询事件选择器
+   * 
+   * @param request - ListDataEventSelectorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataEventSelectorsResponse
+   */
+  async listDataEventSelectorsWithOptions(request: $_model.ListDataEventSelectorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataEventSelectorsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataEventSelectors",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataEventSelectorsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataEventSelectorsResponse({}));
+  }
+
+  /**
+   * 批量查询事件选择器
+   * 
+   * @param request - ListDataEventSelectorsRequest
+   * @returns ListDataEventSelectorsResponse
+   */
+  async listDataEventSelectors(request: $_model.ListDataEventSelectorsRequest): Promise<$_model.ListDataEventSelectorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataEventSelectorsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询数据事件支持的服务与事件名称
    * 
    * @param request - ListDataEventServicesRequest
@@ -1629,6 +1759,60 @@ export default class Client extends OpenApi {
   async lookupEvents(request: $_model.LookupEventsRequest): Promise<$_model.LookupEventsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.lookupEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建事件选择器
+   * 
+   * @param request - PutDataEventSelectorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutDataEventSelectorResponse
+   */
+  async putDataEventSelectorWithOptions(request: $_model.PutDataEventSelectorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PutDataEventSelectorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventSelectors)) {
+      query["EventSelectors"] = request.eventSelectors;
+    }
+
+    if (!$dara.isNull(request.isTrailAllRegion)) {
+      query["IsTrailAllRegion"] = request.isTrailAllRegion;
+    }
+
+    if (!$dara.isNull(request.trailName)) {
+      query["TrailName"] = request.trailName;
+    }
+
+    if (!$dara.isNull(request.trailRegionIds)) {
+      query["TrailRegionIds"] = request.trailRegionIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutDataEventSelector",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PutDataEventSelectorResponse>(await this.callApi(params, req, runtime), new $_model.PutDataEventSelectorResponse({}));
+  }
+
+  /**
+   * 创建事件选择器
+   * 
+   * @param request - PutDataEventSelectorRequest
+   * @returns PutDataEventSelectorResponse
+   */
+  async putDataEventSelector(request: $_model.PutDataEventSelectorRequest): Promise<$_model.PutDataEventSelectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.putDataEventSelectorWithOptions(request, runtime);
   }
 
   /**
