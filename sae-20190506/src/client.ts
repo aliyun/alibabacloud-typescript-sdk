@@ -4850,6 +4850,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DisableArmsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableArmsResponse
+   */
+  async disableArmsWithOptions(request: $_model.DisableArmsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableArmsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableArms",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/arms/disableArms`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableArmsResponse>(await this.callApi(params, req, runtime), new $_model.DisableArmsResponse({}));
+  }
+
+  /**
+   * @param request - DisableArmsRequest
+   * @returns DisableArmsResponse
+   */
+  async disableArms(request: $_model.DisableArmsRequest): Promise<$_model.DisableArmsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableArmsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Disable ARMS Advanced Edition monitoring.
    * 
    * @param request - DowngradeApplicationApmServiceRequest

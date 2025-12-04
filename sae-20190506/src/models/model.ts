@@ -184,6 +184,7 @@ export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredi
 export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes } from './DescribeSwimmingLaneResponseBody';
 export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule } from './DescribeSwimmingLaneResponseBody';
 export { DescribeSwimmingLaneResponseBodyData } from './DescribeSwimmingLaneResponseBody';
+export { DisableArmsResponseBodyData } from './DisableArmsResponseBody';
 export { DowngradeApplicationApmServiceResponseBodyData } from './DowngradeApplicationApmServiceResponseBody';
 export { ExecJobResponseBodyData } from './ExecJobResponseBody';
 export { GetApplicationResponseBodyApplication } from './GetApplicationResponseBody';
@@ -652,6 +653,9 @@ export { DescribeWebInstanceLogsResponse } from './DescribeWebInstanceLogsRespon
 export { DisableApplicationScalingRuleRequest } from './DisableApplicationScalingRuleRequest';
 export { DisableApplicationScalingRuleResponseBody } from './DisableApplicationScalingRuleResponseBody';
 export { DisableApplicationScalingRuleResponse } from './DisableApplicationScalingRuleResponse';
+export { DisableArmsRequest } from './DisableArmsRequest';
+export { DisableArmsResponseBody } from './DisableArmsResponseBody';
+export { DisableArmsResponse } from './DisableArmsResponse';
 export { DowngradeApplicationApmServiceRequest } from './DowngradeApplicationApmServiceRequest';
 export { DowngradeApplicationApmServiceResponseBody } from './DowngradeApplicationApmServiceResponseBody';
 export { DowngradeApplicationApmServiceResponse } from './DowngradeApplicationApmServiceResponse';
