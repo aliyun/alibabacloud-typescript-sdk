@@ -18311,9 +18311,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
-   * *   SQL Server
+   * * MySQL
+   * * PostgreSQL
+   * * SQL Server
    * ### [](#)References
    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
@@ -18365,9 +18365,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * *   MySQL
-   * *   PostgreSQL
-   * *   SQL Server
+   * * MySQL
+   * * PostgreSQL
+   * * SQL Server
    * ### [](#)References
    * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
    * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
@@ -28527,6 +28527,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.RWAddressType)) {
+      query["RWAddressType"] = request.RWAddressType;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {

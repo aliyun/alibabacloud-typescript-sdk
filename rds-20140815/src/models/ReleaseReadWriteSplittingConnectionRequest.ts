@@ -15,6 +15,7 @@ export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  RWAddressType?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -22,6 +23,7 @@ export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
       DBInstanceId: 'DBInstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      RWAddressType: 'RWAddressType',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -32,6 +34,7 @@ export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
       DBInstanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      RWAddressType: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

@@ -110,7 +110,7 @@ export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model 
    * The ID of the request.
    * 
    * @example
-   * 87BDAE8C-ACB0-4A26-BBCC-7D1DD31D630D
+   * 87BDAE8C-xxxx-4A26-BBCC-7D1DD31D630D
    */
   requestId?: string;
   static names(): { [key: string]: string } {
