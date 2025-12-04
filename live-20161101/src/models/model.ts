@@ -225,6 +225,7 @@ export { DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig } from
 export { DescribeLiveRecordNotifyRecordsResponseBodyCallbackList } from './DescribeLiveRecordNotifyRecordsResponseBody';
 export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfig } from './DescribeLiveRecordVodConfigsResponseBody';
 export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigs } from './DescribeLiveRecordVodConfigsResponseBody';
+export { DescribeLiveRtcRecordUsageDataResponseBodyData } from './DescribeLiveRtcRecordUsageDataResponseBody';
 export { DescribeLiveShiftConfigsResponseBodyContentConfig } from './DescribeLiveShiftConfigsResponseBody';
 export { DescribeLiveShiftConfigsResponseBodyContent } from './DescribeLiveShiftConfigsResponseBody';
 export { DescribeLiveSnapshotConfigResponseBodyLiveStreamSnapshotConfigListLiveStreamSnapshotConfig } from './DescribeLiveSnapshotConfigResponseBody';
@@ -1146,6 +1147,9 @@ export { DescribeLiveRecordNotifyRecordsResponse } from './DescribeLiveRecordNot
 export { DescribeLiveRecordVodConfigsRequest } from './DescribeLiveRecordVodConfigsRequest';
 export { DescribeLiveRecordVodConfigsResponseBody } from './DescribeLiveRecordVodConfigsResponseBody';
 export { DescribeLiveRecordVodConfigsResponse } from './DescribeLiveRecordVodConfigsResponse';
+export { DescribeLiveRtcRecordUsageDataRequest } from './DescribeLiveRtcRecordUsageDataRequest';
+export { DescribeLiveRtcRecordUsageDataResponseBody } from './DescribeLiveRtcRecordUsageDataResponseBody';
+export { DescribeLiveRtcRecordUsageDataResponse } from './DescribeLiveRtcRecordUsageDataResponse';
 export { DescribeLiveShiftConfigsRequest } from './DescribeLiveShiftConfigsRequest';
 export { DescribeLiveShiftConfigsResponseBody } from './DescribeLiveShiftConfigsResponseBody';
 export { DescribeLiveShiftConfigsResponse } from './DescribeLiveShiftConfigsResponse';

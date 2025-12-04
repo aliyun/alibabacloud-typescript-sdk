@@ -15281,6 +15281,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 云端录制用量
+   * 
+   * @param request - DescribeLiveRtcRecordUsageDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLiveRtcRecordUsageDataResponse
+   */
+  async describeLiveRtcRecordUsageDataWithOptions(request: $_model.DescribeLiveRtcRecordUsageDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLiveRtcRecordUsageDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.recordMode)) {
+      query["RecordMode"] = request.recordMode;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLiveRtcRecordUsageData",
+      version: "2016-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLiveRtcRecordUsageDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLiveRtcRecordUsageDataResponse({}));
+  }
+
+  /**
+   * 云端录制用量
+   * 
+   * @param request - DescribeLiveRtcRecordUsageDataRequest
+   * @returns DescribeLiveRtcRecordUsageDataResponse
+   */
+  async describeLiveRtcRecordUsageData(request: $_model.DescribeLiveRtcRecordUsageDataRequest): Promise<$_model.DescribeLiveRtcRecordUsageDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLiveRtcRecordUsageDataWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the time shifting configurations under a domain name.
    * 
    * @remarks
