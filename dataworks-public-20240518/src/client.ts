@@ -1726,6 +1726,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据集
+   * 
+   * @param tmpReq - CreateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
+   */
+  async createDatasetWithOptions(tmpReq: $_model.CreateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.initVersion)) {
+      request.initVersionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.initVersion, "InitVersion", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.initVersionShrink)) {
+      body["InitVersion"] = request.initVersionShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.origin)) {
+      body["Origin"] = request.origin;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      body["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataset",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetResponse({}));
+  }
+
+  /**
+   * 创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
+   */
+  async createDataset(request: $_model.CreateDatasetRequest): Promise<$_model.CreateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据集版本
+   * 
+   * @param tmpReq - CreateDatasetVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersionWithOptions(tmpReq: $_model.CreateDatasetVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDatasetVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.importInfo)) {
+      request.importInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.importInfo, "ImportInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.importInfoShrink)) {
+      body["ImportInfo"] = request.importInfoShrink;
+    }
+
+    if (!$dara.isNull(request.mountPath)) {
+      body["MountPath"] = request.mountPath;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatasetVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetVersionResponse({}));
+  }
+
+  /**
+   * 创建数据集版本
+   * 
+   * @param request - CreateDatasetVersionRequest
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersion(request: $_model.CreateDatasetVersionRequest): Promise<$_model.CreateDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDatasetVersionWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFileResponse
@@ -3968,6 +4104,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据集
+   * 
+   * @param request - DeleteDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDatasetWithOptions(request: $_model.DeleteDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataset",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasetResponse({}));
+  }
+
+  /**
+   * 删除数据集
+   * 
+   * @param request - DeleteDatasetRequest
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDataset(request: $_model.DeleteDatasetRequest): Promise<$_model.DeleteDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据集版本
+   * 
+   * @param request - DeleteDatasetVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersionWithOptions(request: $_model.DeleteDatasetVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDatasetVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasetVersionResponse({}));
+  }
+
+  /**
+   * 删除数据集版本
+   * 
+   * @param request - DeleteDatasetVersionRequest
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersion(request: $_model.DeleteDatasetVersionRequest): Promise<$_model.DeleteDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDatasetVersionWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFileResponse
@@ -5989,6 +6209,90 @@ export default class Client extends OpenApi {
   async getDatabase(request: $_model.GetDatabaseRequest): Promise<$_model.GetDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集详情
+   * 
+   * @param request - GetDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResponse
+   */
+  async getDatasetWithOptions(request: $_model.GetDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataset",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatasetResponse>(await this.callApi(params, req, runtime), new $_model.GetDatasetResponse({}));
+  }
+
+  /**
+   * 获取数据集详情
+   * 
+   * @param request - GetDatasetRequest
+   * @returns GetDatasetResponse
+   */
+  async getDataset(request: $_model.GetDatasetRequest): Promise<$_model.GetDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集版本
+   * 
+   * @param request - GetDatasetVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetVersionResponse
+   */
+  async getDatasetVersionWithOptions(request: $_model.GetDatasetVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatasetVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetDatasetVersionResponse({}));
+  }
+
+  /**
+   * 获取数据集版本
+   * 
+   * @param request - GetDatasetVersionRequest
+   * @returns GetDatasetVersionResponse
+   */
+  async getDatasetVersion(request: $_model.GetDatasetVersionRequest): Promise<$_model.GetDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDatasetVersionWithOptions(request, runtime);
   }
 
   /**
@@ -8846,6 +9150,156 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据集版本列表
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersionsWithOptions(request: $_model.ListDatasetVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetVersionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.creatorId)) {
+      body["CreatorId"] = request.creatorId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasetVersions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasetVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasetVersionsResponse({}));
+  }
+
+  /**
+   * 获取数据集版本列表
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersions(request: $_model.ListDatasetVersionsRequest): Promise<$_model.ListDatasetVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatasetVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集列表
+   * 
+   * @param tmpReq - ListDatasetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetsResponse
+   */
+  async listDatasetsWithOptions(tmpReq: $_model.ListDatasetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDatasetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataTypeList)) {
+      request.dataTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataTypeList, "DataTypeList", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.storageTypeList)) {
+      request.storageTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storageTypeList, "StorageTypeList", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.creatorId)) {
+      body["CreatorId"] = request.creatorId;
+    }
+
+    if (!$dara.isNull(request.dataTypeListShrink)) {
+      body["DataTypeList"] = request.dataTypeListShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.origin)) {
+      body["Origin"] = request.origin;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.storageTypeListShrink)) {
+      body["StorageTypeList"] = request.storageTypeListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasets",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasetsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasetsResponse({}));
+  }
+
+  /**
+   * 获取数据集列表
+   * 
+   * @param request - ListDatasetsRequest
+   * @returns ListDatasetsResponse
+   */
+  async listDatasets(request: $_model.ListDatasetsRequest): Promise<$_model.ListDatasetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDatasetsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of versions of files to be deployed.
    * 
    * @param tmpReq - ListDeploymentPackageFilesRequest
@@ -11157,6 +11611,48 @@ export default class Client extends OpenApi {
   async moveWorkflowDefinition(request: $_model.MoveWorkflowDefinitionRequest): Promise<$_model.MoveWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.moveWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 预览数据集版本内容
+   * 
+   * @param request - PreviewDatasetVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewDatasetVersionResponse
+   */
+  async previewDatasetVersionWithOptions(request: $_model.PreviewDatasetVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewDatasetVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewDatasetVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.PreviewDatasetVersionResponse({}));
+  }
+
+  /**
+   * 预览数据集版本内容
+   * 
+   * @param request - PreviewDatasetVersionRequest
+   * @returns PreviewDatasetVersionResponse
+   */
+  async previewDatasetVersion(request: $_model.PreviewDatasetVersionRequest): Promise<$_model.PreviewDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.previewDatasetVersionWithOptions(request, runtime);
   }
 
   /**
@@ -13545,6 +14041,106 @@ export default class Client extends OpenApi {
   async updateDataSource(request: $_model.UpdateDataSourceRequest): Promise<$_model.UpdateDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetResponse
+   */
+  async updateDatasetWithOptions(request: $_model.UpdateDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.readme)) {
+      body["Readme"] = request.readme;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataset",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDatasetResponse({}));
+  }
+
+  /**
+   * 更新数据集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @returns UpdateDatasetResponse
+   */
+  async updateDataset(request: $_model.UpdateDatasetRequest): Promise<$_model.UpdateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新数据集版本信息
+   * 
+   * @param request - UpdateDatasetVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetVersionResponse
+   */
+  async updateDatasetVersionWithOptions(request: $_model.UpdateDatasetVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDatasetVersion",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDatasetVersionResponse({}));
+  }
+
+  /**
+   * 更新数据集版本信息
+   * 
+   * @param request - UpdateDatasetVersionRequest
+   * @returns UpdateDatasetVersionResponse
+   */
+  async updateDatasetVersion(request: $_model.UpdateDatasetVersionRequest): Promise<$_model.UpdateDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDatasetVersionWithOptions(request, runtime);
   }
 
   /**
