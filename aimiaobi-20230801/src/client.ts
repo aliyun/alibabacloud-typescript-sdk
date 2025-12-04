@@ -848,6 +848,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通用配置-创建
+   * 
+   * @param request - CreateGeneralConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGeneralConfigResponse
+   */
+  async createGeneralConfigWithOptions(request: $_model.CreateGeneralConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGeneralConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configKey)) {
+      body["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGeneralConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGeneralConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateGeneralConfigResponse({}));
+  }
+
+  /**
+   * 通用配置-创建
+   * 
+   * @param request - CreateGeneralConfigRequest
+   * @returns CreateGeneralConfigResponse
+   */
+  async createGeneralConfig(request: $_model.CreateGeneralConfigRequest): Promise<$_model.CreateGeneralConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGeneralConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 文档管理-创建
    * 
    * @param tmpReq - CreateGeneratedContentRequest
@@ -1417,6 +1467,52 @@ export default class Client extends OpenApi {
   async deleteFactAuditUrl(request: $_model.DeleteFactAuditUrlRequest): Promise<$_model.DeleteFactAuditUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFactAuditUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 通用配置-删除
+   * 
+   * @param request - DeleteGeneralConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGeneralConfigResponse
+   */
+  async deleteGeneralConfigWithOptions(request: $_model.DeleteGeneralConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGeneralConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configKey)) {
+      body["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGeneralConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGeneralConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGeneralConfigResponse({}));
+  }
+
+  /**
+   * 通用配置-删除
+   * 
+   * @param request - DeleteGeneralConfigRequest
+   * @returns DeleteGeneralConfigResponse
+   */
+  async deleteGeneralConfig(request: $_model.DeleteGeneralConfigRequest): Promise<$_model.DeleteGeneralConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGeneralConfigWithOptions(request, runtime);
   }
 
   /**
@@ -3758,6 +3854,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通用配置-查询
+   * 
+   * @param request - GetGeneralConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGeneralConfigResponse
+   */
+  async getGeneralConfigWithOptions(request: $_model.GetGeneralConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGeneralConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configKey)) {
+      body["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGeneralConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGeneralConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetGeneralConfigResponse({}));
+  }
+
+  /**
+   * 通用配置-查询
+   * 
+   * @param request - GetGeneralConfigRequest
+   * @returns GetGeneralConfigResponse
+   */
+  async getGeneralConfig(request: $_model.GetGeneralConfigRequest): Promise<$_model.GetGeneralConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGeneralConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 文档管理-查询详情。
    * 
    * @param request - GetGeneratedContentRequest
@@ -5484,6 +5626,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 公文检索
+   * 
+   * @param request - ListDocumentRetrieveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocumentRetrieveResponse
+   */
+  async listDocumentRetrieveWithOptions(request: $_model.ListDocumentRetrieveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDocumentRetrieveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.elementScope)) {
+      query["ElementScope"] = request.elementScope;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.office)) {
+      query["Office"] = request.office;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.subContentType)) {
+      query["SubContentType"] = request.subContentType;
+    }
+
+    if (!$dara.isNull(request.wordSize)) {
+      query["WordSize"] = request.wordSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDocumentRetrieve",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDocumentRetrieveResponse>(await this.callApi(params, req, runtime), new $_model.ListDocumentRetrieveResponse({}));
+  }
+
+  /**
+   * 公文检索
+   * 
+   * @param request - ListDocumentRetrieveRequest
+   * @returns ListDocumentRetrieveResponse
+   */
+  async listDocumentRetrieve(request: $_model.ListDocumentRetrieveRequest): Promise<$_model.ListDocumentRetrieveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDocumentRetrieveWithOptions(request, runtime);
+  }
+
+  /**
    * 新颖视角列表
    * 
    * @param request - ListFreshViewPointsRequest
@@ -5541,6 +5775,56 @@ export default class Client extends OpenApi {
   async listFreshViewPoints(request: $_model.ListFreshViewPointsRequest): Promise<$_model.ListFreshViewPointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFreshViewPointsWithOptions(request, runtime);
+  }
+
+  /**
+   * 通用配置-列表
+   * 
+   * @param request - ListGeneralConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGeneralConfigsResponse
+   */
+  async listGeneralConfigsWithOptions(request: $_model.ListGeneralConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGeneralConfigsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGeneralConfigs",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGeneralConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListGeneralConfigsResponse({}));
+  }
+
+  /**
+   * 通用配置-列表
+   * 
+   * @param request - ListGeneralConfigsRequest
+   * @returns ListGeneralConfigsResponse
+   */
+  async listGeneralConfigs(request: $_model.ListGeneralConfigsRequest): Promise<$_model.ListGeneralConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGeneralConfigsWithOptions(request, runtime);
   }
 
   /**
@@ -9750,6 +10034,144 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 快速写作
+   * 
+   * @param tmpReq - RunQuickWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunQuickWritingResponse
+   */
+  async *runQuickWritingWithSSE(tmpReq: $_model.RunQuickWritingRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunQuickWritingResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunQuickWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.articles)) {
+      request.articlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.articles, "Articles", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchSources)) {
+      request.searchSourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchSources, "SearchSources", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articlesShrink)) {
+      body["Articles"] = request.articlesShrink;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.searchSourcesShrink)) {
+      body["SearchSources"] = request.searchSourcesShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunQuickWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunQuickWritingResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunQuickWritingResponse({}));
+    }
+  }
+
+  /**
+   * 快速写作
+   * 
+   * @param tmpReq - RunQuickWritingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunQuickWritingResponse
+   */
+  async runQuickWritingWithOptions(tmpReq: $_model.RunQuickWritingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunQuickWritingResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunQuickWritingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.articles)) {
+      request.articlesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.articles, "Articles", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.searchSources)) {
+      request.searchSourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchSources, "SearchSources", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.articlesShrink)) {
+      body["Articles"] = request.articlesShrink;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.searchSourcesShrink)) {
+      body["SearchSources"] = request.searchSourcesShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunQuickWriting",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunQuickWritingResponse>(await this.callApi(params, req, runtime), new $_model.RunQuickWritingResponse({}));
+  }
+
+  /**
+   * 快速写作
+   * 
+   * @param request - RunQuickWritingRequest
+   * @returns RunQuickWritingResponse
+   */
+  async runQuickWriting(request: $_model.RunQuickWritingRequest): Promise<$_model.RunQuickWritingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runQuickWritingWithOptions(request, runtime);
+  }
+
+  /**
    * AI妙搜-智能搜索生成
    * 
    * @param tmpReq - RunSearchGenerationRequest
@@ -10657,6 +11079,120 @@ export default class Client extends OpenApi {
   async runTitleGeneration(request: $_model.RunTitleGenerationRequest): Promise<$_model.RunTitleGenerationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runTitleGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙策选题策划聚合
+   * 
+   * @param tmpReq - RunTopicSelectionMergeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTopicSelectionMergeResponse
+   */
+  async *runTopicSelectionMergeWithSSE(tmpReq: $_model.RunTopicSelectionMergeRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunTopicSelectionMergeResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunTopicSelectionMergeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunTopicSelectionMerge",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.RunTopicSelectionMergeResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.RunTopicSelectionMergeResponse({}));
+    }
+  }
+
+  /**
+   * 妙策选题策划聚合
+   * 
+   * @param tmpReq - RunTopicSelectionMergeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTopicSelectionMergeResponse
+   */
+  async runTopicSelectionMergeWithOptions(tmpReq: $_model.RunTopicSelectionMergeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunTopicSelectionMergeResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunTopicSelectionMergeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.topics)) {
+      request.topicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.topics, "Topics", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.topicsShrink)) {
+      body["Topics"] = request.topicsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunTopicSelectionMerge",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunTopicSelectionMergeResponse>(await this.callApi(params, req, runtime), new $_model.RunTopicSelectionMergeResponse({}));
+  }
+
+  /**
+   * 妙策选题策划聚合
+   * 
+   * @param request - RunTopicSelectionMergeRequest
+   * @returns RunTopicSelectionMergeResponse
+   */
+  async runTopicSelectionMerge(request: $_model.RunTopicSelectionMergeRequest): Promise<$_model.RunTopicSelectionMergeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runTopicSelectionMergeWithOptions(request, runtime);
   }
 
   /**
@@ -13081,6 +13617,56 @@ export default class Client extends OpenApi {
   async updateDatasetDocument(request: $_model.UpdateDatasetDocumentRequest): Promise<$_model.UpdateDatasetDocumentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDatasetDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 通用配置-更新
+   * 
+   * @param request - UpdateGeneralConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGeneralConfigResponse
+   */
+  async updateGeneralConfigWithOptions(request: $_model.UpdateGeneralConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGeneralConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configKey)) {
+      body["ConfigKey"] = request.configKey;
+    }
+
+    if (!$dara.isNull(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGeneralConfig",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGeneralConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGeneralConfigResponse({}));
+  }
+
+  /**
+   * 通用配置-更新
+   * 
+   * @param request - UpdateGeneralConfigRequest
+   * @returns UpdateGeneralConfigResponse
+   */
+  async updateGeneralConfig(request: $_model.UpdateGeneralConfigRequest): Promise<$_model.UpdateGeneralConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGeneralConfigWithOptions(request, runtime);
   }
 
   /**
