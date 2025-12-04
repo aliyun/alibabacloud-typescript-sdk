@@ -2,73 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeProcessListResponseBodyProcessListDataResultSet extends $dara.Model {
+export class DescribeSlowLogTrendResponseBodySlowLogTrendDataResultSet extends $dara.Model {
   /**
-   * @remarks
-   * The IP address of the client that initiates the query.
-   * 
-   * @example
-   * ::ffff:10.1.XX.XX
-   */
-  initialAddress?: string;
-  /**
-   * @remarks
-   * The query ID.
-   * 
-   * @example
-   * 2dd144fd-4230-4249-b15c-e63f964fbb5a
-   */
-  initialQueryId?: string;
-  /**
-   * @remarks
-   * The database account.
-   * 
-   * @example
-   * test
-   */
-  initialUser?: string;
-  /**
-   * @remarks
-   * The SQL statement that is executed in the query.
-   * 
-   * @example
-   * select * from test order by score limit 1;
-   */
-  query?: string;
-  /**
-   * @remarks
-   * The execution duration of the query. Unit: milliseconds.
-   * 
    * @example
    * 2000
    */
-  queryDurationMs?: string;
+  avgQueryDurationMs?: string;
   /**
-   * @remarks
-   * The beginning of the time range to query. The value is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
-   * 
    * @example
-   * 2021-02-02T09:14:48Z
+   * 4000
+   */
+  count?: string;
+  /**
+   * @example
+   * 3000
+   */
+  maxQueryDurationMs?: string;
+  /**
+   * @example
+   * 1000
+   */
+  minQueryDurationMs?: string;
+  /**
+   * @example
+   * 2022-05-22 20:00:01
    */
   queryStartTime?: string;
   static names(): { [key: string]: string } {
     return {
-      initialAddress: 'InitialAddress',
-      initialQueryId: 'InitialQueryId',
-      initialUser: 'InitialUser',
-      query: 'Query',
-      queryDurationMs: 'QueryDurationMs',
+      avgQueryDurationMs: 'AvgQueryDurationMs',
+      count: 'Count',
+      maxQueryDurationMs: 'MaxQueryDurationMs',
+      minQueryDurationMs: 'MinQueryDurationMs',
       queryStartTime: 'QueryStartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      initialAddress: 'string',
-      initialQueryId: 'string',
-      initialUser: 'string',
-      query: 'string',
-      queryDurationMs: 'string',
+      avgQueryDurationMs: 'string',
+      count: 'string',
+      maxQueryDurationMs: 'string',
+      minQueryDurationMs: 'string',
       queryStartTime: 'string',
     };
   }
@@ -82,8 +57,8 @@ export class DescribeProcessListResponseBodyProcessListDataResultSet extends $da
   }
 }
 
-export class DescribeProcessListResponseBodyProcessListData extends $dara.Model {
-  resultSet?: DescribeProcessListResponseBodyProcessListDataResultSet[];
+export class DescribeSlowLogTrendResponseBodySlowLogTrendData extends $dara.Model {
+  resultSet?: DescribeSlowLogTrendResponseBodySlowLogTrendDataResultSet[];
   static names(): { [key: string]: string } {
     return {
       resultSet: 'ResultSet',
@@ -92,7 +67,7 @@ export class DescribeProcessListResponseBodyProcessListData extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
-      resultSet: { 'type': 'array', 'itemType': DescribeProcessListResponseBodyProcessListDataResultSet },
+      resultSet: { 'type': 'array', 'itemType': DescribeSlowLogTrendResponseBodySlowLogTrendDataResultSet },
     };
   }
 
@@ -108,29 +83,20 @@ export class DescribeProcessListResponseBodyProcessListData extends $dara.Model 
   }
 }
 
-export class DescribeProcessListResponseBodyProcessListStatistics extends $dara.Model {
+export class DescribeSlowLogTrendResponseBodySlowLogTrendStatistics extends $dara.Model {
   /**
-   * @remarks
-   * The size of the data that was scanned. Unit: bytes.
-   * 
    * @example
-   * 9141300000
+   * 697899
    */
   bytesRead?: number;
   /**
-   * @remarks
-   * The average response time.
-   * 
    * @example
-   * 4156
+   * 0.001703578
    */
   elapsedTime?: number;
   /**
-   * @remarks
-   * The number of scanned rows.
-   * 
    * @example
-   * 1000000
+   * 14721
    */
   rowsRead?: number;
   static names(): { [key: string]: string } {
@@ -158,21 +124,15 @@ export class DescribeProcessListResponseBodyProcessListStatistics extends $dara.
   }
 }
 
-export class DescribeProcessListResponseBodyProcessListTableSchemaResultSet extends $dara.Model {
+export class DescribeSlowLogTrendResponseBodySlowLogTrendTableSchemaResultSet extends $dara.Model {
   /**
-   * @remarks
-   * The column name.
-   * 
    * @example
-   * InitialUser
+   * query_start_time
    */
   name?: string;
   /**
-   * @remarks
-   * The column type.
-   * 
    * @example
-   * String
+   * UInt64
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -198,8 +158,8 @@ export class DescribeProcessListResponseBodyProcessListTableSchemaResultSet exte
   }
 }
 
-export class DescribeProcessListResponseBodyProcessListTableSchema extends $dara.Model {
-  resultSet?: DescribeProcessListResponseBodyProcessListTableSchemaResultSet[];
+export class DescribeSlowLogTrendResponseBodySlowLogTrendTableSchema extends $dara.Model {
+  resultSet?: DescribeSlowLogTrendResponseBodySlowLogTrendTableSchemaResultSet[];
   static names(): { [key: string]: string } {
     return {
       resultSet: 'ResultSet',
@@ -208,7 +168,7 @@ export class DescribeProcessListResponseBodyProcessListTableSchema extends $dara
 
   static types(): { [key: string]: any } {
     return {
-      resultSet: { 'type': 'array', 'itemType': DescribeProcessListResponseBodyProcessListTableSchemaResultSet },
+      resultSet: { 'type': 'array', 'itemType': DescribeSlowLogTrendResponseBodySlowLogTrendTableSchemaResultSet },
     };
   }
 
@@ -224,38 +184,20 @@ export class DescribeProcessListResponseBodyProcessListTableSchema extends $dara
   }
 }
 
-export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
+export class DescribeSlowLogTrendResponseBodySlowLogTrend extends $dara.Model {
+  data?: DescribeSlowLogTrendResponseBodySlowLogTrendData;
   /**
-   * @remarks
-   * The details of the query.
-   */
-  data?: DescribeProcessListResponseBodyProcessListData;
-  /**
-   * @remarks
-   * The number of rows returned for the query.
-   * 
    * @example
-   * 1145700
+   * 1
    */
   rows?: string;
   /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
    * @example
    * 1
    */
   rowsBeforeLimitAtLeast?: string;
-  /**
-   * @remarks
-   * The statistics of the results.
-   */
-  statistics?: DescribeProcessListResponseBodyProcessListStatistics;
-  /**
-   * @remarks
-   * Details of the columns.
-   */
-  tableSchema?: DescribeProcessListResponseBodyProcessListTableSchema;
+  statistics?: DescribeSlowLogTrendResponseBodySlowLogTrendStatistics;
+  tableSchema?: DescribeSlowLogTrendResponseBodySlowLogTrendTableSchema;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
@@ -268,11 +210,11 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: DescribeProcessListResponseBodyProcessListData,
+      data: DescribeSlowLogTrendResponseBodySlowLogTrendData,
       rows: 'string',
       rowsBeforeLimitAtLeast: 'string',
-      statistics: DescribeProcessListResponseBodyProcessListStatistics,
-      tableSchema: DescribeProcessListResponseBodyProcessListTableSchema,
+      statistics: DescribeSlowLogTrendResponseBodySlowLogTrendStatistics,
+      tableSchema: DescribeSlowLogTrendResponseBodySlowLogTrendTableSchema,
     };
   }
 
@@ -294,37 +236,30 @@ export class DescribeProcessListResponseBodyProcessList extends $dara.Model {
   }
 }
 
-export class DescribeProcessListResponseBody extends $dara.Model {
+export class DescribeSlowLogTrendResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The queries.
-   */
-  processList?: DescribeProcessListResponseBodyProcessList;
-  /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * FD61BB0D-788A-5185-A8E3-1B90BA8F6F04
+   * 7D3ECB0E-98CA-5E08-A9CA-F70C5A1E9BDF
    */
   requestId?: string;
+  slowLogTrend?: DescribeSlowLogTrendResponseBodySlowLogTrend;
   static names(): { [key: string]: string } {
     return {
-      processList: 'ProcessList',
       requestId: 'RequestId',
+      slowLogTrend: 'SlowLogTrend',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      processList: DescribeProcessListResponseBodyProcessList,
       requestId: 'string',
+      slowLogTrend: DescribeSlowLogTrendResponseBodySlowLogTrend,
     };
   }
 
   validate() {
-    if(this.processList && typeof (this.processList as any).validate === 'function') {
-      (this.processList as any).validate();
+    if(this.slowLogTrend && typeof (this.slowLogTrend as any).validate === 'function') {
+      (this.slowLogTrend as any).validate();
     }
     super.validate();
   }

@@ -138,6 +138,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消预约重启
+   * 
+   * @param request - CancelRestartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelRestartInstanceResponse
+   */
+  async cancelRestartInstanceWithOptions(request: $_model.CancelRestartInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelRestartInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.restartTime)) {
+      query["RestartTime"] = request.restartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelRestartInstance",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelRestartInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CancelRestartInstanceResponse({}));
+  }
+
+  /**
+   * 取消预约重启
+   * 
+   * @param request - CancelRestartInstanceRequest
+   * @returns CancelRestartInstanceResponse
+   */
+  async cancelRestartInstance(request: $_model.CancelRestartInstanceRequest): Promise<$_model.CancelRestartInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelRestartInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * 资源转组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
    * 
    * @param request - CheckClickhouseToRDSRequest
@@ -1196,6 +1320,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * ## [](#)Description
+   * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+   * 
+   * @param request - CreateSLBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSLBResponse
+   */
+  async createSLBWithOptions(request: $_model.CreateSLBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSLBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSLB",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSLBResponse>(await this.callApi(params, req, runtime), new $_model.CreateSLBResponse({}));
+  }
+
+  /**
+   * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * ## [](#)Description
+   * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+   * 
+   * @param request - CreateSLBRequest
+   * @returns CreateSLBResponse
+   */
+  async createSLB(request: $_model.CreateSLBRequest): Promise<$_model.CreateSLBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSLBWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
    * 
    * @remarks
@@ -1398,6 +1580,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicyWithOptions(request: $_model.DeleteBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackupPolicy",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupPolicyResponse({}));
+  }
+
+  /**
+   * 删除备份策略
+   * 
+   * @param request - DeleteBackupPolicyRequest
+   * @returns DeleteBackupPolicyResponse
+   */
+  async deleteBackupPolicy(request: $_model.DeleteBackupPolicyRequest): Promise<$_model.DeleteBackupPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
    * 
    * @remarks
@@ -1459,6 +1699,60 @@ export default class Client extends OpenApi {
   async deleteDBCluster(request: $_model.DeleteDBClusterRequest): Promise<$_model.DeleteDBClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * ## [](#)Description
+   * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+   * 
+   * @param request - DeleteSLBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSLBResponse
+   */
+  async deleteSLBWithOptions(request: $_model.DeleteSLBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSLBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSLB",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSLBResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSLBResponse({}));
+  }
+
+  /**
+   * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+   * 
+   * @remarks
+   * ## [](#)Description
+   * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+   * 
+   * @param request - DeleteSLBRequest
+   * @returns DeleteSLBResponse
+   */
+  async deleteSLB(request: $_model.DeleteSLBRequest): Promise<$_model.DeleteSLBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSLBWithOptions(request, runtime);
   }
 
   /**
@@ -1789,6 +2083,72 @@ export default class Client extends OpenApi {
   async describeAllDataSources(request: $_model.DescribeAllDataSourcesRequest): Promise<$_model.DescribeAllDataSourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAllDataSourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeAutoRenewAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoRenewAttributeResponse
+   */
+  async describeAutoRenewAttributeWithOptions(request: $_model.DescribeAutoRenewAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAutoRenewAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterIds)) {
+      query["DBClusterIds"] = request.DBClusterIds;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAutoRenewAttribute",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAutoRenewAttributeResponse({}));
+  }
+
+  /**
+   * @param request - DescribeAutoRenewAttributeRequest
+   * @returns DescribeAutoRenewAttributeResponse
+   */
+  async describeAutoRenewAttribute(request: $_model.DescribeAutoRenewAttributeRequest): Promise<$_model.DescribeAutoRenewAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAutoRenewAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -2954,6 +3314,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeSlowLogTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlowLogTrendResponse
+   */
+  async describeSlowLogTrendWithOptions(request: $_model.DescribeSlowLogTrendRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlowLogTrendResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.queryDurationMs)) {
+      query["QueryDurationMs"] = request.queryDurationMs;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSlowLogTrend",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSlowLogTrendResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSlowLogTrendResponse({}));
+  }
+
+  /**
+   * @param request - DescribeSlowLogTrendRequest
+   * @returns DescribeSlowLogTrendResponse
+   */
+  async describeSlowLogTrend(request: $_model.DescribeSlowLogTrendRequest): Promise<$_model.DescribeSlowLogTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSlowLogTrendWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeSynDbTablesRequest
@@ -3427,6 +3857,76 @@ export default class Client extends OpenApi {
   async modifyAccountDescription(request: $_model.ModifyAccountDescriptionRequest): Promise<$_model.ModifyAccountDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyAutoRenewAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAutoRenewAttributeResponse
+   */
+  async modifyAutoRenewAttributeWithOptions(request: $_model.ModifyAutoRenewAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoRenewAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterIds)) {
+      query["DBClusterIds"] = request.DBClusterIds;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.renewalStatus)) {
+      query["RenewalStatus"] = request.renewalStatus;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAutoRenewAttribute",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAutoRenewAttributeResponse({}));
+  }
+
+  /**
+   * @param request - ModifyAutoRenewAttributeRequest
+   * @returns ModifyAutoRenewAttributeResponse
+   */
+  async modifyAutoRenewAttribute(request: $_model.ModifyAutoRenewAttributeRequest): Promise<$_model.ModifyAutoRenewAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAutoRenewAttributeWithOptions(request, runtime);
   }
 
   /**
