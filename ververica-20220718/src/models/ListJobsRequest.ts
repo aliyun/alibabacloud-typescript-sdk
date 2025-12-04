@@ -43,12 +43,14 @@ export class ListJobsRequest extends $dara.Model {
    * gmt_create
    */
   sortName?: string;
+  sortOrder?: string;
   static names(): { [key: string]: string } {
     return {
       deploymentId: 'deploymentId',
       pageIndex: 'pageIndex',
       pageSize: 'pageSize',
       sortName: 'sortName',
+      sortOrder: 'sortOrder',
     };
   }
 
@@ -58,6 +60,7 @@ export class ListJobsRequest extends $dara.Model {
       pageIndex: 'number',
       pageSize: 'number',
       sortName: 'string',
+      sortOrder: 'string',
     };
   }
 

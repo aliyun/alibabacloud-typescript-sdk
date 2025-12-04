@@ -4,6 +4,7 @@ export { ListEditableNamespaceResponseBodyData } from './ListEditableNamespaceRe
 export { AiModel } from './AiModel';
 export { Artifact } from './Artifact';
 export { AsyncDraftDeployResult } from './AsyncDraftDeployResult';
+export { AsyncDraftValidateResult } from './AsyncDraftValidateResult';
 export { AsyncResourcePlanOperationResult } from './AsyncResourcePlanOperationResult';
 export { BasicResourceSetting } from './BasicResourceSetting';
 export { BasicResourceSettingSpec } from './BasicResourceSettingSpec';
@@ -22,6 +23,9 @@ export { DeploymentRestoreStrategy } from './DeploymentRestoreStrategy';
 export { DeploymentTarget } from './DeploymentTarget';
 export { DraftDeployParams } from './DraftDeployParams';
 export { DraftDeployResult } from './DraftDeployResult';
+export { DraftMetaInfoErrorDetail } from './DraftMetaInfoErrorDetail';
+export { DraftValidateParams } from './DraftValidateParams';
+export { DraftValidationDetail } from './DraftValidationDetail';
 export { Edge } from './Edge';
 export { EditableNamespace } from './EditableNamespace';
 export { EngineVersionMetadata } from './EngineVersionMetadata';

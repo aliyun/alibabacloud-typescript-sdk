@@ -3013,6 +3013,10 @@ export default class Client extends OpenApi {
       query["sortName"] = request.sortName;
     }
 
+    if (!$dara.isNull(request.sortOrder)) {
+      query["sortOrder"] = request.sortOrder;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
