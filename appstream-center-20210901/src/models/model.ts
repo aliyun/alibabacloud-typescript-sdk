@@ -247,3 +247,6 @@ export { UntagCloudResourcesResponse } from './UntagCloudResourcesResponse';
 export { UpdateAppInstanceGroupImageRequest } from './UpdateAppInstanceGroupImageRequest';
 export { UpdateAppInstanceGroupImageResponseBody } from './UpdateAppInstanceGroupImageResponseBody';
 export { UpdateAppInstanceGroupImageResponse } from './UpdateAppInstanceGroupImageResponse';
+export { UpdateWuyingServerImageRequest } from './UpdateWuyingServerImageRequest';
+export { UpdateWuyingServerImageResponseBody } from './UpdateWuyingServerImageResponseBody';
+export { UpdateWuyingServerImageResponse } from './UpdateWuyingServerImageResponse';

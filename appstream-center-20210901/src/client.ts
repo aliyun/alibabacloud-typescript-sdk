@@ -3317,4 +3317,54 @@ export default class Client extends OpenApi {
     return await this.updateAppInstanceGroupImageWithOptions(request, runtime);
   }
 
+  /**
+   * 更新研发主机镜像
+   * 
+   * @param request - UpdateWuyingServerImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWuyingServerImageResponse
+   */
+  async updateWuyingServerImageWithOptions(request: $_model.UpdateWuyingServerImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWuyingServerImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWuyingServerImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWuyingServerImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWuyingServerImageResponse({}));
+  }
+
+  /**
+   * 更新研发主机镜像
+   * 
+   * @param request - UpdateWuyingServerImageRequest
+   * @returns UpdateWuyingServerImageResponse
+   */
+  async updateWuyingServerImage(request: $_model.UpdateWuyingServerImageRequest): Promise<$_model.UpdateWuyingServerImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWuyingServerImageWithOptions(request, runtime);
+  }
+
 }

@@ -101,6 +101,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
    * 10.13.13.211
    */
   mainEthPublicIp?: string;
+  networkInterfaceId?: string;
   networkInterfaceIp?: string;
   /**
    * @remarks
@@ -142,6 +143,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       mainEthPublicIp: 'MainEthPublicIp',
+      networkInterfaceId: 'NetworkInterfaceId',
       networkInterfaceIp: 'NetworkInterfaceIp',
       nodeId: 'NodeId',
       sessionStatus: 'SessionStatus',
@@ -158,6 +160,7 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       gmtCreate: 'string',
       gmtModified: 'string',
       mainEthPublicIp: 'string',
+      networkInterfaceId: 'string',
       networkInterfaceIp: 'string',
       nodeId: 'string',
       sessionStatus: 'string',
