@@ -78,10 +78,12 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
    * 192.168.0.130
    */
   privateIpAddress?: string;
+  privateIpStatus?: string;
   static names(): { [key: string]: string } {
     return {
       primary: 'Primary',
       privateIpAddress: 'PrivateIpAddress',
+      privateIpStatus: 'PrivateIpStatus',
     };
   }
 
@@ -89,6 +91,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
     return {
       primary: 'boolean',
       privateIpAddress: 'string',
+      privateIpStatus: 'string',
     };
   }
 
