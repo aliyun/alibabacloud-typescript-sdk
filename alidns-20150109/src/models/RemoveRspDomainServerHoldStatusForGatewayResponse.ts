@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { UpdateRspDomainServerHoldStatusOteResponseBody } from "./UpdateRspDomainServerHoldStatusOteResponseBody";
+import { RemoveRspDomainServerHoldStatusForGatewayResponseBody } from "./RemoveRspDomainServerHoldStatusForGatewayResponseBody";
 
 
-export class UpdateRspDomainServerHoldStatusOteResponse extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: UpdateRspDomainServerHoldStatusOteResponseBody;
+  body?: RemoveRspDomainServerHoldStatusForGatewayResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class UpdateRspDomainServerHoldStatusOteResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: UpdateRspDomainServerHoldStatusOteResponseBody,
+      body: RemoveRspDomainServerHoldStatusForGatewayResponseBody,
     };
   }
 

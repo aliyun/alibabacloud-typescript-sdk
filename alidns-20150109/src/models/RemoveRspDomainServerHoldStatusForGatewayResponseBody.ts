@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @example
    * CreateUser
@@ -25,7 +25,7 @@ export class UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail extends $dar
   authPrincipalType?: string;
   /**
    * @example
-   * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
+   * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
    */
   encodedDiagnosticMessage?: string;
   /**
@@ -71,68 +71,25 @@ export class UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail extends $dar
   }
 }
 
-export class UpdateRspDomainStatusOteResponseBodyDataStatusList extends $dara.Model {
-  /**
-   * @example
-   * uptp.test.abchina.com.cn
-   */
-  domainName?: string;
-  /**
-   * @example
-   * serverUpdateProhibited
-   */
-  status?: string;
-  statusMsg?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainName: 'DomainName',
-      status: 'Status',
-      statusMsg: 'StatusMsg',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainName: 'string',
-      status: 'string',
-      statusMsg: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRspDomainStatusOteResponseBodyData extends $dara.Model {
+export class RemoveRspDomainServerHoldStatusForGatewayResponseBodyData extends $dara.Model {
   /**
    * @example
    * example.com
    */
   domainName?: string;
-  statusList?: UpdateRspDomainStatusOteResponseBodyDataStatusList[];
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      statusList: 'StatusList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      statusList: { 'type': 'array', 'itemType': UpdateRspDomainStatusOteResponseBodyDataStatusList },
     };
   }
 
   validate() {
-    if(Array.isArray(this.statusList)) {
-      $dara.Model.validateArray(this.statusList);
-    }
     super.validate();
   }
 
@@ -141,9 +98,9 @@ export class UpdateRspDomainStatusOteResponseBodyData extends $dara.Model {
   }
 }
 
-export class UpdateRspDomainStatusOteResponseBody extends $dara.Model {
-  accessDeniedDetail?: UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail;
-  data?: UpdateRspDomainStatusOteResponseBodyData;
+export class RemoveRspDomainServerHoldStatusForGatewayResponseBody extends $dara.Model {
+  accessDeniedDetail?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail;
+  data?: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData;
   /**
    * @example
    * true
@@ -151,7 +108,7 @@ export class UpdateRspDomainStatusOteResponseBody extends $dara.Model {
   recoverableError?: boolean;
   /**
    * @example
-   * 0629502C-XXXX-5DC9-A8ED-2ED73A2E3931
+   * 0629502C-6224-5DC9-A8ED-2ED73A2E3931
    */
   requestId?: string;
   /**
@@ -171,8 +128,8 @@ export class UpdateRspDomainStatusOteResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail,
-      data: UpdateRspDomainStatusOteResponseBodyData,
+      accessDeniedDetail: RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail,
+      data: RemoveRspDomainServerHoldStatusForGatewayResponseBodyData,
       recoverableError: 'boolean',
       requestId: 'string',
       success: 'boolean',

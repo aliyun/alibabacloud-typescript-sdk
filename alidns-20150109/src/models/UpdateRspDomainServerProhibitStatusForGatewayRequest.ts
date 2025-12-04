@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateRspDomainStatusOteRequestAddStatusList extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList extends $dara.Model {
   /**
    * @example
    * serverDeleteProhibited
@@ -32,7 +32,7 @@ export class UpdateRspDomainStatusOteRequestAddStatusList extends $dara.Model {
   }
 }
 
-export class UpdateRspDomainStatusOteRequestDeleteStatusList extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList extends $dara.Model {
   /**
    * @example
    * serverDeleteProhibited
@@ -62,22 +62,17 @@ export class UpdateRspDomainStatusOteRequestDeleteStatusList extends $dara.Model
   }
 }
 
-export class UpdateRspDomainStatusOteRequest extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayRequest extends $dara.Model {
+  addStatusList?: UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * [{"Status":"renewProhibited","StatusMsg":"test"}]
-   */
-  addStatusList?: UpdateRspDomainStatusOteRequestAddStatusList[];
-  /**
-   * @example
-   * 443F1A21-XXXX-55C4-93E1-FF020DF93D7B
+   * asdf
    */
   clientToken?: string;
-  /**
-   * @example
-   * [{"Status":"renewProhibited","StatusMsg":"test"}]
-   */
-  deleteStatusList?: UpdateRspDomainStatusOteRequestDeleteStatusList[];
+  deleteStatusList?: UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList[];
   /**
    * @remarks
    * This parameter is required.
@@ -86,41 +81,21 @@ export class UpdateRspDomainStatusOteRequest extends $dara.Model {
    * example.com
    */
   domainName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * gatewayId001
-   */
-  operatorId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * registryGateway
-   */
-  operatorType?: string;
   static names(): { [key: string]: string } {
     return {
       addStatusList: 'AddStatusList',
       clientToken: 'ClientToken',
       deleteStatusList: 'DeleteStatusList',
       domainName: 'DomainName',
-      operatorId: 'OperatorId',
-      operatorType: 'OperatorType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addStatusList: { 'type': 'array', 'itemType': UpdateRspDomainStatusOteRequestAddStatusList },
+      addStatusList: { 'type': 'array', 'itemType': UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList },
       clientToken: 'string',
-      deleteStatusList: { 'type': 'array', 'itemType': UpdateRspDomainStatusOteRequestDeleteStatusList },
+      deleteStatusList: { 'type': 'array', 'itemType': UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList },
       domainName: 'string',
-      operatorId: 'string',
-      operatorType: 'string',
     };
   }
 

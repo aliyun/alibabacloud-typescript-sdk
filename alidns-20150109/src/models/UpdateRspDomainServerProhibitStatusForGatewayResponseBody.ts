@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @example
    * CreateUser
@@ -15,7 +15,7 @@ export class UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail ex
   authPrincipalDisplayName?: string;
   /**
    * @example
-   * 1046973331XXXX
+   * 10469733312XXX
    */
   authPrincipalOwnerId?: string;
   /**
@@ -25,7 +25,7 @@ export class UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail ex
   authPrincipalType?: string;
   /**
    * @example
-   * AQEAAAAAaNIARXXXXUQwNjE0LUQzN0XXXXVEQy1BQzExLTMzXXXXNTkxRjk1Ng==
+   * AQFohtp4aIbaeEXXXXQxNjFDLUIzMzgtNTXXXX05NkFCLUI2RkY5XXXXzAzQQ==
    */
   encodedDiagnosticMessage?: string;
   /**
@@ -71,28 +71,31 @@ export class UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail ex
   }
 }
 
-export class UpdateRspDomainServerHoldStatusOteResponseBodyData extends $dara.Model {
+export class UpdateRspDomainServerProhibitStatusForGatewayResponseBodyDataStatusList extends $dara.Model {
   /**
    * @example
-   * example.com
+   * uptp.test.abchina.com.cn
    */
   domainName?: string;
   /**
    * @example
-   * enable
+   * serverUpdateProhibited
    */
-  serverHoldStatus?: string;
+  status?: string;
+  statusMsg?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
-      serverHoldStatus: 'ServerHoldStatus',
+      status: 'Status',
+      statusMsg: 'StatusMsg',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
-      serverHoldStatus: 'string',
+      status: 'string',
+      statusMsg: 'string',
     };
   }
 
@@ -105,9 +108,42 @@ export class UpdateRspDomainServerHoldStatusOteResponseBodyData extends $dara.Mo
   }
 }
 
-export class UpdateRspDomainServerHoldStatusOteResponseBody extends $dara.Model {
-  accessDeniedDetail?: UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail;
-  data?: UpdateRspDomainServerHoldStatusOteResponseBodyData;
+export class UpdateRspDomainServerProhibitStatusForGatewayResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * example.com
+   */
+  domainName?: string;
+  statusList?: UpdateRspDomainServerProhibitStatusForGatewayResponseBodyDataStatusList[];
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      statusList: 'StatusList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      statusList: { 'type': 'array', 'itemType': UpdateRspDomainServerProhibitStatusForGatewayResponseBodyDataStatusList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statusList)) {
+      $dara.Model.validateArray(this.statusList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRspDomainServerProhibitStatusForGatewayResponseBody extends $dara.Model {
+  accessDeniedDetail?: UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail;
+  data?: UpdateRspDomainServerProhibitStatusForGatewayResponseBodyData;
   /**
    * @example
    * true
@@ -115,7 +151,7 @@ export class UpdateRspDomainServerHoldStatusOteResponseBody extends $dara.Model 
   recoverableError?: boolean;
   /**
    * @example
-   * 0629502C-XXXX-XXXX-XXXX-2ED73A2E3931
+   * 0629502C-6224-5DC9-A8ED-2ED73A2E3931
    */
   requestId?: string;
   /**
@@ -135,8 +171,8 @@ export class UpdateRspDomainServerHoldStatusOteResponseBody extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
-      accessDeniedDetail: UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail,
-      data: UpdateRspDomainServerHoldStatusOteResponseBodyData,
+      accessDeniedDetail: UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail,
+      data: UpdateRspDomainServerProhibitStatusForGatewayResponseBodyData,
       recoverableError: 'boolean',
       requestId: 'string',
       success: 'boolean',
