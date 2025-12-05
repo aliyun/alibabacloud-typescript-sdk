@@ -660,6 +660,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * POSTPAY
    */
   payType?: string;
+  processStatus?: string;
   /**
    * @remarks
    * The region where the WAF instance resides. Valid values:
@@ -707,6 +708,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
       inDebt: 'InDebt',
       instanceId: 'InstanceId',
       payType: 'PayType',
+      processStatus: 'ProcessStatus',
       regionId: 'RegionId',
       requestId: 'RequestId',
       startTime: 'StartTime',
@@ -722,6 +724,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
       inDebt: 'string',
       instanceId: 'string',
       payType: 'string',
+      processStatus: 'string',
       regionId: 'string',
       requestId: 'string',
       startTime: 'number',
