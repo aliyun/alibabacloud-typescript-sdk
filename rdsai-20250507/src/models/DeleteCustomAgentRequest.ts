@@ -4,11 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCustomAgentRequest extends $dara.Model {
   /**
-   * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
    * @remarks
    * AgentId。
    * 
@@ -18,14 +13,12 @@ export class DeleteCustomAgentRequest extends $dara.Model {
   customAgentId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       customAgentId: 'CustomAgentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       customAgentId: 'string',
     };
   }

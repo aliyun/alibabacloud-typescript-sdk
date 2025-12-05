@@ -4,11 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChatMessagesTaskStopRequest extends $dara.Model {
   /**
-   * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
    * @remarks
    * This parameter is required.
    * 
@@ -18,14 +13,12 @@ export class ChatMessagesTaskStopRequest extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       taskId: 'string',
     };
   }

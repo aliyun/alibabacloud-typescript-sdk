@@ -5,14 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
-   * @remarks
    * AgentId。
    * 
    * This parameter is required.
@@ -31,7 +23,6 @@ export class UpdateCustomAgentShrinkRequest extends $dara.Model {
   toolsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       customAgentId: 'CustomAgentId',
       enableTools: 'EnableTools',
       name: 'Name',
@@ -42,7 +33,6 @@ export class UpdateCustomAgentShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       customAgentId: 'string',
       enableTools: 'boolean',
       name: 'string',

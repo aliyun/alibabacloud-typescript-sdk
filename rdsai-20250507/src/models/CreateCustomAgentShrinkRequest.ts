@@ -5,11 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
-   * @example
    * true
    */
   enableTools?: boolean;
@@ -22,7 +17,6 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   toolsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       enableTools: 'EnableTools',
       name: 'Name',
       systemPrompt: 'SystemPrompt',
@@ -32,7 +26,6 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       enableTools: 'boolean',
       name: 'string',
       systemPrompt: 'string',

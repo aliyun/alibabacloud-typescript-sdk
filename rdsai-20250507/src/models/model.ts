@@ -75,7 +75,6 @@ export { GetMessagesResponse } from './GetMessagesResponse';
 export { ListCustomAgentRequest } from './ListCustomAgentRequest';
 export { ListCustomAgentResponseBody } from './ListCustomAgentResponseBody';
 export { ListCustomAgentResponse } from './ListCustomAgentResponse';
-export { ListCustomAgentToolsRequest } from './ListCustomAgentToolsRequest';
 export { ListCustomAgentToolsResponseBody } from './ListCustomAgentToolsResponseBody';
 export { ListCustomAgentToolsResponse } from './ListCustomAgentToolsResponse';
 export { ModifyInstanceAuthConfigRequest } from './ModifyInstanceAuthConfigRequest';

@@ -4,14 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChatMessagesShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
    * @example
    * fea7bdca-e848-44dd-b1ae-852472b8****
    */
@@ -29,7 +21,6 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
   query?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       conversationId: 'ConversationId',
       inputsShrink: 'Inputs',
       parentMessageId: 'ParentMessageId',
@@ -39,7 +30,6 @@ export class ChatMessagesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       conversationId: 'string',
       inputsShrink: 'string',
       parentMessageId: 'string',

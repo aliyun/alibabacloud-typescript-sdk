@@ -45,10 +45,6 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.conversationId)) {
       query["ConversationId"] = request.conversationId;
     }
@@ -111,10 +107,6 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.conversationId)) {
       query["ConversationId"] = request.conversationId;
     }
@@ -169,10 +161,6 @@ export default class Client extends OpenApi {
   async chatMessagesTaskStopWithOptions(request: $_model.ChatMessagesTaskStopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatMessagesTaskStopResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
@@ -321,10 +309,6 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.enableTools)) {
       query["EnableTools"] = request.enableTools;
     }
@@ -429,10 +413,6 @@ export default class Client extends OpenApi {
   async deleteCustomAgentWithOptions(request: $_model.DeleteCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomAgentResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.customAgentId)) {
       query["CustomAgentId"] = request.customAgentId;
     }
@@ -917,10 +897,6 @@ export default class Client extends OpenApi {
   async getConversationsWithOptions(request: $_model.GetConversationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetConversationsResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.lastId)) {
       query["LastId"] = request.lastId;
     }
@@ -975,10 +951,6 @@ export default class Client extends OpenApi {
   async getCustomAgentWithOptions(request: $_model.GetCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomAgentResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.customAgentId)) {
       query["CustomAgentId"] = request.customAgentId;
     }
@@ -1021,10 +993,6 @@ export default class Client extends OpenApi {
   async getMessagesWithOptions(request: $_model.GetMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMessagesResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.conversationId)) {
       query["ConversationId"] = request.conversationId;
     }
@@ -1075,10 +1043,6 @@ export default class Client extends OpenApi {
   async listCustomAgentWithOptions(request: $_model.ListCustomAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -1122,16 +1086,8 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomAgentToolsResponse
    */
-  async listCustomAgentToolsWithOptions(request: $_model.ListCustomAgentToolsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentToolsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async listCustomAgentToolsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentToolsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
     let params = new $OpenApiUtil.Params({
       action: "ListCustomAgentTools",
       version: "2025-05-07",
@@ -1148,13 +1104,11 @@ export default class Client extends OpenApi {
 
   /**
    * 获取专属Agent可用工具
-   * 
-   * @param request - ListCustomAgentToolsRequest
    * @returns ListCustomAgentToolsResponse
    */
-  async listCustomAgentTools(request: $_model.ListCustomAgentToolsRequest): Promise<$_model.ListCustomAgentToolsResponse> {
+  async listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.listCustomAgentToolsWithOptions(request, runtime);
+    return await this.listCustomAgentToolsWithOptions(runtime);
   }
 
   /**
@@ -1529,10 +1483,6 @@ export default class Client extends OpenApi {
   async modifyMessagesFeedbacksWithOptions(request: $_model.ModifyMessagesFeedbacksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyMessagesFeedbacksResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
     }
@@ -1781,10 +1731,6 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    if (!$dara.isNull(request.apiId)) {
-      query["ApiId"] = request.apiId;
-    }
-
     if (!$dara.isNull(request.customAgentId)) {
       query["CustomAgentId"] = request.customAgentId;
     }

@@ -5,11 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentRequest extends $dara.Model {
   /**
    * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
-  /**
-   * @example
    * 1
    */
   pageNumber?: number;
@@ -20,7 +15,6 @@ export class ListCustomAgentRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -28,7 +22,6 @@ export class ListCustomAgentRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };

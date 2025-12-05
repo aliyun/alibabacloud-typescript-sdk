@@ -3,11 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyMessagesFeedbacksRequest extends $dara.Model {
-  /**
-   * @example
-   * app-iBuGU1VxEY42zrQRQfNA****
-   */
-  apiId?: string;
   content?: string;
   /**
    * @example
@@ -21,7 +16,6 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
   rating?: string;
   static names(): { [key: string]: string } {
     return {
-      apiId: 'ApiId',
       content: 'Content',
       messageId: 'MessageId',
       rating: 'Rating',
@@ -30,7 +24,6 @@ export class ModifyMessagesFeedbacksRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiId: 'string',
       content: 'string',
       messageId: 'string',
       rating: 'string',
