@@ -1909,6 +1909,204 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过Ip获取已部署作业
+   * 
+   * @param request - GetDeploymentsByIpRequest
+   * @param headers - GetDeploymentsByIpHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentsByIpResponse
+   */
+  async getDeploymentsByIpWithOptions(namespace: string, request: $_model.GetDeploymentsByIpRequest, headers: $_model.GetDeploymentsByIpHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentsByIpResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dstIp)) {
+      query["dstIp"] = request.dstIp;
+    }
+
+    if (!$dara.isNull(request.dstPort)) {
+      query["dstPort"] = request.dstPort;
+    }
+
+    if (!$dara.isNull(request.ignoreJobSummary)) {
+      query["ignoreJobSummary"] = request.ignoreJobSummary;
+    }
+
+    if (!$dara.isNull(request.ignoreResourceSetting)) {
+      query["ignoreResourceSetting"] = request.ignoreResourceSetting;
+    }
+
+    if (!$dara.isNull(request.srcIp)) {
+      query["srcIp"] = request.srcIp;
+    }
+
+    if (!$dara.isNull(request.srcPort)) {
+      query["srcPort"] = request.srcPort;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeploymentsByIp",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/getDeployments/byIp`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeploymentsByIpResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentsByIpResponse({}));
+  }
+
+  /**
+   * 通过Ip获取已部署作业
+   * 
+   * @param request - GetDeploymentsByIpRequest
+   * @returns GetDeploymentsByIpResponse
+   */
+  async getDeploymentsByIp(namespace: string, request: $_model.GetDeploymentsByIpRequest): Promise<$_model.GetDeploymentsByIpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDeploymentsByIpHeaders({ });
+    return await this.getDeploymentsByIpWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 通过标签获取已部署作业
+   * 
+   * @param request - GetDeploymentsByLabelRequest
+   * @param headers - GetDeploymentsByLabelHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentsByLabelResponse
+   */
+  async getDeploymentsByLabelWithOptions(namespace: string, request: $_model.GetDeploymentsByLabelRequest, headers: $_model.GetDeploymentsByLabelHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentsByLabelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ignoreJobSummary)) {
+      query["ignoreJobSummary"] = request.ignoreJobSummary;
+    }
+
+    if (!$dara.isNull(request.ignoreResourceSetting)) {
+      query["ignoreResourceSetting"] = request.ignoreResourceSetting;
+    }
+
+    if (!$dara.isNull(request.labelKey)) {
+      query["labelKey"] = request.labelKey;
+    }
+
+    if (!$dara.isNull(request.labelValue)) {
+      query["labelValue"] = request.labelValue;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeploymentsByLabel",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/getDeployments/byLabel`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeploymentsByLabelResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentsByLabelResponse({}));
+  }
+
+  /**
+   * 通过标签获取已部署作业
+   * 
+   * @param request - GetDeploymentsByLabelRequest
+   * @returns GetDeploymentsByLabelResponse
+   */
+  async getDeploymentsByLabel(namespace: string, request: $_model.GetDeploymentsByLabelRequest): Promise<$_model.GetDeploymentsByLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDeploymentsByLabelHeaders({ });
+    return await this.getDeploymentsByLabelWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * 通过名称获取已部署作业
+   * 
+   * @param request - GetDeploymentsByNameRequest
+   * @param headers - GetDeploymentsByNameHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentsByNameResponse
+   */
+  async getDeploymentsByNameWithOptions(namespace: string, deploymentName: string, request: $_model.GetDeploymentsByNameRequest, headers: $_model.GetDeploymentsByNameHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeploymentsByNameResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ignoreJobSummary)) {
+      query["ignoreJobSummary"] = request.ignoreJobSummary;
+    }
+
+    if (!$dara.isNull(request.ignoreResourceSetting)) {
+      query["ignoreResourceSetting"] = request.ignoreResourceSetting;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDeploymentsByName",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/name/${$dara.URL.percentEncode(deploymentName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDeploymentsByNameResponse>(await this.callApi(params, req, runtime), new $_model.GetDeploymentsByNameResponse({}));
+  }
+
+  /**
+   * 通过名称获取已部署作业
+   * 
+   * @param request - GetDeploymentsByNameRequest
+   * @returns GetDeploymentsByNameResponse
+   */
+  async getDeploymentsByName(namespace: string, deploymentName: string, request: $_model.GetDeploymentsByNameRequest): Promise<$_model.GetDeploymentsByNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetDeploymentsByNameHeaders({ });
+    return await this.getDeploymentsByNameWithOptions(namespace, deploymentName, request, headers, runtime);
+  }
+
+  /**
    * 获取运行事件
    * 
    * @param request - GetEventsRequest
@@ -2585,6 +2783,50 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetUdfArtifactsHeaders({ });
     return await this.getUdfArtifactsWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Get validate DeploymentDraft result
+   * 
+   * @param headers - GetValidateDeploymentDraftResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetValidateDeploymentDraftResultResponse
+   */
+  async getValidateDeploymentDraftResultWithOptions(namespace: string, ticketId: string, headers: $_model.GetValidateDeploymentDraftResultHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetValidateDeploymentDraftResultResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetValidateDeploymentDraftResult",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployment-drafts/tickets/${$dara.URL.percentEncode(ticketId)}/async-validate`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetValidateDeploymentDraftResultResponse>(await this.callApi(params, req, runtime), new $_model.GetValidateDeploymentDraftResultResponse({}));
+  }
+
+  /**
+   * Get validate DeploymentDraft result
+   * @returns GetValidateDeploymentDraftResultResponse
+   */
+  async getValidateDeploymentDraftResult(namespace: string, ticketId: string): Promise<$_model.GetValidateDeploymentDraftResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetValidateDeploymentDraftResultHeaders({ });
+    return await this.getValidateDeploymentDraftResultWithOptions(namespace, ticketId, headers, runtime);
   }
 
   /**
@@ -4345,6 +4587,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.UpdateVariableHeaders({ });
     return await this.updateVariableWithOptions(namespace, name, request, headers, runtime);
+  }
+
+  /**
+   * validate DeploymentDraft async
+   * 
+   * @param request - ValidateDeploymentDraftAsyncRequest
+   * @param headers - ValidateDeploymentDraftAsyncHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateDeploymentDraftAsyncResponse
+   */
+  async validateDeploymentDraftAsyncWithOptions(namespace: string, request: $_model.ValidateDeploymentDraftAsyncRequest, headers: $_model.ValidateDeploymentDraftAsyncHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateDeploymentDraftAsyncResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateDeploymentDraftAsync",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployment-drafts/async-validate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateDeploymentDraftAsyncResponse>(await this.callApi(params, req, runtime), new $_model.ValidateDeploymentDraftAsyncResponse({}));
+  }
+
+  /**
+   * validate DeploymentDraft async
+   * 
+   * @param request - ValidateDeploymentDraftAsyncRequest
+   * @returns ValidateDeploymentDraftAsyncResponse
+   */
+  async validateDeploymentDraftAsync(namespace: string, request: $_model.ValidateDeploymentDraftAsyncRequest): Promise<$_model.ValidateDeploymentDraftAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ValidateDeploymentDraftAsyncHeaders({ });
+    return await this.validateDeploymentDraftAsyncWithOptions(namespace, request, headers, runtime);
   }
 
   /**
