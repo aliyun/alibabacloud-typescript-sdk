@@ -868,70 +868,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @remarks
-   * To create a certificate, you must specify the type of the asymmetric key. Certificates Manager generates a private key and returns a certificate signing request (CSR). Submit the CSR in the Privacy Enhanced Mail (PEM) format to a certificate authority (CA) to obtain the formal certificate and certificate chain. Then, call the [UploadCertificate](https://help.aliyun.com/document_detail/212136.html) operation to import the certificate into Certificates Manager.
-   * In this example, a certificate is created and the CSR is obtained.
-   * 
-   * @param tmpReq - CreateCertificateRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateCertificateResponse
-   */
-  async createCertificateWithOptions(tmpReq: $_model.CreateCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCertificateResponse> {
-    tmpReq.validate();
-    let request = new $_model.CreateCertificateShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.subjectAlternativeNames)) {
-      request.subjectAlternativeNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.subjectAlternativeNames, "SubjectAlternativeNames", "json");
-    }
-
-    let query = { };
-    if (!$dara.isNull(request.exportablePrivateKey)) {
-      query["ExportablePrivateKey"] = request.exportablePrivateKey;
-    }
-
-    if (!$dara.isNull(request.keySpec)) {
-      query["KeySpec"] = request.keySpec;
-    }
-
-    if (!$dara.isNull(request.subject)) {
-      query["Subject"] = request.subject;
-    }
-
-    if (!$dara.isNull(request.subjectAlternativeNamesShrink)) {
-      query["SubjectAlternativeNames"] = request.subjectAlternativeNamesShrink;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateCertificate",
-      version: "2016-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateCertificateResponse>(await this.callApi(params, req, runtime), new $_model.CreateCertificateResponse({}));
-  }
-
-  /**
-   * @remarks
-   * To create a certificate, you must specify the type of the asymmetric key. Certificates Manager generates a private key and returns a certificate signing request (CSR). Submit the CSR in the Privacy Enhanced Mail (PEM) format to a certificate authority (CA) to obtain the formal certificate and certificate chain. Then, call the [UploadCertificate](https://help.aliyun.com/document_detail/212136.html) operation to import the certificate into Certificates Manager.
-   * In this example, a certificate is created and the CSR is obtained.
-   * 
-   * @param request - CreateCertificateRequest
-   * @returns CreateCertificateResponse
-   */
-  async createCertificate(request: $_model.CreateCertificateRequest): Promise<$_model.CreateCertificateResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createCertificateWithOptions(request, runtime);
-  }
-
-  /**
    * Creates a client key.
    * 
    * @remarks
@@ -2891,6 +2827,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例配额信息
+   * 
+   * @param request - GetKmsInstanceQuotaInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKmsInstanceQuotaInfosResponse
+   */
+  async getKmsInstanceQuotaInfosWithOptions(request: $_model.GetKmsInstanceQuotaInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKmsInstanceQuotaInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.kmsInstanceId)) {
+      query["KmsInstanceId"] = request.kmsInstanceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKmsInstanceQuotaInfos",
+      version: "2016-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKmsInstanceQuotaInfosResponse>(await this.callApi(params, req, runtime), new $_model.GetKmsInstanceQuotaInfosResponse({}));
+  }
+
+  /**
+   * 获取实例配额信息
+   * 
+   * @param request - GetKmsInstanceQuotaInfosRequest
+   * @returns GetKmsInstanceQuotaInfosResponse
+   */
+  async getKmsInstanceQuotaInfos(request: $_model.GetKmsInstanceQuotaInfosRequest): Promise<$_model.GetKmsInstanceQuotaInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKmsInstanceQuotaInfosWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the parameters that are used to import key material for a customer master key (CMK).
    * 
    * @remarks
@@ -3548,6 +3530,10 @@ export default class Client extends OpenApi {
   async listKmsInstancesWithOptions(request: $_model.ListKmsInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKmsInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -4920,7 +4906,15 @@ export default class Client extends OpenApi {
    */
   async updateKmsInstanceBindVpcWithOptions(request: $_model.UpdateKmsInstanceBindVpcRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKmsInstanceBindVpcResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.bindVpcs)) {
+      query["BindVpcs"] = request.bindVpcs;
+    }
+
+    if (!$dara.isNull(request.kmsInstanceId)) {
+      query["KmsInstanceId"] = request.kmsInstanceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4929,7 +4923,7 @@ export default class Client extends OpenApi {
       version: "2016-01-20",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",

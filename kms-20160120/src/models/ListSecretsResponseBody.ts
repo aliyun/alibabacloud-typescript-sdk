@@ -71,6 +71,7 @@ export class ListSecretsResponseBodySecretListSecret extends $dara.Model {
    * 2022-07-17T07:59:05Z
    */
   createTime?: string;
+  owingService?: string;
   /**
    * @remarks
    * The resource tags of the secret.
@@ -116,6 +117,7 @@ export class ListSecretsResponseBodySecretListSecret extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      owingService: 'OwingService',
       plannedDeleteTime: 'PlannedDeleteTime',
       secretName: 'SecretName',
       secretType: 'SecretType',
@@ -127,6 +129,7 @@ export class ListSecretsResponseBodySecretListSecret extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      owingService: 'string',
       plannedDeleteTime: 'string',
       secretName: 'string',
       secretType: 'string',

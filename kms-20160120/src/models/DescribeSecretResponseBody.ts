@@ -153,6 +153,7 @@ export class DescribeSecretResponseBody extends $dara.Model {
    * 2022-07-06T18:22:03Z
    */
   nextRotationDate?: string;
+  owingService?: string;
   /**
    * @remarks
    * The time when the secret is scheduled to be deleted.
@@ -228,6 +229,7 @@ export class DescribeSecretResponseBody extends $dara.Model {
       extendedConfig: 'ExtendedConfig',
       lastRotationDate: 'LastRotationDate',
       nextRotationDate: 'NextRotationDate',
+      owingService: 'OwingService',
       plannedDeleteTime: 'PlannedDeleteTime',
       requestId: 'RequestId',
       rotationInterval: 'RotationInterval',
@@ -249,6 +251,7 @@ export class DescribeSecretResponseBody extends $dara.Model {
       extendedConfig: 'string',
       lastRotationDate: 'string',
       nextRotationDate: 'string',
+      owingService: 'string',
       plannedDeleteTime: 'string',
       requestId: 'string',
       rotationInterval: 'string',

@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { CreateCertificateResponseBody } from "./CreateCertificateResponseBody";
+import { GetKmsInstanceQuotaInfosResponseBody } from "./GetKmsInstanceQuotaInfosResponseBody";
 
 
-export class CreateCertificateResponse extends $dara.Model {
+export class GetKmsInstanceQuotaInfosResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: CreateCertificateResponseBody;
+  body?: GetKmsInstanceQuotaInfosResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class CreateCertificateResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CreateCertificateResponseBody,
+      body: GetKmsInstanceQuotaInfosResponseBody,
     };
   }
 

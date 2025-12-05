@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKmsInstancesRequest extends $dara.Model {
+  filters?: string;
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -21,6 +22,7 @@ export class ListKmsInstancesRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      filters: 'Filters',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -28,6 +30,7 @@ export class ListKmsInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      filters: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };

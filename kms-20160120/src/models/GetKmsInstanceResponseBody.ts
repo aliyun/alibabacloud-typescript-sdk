@@ -145,7 +145,11 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
    * 1000
    */
   keyNum?: number;
+  log?: number;
+  logStorage?: number;
+  productType?: string;
   productVersion?: string;
+  saleStatus?: string;
   /**
    * @remarks
    * The number of secrets that can be created for the KMS instance.
@@ -207,7 +211,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
    * @example
    * vsw-bp1i512amda6d10a0****
    */
-  vswitchIds?: string;
+  vswitchIds?: string[];
   /**
    * @remarks
    * The zone with which the KMS instance is associated.
@@ -215,7 +219,7 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
    * @example
    * "cn-hangzhou-k",       "cn-hangzhou-j"
    */
-  zoneIds?: string;
+  zoneIds?: string[];
   static names(): { [key: string]: string } {
     return {
       bindVpcs: 'BindVpcs',
@@ -226,7 +230,11 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       keyNum: 'KeyNum',
+      log: 'Log',
+      logStorage: 'LogStorage',
+      productType: 'ProductType',
       productVersion: 'ProductVersion',
+      saleStatus: 'SaleStatus',
       secretNum: 'SecretNum',
       spec: 'Spec',
       startDate: 'StartDate',
@@ -248,21 +256,31 @@ export class GetKmsInstanceResponseBodyKmsInstance extends $dara.Model {
       instanceId: 'string',
       instanceName: 'string',
       keyNum: 'number',
+      log: 'number',
+      logStorage: 'number',
+      productType: 'string',
       productVersion: 'string',
+      saleStatus: 'string',
       secretNum: 'string',
       spec: 'number',
       startDate: 'string',
       status: 'string',
       vpcId: 'string',
       vpcNum: 'number',
-      vswitchIds: 'string',
-      zoneIds: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(this.bindVpcs && typeof (this.bindVpcs as any).validate === 'function') {
       (this.bindVpcs as any).validate();
+    }
+    if(Array.isArray(this.vswitchIds)) {
+      $dara.Model.validateArray(this.vswitchIds);
+    }
+    if(Array.isArray(this.zoneIds)) {
+      $dara.Model.validateArray(this.zoneIds);
     }
     super.validate();
   }
