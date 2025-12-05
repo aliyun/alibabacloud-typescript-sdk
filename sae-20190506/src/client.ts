@@ -7454,6 +7454,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 恢复实例的流量
+   * 
+   * @param request - ResumeTrafficRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeTrafficResponse
+   */
+  async resumeTrafficWithOptions(request: $_model.ResumeTrafficRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeTrafficResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeTraffic",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/instanceTrafficResume`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeTrafficResponse>(await this.callApi(params, req, runtime), new $_model.ResumeTrafficResponse({}));
+  }
+
+  /**
+   * 恢复实例的流量
+   * 
+   * @param request - ResumeTrafficRequest
+   * @returns ResumeTrafficResponse
+   */
+  async resumeTraffic(request: $_model.ResumeTrafficRequest): Promise<$_model.ResumeTrafficResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeTrafficWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Rolls back an application.
    * 
    * @param request - RollbackApplicationRequest
@@ -7761,6 +7810,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.suspendJobWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 将流量从实例中摘除
+   * 
+   * @param request - SuspendTrafficRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendTrafficResponse
+   */
+  async suspendTrafficWithOptions(request: $_model.SuspendTrafficRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SuspendTrafficResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SuspendTraffic",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/app/instanceTrafficSuspend`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SuspendTrafficResponse>(await this.callApi(params, req, runtime), new $_model.SuspendTrafficResponse({}));
+  }
+
+  /**
+   * 将流量从实例中摘除
+   * 
+   * @param request - SuspendTrafficRequest
+   * @returns SuspendTrafficResponse
+   */
+  async suspendTraffic(request: $_model.SuspendTrafficRequest): Promise<$_model.SuspendTrafficResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.suspendTrafficWithOptions(request, headers, runtime);
   }
 
   /**
