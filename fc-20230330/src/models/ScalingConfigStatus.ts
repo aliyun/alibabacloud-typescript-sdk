@@ -7,6 +7,7 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 export class ScalingConfigStatus extends $dara.Model {
   currentError?: string;
   currentInstances?: number;
+  enableOnDemandScaling?: boolean;
   functionArn?: string;
   horizontalScalingPolicies?: ScalingPolicy[];
   minInstances?: number;
@@ -17,6 +18,7 @@ export class ScalingConfigStatus extends $dara.Model {
     return {
       currentError: 'currentError',
       currentInstances: 'currentInstances',
+      enableOnDemandScaling: 'enableOnDemandScaling',
       functionArn: 'functionArn',
       horizontalScalingPolicies: 'horizontalScalingPolicies',
       minInstances: 'minInstances',
@@ -30,6 +32,7 @@ export class ScalingConfigStatus extends $dara.Model {
     return {
       currentError: 'string',
       currentInstances: 'number',
+      enableOnDemandScaling: 'boolean',
       functionArn: 'string',
       horizontalScalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
       minInstances: 'number',

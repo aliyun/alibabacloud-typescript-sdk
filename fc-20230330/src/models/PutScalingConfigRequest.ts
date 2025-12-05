@@ -4,8 +4,15 @@ import { PutScalingConfigInput } from "./PutScalingConfigInput";
 
 
 export class PutScalingConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The function scalability configuration.
+   */
   body?: PutScalingConfigInput;
   /**
+   * @remarks
+   * The function alias.
+   * 
    * @example
    * LATEST
    */

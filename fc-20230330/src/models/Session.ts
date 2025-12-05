@@ -14,6 +14,7 @@ export class Session extends $dara.Model {
    * 2025-04-01T08:15:27Z
    */
   createdTime?: string;
+  disableSessionIdReuse?: boolean;
   /**
    * @example
    * functionName1
@@ -59,6 +60,7 @@ export class Session extends $dara.Model {
     return {
       containerId: 'containerId',
       createdTime: 'createdTime',
+      disableSessionIdReuse: 'disableSessionIdReuse',
       functionName: 'functionName',
       lastModifiedTime: 'lastModifiedTime',
       nasConfig: 'nasConfig',
@@ -75,6 +77,7 @@ export class Session extends $dara.Model {
     return {
       containerId: 'string',
       createdTime: 'string',
+      disableSessionIdReuse: 'boolean',
       functionName: 'string',
       lastModifiedTime: 'string',
       nasConfig: NASConfig,

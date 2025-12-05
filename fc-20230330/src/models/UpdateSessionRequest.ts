@@ -4,8 +4,15 @@ import { UpdateSessionInput } from "./UpdateSessionInput";
 
 
 export class UpdateSessionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The session update configuration.
+   */
   body?: UpdateSessionInput;
   /**
+   * @remarks
+   * The function alias or version associated with the session to be updated.
+   * 
    * @example
    * aliasName1
    */

@@ -13,6 +13,7 @@ export class ResidentResourceAllocation extends $dara.Model {
    * 实例数
    */
   instanceCount?: number;
+  instanceType?: string;
   /**
    * @remarks
    * 函数的别名
@@ -42,6 +43,7 @@ export class ResidentResourceAllocation extends $dara.Model {
     return {
       functionName: 'functionName',
       instanceCount: 'instanceCount',
+      instanceType: 'instanceType',
       qualifier: 'qualifier',
       totalCpuCores: 'totalCpuCores',
       totalDiskSize: 'totalDiskSize',
@@ -54,6 +56,7 @@ export class ResidentResourceAllocation extends $dara.Model {
     return {
       functionName: 'string',
       instanceCount: 'number',
+      instanceType: 'string',
       qualifier: 'string',
       totalCpuCores: 'number',
       totalDiskSize: 'number',

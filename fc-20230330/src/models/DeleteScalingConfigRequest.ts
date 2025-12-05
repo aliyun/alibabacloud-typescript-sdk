@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteScalingConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The function alias.
+   * 
    * @example
    * LATEST
    */

@@ -3,11 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CookieSessionAffinityConfig extends $dara.Model {
+  disableSessionIdReuse?: boolean;
   sessionConcurrencyPerInstance?: number;
   sessionIdleTimeoutInSeconds?: number;
   sessionTTLInSeconds?: number;
   static names(): { [key: string]: string } {
     return {
+      disableSessionIdReuse: 'disableSessionIdReuse',
       sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
@@ -16,6 +18,7 @@ export class CookieSessionAffinityConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disableSessionIdReuse: 'boolean',
       sessionConcurrencyPerInstance: 'number',
       sessionIdleTimeoutInSeconds: 'number',
       sessionTTLInSeconds: 'number',

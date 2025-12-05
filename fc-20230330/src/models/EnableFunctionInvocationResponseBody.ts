@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class EnableFunctionInvocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

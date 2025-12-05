@@ -5,12 +5,14 @@ import { ScheduledPolicy } from "./ScheduledPolicy";
 
 
 export class PutScalingConfigInput extends $dara.Model {
+  enableOnDemandScaling?: boolean;
   horizontalScalingPolicies?: ScalingPolicy[];
   minInstances?: number;
   residentPoolId?: string;
   scheduledPolicies?: ScheduledPolicy[];
   static names(): { [key: string]: string } {
     return {
+      enableOnDemandScaling: 'enableOnDemandScaling',
       horizontalScalingPolicies: 'horizontalScalingPolicies',
       minInstances: 'minInstances',
       residentPoolId: 'residentPoolId',
@@ -20,6 +22,7 @@ export class PutScalingConfigInput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableOnDemandScaling: 'boolean',
       horizontalScalingPolicies: { 'type': 'array', 'itemType': ScalingPolicy },
       minInstances: 'number',
       residentPoolId: 'string',

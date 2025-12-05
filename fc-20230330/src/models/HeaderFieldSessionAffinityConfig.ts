@@ -4,12 +4,14 @@ import * as $dara from '@darabonba/typescript';
 
 export class HeaderFieldSessionAffinityConfig extends $dara.Model {
   affinityHeaderFieldName?: string;
+  disableSessionIdReuse?: boolean;
   sessionConcurrencyPerInstance?: number;
   sessionIdleTimeoutInSeconds?: number;
   sessionTTLInSeconds?: number;
   static names(): { [key: string]: string } {
     return {
       affinityHeaderFieldName: 'affinityHeaderFieldName',
+      disableSessionIdReuse: 'disableSessionIdReuse',
       sessionConcurrencyPerInstance: 'sessionConcurrencyPerInstance',
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
@@ -19,6 +21,7 @@ export class HeaderFieldSessionAffinityConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       affinityHeaderFieldName: 'string',
+      disableSessionIdReuse: 'boolean',
       sessionConcurrencyPerInstance: 'number',
       sessionIdleTimeoutInSeconds: 'number',
       sessionTTLInSeconds: 'number',

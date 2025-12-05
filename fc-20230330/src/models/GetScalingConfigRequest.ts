@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetScalingConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The alias of the function.
+   * 
    * @example
    * LATEST
    */
