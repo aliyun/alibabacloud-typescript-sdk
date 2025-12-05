@@ -722,6 +722,7 @@ export { ListAgentlessMaliciousFilesResponseBodyListDetails } from './ListAgentl
 export { ListAgentlessMaliciousFilesResponseBodyListNotes } from './ListAgentlessMaliciousFilesResponseBody';
 export { ListAgentlessMaliciousFilesResponseBodyList } from './ListAgentlessMaliciousFilesResponseBody';
 export { ListAgentlessMaliciousFilesResponseBodyPageInfo } from './ListAgentlessMaliciousFilesResponseBody';
+export { ListAgentlessRegionResponseBodyVendorRegionList } from './ListAgentlessRegionResponseBody';
 export { ListAgentlessRelateMaliciousResponseBodyListDetails } from './ListAgentlessRelateMaliciousResponseBody';
 export { ListAgentlessRelateMaliciousResponseBodyList } from './ListAgentlessRelateMaliciousResponseBody';
 export { ListAgentlessRelateMaliciousResponseBodyPageInfo } from './ListAgentlessRelateMaliciousResponseBody';
