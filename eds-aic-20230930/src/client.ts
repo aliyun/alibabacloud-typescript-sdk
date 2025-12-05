@@ -3284,6 +3284,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入自定义镜像
+   * 
+   * @param request - ImportImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportImageResponse
+   */
+  async importImageWithOptions(request: $_model.ImportImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageDescription)) {
+      query["ImageDescription"] = request.imageDescription;
+    }
+
+    if (!$dara.isNull(request.imageFileURL)) {
+      query["ImageFileURL"] = request.imageFileURL;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportImage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportImageResponse>(await this.callApi(params, req, runtime), new $_model.ImportImageResponse({}));
+  }
+
+  /**
+   * 导入自定义镜像
+   * 
+   * @param request - ImportImageRequest
+   * @returns ImportImageResponse
+   */
+  async importImage(request: $_model.ImportImageRequest): Promise<$_model.ImportImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importImageWithOptions(request, runtime);
+  }
+
+  /**
    * Imports the public key of an Android Debug Bridge (ADB) key pair.
    * 
    * @remarks

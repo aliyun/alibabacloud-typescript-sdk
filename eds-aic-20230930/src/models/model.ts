@@ -249,6 +249,9 @@ export { GenerateCoordinationCodeResponse } from './GenerateCoordinationCodeResp
 export { GetInstancePropertiesRequest } from './GetInstancePropertiesRequest';
 export { GetInstancePropertiesResponseBody } from './GetInstancePropertiesResponseBody';
 export { GetInstancePropertiesResponse } from './GetInstancePropertiesResponse';
+export { ImportImageRequest } from './ImportImageRequest';
+export { ImportImageResponseBody } from './ImportImageResponseBody';
+export { ImportImageResponse } from './ImportImageResponse';
 export { ImportKeyPairRequest } from './ImportKeyPairRequest';
 export { ImportKeyPairResponseBody } from './ImportKeyPairResponseBody';
 export { ImportKeyPairResponse } from './ImportKeyPairResponse';

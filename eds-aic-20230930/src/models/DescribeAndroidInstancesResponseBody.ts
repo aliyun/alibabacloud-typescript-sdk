@@ -271,6 +271,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
    * test
    */
   bindUserId?: string;
+  bizImageType?: string;
   bizTags?: DescribeAndroidInstancesResponseBodyInstanceModelBizTags[];
   /**
    * @remarks
@@ -483,6 +484,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       bandwidthPackageId: 'BandwidthPackageId',
       bandwidthPackageType: 'BandwidthPackageType',
       bindUserId: 'BindUserId',
+      bizImageType: 'BizImageType',
       bizTags: 'BizTags',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
@@ -538,6 +540,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $dara.Mod
       bandwidthPackageId: 'string',
       bandwidthPackageType: 'string',
       bindUserId: 'string',
+      bizImageType: 'string',
       bizTags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelBizTags },
       chargeType: 'string',
       cpu: 'string',
