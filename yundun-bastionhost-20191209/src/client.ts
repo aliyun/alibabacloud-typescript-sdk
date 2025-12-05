@@ -941,6 +941,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.instanceMemberId)) {
+      query["InstanceMemberId"] = request.instanceMemberId;
+    }
+
     if (!$dara.isNull(request.networkDomainId)) {
       query["NetworkDomainId"] = request.networkDomainId;
     }
@@ -1133,6 +1137,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceMemberId)) {
+      query["InstanceMemberId"] = request.instanceMemberId;
     }
 
     if (!$dara.isNull(request.instanceRegionId)) {

@@ -67,6 +67,11 @@ export class CreateHostRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 1
+   */
+  instanceMemberId?: number;
+  /**
    * @remarks
    * The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
    * 
@@ -141,6 +146,7 @@ export class CreateHostRequest extends $dara.Model {
       hostPrivateAddress: 'HostPrivateAddress',
       hostPublicAddress: 'HostPublicAddress',
       instanceId: 'InstanceId',
+      instanceMemberId: 'InstanceMemberId',
       instanceRegionId: 'InstanceRegionId',
       networkDomainId: 'NetworkDomainId',
       OSType: 'OSType',
@@ -158,6 +164,7 @@ export class CreateHostRequest extends $dara.Model {
       hostPrivateAddress: 'string',
       hostPublicAddress: 'string',
       instanceId: 'string',
+      instanceMemberId: 'number',
       instanceRegionId: 'string',
       networkDomainId: 'string',
       OSType: 'string',

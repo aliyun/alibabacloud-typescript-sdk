@@ -88,6 +88,11 @@ export class CreateDatabaseRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @example
+   * 1
+   */
+  instanceMemberId?: number;
+  /**
    * @remarks
    * The ID of the network domain to which the database to add belongs.
    * 
@@ -162,6 +167,7 @@ export class CreateDatabaseRequest extends $dara.Model {
       databasePublicAddress: 'DatabasePublicAddress',
       databaseType: 'DatabaseType',
       instanceId: 'InstanceId',
+      instanceMemberId: 'InstanceMemberId',
       networkDomainId: 'NetworkDomainId',
       polarDBEndpointType: 'PolarDBEndpointType',
       regionId: 'RegionId',
@@ -181,6 +187,7 @@ export class CreateDatabaseRequest extends $dara.Model {
       databasePublicAddress: 'string',
       databaseType: 'string',
       instanceId: 'string',
+      instanceMemberId: 'number',
       networkDomainId: 'string',
       polarDBEndpointType: 'string',
       regionId: 'string',
