@@ -167,6 +167,105 @@ export class UpdateMcpServerRequestBackendConfig extends $dara.Model {
   }
 }
 
+export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
+  port?: number;
+  protocol?: string;
+  serviceId?: string;
+  version?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'port',
+      protocol: 'protocol',
+      serviceId: 'serviceId',
+      version: 'version',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+      serviceId: 'string',
+      version: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $dara.Model {
+  scene?: string;
+  services?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices[];
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'scene',
+      services: 'services',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      services: { 'type': 'array', 'itemType': UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.services)) {
+      $dara.Model.validateArray(this.services);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
+  backendConfig?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig;
+  match?: HttpRouteMatch;
+  routeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendConfig: 'backendConfig',
+      match: 'match',
+      routeId: 'routeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendConfig: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig,
+      match: HttpRouteMatch,
+      routeId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.backendConfig && typeof (this.backendConfig as any).validate === 'function') {
+      (this.backendConfig as any).validate();
+    }
+    if(this.match && typeof (this.match as any).validate === 'function') {
+      (this.match as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
@@ -201,6 +300,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * /sse
    */
   exposedUriPath?: string;
+  grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
    * The route match rule.
@@ -242,6 +342,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
       description: 'description',
       domainIds: 'domainIds',
       exposedUriPath: 'exposedUriPath',
+      grayMcpServerConfigs: 'grayMcpServerConfigs',
       match: 'match',
       mcpStatisticsEnable: 'mcpStatisticsEnable',
       protocol: 'protocol',
@@ -257,6 +358,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
       description: 'string',
       domainIds: { 'type': 'array', 'itemType': 'string' },
       exposedUriPath: 'string',
+      grayMcpServerConfigs: { 'type': 'array', 'itemType': UpdateMcpServerRequestGrayMcpServerConfigs },
       match: HttpRouteMatch,
       mcpStatisticsEnable: 'boolean',
       protocol: 'string',
@@ -273,6 +375,9 @@ export class UpdateMcpServerRequest extends $dara.Model {
     }
     if(Array.isArray(this.domainIds)) {
       $dara.Model.validateArray(this.domainIds);
+    }
+    if(Array.isArray(this.grayMcpServerConfigs)) {
+      $dara.Model.validateArray(this.grayMcpServerConfigs);
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();

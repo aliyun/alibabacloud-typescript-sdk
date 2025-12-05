@@ -950,6 +950,10 @@ export default class Client extends OpenApi {
       body["gatewayId"] = request.gatewayId;
     }
 
+    if (!$dara.isNull(request.grayMcpServerConfigs)) {
+      body["grayMcpServerConfigs"] = request.grayMcpServerConfigs;
+    }
+
     if (!$dara.isNull(request.match)) {
       body["match"] = request.match;
     }
@@ -4845,6 +4849,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.exposedUriPath)) {
       body["exposedUriPath"] = request.exposedUriPath;
+    }
+
+    if (!$dara.isNull(request.grayMcpServerConfigs)) {
+      body["grayMcpServerConfigs"] = request.grayMcpServerConfigs;
     }
 
     if (!$dara.isNull(request.match)) {

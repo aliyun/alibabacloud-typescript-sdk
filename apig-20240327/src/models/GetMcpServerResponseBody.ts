@@ -104,6 +104,105 @@ export class GetMcpServerResponseBodyDataDomainInfos extends $dara.Model {
   }
 }
 
+export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices extends $dara.Model {
+  port?: number;
+  protocol?: string;
+  serviceId?: string;
+  version?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      port: 'port',
+      protocol: 'protocol',
+      serviceId: 'serviceId',
+      version: 'version',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      port: 'number',
+      protocol: 'string',
+      serviceId: 'string',
+      version: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig extends $dara.Model {
+  scene?: string;
+  services?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices[];
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'scene',
+      services: 'services',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      services: { 'type': 'array', 'itemType': GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.services)) {
+      $dara.Model.validateArray(this.services);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Model {
+  backendConfig?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig;
+  match?: HttpRouteMatch;
+  routeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendConfig: 'backendConfig',
+      match: 'match',
+      routeId: 'routeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendConfig: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig,
+      match: HttpRouteMatch,
+      routeId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.backendConfig && typeof (this.backendConfig as any).validate === 'function') {
+      (this.backendConfig as any).validate();
+    }
+    if(this.match && typeof (this.match as any).validate === 'function') {
+      (this.match as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   /**
    * @remarks
@@ -226,6 +325,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  grayMcpServerConfigs?: GetMcpServerResponseBodyDataGrayMcpServerConfigs[];
   /**
    * @remarks
    * The route match rule.
@@ -320,6 +420,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
       environmentId: 'environmentId',
       exposedUriPath: 'exposedUriPath',
       gatewayId: 'gatewayId',
+      grayMcpServerConfigs: 'grayMcpServerConfigs',
       match: 'match',
       mcpServerConfig: 'mcpServerConfig',
       mcpServerConfigPluginAttachmentId: 'mcpServerConfigPluginAttachmentId',
@@ -346,6 +447,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
       environmentId: 'string',
       exposedUriPath: 'string',
       gatewayId: 'string',
+      grayMcpServerConfigs: { 'type': 'array', 'itemType': GetMcpServerResponseBodyDataGrayMcpServerConfigs },
       match: HttpRouteMatch,
       mcpServerConfig: 'string',
       mcpServerConfigPluginAttachmentId: 'string',
@@ -372,6 +474,9 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.domainInfos)) {
       $dara.Model.validateArray(this.domainInfos);
+    }
+    if(Array.isArray(this.grayMcpServerConfigs)) {
+      $dara.Model.validateArray(this.grayMcpServerConfigs);
     }
     if(this.match && typeof (this.match as any).validate === 'function') {
       (this.match as any).validate();
