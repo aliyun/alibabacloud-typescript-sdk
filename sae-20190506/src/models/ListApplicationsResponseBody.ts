@@ -168,6 +168,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
    * cn-beijing
    */
   regionId?: string;
+  resourceType?: string;
   /**
    * @remarks
    * The number of instances in running state.
@@ -215,6 +216,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       newSaeVersion: 'NewSaeVersion',
       programmingLanguage: 'ProgrammingLanguage',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
       runningInstances: 'RunningInstances',
       scaleRuleEnabled: 'ScaleRuleEnabled',
       scaleRuleType: 'ScaleRuleType',
@@ -240,6 +242,7 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
       newSaeVersion: 'string',
       programmingLanguage: 'string',
       regionId: 'string',
+      resourceType: 'string',
       runningInstances: 'number',
       scaleRuleEnabled: 'boolean',
       scaleRuleType: 'string',
@@ -493,6 +496,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  resourceType?: string;
   /**
    * @remarks
    * The number of running instances.
@@ -535,6 +539,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       packageUrl: 'PackageUrl',
       programmingLanguage: 'ProgrammingLanguage',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
       runningInstances: 'RunningInstances',
       tags: 'Tags',
       vpcId: 'VpcId',
@@ -565,6 +570,7 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
       packageUrl: 'string',
       programmingLanguage: 'string',
       regionId: 'string',
+      resourceType: 'string',
       runningInstances: 'number',
       tags: { 'type': 'array', 'itemType': ListApplicationsResponseBodyDataApplicationsTags },
       vpcId: 'string',
