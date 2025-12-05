@@ -1251,6 +1251,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建服务版本
+   * 
+   * @param request - CreateServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceVersionResponse
+   */
+  async createServiceVersionWithOptions(serviceId: string, request: $_model.CreateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labels)) {
+      body["labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceVersion",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceVersionResponse({}));
+  }
+
+  /**
+   * 创建服务版本
+   * 
+   * @param request - CreateServiceVersionRequest
+   * @returns CreateServiceVersionResponse
+   */
+  async createServiceVersion(serviceId: string, request: $_model.CreateServiceVersionRequest): Promise<$_model.CreateServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceVersionWithOptions(serviceId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a consumer.
    * 
    * @param headers - map
@@ -1753,6 +1802,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(serviceId, headers, runtime);
+  }
+
+  /**
+   * 删除服务版本
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceVersionResponse
+   */
+  async deleteServiceVersionWithOptions(serviceId: string, name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceVersionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceVersion",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}/versions/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteServiceVersionResponse({}));
+  }
+
+  /**
+   * 删除服务版本
+   * @returns DeleteServiceVersionResponse
+   */
+  async deleteServiceVersion(serviceId: string, name: string): Promise<$_model.DeleteServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteServiceVersionWithOptions(serviceId, name, headers, runtime);
   }
 
   /**
@@ -4916,6 +5000,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePolicyWithOptions(policyId, request, headers, runtime);
+  }
+
+  /**
+   * 更新服务版本
+   * 
+   * @param request - UpdateServiceVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceVersionResponse
+   */
+  async updateServiceVersionWithOptions(serviceId: string, name: string, request: $_model.UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labels)) {
+      body["labels"] = request.labels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceVersion",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}/versions/${$dara.URL.percentEncode(name)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceVersionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceVersionResponse({}));
+  }
+
+  /**
+   * 更新服务版本
+   * 
+   * @param request - UpdateServiceVersionRequest
+   * @returns UpdateServiceVersionResponse
+   */
+  async updateServiceVersion(serviceId: string, name: string, request: $_model.UpdateServiceVersionRequest): Promise<$_model.UpdateServiceVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceVersionWithOptions(serviceId, name, request, headers, runtime);
   }
 
   /**

@@ -88,6 +88,7 @@ export { CreatePolicyResponseBodyData } from './CreatePolicyResponseBody';
 export { CreatePolicyAttachmentResponseBodyData } from './CreatePolicyAttachmentResponseBody';
 export { CreateServiceRequestServiceConfigs } from './CreateServiceRequest';
 export { CreateServiceResponseBodyData } from './CreateServiceResponseBody';
+export { CreateServiceVersionRequestLabels } from './CreateServiceVersionRequest';
 export { DeployHttpApiRequestHttpApiConfig } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs } from './DeployHttpApiRequest';
 export { DeployHttpApiRequestRestApiConfigEnvironment } from './DeployHttpApiRequest';
@@ -180,6 +181,7 @@ export { UpdateHttpApiRouteRequestMcpRouteConfig } from './UpdateHttpApiRouteReq
 export { UpdateMcpServerRequestAssembledSources } from './UpdateMcpServerRequest';
 export { UpdateMcpServerRequestBackendConfigServices } from './UpdateMcpServerRequest';
 export { UpdateMcpServerRequestBackendConfig } from './UpdateMcpServerRequest';
+export { UpdateServiceVersionRequestLabels } from './UpdateServiceVersionRequest';
 export { AgentServiceConfig } from './AgentServiceConfig';
 export { AiServiceConfig } from './AiServiceConfig';
 export { AkSkIdentityConfig } from './AkSkIdentityConfig';
@@ -287,6 +289,9 @@ export { CreatePolicyAttachmentResponse } from './CreatePolicyAttachmentResponse
 export { CreateServiceRequest } from './CreateServiceRequest';
 export { CreateServiceResponseBody } from './CreateServiceResponseBody';
 export { CreateServiceResponse } from './CreateServiceResponse';
+export { CreateServiceVersionRequest } from './CreateServiceVersionRequest';
+export { CreateServiceVersionResponseBody } from './CreateServiceVersionResponseBody';
+export { CreateServiceVersionResponse } from './CreateServiceVersionResponse';
 export { DeleteConsumerResponseBody } from './DeleteConsumerResponseBody';
 export { DeleteConsumerResponse } from './DeleteConsumerResponse';
 export { DeleteConsumerAuthorizationRuleResponseBody } from './DeleteConsumerAuthorizationRuleResponseBody';
@@ -316,6 +321,8 @@ export { DeletePolicyAttachmentResponseBody } from './DeletePolicyAttachmentResp
 export { DeletePolicyAttachmentResponse } from './DeletePolicyAttachmentResponse';
 export { DeleteServiceResponseBody } from './DeleteServiceResponseBody';
 export { DeleteServiceResponse } from './DeleteServiceResponse';
+export { DeleteServiceVersionResponseBody } from './DeleteServiceVersionResponseBody';
+export { DeleteServiceVersionResponse } from './DeleteServiceVersionResponse';
 export { DeployHttpApiRequest } from './DeployHttpApiRequest';
 export { DeployHttpApiResponseBody } from './DeployHttpApiResponseBody';
 export { DeployHttpApiResponse } from './DeployHttpApiResponse';
@@ -467,6 +474,9 @@ export { UpdatePluginAttachmentResponse } from './UpdatePluginAttachmentResponse
 export { UpdatePolicyRequest } from './UpdatePolicyRequest';
 export { UpdatePolicyResponseBody } from './UpdatePolicyResponseBody';
 export { UpdatePolicyResponse } from './UpdatePolicyResponse';
+export { UpdateServiceVersionRequest } from './UpdateServiceVersionRequest';
+export { UpdateServiceVersionResponseBody } from './UpdateServiceVersionResponseBody';
+export { UpdateServiceVersionResponse } from './UpdateServiceVersionResponse';
 export { UpgradeGatewayRequest } from './UpgradeGatewayRequest';
 export { UpgradeGatewayResponseBody } from './UpgradeGatewayResponseBody';
 export { UpgradeGatewayResponse } from './UpgradeGatewayResponse';
