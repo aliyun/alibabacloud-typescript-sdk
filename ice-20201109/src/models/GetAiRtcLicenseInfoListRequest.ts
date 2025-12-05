@@ -4,31 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAiRtcLicenseInfoListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the batch.
+   * 
    * @example
    * 17712***
    */
   licenseItemId?: string;
   /**
+   * @remarks
+   * Specifies whether to include the total count of records in the response. Defaults to `true`.
+   * 
    * @example
    * true
    */
   needTotalCount?: boolean;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The status of the batch. Valid values:
+   * 
+   * *   `1`: Active
+   * *   `2`: Expired
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The type of license. Valid values:
+   * 
+   * *   `1`: Audio call
+   * *   `2`: Vision call
+   * 
    * @example
    * 1
    */

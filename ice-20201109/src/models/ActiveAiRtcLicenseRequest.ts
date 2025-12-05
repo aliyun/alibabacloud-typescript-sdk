@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ActiveAiRtcLicenseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The authorization code.
+   * 
    * @example
    * iU1IeJech7***
    */
   authCode?: string;
   /**
+   * @remarks
+   * The device ID.
+   * 
    * @example
    * device-***
    */
   deviceId?: string;
   /**
+   * @remarks
+   * The batch ID.
+   * 
    * @example
    * 17712***
    */

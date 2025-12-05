@@ -13,6 +13,7 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * The thumbnail URL of the original material.
    */
   coverUrl?: string;
+  height?: number;
   /**
    * @remarks
    * The parameter name.
@@ -26,6 +27,8 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * The URL of the original material.
    */
   mediaUrl?: string;
+  timelineIn?: number;
+  timelineOut?: number;
   /**
    * @remarks
    * The material type.
@@ -40,13 +43,22 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
    * Image
    */
   type?: string;
+  width?: number;
+  x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
       coverUrl: 'CoverUrl',
+      height: 'Height',
       key: 'Key',
       mediaUrl: 'MediaUrl',
+      timelineIn: 'TimelineIn',
+      timelineOut: 'TimelineOut',
       type: 'Type',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
     };
   }
 
@@ -54,9 +66,15 @@ export class GetTemplateParamsResponseBodyParamList extends $dara.Model {
     return {
       content: 'string',
       coverUrl: 'string',
+      height: 'number',
       key: 'string',
       mediaUrl: 'string',
+      timelineIn: 'number',
+      timelineOut: 'number',
       type: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
     };
   }
 

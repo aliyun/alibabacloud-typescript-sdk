@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitSceneBatchEditingJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****C702-41BE-467E-AF2E-883D4517****
    */

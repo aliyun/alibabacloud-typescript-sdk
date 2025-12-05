@@ -4,33 +4,55 @@ import { AiRtcAuthCodeDTO } from "./AiRtcAuthCodeDto";
 
 
 export class GetAiRtcAuthCodeListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of AiRtcAuthCodeDTO objects, each representing an authorization code.
+   */
   authCodeList?: AiRtcAuthCodeDTO[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1***
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */

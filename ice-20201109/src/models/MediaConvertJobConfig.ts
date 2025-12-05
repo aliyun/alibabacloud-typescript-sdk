@@ -58,22 +58,22 @@ export class MediaConvertJobConfigInputs extends $dara.Model {
 }
 
 export class MediaConvertJobConfigOutputGroupsGroupConfigManifestExtendExcludes extends $dara.Model {
+  language?: string;
   name?: string;
   type?: string;
-  language?: string;
   static names(): { [key: string]: string } {
     return {
+      language: 'Language',
       name: 'Name',
       type: 'Type',
-      language: 'language',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      language: 'string',
       name: 'string',
       type: 'string',
-      language: 'string',
     };
   }
 
