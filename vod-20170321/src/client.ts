@@ -6126,6 +6126,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取应用播放密钥
+   * 
+   * @param request - GetAppPlayKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppPlayKeyResponse
+   */
+  async getAppPlayKeyWithOptions(request: $_model.GetAppPlayKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppPlayKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAppPlayKey",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAppPlayKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetAppPlayKeyResponse({}));
+  }
+
+  /**
+   * 获取应用播放密钥
+   * 
+   * @param request - GetAppPlayKeyRequest
+   * @returns GetAppPlayKeyResponse
+   */
+  async getAppPlayKey(request: $_model.GetAppPlayKeyRequest): Promise<$_model.GetAppPlayKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAppPlayKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
    * 
    * @remarks
@@ -9445,6 +9499,64 @@ export default class Client extends OpenApi {
   async searchMedia(request: $_model.SearchMediaRequest): Promise<$_model.SearchMediaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchMediaWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置应用播放密钥
+   * 
+   * @param request - SetAppPlayKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAppPlayKeyResponse
+   */
+  async setAppPlayKeyWithOptions(request: $_model.SetAppPlayKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAppPlayKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.playKey)) {
+      query["PlayKey"] = request.playKey;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAppPlayKey",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAppPlayKeyResponse>(await this.callApi(params, req, runtime), new $_model.SetAppPlayKeyResponse({}));
+  }
+
+  /**
+   * 设置应用播放密钥
+   * 
+   * @param request - SetAppPlayKeyRequest
+   * @returns SetAppPlayKeyResponse
+   */
+  async setAppPlayKey(request: $_model.SetAppPlayKeyRequest): Promise<$_model.SetAppPlayKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAppPlayKeyWithOptions(request, runtime);
   }
 
   /**
