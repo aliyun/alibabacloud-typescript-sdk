@@ -364,6 +364,7 @@ export class ListImageResponseBodyData extends $dara.Model {
    * ["eds.cpu.category"]
    */
   resourceInstanceCategory?: string;
+  scene?: string;
   /**
    * @remarks
    * The type of the session.
@@ -468,6 +469,7 @@ export class ListImageResponseBodyData extends $dara.Model {
       productType: 'ProductType',
       protocolType: 'ProtocolType',
       resourceInstanceCategory: 'ResourceInstanceCategory',
+      scene: 'Scene',
       sessionType: 'SessionType',
       status: 'Status',
       supportedLanguageList: 'SupportedLanguageList',
@@ -515,6 +517,7 @@ export class ListImageResponseBodyData extends $dara.Model {
       productType: 'string',
       protocolType: 'string',
       resourceInstanceCategory: 'string',
+      scene: 'string',
       sessionType: 'string',
       status: 'string',
       supportedLanguageList: { 'type': 'array', 'itemType': 'string' },
