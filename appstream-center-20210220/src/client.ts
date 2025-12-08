@@ -30,6 +30,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 终端用户登出
+   * 
+   * @param request - ClientUserLogoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClientUserLogoutResponse
+   */
+  async clientUserLogoutWithOptions(request: $_model.ClientUserLogoutRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClientUserLogoutResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.loginToken)) {
+      query["LoginToken"] = request.loginToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.profileRegion)) {
+      query["ProfileRegion"] = request.profileRegion;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClientUserLogout",
+      version: "2021-02-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClientUserLogoutResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ClientUserLogoutResponse({}));
+  }
+
+  /**
+   * 终端用户登出
+   * 
+   * @param request - ClientUserLogoutRequest
+   * @returns ClientUserLogoutResponse
+   */
+  async clientUserLogout(request: $_model.ClientUserLogoutRequest): Promise<$_model.ClientUserLogoutResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clientUserLogoutWithOptions(request, runtime);
+  }
+
+  /**
    * 身份认证查询接口
    * 
    * @param tmpReq - FindIdpListByLoginIdentifierRequest

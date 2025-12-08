@@ -6,6 +6,9 @@ export { GetLoginTokenResponseBodyPasswordStrategy } from './GetLoginTokenRespon
 export { GetLoginTokenResponseBodyRiskVerifyInfo } from './GetLoginTokenResponseBody';
 export { GetLoginTokenResponseBodyTenantInfos } from './GetLoginTokenResponseBody';
 export { GetStsTokenResponseBodyStsTokenModel } from './GetStsTokenResponseBody';
+export { ClientUserLogoutRequest } from './ClientUserLogoutRequest';
+export { ClientUserLogoutResponseBody } from './ClientUserLogoutResponseBody';
+export { ClientUserLogoutResponse } from './ClientUserLogoutResponse';
 export { FindIdpListByLoginIdentifierRequest } from './FindIdpListByLoginIdentifierRequest';
 export { FindIdpListByLoginIdentifierShrinkRequest } from './FindIdpListByLoginIdentifierShrinkRequest';
 export { FindIdpListByLoginIdentifierResponseBody } from './FindIdpListByLoginIdentifierResponseBody';
