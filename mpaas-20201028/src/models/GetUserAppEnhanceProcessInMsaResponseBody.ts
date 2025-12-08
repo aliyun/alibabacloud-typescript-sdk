@@ -39,7 +39,7 @@ export class GetUserAppEnhanceProcessInMsaResponseBodyResultContentData extends 
   assetsFileList?: string[];
   beforeMd5?: string;
   beforeSize?: number;
-  classForest?: string[];
+  classForest?: string;
   enhanceMapping?: GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping[];
   enhanceRules?: string[];
   enhancedAssetsFiles?: string[];
@@ -88,7 +88,7 @@ export class GetUserAppEnhanceProcessInMsaResponseBodyResultContentData extends 
       assetsFileList: { 'type': 'array', 'itemType': 'string' },
       beforeMd5: 'string',
       beforeSize: 'number',
-      classForest: { 'type': 'array', 'itemType': 'string' },
+      classForest: 'string',
       enhanceMapping: { 'type': 'array', 'itemType': GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping },
       enhanceRules: { 'type': 'array', 'itemType': 'string' },
       enhancedAssetsFiles: { 'type': 'array', 'itemType': 'string' },
@@ -108,9 +108,6 @@ export class GetUserAppEnhanceProcessInMsaResponseBodyResultContentData extends 
   validate() {
     if(Array.isArray(this.assetsFileList)) {
       $dara.Model.validateArray(this.assetsFileList);
-    }
-    if(Array.isArray(this.classForest)) {
-      $dara.Model.validateArray(this.classForest);
     }
     if(Array.isArray(this.enhanceMapping)) {
       $dara.Model.validateArray(this.enhanceMapping);
