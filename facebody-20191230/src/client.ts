@@ -1,8812 +1,156 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OSS, * as $OSS from '@alicloud/oss-client';
-import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
-import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
-import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import Number from '@darabonba/number';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import { Readable } from 'stream';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class AddFaceRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  extraData?: string;
-  imageUrl?: string;
-  qualityScoreThreshold?: number;
-  similarityScoreThresholdBetweenEntity?: number;
-  similarityScoreThresholdInEntity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      extraData: 'ExtraData',
-      imageUrl: 'ImageUrl',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
-      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      extraData: 'string',
-      imageUrl: 'string',
-      qualityScoreThreshold: 'number',
-      similarityScoreThresholdBetweenEntity: 'number',
-      similarityScoreThresholdInEntity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceAdvanceRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  extraData?: string;
-  imageUrlObject?: Readable;
-  qualityScoreThreshold?: number;
-  similarityScoreThresholdBetweenEntity?: number;
-  similarityScoreThresholdInEntity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      extraData: 'ExtraData',
-      imageUrlObject: 'ImageUrl',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
-      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      extraData: 'string',
-      imageUrlObject: 'Readable',
-      qualityScoreThreshold: 'number',
-      similarityScoreThresholdBetweenEntity: 'number',
-      similarityScoreThresholdInEntity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceResponseBody extends $tea.Model {
-  data?: AddFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AddFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceEntityRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  labels?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      labels: 'Labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      labels: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceEntityResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceEntityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddFaceEntityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddFaceEntityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateResponseBody extends $tea.Model {
-  data?: AddFaceImageTemplateResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: AddFaceImageTemplateResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddFaceImageTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddFaceImageTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  faces?: BatchAddFacesRequestFaces[];
-  qualityScoreThreshold?: number;
-  similarityScoreThresholdBetweenEntity?: number;
-  similarityScoreThresholdInEntity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      faces: 'Faces',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
-      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      faces: { 'type': 'array', 'itemType': BatchAddFacesRequestFaces },
-      qualityScoreThreshold: 'number',
-      similarityScoreThresholdBetweenEntity: 'number',
-      similarityScoreThresholdInEntity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesAdvanceRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  faces?: BatchAddFacesAdvanceRequestFaces[];
-  qualityScoreThreshold?: number;
-  similarityScoreThresholdBetweenEntity?: number;
-  similarityScoreThresholdInEntity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      faces: 'Faces',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
-      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      faces: { 'type': 'array', 'itemType': BatchAddFacesAdvanceRequestFaces },
-      qualityScoreThreshold: 'number',
-      similarityScoreThresholdBetweenEntity: 'number',
-      similarityScoreThresholdInEntity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesShrinkRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  facesShrink?: string;
-  qualityScoreThreshold?: number;
-  similarityScoreThresholdBetweenEntity?: number;
-  similarityScoreThresholdInEntity?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      facesShrink: 'Faces',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-      similarityScoreThresholdBetweenEntity: 'SimilarityScoreThresholdBetweenEntity',
-      similarityScoreThresholdInEntity: 'SimilarityScoreThresholdInEntity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      facesShrink: 'string',
-      qualityScoreThreshold: 'number',
-      similarityScoreThresholdBetweenEntity: 'number',
-      similarityScoreThresholdInEntity: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesResponseBody extends $tea.Model {
-  data?: BatchAddFacesResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BatchAddFacesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchAddFacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchAddFacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequest extends $tea.Model {
-  ageRange?: BeautifyBodyRequestAgeRange;
-  bodyBoxes?: BeautifyBodyRequestBodyBoxes[];
-  custom?: number;
-  faceList?: BeautifyBodyRequestFaceList[];
-  femaleLiquifyDegree?: number;
-  imageURL?: string;
-  isPregnant?: boolean;
-  lengthenDegree?: number;
-  maleLiquifyDegree?: number;
-  originalHeight?: number;
-  originalWidth?: number;
-  poseList?: BeautifyBodyRequestPoseList[];
-  static names(): { [key: string]: string } {
-    return {
-      ageRange: 'AgeRange',
-      bodyBoxes: 'BodyBoxes',
-      custom: 'Custom',
-      faceList: 'FaceList',
-      femaleLiquifyDegree: 'FemaleLiquifyDegree',
-      imageURL: 'ImageURL',
-      isPregnant: 'IsPregnant',
-      lengthenDegree: 'LengthenDegree',
-      maleLiquifyDegree: 'MaleLiquifyDegree',
-      originalHeight: 'OriginalHeight',
-      originalWidth: 'OriginalWidth',
-      poseList: 'PoseList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageRange: BeautifyBodyRequestAgeRange,
-      bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyRequestBodyBoxes },
-      custom: 'number',
-      faceList: { 'type': 'array', 'itemType': BeautifyBodyRequestFaceList },
-      femaleLiquifyDegree: 'number',
-      imageURL: 'string',
-      isPregnant: 'boolean',
-      lengthenDegree: 'number',
-      maleLiquifyDegree: 'number',
-      originalHeight: 'number',
-      originalWidth: 'number',
-      poseList: { 'type': 'array', 'itemType': BeautifyBodyRequestPoseList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequest extends $tea.Model {
-  ageRange?: BeautifyBodyAdvanceRequestAgeRange;
-  bodyBoxes?: BeautifyBodyAdvanceRequestBodyBoxes[];
-  custom?: number;
-  faceList?: BeautifyBodyAdvanceRequestFaceList[];
-  femaleLiquifyDegree?: number;
-  imageURLObject?: Readable;
-  isPregnant?: boolean;
-  lengthenDegree?: number;
-  maleLiquifyDegree?: number;
-  originalHeight?: number;
-  originalWidth?: number;
-  poseList?: BeautifyBodyAdvanceRequestPoseList[];
-  static names(): { [key: string]: string } {
-    return {
-      ageRange: 'AgeRange',
-      bodyBoxes: 'BodyBoxes',
-      custom: 'Custom',
-      faceList: 'FaceList',
-      femaleLiquifyDegree: 'FemaleLiquifyDegree',
-      imageURLObject: 'ImageURL',
-      isPregnant: 'IsPregnant',
-      lengthenDegree: 'LengthenDegree',
-      maleLiquifyDegree: 'MaleLiquifyDegree',
-      originalHeight: 'OriginalHeight',
-      originalWidth: 'OriginalWidth',
-      poseList: 'PoseList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageRange: BeautifyBodyAdvanceRequestAgeRange,
-      bodyBoxes: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestBodyBoxes },
-      custom: 'number',
-      faceList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestFaceList },
-      femaleLiquifyDegree: 'number',
-      imageURLObject: 'Readable',
-      isPregnant: 'boolean',
-      lengthenDegree: 'number',
-      maleLiquifyDegree: 'number',
-      originalHeight: 'number',
-      originalWidth: 'number',
-      poseList: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestPoseList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyShrinkRequest extends $tea.Model {
-  ageRangeShrink?: string;
-  bodyBoxesShrink?: string;
-  custom?: number;
-  faceListShrink?: string;
-  femaleLiquifyDegree?: number;
-  imageURL?: string;
-  isPregnant?: boolean;
-  lengthenDegree?: number;
-  maleLiquifyDegree?: number;
-  originalHeight?: number;
-  originalWidth?: number;
-  poseListShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ageRangeShrink: 'AgeRange',
-      bodyBoxesShrink: 'BodyBoxes',
-      custom: 'Custom',
-      faceListShrink: 'FaceList',
-      femaleLiquifyDegree: 'FemaleLiquifyDegree',
-      imageURL: 'ImageURL',
-      isPregnant: 'IsPregnant',
-      lengthenDegree: 'LengthenDegree',
-      maleLiquifyDegree: 'MaleLiquifyDegree',
-      originalHeight: 'OriginalHeight',
-      originalWidth: 'OriginalWidth',
-      poseListShrink: 'PoseList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageRangeShrink: 'string',
-      bodyBoxesShrink: 'string',
-      custom: 'number',
-      faceListShrink: 'string',
-      femaleLiquifyDegree: 'number',
-      imageURL: 'string',
-      isPregnant: 'boolean',
-      lengthenDegree: 'number',
-      maleLiquifyDegree: 'number',
-      originalHeight: 'number',
-      originalWidth: 'number',
-      poseListShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyResponseBody extends $tea.Model {
-  data?: BeautifyBodyResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BeautifyBodyResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BeautifyBodyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BeautifyBodyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BlurFaceRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BlurFaceAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BlurFaceResponseBody extends $tea.Model {
-  data?: BlurFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BlurFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BlurFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BlurFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BlurFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBody extends $tea.Model {
-  data?: BodyPostureResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: BodyPostureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BodyPostureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BodyPostureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceRequest extends $tea.Model {
-  imageDataA?: string;
-  imageDataB?: string;
-  imageURLA?: string;
-  imageURLB?: string;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageDataA: 'ImageDataA',
-      imageDataB: 'ImageDataB',
-      imageURLA: 'ImageURLA',
-      imageURLB: 'ImageURLB',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageDataA: 'string',
-      imageDataB: 'string',
-      imageURLA: 'string',
-      imageURLB: 'string',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceAdvanceRequest extends $tea.Model {
-  imageDataA?: string;
-  imageDataB?: string;
-  imageURLAObject?: Readable;
-  imageURLBObject?: Readable;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageDataA: 'ImageDataA',
-      imageDataB: 'ImageDataB',
-      imageURLAObject: 'ImageURLA',
-      imageURLBObject: 'ImageURLB',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageDataA: 'string',
-      imageDataB: 'string',
-      imageURLAObject: 'Readable',
-      imageURLBObject: 'Readable',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceResponseBody extends $tea.Model {
-  data?: CompareFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CompareFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CompareFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CompareFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceWithMaskRequest extends $tea.Model {
-  imageURLA?: string;
-  imageURLB?: string;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLA: 'ImageURLA',
-      imageURLB: 'ImageURLB',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLA: 'string',
-      imageURLB: 'string',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceWithMaskAdvanceRequest extends $tea.Model {
-  imageURLAObject?: Readable;
-  imageURLBObject?: Readable;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLAObject: 'ImageURLA',
-      imageURLBObject: 'ImageURLB',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLAObject: 'Readable',
-      imageURLBObject: 'Readable',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceWithMaskResponseBody extends $tea.Model {
-  data?: CompareFaceWithMaskResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CompareFaceWithMaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceWithMaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CompareFaceWithMaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CompareFaceWithMaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFaceDbRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFaceDbResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFaceDbResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateFaceDbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateFaceDbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceRequest extends $tea.Model {
-  tasks?: DeepfakeFaceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DeepfakeFaceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceAdvanceRequest extends $tea.Model {
-  tasks?: DeepfakeFaceAdvanceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DeepfakeFaceAdvanceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponseBody extends $tea.Model {
-  data?: DeepfakeFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DeepfakeFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeepfakeFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeepfakeFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceRequest extends $tea.Model {
-  dbName?: string;
-  faceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      faceId: 'FaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      faceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceDbRequest extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceDbResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceDbResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFaceDbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFaceDbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceEntityRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceEntityResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceEntityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFaceEntityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFaceEntityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceImageTemplateRequest extends $tea.Model {
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceImageTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFaceImageTemplateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteFaceImageTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteFaceImageTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectBodyCountRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectBodyCountAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectBodyCountResponseBody extends $tea.Model {
-  data?: DetectBodyCountResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectBodyCountResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectBodyCountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectBodyCountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectBodyCountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityResponseBody extends $tea.Model {
-  data?: DetectCelebrityResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectCelebrityResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectCelebrityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectCelebrityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapResponseBody extends $tea.Model {
-  data?: DetectChefCapResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectChefCapResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectChefCapResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectChefCapResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceRequest extends $tea.Model {
-  imageURL?: string;
-  landmark?: boolean;
-  maxFaceNumber?: number;
-  pose?: boolean;
-  quality?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      landmark: 'Landmark',
-      maxFaceNumber: 'MaxFaceNumber',
-      pose: 'Pose',
-      quality: 'Quality',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      landmark: 'boolean',
-      maxFaceNumber: 'number',
-      pose: 'boolean',
-      quality: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  landmark?: boolean;
-  maxFaceNumber?: number;
-  pose?: boolean;
-  quality?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      landmark: 'Landmark',
-      maxFaceNumber: 'MaxFaceNumber',
-      pose: 'Pose',
-      quality: 'Quality',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      landmark: 'boolean',
-      maxFaceNumber: 'number',
-      pose: 'boolean',
-      quality: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceResponseBody extends $tea.Model {
-  data?: DetectFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceRequest extends $tea.Model {
-  tasks?: DetectInfraredLivingFaceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DetectInfraredLivingFaceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceAdvanceRequest extends $tea.Model {
-  tasks?: DetectInfraredLivingFaceAdvanceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DetectInfraredLivingFaceAdvanceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponseBody extends $tea.Model {
-  data?: DetectInfraredLivingFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectInfraredLivingFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectInfraredLivingFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectInfraredLivingFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceRequest extends $tea.Model {
-  tasks?: DetectLivingFaceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DetectLivingFaceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceAdvanceRequest extends $tea.Model {
-  tasks?: DetectLivingFaceAdvanceRequestTasks[];
-  static names(): { [key: string]: string } {
-    return {
-      tasks: 'Tasks',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tasks: { 'type': 'array', 'itemType': DetectLivingFaceAdvanceRequestTasks },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBody extends $tea.Model {
-  data?: DetectLivingFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectLivingFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectLivingFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectLivingFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianResponseBody extends $tea.Model {
-  data?: DetectPedestrianResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectPedestrianResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectPedestrianResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectPedestrianResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionRequest extends $tea.Model {
-  detectRegion?: DetectPedestrianIntrusionRequestDetectRegion[];
-  imageURL?: string;
-  regionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detectRegion: 'DetectRegion',
-      imageURL: 'ImageURL',
-      regionType: 'RegionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectRegion: { 'type': 'array', 'itemType': DetectPedestrianIntrusionRequestDetectRegion },
-      imageURL: 'string',
-      regionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionAdvanceRequest extends $tea.Model {
-  detectRegion?: DetectPedestrianIntrusionAdvanceRequestDetectRegion[];
-  imageURLObject?: Readable;
-  regionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detectRegion: 'DetectRegion',
-      imageURLObject: 'ImageURL',
-      regionType: 'RegionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectRegion: { 'type': 'array', 'itemType': DetectPedestrianIntrusionAdvanceRequestDetectRegion },
-      imageURLObject: 'Readable',
-      regionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionShrinkRequest extends $tea.Model {
-  detectRegionShrink?: string;
-  imageURL?: string;
-  regionType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      detectRegionShrink: 'DetectRegion',
-      imageURL: 'ImageURL',
-      regionType: 'RegionType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      detectRegionShrink: 'string',
-      imageURL: 'string',
-      regionType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionResponseBody extends $tea.Model {
-  data?: DetectPedestrianIntrusionResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectPedestrianIntrusionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectPedestrianIntrusionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectPedestrianIntrusionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceRequest extends $tea.Model {
-  videoUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrl: 'VideoUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceAdvanceRequest extends $tea.Model {
-  videoUrlObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      videoUrlObject: 'VideoUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      videoUrlObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceResponseBody extends $tea.Model {
-  data?: DetectVideoLivingFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectVideoLivingFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DetectVideoLivingFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DetectVideoLivingFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponseBody extends $tea.Model {
-  data?: EnhanceFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: EnhanceFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnhanceFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnhanceFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractFingerPrintRequest extends $tea.Model {
-  imageData?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractFingerPrintAdvanceRequest extends $tea.Model {
-  imageData?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractFingerPrintResponseBody extends $tea.Model {
-  data?: ExtractFingerPrintResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ExtractFingerPrintResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractFingerPrintResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExtractFingerPrintResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExtractFingerPrintResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttrRequest extends $tea.Model {
-  imageURL?: string;
-  mode?: string;
-  serviceVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      mode: 'Mode',
-      serviceVersion: 'ServiceVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      mode: 'string',
-      serviceVersion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttrAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  mode?: string;
-  serviceVersion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      mode: 'Mode',
-      serviceVersion: 'ServiceVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      mode: 'string',
-      serviceVersion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttrResponseBody extends $tea.Model {
-  data?: ExtractPedestrianFeatureAttrResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ExtractPedestrianFeatureAttrResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttrResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExtractPedestrianFeatureAttrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExtractPedestrianFeatureAttrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceBeautyRequest extends $tea.Model {
-  imageURL?: string;
-  sharp?: number;
-  smooth?: number;
-  white?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      sharp: 'Sharp',
-      smooth: 'Smooth',
-      white: 'White',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      sharp: 'number',
-      smooth: 'number',
-      white: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceBeautyAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  sharp?: number;
-  smooth?: number;
-  white?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      sharp: 'Sharp',
-      smooth: 'Smooth',
-      white: 'White',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      sharp: 'number',
-      smooth: 'number',
-      white: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceBeautyResponseBody extends $tea.Model {
-  data?: FaceBeautyResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: FaceBeautyResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceBeautyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceBeautyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceBeautyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceFilterRequest extends $tea.Model {
-  imageURL?: string;
-  resourceType?: string;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      resourceType: 'ResourceType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      resourceType: 'string',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceFilterAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  resourceType?: string;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      resourceType: 'ResourceType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      resourceType: 'string',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceFilterResponseBody extends $tea.Model {
-  data?: FaceFilterResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: FaceFilterResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceFilterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceFilterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceFilterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceMakeupRequest extends $tea.Model {
-  imageURL?: string;
-  makeupType?: string;
-  resourceType?: string;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      makeupType: 'MakeupType',
-      resourceType: 'ResourceType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      makeupType: 'string',
-      resourceType: 'string',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceMakeupAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  makeupType?: string;
-  resourceType?: string;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      makeupType: 'MakeupType',
-      resourceType: 'ResourceType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      makeupType: 'string',
-      resourceType: 'string',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceMakeupResponseBody extends $tea.Model {
-  data?: FaceMakeupResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: FaceMakeupResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceMakeupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceMakeupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceMakeupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceTidyupRequest extends $tea.Model {
-  imageURL?: string;
-  shapeType?: number;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      shapeType: 'ShapeType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      shapeType: 'number',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceTidyupAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  shapeType?: number;
-  strength?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      shapeType: 'ShapeType',
-      strength: 'Strength',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      shapeType: 'number',
-      strength: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceTidyupResponseBody extends $tea.Model {
-  data?: FaceTidyupResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: FaceTidyupResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceTidyupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FaceTidyupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FaceTidyupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenRealPersonVerificationTokenRequest extends $tea.Model {
-  certificateName?: string;
-  certificateNumber?: string;
-  metaInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateName: 'CertificateName',
-      certificateNumber: 'CertificateNumber',
-      metaInfo: 'MetaInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateName: 'string',
-      certificateNumber: 'string',
-      metaInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenRealPersonVerificationTokenResponseBody extends $tea.Model {
-  data?: GenRealPersonVerificationTokenResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GenRealPersonVerificationTokenResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenRealPersonVerificationTokenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenRealPersonVerificationTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenRealPersonVerificationTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanAnimeStyleRequest extends $tea.Model {
-  algoType?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algoType: 'AlgoType',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algoType: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanAnimeStyleAdvanceRequest extends $tea.Model {
-  algoType?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      algoType: 'AlgoType',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algoType: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanAnimeStyleResponseBody extends $tea.Model {
-  data?: GenerateHumanAnimeStyleResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GenerateHumanAnimeStyleResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanAnimeStyleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateHumanAnimeStyleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateHumanAnimeStyleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanSketchStyleRequest extends $tea.Model {
-  imageURL?: string;
-  returnType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      returnType: 'ReturnType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      returnType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanSketchStyleAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  returnType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      returnType: 'ReturnType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      returnType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanSketchStyleResponseBody extends $tea.Model {
-  data?: GenerateHumanSketchStyleResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GenerateHumanSketchStyleResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanSketchStyleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GenerateHumanSketchStyleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GenerateHumanSketchStyleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFaceEntityRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFaceEntityResponseBody extends $tea.Model {
-  data?: GetFaceEntityResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetFaceEntityResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFaceEntityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetFaceEntityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetFaceEntityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRealPersonVerificationResultRequest extends $tea.Model {
-  verificationToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      verificationToken: 'VerificationToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      verificationToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRealPersonVerificationResultResponseBody extends $tea.Model {
-  data?: GetRealPersonVerificationResultResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetRealPersonVerificationResultResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRealPersonVerificationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRealPersonVerificationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRealPersonVerificationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBody extends $tea.Model {
-  data?: HandPostureResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: HandPostureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: HandPostureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: HandPostureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiquifyFaceRequest extends $tea.Model {
-  imageURL?: string;
-  slimDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      slimDegree: 'SlimDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      slimDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiquifyFaceAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  slimDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      slimDegree: 'SlimDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      slimDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiquifyFaceResponseBody extends $tea.Model {
-  data?: LiquifyFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: LiquifyFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiquifyFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: LiquifyFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: LiquifyFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceDbsRequest extends $tea.Model {
-  limit?: number;
-  offset?: number;
-  static names(): { [key: string]: string } {
-    return {
-      limit: 'Limit',
-      offset: 'Offset',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      limit: 'number',
-      offset: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceDbsResponseBody extends $tea.Model {
-  data?: ListFaceDbsResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListFaceDbsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceDbsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFaceDbsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFaceDbsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceEntitiesRequest extends $tea.Model {
-  dbName?: string;
-  entityIdPrefix?: string;
-  labels?: string;
-  limit?: number;
-  offset?: number;
-  order?: string;
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityIdPrefix: 'EntityIdPrefix',
-      labels: 'Labels',
-      limit: 'Limit',
-      offset: 'Offset',
-      order: 'Order',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityIdPrefix: 'string',
-      labels: 'string',
-      limit: 'number',
-      offset: 'number',
-      order: 'string',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceEntitiesResponseBody extends $tea.Model {
-  data?: ListFaceEntitiesResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListFaceEntitiesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceEntitiesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListFaceEntitiesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListFaceEntitiesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceRequest extends $tea.Model {
-  addWatermark?: boolean;
-  imageURL?: string;
-  mergeInfos?: MergeImageFaceRequestMergeInfos[];
-  modelVersion?: string;
-  templateId?: string;
-  watermarkType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addWatermark: 'AddWatermark',
-      imageURL: 'ImageURL',
-      mergeInfos: 'MergeInfos',
-      modelVersion: 'ModelVersion',
-      templateId: 'TemplateId',
-      watermarkType: 'WatermarkType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addWatermark: 'boolean',
-      imageURL: 'string',
-      mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceRequestMergeInfos },
-      modelVersion: 'string',
-      templateId: 'string',
-      watermarkType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceAdvanceRequest extends $tea.Model {
-  addWatermark?: boolean;
-  imageURLObject?: Readable;
-  mergeInfos?: MergeImageFaceAdvanceRequestMergeInfos[];
-  modelVersion?: string;
-  templateId?: string;
-  watermarkType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addWatermark: 'AddWatermark',
-      imageURLObject: 'ImageURL',
-      mergeInfos: 'MergeInfos',
-      modelVersion: 'ModelVersion',
-      templateId: 'TemplateId',
-      watermarkType: 'WatermarkType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addWatermark: 'boolean',
-      imageURLObject: 'Readable',
-      mergeInfos: { 'type': 'array', 'itemType': MergeImageFaceAdvanceRequestMergeInfos },
-      modelVersion: 'string',
-      templateId: 'string',
-      watermarkType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceResponseBody extends $tea.Model {
-  data?: MergeImageFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: MergeImageFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MergeImageFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MergeImageFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationRequest extends $tea.Model {
-  imageURL?: string;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBody extends $tea.Model {
-  data?: MonitorExaminationResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: MonitorExaminationResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: MonitorExaminationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: MonitorExaminationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBody extends $tea.Model {
-  data?: PedestrianDetectAttributeResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: PedestrianDetectAttributeResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PedestrianDetectAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PedestrianDetectAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateRequest extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      templateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponseBody extends $tea.Model {
-  data?: QueryFaceImageTemplateResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: QueryFaceImageTemplateResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryFaceImageTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryFaceImageTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionRequest extends $tea.Model {
-  type?: number;
-  URLList?: RecognizeActionRequestURLList[];
-  videoData?: string;
-  videoUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      URLList: 'URLList',
-      videoData: 'VideoData',
-      videoUrl: 'VideoUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'number',
-      URLList: { 'type': 'array', 'itemType': RecognizeActionRequestURLList },
-      videoData: 'string',
-      videoUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionAdvanceRequest extends $tea.Model {
-  type?: number;
-  URLList?: RecognizeActionAdvanceRequestURLList[];
-  videoData?: string;
-  videoUrlObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      URLList: 'URLList',
-      videoData: 'VideoData',
-      videoUrlObject: 'VideoUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'number',
-      URLList: { 'type': 'array', 'itemType': RecognizeActionAdvanceRequestURLList },
-      videoData: 'string',
-      videoUrlObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionResponseBody extends $tea.Model {
-  data?: RecognizeActionResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeActionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecognizeActionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeActionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionResponseBody extends $tea.Model {
-  data?: RecognizeExpressionResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeExpressionResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecognizeExpressionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeExpressionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceRequest extends $tea.Model {
-  age?: boolean;
-  beauty?: boolean;
-  expression?: boolean;
-  gender?: boolean;
-  glass?: boolean;
-  hat?: boolean;
-  imageURL?: string;
-  mask?: boolean;
-  maxFaceNumber?: number;
-  quality?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      beauty: 'Beauty',
-      expression: 'Expression',
-      gender: 'Gender',
-      glass: 'Glass',
-      hat: 'Hat',
-      imageURL: 'ImageURL',
-      mask: 'Mask',
-      maxFaceNumber: 'MaxFaceNumber',
-      quality: 'Quality',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'boolean',
-      beauty: 'boolean',
-      expression: 'boolean',
-      gender: 'boolean',
-      glass: 'boolean',
-      hat: 'boolean',
-      imageURL: 'string',
-      mask: 'boolean',
-      maxFaceNumber: 'number',
-      quality: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceAdvanceRequest extends $tea.Model {
-  age?: boolean;
-  beauty?: boolean;
-  expression?: boolean;
-  gender?: boolean;
-  glass?: boolean;
-  hat?: boolean;
-  imageURLObject?: Readable;
-  mask?: boolean;
-  maxFaceNumber?: number;
-  quality?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      beauty: 'Beauty',
-      expression: 'Expression',
-      gender: 'Gender',
-      glass: 'Glass',
-      hat: 'Hat',
-      imageURLObject: 'ImageURL',
-      mask: 'Mask',
-      maxFaceNumber: 'MaxFaceNumber',
-      quality: 'Quality',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'boolean',
-      beauty: 'boolean',
-      expression: 'boolean',
-      gender: 'boolean',
-      glass: 'boolean',
-      hat: 'boolean',
-      imageURLObject: 'Readable',
-      mask: 'boolean',
-      maxFaceNumber: 'number',
-      quality: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceResponseBody extends $tea.Model {
-  data?: RecognizeFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecognizeFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHandGestureRequest extends $tea.Model {
-  appId?: string;
-  gestureType?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      gestureType: 'GestureType',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      gestureType: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHandGestureAdvanceRequest extends $tea.Model {
-  appId?: string;
-  gestureType?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      gestureType: 'GestureType',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      gestureType: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHandGestureResponseBody extends $tea.Model {
-  data?: RecognizeHandGestureResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizeHandGestureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHandGestureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecognizeHandGestureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizeHandGestureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceRequest extends $tea.Model {
-  task?: RecognizePublicFaceRequestTask[];
-  static names(): { [key: string]: string } {
-    return {
-      task: 'Task',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      task: { 'type': 'array', 'itemType': RecognizePublicFaceRequestTask },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceAdvanceRequest extends $tea.Model {
-  task?: RecognizePublicFaceAdvanceRequestTask[];
-  static names(): { [key: string]: string } {
-    return {
-      task: 'Task',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      task: { 'type': 'array', 'itemType': RecognizePublicFaceAdvanceRequestTask },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBody extends $tea.Model {
-  data?: RecognizePublicFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RecognizePublicFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RecognizePublicFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RecognizePublicFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchBodyRequest extends $tea.Model {
-  imageURL?: string;
-  lengthenDegree?: number;
-  slimDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      lengthenDegree: 'LengthenDegree',
-      slimDegree: 'SlimDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      lengthenDegree: 'number',
-      slimDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchBodyAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  lengthenDegree?: number;
-  slimDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      lengthenDegree: 'LengthenDegree',
-      slimDegree: 'SlimDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      lengthenDegree: 'number',
-      slimDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchBodyResponseBody extends $tea.Model {
-  data?: RetouchBodyResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RetouchBodyResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchBodyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RetouchBodyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RetouchBodyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchSkinRequest extends $tea.Model {
-  imageURL?: string;
-  retouchDegree?: number;
-  whiteningDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      retouchDegree: 'RetouchDegree',
-      whiteningDegree: 'WhiteningDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      retouchDegree: 'number',
-      whiteningDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchSkinAdvanceRequest extends $tea.Model {
-  imageURLObject?: Readable;
-  retouchDegree?: number;
-  whiteningDegree?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-      retouchDegree: 'RetouchDegree',
-      whiteningDegree: 'WhiteningDegree',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-      retouchDegree: 'number',
-      whiteningDegree: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchSkinResponseBody extends $tea.Model {
-  data?: RetouchSkinResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RetouchSkinResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchSkinResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RetouchSkinResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RetouchSkinResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceRequest extends $tea.Model {
-  dbName?: string;
-  dbNames?: string;
-  imageUrl?: string;
-  limit?: number;
-  maxFaceNum?: number;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      dbNames: 'DbNames',
-      imageUrl: 'ImageUrl',
-      limit: 'Limit',
-      maxFaceNum: 'MaxFaceNum',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      dbNames: 'string',
-      imageUrl: 'string',
-      limit: 'number',
-      maxFaceNum: 'number',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceAdvanceRequest extends $tea.Model {
-  dbName?: string;
-  dbNames?: string;
-  imageUrlObject?: Readable;
-  limit?: number;
-  maxFaceNum?: number;
-  qualityScoreThreshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      dbNames: 'DbNames',
-      imageUrlObject: 'ImageUrl',
-      limit: 'Limit',
-      maxFaceNum: 'MaxFaceNum',
-      qualityScoreThreshold: 'QualityScoreThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      dbNames: 'string',
-      imageUrlObject: 'Readable',
-      limit: 'number',
-      maxFaceNum: 'number',
-      qualityScoreThreshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponseBody extends $tea.Model {
-  data?: SearchFaceResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SearchFaceResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SearchFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SearchFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFaceEntityRequest extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  labels?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      labels: 'Labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      labels: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFaceEntityResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFaceEntityResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateFaceEntityResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateFaceEntityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskRequest extends $tea.Model {
-  imageData?: Buffer;
-  imageURL?: string;
-  refData?: Buffer;
-  refUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-      refData: 'RefData',
-      refUrl: 'RefUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'Buffer',
-      imageURL: 'string',
-      refData: 'Buffer',
-      refUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskAdvanceRequest extends $tea.Model {
-  imageData?: Buffer;
-  imageURLObject?: Readable;
-  refData?: Buffer;
-  refUrlObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-      refData: 'RefData',
-      refUrlObject: 'RefUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'Buffer',
-      imageURLObject: 'Readable',
-      refData: 'Buffer',
-      refUrlObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskResponseBody extends $tea.Model {
-  data?: VerifyFaceMaskResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: VerifyFaceMaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VerifyFaceMaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyFaceMaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceResponseBodyData extends $tea.Model {
-  faceId?: string;
-  qualitieScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faceId: 'FaceId',
-      qualitieScore: 'QualitieScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceId: 'string',
-      qualitieScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect extends $tea.Model {
-  height?: string;
-  width?: string;
-  x?: string;
-  y?: string;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'string',
-      width: 'string',
-      x: 'string',
-      y: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateResponseBodyDataFaceInfos extends $tea.Model {
-  faceRect?: AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect;
-  templateFaceID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceRect: 'FaceRect',
-      templateFaceID: 'TemplateFaceID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceRect: AddFaceImageTemplateResponseBodyDataFaceInfosFaceRect,
-      templateFaceID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddFaceImageTemplateResponseBodyData extends $tea.Model {
-  faceInfos?: AddFaceImageTemplateResponseBodyDataFaceInfos[];
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceInfos: 'FaceInfos',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceInfos: { 'type': 'array', 'itemType': AddFaceImageTemplateResponseBodyDataFaceInfos },
-      templateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesRequestFaces extends $tea.Model {
-  extraData?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extraData: 'ExtraData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extraData: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesAdvanceRequestFaces extends $tea.Model {
-  extraData?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      extraData: 'ExtraData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extraData: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesResponseBodyDataFailedFaces extends $tea.Model {
-  code?: string;
-  imageURL?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      imageURL: 'ImageURL',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      imageURL: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesResponseBodyDataInsertedFaces extends $tea.Model {
-  faceId?: string;
-  imageURL?: string;
-  qualitieScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faceId: 'FaceId',
-      imageURL: 'ImageURL',
-      qualitieScore: 'QualitieScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceId: 'string',
-      imageURL: 'string',
-      qualitieScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchAddFacesResponseBodyData extends $tea.Model {
-  failedFaces?: BatchAddFacesResponseBodyDataFailedFaces[];
-  insertedFaces?: BatchAddFacesResponseBodyDataInsertedFaces[];
-  static names(): { [key: string]: string } {
-    return {
-      failedFaces: 'FailedFaces',
-      insertedFaces: 'InsertedFaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedFaces: { 'type': 'array', 'itemType': BatchAddFacesResponseBodyDataFailedFaces },
-      insertedFaces: { 'type': 'array', 'itemType': BatchAddFacesResponseBodyDataInsertedFaces },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestAgeRange extends $tea.Model {
-  ageMax?: number;
-  ageMinimum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ageMax: 'AgeMax',
-      ageMinimum: 'AgeMinimum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageMax: 'number',
-      ageMinimum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestBodyBoxes extends $tea.Model {
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestFaceListFaceBox extends $tea.Model {
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestFaceList extends $tea.Model {
-  age?: number;
-  faceBox?: BeautifyBodyRequestFaceListFaceBox;
-  gender?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      faceBox: 'FaceBox',
-      gender: 'Gender',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'number',
-      faceBox: BeautifyBodyRequestFaceListFaceBox,
-      gender: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestPoseListPose extends $tea.Model {
-  score?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyRequestPoseList extends $tea.Model {
-  pose?: BeautifyBodyRequestPoseListPose[];
-  static names(): { [key: string]: string } {
-    return {
-      pose: 'Pose',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pose: { 'type': 'array', 'itemType': BeautifyBodyRequestPoseListPose },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestAgeRange extends $tea.Model {
-  ageMax?: number;
-  ageMinimum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ageMax: 'AgeMax',
-      ageMinimum: 'AgeMinimum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageMax: 'number',
-      ageMinimum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestBodyBoxes extends $tea.Model {
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestFaceListFaceBox extends $tea.Model {
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestFaceList extends $tea.Model {
-  age?: number;
-  faceBox?: BeautifyBodyAdvanceRequestFaceListFaceBox;
-  gender?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      faceBox: 'FaceBox',
-      gender: 'Gender',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'number',
-      faceBox: BeautifyBodyAdvanceRequestFaceListFaceBox,
-      gender: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestPoseListPose extends $tea.Model {
-  score?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyAdvanceRequestPoseList extends $tea.Model {
-  pose?: BeautifyBodyAdvanceRequestPoseListPose[];
-  static names(): { [key: string]: string } {
-    return {
-      pose: 'Pose',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pose: { 'type': 'array', 'itemType': BeautifyBodyAdvanceRequestPoseListPose },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BeautifyBodyResponseBodyData extends $tea.Model {
-  action?: string;
-  XFlowURL?: string;
-  YFlowURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      XFlowURL: 'XFlowURL',
-      YFlowURL: 'YFlowURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      XFlowURL: 'string',
-      YFlowURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BlurFaceResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  maskURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      maskURL: 'MaskURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      maskURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyDataMetaObject extends $tea.Model {
-  height?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyDataOutputsResultsBodiesPositions extends $tea.Model {
-  points?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      points: 'Points',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      points: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyDataOutputsResultsBodies extends $tea.Model {
-  confident?: number;
-  label?: string;
-  positions?: BodyPostureResponseBodyDataOutputsResultsBodiesPositions[];
-  static names(): { [key: string]: string } {
-    return {
-      confident: 'Confident',
-      label: 'Label',
-      positions: 'Positions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confident: 'number',
-      label: 'string',
-      positions: { 'type': 'array', 'itemType': BodyPostureResponseBodyDataOutputsResultsBodiesPositions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyDataOutputsResults extends $tea.Model {
-  bodies?: BodyPostureResponseBodyDataOutputsResultsBodies[];
-  static names(): { [key: string]: string } {
-    return {
-      bodies: 'Bodies',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bodies: { 'type': 'array', 'itemType': BodyPostureResponseBodyDataOutputsResultsBodies },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyDataOutputs extends $tea.Model {
-  humanCount?: number;
-  results?: BodyPostureResponseBodyDataOutputsResults[];
-  static names(): { [key: string]: string } {
-    return {
-      humanCount: 'HumanCount',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      humanCount: 'number',
-      results: { 'type': 'array', 'itemType': BodyPostureResponseBodyDataOutputsResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BodyPostureResponseBodyData extends $tea.Model {
-  metaObject?: BodyPostureResponseBodyDataMetaObject;
-  outputs?: BodyPostureResponseBodyDataOutputs[];
-  static names(): { [key: string]: string } {
-    return {
-      metaObject: 'MetaObject',
-      outputs: 'Outputs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metaObject: BodyPostureResponseBodyDataMetaObject,
-      outputs: { 'type': 'array', 'itemType': BodyPostureResponseBodyDataOutputs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceResponseBodyData extends $tea.Model {
-  confidence?: number;
-  isMaskA?: number;
-  isMaskB?: number;
-  landmarksAList?: number[];
-  landmarksBList?: number[];
-  messageTips?: string;
-  qualityScoreA?: number;
-  qualityScoreB?: number;
-  rectAList?: number[];
-  rectBList?: number[];
-  thresholds?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      isMaskA: 'IsMaskA',
-      isMaskB: 'IsMaskB',
-      landmarksAList: 'LandmarksAList',
-      landmarksBList: 'LandmarksBList',
-      messageTips: 'MessageTips',
-      qualityScoreA: 'QualityScoreA',
-      qualityScoreB: 'QualityScoreB',
-      rectAList: 'RectAList',
-      rectBList: 'RectBList',
-      thresholds: 'Thresholds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      isMaskA: 'number',
-      isMaskB: 'number',
-      landmarksAList: { 'type': 'array', 'itemType': 'number' },
-      landmarksBList: { 'type': 'array', 'itemType': 'number' },
-      messageTips: 'string',
-      qualityScoreA: 'number',
-      qualityScoreB: 'number',
-      rectAList: { 'type': 'array', 'itemType': 'number' },
-      rectBList: { 'type': 'array', 'itemType': 'number' },
-      thresholds: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CompareFaceWithMaskResponseBodyData extends $tea.Model {
-  confidence?: number;
-  isMaskA?: number;
-  isMaskB?: number;
-  landmarksAList?: number[];
-  landmarksBList?: number[];
-  messageTips?: string;
-  qualityScoreA?: number;
-  qualityScoreB?: number;
-  rectAList?: number[];
-  rectBList?: number[];
-  thresholds?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      isMaskA: 'IsMaskA',
-      isMaskB: 'IsMaskB',
-      landmarksAList: 'LandmarksAList',
-      landmarksBList: 'LandmarksBList',
-      messageTips: 'MessageTips',
-      qualityScoreA: 'QualityScoreA',
-      qualityScoreB: 'QualityScoreB',
-      rectAList: 'RectAList',
-      rectBList: 'RectBList',
-      thresholds: 'Thresholds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      isMaskA: 'number',
-      isMaskB: 'number',
-      landmarksAList: { 'type': 'array', 'itemType': 'number' },
-      landmarksBList: { 'type': 'array', 'itemType': 'number' },
-      messageTips: 'string',
-      qualityScoreA: 'number',
-      qualityScoreB: 'number',
-      rectAList: { 'type': 'array', 'itemType': 'number' },
-      rectBList: { 'type': 'array', 'itemType': 'number' },
-      thresholds: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceRequestTasks extends $tea.Model {
-  imageData?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceAdvanceRequestTasks extends $tea.Model {
-  imageData?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponseBodyDataElementsResultsRect extends $tea.Model {
-  height?: number;
-  left?: number;
-  top?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      left: 'Left',
-      top: 'Top',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      left: 'number',
-      top: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponseBodyDataElementsResults extends $tea.Model {
-  confidence?: number;
-  label?: string;
-  messageTips?: string;
-  rect?: DeepfakeFaceResponseBodyDataElementsResultsRect;
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      label: 'Label',
-      messageTips: 'MessageTips',
-      rect: 'Rect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      label: 'string',
-      messageTips: 'string',
-      rect: DeepfakeFaceResponseBodyDataElementsResultsRect,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponseBodyDataElements extends $tea.Model {
-  faceNumber?: number;
-  imageURL?: string;
-  results?: DeepfakeFaceResponseBodyDataElementsResults[];
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceNumber: 'FaceNumber',
-      imageURL: 'ImageURL',
-      results: 'Results',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceNumber: 'number',
-      imageURL: 'string',
-      results: { 'type': 'array', 'itemType': DeepfakeFaceResponseBodyDataElementsResults },
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeepfakeFaceResponseBodyData extends $tea.Model {
-  elements?: DeepfakeFaceResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DeepfakeFaceResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectBodyCountResponseBodyData extends $tea.Model {
-  personNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      personNumber: 'PersonNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      personNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityResponseBodyDataFaceRecognizeResults extends $tea.Model {
-  faceBoxes?: number[];
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceBoxes: 'FaceBoxes',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceBoxes: { 'type': 'array', 'itemType': 'number' },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectCelebrityResponseBodyData extends $tea.Model {
-  faceRecognizeResults?: DetectCelebrityResponseBodyDataFaceRecognizeResults[];
-  height?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faceRecognizeResults: 'FaceRecognizeResults',
-      height: 'Height',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceRecognizeResults: { 'type': 'array', 'itemType': DetectCelebrityResponseBodyDataFaceRecognizeResults },
-      height: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapResponseBodyDataElements extends $tea.Model {
-  box?: number[];
-  category?: string;
-  confidence?: number;
-  static names(): { [key: string]: string } {
-    return {
-      box: 'Box',
-      category: 'Category',
-      confidence: 'Confidence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      box: { 'type': 'array', 'itemType': 'number' },
-      category: 'string',
-      confidence: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectChefCapResponseBodyData extends $tea.Model {
-  elements?: DetectChefCapResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectChefCapResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceResponseBodyDataQualities extends $tea.Model {
-  blurList?: number[];
-  fnfList?: number[];
-  glassList?: number[];
-  illuList?: number[];
-  maskList?: number[];
-  noiseList?: number[];
-  poseList?: number[];
-  scoreList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      blurList: 'BlurList',
-      fnfList: 'FnfList',
-      glassList: 'GlassList',
-      illuList: 'IlluList',
-      maskList: 'MaskList',
-      noiseList: 'NoiseList',
-      poseList: 'PoseList',
-      scoreList: 'ScoreList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blurList: { 'type': 'array', 'itemType': 'number' },
-      fnfList: { 'type': 'array', 'itemType': 'number' },
-      glassList: { 'type': 'array', 'itemType': 'number' },
-      illuList: { 'type': 'array', 'itemType': 'number' },
-      maskList: { 'type': 'array', 'itemType': 'number' },
-      noiseList: { 'type': 'array', 'itemType': 'number' },
-      poseList: { 'type': 'array', 'itemType': 'number' },
-      scoreList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectFaceResponseBodyData extends $tea.Model {
-  faceCount?: number;
-  faceProbabilityList?: number[];
-  faceRectangles?: number[];
-  landmarkCount?: number;
-  landmarkScore?: number[];
-  landmarks?: number[];
-  poseList?: number[];
-  pupils?: number[];
-  qualities?: DetectFaceResponseBodyDataQualities;
-  static names(): { [key: string]: string } {
-    return {
-      faceCount: 'FaceCount',
-      faceProbabilityList: 'FaceProbabilityList',
-      faceRectangles: 'FaceRectangles',
-      landmarkCount: 'LandmarkCount',
-      landmarkScore: 'LandmarkScore',
-      landmarks: 'Landmarks',
-      poseList: 'PoseList',
-      pupils: 'Pupils',
-      qualities: 'Qualities',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceCount: 'number',
-      faceProbabilityList: { 'type': 'array', 'itemType': 'number' },
-      faceRectangles: { 'type': 'array', 'itemType': 'number' },
-      landmarkCount: 'number',
-      landmarkScore: { 'type': 'array', 'itemType': 'number' },
-      landmarks: { 'type': 'array', 'itemType': 'number' },
-      poseList: { 'type': 'array', 'itemType': 'number' },
-      pupils: { 'type': 'array', 'itemType': 'number' },
-      qualities: DetectFaceResponseBodyDataQualities,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceRequestTasks extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceAdvanceRequestTasks extends $tea.Model {
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponseBodyDataElementsResultsRect extends $tea.Model {
-  height?: number;
-  left?: number;
-  top?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      left: 'Left',
-      top: 'Top',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      left: 'number',
-      top: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponseBodyDataElementsResults extends $tea.Model {
-  label?: string;
-  messageTips?: string;
-  rate?: number;
-  rect?: DetectInfraredLivingFaceResponseBodyDataElementsResultsRect;
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      messageTips: 'MessageTips',
-      rate: 'Rate',
-      rect: 'Rect',
-      suggestion: 'Suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      messageTips: 'string',
-      rate: 'number',
-      rect: DetectInfraredLivingFaceResponseBodyDataElementsResultsRect,
-      suggestion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponseBodyDataElements extends $tea.Model {
-  faceNumber?: number;
-  imageURL?: string;
-  results?: DetectInfraredLivingFaceResponseBodyDataElementsResults[];
-  static names(): { [key: string]: string } {
-    return {
-      faceNumber: 'FaceNumber',
-      imageURL: 'ImageURL',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceNumber: 'number',
-      imageURL: 'string',
-      results: { 'type': 'array', 'itemType': DetectInfraredLivingFaceResponseBodyDataElementsResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectInfraredLivingFaceResponseBodyData extends $tea.Model {
-  elements?: DetectInfraredLivingFaceResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectInfraredLivingFaceResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceRequestTasks extends $tea.Model {
-  imageData?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceAdvanceRequestTasks extends $tea.Model {
-  imageData?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBodyDataElementsResultsFrames extends $tea.Model {
-  rate?: number;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rate: 'Rate',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rate: 'number',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBodyDataElementsResultsRect extends $tea.Model {
-  height?: number;
-  left?: number;
-  top?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      left: 'Left',
-      top: 'Top',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      left: 'number',
-      top: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBodyDataElementsResults extends $tea.Model {
-  frames?: DetectLivingFaceResponseBodyDataElementsResultsFrames[];
-  label?: string;
-  messageTips?: string;
-  rate?: number;
-  rect?: DetectLivingFaceResponseBodyDataElementsResultsRect;
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      frames: 'Frames',
-      label: 'Label',
-      messageTips: 'MessageTips',
-      rate: 'Rate',
-      rect: 'Rect',
-      suggestion: 'Suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      frames: { 'type': 'array', 'itemType': DetectLivingFaceResponseBodyDataElementsResultsFrames },
-      label: 'string',
-      messageTips: 'string',
-      rate: 'number',
-      rect: DetectLivingFaceResponseBodyDataElementsResultsRect,
-      suggestion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBodyDataElements extends $tea.Model {
-  faceNumber?: number;
-  imageURL?: string;
-  results?: DetectLivingFaceResponseBodyDataElementsResults[];
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceNumber: 'FaceNumber',
-      imageURL: 'ImageURL',
-      results: 'Results',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceNumber: 'number',
-      imageURL: 'string',
-      results: { 'type': 'array', 'itemType': DetectLivingFaceResponseBodyDataElementsResults },
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectLivingFaceResponseBodyData extends $tea.Model {
-  elements?: DetectLivingFaceResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectLivingFaceResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianResponseBodyDataElements extends $tea.Model {
-  boxes?: number[];
-  score?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      boxes: 'Boxes',
-      score: 'Score',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boxes: { 'type': 'array', 'itemType': 'number' },
-      score: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianResponseBodyData extends $tea.Model {
-  elements?: DetectPedestrianResponseBodyDataElements[];
-  height?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      height: 'Height',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectPedestrianResponseBodyDataElements },
-      height: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionRequestDetectRegionLine extends $tea.Model {
-  x1?: number;
-  x2?: number;
-  y1?: number;
-  y2?: number;
-  static names(): { [key: string]: string } {
-    return {
-      x1: 'X1',
-      x2: 'X2',
-      y1: 'Y1',
-      y2: 'Y2',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      x1: 'number',
-      x2: 'number',
-      y1: 'number',
-      y2: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionRequestDetectRegionRect extends $tea.Model {
-  bottom?: number;
-  left?: number;
-  right?: number;
-  top?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bottom: 'Bottom',
-      left: 'Left',
-      right: 'Right',
-      top: 'Top',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bottom: 'number',
-      left: 'number',
-      right: 'number',
-      top: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionRequestDetectRegion extends $tea.Model {
-  line?: DetectPedestrianIntrusionRequestDetectRegionLine;
-  rect?: DetectPedestrianIntrusionRequestDetectRegionRect;
-  static names(): { [key: string]: string } {
-    return {
-      line: 'Line',
-      rect: 'Rect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      line: DetectPedestrianIntrusionRequestDetectRegionLine,
-      rect: DetectPedestrianIntrusionRequestDetectRegionRect,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionAdvanceRequestDetectRegionLine extends $tea.Model {
-  x1?: number;
-  x2?: number;
-  y1?: number;
-  y2?: number;
-  static names(): { [key: string]: string } {
-    return {
-      x1: 'X1',
-      x2: 'X2',
-      y1: 'Y1',
-      y2: 'Y2',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      x1: 'number',
-      x2: 'number',
-      y1: 'number',
-      y2: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionAdvanceRequestDetectRegionRect extends $tea.Model {
-  bottom?: number;
-  left?: number;
-  right?: number;
-  top?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bottom: 'Bottom',
-      left: 'Left',
-      right: 'Right',
-      top: 'Top',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bottom: 'number',
-      left: 'number',
-      right: 'number',
-      top: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionAdvanceRequestDetectRegion extends $tea.Model {
-  line?: DetectPedestrianIntrusionAdvanceRequestDetectRegionLine;
-  rect?: DetectPedestrianIntrusionAdvanceRequestDetectRegionRect;
-  static names(): { [key: string]: string } {
-    return {
-      line: 'Line',
-      rect: 'Rect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      line: DetectPedestrianIntrusionAdvanceRequestDetectRegionLine,
-      rect: DetectPedestrianIntrusionAdvanceRequestDetectRegionRect,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionResponseBodyDataElementsBox extends $tea.Model {
-  bottom?: number;
-  left?: number;
-  right?: number;
-  top?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bottom: 'Bottom',
-      left: 'Left',
-      right: 'Right',
-      top: 'Top',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bottom: 'number',
-      left: 'number',
-      right: 'number',
-      top: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionResponseBodyDataElements extends $tea.Model {
-  box?: DetectPedestrianIntrusionResponseBodyDataElementsBox;
-  boxId?: number;
-  isIntrude?: boolean;
-  score?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      box: 'Box',
-      boxId: 'BoxId',
-      isIntrude: 'IsIntrude',
-      score: 'Score',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      box: DetectPedestrianIntrusionResponseBodyDataElementsBox,
-      boxId: 'number',
-      isIntrude: 'boolean',
-      score: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectPedestrianIntrusionResponseBodyData extends $tea.Model {
-  elements?: DetectPedestrianIntrusionResponseBodyDataElements[];
-  imageHeight?: number;
-  imageWidth?: number;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      imageHeight: 'ImageHeight',
-      imageWidth: 'ImageWidth',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectPedestrianIntrusionResponseBodyDataElements },
-      imageHeight: 'number',
-      imageWidth: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceResponseBodyDataElements extends $tea.Model {
-  faceConfidence?: number;
-  liveConfidence?: number;
-  rect?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      faceConfidence: 'FaceConfidence',
-      liveConfidence: 'LiveConfidence',
-      rect: 'Rect',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceConfidence: 'number',
-      liveConfidence: 'number',
-      rect: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectVideoLivingFaceResponseBodyData extends $tea.Model {
-  elements?: DetectVideoLivingFaceResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': DetectVideoLivingFaceResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractFingerPrintResponseBodyData extends $tea.Model {
-  fingerPrint?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fingerPrint: 'FingerPrint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fingerPrint: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExtractPedestrianFeatureAttrResponseBodyData extends $tea.Model {
-  age?: string;
-  ageScore?: number;
-  feature?: string;
-  gender?: string;
-  genderScore?: number;
-  hair?: string;
-  hairScore?: number;
-  lowerColor?: string;
-  lowerColorScore?: number;
-  lowerType?: string;
-  lowerTypeScore?: number;
-  objType?: string;
-  objTypeScore?: number;
-  orientation?: string;
-  orientationScore?: number;
-  qualityScore?: number;
-  upperColor?: string;
-  upperColorScore?: number;
-  upperType?: string;
-  upperTypeScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      ageScore: 'AgeScore',
-      feature: 'Feature',
-      gender: 'Gender',
-      genderScore: 'GenderScore',
-      hair: 'Hair',
-      hairScore: 'HairScore',
-      lowerColor: 'LowerColor',
-      lowerColorScore: 'LowerColorScore',
-      lowerType: 'LowerType',
-      lowerTypeScore: 'LowerTypeScore',
-      objType: 'ObjType',
-      objTypeScore: 'ObjTypeScore',
-      orientation: 'Orientation',
-      orientationScore: 'OrientationScore',
-      qualityScore: 'QualityScore',
-      upperColor: 'UpperColor',
-      upperColorScore: 'UpperColorScore',
-      upperType: 'UpperType',
-      upperTypeScore: 'UpperTypeScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'string',
-      ageScore: 'number',
-      feature: 'string',
-      gender: 'string',
-      genderScore: 'number',
-      hair: 'string',
-      hairScore: 'number',
-      lowerColor: 'string',
-      lowerColorScore: 'number',
-      lowerType: 'string',
-      lowerTypeScore: 'number',
-      objType: 'string',
-      objTypeScore: 'number',
-      orientation: 'string',
-      orientationScore: 'number',
-      qualityScore: 'number',
-      upperColor: 'string',
-      upperColorScore: 'number',
-      upperType: 'string',
-      upperTypeScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceBeautyResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceFilterResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceMakeupResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FaceTidyupResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenRealPersonVerificationTokenResponseBodyData extends $tea.Model {
-  verificationToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      verificationToken: 'VerificationToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      verificationToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanAnimeStyleResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GenerateHumanSketchStyleResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFaceEntityResponseBodyDataFaces extends $tea.Model {
-  faceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceId: 'FaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFaceEntityResponseBodyData extends $tea.Model {
-  dbName?: string;
-  entityId?: string;
-  faces?: GetFaceEntityResponseBodyDataFaces[];
-  labels?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      faces: 'Faces',
-      labels: 'Labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      entityId: 'string',
-      faces: { 'type': 'array', 'itemType': GetFaceEntityResponseBodyDataFaces },
-      labels: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRealPersonVerificationResultResponseBodyData extends $tea.Model {
-  passed?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      passed: 'Passed',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      passed: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataMetaObject extends $tea.Model {
-  height?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResultsBoxPositions extends $tea.Model {
-  points?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      points: 'Points',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      points: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResultsBox extends $tea.Model {
-  confident?: number;
-  positions?: HandPostureResponseBodyDataOutputsResultsBoxPositions[];
-  static names(): { [key: string]: string } {
-    return {
-      confident: 'Confident',
-      positions: 'Positions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confident: 'number',
-      positions: { 'type': 'array', 'itemType': HandPostureResponseBodyDataOutputsResultsBoxPositions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResultsHandsKeyPointsPositions extends $tea.Model {
-  points?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      points: 'Points',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      points: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResultsHandsKeyPoints extends $tea.Model {
-  label?: string;
-  positions?: HandPostureResponseBodyDataOutputsResultsHandsKeyPointsPositions[];
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      positions: 'Positions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      positions: { 'type': 'array', 'itemType': HandPostureResponseBodyDataOutputsResultsHandsKeyPointsPositions },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResultsHands extends $tea.Model {
-  confident?: number;
-  keyPoints?: HandPostureResponseBodyDataOutputsResultsHandsKeyPoints[];
-  static names(): { [key: string]: string } {
-    return {
-      confident: 'Confident',
-      keyPoints: 'KeyPoints',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confident: 'number',
-      keyPoints: { 'type': 'array', 'itemType': HandPostureResponseBodyDataOutputsResultsHandsKeyPoints },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputsResults extends $tea.Model {
-  box?: HandPostureResponseBodyDataOutputsResultsBox;
-  hands?: HandPostureResponseBodyDataOutputsResultsHands;
-  static names(): { [key: string]: string } {
-    return {
-      box: 'Box',
-      hands: 'Hands',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      box: HandPostureResponseBodyDataOutputsResultsBox,
-      hands: HandPostureResponseBodyDataOutputsResultsHands,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyDataOutputs extends $tea.Model {
-  handCount?: number;
-  results?: HandPostureResponseBodyDataOutputsResults[];
-  static names(): { [key: string]: string } {
-    return {
-      handCount: 'HandCount',
-      results: 'Results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      handCount: 'number',
-      results: { 'type': 'array', 'itemType': HandPostureResponseBodyDataOutputsResults },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HandPostureResponseBodyData extends $tea.Model {
-  metaObject?: HandPostureResponseBodyDataMetaObject;
-  outputs?: HandPostureResponseBodyDataOutputs[];
-  static names(): { [key: string]: string } {
-    return {
-      metaObject: 'MetaObject',
-      outputs: 'Outputs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metaObject: HandPostureResponseBodyDataMetaObject,
-      outputs: { 'type': 'array', 'itemType': HandPostureResponseBodyDataOutputs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LiquifyFaceResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceDbsResponseBodyDataDbList extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceDbsResponseBodyData extends $tea.Model {
-  dbList?: ListFaceDbsResponseBodyDataDbList[];
-  static names(): { [key: string]: string } {
-    return {
-      dbList: 'DbList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbList: { 'type': 'array', 'itemType': ListFaceDbsResponseBodyDataDbList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceEntitiesResponseBodyDataEntities extends $tea.Model {
-  createdAt?: number;
-  dbName?: string;
-  entityId?: string;
-  faceCount?: number;
-  labels?: string;
-  updatedAt?: number;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'CreatedAt',
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      faceCount: 'FaceCount',
-      labels: 'Labels',
-      updatedAt: 'UpdatedAt',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'number',
-      dbName: 'string',
-      entityId: 'string',
-      faceCount: 'number',
-      labels: 'string',
-      updatedAt: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFaceEntitiesResponseBodyData extends $tea.Model {
-  entities?: ListFaceEntitiesResponseBodyDataEntities[];
-  token?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      entities: 'Entities',
-      token: 'Token',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      entities: { 'type': 'array', 'itemType': ListFaceEntitiesResponseBodyDataEntities },
-      token: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceRequestMergeInfos extends $tea.Model {
-  imageURL?: string;
-  templateFaceID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      templateFaceID: 'TemplateFaceID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      templateFaceID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceAdvanceRequestMergeInfos extends $tea.Model {
-  imageURL?: string;
-  templateFaceID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      templateFaceID: 'TemplateFaceID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      templateFaceID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MergeImageFaceResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyDataFaceInfoPose extends $tea.Model {
-  pitch?: number;
-  roll?: number;
-  yaw?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pitch: 'Pitch',
-      roll: 'Roll',
-      yaw: 'Yaw',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pitch: 'number',
-      roll: 'number',
-      yaw: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyDataFaceInfo extends $tea.Model {
-  completeness?: number;
-  faceNumber?: number;
-  pose?: MonitorExaminationResponseBodyDataFaceInfoPose;
-  static names(): { [key: string]: string } {
-    return {
-      completeness: 'Completeness',
-      faceNumber: 'FaceNumber',
-      pose: 'Pose',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completeness: 'number',
-      faceNumber: 'number',
-      pose: MonitorExaminationResponseBodyDataFaceInfoPose,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyDataPersonInfoCellPhone extends $tea.Model {
-  score?: number;
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      threshold: 'Threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyDataPersonInfoEarPhone extends $tea.Model {
-  score?: number;
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-      threshold: 'Threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyDataPersonInfo extends $tea.Model {
-  cellPhone?: MonitorExaminationResponseBodyDataPersonInfoCellPhone;
-  earPhone?: MonitorExaminationResponseBodyDataPersonInfoEarPhone;
-  personNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cellPhone: 'CellPhone',
-      earPhone: 'EarPhone',
-      personNumber: 'PersonNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cellPhone: MonitorExaminationResponseBodyDataPersonInfoCellPhone,
-      earPhone: MonitorExaminationResponseBodyDataPersonInfoEarPhone,
-      personNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MonitorExaminationResponseBodyData extends $tea.Model {
-  chatScore?: number;
-  faceInfo?: MonitorExaminationResponseBodyDataFaceInfo;
-  personInfo?: MonitorExaminationResponseBodyDataPersonInfo;
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      chatScore: 'ChatScore',
-      faceInfo: 'FaceInfo',
-      personInfo: 'PersonInfo',
-      threshold: 'Threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chatScore: 'number',
-      faceInfo: MonitorExaminationResponseBodyDataFaceInfo,
-      personInfo: MonitorExaminationResponseBodyDataPersonInfo,
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesAge extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesBackpack extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesGender extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesGlasses extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesHandbag extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesHat extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesLowerColor extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesLowerWear extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesOrient extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesShoulderBag extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesUpperColor extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributesUpperWear extends $tea.Model {
-  name?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataAttributes extends $tea.Model {
-  age?: PedestrianDetectAttributeResponseBodyDataAttributesAge;
-  backpack?: PedestrianDetectAttributeResponseBodyDataAttributesBackpack;
-  gender?: PedestrianDetectAttributeResponseBodyDataAttributesGender;
-  glasses?: PedestrianDetectAttributeResponseBodyDataAttributesGlasses;
-  handbag?: PedestrianDetectAttributeResponseBodyDataAttributesHandbag;
-  hat?: PedestrianDetectAttributeResponseBodyDataAttributesHat;
-  lowerColor?: PedestrianDetectAttributeResponseBodyDataAttributesLowerColor;
-  lowerWear?: PedestrianDetectAttributeResponseBodyDataAttributesLowerWear;
-  orient?: PedestrianDetectAttributeResponseBodyDataAttributesOrient;
-  shoulderBag?: PedestrianDetectAttributeResponseBodyDataAttributesShoulderBag;
-  upperColor?: PedestrianDetectAttributeResponseBodyDataAttributesUpperColor;
-  upperWear?: PedestrianDetectAttributeResponseBodyDataAttributesUpperWear;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      backpack: 'Backpack',
-      gender: 'Gender',
-      glasses: 'Glasses',
-      handbag: 'Handbag',
-      hat: 'Hat',
-      lowerColor: 'LowerColor',
-      lowerWear: 'LowerWear',
-      orient: 'Orient',
-      shoulderBag: 'ShoulderBag',
-      upperColor: 'UpperColor',
-      upperWear: 'UpperWear',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: PedestrianDetectAttributeResponseBodyDataAttributesAge,
-      backpack: PedestrianDetectAttributeResponseBodyDataAttributesBackpack,
-      gender: PedestrianDetectAttributeResponseBodyDataAttributesGender,
-      glasses: PedestrianDetectAttributeResponseBodyDataAttributesGlasses,
-      handbag: PedestrianDetectAttributeResponseBodyDataAttributesHandbag,
-      hat: PedestrianDetectAttributeResponseBodyDataAttributesHat,
-      lowerColor: PedestrianDetectAttributeResponseBodyDataAttributesLowerColor,
-      lowerWear: PedestrianDetectAttributeResponseBodyDataAttributesLowerWear,
-      orient: PedestrianDetectAttributeResponseBodyDataAttributesOrient,
-      shoulderBag: PedestrianDetectAttributeResponseBodyDataAttributesShoulderBag,
-      upperColor: PedestrianDetectAttributeResponseBodyDataAttributesUpperColor,
-      upperWear: PedestrianDetectAttributeResponseBodyDataAttributesUpperWear,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyDataBoxes extends $tea.Model {
-  bottomRightX?: number;
-  bottomRightY?: number;
-  score?: number;
-  topLeftX?: number;
-  topLeftY?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bottomRightX: 'BottomRightX',
-      bottomRightY: 'BottomRightY',
-      score: 'Score',
-      topLeftX: 'TopLeftX',
-      topLeftY: 'TopLeftY',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bottomRightX: 'number',
-      bottomRightY: 'number',
-      score: 'number',
-      topLeftX: 'number',
-      topLeftY: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PedestrianDetectAttributeResponseBodyData extends $tea.Model {
-  attributes?: PedestrianDetectAttributeResponseBodyDataAttributes[];
-  boxes?: PedestrianDetectAttributeResponseBodyDataBoxes[];
-  height?: number;
-  personNumber?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attributes: 'Attributes',
-      boxes: 'Boxes',
-      height: 'Height',
-      personNumber: 'PersonNumber',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseBodyDataAttributes },
-      boxes: { 'type': 'array', 'itemType': PedestrianDetectAttributeResponseBodyDataBoxes },
-      height: 'number',
-      personNumber: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect extends $tea.Model {
-  height?: string;
-  width?: string;
-  x?: string;
-  y?: string;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'string',
-      width: 'string',
-      x: 'string',
-      y: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponseBodyDataElementsFaceInfos extends $tea.Model {
-  faceRect?: QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect;
-  templateFaceID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      faceRect: 'FaceRect',
-      templateFaceID: 'TemplateFaceID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceRect: QueryFaceImageTemplateResponseBodyDataElementsFaceInfosFaceRect,
-      templateFaceID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponseBodyDataElements extends $tea.Model {
-  createTime?: string;
-  faceInfos?: QueryFaceImageTemplateResponseBodyDataElementsFaceInfos[];
-  templateId?: string;
-  templateURL?: string;
-  updateTime?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      faceInfos: 'FaceInfos',
-      templateId: 'TemplateId',
-      templateURL: 'TemplateURL',
-      updateTime: 'UpdateTime',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      faceInfos: { 'type': 'array', 'itemType': QueryFaceImageTemplateResponseBodyDataElementsFaceInfos },
-      templateId: 'string',
-      templateURL: 'string',
-      updateTime: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryFaceImageTemplateResponseBodyData extends $tea.Model {
-  elements?: QueryFaceImageTemplateResponseBodyDataElements[];
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': QueryFaceImageTemplateResponseBodyDataElements },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionRequestURLList extends $tea.Model {
-  URL?: string;
-  imageData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      URL: 'URL',
-      imageData: 'imageData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URL: 'string',
-      imageData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionAdvanceRequestURLList extends $tea.Model {
-  URLObject?: Readable;
-  imageData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      URLObject: 'URL',
-      imageData: 'imageData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      URLObject: 'Readable',
-      imageData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionResponseBodyDataElementsBoxes extends $tea.Model {
-  box?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      box: 'Box',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      box: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionResponseBodyDataElements extends $tea.Model {
-  boxes?: RecognizeActionResponseBodyDataElementsBoxes[];
-  labels?: string[];
-  scores?: number[];
-  timestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      boxes: 'Boxes',
-      labels: 'Labels',
-      scores: 'Scores',
-      timestamp: 'Timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      boxes: { 'type': 'array', 'itemType': RecognizeActionResponseBodyDataElementsBoxes },
-      labels: { 'type': 'array', 'itemType': 'string' },
-      scores: { 'type': 'array', 'itemType': 'number' },
-      timestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeActionResponseBodyData extends $tea.Model {
-  elements?: RecognizeActionResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': RecognizeActionResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionResponseBodyDataElementsFaceRectangle extends $tea.Model {
-  height?: number;
-  left?: number;
-  top?: number;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      left: 'Left',
-      top: 'Top',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      left: 'number',
-      top: 'number',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionResponseBodyDataElements extends $tea.Model {
-  expression?: string;
-  faceProbability?: number;
-  faceRectangle?: RecognizeExpressionResponseBodyDataElementsFaceRectangle;
-  static names(): { [key: string]: string } {
-    return {
-      expression: 'Expression',
-      faceProbability: 'FaceProbability',
-      faceRectangle: 'FaceRectangle',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expression: 'string',
-      faceProbability: 'number',
-      faceRectangle: RecognizeExpressionResponseBodyDataElementsFaceRectangle,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeExpressionResponseBodyData extends $tea.Model {
-  elements?: RecognizeExpressionResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': RecognizeExpressionResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceResponseBodyDataQualities extends $tea.Model {
-  blurList?: number[];
-  fnfList?: number[];
-  glassList?: number[];
-  illuList?: number[];
-  maskList?: number[];
-  noiseList?: number[];
-  poseList?: number[];
-  scoreList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      blurList: 'BlurList',
-      fnfList: 'FnfList',
-      glassList: 'GlassList',
-      illuList: 'IlluList',
-      maskList: 'MaskList',
-      noiseList: 'NoiseList',
-      poseList: 'PoseList',
-      scoreList: 'ScoreList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      blurList: { 'type': 'array', 'itemType': 'number' },
-      fnfList: { 'type': 'array', 'itemType': 'number' },
-      glassList: { 'type': 'array', 'itemType': 'number' },
-      illuList: { 'type': 'array', 'itemType': 'number' },
-      maskList: { 'type': 'array', 'itemType': 'number' },
-      noiseList: { 'type': 'array', 'itemType': 'number' },
-      poseList: { 'type': 'array', 'itemType': 'number' },
-      scoreList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeFaceResponseBodyData extends $tea.Model {
-  ageList?: number[];
-  beautyList?: number[];
-  denseFeatureLength?: number;
-  denseFeatures?: string[];
-  expressions?: number[];
-  faceCount?: number;
-  faceProbabilityList?: number[];
-  faceRectangles?: number[];
-  genderList?: number[];
-  glasses?: number[];
-  hatList?: number[];
-  landmarkCount?: number;
-  landmarks?: number[];
-  masks?: number[];
-  poseList?: number[];
-  pupils?: number[];
-  qualities?: RecognizeFaceResponseBodyDataQualities;
-  static names(): { [key: string]: string } {
-    return {
-      ageList: 'AgeList',
-      beautyList: 'BeautyList',
-      denseFeatureLength: 'DenseFeatureLength',
-      denseFeatures: 'DenseFeatures',
-      expressions: 'Expressions',
-      faceCount: 'FaceCount',
-      faceProbabilityList: 'FaceProbabilityList',
-      faceRectangles: 'FaceRectangles',
-      genderList: 'GenderList',
-      glasses: 'Glasses',
-      hatList: 'HatList',
-      landmarkCount: 'LandmarkCount',
-      landmarks: 'Landmarks',
-      masks: 'Masks',
-      poseList: 'PoseList',
-      pupils: 'Pupils',
-      qualities: 'Qualities',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ageList: { 'type': 'array', 'itemType': 'number' },
-      beautyList: { 'type': 'array', 'itemType': 'number' },
-      denseFeatureLength: 'number',
-      denseFeatures: { 'type': 'array', 'itemType': 'string' },
-      expressions: { 'type': 'array', 'itemType': 'number' },
-      faceCount: 'number',
-      faceProbabilityList: { 'type': 'array', 'itemType': 'number' },
-      faceRectangles: { 'type': 'array', 'itemType': 'number' },
-      genderList: { 'type': 'array', 'itemType': 'number' },
-      glasses: { 'type': 'array', 'itemType': 'number' },
-      hatList: { 'type': 'array', 'itemType': 'number' },
-      landmarkCount: 'number',
-      landmarks: { 'type': 'array', 'itemType': 'number' },
-      masks: { 'type': 'array', 'itemType': 'number' },
-      poseList: { 'type': 'array', 'itemType': 'number' },
-      pupils: { 'type': 'array', 'itemType': 'number' },
-      qualities: RecognizeFaceResponseBodyDataQualities,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizeHandGestureResponseBodyData extends $tea.Model {
-  height?: number;
-  score?: number;
-  type?: string;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      score: 'Score',
-      type: 'Type',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      score: 'number',
-      type: 'string',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceRequestTask extends $tea.Model {
-  imageData?: string;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceAdvanceRequestTask extends $tea.Model {
-  imageData?: string;
-  imageURLObject?: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageData: 'ImageData',
-      imageURLObject: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageData: 'string',
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBodyDataElementsResultsSubResultsFaces extends $tea.Model {
-  id?: string;
-  name?: string;
-  rate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      rate: 'Rate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-      rate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBodyDataElementsResultsSubResults extends $tea.Model {
-  faces?: RecognizePublicFaceResponseBodyDataElementsResultsSubResultsFaces[];
-  h?: number;
-  w?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faces: 'Faces',
-      h: 'H',
-      w: 'W',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faces: { 'type': 'array', 'itemType': RecognizePublicFaceResponseBodyDataElementsResultsSubResultsFaces },
-      h: 'number',
-      w: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBodyDataElementsResults extends $tea.Model {
-  label?: string;
-  rate?: number;
-  subResults?: RecognizePublicFaceResponseBodyDataElementsResultsSubResults[];
-  suggestion?: string;
-  static names(): { [key: string]: string } {
-    return {
-      label: 'Label',
-      rate: 'Rate',
-      subResults: 'SubResults',
-      suggestion: 'Suggestion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      label: 'string',
-      rate: 'number',
-      subResults: { 'type': 'array', 'itemType': RecognizePublicFaceResponseBodyDataElementsResultsSubResults },
-      suggestion: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  results?: RecognizePublicFaceResponseBodyDataElementsResults[];
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      results: 'Results',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      results: { 'type': 'array', 'itemType': RecognizePublicFaceResponseBodyDataElementsResults },
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RecognizePublicFaceResponseBodyData extends $tea.Model {
-  elements?: RecognizePublicFaceResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': RecognizePublicFaceResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchBodyResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RetouchSkinResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponseBodyDataMatchListFaceItems extends $tea.Model {
-  confidence?: number;
-  dbName?: string;
-  entityId?: string;
-  extraData?: string;
-  faceId?: string;
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      dbName: 'DbName',
-      entityId: 'EntityId',
-      extraData: 'ExtraData',
-      faceId: 'FaceId',
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      dbName: 'string',
-      entityId: 'string',
-      extraData: 'string',
-      faceId: 'string',
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponseBodyDataMatchListLocation extends $tea.Model {
-  height?: number;
-  width?: number;
-  x?: number;
-  y?: number;
-  static names(): { [key: string]: string } {
-    return {
-      height: 'Height',
-      width: 'Width',
-      x: 'X',
-      y: 'Y',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      height: 'number',
-      width: 'number',
-      x: 'number',
-      y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponseBodyDataMatchList extends $tea.Model {
-  faceItems?: SearchFaceResponseBodyDataMatchListFaceItems[];
-  location?: SearchFaceResponseBodyDataMatchListLocation;
-  qualitieScore?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faceItems: 'FaceItems',
-      location: 'Location',
-      qualitieScore: 'QualitieScore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceItems: { 'type': 'array', 'itemType': SearchFaceResponseBodyDataMatchListFaceItems },
-      location: SearchFaceResponseBodyDataMatchListLocation,
-      qualitieScore: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SearchFaceResponseBodyData extends $tea.Model {
-  matchList?: SearchFaceResponseBodyDataMatchList[];
-  static names(): { [key: string]: string } {
-    return {
-      matchList: 'MatchList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      matchList: { 'type': 'array', 'itemType': SearchFaceResponseBodyDataMatchList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyFaceMaskResponseBodyData extends $tea.Model {
-  confidence?: number;
-  mask?: number;
-  maskRef?: number;
-  rectangle?: number[];
-  rectangleRef?: number[];
-  thresholds?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      confidence: 'Confidence',
-      mask: 'Mask',
-      maskRef: 'MaskRef',
-      rectangle: 'Rectangle',
-      rectangleRef: 'RectangleRef',
-      thresholds: 'Thresholds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      confidence: 'number',
-      mask: 'number',
-      maskRef: 'number',
-      rectangle: { 'type': 'array', 'itemType': 'number' },
-      rectangleRef: { 'type': 'array', 'itemType': 'number' },
-      thresholds: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("facebody", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
+    }
+
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
+  }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addFaceWithOptions(request: AddFaceRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - AddFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFaceResponse
+   */
+  async addFaceWithOptions(request: $_model.AddFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    if (!Util.isUnset(request.extraData)) {
+    if (!$dara.isNull(request.extraData)) {
       body["ExtraData"] = request.extraData;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.qualityScoreThreshold)) {
+    if (!$dara.isNull(request.qualityScoreThreshold)) {
       body["QualityScoreThreshold"] = request.qualityScoreThreshold;
     }
 
-    if (!Util.isUnset(request.similarityScoreThresholdBetweenEntity)) {
+    if (!$dara.isNull(request.similarityScoreThresholdBetweenEntity)) {
       body["SimilarityScoreThresholdBetweenEntity"] = request.similarityScoreThresholdBetweenEntity;
     }
 
-    if (!Util.isUnset(request.similarityScoreThresholdInEntity)) {
+    if (!$dara.isNull(request.similarityScoreThresholdInEntity)) {
       body["SimilarityScoreThresholdInEntity"] = request.similarityScoreThresholdInEntity;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -8817,30 +161,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddFaceResponse>(await this.callApi(params, req, runtime), new AddFaceResponse({}));
+    return $dara.cast<$_model.AddFaceResponse>(await this.callApi(params, req, runtime), new $_model.AddFaceResponse({}));
   }
 
-  async addFace(request: AddFaceRequest): Promise<AddFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - AddFaceRequest
+   * @returns AddFaceResponse
+   */
+  async addFace(request: $_model.AddFaceRequest): Promise<$_model.AddFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addFaceWithOptions(request, runtime);
   }
 
-  async addFaceAdvance(request: AddFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceResponse> {
+  async addFaceAdvance(request: $_model.AddFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -8849,75 +205,84 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let addFaceReq = new AddFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let addFaceReq = new $_model.AddFaceRequest({ });
     OpenApiUtil.convert(request, addFaceReq);
-    if (!Util.isUnset(request.imageUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      addFaceReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      addFaceReq.imageUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let addFaceResp = await this.addFaceWithOptions(addFaceReq, runtime);
     return addFaceResp;
   }
 
-  async addFaceEntityWithOptions(request: AddFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceEntityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - AddFaceEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFaceEntityResponse
+   */
+  async addFaceEntityWithOptions(request: $_model.AddFaceEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceEntityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddFaceEntity",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -8928,25 +293,36 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddFaceEntityResponse>(await this.callApi(params, req, runtime), new AddFaceEntityResponse({}));
+    return $dara.cast<$_model.AddFaceEntityResponse>(await this.callApi(params, req, runtime), new $_model.AddFaceEntityResponse({}));
   }
 
-  async addFaceEntity(request: AddFaceEntityRequest): Promise<AddFaceEntityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - AddFaceEntityRequest
+   * @returns AddFaceEntityResponse
+   */
+  async addFaceEntity(request: $_model.AddFaceEntityRequest): Promise<$_model.AddFaceEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addFaceEntityWithOptions(request, runtime);
   }
 
-  async addFaceImageTemplateWithOptions(request: AddFaceImageTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceImageTemplateResponse> {
-    Util.validateModel(request);
+  /**
+   * 图像人脸融合模板增加
+   * 
+   * @param request - AddFaceImageTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFaceImageTemplateResponse
+   */
+  async addFaceImageTemplateWithOptions(request: $_model.AddFaceImageTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceImageTemplateResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddFaceImageTemplate",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -8957,30 +333,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new AddFaceImageTemplateResponse({}));
+    return $dara.cast<$_model.AddFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new $_model.AddFaceImageTemplateResponse({}));
   }
 
-  async addFaceImageTemplate(request: AddFaceImageTemplateRequest): Promise<AddFaceImageTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 图像人脸融合模板增加
+   * 
+   * @param request - AddFaceImageTemplateRequest
+   * @returns AddFaceImageTemplateResponse
+   */
+  async addFaceImageTemplate(request: $_model.AddFaceImageTemplateRequest): Promise<$_model.AddFaceImageTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addFaceImageTemplateWithOptions(request, runtime);
   }
 
-  async addFaceImageTemplateAdvance(request: AddFaceImageTemplateAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceImageTemplateResponse> {
+  async addFaceImageTemplateAdvance(request: $_model.AddFaceImageTemplateAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFaceImageTemplateResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -8989,93 +379,104 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let addFaceImageTemplateReq = new AddFaceImageTemplateRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let addFaceImageTemplateReq = new $_model.AddFaceImageTemplateRequest({ });
     OpenApiUtil.convert(request, addFaceImageTemplateReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      addFaceImageTemplateReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      addFaceImageTemplateReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let addFaceImageTemplateResp = await this.addFaceImageTemplateWithOptions(addFaceImageTemplateReq, runtime);
     return addFaceImageTemplateResp;
   }
 
-  async batchAddFacesWithOptions(tmpReq: BatchAddFacesRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddFacesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchAddFacesShrinkRequest({ });
+  /**
+   * 批量添加人脸数据
+   * 
+   * @param tmpReq - BatchAddFacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchAddFacesResponse
+   */
+  async batchAddFacesWithOptions(tmpReq: $_model.BatchAddFacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchAddFacesResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchAddFacesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.faces)) {
+    if (!$dara.isNull(tmpReq.faces)) {
       request.facesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faces, "Faces", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    if (!Util.isUnset(request.facesShrink)) {
+    if (!$dara.isNull(request.facesShrink)) {
       body["Faces"] = request.facesShrink;
     }
 
-    if (!Util.isUnset(request.qualityScoreThreshold)) {
+    if (!$dara.isNull(request.qualityScoreThreshold)) {
       body["QualityScoreThreshold"] = request.qualityScoreThreshold;
     }
 
-    if (!Util.isUnset(request.similarityScoreThresholdBetweenEntity)) {
+    if (!$dara.isNull(request.similarityScoreThresholdBetweenEntity)) {
       body["SimilarityScoreThresholdBetweenEntity"] = request.similarityScoreThresholdBetweenEntity;
     }
 
-    if (!Util.isUnset(request.similarityScoreThresholdInEntity)) {
+    if (!$dara.isNull(request.similarityScoreThresholdInEntity)) {
       body["SimilarityScoreThresholdInEntity"] = request.similarityScoreThresholdInEntity;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchAddFaces",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9086,30 +487,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchAddFacesResponse>(await this.callApi(params, req, runtime), new BatchAddFacesResponse({}));
+    return $dara.cast<$_model.BatchAddFacesResponse>(await this.callApi(params, req, runtime), new $_model.BatchAddFacesResponse({}));
   }
 
-  async batchAddFaces(request: BatchAddFacesRequest): Promise<BatchAddFacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 批量添加人脸数据
+   * 
+   * @param request - BatchAddFacesRequest
+   * @returns BatchAddFacesResponse
+   */
+  async batchAddFaces(request: $_model.BatchAddFacesRequest): Promise<$_model.BatchAddFacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.batchAddFacesWithOptions(request, runtime);
   }
 
-  async batchAddFacesAdvance(request: BatchAddFacesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddFacesResponse> {
+  async batchAddFacesAdvance(request: $_model.BatchAddFacesAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchAddFacesResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9118,56 +533,60 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let batchAddFacesReq = new BatchAddFacesRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let batchAddFacesReq = new $_model.BatchAddFacesRequest({ });
     OpenApiUtil.convert(request, batchAddFacesReq);
-    if (!Util.isUnset(request.faces)) {
+    if (!$dara.isNull(request.faces)) {
       let i0 : number = 0;
 
-      for (let item0 of request.faces) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.faces) {
+        if (!$dara.isNull(item0.imageURLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.imageURLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : BatchAddFacesRequestFaces = batchAddFacesReq.faces[i0];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.BatchAddFacesRequestFaces = batchAddFacesReq.faces[i0];
+          tmpObj.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
@@ -9177,182 +596,22 @@ export default class Client extends OpenApi {
     return batchAddFacesResp;
   }
 
-  async beautifyBodyWithOptions(tmpReq: BeautifyBodyRequest, runtime: $Util.RuntimeOptions): Promise<BeautifyBodyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BeautifyBodyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.ageRange)) {
-      request.ageRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ageRange, "AgeRange", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.bodyBoxes)) {
-      request.bodyBoxesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bodyBoxes, "BodyBoxes", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.faceList)) {
-      request.faceListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faceList, "FaceList", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.poseList)) {
-      request.poseListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.poseList, "PoseList", "json");
-    }
-
+  /**
+   * @param request - BlurFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BlurFaceResponse
+   */
+  async blurFaceWithOptions(request: $_model.BlurFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BlurFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ageRangeShrink)) {
-      body["AgeRange"] = request.ageRangeShrink;
-    }
-
-    if (!Util.isUnset(request.bodyBoxesShrink)) {
-      body["BodyBoxes"] = request.bodyBoxesShrink;
-    }
-
-    if (!Util.isUnset(request.custom)) {
-      body["Custom"] = request.custom;
-    }
-
-    if (!Util.isUnset(request.faceListShrink)) {
-      body["FaceList"] = request.faceListShrink;
-    }
-
-    if (!Util.isUnset(request.femaleLiquifyDegree)) {
-      body["FemaleLiquifyDegree"] = request.femaleLiquifyDegree;
-    }
-
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.isPregnant)) {
-      body["IsPregnant"] = request.isPregnant;
-    }
-
-    if (!Util.isUnset(request.lengthenDegree)) {
-      body["LengthenDegree"] = request.lengthenDegree;
-    }
-
-    if (!Util.isUnset(request.maleLiquifyDegree)) {
-      body["MaleLiquifyDegree"] = request.maleLiquifyDegree;
-    }
-
-    if (!Util.isUnset(request.originalHeight)) {
-      body["OriginalHeight"] = request.originalHeight;
-    }
-
-    if (!Util.isUnset(request.originalWidth)) {
-      body["OriginalWidth"] = request.originalWidth;
-    }
-
-    if (!Util.isUnset(request.poseListShrink)) {
-      body["PoseList"] = request.poseListShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "BeautifyBody",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<BeautifyBodyResponse>(await this.callApi(params, req, runtime), new BeautifyBodyResponse({}));
-  }
-
-  async beautifyBody(request: BeautifyBodyRequest): Promise<BeautifyBodyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.beautifyBodyWithOptions(request, runtime);
-  }
-
-  async beautifyBodyAdvance(request: BeautifyBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<BeautifyBodyResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let beautifyBodyReq = new BeautifyBodyRequest({ });
-    OpenApiUtil.convert(request, beautifyBodyReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      beautifyBodyReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let beautifyBodyResp = await this.beautifyBodyWithOptions(beautifyBodyReq, runtime);
-    return beautifyBodyResp;
-  }
-
-  async blurFaceWithOptions(request: BlurFaceRequest, runtime: $Util.RuntimeOptions): Promise<BlurFaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BlurFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9363,30 +622,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BlurFaceResponse>(await this.callApi(params, req, runtime), new BlurFaceResponse({}));
+    return $dara.cast<$_model.BlurFaceResponse>(await this.callApi(params, req, runtime), new $_model.BlurFaceResponse({}));
   }
 
-  async blurFace(request: BlurFaceRequest): Promise<BlurFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - BlurFaceRequest
+   * @returns BlurFaceResponse
+   */
+  async blurFace(request: $_model.BlurFaceRequest): Promise<$_model.BlurFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.blurFaceWithOptions(request, runtime);
   }
 
-  async blurFaceAdvance(request: BlurFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<BlurFaceResponse> {
+  async blurFaceAdvance(request: $_model.BlurFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BlurFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9395,67 +666,76 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let blurFaceReq = new BlurFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let blurFaceReq = new $_model.BlurFaceRequest({ });
     OpenApiUtil.convert(request, blurFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      blurFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      blurFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let blurFaceResp = await this.blurFaceWithOptions(blurFaceReq, runtime);
     return blurFaceResp;
   }
 
-  async bodyPostureWithOptions(request: BodyPostureRequest, runtime: $Util.RuntimeOptions): Promise<BodyPostureResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - BodyPostureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BodyPostureResponse
+   */
+  async bodyPostureWithOptions(request: $_model.BodyPostureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BodyPostureResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BodyPosture",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9466,30 +746,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BodyPostureResponse>(await this.callApi(params, req, runtime), new BodyPostureResponse({}));
+    return $dara.cast<$_model.BodyPostureResponse>(await this.callApi(params, req, runtime), new $_model.BodyPostureResponse({}));
   }
 
-  async bodyPosture(request: BodyPostureRequest): Promise<BodyPostureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - BodyPostureRequest
+   * @returns BodyPostureResponse
+   */
+  async bodyPosture(request: $_model.BodyPostureRequest): Promise<$_model.BodyPostureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bodyPostureWithOptions(request, runtime);
   }
 
-  async bodyPostureAdvance(request: BodyPostureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<BodyPostureResponse> {
+  async bodyPostureAdvance(request: $_model.BodyPostureAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BodyPostureResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9498,83 +790,94 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let bodyPostureReq = new BodyPostureRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let bodyPostureReq = new $_model.BodyPostureRequest({ });
     OpenApiUtil.convert(request, bodyPostureReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      bodyPostureReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      bodyPostureReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let bodyPostureResp = await this.bodyPostureWithOptions(bodyPostureReq, runtime);
     return bodyPostureResp;
   }
 
-  async compareFaceWithOptions(request: CompareFaceRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 人脸比对(1:1)
+   * 
+   * @param request - CompareFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareFaceResponse
+   */
+  async compareFaceWithOptions(request: $_model.CompareFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompareFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageDataA)) {
+    if (!$dara.isNull(request.imageDataA)) {
       body["ImageDataA"] = request.imageDataA;
     }
 
-    if (!Util.isUnset(request.imageDataB)) {
+    if (!$dara.isNull(request.imageDataB)) {
       body["ImageDataB"] = request.imageDataB;
     }
 
-    if (!Util.isUnset(request.imageURLA)) {
+    if (!$dara.isNull(request.imageURLA)) {
       body["ImageURLA"] = request.imageURLA;
     }
 
-    if (!Util.isUnset(request.imageURLB)) {
+    if (!$dara.isNull(request.imageURLB)) {
       body["ImageURLB"] = request.imageURLB;
     }
 
-    if (!Util.isUnset(request.qualityScoreThreshold)) {
+    if (!$dara.isNull(request.qualityScoreThreshold)) {
       body["QualityScoreThreshold"] = request.qualityScoreThreshold;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CompareFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9585,30 +888,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CompareFaceResponse>(await this.callApi(params, req, runtime), new CompareFaceResponse({}));
+    return $dara.cast<$_model.CompareFaceResponse>(await this.callApi(params, req, runtime), new $_model.CompareFaceResponse({}));
   }
 
-  async compareFace(request: CompareFaceRequest): Promise<CompareFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 人脸比对(1:1)
+   * 
+   * @param request - CompareFaceRequest
+   * @returns CompareFaceResponse
+   */
+  async compareFace(request: $_model.CompareFaceRequest): Promise<$_model.CompareFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.compareFaceWithOptions(request, runtime);
   }
 
-  async compareFaceAdvance(request: CompareFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceResponse> {
+  async compareFaceAdvance(request: $_model.CompareFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompareFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9617,101 +934,109 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let compareFaceReq = new CompareFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let compareFaceReq = new $_model.CompareFaceRequest({ });
     OpenApiUtil.convert(request, compareFaceReq);
-    if (!Util.isUnset(request.imageURLAObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLAObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLAObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      compareFaceReq.imageURLA = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      compareFaceReq.imageURLA = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
-    if (!Util.isUnset(request.imageURLBObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLBObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLBObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      compareFaceReq.imageURLB = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      compareFaceReq.imageURLB = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let compareFaceResp = await this.compareFaceWithOptions(compareFaceReq, runtime);
     return compareFaceResp;
   }
 
-  async compareFaceWithMaskWithOptions(request: CompareFaceWithMaskRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceWithMaskResponse> {
-    Util.validateModel(request);
+  /**
+   * 口罩人脸比对1:1
+   * 
+   * @param request - CompareFaceWithMaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareFaceWithMaskResponse
+   */
+  async compareFaceWithMaskWithOptions(request: $_model.CompareFaceWithMaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompareFaceWithMaskResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURLA)) {
+    if (!$dara.isNull(request.imageURLA)) {
       body["ImageURLA"] = request.imageURLA;
     }
 
-    if (!Util.isUnset(request.imageURLB)) {
+    if (!$dara.isNull(request.imageURLB)) {
       body["ImageURLB"] = request.imageURLB;
     }
 
-    if (!Util.isUnset(request.qualityScoreThreshold)) {
+    if (!$dara.isNull(request.qualityScoreThreshold)) {
       body["QualityScoreThreshold"] = request.qualityScoreThreshold;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CompareFaceWithMask",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9722,30 +1047,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CompareFaceWithMaskResponse>(await this.callApi(params, req, runtime), new CompareFaceWithMaskResponse({}));
+    return $dara.cast<$_model.CompareFaceWithMaskResponse>(await this.callApi(params, req, runtime), new $_model.CompareFaceWithMaskResponse({}));
   }
 
-  async compareFaceWithMask(request: CompareFaceWithMaskRequest): Promise<CompareFaceWithMaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 口罩人脸比对1:1
+   * 
+   * @param request - CompareFaceWithMaskRequest
+   * @returns CompareFaceWithMaskResponse
+   */
+  async compareFaceWithMask(request: $_model.CompareFaceWithMaskRequest): Promise<$_model.CompareFaceWithMaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.compareFaceWithMaskWithOptions(request, runtime);
   }
 
-  async compareFaceWithMaskAdvance(request: CompareFaceWithMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceWithMaskResponse> {
+  async compareFaceWithMaskAdvance(request: $_model.CompareFaceWithMaskAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CompareFaceWithMaskResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9754,93 +1093,99 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let compareFaceWithMaskReq = new CompareFaceWithMaskRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let compareFaceWithMaskReq = new $_model.CompareFaceWithMaskRequest({ });
     OpenApiUtil.convert(request, compareFaceWithMaskReq);
-    if (!Util.isUnset(request.imageURLAObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLAObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLAObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      compareFaceWithMaskReq.imageURLA = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      compareFaceWithMaskReq.imageURLA = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
-    if (!Util.isUnset(request.imageURLBObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLBObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLBObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      compareFaceWithMaskReq.imageURLB = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      compareFaceWithMaskReq.imageURLB = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let compareFaceWithMaskResp = await this.compareFaceWithMaskWithOptions(compareFaceWithMaskReq, runtime);
     return compareFaceWithMaskResp;
   }
 
-  async createFaceDbWithOptions(request: CreateFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceDbResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - CreateFaceDbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFaceDbResponse
+   */
+  async createFaceDbWithOptions(request: $_model.CreateFaceDbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFaceDbResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFaceDb",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9851,25 +1196,36 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateFaceDbResponse>(await this.callApi(params, req, runtime), new CreateFaceDbResponse({}));
+    return $dara.cast<$_model.CreateFaceDbResponse>(await this.callApi(params, req, runtime), new $_model.CreateFaceDbResponse({}));
   }
 
-  async createFaceDb(request: CreateFaceDbRequest): Promise<CreateFaceDbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - CreateFaceDbRequest
+   * @returns CreateFaceDbResponse
+   */
+  async createFaceDb(request: $_model.CreateFaceDbRequest): Promise<$_model.CreateFaceDbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createFaceDbWithOptions(request, runtime);
   }
 
-  async deepfakeFaceWithOptions(request: DeepfakeFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 换脸鉴别
+   * 
+   * @param request - DeepfakeFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeepfakeFaceResponse
+   */
+  async deepfakeFaceWithOptions(request: $_model.DeepfakeFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeepfakeFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       body["Tasks"] = request.tasks;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeepfakeFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9880,30 +1236,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeepfakeFaceResponse>(await this.callApi(params, req, runtime), new DeepfakeFaceResponse({}));
+    return $dara.cast<$_model.DeepfakeFaceResponse>(await this.callApi(params, req, runtime), new $_model.DeepfakeFaceResponse({}));
   }
 
-  async deepfakeFace(request: DeepfakeFaceRequest): Promise<DeepfakeFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 换脸鉴别
+   * 
+   * @param request - DeepfakeFaceRequest
+   * @returns DeepfakeFaceResponse
+   */
+  async deepfakeFace(request: $_model.DeepfakeFaceRequest): Promise<$_model.DeepfakeFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deepfakeFaceWithOptions(request, runtime);
   }
 
-  async deepfakeFaceAdvance(request: DeepfakeFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DeepfakeFaceResponse> {
+  async deepfakeFaceAdvance(request: $_model.DeepfakeFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeepfakeFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -9912,56 +1282,60 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let deepfakeFaceReq = new DeepfakeFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let deepfakeFaceReq = new $_model.DeepfakeFaceRequest({ });
     OpenApiUtil.convert(request, deepfakeFaceReq);
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       let i0 : number = 0;
 
-      for (let item0 of request.tasks) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.tasks) {
+        if (!$dara.isNull(item0.imageURLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.imageURLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : DeepfakeFaceRequestTasks = deepfakeFaceReq.tasks[i0];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.DeepfakeFaceRequestTasks = deepfakeFaceReq.tasks[i0];
+          tmpObj.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
@@ -9971,21 +1345,26 @@ export default class Client extends OpenApi {
     return deepfakeFaceResp;
   }
 
-  async deleteFaceWithOptions(request: DeleteFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceResponse
+   */
+  async deleteFaceWithOptions(request: $_model.DeleteFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.faceId)) {
+    if (!$dara.isNull(request.faceId)) {
       body["FaceId"] = request.faceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -9996,25 +1375,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFaceResponse>(await this.callApi(params, req, runtime), new DeleteFaceResponse({}));
+    return $dara.cast<$_model.DeleteFaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceResponse({}));
   }
 
-  async deleteFace(request: DeleteFaceRequest): Promise<DeleteFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteFaceRequest
+   * @returns DeleteFaceResponse
+   */
+  async deleteFace(request: $_model.DeleteFaceRequest): Promise<$_model.DeleteFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFaceWithOptions(request, runtime);
   }
 
-  async deleteFaceDbWithOptions(request: DeleteFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceDbResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteFaceDbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceDbResponse
+   */
+  async deleteFaceDbWithOptions(request: $_model.DeleteFaceDbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceDbResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFaceDb",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10025,29 +1413,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFaceDbResponse>(await this.callApi(params, req, runtime), new DeleteFaceDbResponse({}));
+    return $dara.cast<$_model.DeleteFaceDbResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceDbResponse({}));
   }
 
-  async deleteFaceDb(request: DeleteFaceDbRequest): Promise<DeleteFaceDbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteFaceDbRequest
+   * @returns DeleteFaceDbResponse
+   */
+  async deleteFaceDb(request: $_model.DeleteFaceDbRequest): Promise<$_model.DeleteFaceDbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFaceDbWithOptions(request, runtime);
   }
 
-  async deleteFaceEntityWithOptions(request: DeleteFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceEntityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DeleteFaceEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceEntityResponse
+   */
+  async deleteFaceEntityWithOptions(request: $_model.DeleteFaceEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceEntityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFaceEntity",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10058,25 +1455,36 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFaceEntityResponse>(await this.callApi(params, req, runtime), new DeleteFaceEntityResponse({}));
+    return $dara.cast<$_model.DeleteFaceEntityResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceEntityResponse({}));
   }
 
-  async deleteFaceEntity(request: DeleteFaceEntityRequest): Promise<DeleteFaceEntityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DeleteFaceEntityRequest
+   * @returns DeleteFaceEntityResponse
+   */
+  async deleteFaceEntity(request: $_model.DeleteFaceEntityRequest): Promise<$_model.DeleteFaceEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFaceEntityWithOptions(request, runtime);
   }
 
-  async deleteFaceImageTemplateWithOptions(request: DeleteFaceImageTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceImageTemplateResponse> {
-    Util.validateModel(request);
+  /**
+   * 图像人脸融合模板删除
+   * 
+   * @param request - DeleteFaceImageTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFaceImageTemplateResponse
+   */
+  async deleteFaceImageTemplateWithOptions(request: $_model.DeleteFaceImageTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaceImageTemplateResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       body["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFaceImageTemplate",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10087,25 +1495,36 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFaceImageTemplateResponse({}));
+    return $dara.cast<$_model.DeleteFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFaceImageTemplateResponse({}));
   }
 
-  async deleteFaceImageTemplate(request: DeleteFaceImageTemplateRequest): Promise<DeleteFaceImageTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 图像人脸融合模板删除
+   * 
+   * @param request - DeleteFaceImageTemplateRequest
+   * @returns DeleteFaceImageTemplateResponse
+   */
+  async deleteFaceImageTemplate(request: $_model.DeleteFaceImageTemplateRequest): Promise<$_model.DeleteFaceImageTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFaceImageTemplateWithOptions(request, runtime);
   }
 
-  async detectBodyCountWithOptions(request: DetectBodyCountRequest, runtime: $Util.RuntimeOptions): Promise<DetectBodyCountResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DetectBodyCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectBodyCountResponse
+   */
+  async detectBodyCountWithOptions(request: $_model.DetectBodyCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectBodyCountResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectBodyCount",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10116,30 +1535,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectBodyCountResponse>(await this.callApi(params, req, runtime), new DetectBodyCountResponse({}));
+    return $dara.cast<$_model.DetectBodyCountResponse>(await this.callApi(params, req, runtime), new $_model.DetectBodyCountResponse({}));
   }
 
-  async detectBodyCount(request: DetectBodyCountRequest): Promise<DetectBodyCountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetectBodyCountRequest
+   * @returns DetectBodyCountResponse
+   */
+  async detectBodyCount(request: $_model.DetectBodyCountRequest): Promise<$_model.DetectBodyCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectBodyCountWithOptions(request, runtime);
   }
 
-  async detectBodyCountAdvance(request: DetectBodyCountAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectBodyCountResponse> {
+  async detectBodyCountAdvance(request: $_model.DetectBodyCountAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectBodyCountResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10148,67 +1579,76 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectBodyCountReq = new DetectBodyCountRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectBodyCountReq = new $_model.DetectBodyCountRequest({ });
     OpenApiUtil.convert(request, detectBodyCountReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectBodyCountReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      detectBodyCountReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let detectBodyCountResp = await this.detectBodyCountWithOptions(detectBodyCountReq, runtime);
     return detectBodyCountResp;
   }
 
-  async detectCelebrityWithOptions(request: DetectCelebrityRequest, runtime: $Util.RuntimeOptions): Promise<DetectCelebrityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DetectCelebrityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectCelebrityResponse
+   */
+  async detectCelebrityWithOptions(request: $_model.DetectCelebrityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectCelebrityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectCelebrity",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10219,30 +1659,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectCelebrityResponse>(await this.callApi(params, req, runtime), new DetectCelebrityResponse({}));
+    return $dara.cast<$_model.DetectCelebrityResponse>(await this.callApi(params, req, runtime), new $_model.DetectCelebrityResponse({}));
   }
 
-  async detectCelebrity(request: DetectCelebrityRequest): Promise<DetectCelebrityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetectCelebrityRequest
+   * @returns DetectCelebrityResponse
+   */
+  async detectCelebrity(request: $_model.DetectCelebrityRequest): Promise<$_model.DetectCelebrityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectCelebrityWithOptions(request, runtime);
   }
 
-  async detectCelebrityAdvance(request: DetectCelebrityAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectCelebrityResponse> {
+  async detectCelebrityAdvance(request: $_model.DetectCelebrityAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectCelebrityResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10251,186 +1703,92 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectCelebrityReq = new DetectCelebrityRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectCelebrityReq = new $_model.DetectCelebrityRequest({ });
     OpenApiUtil.convert(request, detectCelebrityReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectCelebrityReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      detectCelebrityReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let detectCelebrityResp = await this.detectCelebrityWithOptions(detectCelebrityReq, runtime);
     return detectCelebrityResp;
   }
 
-  async detectChefCapWithOptions(request: DetectChefCapRequest, runtime: $Util.RuntimeOptions): Promise<DetectChefCapResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DetectFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectFaceResponse
+   */
+  async detectFaceWithOptions(request: $_model.DetectFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DetectChefCap",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DetectChefCapResponse>(await this.callApi(params, req, runtime), new DetectChefCapResponse({}));
-  }
-
-  async detectChefCap(request: DetectChefCapRequest): Promise<DetectChefCapResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectChefCapWithOptions(request, runtime);
-  }
-
-  async detectChefCapAdvance(request: DetectChefCapAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectChefCapResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectChefCapReq = new DetectChefCapRequest({ });
-    OpenApiUtil.convert(request, detectChefCapReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectChefCapReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let detectChefCapResp = await this.detectChefCapWithOptions(detectChefCapReq, runtime);
-    return detectChefCapResp;
-  }
-
-  async detectFaceWithOptions(request: DetectFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.landmark)) {
+    if (!$dara.isNull(request.landmark)) {
       body["Landmark"] = request.landmark;
     }
 
-    if (!Util.isUnset(request.maxFaceNumber)) {
+    if (!$dara.isNull(request.maxFaceNumber)) {
       body["MaxFaceNumber"] = request.maxFaceNumber;
     }
 
-    if (!Util.isUnset(request.pose)) {
+    if (!$dara.isNull(request.pose)) {
       body["Pose"] = request.pose;
     }
 
-    if (!Util.isUnset(request.quality)) {
+    if (!$dara.isNull(request.quality)) {
       body["Quality"] = request.quality;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10441,30 +1799,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectFaceResponse>(await this.callApi(params, req, runtime), new DetectFaceResponse({}));
+    return $dara.cast<$_model.DetectFaceResponse>(await this.callApi(params, req, runtime), new $_model.DetectFaceResponse({}));
   }
 
-  async detectFace(request: DetectFaceRequest): Promise<DetectFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetectFaceRequest
+   * @returns DetectFaceResponse
+   */
+  async detectFace(request: $_model.DetectFaceRequest): Promise<$_model.DetectFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectFaceWithOptions(request, runtime);
   }
 
-  async detectFaceAdvance(request: DetectFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceResponse> {
+  async detectFaceAdvance(request: $_model.DetectFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10473,67 +1843,78 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectFaceReq = new DetectFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectFaceReq = new $_model.DetectFaceRequest({ });
     OpenApiUtil.convert(request, detectFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      detectFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let detectFaceResp = await this.detectFaceWithOptions(detectFaceReq, runtime);
     return detectFaceResp;
   }
 
-  async detectInfraredLivingFaceWithOptions(request: DetectInfraredLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectInfraredLivingFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 红外人脸活体检测
+   * 
+   * @param request - DetectInfraredLivingFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectInfraredLivingFaceResponse
+   */
+  async detectInfraredLivingFaceWithOptions(request: $_model.DetectInfraredLivingFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectInfraredLivingFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       body["Tasks"] = request.tasks;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectInfraredLivingFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10544,30 +1925,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectInfraredLivingFaceResponse>(await this.callApi(params, req, runtime), new DetectInfraredLivingFaceResponse({}));
+    return $dara.cast<$_model.DetectInfraredLivingFaceResponse>(await this.callApi(params, req, runtime), new $_model.DetectInfraredLivingFaceResponse({}));
   }
 
-  async detectInfraredLivingFace(request: DetectInfraredLivingFaceRequest): Promise<DetectInfraredLivingFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 红外人脸活体检测
+   * 
+   * @param request - DetectInfraredLivingFaceRequest
+   * @returns DetectInfraredLivingFaceResponse
+   */
+  async detectInfraredLivingFace(request: $_model.DetectInfraredLivingFaceRequest): Promise<$_model.DetectInfraredLivingFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectInfraredLivingFaceWithOptions(request, runtime);
   }
 
-  async detectInfraredLivingFaceAdvance(request: DetectInfraredLivingFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectInfraredLivingFaceResponse> {
+  async detectInfraredLivingFaceAdvance(request: $_model.DetectInfraredLivingFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectInfraredLivingFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10576,56 +1971,60 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectInfraredLivingFaceReq = new DetectInfraredLivingFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectInfraredLivingFaceReq = new $_model.DetectInfraredLivingFaceRequest({ });
     OpenApiUtil.convert(request, detectInfraredLivingFaceReq);
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       let i0 : number = 0;
 
-      for (let item0 of request.tasks) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.tasks) {
+        if (!$dara.isNull(item0.imageURLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.imageURLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : DetectInfraredLivingFaceRequestTasks = detectInfraredLivingFaceReq.tasks[i0];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.DetectInfraredLivingFaceRequestTasks = detectInfraredLivingFaceReq.tasks[i0];
+          tmpObj.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
@@ -10635,17 +2034,24 @@ export default class Client extends OpenApi {
     return detectInfraredLivingFaceResp;
   }
 
-  async detectLivingFaceWithOptions(request: DetectLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLivingFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 人脸活体检测(DetectLivingFace)
+   * 
+   * @param request - DetectLivingFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectLivingFaceResponse
+   */
+  async detectLivingFaceWithOptions(request: $_model.DetectLivingFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectLivingFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       body["Tasks"] = request.tasks;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectLivingFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10656,30 +2062,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectLivingFaceResponse>(await this.callApi(params, req, runtime), new DetectLivingFaceResponse({}));
+    return $dara.cast<$_model.DetectLivingFaceResponse>(await this.callApi(params, req, runtime), new $_model.DetectLivingFaceResponse({}));
   }
 
-  async detectLivingFace(request: DetectLivingFaceRequest): Promise<DetectLivingFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 人脸活体检测(DetectLivingFace)
+   * 
+   * @param request - DetectLivingFaceRequest
+   * @returns DetectLivingFaceResponse
+   */
+  async detectLivingFace(request: $_model.DetectLivingFaceRequest): Promise<$_model.DetectLivingFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectLivingFaceWithOptions(request, runtime);
   }
 
-  async detectLivingFaceAdvance(request: DetectLivingFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLivingFaceResponse> {
+  async detectLivingFaceAdvance(request: $_model.DetectLivingFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectLivingFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10688,56 +2108,60 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectLivingFaceReq = new DetectLivingFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectLivingFaceReq = new $_model.DetectLivingFaceRequest({ });
     OpenApiUtil.convert(request, detectLivingFaceReq);
-    if (!Util.isUnset(request.tasks)) {
+    if (!$dara.isNull(request.tasks)) {
       let i0 : number = 0;
 
-      for (let item0 of request.tasks) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.tasks) {
+        if (!$dara.isNull(item0.imageURLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.imageURLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : DetectLivingFaceRequestTasks = detectLivingFaceReq.tasks[i0];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.DetectLivingFaceRequestTasks = detectLivingFaceReq.tasks[i0];
+          tmpObj.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
@@ -10747,17 +2171,22 @@ export default class Client extends OpenApi {
     return detectLivingFaceResp;
   }
 
-  async detectPedestrianWithOptions(request: DetectPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - DetectPedestrianRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectPedestrianResponse
+   */
+  async detectPedestrianWithOptions(request: $_model.DetectPedestrianRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectPedestrianResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectPedestrian",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10768,30 +2197,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectPedestrianResponse>(await this.callApi(params, req, runtime), new DetectPedestrianResponse({}));
+    return $dara.cast<$_model.DetectPedestrianResponse>(await this.callApi(params, req, runtime), new $_model.DetectPedestrianResponse({}));
   }
 
-  async detectPedestrian(request: DetectPedestrianRequest): Promise<DetectPedestrianResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetectPedestrianRequest
+   * @returns DetectPedestrianResponse
+   */
+  async detectPedestrian(request: $_model.DetectPedestrianRequest): Promise<$_model.DetectPedestrianResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectPedestrianWithOptions(request, runtime);
   }
 
-  async detectPedestrianAdvance(request: DetectPedestrianAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianResponse> {
+  async detectPedestrianAdvance(request: $_model.DetectPedestrianAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectPedestrianResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -10800,184 +2241,76 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectPedestrianReq = new DetectPedestrianRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectPedestrianReq = new $_model.DetectPedestrianRequest({ });
     OpenApiUtil.convert(request, detectPedestrianReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectPedestrianReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      detectPedestrianReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let detectPedestrianResp = await this.detectPedestrianWithOptions(detectPedestrianReq, runtime);
     return detectPedestrianResp;
   }
 
-  async detectPedestrianIntrusionWithOptions(tmpReq: DetectPedestrianIntrusionRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianIntrusionResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DetectPedestrianIntrusionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.detectRegion)) {
-      request.detectRegionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detectRegion, "DetectRegion", "json");
-    }
-
+  /**
+   * @param request - DetectVideoLivingFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectVideoLivingFaceResponse
+   */
+  async detectVideoLivingFaceWithOptions(request: $_model.DetectVideoLivingFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectVideoLivingFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.detectRegionShrink)) {
-      body["DetectRegion"] = request.detectRegionShrink;
-    }
-
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.regionType)) {
-      body["RegionType"] = request.regionType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DetectPedestrianIntrusion",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DetectPedestrianIntrusionResponse>(await this.callApi(params, req, runtime), new DetectPedestrianIntrusionResponse({}));
-  }
-
-  async detectPedestrianIntrusion(request: DetectPedestrianIntrusionRequest): Promise<DetectPedestrianIntrusionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectPedestrianIntrusionWithOptions(request, runtime);
-  }
-
-  async detectPedestrianIntrusionAdvance(request: DetectPedestrianIntrusionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianIntrusionResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectPedestrianIntrusionReq = new DetectPedestrianIntrusionRequest({ });
-    OpenApiUtil.convert(request, detectPedestrianIntrusionReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectPedestrianIntrusionReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let detectPedestrianIntrusionResp = await this.detectPedestrianIntrusionWithOptions(detectPedestrianIntrusionReq, runtime);
-    return detectPedestrianIntrusionResp;
-  }
-
-  async detectVideoLivingFaceWithOptions(request: DetectVideoLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoLivingFaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.videoUrl)) {
+    if (!$dara.isNull(request.videoUrl)) {
       body["VideoUrl"] = request.videoUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetectVideoLivingFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -10988,30 +2321,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetectVideoLivingFaceResponse>(await this.callApi(params, req, runtime), new DetectVideoLivingFaceResponse({}));
+    return $dara.cast<$_model.DetectVideoLivingFaceResponse>(await this.callApi(params, req, runtime), new $_model.DetectVideoLivingFaceResponse({}));
   }
 
-  async detectVideoLivingFace(request: DetectVideoLivingFaceRequest): Promise<DetectVideoLivingFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - DetectVideoLivingFaceRequest
+   * @returns DetectVideoLivingFaceResponse
+   */
+  async detectVideoLivingFace(request: $_model.DetectVideoLivingFaceRequest): Promise<$_model.DetectVideoLivingFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detectVideoLivingFaceWithOptions(request, runtime);
   }
 
-  async detectVideoLivingFaceAdvance(request: DetectVideoLivingFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoLivingFaceResponse> {
+  async detectVideoLivingFaceAdvance(request: $_model.DetectVideoLivingFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetectVideoLivingFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -11020,67 +2365,76 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectVideoLivingFaceReq = new DetectVideoLivingFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let detectVideoLivingFaceReq = new $_model.DetectVideoLivingFaceRequest({ });
     OpenApiUtil.convert(request, detectVideoLivingFaceReq);
-    if (!Util.isUnset(request.videoUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.videoUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.videoUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectVideoLivingFaceReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      detectVideoLivingFaceReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let detectVideoLivingFaceResp = await this.detectVideoLivingFaceWithOptions(detectVideoLivingFaceReq, runtime);
     return detectVideoLivingFaceResp;
   }
 
-  async enhanceFaceWithOptions(request: EnhanceFaceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - EnhanceFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnhanceFaceResponse
+   */
+  async enhanceFaceWithOptions(request: $_model.EnhanceFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnhanceFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnhanceFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -11091,30 +2445,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnhanceFaceResponse>(await this.callApi(params, req, runtime), new EnhanceFaceResponse({}));
+    return $dara.cast<$_model.EnhanceFaceResponse>(await this.callApi(params, req, runtime), new $_model.EnhanceFaceResponse({}));
   }
 
-  async enhanceFace(request: EnhanceFaceRequest): Promise<EnhanceFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - EnhanceFaceRequest
+   * @returns EnhanceFaceResponse
+   */
+  async enhanceFace(request: $_model.EnhanceFaceRequest): Promise<$_model.EnhanceFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enhanceFaceWithOptions(request, runtime);
   }
 
-  async enhanceFaceAdvance(request: EnhanceFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceFaceResponse> {
+  async enhanceFaceAdvance(request: $_model.EnhanceFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnhanceFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -11123,71 +2489,82 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let enhanceFaceReq = new EnhanceFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let enhanceFaceReq = new $_model.EnhanceFaceRequest({ });
     OpenApiUtil.convert(request, enhanceFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      enhanceFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      enhanceFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let enhanceFaceResp = await this.enhanceFaceWithOptions(enhanceFaceReq, runtime);
     return enhanceFaceResp;
   }
 
-  async extractFingerPrintWithOptions(request: ExtractFingerPrintRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFingerPrintResponse> {
-    Util.validateModel(request);
+  /**
+   * 指纹提取
+   * 
+   * @param request - ExtractFingerPrintRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExtractFingerPrintResponse
+   */
+  async extractFingerPrintWithOptions(request: $_model.ExtractFingerPrintRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExtractFingerPrintResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageData)) {
+    if (!$dara.isNull(request.imageData)) {
       body["ImageData"] = request.imageData;
     }
 
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExtractFingerPrint",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -11198,30 +2575,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExtractFingerPrintResponse>(await this.callApi(params, req, runtime), new ExtractFingerPrintResponse({}));
+    return $dara.cast<$_model.ExtractFingerPrintResponse>(await this.callApi(params, req, runtime), new $_model.ExtractFingerPrintResponse({}));
   }
 
-  async extractFingerPrint(request: ExtractFingerPrintRequest): Promise<ExtractFingerPrintResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 指纹提取
+   * 
+   * @param request - ExtractFingerPrintRequest
+   * @returns ExtractFingerPrintResponse
+   */
+  async extractFingerPrint(request: $_model.ExtractFingerPrintRequest): Promise<$_model.ExtractFingerPrintResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.extractFingerPrintWithOptions(request, runtime);
   }
 
-  async extractFingerPrintAdvance(request: ExtractFingerPrintAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFingerPrintResponse> {
+  async extractFingerPrintAdvance(request: $_model.ExtractFingerPrintAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExtractFingerPrintResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -11230,190 +2621,88 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let extractFingerPrintReq = new ExtractFingerPrintRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let extractFingerPrintReq = new $_model.ExtractFingerPrintRequest({ });
     OpenApiUtil.convert(request, extractFingerPrintReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      extractFingerPrintReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      extractFingerPrintReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let extractFingerPrintResp = await this.extractFingerPrintWithOptions(extractFingerPrintReq, runtime);
     return extractFingerPrintResp;
   }
 
-  async extractPedestrianFeatureAttrWithOptions(request: ExtractPedestrianFeatureAttrRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttrResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - FaceBeautyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceBeautyResponse
+   */
+  async faceBeautyWithOptions(request: $_model.FaceBeautyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceBeautyResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.mode)) {
-      body["Mode"] = request.mode;
-    }
-
-    if (!Util.isUnset(request.serviceVersion)) {
-      body["ServiceVersion"] = request.serviceVersion;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExtractPedestrianFeatureAttr",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ExtractPedestrianFeatureAttrResponse>(await this.callApi(params, req, runtime), new ExtractPedestrianFeatureAttrResponse({}));
-  }
-
-  async extractPedestrianFeatureAttr(request: ExtractPedestrianFeatureAttrRequest): Promise<ExtractPedestrianFeatureAttrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.extractPedestrianFeatureAttrWithOptions(request, runtime);
-  }
-
-  async extractPedestrianFeatureAttrAdvance(request: ExtractPedestrianFeatureAttrAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttrResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let extractPedestrianFeatureAttrReq = new ExtractPedestrianFeatureAttrRequest({ });
-    OpenApiUtil.convert(request, extractPedestrianFeatureAttrReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      extractPedestrianFeatureAttrReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let extractPedestrianFeatureAttrResp = await this.extractPedestrianFeatureAttrWithOptions(extractPedestrianFeatureAttrReq, runtime);
-    return extractPedestrianFeatureAttrResp;
-  }
-
-  async faceBeautyWithOptions(request: FaceBeautyRequest, runtime: $Util.RuntimeOptions): Promise<FaceBeautyResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.sharp)) {
+    if (!$dara.isNull(request.sharp)) {
       body["Sharp"] = request.sharp;
     }
 
-    if (!Util.isUnset(request.smooth)) {
+    if (!$dara.isNull(request.smooth)) {
       body["Smooth"] = request.smooth;
     }
 
-    if (!Util.isUnset(request.white)) {
+    if (!$dara.isNull(request.white)) {
       body["White"] = request.white;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FaceBeauty",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -11424,30 +2713,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FaceBeautyResponse>(await this.callApi(params, req, runtime), new FaceBeautyResponse({}));
+    return $dara.cast<$_model.FaceBeautyResponse>(await this.callApi(params, req, runtime), new $_model.FaceBeautyResponse({}));
   }
 
-  async faceBeauty(request: FaceBeautyRequest): Promise<FaceBeautyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - FaceBeautyRequest
+   * @returns FaceBeautyResponse
+   */
+  async faceBeauty(request: $_model.FaceBeautyRequest): Promise<$_model.FaceBeautyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.faceBeautyWithOptions(request, runtime);
   }
 
-  async faceBeautyAdvance(request: FaceBeautyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<FaceBeautyResponse> {
+  async faceBeautyAdvance(request: $_model.FaceBeautyAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceBeautyResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -11456,412 +2757,84 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let faceBeautyReq = new FaceBeautyRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let faceBeautyReq = new $_model.FaceBeautyRequest({ });
     OpenApiUtil.convert(request, faceBeautyReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      faceBeautyReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      faceBeautyReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let faceBeautyResp = await this.faceBeautyWithOptions(faceBeautyReq, runtime);
     return faceBeautyResp;
   }
 
-  async faceFilterWithOptions(request: FaceFilterRequest, runtime: $Util.RuntimeOptions): Promise<FaceFilterResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GenRealPersonVerificationTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenRealPersonVerificationTokenResponse
+   */
+  async genRealPersonVerificationTokenWithOptions(request: $_model.GenRealPersonVerificationTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenRealPersonVerificationTokenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      body["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.strength)) {
-      body["Strength"] = request.strength;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "FaceFilter",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<FaceFilterResponse>(await this.callApi(params, req, runtime), new FaceFilterResponse({}));
-  }
-
-  async faceFilter(request: FaceFilterRequest): Promise<FaceFilterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.faceFilterWithOptions(request, runtime);
-  }
-
-  async faceFilterAdvance(request: FaceFilterAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<FaceFilterResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let faceFilterReq = new FaceFilterRequest({ });
-    OpenApiUtil.convert(request, faceFilterReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      faceFilterReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let faceFilterResp = await this.faceFilterWithOptions(faceFilterReq, runtime);
-    return faceFilterResp;
-  }
-
-  async faceMakeupWithOptions(request: FaceMakeupRequest, runtime: $Util.RuntimeOptions): Promise<FaceMakeupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.makeupType)) {
-      body["MakeupType"] = request.makeupType;
-    }
-
-    if (!Util.isUnset(request.resourceType)) {
-      body["ResourceType"] = request.resourceType;
-    }
-
-    if (!Util.isUnset(request.strength)) {
-      body["Strength"] = request.strength;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "FaceMakeup",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<FaceMakeupResponse>(await this.callApi(params, req, runtime), new FaceMakeupResponse({}));
-  }
-
-  async faceMakeup(request: FaceMakeupRequest): Promise<FaceMakeupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.faceMakeupWithOptions(request, runtime);
-  }
-
-  async faceMakeupAdvance(request: FaceMakeupAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<FaceMakeupResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let faceMakeupReq = new FaceMakeupRequest({ });
-    OpenApiUtil.convert(request, faceMakeupReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      faceMakeupReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let faceMakeupResp = await this.faceMakeupWithOptions(faceMakeupReq, runtime);
-    return faceMakeupResp;
-  }
-
-  async faceTidyupWithOptions(request: FaceTidyupRequest, runtime: $Util.RuntimeOptions): Promise<FaceTidyupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.shapeType)) {
-      body["ShapeType"] = request.shapeType;
-    }
-
-    if (!Util.isUnset(request.strength)) {
-      body["Strength"] = request.strength;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "FaceTidyup",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<FaceTidyupResponse>(await this.callApi(params, req, runtime), new FaceTidyupResponse({}));
-  }
-
-  async faceTidyup(request: FaceTidyupRequest): Promise<FaceTidyupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.faceTidyupWithOptions(request, runtime);
-  }
-
-  async faceTidyupAdvance(request: FaceTidyupAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<FaceTidyupResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let faceTidyupReq = new FaceTidyupRequest({ });
-    OpenApiUtil.convert(request, faceTidyupReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      faceTidyupReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let faceTidyupResp = await this.faceTidyupWithOptions(faceTidyupReq, runtime);
-    return faceTidyupResp;
-  }
-
-  async genRealPersonVerificationTokenWithOptions(request: GenRealPersonVerificationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenRealPersonVerificationTokenResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.certificateName)) {
+    if (!$dara.isNull(request.certificateName)) {
       body["CertificateName"] = request.certificateName;
     }
 
-    if (!Util.isUnset(request.certificateNumber)) {
+    if (!$dara.isNull(request.certificateNumber)) {
       body["CertificateNumber"] = request.certificateNumber;
     }
 
-    if (!Util.isUnset(request.metaInfo)) {
+    if (!$dara.isNull(request.metaInfo)) {
       body["MetaInfo"] = request.metaInfo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenRealPersonVerificationToken",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -11872,29 +2845,38 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenRealPersonVerificationTokenResponse>(await this.callApi(params, req, runtime), new GenRealPersonVerificationTokenResponse({}));
+    return $dara.cast<$_model.GenRealPersonVerificationTokenResponse>(await this.callApi(params, req, runtime), new $_model.GenRealPersonVerificationTokenResponse({}));
   }
 
-  async genRealPersonVerificationToken(request: GenRealPersonVerificationTokenRequest): Promise<GenRealPersonVerificationTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GenRealPersonVerificationTokenRequest
+   * @returns GenRealPersonVerificationTokenResponse
+   */
+  async genRealPersonVerificationToken(request: $_model.GenRealPersonVerificationTokenRequest): Promise<$_model.GenRealPersonVerificationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.genRealPersonVerificationTokenWithOptions(request, runtime);
   }
 
-  async generateHumanAnimeStyleWithOptions(request: GenerateHumanAnimeStyleRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GenerateHumanAnimeStyleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateHumanAnimeStyleResponse
+   */
+  async generateHumanAnimeStyleWithOptions(request: $_model.GenerateHumanAnimeStyleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateHumanAnimeStyleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.algoType)) {
+    if (!$dara.isNull(request.algoType)) {
       query["AlgoType"] = request.algoType;
     }
 
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       query["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateHumanAnimeStyle",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -11905,30 +2887,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateHumanAnimeStyleResponse>(await this.callApi(params, req, runtime), new GenerateHumanAnimeStyleResponse({}));
+    return $dara.cast<$_model.GenerateHumanAnimeStyleResponse>(await this.callApi(params, req, runtime), new $_model.GenerateHumanAnimeStyleResponse({}));
   }
 
-  async generateHumanAnimeStyle(request: GenerateHumanAnimeStyleRequest): Promise<GenerateHumanAnimeStyleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GenerateHumanAnimeStyleRequest
+   * @returns GenerateHumanAnimeStyleResponse
+   */
+  async generateHumanAnimeStyle(request: $_model.GenerateHumanAnimeStyleRequest): Promise<$_model.GenerateHumanAnimeStyleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateHumanAnimeStyleWithOptions(request, runtime);
   }
 
-  async generateHumanAnimeStyleAdvance(request: GenerateHumanAnimeStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleResponse> {
+  async generateHumanAnimeStyleAdvance(request: $_model.GenerateHumanAnimeStyleAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateHumanAnimeStyleResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -11937,71 +2931,82 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let generateHumanAnimeStyleReq = new GenerateHumanAnimeStyleRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let generateHumanAnimeStyleReq = new $_model.GenerateHumanAnimeStyleRequest({ });
     OpenApiUtil.convert(request, generateHumanAnimeStyleReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      generateHumanAnimeStyleReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      generateHumanAnimeStyleReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let generateHumanAnimeStyleResp = await this.generateHumanAnimeStyleWithOptions(generateHumanAnimeStyleReq, runtime);
     return generateHumanAnimeStyleResp;
   }
 
-  async generateHumanSketchStyleWithOptions(request: GenerateHumanSketchStyleRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanSketchStyleResponse> {
-    Util.validateModel(request);
+  /**
+   * 人像素描风格化
+   * 
+   * @param request - GenerateHumanSketchStyleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateHumanSketchStyleResponse
+   */
+  async generateHumanSketchStyleWithOptions(request: $_model.GenerateHumanSketchStyleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateHumanSketchStyleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.returnType)) {
+    if (!$dara.isNull(request.returnType)) {
       body["ReturnType"] = request.returnType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateHumanSketchStyle",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12012,30 +3017,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateHumanSketchStyleResponse>(await this.callApi(params, req, runtime), new GenerateHumanSketchStyleResponse({}));
+    return $dara.cast<$_model.GenerateHumanSketchStyleResponse>(await this.callApi(params, req, runtime), new $_model.GenerateHumanSketchStyleResponse({}));
   }
 
-  async generateHumanSketchStyle(request: GenerateHumanSketchStyleRequest): Promise<GenerateHumanSketchStyleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 人像素描风格化
+   * 
+   * @param request - GenerateHumanSketchStyleRequest
+   * @returns GenerateHumanSketchStyleResponse
+   */
+  async generateHumanSketchStyle(request: $_model.GenerateHumanSketchStyleRequest): Promise<$_model.GenerateHumanSketchStyleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateHumanSketchStyleWithOptions(request, runtime);
   }
 
-  async generateHumanSketchStyleAdvance(request: GenerateHumanSketchStyleAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanSketchStyleResponse> {
+  async generateHumanSketchStyleAdvance(request: $_model.GenerateHumanSketchStyleAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateHumanSketchStyleResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12044,71 +3063,80 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let generateHumanSketchStyleReq = new GenerateHumanSketchStyleRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let generateHumanSketchStyleReq = new $_model.GenerateHumanSketchStyleRequest({ });
     OpenApiUtil.convert(request, generateHumanSketchStyleReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      generateHumanSketchStyleReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      generateHumanSketchStyleReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let generateHumanSketchStyleResp = await this.generateHumanSketchStyleWithOptions(generateHumanSketchStyleReq, runtime);
     return generateHumanSketchStyleResp;
   }
 
-  async getFaceEntityWithOptions(request: GetFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetFaceEntityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetFaceEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFaceEntityResponse
+   */
+  async getFaceEntityWithOptions(request: $_model.GetFaceEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFaceEntityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFaceEntity",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12119,25 +3147,34 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetFaceEntityResponse>(await this.callApi(params, req, runtime), new GetFaceEntityResponse({}));
+    return $dara.cast<$_model.GetFaceEntityResponse>(await this.callApi(params, req, runtime), new $_model.GetFaceEntityResponse({}));
   }
 
-  async getFaceEntity(request: GetFaceEntityRequest): Promise<GetFaceEntityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetFaceEntityRequest
+   * @returns GetFaceEntityResponse
+   */
+  async getFaceEntity(request: $_model.GetFaceEntityRequest): Promise<$_model.GetFaceEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getFaceEntityWithOptions(request, runtime);
   }
 
-  async getRealPersonVerificationResultWithOptions(request: GetRealPersonVerificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetRealPersonVerificationResultResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - GetRealPersonVerificationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRealPersonVerificationResultResponse
+   */
+  async getRealPersonVerificationResultWithOptions(request: $_model.GetRealPersonVerificationResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRealPersonVerificationResultResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.verificationToken)) {
+    if (!$dara.isNull(request.verificationToken)) {
       body["VerificationToken"] = request.verificationToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRealPersonVerificationResult",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12148,132 +3185,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRealPersonVerificationResultResponse>(await this.callApi(params, req, runtime), new GetRealPersonVerificationResultResponse({}));
+    return $dara.cast<$_model.GetRealPersonVerificationResultResponse>(await this.callApi(params, req, runtime), new $_model.GetRealPersonVerificationResultResponse({}));
   }
 
-  async getRealPersonVerificationResult(request: GetRealPersonVerificationResultRequest): Promise<GetRealPersonVerificationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - GetRealPersonVerificationResultRequest
+   * @returns GetRealPersonVerificationResultResponse
+   */
+  async getRealPersonVerificationResult(request: $_model.GetRealPersonVerificationResultRequest): Promise<$_model.GetRealPersonVerificationResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRealPersonVerificationResultWithOptions(request, runtime);
   }
 
-  async handPostureWithOptions(request: HandPostureRequest, runtime: $Util.RuntimeOptions): Promise<HandPostureResponse> {
-    Util.validateModel(request);
+  /**
+   * 智能瘦脸
+   * 
+   * @param request - LiquifyFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LiquifyFaceResponse
+   */
+  async liquifyFaceWithOptions(request: $_model.LiquifyFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LiquifyFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "HandPosture",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<HandPostureResponse>(await this.callApi(params, req, runtime), new HandPostureResponse({}));
-  }
-
-  async handPosture(request: HandPostureRequest): Promise<HandPostureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.handPostureWithOptions(request, runtime);
-  }
-
-  async handPostureAdvance(request: HandPostureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<HandPostureResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let handPostureReq = new HandPostureRequest({ });
-    OpenApiUtil.convert(request, handPostureReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      handPostureReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let handPostureResp = await this.handPostureWithOptions(handPostureReq, runtime);
-    return handPostureResp;
-  }
-
-  async liquifyFaceWithOptions(request: LiquifyFaceRequest, runtime: $Util.RuntimeOptions): Promise<LiquifyFaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.slimDegree)) {
+    if (!$dara.isNull(request.slimDegree)) {
       body["SlimDegree"] = request.slimDegree;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LiquifyFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12284,30 +3229,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LiquifyFaceResponse>(await this.callApi(params, req, runtime), new LiquifyFaceResponse({}));
+    return $dara.cast<$_model.LiquifyFaceResponse>(await this.callApi(params, req, runtime), new $_model.LiquifyFaceResponse({}));
   }
 
-  async liquifyFace(request: LiquifyFaceRequest): Promise<LiquifyFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 智能瘦脸
+   * 
+   * @param request - LiquifyFaceRequest
+   * @returns LiquifyFaceResponse
+   */
+  async liquifyFace(request: $_model.LiquifyFaceRequest): Promise<$_model.LiquifyFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.liquifyFaceWithOptions(request, runtime);
   }
 
-  async liquifyFaceAdvance(request: LiquifyFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<LiquifyFaceResponse> {
+  async liquifyFaceAdvance(request: $_model.LiquifyFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LiquifyFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12316,71 +3275,80 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let liquifyFaceReq = new LiquifyFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let liquifyFaceReq = new $_model.LiquifyFaceRequest({ });
     OpenApiUtil.convert(request, liquifyFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      liquifyFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      liquifyFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let liquifyFaceResp = await this.liquifyFaceWithOptions(liquifyFaceReq, runtime);
     return liquifyFaceResp;
   }
 
-  async listFaceDbsWithOptions(request: ListFaceDbsRequest, runtime: $Util.RuntimeOptions): Promise<ListFaceDbsResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListFaceDbsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFaceDbsResponse
+   */
+  async listFaceDbsWithOptions(request: $_model.ListFaceDbsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFaceDbsResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       body["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.offset)) {
+    if (!$dara.isNull(request.offset)) {
       body["Offset"] = request.offset;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFaceDbs",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12391,49 +3359,58 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFaceDbsResponse>(await this.callApi(params, req, runtime), new ListFaceDbsResponse({}));
+    return $dara.cast<$_model.ListFaceDbsResponse>(await this.callApi(params, req, runtime), new $_model.ListFaceDbsResponse({}));
   }
 
-  async listFaceDbs(request: ListFaceDbsRequest): Promise<ListFaceDbsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListFaceDbsRequest
+   * @returns ListFaceDbsResponse
+   */
+  async listFaceDbs(request: $_model.ListFaceDbsRequest): Promise<$_model.ListFaceDbsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFaceDbsWithOptions(request, runtime);
   }
 
-  async listFaceEntitiesWithOptions(request: ListFaceEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListFaceEntitiesResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - ListFaceEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFaceEntitiesResponse
+   */
+  async listFaceEntitiesWithOptions(request: $_model.ListFaceEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFaceEntitiesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityIdPrefix)) {
+    if (!$dara.isNull(request.entityIdPrefix)) {
       body["EntityIdPrefix"] = request.entityIdPrefix;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       body["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.offset)) {
+    if (!$dara.isNull(request.offset)) {
       body["Offset"] = request.offset;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       body["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       body["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFaceEntities",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12444,45 +3421,56 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFaceEntitiesResponse>(await this.callApi(params, req, runtime), new ListFaceEntitiesResponse({}));
+    return $dara.cast<$_model.ListFaceEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListFaceEntitiesResponse({}));
   }
 
-  async listFaceEntities(request: ListFaceEntitiesRequest): Promise<ListFaceEntitiesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - ListFaceEntitiesRequest
+   * @returns ListFaceEntitiesResponse
+   */
+  async listFaceEntities(request: $_model.ListFaceEntitiesRequest): Promise<$_model.ListFaceEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFaceEntitiesWithOptions(request, runtime);
   }
 
-  async mergeImageFaceWithOptions(request: MergeImageFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeImageFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * 图像人脸融合
+   * 
+   * @param request - MergeImageFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MergeImageFaceResponse
+   */
+  async mergeImageFaceWithOptions(request: $_model.MergeImageFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MergeImageFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addWatermark)) {
+    if (!$dara.isNull(request.addWatermark)) {
       body["AddWatermark"] = request.addWatermark;
     }
 
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.mergeInfos)) {
+    if (!$dara.isNull(request.mergeInfos)) {
       body["MergeInfos"] = request.mergeInfos;
     }
 
-    if (!Util.isUnset(request.modelVersion)) {
+    if (!$dara.isNull(request.modelVersion)) {
       body["ModelVersion"] = request.modelVersion;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       body["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.watermarkType)) {
+    if (!$dara.isNull(request.watermarkType)) {
       body["WatermarkType"] = request.watermarkType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MergeImageFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12493,30 +3481,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MergeImageFaceResponse>(await this.callApi(params, req, runtime), new MergeImageFaceResponse({}));
+    return $dara.cast<$_model.MergeImageFaceResponse>(await this.callApi(params, req, runtime), new $_model.MergeImageFaceResponse({}));
   }
 
-  async mergeImageFace(request: MergeImageFaceRequest): Promise<MergeImageFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 图像人脸融合
+   * 
+   * @param request - MergeImageFaceRequest
+   * @returns MergeImageFaceResponse
+   */
+  async mergeImageFace(request: $_model.MergeImageFaceRequest): Promise<$_model.MergeImageFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.mergeImageFaceWithOptions(request, runtime);
   }
 
-  async mergeImageFaceAdvance(request: MergeImageFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<MergeImageFaceResponse> {
+  async mergeImageFaceAdvance(request: $_model.MergeImageFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MergeImageFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12525,71 +3527,82 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let mergeImageFaceReq = new MergeImageFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let mergeImageFaceReq = new $_model.MergeImageFaceRequest({ });
     OpenApiUtil.convert(request, mergeImageFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      mergeImageFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      mergeImageFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let mergeImageFaceResp = await this.mergeImageFaceWithOptions(mergeImageFaceReq, runtime);
     return mergeImageFaceResp;
   }
 
-  async monitorExaminationWithOptions(request: MonitorExaminationRequest, runtime: $Util.RuntimeOptions): Promise<MonitorExaminationResponse> {
-    Util.validateModel(request);
+  /**
+   * 线上监考
+   * 
+   * @param request - MonitorExaminationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MonitorExaminationResponse
+   */
+  async monitorExaminationWithOptions(request: $_model.MonitorExaminationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MonitorExaminationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MonitorExamination",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12600,30 +3613,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MonitorExaminationResponse>(await this.callApi(params, req, runtime), new MonitorExaminationResponse({}));
+    return $dara.cast<$_model.MonitorExaminationResponse>(await this.callApi(params, req, runtime), new $_model.MonitorExaminationResponse({}));
   }
 
-  async monitorExamination(request: MonitorExaminationRequest): Promise<MonitorExaminationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 线上监考
+   * 
+   * @param request - MonitorExaminationRequest
+   * @returns MonitorExaminationResponse
+   */
+  async monitorExamination(request: $_model.MonitorExaminationRequest): Promise<$_model.MonitorExaminationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.monitorExaminationWithOptions(request, runtime);
   }
 
-  async monitorExaminationAdvance(request: MonitorExaminationAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<MonitorExaminationResponse> {
+  async monitorExaminationAdvance(request: $_model.MonitorExaminationAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MonitorExaminationResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12632,67 +3659,76 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let monitorExaminationReq = new MonitorExaminationRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let monitorExaminationReq = new $_model.MonitorExaminationRequest({ });
     OpenApiUtil.convert(request, monitorExaminationReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      monitorExaminationReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      monitorExaminationReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let monitorExaminationResp = await this.monitorExaminationWithOptions(monitorExaminationReq, runtime);
     return monitorExaminationResp;
   }
 
-  async pedestrianDetectAttributeWithOptions(request: PedestrianDetectAttributeRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - PedestrianDetectAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PedestrianDetectAttributeResponse
+   */
+  async pedestrianDetectAttributeWithOptions(request: $_model.PedestrianDetectAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PedestrianDetectAttributeResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PedestrianDetectAttribute",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12703,30 +3739,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PedestrianDetectAttributeResponse>(await this.callApi(params, req, runtime), new PedestrianDetectAttributeResponse({}));
+    return $dara.cast<$_model.PedestrianDetectAttributeResponse>(await this.callApi(params, req, runtime), new $_model.PedestrianDetectAttributeResponse({}));
   }
 
-  async pedestrianDetectAttribute(request: PedestrianDetectAttributeRequest): Promise<PedestrianDetectAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - PedestrianDetectAttributeRequest
+   * @returns PedestrianDetectAttributeResponse
+   */
+  async pedestrianDetectAttribute(request: $_model.PedestrianDetectAttributeRequest): Promise<$_model.PedestrianDetectAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pedestrianDetectAttributeWithOptions(request, runtime);
   }
 
-  async pedestrianDetectAttributeAdvance(request: PedestrianDetectAttributeAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
+  async pedestrianDetectAttributeAdvance(request: $_model.PedestrianDetectAttributeAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PedestrianDetectAttributeResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12735,63 +3783,74 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let pedestrianDetectAttributeReq = new PedestrianDetectAttributeRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let pedestrianDetectAttributeReq = new $_model.PedestrianDetectAttributeRequest({ });
     OpenApiUtil.convert(request, pedestrianDetectAttributeReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      pedestrianDetectAttributeReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      pedestrianDetectAttributeReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let pedestrianDetectAttributeResp = await this.pedestrianDetectAttributeWithOptions(pedestrianDetectAttributeReq, runtime);
     return pedestrianDetectAttributeResp;
   }
 
-  async queryFaceImageTemplateWithOptions(request: QueryFaceImageTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryFaceImageTemplateResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  /**
+   * 图像人脸融合模板查询
+   * 
+   * @param request - QueryFaceImageTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFaceImageTemplateResponse
+   */
+  async queryFaceImageTemplateWithOptions(request: $_model.QueryFaceImageTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryFaceImageTemplateResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryFaceImageTemplate",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12802,37 +3861,50 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new QueryFaceImageTemplateResponse({}));
+    return $dara.cast<$_model.QueryFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new $_model.QueryFaceImageTemplateResponse({}));
   }
 
-  async queryFaceImageTemplate(request: QueryFaceImageTemplateRequest): Promise<QueryFaceImageTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 图像人脸融合模板查询
+   * 
+   * @param request - QueryFaceImageTemplateRequest
+   * @returns QueryFaceImageTemplateResponse
+   */
+  async queryFaceImageTemplate(request: $_model.QueryFaceImageTemplateRequest): Promise<$_model.QueryFaceImageTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryFaceImageTemplateWithOptions(request, runtime);
   }
 
-  async recognizeActionWithOptions(request: RecognizeActionRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeActionResponse> {
-    Util.validateModel(request);
+  /**
+   * 动作行为识别(RecognizeAction)
+   * 
+   * @param request - RecognizeActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecognizeActionResponse
+   */
+  async recognizeActionWithOptions(request: $_model.RecognizeActionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeActionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    if (!Util.isUnset(request.URLList)) {
+    if (!$dara.isNull(request.URLList)) {
       body["URLList"] = request.URLList;
     }
 
-    if (!Util.isUnset(request.videoData)) {
+    if (!$dara.isNull(request.videoData)) {
       body["VideoData"] = request.videoData;
     }
 
-    if (!Util.isUnset(request.videoUrl)) {
+    if (!$dara.isNull(request.videoUrl)) {
       body["VideoUrl"] = request.videoUrl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecognizeAction",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12843,30 +3915,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecognizeActionResponse>(await this.callApi(params, req, runtime), new RecognizeActionResponse({}));
+    return $dara.cast<$_model.RecognizeActionResponse>(await this.callApi(params, req, runtime), new $_model.RecognizeActionResponse({}));
   }
 
-  async recognizeAction(request: RecognizeActionRequest): Promise<RecognizeActionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 动作行为识别(RecognizeAction)
+   * 
+   * @param request - RecognizeActionRequest
+   * @returns RecognizeActionResponse
+   */
+  async recognizeAction(request: $_model.RecognizeActionRequest): Promise<$_model.RecognizeActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.recognizeActionWithOptions(request, runtime);
   }
 
-  async recognizeActionAdvance(request: RecognizeActionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeActionResponse> {
+  async recognizeActionAdvance(request: $_model.RecognizeActionAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeActionResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -12875,102 +3961,108 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeActionReq = new RecognizeActionRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let recognizeActionReq = new $_model.RecognizeActionRequest({ });
     OpenApiUtil.convert(request, recognizeActionReq);
-    if (!Util.isUnset(request.URLList)) {
+    if (!$dara.isNull(request.URLList)) {
       let i0 : number = 0;
 
-      for (let item0 of request.URLList) {
-        if (!Util.isUnset(item0.URLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.URLList) {
+        if (!$dara.isNull(item0.URLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.URLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : RecognizeActionRequestURLList = recognizeActionReq.URLList[i0];
-          tmp.URL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.RecognizeActionRequestURLList = recognizeActionReq.URLList[i0];
+          tmpObj.URL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
     }
 
-    if (!Util.isUnset(request.videoUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.videoUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.videoUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeActionReq.videoUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      recognizeActionReq.videoUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let recognizeActionResp = await this.recognizeActionWithOptions(recognizeActionReq, runtime);
     return recognizeActionResp;
   }
 
-  async recognizeExpressionWithOptions(request: RecognizeExpressionRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExpressionResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - RecognizeExpressionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecognizeExpressionResponse
+   */
+  async recognizeExpressionWithOptions(request: $_model.RecognizeExpressionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeExpressionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecognizeExpression",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -12981,30 +4073,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecognizeExpressionResponse>(await this.callApi(params, req, runtime), new RecognizeExpressionResponse({}));
+    return $dara.cast<$_model.RecognizeExpressionResponse>(await this.callApi(params, req, runtime), new $_model.RecognizeExpressionResponse({}));
   }
 
-  async recognizeExpression(request: RecognizeExpressionRequest): Promise<RecognizeExpressionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - RecognizeExpressionRequest
+   * @returns RecognizeExpressionResponse
+   */
+  async recognizeExpression(request: $_model.RecognizeExpressionRequest): Promise<$_model.RecognizeExpressionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.recognizeExpressionWithOptions(request, runtime);
   }
 
-  async recognizeExpressionAdvance(request: RecognizeExpressionAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExpressionResponse> {
+  async recognizeExpressionAdvance(request: $_model.RecognizeExpressionAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeExpressionResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -13013,103 +4117,112 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeExpressionReq = new RecognizeExpressionRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let recognizeExpressionReq = new $_model.RecognizeExpressionRequest({ });
     OpenApiUtil.convert(request, recognizeExpressionReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeExpressionReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      recognizeExpressionReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let recognizeExpressionResp = await this.recognizeExpressionWithOptions(recognizeExpressionReq, runtime);
     return recognizeExpressionResp;
   }
 
-  async recognizeFaceWithOptions(request: RecognizeFaceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - RecognizeFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecognizeFaceResponse
+   */
+  async recognizeFaceWithOptions(request: $_model.RecognizeFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.age)) {
+    if (!$dara.isNull(request.age)) {
       body["Age"] = request.age;
     }
 
-    if (!Util.isUnset(request.beauty)) {
+    if (!$dara.isNull(request.beauty)) {
       body["Beauty"] = request.beauty;
     }
 
-    if (!Util.isUnset(request.expression)) {
+    if (!$dara.isNull(request.expression)) {
       body["Expression"] = request.expression;
     }
 
-    if (!Util.isUnset(request.gender)) {
+    if (!$dara.isNull(request.gender)) {
       body["Gender"] = request.gender;
     }
 
-    if (!Util.isUnset(request.glass)) {
+    if (!$dara.isNull(request.glass)) {
       body["Glass"] = request.glass;
     }
 
-    if (!Util.isUnset(request.hat)) {
+    if (!$dara.isNull(request.hat)) {
       body["Hat"] = request.hat;
     }
 
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.mask)) {
+    if (!$dara.isNull(request.mask)) {
       body["Mask"] = request.mask;
     }
 
-    if (!Util.isUnset(request.maxFaceNumber)) {
+    if (!$dara.isNull(request.maxFaceNumber)) {
       body["MaxFaceNumber"] = request.maxFaceNumber;
     }
 
-    if (!Util.isUnset(request.quality)) {
+    if (!$dara.isNull(request.quality)) {
       body["Quality"] = request.quality;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecognizeFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -13120,30 +4233,42 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecognizeFaceResponse>(await this.callApi(params, req, runtime), new RecognizeFaceResponse({}));
+    return $dara.cast<$_model.RecognizeFaceResponse>(await this.callApi(params, req, runtime), new $_model.RecognizeFaceResponse({}));
   }
 
-  async recognizeFace(request: RecognizeFaceRequest): Promise<RecognizeFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - RecognizeFaceRequest
+   * @returns RecognizeFaceResponse
+   */
+  async recognizeFace(request: $_model.RecognizeFaceRequest): Promise<$_model.RecognizeFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.recognizeFaceWithOptions(request, runtime);
   }
 
-  async recognizeFaceAdvance(request: RecognizeFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFaceResponse> {
+  async recognizeFaceAdvance(request: $_model.RecognizeFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizeFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -13152,178 +4277,78 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeFaceReq = new RecognizeFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let recognizeFaceReq = new $_model.RecognizeFaceRequest({ });
     OpenApiUtil.convert(request, recognizeFaceReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeFaceReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      recognizeFaceReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let recognizeFaceResp = await this.recognizeFaceWithOptions(recognizeFaceReq, runtime);
     return recognizeFaceResp;
   }
 
-  async recognizeHandGestureWithOptions(request: RecognizeHandGestureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandGestureResponse> {
-    Util.validateModel(request);
+  /**
+   * 公众人脸识别(RecognizePublicFace)
+   * 
+   * @param request - RecognizePublicFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecognizePublicFaceResponse
+   */
+  async recognizePublicFaceWithOptions(request: $_model.RecognizePublicFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizePublicFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appId)) {
-      body["AppId"] = request.appId;
-    }
-
-    if (!Util.isUnset(request.gestureType)) {
-      body["GestureType"] = request.gestureType;
-    }
-
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RecognizeHandGesture",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RecognizeHandGestureResponse>(await this.callApi(params, req, runtime), new RecognizeHandGestureResponse({}));
-  }
-
-  async recognizeHandGesture(request: RecognizeHandGestureRequest): Promise<RecognizeHandGestureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.recognizeHandGestureWithOptions(request, runtime);
-  }
-
-  async recognizeHandGestureAdvance(request: RecognizeHandGestureAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandGestureResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeHandGestureReq = new RecognizeHandGestureRequest({ });
-    OpenApiUtil.convert(request, recognizeHandGestureReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeHandGestureReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let recognizeHandGestureResp = await this.recognizeHandGestureWithOptions(recognizeHandGestureReq, runtime);
-    return recognizeHandGestureResp;
-  }
-
-  async recognizePublicFaceWithOptions(request: RecognizePublicFaceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePublicFaceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.task)) {
+    if (!$dara.isNull(request.task)) {
       body["Task"] = request.task;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RecognizePublicFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -13334,30 +4359,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecognizePublicFaceResponse>(await this.callApi(params, req, runtime), new RecognizePublicFaceResponse({}));
+    return $dara.cast<$_model.RecognizePublicFaceResponse>(await this.callApi(params, req, runtime), new $_model.RecognizePublicFaceResponse({}));
   }
 
-  async recognizePublicFace(request: RecognizePublicFaceRequest): Promise<RecognizePublicFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 公众人脸识别(RecognizePublicFace)
+   * 
+   * @param request - RecognizePublicFaceRequest
+   * @returns RecognizePublicFaceResponse
+   */
+  async recognizePublicFace(request: $_model.RecognizePublicFaceRequest): Promise<$_model.RecognizePublicFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.recognizePublicFaceWithOptions(request, runtime);
   }
 
-  async recognizePublicFaceAdvance(request: RecognizePublicFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePublicFaceResponse> {
+  async recognizePublicFaceAdvance(request: $_model.RecognizePublicFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RecognizePublicFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -13366,56 +4405,60 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizePublicFaceReq = new RecognizePublicFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let recognizePublicFaceReq = new $_model.RecognizePublicFaceRequest({ });
     OpenApiUtil.convert(request, recognizePublicFaceReq);
-    if (!Util.isUnset(request.task)) {
+    if (!$dara.isNull(request.task)) {
       let i0 : number = 0;
 
-      for (let item0 of request.task) {
-        if (!Util.isUnset(item0.imageURLObject)) {
-          authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-          ossConfig.accessKeyId = authResponse.body.accessKeyId;
-          ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-          ossClient = new OSS(ossConfig);
-          fileObj = new $FileForm.FileField({
-            filename: authResponse.body.objectKey,
+      for(let item0 of request.task) {
+        if (!$dara.isNull(item0.imageURLObject)) {
+          authResponse = await authClient.callApi(authParams, authReq, runtime);
+          tmpBody = authResponse["body"];
+          useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+          authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+          fileObj = new $dara.FileField({
+            filename: authResponseBody["ObjectKey"],
             content: item0.imageURLObject,
             contentType: "",
           });
-          ossHeader = new $OSS.PostObjectRequestHeader({
-            accessKeyId: authResponse.body.accessKeyId,
-            policy: authResponse.body.encodedPolicy,
-            signature: authResponse.body.signature,
-            key: authResponse.body.objectKey,
+          ossHeader = {
+            host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+            OSSAccessKeyId: authResponseBody["AccessKeyId"],
+            policy: authResponseBody["EncodedPolicy"],
+            Signature: authResponseBody["Signature"],
+            key: authResponseBody["ObjectKey"],
             file: fileObj,
-            successActionStatus: "201",
-          });
-          uploadRequest = new $OSS.PostObjectRequest({
-            bucketName: authResponse.body.bucket,
-            header: ossHeader,
-          });
-          await ossClient.postObject(uploadRequest, ossRuntime);
-          let tmp : RecognizePublicFaceRequestTask = recognizePublicFaceReq.task[i0];
-          tmp.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-          i0 = Number.ltoi(Number.add(Number.itol(i0), Number.itol(1)));
+            success_action_status: "201",
+          };
+          await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+          let tmpObj : $_model.RecognizePublicFaceRequestTask = recognizePublicFaceReq.task[i0];
+          tmpObj.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+          i0++;
         }
 
       }
@@ -13425,136 +4468,32 @@ export default class Client extends OpenApi {
     return recognizePublicFaceResp;
   }
 
-  async retouchBodyWithOptions(request: RetouchBodyRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
-    Util.validateModel(request);
+  /**
+   * 美肤
+   * 
+   * @param request - RetouchSkinRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetouchSkinResponse
+   */
+  async retouchSkinWithOptions(request: $_model.RetouchSkinRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetouchSkinResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
+    if (!$dara.isNull(request.imageURL)) {
       body["ImageURL"] = request.imageURL;
     }
 
-    if (!Util.isUnset(request.lengthenDegree)) {
-      body["LengthenDegree"] = request.lengthenDegree;
-    }
-
-    if (!Util.isUnset(request.slimDegree)) {
-      body["SlimDegree"] = request.slimDegree;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RetouchBody",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RetouchBodyResponse>(await this.callApi(params, req, runtime), new RetouchBodyResponse({}));
-  }
-
-  async retouchBody(request: RetouchBodyRequest): Promise<RetouchBodyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.retouchBodyWithOptions(request, runtime);
-  }
-
-  async retouchBodyAdvance(request: RetouchBodyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let retouchBodyReq = new RetouchBodyRequest({ });
-    OpenApiUtil.convert(request, retouchBodyReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      retouchBodyReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let retouchBodyResp = await this.retouchBodyWithOptions(retouchBodyReq, runtime);
-    return retouchBodyResp;
-  }
-
-  async retouchSkinWithOptions(request: RetouchSkinRequest, runtime: $Util.RuntimeOptions): Promise<RetouchSkinResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.retouchDegree)) {
+    if (!$dara.isNull(request.retouchDegree)) {
       body["RetouchDegree"] = request.retouchDegree;
     }
 
-    if (!Util.isUnset(request.whiteningDegree)) {
+    if (!$dara.isNull(request.whiteningDegree)) {
       body["WhiteningDegree"] = request.whiteningDegree;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RetouchSkin",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -13565,30 +4504,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RetouchSkinResponse>(await this.callApi(params, req, runtime), new RetouchSkinResponse({}));
+    return $dara.cast<$_model.RetouchSkinResponse>(await this.callApi(params, req, runtime), new $_model.RetouchSkinResponse({}));
   }
 
-  async retouchSkin(request: RetouchSkinRequest): Promise<RetouchSkinResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * 美肤
+   * 
+   * @param request - RetouchSkinRequest
+   * @returns RetouchSkinResponse
+   */
+  async retouchSkin(request: $_model.RetouchSkinRequest): Promise<$_model.RetouchSkinResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.retouchSkinWithOptions(request, runtime);
   }
 
-  async retouchSkinAdvance(request: RetouchSkinAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RetouchSkinResponse> {
+  async retouchSkinAdvance(request: $_model.RetouchSkinAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetouchSkinResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -13597,87 +4550,98 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let retouchSkinReq = new RetouchSkinRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let retouchSkinReq = new $_model.RetouchSkinRequest({ });
     OpenApiUtil.convert(request, retouchSkinReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageURLObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageURLObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      retouchSkinReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      retouchSkinReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let retouchSkinResp = await this.retouchSkinWithOptions(retouchSkinReq, runtime);
     return retouchSkinResp;
   }
 
-  async searchFaceWithOptions(request: SearchFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {
-    Util.validateModel(request);
+  /**
+   * summary
+   * 
+   * @param request - SearchFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFaceResponse
+   */
+  async searchFaceWithOptions(request: $_model.SearchFaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchFaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.dbNames)) {
+    if (!$dara.isNull(request.dbNames)) {
       body["DbNames"] = request.dbNames;
     }
 
-    if (!Util.isUnset(request.imageUrl)) {
+    if (!$dara.isNull(request.imageUrl)) {
       body["ImageUrl"] = request.imageUrl;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       body["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.maxFaceNum)) {
+    if (!$dara.isNull(request.maxFaceNum)) {
       body["MaxFaceNum"] = request.maxFaceNum;
     }
 
-    if (!Util.isUnset(request.qualityScoreThreshold)) {
+    if (!$dara.isNull(request.qualityScoreThreshold)) {
       body["QualityScoreThreshold"] = request.qualityScoreThreshold;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SearchFace",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -13688,30 +4652,44 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchFaceResponse>(await this.callApi(params, req, runtime), new SearchFaceResponse({}));
+    return $dara.cast<$_model.SearchFaceResponse>(await this.callApi(params, req, runtime), new $_model.SearchFaceResponse({}));
   }
 
-  async searchFace(request: SearchFaceRequest): Promise<SearchFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * summary
+   * 
+   * @param request - SearchFaceRequest
+   * @returns SearchFaceResponse
+   */
+  async searchFace(request: $_model.SearchFaceRequest): Promise<$_model.SearchFaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.searchFaceWithOptions(request, runtime);
   }
 
-  async searchFaceAdvance(request: SearchFaceAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {
+  async searchFaceAdvance(request: $_model.SearchFaceAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchFaceResponse> {
     // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
-    if (Util.isUnset(credentialType)) {
+    if ($dara.isNull(credentialType)) {
       credentialType = "access_key";
     }
 
-    let authConfig = new $OpenApi.Config({
+    let authConfig = new $OpenApiUtil.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       securityToken: securityToken,
@@ -13720,75 +4698,84 @@ export default class Client extends OpenApi {
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "facebody",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
     });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let searchFaceReq = new SearchFaceRequest({ });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let searchFaceReq = new $_model.SearchFaceRequest({ });
     OpenApiUtil.convert(request, searchFaceReq);
-    if (!Util.isUnset(request.imageUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
+    if (!$dara.isNull(request.imageUrlObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
         content: request.imageUrlObject,
         contentType: "",
       });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
         file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      searchFaceReq.imageUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      searchFaceReq.imageUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let searchFaceResp = await this.searchFaceWithOptions(searchFaceReq, runtime);
     return searchFaceResp;
   }
 
-  async updateFaceEntityWithOptions(request: UpdateFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceEntityResponse> {
-    Util.validateModel(request);
+  /**
+   * @param request - UpdateFaceEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFaceEntityResponse
+   */
+  async updateFaceEntityWithOptions(request: $_model.UpdateFaceEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFaceEntityResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       body["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.entityId)) {
+    if (!$dara.isNull(request.entityId)) {
       body["EntityId"] = request.entityId;
     }
 
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateFaceEntity",
       version: "2019-12-30",
       protocol: "HTTPS",
@@ -13799,153 +4786,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFaceEntityResponse>(await this.callApi(params, req, runtime), new UpdateFaceEntityResponse({}));
+    return $dara.cast<$_model.UpdateFaceEntityResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFaceEntityResponse({}));
   }
 
-  async updateFaceEntity(request: UpdateFaceEntityRequest): Promise<UpdateFaceEntityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * @param request - UpdateFaceEntityRequest
+   * @returns UpdateFaceEntityResponse
+   */
+  async updateFaceEntity(request: $_model.UpdateFaceEntityRequest): Promise<$_model.UpdateFaceEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFaceEntityWithOptions(request, runtime);
-  }
-
-  async verifyFaceMaskWithOptions(request: VerifyFaceMaskRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFaceMaskResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.imageData)) {
-      body["ImageData"] = request.imageData;
-    }
-
-    if (!Util.isUnset(request.imageURL)) {
-      body["ImageURL"] = request.imageURL;
-    }
-
-    if (!Util.isUnset(request.refData)) {
-      body["RefData"] = request.refData;
-    }
-
-    if (!Util.isUnset(request.refUrl)) {
-      body["RefUrl"] = request.refUrl;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "VerifyFaceMask",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<VerifyFaceMaskResponse>(await this.callApi(params, req, runtime), new VerifyFaceMaskResponse({}));
-  }
-
-  async verifyFaceMask(request: VerifyFaceMaskRequest): Promise<VerifyFaceMaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyFaceMaskWithOptions(request, runtime);
-  }
-
-  async verifyFaceMaskAdvance(request: VerifyFaceMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFaceMaskResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApi.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let verifyFaceMaskReq = new VerifyFaceMaskRequest({ });
-    OpenApiUtil.convert(request, verifyFaceMaskReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      verifyFaceMaskReq.imageURL = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    if (!Util.isUnset(request.refUrlObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.body.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.body.objectKey,
-        content: request.refUrlObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.body.accessKeyId,
-        policy: authResponse.body.encodedPolicy,
-        signature: authResponse.body.signature,
-        key: authResponse.body.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.body.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      verifyFaceMaskReq.refUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
-    }
-
-    let verifyFaceMaskResp = await this.verifyFaceMaskWithOptions(verifyFaceMaskReq, runtime);
-    return verifyFaceMaskResp;
   }
 
 }
