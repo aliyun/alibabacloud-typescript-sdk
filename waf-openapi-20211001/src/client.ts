@@ -6924,7 +6924,39 @@ export default class Client extends OpenApi {
    */
   async describeHybridCloudSdkServersWithOptions(request: $_model.DescribeHybridCloudSdkServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHybridCloudSdkServersResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6933,7 +6965,7 @@ export default class Client extends OpenApi {
       version: "2021-10-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
