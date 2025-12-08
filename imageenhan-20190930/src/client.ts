@@ -16,41 +16,87 @@ export default class Client extends OpenApi {
     this._endpoint = this.getEndpoint("imageenhan", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -181,7 +227,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       assessCompositionReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -305,7 +351,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       assessExposureReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -429,7 +475,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       assessSharpnessReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -561,7 +607,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       changeImageSizeReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -685,7 +731,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       colorizeImageReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -817,7 +863,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       enhanceImageColorReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -945,7 +991,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       erasePersonReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -968,7 +1014,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       erasePersonReq.userMask = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1096,7 +1142,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       extendImageStyleReq.majorUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1119,7 +1165,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       extendImageStyleReq.styleUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1255,342 +1301,12 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       generateCartoonizedImageReq.imageUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
     let generateCartoonizedImageResp = await this.generateCartoonizedImageWithOptions(generateCartoonizedImageReq, runtime);
     return generateCartoonizedImageResp;
-  }
-
-  /**
-   * 图像微动
-   * 
-   * @param request - GenerateDynamicImageRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GenerateDynamicImageResponse
-   */
-  async generateDynamicImageWithOptions(request: $_model.GenerateDynamicImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateDynamicImageResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.operation)) {
-      body["Operation"] = request.operation;
-    }
-
-    if (!$dara.isNull(request.url)) {
-      body["Url"] = request.url;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GenerateDynamicImage",
-      version: "2019-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GenerateDynamicImageResponse>(await this.callApi(params, req, runtime), new $_model.GenerateDynamicImageResponse({}));
-  }
-
-  /**
-   * 图像微动
-   * 
-   * @param request - GenerateDynamicImageRequest
-   * @returns GenerateDynamicImageResponse
-   */
-  async generateDynamicImage(request: $_model.GenerateDynamicImageRequest): Promise<$_model.GenerateDynamicImageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.generateDynamicImageWithOptions(request, runtime);
-  }
-
-  async generateDynamicImageAdvance(request: $_model.GenerateDynamicImageAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateDynamicImageResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "imageenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let generateDynamicImageReq = new $_model.GenerateDynamicImageRequest({ });
-    OpenApiUtil.convert(request, generateDynamicImageReq);
-    if (!$dara.isNull(request.urlObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.urlObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      generateDynamicImageReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let generateDynamicImageResp = await this.generateDynamicImageWithOptions(generateDynamicImageReq, runtime);
-    return generateDynamicImageResp;
-  }
-
-  /**
-   * 文本到图像生成
-   * 
-   * @param request - GenerateImageWithTextRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GenerateImageWithTextResponse
-   */
-  async generateImageWithTextWithOptions(request: $_model.GenerateImageWithTextRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateImageWithTextResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.number)) {
-      body["Number"] = request.number;
-    }
-
-    if (!$dara.isNull(request.resolution)) {
-      body["Resolution"] = request.resolution;
-    }
-
-    if (!$dara.isNull(request.text)) {
-      body["Text"] = request.text;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GenerateImageWithText",
-      version: "2019-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GenerateImageWithTextResponse>(await this.callApi(params, req, runtime), new $_model.GenerateImageWithTextResponse({}));
-  }
-
-  /**
-   * 文本到图像生成
-   * 
-   * @param request - GenerateImageWithTextRequest
-   * @returns GenerateImageWithTextResponse
-   */
-  async generateImageWithText(request: $_model.GenerateImageWithTextRequest): Promise<$_model.GenerateImageWithTextResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.generateImageWithTextWithOptions(request, runtime);
-  }
-
-  /**
-   * 文本和参考图到图像生成
-   * 
-   * @param request - GenerateImageWithTextAndImageRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GenerateImageWithTextAndImageResponse
-   */
-  async generateImageWithTextAndImageWithOptions(request: $_model.GenerateImageWithTextAndImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateImageWithTextAndImageResponse> {
-    request.validate();
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.aspectRatioMode)) {
-      body["AspectRatioMode"] = request.aspectRatioMode;
-    }
-
-    if (!$dara.isNull(request.number)) {
-      body["Number"] = request.number;
-    }
-
-    if (!$dara.isNull(request.refImageUrl)) {
-      body["RefImageUrl"] = request.refImageUrl;
-    }
-
-    if (!$dara.isNull(request.resolution)) {
-      body["Resolution"] = request.resolution;
-    }
-
-    if (!$dara.isNull(request.similarity)) {
-      body["Similarity"] = request.similarity;
-    }
-
-    if (!$dara.isNull(request.text)) {
-      body["Text"] = request.text;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GenerateImageWithTextAndImage",
-      version: "2019-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GenerateImageWithTextAndImageResponse>(await this.callApi(params, req, runtime), new $_model.GenerateImageWithTextAndImageResponse({}));
-  }
-
-  /**
-   * 文本和参考图到图像生成
-   * 
-   * @param request - GenerateImageWithTextAndImageRequest
-   * @returns GenerateImageWithTextAndImageResponse
-   */
-  async generateImageWithTextAndImage(request: $_model.GenerateImageWithTextAndImageRequest): Promise<$_model.GenerateImageWithTextAndImageResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.generateImageWithTextAndImageWithOptions(request, runtime);
-  }
-
-  async generateImageWithTextAndImageAdvance(request: $_model.GenerateImageWithTextAndImageAdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateImageWithTextAndImageResponse> {
-    // Step 0: init client
-    if ($dara.isNull(this._credential)) {
-      throw new $OpenApi.ClientError({
-        code: "InvalidCredentials",
-        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
-      });
-    }
-
-    let credentialModel = await this._credential.getCredential();
-    let accessKeyId = credentialModel.accessKeyId;
-    let accessKeySecret = credentialModel.accessKeySecret;
-    let securityToken = credentialModel.securityToken;
-    let credentialType = credentialModel.type;
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if ($dara.isNull(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $OpenApiUtil.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenApi(authConfig);
-    let authRequest = {
-      Product: "imageenhan",
-      RegionId: this._regionId,
-    };
-    let authReq = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(authRequest),
-    });
-    let authParams = new $OpenApiUtil.Params({
-      action: "AuthorizeFileUpload",
-      version: "2019-12-19",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    let authResponse : {[key: string]: any} = { };
-    let fileObj = new $dara.FileField({ });
-    let ossHeader : {[key: string]: any} = { };
-    let tmpBody : {[key: string]: any} = { };
-    let useAccelerate : boolean = false;
-    let authResponseBody : {[key: string ]: string} = { };
-    let generateImageWithTextAndImageReq = new $_model.GenerateImageWithTextAndImageRequest({ });
-    OpenApiUtil.convert(request, generateImageWithTextAndImageReq);
-    if (!$dara.isNull(request.refImageUrlObject)) {
-      authResponse = await authClient.callApi(authParams, authReq, runtime);
-      tmpBody = authResponse["body"];
-      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
-      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
-      fileObj = new $dara.FileField({
-        filename: authResponseBody["ObjectKey"],
-        content: request.refImageUrlObject,
-        contentType: "",
-      });
-      ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
-        OSSAccessKeyId: authResponseBody["AccessKeyId"],
-        policy: authResponseBody["EncodedPolicy"],
-        Signature: authResponseBody["Signature"],
-        key: authResponseBody["ObjectKey"],
-        file: fileObj,
-        success_action_status: "201",
-      };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
-      generateImageWithTextAndImageReq.refImageUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
-    }
-
-    let generateImageWithTextAndImageResp = await this.generateImageWithTextAndImageWithOptions(generateImageWithTextAndImageReq, runtime);
-    return generateImageWithTextAndImageResp;
   }
 
   /**
@@ -1729,7 +1445,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       generateSuperResolutionImageReq.imageUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1911,7 +1627,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imageBlindCharacterWatermarkReq.originImageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -1934,7 +1650,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imageBlindCharacterWatermarkReq.watermarkImageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2078,7 +1794,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imageBlindPicWatermarkReq.logoURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2101,7 +1817,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imageBlindPicWatermarkReq.originImageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2124,7 +1840,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imageBlindPicWatermarkReq.watermarkImageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2252,7 +1968,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imitatePhotoStyleReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2275,7 +1991,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       imitatePhotoStyleReq.styleUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2403,7 +2119,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       intelligentCompositionReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2543,7 +2259,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       makeSuperResolutionImageReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2687,7 +2403,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       recolorHDImageReq.refUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2710,7 +2426,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       recolorHDImageReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2850,7 +2566,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       recolorImageReq.refUrl = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2873,7 +2589,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       recolorImageReq.url = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -3013,7 +2729,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       removeImageSubtitlesReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -3137,7 +2853,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       removeImageWatermarkReq.imageURL = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 

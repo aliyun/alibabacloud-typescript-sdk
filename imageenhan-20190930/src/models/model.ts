@@ -8,9 +8,6 @@ export { EnhanceImageColorResponseBodyData } from './EnhanceImageColorResponseBo
 export { ErasePersonResponseBodyData } from './ErasePersonResponseBody';
 export { ExtendImageStyleResponseBodyData } from './ExtendImageStyleResponseBody';
 export { GenerateCartoonizedImageResponseBodyData } from './GenerateCartoonizedImageResponseBody';
-export { GenerateDynamicImageResponseBodyData } from './GenerateDynamicImageResponseBody';
-export { GenerateImageWithTextResponseBodyData } from './GenerateImageWithTextResponseBody';
-export { GenerateImageWithTextAndImageResponseBodyData } from './GenerateImageWithTextAndImageResponseBody';
 export { GenerateSuperResolutionImageResponseBodyData } from './GenerateSuperResolutionImageResponseBody';
 export { GetAsyncJobResultResponseBodyData } from './GetAsyncJobResultResponseBody';
 export { ImageBlindCharacterWatermarkResponseBodyData } from './ImageBlindCharacterWatermarkResponseBody';
@@ -63,17 +60,6 @@ export { GenerateCartoonizedImageRequest } from './GenerateCartoonizedImageReque
 export { GenerateCartoonizedImageAdvanceRequest } from './GenerateCartoonizedImageAdvanceRequest';
 export { GenerateCartoonizedImageResponseBody } from './GenerateCartoonizedImageResponseBody';
 export { GenerateCartoonizedImageResponse } from './GenerateCartoonizedImageResponse';
-export { GenerateDynamicImageRequest } from './GenerateDynamicImageRequest';
-export { GenerateDynamicImageAdvanceRequest } from './GenerateDynamicImageAdvanceRequest';
-export { GenerateDynamicImageResponseBody } from './GenerateDynamicImageResponseBody';
-export { GenerateDynamicImageResponse } from './GenerateDynamicImageResponse';
-export { GenerateImageWithTextRequest } from './GenerateImageWithTextRequest';
-export { GenerateImageWithTextResponseBody } from './GenerateImageWithTextResponseBody';
-export { GenerateImageWithTextResponse } from './GenerateImageWithTextResponse';
-export { GenerateImageWithTextAndImageRequest } from './GenerateImageWithTextAndImageRequest';
-export { GenerateImageWithTextAndImageAdvanceRequest } from './GenerateImageWithTextAndImageAdvanceRequest';
-export { GenerateImageWithTextAndImageResponseBody } from './GenerateImageWithTextAndImageResponseBody';
-export { GenerateImageWithTextAndImageResponse } from './GenerateImageWithTextAndImageResponse';
 export { GenerateSuperResolutionImageRequest } from './GenerateSuperResolutionImageRequest';
 export { GenerateSuperResolutionImageAdvanceRequest } from './GenerateSuperResolutionImageAdvanceRequest';
 export { GenerateSuperResolutionImageResponseBody } from './GenerateSuperResolutionImageResponseBody';
