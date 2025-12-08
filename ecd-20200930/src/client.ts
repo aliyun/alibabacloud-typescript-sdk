@@ -2417,6 +2417,10 @@ export default class Client extends OpenApi {
   async createCenterPolicyWithOptions(request: $_model.CreateCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCenterPolicyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.academicProxy)) {
+      query["AcademicProxy"] = request.academicProxy;
+    }
+
     if (!$dara.isNull(request.adminAccess)) {
       query["AdminAccess"] = request.adminAccess;
     }
@@ -2435,6 +2439,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoReconnect)) {
       query["AutoReconnect"] = request.autoReconnect;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.businessType)) {
@@ -2481,6 +2489,10 @@ export default class Client extends OpenApi {
       query["CpuDownGradeDuration"] = request.cpuDownGradeDuration;
     }
 
+    if (!$dara.isNull(request.cpuOverload)) {
+      query["CpuOverload"] = request.cpuOverload;
+    }
+
     if (!$dara.isNull(request.cpuProcessors)) {
       query["CpuProcessors"] = request.cpuProcessors;
     }
@@ -2519,6 +2531,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.disconnectKeepSessionTime)) {
       query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime;
+    }
+
+    if (!$dara.isNull(request.diskOverload)) {
+      query["DiskOverload"] = request.diskOverload;
     }
 
     if (!$dara.isNull(request.displayMode)) {
@@ -2593,6 +2609,10 @@ export default class Client extends OpenApi {
       query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration;
     }
 
+    if (!$dara.isNull(request.memoryOverload)) {
+      query["MemoryOverload"] = request.memoryOverload;
+    }
+
     if (!$dara.isNull(request.memoryProcessors)) {
       query["MemoryProcessors"] = request.memoryProcessors;
     }
@@ -2633,6 +2653,10 @@ export default class Client extends OpenApi {
       query["MobileWyAssistant"] = request.mobileWyAssistant;
     }
 
+    if (!$dara.isNull(request.modelLibrary)) {
+      query["ModelLibrary"] = request.modelLibrary;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
@@ -2651,6 +2675,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.noOperationDisconnectTime)) {
       query["NoOperationDisconnectTime"] = request.noOperationDisconnectTime;
+    }
+
+    if (!$dara.isNull(request.portProxy)) {
+      query["PortProxy"] = request.portProxy;
     }
 
     if (!$dara.isNull(request.printerRedirect)) {
@@ -7046,8 +7074,16 @@ export default class Client extends OpenApi {
   async describeCenterPolicyListWithOptions(request: $_model.DescribeCenterPolicyListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCenterPolicyListResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.academicProxy)) {
+      query["AcademicProxy"] = request.academicProxy;
+    }
+
     if (!$dara.isNull(request.businessType)) {
       query["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.modelLibrary)) {
+      query["ModelLibrary"] = request.modelLibrary;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -7060,6 +7096,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.portProxy)) {
+      query["PortProxy"] = request.portProxy;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -10034,6 +10074,10 @@ export default class Client extends OpenApi {
   async describePolicyGroupsWithOptions(request: $_model.DescribePolicyGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolicyGroupsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.externalPolicyGroupIds)) {
       query["ExternalPolicyGroupIds"] = request.externalPolicyGroupIds;
     }
@@ -14064,6 +14108,10 @@ export default class Client extends OpenApi {
   async modifyCenterPolicyWithOptions(request: $_model.ModifyCenterPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCenterPolicyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.academicProxy)) {
+      query["AcademicProxy"] = request.academicProxy;
+    }
+
     if (!$dara.isNull(request.adminAccess)) {
       query["AdminAccess"] = request.adminAccess;
     }
@@ -14082,6 +14130,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoReconnect)) {
       query["AutoReconnect"] = request.autoReconnect;
+    }
+
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
     }
 
     if (!$dara.isNull(request.businessType)) {
@@ -14128,6 +14180,10 @@ export default class Client extends OpenApi {
       query["CpuDownGradeDuration"] = request.cpuDownGradeDuration;
     }
 
+    if (!$dara.isNull(request.cpuOverload)) {
+      query["CpuOverload"] = request.cpuOverload;
+    }
+
     if (!$dara.isNull(request.cpuProcessors)) {
       query["CpuProcessors"] = request.cpuProcessors;
     }
@@ -14166,6 +14222,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.disconnectKeepSessionTime)) {
       query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime;
+    }
+
+    if (!$dara.isNull(request.diskOverload)) {
+      query["DiskOverload"] = request.diskOverload;
     }
 
     if (!$dara.isNull(request.displayMode)) {
@@ -14240,6 +14300,10 @@ export default class Client extends OpenApi {
       query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration;
     }
 
+    if (!$dara.isNull(request.memoryOverload)) {
+      query["MemoryOverload"] = request.memoryOverload;
+    }
+
     if (!$dara.isNull(request.memoryProcessors)) {
       query["MemoryProcessors"] = request.memoryProcessors;
     }
@@ -14280,6 +14344,10 @@ export default class Client extends OpenApi {
       query["MobileWyAssistant"] = request.mobileWyAssistant;
     }
 
+    if (!$dara.isNull(request.modelLibrary)) {
+      query["ModelLibrary"] = request.modelLibrary;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
@@ -14302,6 +14370,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyGroupId)) {
       query["PolicyGroupId"] = request.policyGroupId;
+    }
+
+    if (!$dara.isNull(request.portProxy)) {
+      query["PortProxy"] = request.portProxy;
     }
 
     if (!$dara.isNull(request.printerRedirect)) {

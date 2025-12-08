@@ -769,6 +769,7 @@ export class ModifyCenterPolicyRequestUsbSupplyRedirectRule extends $dara.Model 
 }
 
 export class ModifyCenterPolicyRequest extends $dara.Model {
+  academicProxy?: string;
   /**
    * @remarks
    * Specifies whether to grant the admin permissions to end users.
@@ -813,6 +814,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   autoReconnect?: string;
+  businessChannel?: string;
   /**
    * @remarks
    * The business type.
@@ -887,6 +889,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 50
    */
   cpuDownGradeDuration?: number;
+  cpuOverload?: string;
   /**
    * @remarks
    * The CPU processors.
@@ -977,6 +980,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 120
    */
   disconnectKeepSessionTime?: number;
+  diskOverload?: string;
   /**
    * @remarks
    * The display mode.
@@ -1140,6 +1144,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 40
    */
   memoryDownGradeDuration?: number;
+  memoryOverload?: string;
   /**
    * @remarks
    * The memory processors.
@@ -1227,6 +1232,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * off
    */
   mobileWyAssistant?: string;
+  modelLibrary?: string;
   /**
    * @remarks
    * The policy name.
@@ -1293,6 +1299,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * pg-53iyi2aar0nd6****
    */
   policyGroupId?: string;
+  portProxy?: string;
   /**
    * @remarks
    * The printer redirection policy. This parameter only applies if DeviceRedirects does not include a printer redirection policy.
@@ -1877,11 +1884,13 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
+      academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
       authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
       autoReconnect: 'AutoReconnect',
+      businessChannel: 'BusinessChannel',
       businessType: 'BusinessType',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
@@ -1893,6 +1902,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       colorEnhancement: 'ColorEnhancement',
       cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuOverload: 'CpuOverload',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
       cpuRateLimit: 'CpuRateLimit',
@@ -1903,6 +1913,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       deviceRules: 'DeviceRules',
       disconnectKeepSession: 'DisconnectKeepSession',
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      diskOverload: 'DiskOverload',
       displayMode: 'DisplayMode',
       domainResolveRule: 'DomainResolveRule',
       domainResolveRuleType: 'DomainResolveRuleType',
@@ -1921,6 +1932,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryOverload: 'MemoryOverload',
       memoryProcessors: 'MemoryProcessors',
       memoryProtectedMode: 'MemoryProtectedMode',
       memoryRateLimit: 'MemoryRateLimit',
@@ -1931,12 +1943,14 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       mobileShutdown: 'MobileShutdown',
       mobileWuyingKeeper: 'MobileWuyingKeeper',
       mobileWyAssistant: 'MobileWyAssistant',
+      modelLibrary: 'ModelLibrary',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
       policyGroupId: 'PolicyGroupId',
+      portProxy: 'PortProxy',
       printerRedirect: 'PrinterRedirect',
       qualityEnhancement: 'QualityEnhancement',
       recordEventDuration: 'RecordEventDuration',
@@ -2004,11 +2018,13 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      academicProxy: 'string',
       adminAccess: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeAccessPolicyRule },
       authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule },
       autoReconnect: 'string',
+      businessChannel: 'string',
       businessType: 'number',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
@@ -2020,6 +2036,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       colorEnhancement: 'string',
       cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
+      cpuOverload: 'string',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
       cpuRateLimit: 'number',
@@ -2030,6 +2047,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       deviceRules: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRules },
       disconnectKeepSession: 'string',
       disconnectKeepSessionTime: 'number',
+      diskOverload: 'string',
       displayMode: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDomainResolveRule },
       domainResolveRuleType: 'string',
@@ -2048,6 +2066,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
+      memoryOverload: 'string',
       memoryProcessors: { 'type': 'array', 'itemType': 'string' },
       memoryProtectedMode: 'string',
       memoryRateLimit: 'number',
@@ -2058,12 +2077,14 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       mobileShutdown: 'string',
       mobileWuyingKeeper: 'string',
       mobileWyAssistant: 'string',
+      modelLibrary: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestNetRedirectRule },
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
       policyGroupId: 'string',
+      portProxy: 'string',
       printerRedirect: 'string',
       qualityEnhancement: 'string',
       recordEventDuration: 'number',

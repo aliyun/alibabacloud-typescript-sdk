@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCenterPolicyListRequest extends $dara.Model {
+  academicProxy?: string;
   /**
    * @remarks
    * The business type.
@@ -18,6 +19,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
    * 1
    */
   businessType?: number;
+  modelLibrary?: string;
   /**
    * @remarks
    * The page number.\\
@@ -40,6 +42,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
    * The IDs of the cloud computer policies.
    */
   policyGroupId?: string[];
+  portProxy?: string;
   /**
    * @remarks
    * The resource type.
@@ -70,10 +73,13 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   scope?: string;
   static names(): { [key: string]: string } {
     return {
+      academicProxy: 'AcademicProxy',
       businessType: 'BusinessType',
+      modelLibrary: 'ModelLibrary',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       policyGroupId: 'PolicyGroupId',
+      portProxy: 'PortProxy',
       resourceType: 'ResourceType',
       scope: 'Scope',
     };
@@ -81,10 +87,13 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      academicProxy: 'string',
       businessType: 'number',
+      modelLibrary: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       policyGroupId: { 'type': 'array', 'itemType': 'string' },
+      portProxy: 'string',
       resourceType: 'string',
       scope: 'string',
     };

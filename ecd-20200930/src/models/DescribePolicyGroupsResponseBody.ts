@@ -606,6 +606,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
 }
 
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.Model {
+  academicProxy?: string;
   /**
    * @remarks
    * Indicates whether end users are granted the administrator permissions.
@@ -704,6 +705,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 30
    */
   cpuDownGradeDuration?: number;
+  cpuOverload?: string;
   /**
    * @remarks
    * The process whitelist that is not restricted by the CPU usage limit.
@@ -773,6 +775,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * The custom peripheral rules.
    */
   deviceRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules[];
+  diskOverload?: string;
   /**
    * @remarks
    * The display mode.
@@ -951,6 +954,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 30
    */
   memoryDownGradeDuration?: number;
+  memoryOverload?: string;
   /**
    * @remarks
    * The whitelist of processes that are not restricted by the memory usage limit.
@@ -1047,6 +1051,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * off
    */
   mobileWyAssistant?: string;
+  modelLibrary?: string;
   /**
    * @remarks
    * The name of the cloud computer policy.
@@ -1111,6 +1116,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * AVAILABLE
    */
   policyStatus?: string;
+  portProxy?: string;
   /**
    * @remarks
    * The cloud computer preemption feature.
@@ -1677,6 +1683,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
+      academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
@@ -1690,6 +1697,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       colorEnhancement: 'ColorEnhancement',
       cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuOverload: 'CpuOverload',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
       cpuRateLimit: 'CpuRateLimit',
@@ -1700,6 +1708,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       deviceConnectHint: 'DeviceConnectHint',
       deviceRedirects: 'DeviceRedirects',
       deviceRules: 'DeviceRules',
+      diskOverload: 'DiskOverload',
       displayMode: 'DisplayMode',
       domainList: 'DomainList',
       domainResolveRule: 'DomainResolveRule',
@@ -1721,6 +1730,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryOverload: 'MemoryOverload',
       memoryProcessors: 'MemoryProcessors',
       memoryProtectedMode: 'MemoryProtectedMode',
       memoryRateLimit: 'MemoryRateLimit',
@@ -1731,12 +1741,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       mobileShutdown: 'MobileShutdown',
       mobileWuyingKeeper: 'MobileWuyingKeeper',
       mobileWyAssistant: 'MobileWyAssistant',
+      modelLibrary: 'ModelLibrary',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
       policyGroupId: 'PolicyGroupId',
       policyGroupType: 'PolicyGroupType',
       policyStatus: 'PolicyStatus',
+      portProxy: 'PortProxy',
       preemptLogin: 'PreemptLogin',
       preemptLoginUsers: 'PreemptLoginUsers',
       printerRedirection: 'PrinterRedirection',
@@ -1803,6 +1815,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      academicProxy: 'string',
       adminAccess: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
@@ -1816,6 +1829,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       colorEnhancement: 'string',
       cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
+      cpuOverload: 'string',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
       cpuRateLimit: 'number',
@@ -1826,6 +1840,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       deviceConnectHint: 'string',
       deviceRedirects: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects },
       deviceRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules },
+      diskOverload: 'string',
       displayMode: 'string',
       domainList: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule },
@@ -1847,6 +1862,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
+      memoryOverload: 'string',
       memoryProcessors: { 'type': 'array', 'itemType': 'string' },
       memoryProtectedMode: 'string',
       memoryRateLimit: 'number',
@@ -1857,12 +1873,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       mobileShutdown: 'string',
       mobileWuyingKeeper: 'string',
       mobileWyAssistant: 'string',
+      modelLibrary: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule },
       policyGroupId: 'string',
       policyGroupType: 'string',
       policyStatus: 'string',
+      portProxy: 'string',
       preemptLogin: 'string',
       preemptLoginUsers: { 'type': 'array', 'itemType': 'string' },
       printerRedirection: 'string',

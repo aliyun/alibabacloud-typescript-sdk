@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePolicyGroupsRequest extends $dara.Model {
+  businessChannel?: string;
   /**
    * @remarks
    * The array of cloud computer policy IDs to be excluded.
@@ -63,6 +64,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   scope?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       externalPolicyGroupIds: 'ExternalPolicyGroupIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -76,6 +78,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       externalPolicyGroupIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
