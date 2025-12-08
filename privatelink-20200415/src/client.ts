@@ -1249,6 +1249,10 @@ export default class Client extends OpenApi {
       query["ServiceId"] = request.serviceId;
     }
 
+    if (!$dara.isNull(request.trafficControlMode)) {
+      query["TrafficControlMode"] = request.trafficControlMode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2590,6 +2594,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.trafficControlMode)) {
+      query["TrafficControlMode"] = request.trafficControlMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -196,6 +196,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * epsrv-hp3vpx8yqxblby3i****
    */
   serviceId?: string;
+  trafficControlMode?: string;
   /**
    * @remarks
    * The zones.
@@ -212,6 +213,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
       resourceGroupId: 'ResourceGroupId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
+      trafficControlMode: 'TrafficControlMode',
       zones: 'Zones',
     };
   }
@@ -227,6 +229,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
       resourceGroupId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
+      trafficControlMode: 'string',
       zones: { 'type': 'array', 'itemType': ListVpcEndpointConnectionsResponseBodyConnectionsZones },
     };
   }

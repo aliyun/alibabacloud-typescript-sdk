@@ -66,6 +66,7 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
    * epsrv-hp3vpx8yqxblby3i****
    */
   serviceId?: string;
+  trafficControlMode?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -74,6 +75,7 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
       endpointId: 'EndpointId',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
+      trafficControlMode: 'TrafficControlMode',
     };
   }
 
@@ -85,6 +87,7 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
       endpointId: 'string',
       regionId: 'string',
       serviceId: 'string',
+      trafficControlMode: 'string',
     };
   }
 
