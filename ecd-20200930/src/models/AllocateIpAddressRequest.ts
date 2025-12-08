@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AllocateIpAddressRequest extends $dara.Model {
+  bandwidth?: number;
+  internetChargeType?: string;
+  name?: string;
   networkInterfaceId?: string;
   officeSiteId?: string;
   /**
@@ -12,6 +15,9 @@ export class AllocateIpAddressRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      bandwidth: 'Bandwidth',
+      internetChargeType: 'InternetChargeType',
+      name: 'Name',
       networkInterfaceId: 'NetworkInterfaceId',
       officeSiteId: 'OfficeSiteId',
       regionId: 'RegionId',
@@ -20,6 +26,9 @@ export class AllocateIpAddressRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bandwidth: 'number',
+      internetChargeType: 'string',
+      name: 'string',
       networkInterfaceId: 'string',
       officeSiteId: 'string',
       regionId: 'string',

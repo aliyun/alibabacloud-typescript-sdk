@@ -403,6 +403,18 @@ export default class Client extends OpenApi {
   async allocateIpAddressWithOptions(request: $_model.AllocateIpAddressRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AllocateIpAddressResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!$dara.isNull(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
     if (!$dara.isNull(request.networkInterfaceId)) {
       query["NetworkInterfaceId"] = request.networkInterfaceId;
     }
