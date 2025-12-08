@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/selectdb20230522",
-  "version": "4.4.2",
+  "version": "4.5.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

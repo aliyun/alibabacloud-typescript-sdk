@@ -776,6 +776,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建虚拟集群
+   * 
+   * @param request - CreateVirtualClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVirtualClusterResponse
+   */
+  async createVirtualClusterWithOptions(request: $_model.CreateVirtualClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVirtualClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.activeClusterId)) {
+      query["ActiveClusterId"] = request.activeClusterId;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.standbyClusterId)) {
+      query["StandbyClusterId"] = request.standbyClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVirtualCluster",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVirtualClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateVirtualClusterResponse({}));
+  }
+
+  /**
+   * 创建虚拟集群
+   * 
+   * @param request - CreateVirtualClusterRequest
+   * @returns CreateVirtualClusterResponse
+   */
+  async createVirtualCluster(request: $_model.CreateVirtualClusterRequest): Promise<$_model.CreateVirtualClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVirtualClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a cluster from an instance.
    * 
    * @param request - DeleteDBClusterRequest
@@ -1001,6 +1059,56 @@ export default class Client extends OpenApi {
   async deleteElasticRule(request: $_model.DeleteElasticRuleRequest): Promise<$_model.DeleteElasticRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteElasticRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除虚拟集群
+   * 
+   * @param request - DeleteVirtualClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVirtualClusterResponse
+   */
+  async deleteVirtualClusterWithOptions(request: $_model.DeleteVirtualClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirtualClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVirtualCluster",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVirtualClusterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVirtualClusterResponse({}));
+  }
+
+  /**
+   * 删除虚拟集群
+   * 
+   * @param request - DeleteVirtualClusterRequest
+   * @returns DeleteVirtualClusterResponse
+   */
+  async deleteVirtualCluster(request: $_model.DeleteVirtualClusterRequest): Promise<$_model.DeleteVirtualClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVirtualClusterWithOptions(request, runtime);
   }
 
   /**
@@ -2061,6 +2169,64 @@ export default class Client extends OpenApi {
   async modifySecurityIPList(request: $_model.ModifySecurityIPListRequest): Promise<$_model.ModifySecurityIPListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySecurityIPListWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改虚拟集群
+   * 
+   * @param request - ModifyVirtualClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyVirtualClusterResponse
+   */
+  async modifyVirtualClusterWithOptions(request: $_model.ModifyVirtualClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyVirtualClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.activeClusterId)) {
+      query["ActiveClusterId"] = request.activeClusterId;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.standbyClusterId)) {
+      query["StandbyClusterId"] = request.standbyClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyVirtualCluster",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyVirtualClusterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyVirtualClusterResponse({}));
+  }
+
+  /**
+   * 修改虚拟集群
+   * 
+   * @param request - ModifyVirtualClusterRequest
+   * @returns ModifyVirtualClusterResponse
+   */
+  async modifyVirtualCluster(request: $_model.ModifyVirtualClusterRequest): Promise<$_model.ModifyVirtualClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyVirtualClusterWithOptions(request, runtime);
   }
 
   /**
