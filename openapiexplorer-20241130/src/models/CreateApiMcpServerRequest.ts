@@ -346,6 +346,7 @@ export class CreateApiMcpServerRequest extends $dara.Model {
    * true
    */
   enableAssumeRole?: boolean;
+  enableCustomVpcWhitelist?: boolean;
   /**
    * @example
    * test
@@ -370,8 +371,10 @@ export class CreateApiMcpServerRequest extends $dara.Model {
    */
   oauthClientId?: string;
   prompts?: CreateApiMcpServerRequestPrompts[];
+  publicAccess?: string;
   systemTools?: string[];
   terraformTools?: CreateApiMcpServerRequestTerraformTools[];
+  vpcWhitelists?: string[];
   static names(): { [key: string]: string } {
     return {
       additionalApiDescriptions: 'additionalApiDescriptions',
@@ -381,13 +384,16 @@ export class CreateApiMcpServerRequest extends $dara.Model {
       clientToken: 'clientToken',
       description: 'description',
       enableAssumeRole: 'enableAssumeRole',
+      enableCustomVpcWhitelist: 'enableCustomVpcWhitelist',
       instructions: 'instructions',
       language: 'language',
       name: 'name',
       oauthClientId: 'oauthClientId',
       prompts: 'prompts',
+      publicAccess: 'publicAccess',
       systemTools: 'systemTools',
       terraformTools: 'terraformTools',
+      vpcWhitelists: 'vpcWhitelists',
     };
   }
 
@@ -400,13 +406,16 @@ export class CreateApiMcpServerRequest extends $dara.Model {
       clientToken: 'string',
       description: 'string',
       enableAssumeRole: 'boolean',
+      enableCustomVpcWhitelist: 'boolean',
       instructions: 'string',
       language: 'string',
       name: 'string',
       oauthClientId: 'string',
       prompts: { 'type': 'array', 'itemType': CreateApiMcpServerRequestPrompts },
+      publicAccess: 'string',
       systemTools: { 'type': 'array', 'itemType': 'string' },
       terraformTools: { 'type': 'array', 'itemType': CreateApiMcpServerRequestTerraformTools },
+      vpcWhitelists: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -425,6 +434,9 @@ export class CreateApiMcpServerRequest extends $dara.Model {
     }
     if(Array.isArray(this.terraformTools)) {
       $dara.Model.validateArray(this.terraformTools);
+    }
+    if(Array.isArray(this.vpcWhitelists)) {
+      $dara.Model.validateArray(this.vpcWhitelists);
     }
     super.validate();
   }

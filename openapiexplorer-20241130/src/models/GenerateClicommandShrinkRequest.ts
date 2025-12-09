@@ -8,12 +8,16 @@ export class GenerateCLICommandShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   api?: string;
+  /**
+   * @deprecated
+   */
   apiParamsShrink?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   apiVersion?: string;
+  jsonApiParams?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25,6 +29,7 @@ export class GenerateCLICommandShrinkRequest extends $dara.Model {
       api: 'api',
       apiParamsShrink: 'apiParams',
       apiVersion: 'apiVersion',
+      jsonApiParams: 'jsonApiParams',
       product: 'product',
       regionId: 'regionId',
     };
@@ -35,6 +40,7 @@ export class GenerateCLICommandShrinkRequest extends $dara.Model {
       api: 'string',
       apiParamsShrink: 'string',
       apiVersion: 'string',
+      jsonApiParams: 'string',
       product: 'string',
       regionId: 'string',
     };

@@ -11,7 +11,11 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._endpointRule = "central";
+    this._endpointMap = {
+      'ap-southeast-1': "openapi-mcp.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou': "openapi-mcp.cn-hangzhou.aliyuncs.com",
+    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("openapiexplorer", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -113,6 +117,10 @@ export default class Client extends OpenApi {
       body["enableAssumeRole"] = request.enableAssumeRole;
     }
 
+    if (!$dara.isNull(request.enableCustomVpcWhitelist)) {
+      body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist;
+    }
+
     if (!$dara.isNull(request.instructions)) {
       body["instructions"] = request.instructions;
     }
@@ -133,12 +141,20 @@ export default class Client extends OpenApi {
       body["prompts"] = request.prompts;
     }
 
+    if (!$dara.isNull(request.publicAccess)) {
+      body["publicAccess"] = request.publicAccess;
+    }
+
     if (!$dara.isNull(request.systemTools)) {
       body["systemTools"] = request.systemTools;
     }
 
     if (!$dara.isNull(request.terraformTools)) {
       body["terraformTools"] = request.terraformTools;
+    }
+
+    if (!$dara.isNull(request.vpcWhitelists)) {
+      body["vpcWhitelists"] = request.vpcWhitelists;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -247,6 +263,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.apiVersion)) {
       body["apiVersion"] = request.apiVersion;
+    }
+
+    if (!$dara.isNull(request.jsonApiParams)) {
+      body["jsonApiParams"] = request.jsonApiParams;
     }
 
     if (!$dara.isNull(request.product)) {
@@ -383,6 +403,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getApiMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询用户全局API MCP Server配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApiMcpServerUserConfigResponse
+   */
+  async getApiMcpServerUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetApiMcpServerUserConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApiMcpServerUserConfig",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/userconfig/get`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApiMcpServerUserConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetApiMcpServerUserConfigResponse({}));
+  }
+
+  /**
+   * 查询用户全局API MCP Server配置
+   * @returns GetApiMcpServerUserConfigResponse
+   */
+  async getApiMcpServerUserConfig(): Promise<$_model.GetApiMcpServerUserConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getApiMcpServerUserConfigWithOptions(headers, runtime);
   }
 
   /**
@@ -822,6 +877,10 @@ export default class Client extends OpenApi {
       body["enableAssumeRole"] = request.enableAssumeRole;
     }
 
+    if (!$dara.isNull(request.enableCustomVpcWhitelist)) {
+      body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist;
+    }
+
     if (!$dara.isNull(request.instructions)) {
       body["instructions"] = request.instructions;
     }
@@ -838,12 +897,20 @@ export default class Client extends OpenApi {
       body["prompts"] = request.prompts;
     }
 
+    if (!$dara.isNull(request.publicAccess)) {
+      body["publicAccess"] = request.publicAccess;
+    }
+
     if (!$dara.isNull(request.systemTools)) {
       body["systemTools"] = request.systemTools;
     }
 
     if (!$dara.isNull(request.terraformTools)) {
       body["terraformTools"] = request.terraformTools;
+    }
+
+    if (!$dara.isNull(request.vpcWhitelists)) {
+      body["vpcWhitelists"] = request.vpcWhitelists;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -875,6 +942,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateApiMcpServerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改用户全局API MCP Server配置
+   * 
+   * @param request - UpdateApiMcpServerUserConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiMcpServerUserConfigResponse
+   */
+  async updateApiMcpServerUserConfigWithOptions(request: $_model.UpdateApiMcpServerUserConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiMcpServerUserConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enablePublicAccess)) {
+      body["enablePublicAccess"] = request.enablePublicAccess;
+    }
+
+    if (!$dara.isNull(request.vpcWhitelists)) {
+      body["vpcWhitelists"] = request.vpcWhitelists;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApiMcpServerUserConfig",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/userconfig/update`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApiMcpServerUserConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApiMcpServerUserConfigResponse({}));
+  }
+
+  /**
+   * 修改用户全局API MCP Server配置
+   * 
+   * @param request - UpdateApiMcpServerUserConfigRequest
+   * @returns UpdateApiMcpServerUserConfigResponse
+   */
+  async updateApiMcpServerUserConfig(request: $_model.UpdateApiMcpServerUserConfigRequest): Promise<$_model.UpdateApiMcpServerUserConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateApiMcpServerUserConfigWithOptions(request, headers, runtime);
   }
 
 }

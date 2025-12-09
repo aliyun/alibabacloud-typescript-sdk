@@ -338,10 +338,14 @@ export class ListApiMcpServersResponseBodyApiMcpServersUrls extends $dara.Model 
    * https://mcpserverinner-pre.cn-zhangjiakou.aliyuncs.com/accounts/xxxx/custom/xxx/id/xxxx/sse
    */
   sse?: string;
+  vpcMcp?: string;
+  vpcSse?: string;
   static names(): { [key: string]: string } {
     return {
       mcp: 'mcp',
       sse: 'sse',
+      vpcMcp: 'vpcMcp',
+      vpcSse: 'vpcSse',
     };
   }
 
@@ -349,6 +353,8 @@ export class ListApiMcpServersResponseBodyApiMcpServersUrls extends $dara.Model 
     return {
       mcp: 'string',
       sse: 'string',
+      vpcMcp: 'string',
+      vpcSse: 'string',
     };
   }
 
@@ -398,6 +404,7 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
    * true
    */
   enableAssumeRole?: boolean;
+  enableCustomVpcWhitelist?: boolean;
   /**
    * @example
    * v6ZZ7ftCzEILW***
@@ -424,6 +431,7 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
    */
   oauthClientId?: string;
   prompts?: ListApiMcpServersResponseBodyApiMcpServersPrompts[];
+  publicAccess?: string;
   /**
    * @example
    * system
@@ -438,6 +446,7 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
    */
   updateTime?: string;
   urls?: ListApiMcpServersResponseBodyApiMcpServersUrls;
+  vpcWhitelists?: string[];
   static names(): { [key: string]: string } {
     return {
       additionalApiDescriptions: 'additionalApiDescriptions',
@@ -447,18 +456,21 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
       createTime: 'createTime',
       description: 'description',
       enableAssumeRole: 'enableAssumeRole',
+      enableCustomVpcWhitelist: 'enableCustomVpcWhitelist',
       id: 'id',
       instructions: 'instructions',
       language: 'language',
       name: 'name',
       oauthClientId: 'oauthClientId',
       prompts: 'prompts',
+      publicAccess: 'publicAccess',
       sourceType: 'sourceType',
       systemMcpServerInfo: 'systemMcpServerInfo',
       systemTools: 'systemTools',
       terraformTools: 'terraformTools',
       updateTime: 'updateTime',
       urls: 'urls',
+      vpcWhitelists: 'vpcWhitelists',
     };
   }
 
@@ -471,18 +483,21 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
       createTime: 'string',
       description: 'string',
       enableAssumeRole: 'boolean',
+      enableCustomVpcWhitelist: 'boolean',
       id: 'string',
       instructions: 'string',
       language: 'string',
       name: 'string',
       oauthClientId: 'string',
       prompts: { 'type': 'array', 'itemType': ListApiMcpServersResponseBodyApiMcpServersPrompts },
+      publicAccess: 'string',
       sourceType: 'string',
       systemMcpServerInfo: ListApiMcpServersResponseBodyApiMcpServersSystemMcpServerInfo,
       systemTools: { 'type': 'array', 'itemType': 'string' },
       terraformTools: { 'type': 'array', 'itemType': ListApiMcpServersResponseBodyApiMcpServersTerraformTools },
       updateTime: 'string',
       urls: ListApiMcpServersResponseBodyApiMcpServersUrls,
+      vpcWhitelists: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -507,6 +522,9 @@ export class ListApiMcpServersResponseBodyApiMcpServers extends $dara.Model {
     }
     if(this.urls && typeof (this.urls as any).validate === 'function') {
       (this.urls as any).validate();
+    }
+    if(Array.isArray(this.vpcWhitelists)) {
+      $dara.Model.validateArray(this.vpcWhitelists);
     }
     super.validate();
   }

@@ -13,10 +13,14 @@ export class CreateApiMcpServerResponseBodyUrls extends $dara.Model {
    * https://mcpserverinner-pre.cn-zhangjiakou.aliyuncs.com/accounts/xxxx/custom/xxx/id/xxxx/sse
    */
   sse?: string;
+  vpcMcp?: string;
+  vpcSse?: string;
   static names(): { [key: string]: string } {
     return {
       mcp: 'mcp',
       sse: 'sse',
+      vpcMcp: 'vpcMcp',
+      vpcSse: 'vpcSse',
     };
   }
 
@@ -24,6 +28,8 @@ export class CreateApiMcpServerResponseBodyUrls extends $dara.Model {
     return {
       mcp: 'string',
       sse: 'string',
+      vpcMcp: 'string',
+      vpcSse: 'string',
     };
   }
 
