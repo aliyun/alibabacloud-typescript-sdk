@@ -388,6 +388,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateDataAgentSession
+   * 
+   * @param tmpReq - CreateDataAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentSessionResponse
+   */
+  async createDataAgentSessionWithOptions(tmpReq: $_model.CreateDataAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sessionConfig)) {
+      request.sessionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig, "SessionConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.file)) {
+      query["File"] = request.file;
+    }
+
+    if (!$dara.isNull(request.sessionConfigShrink)) {
+      query["SessionConfig"] = request.sessionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentSession",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentSessionResponse({}));
+  }
+
+  /**
+   * CreateDataAgentSession
+   * 
+   * @param request - CreateDataAgentSessionRequest
+   * @returns CreateDataAgentSessionResponse
+   */
+  async createDataAgentSession(request: $_model.CreateDataAgentSessionRequest): Promise<$_model.CreateDataAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
    * 新建湖仓数据库
    * 
    * @param tmpReq - CreateDataLakeDatabaseRequest
@@ -959,6 +1023,56 @@ export default class Client extends OpenApi {
   async deleteDataLakeTable(request: $_model.DeleteDataLakeTableRequest): Promise<$_model.DeleteDataLakeTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeDataAgentSession
+   * 
+   * @param request - DescribeDataAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataAgentSessionResponse
+   */
+  async describeDataAgentSessionWithOptions(request: $_model.DescribeDataAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataAgentSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDataAgentSession",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDataAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDataAgentSessionResponse({}));
+  }
+
+  /**
+   * DescribeDataAgentSession
+   * 
+   * @param request - DescribeDataAgentSessionRequest
+   * @returns DescribeDataAgentSessionResponse
+   */
+  async describeDataAgentSession(request: $_model.DescribeDataAgentSessionRequest): Promise<$_model.DescribeDataAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDataAgentSessionWithOptions(request, runtime);
   }
 
   /**
