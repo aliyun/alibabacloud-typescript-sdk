@@ -1008,6 +1008,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetChatContent
+   * 
+   * @param request - GetChatContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatContentResponse
+   */
+  async *getChatContentWithSSE(request: $_model.GetChatContentRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetChatContentResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.checkpoint)) {
+      query["Checkpoint"] = request.checkpoint;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatContent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      let data = JSON.parse(resp.event.data);
+      yield $dara.cast<$_model.GetChatContentResponse>({
+        statusCode: resp.statusCode,
+        headers: resp.headers,
+        body: {
+          ...data,
+          RequestId: resp.event.id,
+          Message: resp.event.event,
+        },
+      }, new $_model.GetChatContentResponse({}));
+    }
+  }
+
+  /**
+   * GetChatContent
+   * 
+   * @param request - GetChatContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatContentResponse
+   */
+  async getChatContentWithOptions(request: $_model.GetChatContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatContentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.checkpoint)) {
+      query["Checkpoint"] = request.checkpoint;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatContent",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatContentResponse>(await this.callApi(params, req, runtime), new $_model.GetChatContentResponse({}));
+  }
+
+  /**
+   * GetChatContent
+   * 
+   * @param request - GetChatContentRequest
+   * @returns GetChatContentResponse
+   */
+  async getChatContent(request: $_model.GetChatContentRequest): Promise<$_model.GetChatContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatContentWithOptions(request, runtime);
+  }
+
+  /**
    * 获取uc的数据库目录
    * 
    * @param request - GetDataLakeCatalogRequest
@@ -1293,6 +1403,116 @@ export default class Client extends OpenApi {
   async getDataLakeTable(request: $_model.GetDataLakeTableRequest): Promise<$_model.GetDataLakeTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 调度运行Notebook文件
+   * 
+   * @param request - GetNotebookAndSubmitTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotebookAndSubmitTaskResponse
+   */
+  async getNotebookAndSubmitTaskWithOptions(request: $_model.GetNotebookAndSubmitTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotebookAndSubmitTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      body["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.retry)) {
+      body["Retry"] = request.retry;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotebookAndSubmitTask",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotebookAndSubmitTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetNotebookAndSubmitTaskResponse({}));
+  }
+
+  /**
+   * 调度运行Notebook文件
+   * 
+   * @param request - GetNotebookAndSubmitTaskRequest
+   * @returns GetNotebookAndSubmitTaskResponse
+   */
+  async getNotebookAndSubmitTask(request: $_model.GetNotebookAndSubmitTaskRequest): Promise<$_model.GetNotebookAndSubmitTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotebookAndSubmitTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看Notebook任务运行结果
+   * 
+   * @param request - GetNotebookTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotebookTaskStatusResponse
+   */
+  async getNotebookTaskStatusWithOptions(request: $_model.GetNotebookTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotebookTaskStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotebookTaskStatus",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotebookTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetNotebookTaskStatusResponse({}));
+  }
+
+  /**
+   * 查看Notebook任务运行结果
+   * 
+   * @param request - GetNotebookTaskStatusRequest
+   * @returns GetNotebookTaskStatusResponse
+   */
+  async getNotebookTaskStatus(request: $_model.GetNotebookTaskStatusRequest): Promise<$_model.GetNotebookTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotebookTaskStatusWithOptions(request, runtime);
   }
 
   /**
@@ -2017,6 +2237,94 @@ export default class Client extends OpenApi {
   async listDataLakeTablebaseInfo(request: $_model.ListDataLakeTablebaseInfoRequest): Promise<$_model.ListDataLakeTablebaseInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataLakeTablebaseInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * SendChatMessage
+   * 
+   * @param tmpReq - SendChatMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendChatMessageResponse
+   */
+  async sendChatMessageWithOptions(tmpReq: $_model.SendChatMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendChatMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.SendChatMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataSource)) {
+      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sessionConfig)) {
+      request.sessionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig, "SessionConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.dataSourceShrink)) {
+      query["DataSource"] = request.dataSourceShrink;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.messageType)) {
+      query["MessageType"] = request.messageType;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      query["Question"] = request.question;
+    }
+
+    if (!$dara.isNull(request.quotedMessage)) {
+      query["QuotedMessage"] = request.quotedMessage;
+    }
+
+    if (!$dara.isNull(request.replyTo)) {
+      query["ReplyTo"] = request.replyTo;
+    }
+
+    if (!$dara.isNull(request.sessionConfigShrink)) {
+      query["SessionConfig"] = request.sessionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendChatMessage",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendChatMessageResponse>(await this.callApi(params, req, runtime), new $_model.SendChatMessageResponse({}));
+  }
+
+  /**
+   * SendChatMessage
+   * 
+   * @param request - SendChatMessageRequest
+   * @returns SendChatMessageResponse
+   */
+  async sendChatMessage(request: $_model.SendChatMessageRequest): Promise<$_model.SendChatMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendChatMessageWithOptions(request, runtime);
   }
 
   /**
