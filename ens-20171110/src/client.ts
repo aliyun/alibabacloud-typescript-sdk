@@ -1336,19 +1336,81 @@ export default class Client extends OpenApi {
    *   You can call this operation up to 10 times per second per account.
    * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
    * 
-   * @param request - CreateClusterRequest
+   * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClusterResponse
    */
-  async createClusterWithOptions(request: $_model.CreateClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterResponse> {
-    request.validate();
+  async createClusterWithOptions(tmpReq: $_model.CreateClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.controlPlaneConfig)) {
+      request.controlPlaneConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.controlPlaneConfig, "ControlPlaneConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.podVswitchIds)) {
+      request.podVswitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.podVswitchIds, "PodVswitchIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.vswitchIds)) {
+      request.vswitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vswitchIds, "VswitchIds", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
     if (!$dara.isNull(request.clusterVersion)) {
       query["ClusterVersion"] = request.clusterVersion;
     }
 
+    if (!$dara.isNull(request.containerCidr)) {
+      query["ContainerCidr"] = request.containerCidr;
+    }
+
+    if (!$dara.isNull(request.controlPlaneConfigShrink)) {
+      query["ControlPlaneConfig"] = request.controlPlaneConfigShrink;
+    }
+
+    if (!$dara.isNull(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!$dara.isNull(request.kubernetesVersion)) {
+      query["KubernetesVersion"] = request.kubernetesVersion;
+    }
+
+    if (!$dara.isNull(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.podVswitchIdsShrink)) {
+      query["PodVswitchIds"] = request.podVswitchIdsShrink;
+    }
+
+    if (!$dara.isNull(request.profile)) {
+      query["Profile"] = request.profile;
+    }
+
+    if (!$dara.isNull(request.publicAccess)) {
+      query["PublicAccess"] = request.publicAccess;
+    }
+
+    if (!$dara.isNull(request.serviceCidr)) {
+      query["ServiceCidr"] = request.serviceCidr;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vswitchIdsShrink)) {
+      query["VswitchIds"] = request.vswitchIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
