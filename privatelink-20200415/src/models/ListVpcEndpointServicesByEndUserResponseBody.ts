@@ -54,6 +54,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
    * IPv4
    */
   addressIpVersion?: string;
+  autoAcceptEnabled?: boolean;
   /**
    * @remarks
    * The payer. Valid values:
@@ -135,6 +136,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
    * The list of tags.
    */
   tags?: ListVpcEndpointServicesByEndUserResponseBodyServicesTags[];
+  vpcEndpointPolicySupported?: boolean;
   zoneAffinityEnabled?: boolean;
   /**
    * @remarks
@@ -144,6 +146,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   static names(): { [key: string]: string } {
     return {
       addressIpVersion: 'AddressIpVersion',
+      autoAcceptEnabled: 'AutoAcceptEnabled',
       payer: 'Payer',
       resourceGroupId: 'ResourceGroupId',
       serviceDomain: 'ServiceDomain',
@@ -153,6 +156,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
       serviceSupportIPv6: 'ServiceSupportIPv6',
       serviceType: 'ServiceType',
       tags: 'Tags',
+      vpcEndpointPolicySupported: 'VpcEndpointPolicySupported',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
       zones: 'Zones',
     };
@@ -161,6 +165,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   static types(): { [key: string]: any } {
     return {
       addressIpVersion: 'string',
+      autoAcceptEnabled: 'boolean',
       payer: 'string',
       resourceGroupId: 'string',
       serviceDomain: 'string',
@@ -170,6 +175,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
       serviceSupportIPv6: 'boolean',
       serviceType: 'string',
       tags: { 'type': 'array', 'itemType': ListVpcEndpointServicesByEndUserResponseBodyServicesTags },
+      vpcEndpointPolicySupported: 'boolean',
       zoneAffinityEnabled: 'boolean',
       zones: { 'type': 'array', 'itemType': 'string' },
     };

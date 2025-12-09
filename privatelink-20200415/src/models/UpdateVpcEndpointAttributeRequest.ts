@@ -102,6 +102,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
    * eu-west-1
    */
   regionId?: string;
+  resetPolicy?: boolean;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -113,6 +114,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
       endpointName: 'EndpointName',
       policyDocument: 'PolicyDocument',
       regionId: 'RegionId',
+      resetPolicy: 'ResetPolicy',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -127,6 +129,7 @@ export class UpdateVpcEndpointAttributeRequest extends $dara.Model {
       endpointName: 'string',
       policyDocument: 'string',
       regionId: 'string',
+      resetPolicy: 'boolean',
       zoneAffinityEnabled: 'boolean',
     };
   }

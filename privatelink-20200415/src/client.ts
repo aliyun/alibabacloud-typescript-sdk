@@ -2520,6 +2520,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resetPolicy)) {
+      query["ResetPolicy"] = request.resetPolicy;
+    }
+
     if (!$dara.isNull(request.zoneAffinityEnabled)) {
       query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
     }
