@@ -38,6 +38,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * 500
    */
   pageSize?: number;
+  planNameEn?: string;
   planType?: string;
   remainingExpireDays?: number;
   /**
@@ -85,6 +86,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      planNameEn: 'PlanNameEn',
       planType: 'PlanType',
       remainingExpireDays: 'RemainingExpireDays',
       sortBy: 'SortBy',
@@ -100,6 +102,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      planNameEn: 'string',
       planType: 'string',
       remainingExpireDays: 'number',
       sortBy: 'string',
