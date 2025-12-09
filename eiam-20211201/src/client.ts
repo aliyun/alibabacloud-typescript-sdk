@@ -9508,6 +9508,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新模板应用的SSO参数
+   * 
+   * @param request - UpdateApplicationSsoFormParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationSsoFormParamsResponse
+   */
+  async updateApplicationSsoFormParamsWithOptions(request: $_model.UpdateApplicationSsoFormParamsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationSsoFormParamsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateParams)) {
+      query["ApplicationTemplateParams"] = request.applicationTemplateParams;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationSsoFormParams",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationSsoFormParamsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationSsoFormParamsResponse({}));
+  }
+
+  /**
+   * 更新模板应用的SSO参数
+   * 
+   * @param request - UpdateApplicationSsoFormParamsRequest
+   * @returns UpdateApplicationSsoFormParamsResponse
+   */
+  async updateApplicationSsoFormParams(request: $_model.UpdateApplicationSsoFormParamsRequest): Promise<$_model.UpdateApplicationSsoFormParamsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationSsoFormParamsWithOptions(request, runtime);
+  }
+
+  /**
    * 更新ApplicationToken过期时间
    * 
    * @param request - UpdateApplicationTokenExpirationTimeRequest

@@ -268,6 +268,7 @@ export { SetIdentityProviderUdPullConfigurationRequestPullProtectedRule } from '
 export { SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig } from './SetIdentityProviderUdPullConfigurationRequest';
 export { SetPasswordComplexityConfigurationRequestPasswordComplexityRules } from './SetPasswordComplexityConfigurationRequest';
 export { UpdateApplicationFederatedCredentialRequestAttributeMappings } from './UpdateApplicationFederatedCredentialRequest';
+export { UpdateApplicationSsoFormParamsRequestApplicationTemplateParams } from './UpdateApplicationSsoFormParamsRequest';
 export { UpdateConditionalAccessPolicyRequestConditionsConfigApplications } from './UpdateConditionalAccessPolicyRequest';
 export { UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones } from './UpdateConditionalAccessPolicyRequest';
 export { UpdateConditionalAccessPolicyRequestConditionsConfigUsers } from './UpdateConditionalAccessPolicyRequest';
@@ -831,6 +832,9 @@ export { UpdateApplicationFederatedCredentialDescriptionResponse } from './Updat
 export { UpdateApplicationInfoRequest } from './UpdateApplicationInfoRequest';
 export { UpdateApplicationInfoResponseBody } from './UpdateApplicationInfoResponseBody';
 export { UpdateApplicationInfoResponse } from './UpdateApplicationInfoResponse';
+export { UpdateApplicationSsoFormParamsRequest } from './UpdateApplicationSsoFormParamsRequest';
+export { UpdateApplicationSsoFormParamsResponseBody } from './UpdateApplicationSsoFormParamsResponseBody';
+export { UpdateApplicationSsoFormParamsResponse } from './UpdateApplicationSsoFormParamsResponse';
 export { UpdateApplicationTokenExpirationTimeRequest } from './UpdateApplicationTokenExpirationTimeRequest';
 export { UpdateApplicationTokenExpirationTimeResponseBody } from './UpdateApplicationTokenExpirationTimeResponseBody';
 export { UpdateApplicationTokenExpirationTimeResponse } from './UpdateApplicationTokenExpirationTimeResponse';
