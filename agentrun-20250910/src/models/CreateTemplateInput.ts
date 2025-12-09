@@ -49,6 +49,8 @@ export class CreateTemplateInput extends $dara.Model {
   /**
    * @remarks
    * 沙箱存活时间（秒）
+   * 
+   * @deprecated
    */
   sandboxTTLInSeconds?: number;
   /**

@@ -80,7 +80,7 @@ export class Template extends $dara.Model {
   credentialConfiguration?: CredentialConfiguration;
   description?: string;
   diskSize?: number;
-  environmentVariables?: string;
+  environmentVariables?: { [key: string]: string };
   executionRoleArn?: string;
   lastUpdatedAt?: string;
   logConfiguration?: LogConfiguration;
@@ -95,11 +95,14 @@ export class Template extends $dara.Model {
   ossConfiguration?: OssConfiguration[];
   resourceName?: string;
   sandboxIdleTimeoutInSeconds?: string;
+  /**
+   * @deprecated
+   */
   sandboxTTLInSeconds?: string;
   status?: string;
   statusReason?: string;
   templateArn?: string;
-  templateConfiguration?: string;
+  templateConfiguration?: { [key: string]: any };
   /**
    * @remarks
    * This parameter is required.
@@ -151,7 +154,7 @@ export class Template extends $dara.Model {
       credentialConfiguration: CredentialConfiguration,
       description: 'string',
       diskSize: 'number',
-      environmentVariables: 'string',
+      environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       lastUpdatedAt: 'string',
       logConfiguration: LogConfiguration,
@@ -166,7 +169,7 @@ export class Template extends $dara.Model {
       status: 'string',
       statusReason: 'string',
       templateArn: 'string',
-      templateConfiguration: 'string',
+      templateConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       templateId: 'string',
       templateName: 'string',
       templateType: 'string',
@@ -180,6 +183,9 @@ export class Template extends $dara.Model {
     }
     if(this.credentialConfiguration && typeof (this.credentialConfiguration as any).validate === 'function') {
       (this.credentialConfiguration as any).validate();
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
     }
     if(this.logConfiguration && typeof (this.logConfiguration as any).validate === 'function') {
       (this.logConfiguration as any).validate();
@@ -195,6 +201,9 @@ export class Template extends $dara.Model {
     }
     if(Array.isArray(this.ossConfiguration)) {
       $dara.Model.validateArray(this.ossConfiguration);
+    }
+    if(this.templateConfiguration) {
+      $dara.Model.validateMap(this.templateConfiguration);
     }
     super.validate();
   }

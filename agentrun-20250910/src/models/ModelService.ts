@@ -10,8 +10,8 @@ export class ModelService extends $dara.Model {
   credentialName?: string;
   description?: string;
   lastUpdatedAt?: string;
-  modeServiceId?: string;
   modelInfoConfigs?: ModelInfoConfig[];
+  modelServiceId?: string;
   modelServiceName?: string;
   modelType?: string;
   networkConfiguration?: NetworkConfiguration;
@@ -25,8 +25,8 @@ export class ModelService extends $dara.Model {
       credentialName: 'credentialName',
       description: 'description',
       lastUpdatedAt: 'lastUpdatedAt',
-      modeServiceId: 'modeServiceId',
       modelInfoConfigs: 'modelInfoConfigs',
+      modelServiceId: 'modelServiceId',
       modelServiceName: 'modelServiceName',
       modelType: 'modelType',
       networkConfiguration: 'networkConfiguration',
@@ -43,8 +43,8 @@ export class ModelService extends $dara.Model {
       credentialName: 'string',
       description: 'string',
       lastUpdatedAt: 'string',
-      modeServiceId: 'string',
       modelInfoConfigs: { 'type': 'array', 'itemType': ModelInfoConfig },
+      modelServiceId: 'string',
       modelServiceName: 'string',
       modelType: 'string',
       networkConfiguration: NetworkConfiguration,
