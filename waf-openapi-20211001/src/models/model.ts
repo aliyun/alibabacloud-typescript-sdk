@@ -32,6 +32,7 @@ export { DescribeApisecStatisticsResponseBodyData } from './DescribeApisecStatis
 export { DescribeApisecSuggestionsResponseBodyData } from './DescribeApisecSuggestionsResponseBody';
 export { DescribeApisecUserOperationsResponseBodyData } from './DescribeApisecUserOperationsResponseBody';
 export { DescribeBaseSystemRulesResponseBodyRules } from './DescribeBaseSystemRulesResponseBody';
+export { DescribeBotRuleLabelsResponseBodyRuleLabels } from './DescribeBotRuleLabelsResponseBody';
 export { DescribeCertDetailResponseBodyCertDetail } from './DescribeCertDetailResponseBody';
 export { DescribeCertsResponseBodyCerts } from './DescribeCertsResponseBody';
 export { DescribeChargeModuleResponseBodyChargeModules } from './DescribeChargeModuleResponseBody';
@@ -365,6 +366,9 @@ export { DescribeApisecUserOperationsResponse } from './DescribeApisecUserOperat
 export { DescribeBaseSystemRulesRequest } from './DescribeBaseSystemRulesRequest';
 export { DescribeBaseSystemRulesResponseBody } from './DescribeBaseSystemRulesResponseBody';
 export { DescribeBaseSystemRulesResponse } from './DescribeBaseSystemRulesResponse';
+export { DescribeBotRuleLabelsRequest } from './DescribeBotRuleLabelsRequest';
+export { DescribeBotRuleLabelsResponseBody } from './DescribeBotRuleLabelsResponseBody';
+export { DescribeBotRuleLabelsResponse } from './DescribeBotRuleLabelsResponse';
 export { DescribeCertDetailRequest } from './DescribeCertDetailRequest';
 export { DescribeCertDetailResponseBody } from './DescribeCertDetailResponseBody';
 export { DescribeCertDetailResponse } from './DescribeCertDetailResponse';

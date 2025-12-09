@@ -145,6 +145,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * clb4
    */
   resourceProduct?: string;
+  resourceRegionId?: string;
   /**
    * @remarks
    * The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
@@ -168,6 +169,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
       protocol: 'Protocol',
       resourceInstanceId: 'ResourceInstanceId',
       resourceProduct: 'ResourceProduct',
+      resourceRegionId: 'ResourceRegionId',
       TLSVersion: 'TLSVersion',
     };
   }
@@ -183,6 +185,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
       protocol: 'string',
       resourceInstanceId: 'string',
       resourceProduct: 'string',
+      resourceRegionId: 'string',
       TLSVersion: 'string',
     };
   }

@@ -3870,6 +3870,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页获取Bot管理规则标签信息
+   * 
+   * @param request - DescribeBotRuleLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBotRuleLabelsResponse
+   */
+  async describeBotRuleLabelsWithOptions(request: $_model.DescribeBotRuleLabelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBotRuleLabelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.labelType)) {
+      query["LabelType"] = request.labelType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.subScene)) {
+      query["SubScene"] = request.subScene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBotRuleLabels",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBotRuleLabelsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBotRuleLabelsResponse({}));
+  }
+
+  /**
+   * 分页获取Bot管理规则标签信息
+   * 
+   * @param request - DescribeBotRuleLabelsRequest
+   * @returns DescribeBotRuleLabelsResponse
+   */
+  async describeBotRuleLabels(request: $_model.DescribeBotRuleLabelsRequest): Promise<$_model.DescribeBotRuleLabelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBotRuleLabelsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
    * 
    * @param request - DescribeCertDetailRequest
