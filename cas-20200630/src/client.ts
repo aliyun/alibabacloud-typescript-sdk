@@ -1835,6 +1835,234 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取资源对应的标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 获取资源对应的标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 变更资源的资源组
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveResourceGroupResponse
+   */
+  async moveResourceGroupWithOptions(request: $_model.MoveResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveResourceGroup",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.MoveResourceGroupResponse({}));
+  }
+
+  /**
+   * 变更资源的资源组
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @returns MoveResourceGroupResponse
+   */
+  async moveResourceGroup(request: $_model.MoveResourceGroupRequest): Promise<$_model.MoveResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增资源标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 新增资源标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 移除标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
    * 
    * @remarks
