@@ -24,6 +24,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
    * scan:ASCV-2019-032401
    */
   name?: string;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * Specifies whether to scan for urgent vulnerabilities. Valid values:
@@ -41,6 +42,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
     return {
       lang: 'Lang',
       name: 'Name',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       userAgreement: 'UserAgreement',
     };
   }
@@ -49,6 +51,7 @@ export class ModifyEmgVulSubmitRequest extends $dara.Model {
     return {
       lang: 'string',
       name: 'string',
+      resourceDirectoryAccountId: 'number',
       userAgreement: 'string',
     };
   }

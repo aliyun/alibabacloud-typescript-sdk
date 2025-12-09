@@ -1653,6 +1653,9 @@ export { DescribeCloudProductFieldStatisticsResponse } from './DescribeCloudProd
 export { DescribeCloudVendorAccountAKListRequest } from './DescribeCloudVendorAccountAklistRequest';
 export { DescribeCloudVendorAccountAKListResponseBody } from './DescribeCloudVendorAccountAklistResponseBody';
 export { DescribeCloudVendorAccountAKListResponse } from './DescribeCloudVendorAccountAklistResponse';
+export { DescribeCloudVendorProductTemplateConfigRequest } from './DescribeCloudVendorProductTemplateConfigRequest';
+export { DescribeCloudVendorProductTemplateConfigResponseBody } from './DescribeCloudVendorProductTemplateConfigResponseBody';
+export { DescribeCloudVendorProductTemplateConfigResponse } from './DescribeCloudVendorProductTemplateConfigResponse';
 export { DescribeCloudVendorTrialConfigRequest } from './DescribeCloudVendorTrialConfigRequest';
 export { DescribeCloudVendorTrialConfigResponseBody } from './DescribeCloudVendorTrialConfigResponseBody';
 export { DescribeCloudVendorTrialConfigResponse } from './DescribeCloudVendorTrialConfigResponse';

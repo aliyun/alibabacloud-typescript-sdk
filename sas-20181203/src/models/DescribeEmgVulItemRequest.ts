@@ -40,6 +40,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * Specifies whether the vulnerability poses risks.\\
@@ -78,6 +79,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       lang: 'Lang',
       pageSize: 'PageSize',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       riskStatus: 'RiskStatus',
       scanType: 'ScanType',
       vulName: 'VulName',
@@ -90,6 +92,7 @@ export class DescribeEmgVulItemRequest extends $dara.Model {
       currentPage: 'number',
       lang: 'string',
       pageSize: 'number',
+      resourceDirectoryAccountId: 'number',
       riskStatus: 'string',
       scanType: 'string',
       vulName: 'string',

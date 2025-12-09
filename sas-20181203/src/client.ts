@@ -11215,6 +11215,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取厂商云产品接入模板
+   * 
+   * @param request - DescribeCloudVendorProductTemplateConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudVendorProductTemplateConfigResponse
+   */
+  async describeCloudVendorProductTemplateConfigWithOptions(request: $_model.DescribeCloudVendorProductTemplateConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCloudVendorProductTemplateConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCloudVendorProductTemplateConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCloudVendorProductTemplateConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCloudVendorProductTemplateConfigResponse({}));
+  }
+
+  /**
+   * 获取厂商云产品接入模板
+   * 
+   * @param request - DescribeCloudVendorProductTemplateConfigRequest
+   * @returns DescribeCloudVendorProductTemplateConfigResponse
+   */
+  async describeCloudVendorProductTemplateConfig(request: $_model.DescribeCloudVendorProductTemplateConfigRequest): Promise<$_model.DescribeCloudVendorProductTemplateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCloudVendorProductTemplateConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Query the trail configuration attributes of the corresponding AK configuration
    * 
    * @param request - DescribeCloudVendorTrialConfigRequest
@@ -13682,6 +13728,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.riskStatus)) {
@@ -40590,6 +40640,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.userAgreement)) {
