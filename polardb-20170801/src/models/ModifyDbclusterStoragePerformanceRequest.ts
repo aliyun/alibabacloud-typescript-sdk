@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the I/O Burst feature for the ESSD AutoPL disk. Valid value:
@@ -36,6 +37,11 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
+  /**
+   * @example
    * 2500
    */
   provisionedIops?: number;
@@ -47,10 +53,12 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       burstingEnabled: 'BurstingEnabled',
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       modifyType: 'ModifyType',
+      promotionCode: 'PromotionCode',
       provisionedIops: 'ProvisionedIops',
       resourceOwnerId: 'ResourceOwnerId',
       storageType: 'StorageType',
@@ -59,10 +67,12 @@ export class ModifyDBClusterStoragePerformanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       burstingEnabled: 'string',
       clientToken: 'string',
       DBClusterId: 'string',
       modifyType: 'string',
+      promotionCode: 'string',
       provisionedIops: 'number',
       resourceOwnerId: 'number',
       storageType: 'string',

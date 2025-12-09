@@ -55,6 +55,7 @@ export class CreateDBNodesRequestDBNode extends $dara.Model {
 }
 
 export class CreateDBNodesRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
@@ -152,6 +153,11 @@ export class CreateDBNodesRequest extends $dara.Model {
    */
   plannedStartTime?: string;
   /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
+  /**
    * @remarks
    * The ID of the resource group.
    * 
@@ -163,6 +169,7 @@ export class CreateDBNodesRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
@@ -174,6 +181,7 @@ export class CreateDBNodesRequest extends $dara.Model {
       ownerId: 'OwnerId',
       plannedEndTime: 'PlannedEndTime',
       plannedStartTime: 'PlannedStartTime',
+      promotionCode: 'PromotionCode',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -182,6 +190,7 @@ export class CreateDBNodesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       cloudProvider: 'string',
       DBClusterId: 'string',
@@ -193,6 +202,7 @@ export class CreateDBNodesRequest extends $dara.Model {
       ownerId: 'number',
       plannedEndTime: 'string',
       plannedStartTime: 'string',
+      promotionCode: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',

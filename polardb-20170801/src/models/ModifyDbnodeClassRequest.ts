@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBNodeClassRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
@@ -87,6 +88,11 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
    * 2021-01-14T09:00:00Z
    */
   plannedStartTime?: string;
+  /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -102,6 +108,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
   subCategory?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
@@ -113,6 +120,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
       plannedEndTime: 'PlannedEndTime',
       plannedFlashingOffTime: 'PlannedFlashingOffTime',
       plannedStartTime: 'PlannedStartTime',
+      promotionCode: 'PromotionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       subCategory: 'SubCategory',
@@ -121,6 +129,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       cloudProvider: 'string',
       DBClusterId: 'string',
@@ -132,6 +141,7 @@ export class ModifyDBNodeClassRequest extends $dara.Model {
       plannedEndTime: 'string',
       plannedFlashingOffTime: 'string',
       plannedStartTime: 'string',
+      promotionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       subCategory: 'string',

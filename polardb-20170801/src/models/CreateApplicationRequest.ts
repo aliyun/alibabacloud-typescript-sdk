@@ -140,6 +140,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
+  autoUseCoupon?: boolean;
   components?: CreateApplicationRequestComponents[];
   /**
    * @example
@@ -174,6 +175,11 @@ export class CreateApplicationRequest extends $dara.Model {
   polarFSInstanceId?: string;
   /**
    * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
+  /**
+   * @example
    * cn-beijing
    */
   regionId?: string;
@@ -203,6 +209,7 @@ export class CreateApplicationRequest extends $dara.Model {
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       components: 'Components',
       DBClusterId: 'DBClusterId',
       description: 'Description',
@@ -211,6 +218,7 @@ export class CreateApplicationRequest extends $dara.Model {
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       usedTime: 'UsedTime',
@@ -225,6 +233,7 @@ export class CreateApplicationRequest extends $dara.Model {
       applicationType: 'string',
       architecture: 'string',
       autoRenew: 'boolean',
+      autoUseCoupon: 'boolean',
       components: { 'type': 'array', 'itemType': CreateApplicationRequestComponents },
       DBClusterId: 'string',
       description: 'string',
@@ -233,6 +242,7 @@ export class CreateApplicationRequest extends $dara.Model {
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       usedTime: 'string',

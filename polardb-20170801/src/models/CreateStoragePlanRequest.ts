@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateStoragePlanRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
@@ -26,6 +27,11 @@ export class CreateStoragePlanRequest extends $dara.Model {
    * Month
    */
   period?: string;
+  /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -66,10 +72,12 @@ export class CreateStoragePlanRequest extends $dara.Model {
   usedTime?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       period: 'Period',
+      promotionCode: 'PromotionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       storageClass: 'StorageClass',
@@ -80,10 +88,12 @@ export class CreateStoragePlanRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       period: 'string',
+      promotionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       storageClass: 'string',

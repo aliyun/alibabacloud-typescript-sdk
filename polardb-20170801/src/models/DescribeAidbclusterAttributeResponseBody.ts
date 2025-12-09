@@ -335,6 +335,11 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * 1.0
    */
   DBVersion?: string;
+  /**
+   * @example
+   * sg-xxxxxx
+   */
+  ecsSecurityGroupId?: string;
   endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
   /**
    * @example
@@ -435,6 +440,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBClusterStatus: 'DBClusterStatus',
       DBNodes: 'DBNodes',
       DBVersion: 'DBVersion',
+      ecsSecurityGroupId: 'EcsSecurityGroupId',
       endpointList: 'EndpointList',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -467,6 +473,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       DBClusterStatus: 'string',
       DBNodes: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyDBNodes },
       DBVersion: 'string',
+      ecsSecurityGroupId: 'string',
       endpointList: { 'type': 'array', 'itemType': DescribeAIDBClusterAttributeResponseBodyEndpointList },
       expireTime: 'string',
       expired: 'boolean',

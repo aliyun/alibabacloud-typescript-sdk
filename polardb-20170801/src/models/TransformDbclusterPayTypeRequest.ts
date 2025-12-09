@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TransformDBClusterPayTypeRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -50,6 +51,11 @@ export class TransformDBClusterPayTypeRequest extends $dara.Model {
    */
   period?: string;
   /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
+  /**
    * @remarks
    * The ID of the region.
    * 
@@ -84,12 +90,14 @@ export class TransformDBClusterPayTypeRequest extends $dara.Model {
   usedTime?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
       period: 'Period',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -100,12 +108,14 @@ export class TransformDBClusterPayTypeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
       period: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',

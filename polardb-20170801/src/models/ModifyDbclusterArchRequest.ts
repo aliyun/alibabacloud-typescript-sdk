@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBClusterArchRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The ID of the cluster.
@@ -22,6 +23,11 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
    * on
    */
   hotStandbyCluster?: string;
+  /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
   /**
    * @remarks
    * The region ID.
@@ -46,8 +52,10 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
   standbyAZ?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       DBClusterId: 'DBClusterId',
       hotStandbyCluster: 'HotStandbyCluster',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       standbyAZ: 'StandbyAZ',
     };
@@ -55,8 +63,10 @@ export class ModifyDBClusterArchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       DBClusterId: 'string',
       hotStandbyCluster: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       standbyAZ: 'string',
     };

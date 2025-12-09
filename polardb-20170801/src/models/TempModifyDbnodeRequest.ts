@@ -49,6 +49,7 @@ export class TempModifyDBNodeRequestDBNode extends $dara.Model {
 }
 
 export class TempModifyDBNodeRequest extends $dara.Model {
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
@@ -98,6 +99,11 @@ export class TempModifyDBNodeRequest extends $dara.Model {
   operationType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -114,6 +120,7 @@ export class TempModifyDBNodeRequest extends $dara.Model {
   restoreTime?: string;
   static names(): { [key: string]: string } {
     return {
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       DBClusterId: 'DBClusterId',
       DBNode: 'DBNode',
@@ -121,6 +128,7 @@ export class TempModifyDBNodeRequest extends $dara.Model {
       operationType: 'OperationType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      promotionCode: 'PromotionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
@@ -129,6 +137,7 @@ export class TempModifyDBNodeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       DBClusterId: 'string',
       DBNode: { 'type': 'array', 'itemType': TempModifyDBNodeRequestDBNode },
@@ -136,6 +145,7 @@ export class TempModifyDBNodeRequest extends $dara.Model {
       operationType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      promotionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',

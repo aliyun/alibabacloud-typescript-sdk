@@ -1614,6 +1614,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.componentsShrink)) {
       query["Components"] = request.componentsShrink;
     }
@@ -1644,6 +1648,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.polarFSInstanceId)) {
       query["PolarFSInstanceId"] = request.polarFSInstanceId;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -2032,6 +2040,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.backupRetentionPolicyOnClusterDeletion)) {
       query["BackupRetentionPolicyOnClusterDeletion"] = request.backupRetentionPolicyOnClusterDeletion;
     }
@@ -2138,6 +2150,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.provisionedIops)) {
@@ -2708,6 +2724,10 @@ export default class Client extends OpenApi {
   async createDBNodesWithOptions(request: $_model.CreateDBNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDBNodesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -2750,6 +2770,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceGroupId)) {
@@ -3614,6 +3638,10 @@ export default class Client extends OpenApi {
   async createStoragePlanWithOptions(request: $_model.CreateStoragePlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStoragePlanResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -3628,6 +3656,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -15218,12 +15250,20 @@ export default class Client extends OpenApi {
   async modifyDBClusterArchWithOptions(request: $_model.ModifyDBClusterArchRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterArchResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
 
     if (!$dara.isNull(request.hotStandbyCluster)) {
       query["HotStandbyCluster"] = request.hotStandbyCluster;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -16462,6 +16502,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterStoragePerformanceWithOptions(request: $_model.ModifyDBClusterStoragePerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterStoragePerformanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.burstingEnabled)) {
       query["BurstingEnabled"] = request.burstingEnabled;
     }
@@ -16476,6 +16520,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modifyType)) {
       query["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.provisionedIops)) {
@@ -16528,6 +16576,10 @@ export default class Client extends OpenApi {
   async modifyDBClusterStorageSpaceWithOptions(request: $_model.ModifyDBClusterStorageSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterStorageSpaceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -16554,6 +16606,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -16984,6 +17040,10 @@ export default class Client extends OpenApi {
   async modifyDBNodeClassWithOptions(request: $_model.ModifyDBNodeClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeClassResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -17026,6 +17086,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -17346,6 +17410,10 @@ export default class Client extends OpenApi {
   async modifyDBNodesClassWithOptions(request: $_model.ModifyDBNodesClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodesClassResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -17384,6 +17452,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.plannedStartTime)) {
       query["PlannedStartTime"] = request.plannedStartTime;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -19570,6 +19642,10 @@ export default class Client extends OpenApi {
   async tempModifyDBNodeWithOptions(request: $_model.TempModifyDBNodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TempModifyDBNodeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -19596,6 +19672,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -19654,6 +19734,10 @@ export default class Client extends OpenApi {
   async transformDBClusterPayTypeWithOptions(request: $_model.TransformDBClusterPayTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransformDBClusterPayTypeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -19676,6 +19760,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!$dara.isNull(request.regionId)) {

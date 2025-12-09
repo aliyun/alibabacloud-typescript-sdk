@@ -78,6 +78,11 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @example
+   * xxxxxx-%d.oss-cn-beijing-internal.aliyuncs.com
+   */
+  customBucketPath?: string;
+  /**
+   * @example
    * MySQL
    */
   DBType?: string;
@@ -194,6 +199,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       category: 'Category',
       clientDownloadPath: 'ClientDownloadPath',
       createTime: 'CreateTime',
+      customBucketPath: 'CustomBucketPath',
       DBType: 'DBType',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -232,6 +238,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       category: 'string',
       clientDownloadPath: 'string',
       createTime: 'string',
+      customBucketPath: 'string',
       DBType: 'string',
       expireTime: 'string',
       expired: 'string',

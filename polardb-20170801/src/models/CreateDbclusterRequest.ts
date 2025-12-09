@@ -86,6 +86,7 @@ export class CreateDBClusterRequest extends $dara.Model {
    * true
    */
   autoRenew?: boolean;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * Backup retention policy upon cluster deletion, with valid values as follows:
@@ -410,6 +411,11 @@ export class CreateDBClusterRequest extends $dara.Model {
    */
   period?: string;
   /**
+   * @example
+   * 727xxxxxx934
+   */
+  promotionCode?: string;
+  /**
    * @remarks
    * <p id="p_wyg_t4a_glm">The provisioned read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity-Baseline Performance}.</p>
    * <p id="p_6de_jxy_k2g">Baseline Performance = min{1,800+50*capacity, 50000}.</p>
@@ -718,6 +724,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       allowShutDown: 'AllowShutDown',
       architecture: 'Architecture',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
       burstingEnabled: 'BurstingEnabled',
       clientToken: 'ClientToken',
@@ -745,6 +752,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       parameterGroupId: 'ParameterGroupId',
       payType: 'PayType',
       period: 'Period',
+      promotionCode: 'PromotionCode',
       provisionedIops: 'ProvisionedIops',
       proxyClass: 'ProxyClass',
       proxyType: 'ProxyType',
@@ -784,6 +792,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       allowShutDown: 'string',
       architecture: 'string',
       autoRenew: 'boolean',
+      autoUseCoupon: 'boolean',
       backupRetentionPolicyOnClusterDeletion: 'string',
       burstingEnabled: 'string',
       clientToken: 'string',
@@ -811,6 +820,7 @@ export class CreateDBClusterRequest extends $dara.Model {
       parameterGroupId: 'string',
       payType: 'string',
       period: 'string',
+      promotionCode: 'string',
       provisionedIops: 'number',
       proxyClass: 'string',
       proxyType: 'string',
