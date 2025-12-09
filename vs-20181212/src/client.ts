@@ -7693,6 +7693,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 云应用服务实例主机重启
+   * 
+   * @param tmpReq - RebootRenderingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootRenderingServerResponse
+   */
+  async rebootRenderingServerWithOptions(tmpReq: $_model.RebootRenderingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RebootRenderingServerResponse> {
+    tmpReq.validate();
+    let request = new $_model.RebootRenderingServerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.renderingInstanceIds)) {
+      request.renderingInstanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds, "RenderingInstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.renderingInstanceIdsShrink)) {
+      query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RebootRenderingServer",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RebootRenderingServerResponse>(await this.callApi(params, req, runtime), new $_model.RebootRenderingServerResponse({}));
+  }
+
+  /**
+   * 云应用服务实例主机重启
+   * 
+   * @param request - RebootRenderingServerRequest
+   * @returns RebootRenderingServerResponse
+   */
+  async rebootRenderingServer(request: $_model.RebootRenderingServerRequest): Promise<$_model.RebootRenderingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rebootRenderingServerWithOptions(request, runtime);
+  }
+
+  /**
    * 恢复数据到云渲染实例
    * 
    * @param request - RecoverRenderingDataPackageRequest
