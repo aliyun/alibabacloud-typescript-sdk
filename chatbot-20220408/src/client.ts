@@ -2773,32 +2773,34 @@ export default class Client extends OpenApi {
       query["AgentKey"] = request.agentKey;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.email)) {
-      query["Email"] = request.email;
+      body["Email"] = request.email;
     }
 
     if (!$dara.isNull(request.expireTime)) {
-      query["ExpireTime"] = request.expireTime;
+      body["ExpireTime"] = request.expireTime;
     }
 
     if (!$dara.isNull(request.extraInfo)) {
-      query["ExtraInfo"] = request.extraInfo;
+      body["ExtraInfo"] = request.extraInfo;
     }
 
     if (!$dara.isNull(request.foreignId)) {
-      query["ForeignId"] = request.foreignId;
+      body["ForeignId"] = request.foreignId;
     }
 
     if (!$dara.isNull(request.nick)) {
-      query["Nick"] = request.nick;
+      body["Nick"] = request.nick;
     }
 
     if (!$dara.isNull(request.telephone)) {
-      query["Telephone"] = request.telephone;
+      body["Telephone"] = request.telephone;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "GenerateUserAccessToken",
@@ -3077,16 +3079,18 @@ export default class Client extends OpenApi {
       query["AgentKey"] = request.agentKey;
     }
 
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.from)) {
-      query["From"] = request.from;
+      body["From"] = request.from;
     }
 
     if (!$dara.isNull(request.userAccessToken)) {
-      query["UserAccessToken"] = request.userAccessToken;
+      body["UserAccessToken"] = request.userAccessToken;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "InitIMConnect",
