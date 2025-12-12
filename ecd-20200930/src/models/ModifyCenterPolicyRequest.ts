@@ -214,11 +214,13 @@ export class ModifyCenterPolicyRequestClientType extends $dara.Model {
 
 export class ModifyCenterPolicyRequestClipboardGraineds extends $dara.Model {
   clipboardSize?: number;
+  clipboardSizeUnit?: string;
   clipboardType?: string;
   grainedType?: string;
   static names(): { [key: string]: string } {
     return {
       clipboardSize: 'ClipboardSize',
+      clipboardSizeUnit: 'ClipboardSizeUnit',
       clipboardType: 'ClipboardType',
       grainedType: 'GrainedType',
     };
@@ -227,6 +229,7 @@ export class ModifyCenterPolicyRequestClipboardGraineds extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clipboardSize: 'number',
+      clipboardSizeUnit: 'string',
       clipboardType: 'string',
       grainedType: 'string',
     };
