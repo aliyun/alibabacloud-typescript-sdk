@@ -138,6 +138,208 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消运维事件任务
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: $_model.CancelActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelActiveOperationTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new $_model.CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * 取消运维事件任务
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: $_model.CancelActiveOperationTasksRequest): Promise<$_model.CancelActiveOperationTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消预约Zookeeper切主
+   * 
+   * @param request - CancelAppointmentElectZookeeperLeaderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAppointmentElectZookeeperLeaderResponse
+   */
+  async cancelAppointmentElectZookeeperLeaderWithOptions(request: $_model.CancelAppointmentElectZookeeperLeaderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAppointmentElectZookeeperLeaderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAppointmentElectZookeeperLeader",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAppointmentElectZookeeperLeaderResponse>(await this.callApi(params, req, runtime), new $_model.CancelAppointmentElectZookeeperLeaderResponse({}));
+  }
+
+  /**
+   * 取消预约Zookeeper切主
+   * 
+   * @param request - CancelAppointmentElectZookeeperLeaderRequest
+   * @returns CancelAppointmentElectZookeeperLeaderResponse
+   */
+  async cancelAppointmentElectZookeeperLeader(request: $_model.CancelAppointmentElectZookeeperLeaderRequest): Promise<$_model.CancelAppointmentElectZookeeperLeaderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAppointmentElectZookeeperLeaderWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消预约重启节点列表
+   * 
+   * @param request - CancelAppointmentRestartInstanceNodeListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAppointmentRestartInstanceNodeListResponse
+   */
+  async cancelAppointmentRestartInstanceNodeListWithOptions(request: $_model.CancelAppointmentRestartInstanceNodeListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAppointmentRestartInstanceNodeListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAppointmentRestartInstanceNodeList",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAppointmentRestartInstanceNodeListResponse>(await this.callApi(params, req, runtime), new $_model.CancelAppointmentRestartInstanceNodeListResponse({}));
+  }
+
+  /**
+   * 取消预约重启节点列表
+   * 
+   * @param request - CancelAppointmentRestartInstanceNodeListRequest
+   * @returns CancelAppointmentRestartInstanceNodeListResponse
+   */
+  async cancelAppointmentRestartInstanceNodeList(request: $_model.CancelAppointmentRestartInstanceNodeListRequest): Promise<$_model.CancelAppointmentRestartInstanceNodeListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAppointmentRestartInstanceNodeListWithOptions(request, runtime);
+  }
+
+  /**
    * 取消预约重启
    * 
    * @param request - CancelRestartInstanceRequest
@@ -1954,6 +2156,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 主动运维
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConfWithOptions(request: $_model.DescribeActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeActiveOperationMaintainConf",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * 主动运维
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConf(request: $_model.DescribeActiveOperationMaintainConfRequest): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasksWithOptions(request: $_model.DescribeActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!$dara.isNull(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!$dara.isNull(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!$dara.isNull(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!$dara.isNull(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeActiveOperationTasks",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * @param request - DescribeActiveOperationTasksRequest
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasks(request: $_model.DescribeActiveOperationTasksRequest): Promise<$_model.DescribeActiveOperationTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
    * 
    * @param request - DescribeAllDataSourceRequest
@@ -2742,6 +3100,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例节点信息
+   * 
+   * @param request - DescribeDBClusterNodeInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterNodeInfosResponse
+   */
+  async describeDBClusterNodeInfosWithOptions(request: $_model.DescribeDBClusterNodeInfosRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterNodeInfosResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterNodeInfos",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterNodeInfosResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterNodeInfosResponse({}));
+  }
+
+  /**
+   * 获取实例节点信息
+   * 
+   * @param request - DescribeDBClusterNodeInfosRequest
+   * @returns DescribeDBClusterNodeInfosResponse
+   */
+  async describeDBClusterNodeInfos(request: $_model.DescribeDBClusterNodeInfosRequest): Promise<$_model.DescribeDBClusterNodeInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterNodeInfosWithOptions(request, runtime);
+  }
+
+  /**
    * Queries performance data about an ApsaraDB for ClickHouse cluster.
    * 
    * @remarks
@@ -2817,6 +3245,60 @@ export default class Client extends OpenApi {
   async describeDBClusterPerformance(request: $_model.DescribeDBClusterPerformanceRequest): Promise<$_model.DescribeDBClusterPerformanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBClusterPerformanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeDBClusterStatusSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterStatusSetResponse
+   */
+  async describeDBClusterStatusSetWithOptions(request: $_model.DescribeDBClusterStatusSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterStatusSetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterStatusSet",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterStatusSetResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterStatusSetResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDBClusterStatusSetRequest
+   * @returns DescribeDBClusterStatusSetResponse
+   */
+  async describeDBClusterStatusSet(request: $_model.DescribeDBClusterStatusSetRequest): Promise<$_model.DescribeDBClusterStatusSetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterStatusSetWithOptions(request, runtime);
   }
 
   /**
@@ -2965,6 +3447,56 @@ export default class Client extends OpenApi {
   async describeDBConfig(request: $_model.DescribeDBConfigRequest): Promise<$_model.DescribeDBConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeEventMetaInfo
+   * 
+   * @param request - DescribeEventMetaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventMetaInfoResponse
+   */
+  async describeEventMetaInfoWithOptions(request: $_model.DescribeEventMetaInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEventMetaInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.sourceCode)) {
+      query["SourceCode"] = request.sourceCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEventMetaInfo",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEventMetaInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEventMetaInfoResponse({}));
+  }
+
+  /**
+   * DescribeEventMetaInfo
+   * 
+   * @param request - DescribeEventMetaInfoRequest
+   * @returns DescribeEventMetaInfoResponse
+   */
+  async describeEventMetaInfo(request: $_model.DescribeEventMetaInfoRequest): Promise<$_model.DescribeEventMetaInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEventMetaInfoWithOptions(request, runtime);
   }
 
   /**
@@ -3638,6 +4170,130 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeUserEncryptionKeyListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserEncryptionKeyListResponse
+   */
+  async describeUserEncryptionKeyListWithOptions(request: $_model.DescribeUserEncryptionKeyListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserEncryptionKeyListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserEncryptionKeyList",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserEncryptionKeyListResponse({}));
+  }
+
+  /**
+   * @param request - DescribeUserEncryptionKeyListRequest
+   * @returns DescribeUserEncryptionKeyListResponse
+   */
+  async describeUserEncryptionKeyList(request: $_model.DescribeUserEncryptionKeyListRequest): Promise<$_model.DescribeUserEncryptionKeyListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
+  }
+
+  /**
+   * Zookeeper主动切主
+   * 
+   * @param request - ElectZookeeperLeaderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ElectZookeeperLeaderResponse
+   */
+  async electZookeeperLeaderWithOptions(request: $_model.ElectZookeeperLeaderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ElectZookeeperLeaderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.disableWrite)) {
+      query["DisableWrite"] = request.disableWrite;
+    }
+
+    if (!$dara.isNull(request.electTime)) {
+      query["ElectTime"] = request.electTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ElectZookeeperLeader",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ElectZookeeperLeaderResponse>(await this.callApi(params, req, runtime), new $_model.ElectZookeeperLeaderResponse({}));
+  }
+
+  /**
+   * Zookeeper主动切主
+   * 
+   * @param request - ElectZookeeperLeaderRequest
+   * @returns ElectZookeeperLeaderResponse
+   */
+  async electZookeeperLeader(request: $_model.ElectZookeeperLeaderRequest): Promise<$_model.ElectZookeeperLeaderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.electZookeeperLeaderWithOptions(request, runtime);
+  }
+
+  /**
    * Terminates an ongoing task.
    * 
    * @param request - KillProcessRequest
@@ -3701,6 +4357,80 @@ export default class Client extends OpenApi {
   async killProcess(request: $_model.KillProcessRequest): Promise<$_model.KillProcessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.killProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
+  }
+
+  /**
+   * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -3857,6 +4587,150 @@ export default class Client extends OpenApi {
   async modifyAccountDescription(request: $_model.ModifyAccountDescriptionRequest): Promise<$_model.ModifyAccountDescriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改主动运维设置
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConfWithOptions(request: $_model.ModifyActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cycleTime)) {
+      query["CycleTime"] = request.cycleTime;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      query["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.maintainEndTime)) {
+      query["MaintainEndTime"] = request.maintainEndTime;
+    }
+
+    if (!$dara.isNull(request.maintainStartTime)) {
+      query["MaintainStartTime"] = request.maintainStartTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyActiveOperationMaintainConf",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new $_model.ModifyActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * 修改主动运维设置
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConf(request: $_model.ModifyActiveOperationMaintainConfRequest): Promise<$_model.ModifyActiveOperationMaintainConfResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasksWithOptions(request: $_model.ModifyActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyActiveOperationTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!$dara.isNull(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new $_model.ModifyActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * @param request - ModifyActiveOperationTasksRequest
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasks(request: $_model.ModifyActiveOperationTasksRequest): Promise<$_model.ModifyActiveOperationTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -4854,6 +5728,160 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量重启实例节点
+   * 
+   * @param tmpReq - RestartInstanceNodeListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartInstanceNodeListResponse
+   */
+  async restartInstanceNodeListWithOptions(tmpReq: $_model.RestartInstanceNodeListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartInstanceNodeListResponse> {
+    tmpReq.validate();
+    let request = new $_model.RestartInstanceNodeListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.nodeList)) {
+      request.nodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodeList, "NodeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.nodeListShrink)) {
+      query["NodeList"] = request.nodeListShrink;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.restartTime)) {
+      query["RestartTime"] = request.restartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartInstanceNodeList",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartInstanceNodeListResponse>(await this.callApi(params, req, runtime), new $_model.RestartInstanceNodeListResponse({}));
+  }
+
+  /**
+   * 批量重启实例节点
+   * 
+   * @param request - RestartInstanceNodeListRequest
+   * @returns RestartInstanceNodeListResponse
+   */
+  async restartInstanceNodeList(request: $_model.RestartInstanceNodeListRequest): Promise<$_model.RestartInstanceNodeListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartInstanceNodeListWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
    * 
    * @remarks
@@ -4965,6 +5993,80 @@ export default class Client extends OpenApi {
   async transferVersion(request: $_model.TransferVersionRequest): Promise<$_model.TransferVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.transferVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes tags from ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * Removes tags from ApsaraDB for ClickHouse clusters.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
