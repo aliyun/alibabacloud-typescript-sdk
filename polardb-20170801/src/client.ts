@@ -1321,6 +1321,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建AI节点
+   * 
+   * @param request - CreateAINodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAINodesResponse
+   */
+  async createAINodesWithOptions(request: $_model.CreateAINodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAINodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodes)) {
+      query["DBNodes"] = request.DBNodes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAINodes",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAINodesResponse>(await this.callApi(params, req, runtime), new $_model.CreateAINodesResponse({}));
+  }
+
+  /**
+   * 创建AI节点
+   * 
+   * @param request - CreateAINodesRequest
+   * @returns CreateAINodesResponse
+   */
+  async createAINodes(request: $_model.CreateAINodesRequest): Promise<$_model.CreateAINodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAINodesWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a database account for a PolarDB cluster.
    * 
    * @param request - CreateAccountRequest
@@ -3753,6 +3799,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ai实例子节点
+   * 
+   * @param request - DeleteAINodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAINodesResponse
+   */
+  async deleteAINodesWithOptions(request: $_model.DeleteAINodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAINodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeId)) {
+      query["DBNodeId"] = request.DBNodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAINodes",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAINodesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAINodesResponse({}));
+  }
+
+  /**
+   * 删除ai实例子节点
+   * 
+   * @param request - DeleteAINodesRequest
+   * @returns DeleteAINodesResponse
+   */
+  async deleteAINodes(request: $_model.DeleteAINodesRequest): Promise<$_model.DeleteAINodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAINodesWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a database account for a PolarDB cluster.
    * 
    * @remarks
@@ -4062,6 +4154,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.backupRetentionPolicyOnClusterDeletion)) {
       query["BackupRetentionPolicyOnClusterDeletion"] = request.backupRetentionPolicyOnClusterDeletion;
+    }
+
+    if (!$dara.isNull(request.cloudProvider)) {
+      query["CloudProvider"] = request.cloudProvider;
     }
 
     if (!$dara.isNull(request.DBClusterId)) {
@@ -18717,6 +18813,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.targetDBClusterId)) {
+      query["TargetDBClusterId"] = request.targetDBClusterId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

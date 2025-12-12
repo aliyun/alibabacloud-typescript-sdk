@@ -1,4 +1,5 @@
 export { AddPolarFsQuotaRequestQuotas } from './AddPolarFsQuotaRequest';
+export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
 export { CreateApplicationResponseBodyComponents } from './CreateApplicationResponseBody';
@@ -295,6 +296,9 @@ export { CloseDBClusterMigrationResponse } from './CloseDbclusterMigrationRespon
 export { ContinueDBClusterMigrationRequest } from './ContinueDbclusterMigrationRequest';
 export { ContinueDBClusterMigrationResponseBody } from './ContinueDbclusterMigrationResponseBody';
 export { ContinueDBClusterMigrationResponse } from './ContinueDbclusterMigrationResponse';
+export { CreateAINodesRequest } from './CreateAinodesRequest';
+export { CreateAINodesResponseBody } from './CreateAinodesResponseBody';
+export { CreateAINodesResponse } from './CreateAinodesResponse';
 export { CreateAccountRequest } from './CreateAccountRequest';
 export { CreateAccountResponseBody } from './CreateAccountResponseBody';
 export { CreateAccountResponse } from './CreateAccountResponse';
@@ -374,6 +378,9 @@ export { CreateStoragePlanResponse } from './CreateStoragePlanResponse';
 export { DeleteAIDBClusterRequest } from './DeleteAidbclusterRequest';
 export { DeleteAIDBClusterResponseBody } from './DeleteAidbclusterResponseBody';
 export { DeleteAIDBClusterResponse } from './DeleteAidbclusterResponse';
+export { DeleteAINodesRequest } from './DeleteAinodesRequest';
+export { DeleteAINodesResponseBody } from './DeleteAinodesResponseBody';
+export { DeleteAINodesResponse } from './DeleteAinodesResponse';
 export { DeleteAccountRequest } from './DeleteAccountRequest';
 export { DeleteAccountResponseBody } from './DeleteAccountResponseBody';
 export { DeleteAccountResponse } from './DeleteAccountResponse';

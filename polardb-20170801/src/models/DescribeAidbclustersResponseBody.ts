@@ -110,6 +110,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
    * Unlock
    */
   lockMode?: string;
+  modelType?: string;
   /**
    * @example
    * Postpaid
@@ -165,6 +166,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       expired: 'Expired',
       kubeClusterId: 'KubeClusterId',
       lockMode: 'LockMode',
+      modelType: 'ModelType',
       payType: 'PayType',
       regionId: 'RegionId',
       relativeDBClusterId: 'RelativeDBClusterId',
@@ -191,6 +193,7 @@ export class DescribeAIDBClustersResponseBodyItemsDBCluster extends $dara.Model 
       expired: 'boolean',
       kubeClusterId: 'string',
       lockMode: 'string',
+      modelType: 'string',
       payType: 'string',
       regionId: 'string',
       relativeDBClusterId: 'string',

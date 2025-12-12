@@ -15,6 +15,7 @@ export class DeleteDBClusterRequest extends $dara.Model {
    * NONE
    */
   backupRetentionPolicyOnClusterDeletion?: string;
+  cloudProvider?: string;
   /**
    * @remarks
    * The cluster ID.
@@ -32,6 +33,7 @@ export class DeleteDBClusterRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupRetentionPolicyOnClusterDeletion: 'BackupRetentionPolicyOnClusterDeletion',
+      cloudProvider: 'CloudProvider',
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -43,6 +45,7 @@ export class DeleteDBClusterRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupRetentionPolicyOnClusterDeletion: 'string',
+      cloudProvider: 'string',
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

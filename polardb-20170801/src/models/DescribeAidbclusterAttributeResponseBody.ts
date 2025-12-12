@@ -381,6 +381,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
    * Qwen3-Embedding-8B
    */
   modelName?: string;
+  modelType?: string;
   /**
    * @example
    * Postpaid
@@ -450,6 +451,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       lockMode: 'LockMode',
       maxQPM: 'MaxQPM',
       modelName: 'ModelName',
+      modelType: 'ModelType',
       payType: 'PayType',
       publicIp: 'PublicIp',
       regionId: 'RegionId',
@@ -483,6 +485,7 @@ export class DescribeAIDBClusterAttributeResponseBody extends $dara.Model {
       lockMode: 'string',
       maxQPM: 'string',
       modelName: 'string',
+      modelType: 'string',
       payType: 'string',
       publicIp: 'string',
       regionId: 'string',

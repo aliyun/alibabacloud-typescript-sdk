@@ -31,6 +31,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  targetDBClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -41,6 +42,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      targetDBClusterId: 'TargetDBClusterId',
     };
   }
 
@@ -54,6 +56,7 @@ export class RemoveDBClusterFromGDNRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      targetDBClusterId: 'string',
     };
   }
 
