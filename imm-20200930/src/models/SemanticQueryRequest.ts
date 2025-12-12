@@ -51,6 +51,7 @@ export class SemanticQueryRequest extends $dara.Model {
    * The content of the query that you input.
    */
   query?: string;
+  sourceURI?: string;
   /**
    * @remarks
    * The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
@@ -66,6 +67,7 @@ export class SemanticQueryRequest extends $dara.Model {
       nextToken: 'NextToken',
       projectName: 'ProjectName',
       query: 'Query',
+      sourceURI: 'SourceURI',
       withFields: 'WithFields',
     };
   }
@@ -78,6 +80,7 @@ export class SemanticQueryRequest extends $dara.Model {
       nextToken: 'string',
       projectName: 'string',
       query: 'string',
+      sourceURI: 'string',
       withFields: { 'type': 'array', 'itemType': 'string' },
     };
   }

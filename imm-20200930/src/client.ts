@@ -7370,6 +7370,10 @@ export default class Client extends OpenApi {
       query["Query"] = request.query;
     }
 
+    if (!$dara.isNull(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
     if (!$dara.isNull(request.withFieldsShrink)) {
       query["WithFields"] = request.withFieldsShrink;
     }
