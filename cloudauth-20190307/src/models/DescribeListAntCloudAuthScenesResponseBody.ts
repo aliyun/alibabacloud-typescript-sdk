@@ -72,6 +72,8 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
    * WECHAT
    */
   platform?: string;
+  returnPicCount?: number;
+  returnVideoLength?: number;
   /**
    * @remarks
    * Scenario ID.
@@ -124,6 +126,8 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       miniProgramName: 'MiniProgramName',
       modifier: 'Modifier',
       platform: 'Platform',
+      returnPicCount: 'ReturnPicCount',
+      returnVideoLength: 'ReturnVideoLength',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       status: 'Status',
@@ -142,6 +146,8 @@ export class DescribeListAntCloudAuthScenesResponseBodyScenes extends $dara.Mode
       miniProgramName: 'string',
       modifier: 'string',
       platform: 'string',
+      returnPicCount: 'number',
+      returnVideoLength: 'number',
       sceneId: 'number',
       sceneName: 'string',
       status: 'number',

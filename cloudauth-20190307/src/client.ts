@@ -731,6 +731,14 @@ export default class Client extends OpenApi {
       query["Platform"] = request.platform;
     }
 
+    if (!$dara.isNull(request.returnPicCount)) {
+      query["ReturnPicCount"] = request.returnPicCount;
+    }
+
+    if (!$dara.isNull(request.returnVideoLength)) {
+      query["ReturnVideoLength"] = request.returnVideoLength;
+    }
+
     if (!$dara.isNull(request.sceneName)) {
       query["SceneName"] = request.sceneName;
     }
@@ -6620,6 +6628,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.platform)) {
       query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.returnPicCount)) {
+      query["ReturnPicCount"] = request.returnPicCount;
+    }
+
+    if (!$dara.isNull(request.returnVideoLength)) {
+      query["ReturnVideoLength"] = request.returnVideoLength;
     }
 
     if (!$dara.isNull(request.sceneId)) {

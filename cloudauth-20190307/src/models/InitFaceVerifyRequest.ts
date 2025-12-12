@@ -193,6 +193,16 @@ export class InitFaceVerifyRequest extends $dara.Model {
    * DeviceRisk
    */
   faceGuardOutput?: string;
+  /**
+   * @remarks
+   * H5 Downgrade Confirmation Button Switch:
+   * 
+   * - **Y**: Enabled (On)
+   * - **N (default)**: Disabled (Off)
+   * 
+   * @example
+   * Y
+   */
   h5DegradeConfirmBtn?: string;
   /**
    * @remarks

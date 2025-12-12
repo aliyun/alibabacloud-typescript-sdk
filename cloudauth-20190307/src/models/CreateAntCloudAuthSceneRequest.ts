@@ -48,6 +48,8 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
    * WECHAT
    */
   platform?: string;
+  returnPicCount?: number;
+  returnVideoLength?: number;
   /**
    * @remarks
    * Scene name.
@@ -75,6 +77,8 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
       checkFileName: 'CheckFileName',
       miniProgramName: 'MiniProgramName',
       platform: 'Platform',
+      returnPicCount: 'ReturnPicCount',
+      returnVideoLength: 'ReturnVideoLength',
       sceneName: 'SceneName',
       storeImage: 'StoreImage',
     };
@@ -87,6 +91,8 @@ export class CreateAntCloudAuthSceneRequest extends $dara.Model {
       checkFileName: 'string',
       miniProgramName: 'string',
       platform: 'string',
+      returnPicCount: 'number',
+      returnVideoLength: 'number',
       sceneName: 'string',
       storeImage: 'string',
     };

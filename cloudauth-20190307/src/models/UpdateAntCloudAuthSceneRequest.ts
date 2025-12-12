@@ -49,6 +49,8 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
    * IOS
    */
   platform?: string;
+  returnPicCount?: number;
+  returnVideoLength?: number;
   /**
    * @remarks
    * Scenario ID.
@@ -92,6 +94,8 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       checkFileName: 'CheckFileName',
       miniProgramName: 'MiniProgramName',
       platform: 'Platform',
+      returnPicCount: 'ReturnPicCount',
+      returnVideoLength: 'ReturnVideoLength',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       status: 'Status',
@@ -106,6 +110,8 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
       checkFileName: 'string',
       miniProgramName: 'string',
       platform: 'string',
+      returnPicCount: 'number',
+      returnVideoLength: 'number',
       sceneId: 'number',
       sceneName: 'string',
       status: 'number',
