@@ -321,6 +321,11 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
 
 export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model {
   /**
+   * @example
+   * ep-bpxxx
+   */
+  endpointId?: string;
+  /**
    * @remarks
    * The type of the endpoint that is used to access the instance.
    * 
@@ -356,6 +361,7 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model
   ipWhitelist?: string[];
   static names(): { [key: string]: string } {
     return {
+      endpointId: 'endpointId',
       endpointType: 'endpointType',
       endpointUrl: 'endpointUrl',
       ipWhitelist: 'ipWhitelist',
@@ -364,6 +370,7 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      endpointId: 'string',
       endpointType: 'string',
       endpointUrl: 'string',
       ipWhitelist: { 'type': 'array', 'itemType': 'string' },
