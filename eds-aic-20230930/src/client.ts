@@ -747,6 +747,10 @@ export default class Client extends OpenApi {
       query["InstanceType"] = request.instanceType;
     }
 
+    if (!$dara.isNull(request.isSingleImgDisk)) {
+      query["IsSingleImgDisk"] = request.isSingleImgDisk;
+    }
+
     if (!$dara.isNull(request.networkId)) {
       query["NetworkId"] = request.networkId;
     }

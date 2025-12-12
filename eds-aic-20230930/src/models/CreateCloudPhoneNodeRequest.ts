@@ -193,6 +193,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
    * ac.max
    */
   instanceType?: string;
+  isSingleImgDisk?: boolean;
   /**
    * @remarks
    * The office network ID.
@@ -313,6 +314,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       downBandwidthLimit: 'DownBandwidthLimit',
       imageId: 'ImageId',
       instanceType: 'InstanceType',
+      isSingleImgDisk: 'IsSingleImgDisk',
       networkId: 'NetworkId',
       networkInfo: 'NetworkInfo',
       networkType: 'NetworkType',
@@ -348,6 +350,7 @@ export class CreateCloudPhoneNodeRequest extends $dara.Model {
       downBandwidthLimit: 'number',
       imageId: 'string',
       instanceType: 'string',
+      isSingleImgDisk: 'boolean',
       networkId: 'string',
       networkInfo: CreateCloudPhoneNodeRequestNetworkInfo,
       networkType: 'string',
