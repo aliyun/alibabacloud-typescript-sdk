@@ -76,6 +76,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 白名单模板关联实例
+   * 
+   * @param request - AttachWhitelistTemplateToInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachWhitelistTemplateToInstanceResponse
+   */
+  async attachWhitelistTemplateToInstanceWithOptions(request: $_model.AttachWhitelistTemplateToInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachWhitelistTemplateToInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachWhitelistTemplateToInstance",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachWhitelistTemplateToInstanceResponse>(await this.callApi(params, req, runtime), new $_model.AttachWhitelistTemplateToInstanceResponse({}));
+  }
+
+  /**
+   * 白名单模板关联实例
+   * 
+   * @param request - AttachWhitelistTemplateToInstanceRequest
+   * @returns AttachWhitelistTemplateToInstanceResponse
+   */
+  async attachWhitelistTemplateToInstance(request: $_model.AttachWhitelistTemplateToInstanceRequest): Promise<$_model.AttachWhitelistTemplateToInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachWhitelistTemplateToInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 资源转组
    * 
    * @param request - ChangeResourceGroupRequest
@@ -759,6 +809,56 @@ export default class Client extends OpenApi {
   async deleteEndpoint(request: $_model.DeleteEndpointRequest): Promise<$_model.DeleteEndpointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEndpointWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除白名单模板
+   * 
+   * @param request - DeleteWhitelistTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWhitelistTemplateResponse
+   */
+  async deleteWhitelistTemplateWithOptions(request: $_model.DeleteWhitelistTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWhitelistTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWhitelistTemplate",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWhitelistTemplateResponse({}));
+  }
+
+  /**
+   * 删除白名单模板
+   * 
+   * @param request - DeleteWhitelistTemplateRequest
+   * @returns DeleteWhitelistTemplateResponse
+   */
+  async deleteWhitelistTemplate(request: $_model.DeleteWhitelistTemplateRequest): Promise<$_model.DeleteWhitelistTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWhitelistTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1530,6 +1630,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消白名单模板和实例关联关系
+   * 
+   * @param request - DetachWhitelistTemplateToInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachWhitelistTemplateToInstanceResponse
+   */
+  async detachWhitelistTemplateToInstanceWithOptions(request: $_model.DetachWhitelistTemplateToInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachWhitelistTemplateToInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachWhitelistTemplateToInstance",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachWhitelistTemplateToInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DetachWhitelistTemplateToInstanceResponse({}));
+  }
+
+  /**
+   * 取消白名单模板和实例关联关系
+   * 
+   * @param request - DetachWhitelistTemplateToInstanceRequest
+   * @returns DetachWhitelistTemplateToInstanceResponse
+   */
+  async detachWhitelistTemplateToInstance(request: $_model.DetachWhitelistTemplateToInstanceRequest): Promise<$_model.DetachWhitelistTemplateToInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachWhitelistTemplateToInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询白名单模板详情
+   * 
+   * @param request - GetWhitelistTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWhitelistTemplateResponse
+   */
+  async getWhitelistTemplateWithOptions(request: $_model.GetWhitelistTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWhitelistTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWhitelistTemplate",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetWhitelistTemplateResponse({}));
+  }
+
+  /**
+   * 查询白名单模板详情
+   * 
+   * @param request - GetWhitelistTemplateRequest
+   * @returns GetWhitelistTemplateResponse
+   */
+  async getWhitelistTemplate(request: $_model.GetWhitelistTemplateRequest): Promise<$_model.GetWhitelistTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWhitelistTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Terminates an ongoing query.
    * 
    * @param request - KillProcessRequest
@@ -1581,6 +1777,106 @@ export default class Client extends OpenApi {
   async killProcess(request: $_model.KillProcessRequest): Promise<$_model.KillProcessResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.killProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例关联的白名单模板清单
+   * 
+   * @param request - ListInstanceLinkedWhitelistTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceLinkedWhitelistTemplatesResponse
+   */
+  async listInstanceLinkedWhitelistTemplatesWithOptions(request: $_model.ListInstanceLinkedWhitelistTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceLinkedWhitelistTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceLinkedWhitelistTemplates",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceLinkedWhitelistTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceLinkedWhitelistTemplatesResponse({}));
+  }
+
+  /**
+   * 查询实例关联的白名单模板清单
+   * 
+   * @param request - ListInstanceLinkedWhitelistTemplatesRequest
+   * @returns ListInstanceLinkedWhitelistTemplatesResponse
+   */
+  async listInstanceLinkedWhitelistTemplates(request: $_model.ListInstanceLinkedWhitelistTemplatesRequest): Promise<$_model.ListInstanceLinkedWhitelistTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceLinkedWhitelistTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询白名单模板清单
+   * 
+   * @param request - ListWhitelistTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWhitelistTemplatesResponse
+   */
+  async listWhitelistTemplatesWithOptions(request: $_model.ListWhitelistTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWhitelistTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWhitelistTemplates",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWhitelistTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListWhitelistTemplatesResponse({}));
+  }
+
+  /**
+   * 查询白名单模板清单
+   * 
+   * @param request - ListWhitelistTemplatesRequest
+   * @returns ListWhitelistTemplatesResponse
+   */
+  async listWhitelistTemplates(request: $_model.ListWhitelistTemplatesRequest): Promise<$_model.ListWhitelistTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWhitelistTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -2259,6 +2555,60 @@ export default class Client extends OpenApi {
   async stopDBInstance(request: $_model.StopDBInstanceRequest): Promise<$_model.StopDBInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新白名单模板
+   * 
+   * @param request - UpdateWhitelistTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWhitelistTemplateResponse
+   */
+  async updateWhitelistTemplateWithOptions(request: $_model.UpdateWhitelistTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWhitelistTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWhitelistTemplate",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWhitelistTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWhitelistTemplateResponse({}));
+  }
+
+  /**
+   * 更新白名单模板
+   * 
+   * @param request - UpdateWhitelistTemplateRequest
+   * @returns UpdateWhitelistTemplateResponse
+   */
+  async updateWhitelistTemplate(request: $_model.UpdateWhitelistTemplateRequest): Promise<$_model.UpdateWhitelistTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWhitelistTemplateWithOptions(request, runtime);
   }
 
   /**
