@@ -322,6 +322,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
    * 0
    */
   keepaliveHeaderTimeout?: number;
+  liteMetrics?: boolean;
   /**
    * @example
    * ""
@@ -337,6 +338,7 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
    * KEEP_UNCHANGED
    */
   pathWithEscapedSlashes?: string;
+  preserveExternalRequestID?: boolean;
   /**
    * @example
    * true
@@ -391,9 +393,11 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       initialConnectionWindowSize: 'InitialConnectionWindowSize',
       initialStreamWindowSize: 'InitialStreamWindowSize',
       keepaliveHeaderTimeout: 'KeepaliveHeaderTimeout',
+      liteMetrics: 'LiteMetrics',
       logFilterConfig: 'LogFilterConfig',
       noSupportedConfigList: 'NoSupportedConfigList',
       pathWithEscapedSlashes: 'PathWithEscapedSlashes',
+      preserveExternalRequestID: 'PreserveExternalRequestID',
       preserveHeaderFormat: 'PreserveHeaderFormat',
       slsConfigDetails: 'SlsConfigDetails',
       supportWaf: 'SupportWaf',
@@ -427,9 +431,11 @@ export class GetGatewayConfigResponseBodyData extends $dara.Model {
       initialConnectionWindowSize: 'number',
       initialStreamWindowSize: 'number',
       keepaliveHeaderTimeout: 'number',
+      liteMetrics: 'boolean',
       logFilterConfig: 'string',
       noSupportedConfigList: 'string',
       pathWithEscapedSlashes: 'string',
+      preserveExternalRequestID: 'boolean',
       preserveHeaderFormat: 'boolean',
       slsConfigDetails: GetGatewayConfigResponseBodyDataSlsConfigDetails,
       supportWaf: 'boolean',
