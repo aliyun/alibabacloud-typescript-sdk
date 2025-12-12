@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { CredentialConfig } from "./CredentialConfig";
 import { DynamicMount } from "./DynamicMount";
+import { PodIp } from "./PodIp";
 import { ServiceConfig } from "./ServiceConfig";
 import { BandwidthLimit } from "./BandwidthLimit";
 import { ForwardInfoResponse } from "./ForwardInfoResponse";
@@ -1184,6 +1185,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  podIps?: PodIp[];
   /**
    * @remarks
    * The priority based on which resources are allocated to instances.
@@ -1389,6 +1391,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       message: 'Message',
       nodeErrorRecovery: 'NodeErrorRecovery',
       paymentType: 'PaymentType',
+      podIps: 'PodIps',
       priority: 'Priority',
       proxyPath: 'ProxyPath',
       reasonCode: 'ReasonCode',
@@ -1446,6 +1449,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       message: 'string',
       nodeErrorRecovery: GetInstanceResponseBodyNodeErrorRecovery,
       paymentType: 'string',
+      podIps: { 'type': 'array', 'itemType': PodIp },
       priority: 'number',
       proxyPath: 'string',
       reasonCode: 'string',
@@ -1506,6 +1510,9 @@ export class GetInstanceResponseBody extends $dara.Model {
     }
     if(this.nodeErrorRecovery && typeof (this.nodeErrorRecovery as any).validate === 'function') {
       (this.nodeErrorRecovery as any).validate();
+    }
+    if(Array.isArray(this.podIps)) {
+      $dara.Model.validateArray(this.podIps);
     }
     if(this.requestedResource && typeof (this.requestedResource as any).validate === 'function') {
       (this.requestedResource as any).validate();
