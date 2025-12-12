@@ -341,6 +341,12 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
    * true
    */
   focusHttpBackend?: boolean;
+  http2Origin?: boolean;
+  /**
+   * @example
+   * 128
+   */
+  http2OriginMaxConcurrency?: number;
   /**
    * @remarks
    * Specifies whether to enable the persistent connection feature. Valid values:
@@ -505,6 +511,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
       cnameEnabled: 'CnameEnabled',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
+      http2Origin: 'Http2Origin',
+      http2OriginMaxConcurrency: 'Http2OriginMaxConcurrency',
       keepalive: 'Keepalive',
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
@@ -533,6 +541,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
       cnameEnabled: 'boolean',
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
+      http2Origin: 'boolean',
+      http2OriginMaxConcurrency: 'number',
       keepalive: 'boolean',
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',

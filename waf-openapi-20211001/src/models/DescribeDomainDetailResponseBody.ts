@@ -477,6 +477,12 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * true
    */
   focusHttpBackend?: boolean;
+  http2Origin?: boolean;
+  /**
+   * @example
+   * 128
+   */
+  http2OriginMaxConcurrency?: number;
   /**
    * @remarks
    * Indicates whether the persistent connection feature is enabled. Valid values:
@@ -600,6 +606,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       backupBackends: 'BackupBackends',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
+      http2Origin: 'Http2Origin',
+      http2OriginMaxConcurrency: 'Http2OriginMaxConcurrency',
       keepalive: 'Keepalive',
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
@@ -628,6 +636,8 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
       backupBackends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackupBackends },
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
+      http2Origin: 'boolean',
+      http2OriginMaxConcurrency: 'number',
       keepalive: 'boolean',
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
