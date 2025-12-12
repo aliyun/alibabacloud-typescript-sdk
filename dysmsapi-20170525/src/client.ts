@@ -776,6 +776,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.appIcpRecordId)) {
+      query["AppIcpRecordId"] = request.appIcpRecordId;
+    }
+
     if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
@@ -822,6 +826,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.thirdParty)) {
       query["ThirdParty"] = request.thirdParty;
+    }
+
+    if (!$dara.isNull(request.trademarkId)) {
+      query["TrademarkId"] = request.trademarkId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4243,6 +4251,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.appIcpRecordId)) {
+      query["AppIcpRecordId"] = request.appIcpRecordId;
+    }
+
     if (!$dara.isNull(request.applySceneContent)) {
       query["ApplySceneContent"] = request.applySceneContent;
     }
@@ -4289,6 +4301,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.thirdParty)) {
       query["ThirdParty"] = request.thirdParty;
+    }
+
+    if (!$dara.isNull(request.trademarkId)) {
+      query["TrademarkId"] = request.trademarkId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

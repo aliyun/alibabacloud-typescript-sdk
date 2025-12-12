@@ -107,6 +107,7 @@ export class GetSmsSignResponseBodySignIspRegisterDetailList extends $dara.Model
 }
 
 export class GetSmsSignResponseBody extends $dara.Model {
+  appIcpRecordId?: number;
   /**
    * @remarks
    * Content of application scenarios.
@@ -252,8 +253,10 @@ export class GetSmsSignResponseBody extends $dara.Model {
    * false
    */
   thirdParty?: boolean;
+  trademarkId?: number;
   static names(): { [key: string]: string } {
     return {
+      appIcpRecordId: 'AppIcpRecordId',
       applyScene: 'ApplyScene',
       auditInfo: 'AuditInfo',
       authorizationLetterAuditPass: 'AuthorizationLetterAuditPass',
@@ -274,11 +277,13 @@ export class GetSmsSignResponseBody extends $dara.Model {
       signTag: 'SignTag',
       signUsage: 'SignUsage',
       thirdParty: 'ThirdParty',
+      trademarkId: 'TrademarkId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appIcpRecordId: 'number',
       applyScene: 'string',
       auditInfo: GetSmsSignResponseBodyAuditInfo,
       authorizationLetterAuditPass: 'boolean',
@@ -299,6 +304,7 @@ export class GetSmsSignResponseBody extends $dara.Model {
       signTag: 'string',
       signUsage: 'string',
       thirdParty: 'boolean',
+      trademarkId: 'number',
     };
   }
 

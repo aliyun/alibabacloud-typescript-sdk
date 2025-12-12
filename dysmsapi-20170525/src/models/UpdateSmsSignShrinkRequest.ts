@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSmsSignShrinkRequest extends $dara.Model {
+  appIcpRecordId?: number;
   /**
    * @remarks
    * Application scenarios, instructions as follows:
@@ -97,8 +98,10 @@ export class UpdateSmsSignShrinkRequest extends $dara.Model {
    * false
    */
   thirdParty?: boolean;
+  trademarkId?: number;
   static names(): { [key: string]: string } {
     return {
+      appIcpRecordId: 'AppIcpRecordId',
       applySceneContent: 'ApplySceneContent',
       authorizationLetterId: 'AuthorizationLetterId',
       moreDataShrink: 'MoreData',
@@ -111,11 +114,13 @@ export class UpdateSmsSignShrinkRequest extends $dara.Model {
       signSource: 'SignSource',
       signType: 'SignType',
       thirdParty: 'ThirdParty',
+      trademarkId: 'TrademarkId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appIcpRecordId: 'number',
       applySceneContent: 'string',
       authorizationLetterId: 'number',
       moreDataShrink: 'string',
@@ -128,6 +133,7 @@ export class UpdateSmsSignShrinkRequest extends $dara.Model {
       signSource: 'number',
       signType: 'number',
       thirdParty: 'boolean',
+      trademarkId: 'number',
     };
   }
 

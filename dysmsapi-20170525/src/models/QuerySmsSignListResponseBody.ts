@@ -53,6 +53,7 @@ export class QuerySmsSignListResponseBodySmsSignListReason extends $dara.Model {
 }
 
 export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
+  appIcpRecordId?: number;
   /**
    * @remarks
    * The approval status of the signature. Valid values:
@@ -110,9 +111,11 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
    * Aliyun
    */
   signName?: string;
+  trademarkId?: number;
   authorizationLetterAuditPass?: boolean;
   static names(): { [key: string]: string } {
     return {
+      appIcpRecordId: 'AppIcpRecordId',
       auditStatus: 'AuditStatus',
       authorizationLetterId: 'AuthorizationLetterId',
       businessType: 'BusinessType',
@@ -120,12 +123,14 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
       orderId: 'OrderId',
       reason: 'Reason',
       signName: 'SignName',
+      trademarkId: 'TrademarkId',
       authorizationLetterAuditPass: 'authorizationLetterAuditPass',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appIcpRecordId: 'number',
       auditStatus: 'string',
       authorizationLetterId: 'number',
       businessType: 'string',
@@ -133,6 +138,7 @@ export class QuerySmsSignListResponseBodySmsSignList extends $dara.Model {
       orderId: 'string',
       reason: QuerySmsSignListResponseBodySmsSignListReason,
       signName: 'string',
+      trademarkId: 'number',
       authorizationLetterAuditPass: 'boolean',
     };
   }
