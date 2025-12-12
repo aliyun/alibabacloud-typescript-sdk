@@ -2,19 +2,16 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateAutoScalingConfigShrinkRequest extends $dara.Model {
+export class ModifyAutoScalingConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    */
+  configId?: string;
   configName?: string;
   effectiveTimeEnd?: string;
   effectiveTimeStart?: string;
   enabled?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   engine?: string;
   /**
    * @remarks
@@ -28,20 +25,13 @@ export class CreateAutoScalingConfigShrinkRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   scaleRuleListShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   scaleType?: string;
   securityToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   specId?: string;
   storageCapacityMax?: number;
   static names(): { [key: string]: string } {
     return {
+      configId: 'ConfigId',
       configName: 'ConfigName',
       effectiveTimeEnd: 'EffectiveTimeEnd',
       effectiveTimeStart: 'EffectiveTimeStart',
@@ -64,6 +54,7 @@ export class CreateAutoScalingConfigShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      configId: 'string',
       configName: 'string',
       effectiveTimeEnd: 'string',
       effectiveTimeStart: 'string',

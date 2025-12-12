@@ -48,10 +48,12 @@ export { ListAutoScalingRulesResponseBodyData } from './ListAutoScalingRulesResp
 export { ListLdpsComputeGroupsResponseBodyGroupList } from './ListLdpsComputeGroupsResponseBody';
 export { ListTagResourcesRequestTag } from './ListTagResourcesRequest';
 export { ListTagResourcesResponseBodyTagResources } from './ListTagResourcesResponseBody';
+export { ModifyAutoScalingConfigRequestScaleRuleList } from './ModifyAutoScalingConfigRequest';
 export { ModifyLindormV2InstanceRequestNodeGroupList } from './ModifyLindormV2instanceRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { UpdateLindormV2InstanceRequestEngineListNodeGroupList } from './UpdateLindormV2instanceRequest';
 export { UpdateLindormV2InstanceRequestEngineList } from './UpdateLindormV2instanceRequest';
+export { UpdateLindormV2WhiteIpListRequestWhiteIpGroupList } from './UpdateLindormV2whiteIpListRequest';
 export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
 export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
 export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
@@ -156,9 +158,11 @@ export { GetLindormV2StreamEngineInfoRequest } from './GetLindormV2streamEngineI
 export { GetLindormV2StreamEngineInfoResponseBody } from './GetLindormV2streamEngineInfoResponseBody';
 export { GetLindormV2StreamEngineInfoResponse } from './GetLindormV2streamEngineInfoResponse';
 export { ListAutoScalingConfigsRequest } from './ListAutoScalingConfigsRequest';
+export { ListAutoScalingConfigsShrinkRequest } from './ListAutoScalingConfigsShrinkRequest';
 export { ListAutoScalingConfigsResponseBody } from './ListAutoScalingConfigsResponseBody';
 export { ListAutoScalingConfigsResponse } from './ListAutoScalingConfigsResponse';
 export { ListAutoScalingRecordsRequest } from './ListAutoScalingRecordsRequest';
+export { ListAutoScalingRecordsShrinkRequest } from './ListAutoScalingRecordsShrinkRequest';
 export { ListAutoScalingRecordsResponseBody } from './ListAutoScalingRecordsResponseBody';
 export { ListAutoScalingRecordsResponse } from './ListAutoScalingRecordsResponse';
 export { ListAutoScalingRulesRequest } from './ListAutoScalingRulesRequest';
@@ -174,6 +178,7 @@ export { MigrateSingleZoneToMultiZoneRequest } from './MigrateSingleZoneToMultiZ
 export { MigrateSingleZoneToMultiZoneResponseBody } from './MigrateSingleZoneToMultiZoneResponseBody';
 export { MigrateSingleZoneToMultiZoneResponse } from './MigrateSingleZoneToMultiZoneResponse';
 export { ModifyAutoScalingConfigRequest } from './ModifyAutoScalingConfigRequest';
+export { ModifyAutoScalingConfigShrinkRequest } from './ModifyAutoScalingConfigShrinkRequest';
 export { ModifyAutoScalingConfigResponseBody } from './ModifyAutoScalingConfigResponseBody';
 export { ModifyAutoScalingConfigResponse } from './ModifyAutoScalingConfigResponse';
 export { ModifyAutoScalingRuleRequest } from './ModifyAutoScalingRuleRequest';
@@ -242,6 +247,9 @@ export { UpdateLindormV2InstanceResponse } from './UpdateLindormV2instanceRespon
 export { UpdateLindormV2InstanceParameterRequest } from './UpdateLindormV2instanceParameterRequest';
 export { UpdateLindormV2InstanceParameterResponseBody } from './UpdateLindormV2instanceParameterResponseBody';
 export { UpdateLindormV2InstanceParameterResponse } from './UpdateLindormV2instanceParameterResponse';
+export { UpdateLindormV2WhiteIpListRequest } from './UpdateLindormV2whiteIpListRequest';
+export { UpdateLindormV2WhiteIpListResponseBody } from './UpdateLindormV2whiteIpListResponseBody';
+export { UpdateLindormV2WhiteIpListResponse } from './UpdateLindormV2whiteIpListResponse';
 export { UpgradeLindormInstanceRequest } from './UpgradeLindormInstanceRequest';
 export { UpgradeLindormInstanceResponseBody } from './UpgradeLindormInstanceResponseBody';
 export { UpgradeLindormInstanceResponse } from './UpgradeLindormInstanceResponse';

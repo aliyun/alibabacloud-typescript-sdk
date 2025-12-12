@@ -89,6 +89,7 @@ export class ListAutoScalingConfigsResponseBodyDataScaleConfigs extends $dara.Mo
   scaleRuleList?: ListAutoScalingConfigsResponseBodyDataScaleConfigsScaleRuleList[];
   scaleType?: string;
   specId?: string;
+  storageCapacityMax?: number;
   static names(): { [key: string]: string } {
     return {
       configId: 'ConfigId',
@@ -103,6 +104,7 @@ export class ListAutoScalingConfigsResponseBodyDataScaleConfigs extends $dara.Mo
       scaleRuleList: 'ScaleRuleList',
       scaleType: 'ScaleType',
       specId: 'SpecId',
+      storageCapacityMax: 'StorageCapacityMax',
     };
   }
 
@@ -120,6 +122,7 @@ export class ListAutoScalingConfigsResponseBodyDataScaleConfigs extends $dara.Mo
       scaleRuleList: { 'type': 'array', 'itemType': ListAutoScalingConfigsResponseBodyDataScaleConfigsScaleRuleList },
       scaleType: 'string',
       specId: 'string',
+      storageCapacityMax: 'number',
     };
   }
 

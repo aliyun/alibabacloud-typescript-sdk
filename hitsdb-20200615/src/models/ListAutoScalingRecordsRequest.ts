@@ -22,6 +22,7 @@ export class ListAutoScalingRecordsRequest extends $dara.Model {
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  scaleTypes?: string[];
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +33,7 @@ export class ListAutoScalingRecordsRequest extends $dara.Model {
       pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      scaleTypes: 'ScaleTypes',
       securityToken: 'SecurityToken',
     };
   }
@@ -45,11 +47,15 @@ export class ListAutoScalingRecordsRequest extends $dara.Model {
       pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      scaleTypes: { 'type': 'array', 'itemType': 'string' },
       securityToken: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.scaleTypes)) {
+      $dara.Model.validateArray(this.scaleTypes);
+    }
     super.validate();
   }
 

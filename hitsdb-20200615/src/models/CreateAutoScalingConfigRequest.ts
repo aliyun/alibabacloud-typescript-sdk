@@ -115,6 +115,7 @@ export class CreateAutoScalingConfigRequest extends $dara.Model {
    * This parameter is required.
    */
   specId?: string;
+  storageCapacityMax?: number;
   static names(): { [key: string]: string } {
     return {
       configName: 'ConfigName',
@@ -133,6 +134,7 @@ export class CreateAutoScalingConfigRequest extends $dara.Model {
       scaleType: 'ScaleType',
       securityToken: 'SecurityToken',
       specId: 'SpecId',
+      storageCapacityMax: 'StorageCapacityMax',
     };
   }
 
@@ -154,6 +156,7 @@ export class CreateAutoScalingConfigRequest extends $dara.Model {
       scaleType: 'string',
       securityToken: 'string',
       specId: 'string',
+      storageCapacityMax: 'number',
     };
   }
 

@@ -138,6 +138,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建弹性伸缩配置
+   * 
    * @param tmpReq - CreateAutoScalingConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAutoScalingConfigResponse
@@ -215,6 +217,10 @@ export default class Client extends OpenApi {
       query["SpecId"] = request.specId;
     }
 
+    if (!$dara.isNull(request.storageCapacityMax)) {
+      query["StorageCapacityMax"] = request.storageCapacityMax;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -233,6 +239,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建弹性伸缩配置
+   * 
    * @param request - CreateAutoScalingConfigRequest
    * @returns CreateAutoScalingConfigResponse
    */
@@ -242,6 +250,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建弹性伸缩规则
+   * 
    * @param request - CreateAutoScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAutoScalingRuleResponse
@@ -355,6 +365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建弹性伸缩规则
+   * 
    * @param request - CreateAutoScalingRuleRequest
    * @returns CreateAutoScalingRuleResponse
    */
@@ -2576,12 +2588,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - ListAutoScalingConfigsRequest
+   * 查询弹性伸缩配置
+   * 
+   * @param tmpReq - ListAutoScalingConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAutoScalingConfigsResponse
    */
-  async listAutoScalingConfigsWithOptions(request: $_model.ListAutoScalingConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingConfigsResponse> {
-    request.validate();
+  async listAutoScalingConfigsWithOptions(tmpReq: $_model.ListAutoScalingConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingConfigsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAutoScalingConfigsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scaleTypes)) {
+      request.scaleTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scaleTypes, "ScaleTypes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
@@ -2601,6 +2621,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scaleTypesShrink)) {
+      query["ScaleTypes"] = request.scaleTypesShrink;
     }
 
     if (!$dara.isNull(request.securityToken)) {
@@ -2625,6 +2649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询弹性伸缩配置
+   * 
    * @param request - ListAutoScalingConfigsRequest
    * @returns ListAutoScalingConfigsResponse
    */
@@ -2634,12 +2660,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - ListAutoScalingRecordsRequest
+   * 查询伸缩记录
+   * 
+   * @param tmpReq - ListAutoScalingRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAutoScalingRecordsResponse
    */
-  async listAutoScalingRecordsWithOptions(request: $_model.ListAutoScalingRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingRecordsResponse> {
-    request.validate();
+  async listAutoScalingRecordsWithOptions(tmpReq: $_model.ListAutoScalingRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoScalingRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAutoScalingRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scaleTypes)) {
+      request.scaleTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scaleTypes, "ScaleTypes", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
@@ -2669,6 +2703,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.scaleTypesShrink)) {
+      query["ScaleTypes"] = request.scaleTypesShrink;
+    }
+
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -2691,6 +2729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询伸缩记录
+   * 
    * @param request - ListAutoScalingRecordsRequest
    * @returns ListAutoScalingRecordsResponse
    */
@@ -2984,12 +3024,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - ModifyAutoScalingConfigRequest
+   * 修改弹性伸缩配置
+   * 
+   * @param tmpReq - ModifyAutoScalingConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAutoScalingConfigResponse
    */
-  async modifyAutoScalingConfigWithOptions(request: $_model.ModifyAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoScalingConfigResponse> {
-    request.validate();
+  async modifyAutoScalingConfigWithOptions(tmpReq: $_model.ModifyAutoScalingConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAutoScalingConfigResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAutoScalingConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scaleRuleList)) {
+      request.scaleRuleListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scaleRuleList, "ScaleRuleList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.configId)) {
       query["ConfigId"] = request.configId;
@@ -3043,6 +3091,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.scaleRuleListShrink)) {
+      query["ScaleRuleList"] = request.scaleRuleListShrink;
+    }
+
     if (!$dara.isNull(request.scaleType)) {
       query["ScaleType"] = request.scaleType;
     }
@@ -3053,6 +3105,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.specId)) {
       query["SpecId"] = request.specId;
+    }
+
+    if (!$dara.isNull(request.storageCapacityMax)) {
+      query["StorageCapacityMax"] = request.storageCapacityMax;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3073,6 +3129,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性伸缩配置
+   * 
    * @param request - ModifyAutoScalingConfigRequest
    * @returns ModifyAutoScalingConfigResponse
    */
@@ -3082,6 +3140,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性伸缩规则
+   * 
    * @param request - ModifyAutoScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAutoScalingRuleResponse
@@ -3199,6 +3259,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改弹性伸缩规则
+   * 
    * @param request - ModifyAutoScalingRuleRequest
    * @returns ModifyAutoScalingRuleResponse
    */
@@ -4733,6 +4795,76 @@ export default class Client extends OpenApi {
   async updateLindormV2InstanceParameter(request: $_model.UpdateLindormV2InstanceParameterRequest): Promise<$_model.UpdateLindormV2InstanceParameterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLindormV2InstanceParameterWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改Lindorm新版实例白名单分组列表
+   * 
+   * @param request - UpdateLindormV2WhiteIpListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLindormV2WhiteIpListResponse
+   */
+  async updateLindormV2WhiteIpListWithOptions(request: $_model.UpdateLindormV2WhiteIpListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLindormV2WhiteIpListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.whiteIpGroupList)) {
+      query["WhiteIpGroupList"] = request.whiteIpGroupList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLindormV2WhiteIpList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLindormV2WhiteIpListResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLindormV2WhiteIpListResponse({}));
+  }
+
+  /**
+   * 修改Lindorm新版实例白名单分组列表
+   * 
+   * @param request - UpdateLindormV2WhiteIpListRequest
+   * @returns UpdateLindormV2WhiteIpListResponse
+   */
+  async updateLindormV2WhiteIpList(request: $_model.UpdateLindormV2WhiteIpListRequest): Promise<$_model.UpdateLindormV2WhiteIpListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLindormV2WhiteIpListWithOptions(request, runtime);
   }
 
   /**

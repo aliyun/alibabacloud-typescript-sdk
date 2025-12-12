@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListAutoScalingConfigsRequest extends $dara.Model {
+export class ListAutoScalingConfigsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -12,7 +12,7 @@ export class ListAutoScalingConfigsRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  scaleTypes?: string[];
+  scaleTypesShrink?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21,7 +21,7 @@ export class ListAutoScalingConfigsRequest extends $dara.Model {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      scaleTypes: 'ScaleTypes',
+      scaleTypesShrink: 'ScaleTypes',
       securityToken: 'SecurityToken',
     };
   }
@@ -33,15 +33,12 @@ export class ListAutoScalingConfigsRequest extends $dara.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      scaleTypes: { 'type': 'array', 'itemType': 'string' },
+      scaleTypesShrink: 'string',
       securityToken: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.scaleTypes)) {
-      $dara.Model.validateArray(this.scaleTypes);
-    }
     super.validate();
   }
 

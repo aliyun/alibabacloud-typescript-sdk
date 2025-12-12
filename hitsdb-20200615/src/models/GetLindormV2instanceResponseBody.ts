@@ -35,6 +35,7 @@ export class GetLindormV2InstanceResponseBodyEngineListNodeGroup extends $dara.M
   category?: string;
   cpuCoreCount?: number;
   enableAttachLocalDisk?: boolean;
+  isScaleSpecGroup?: boolean;
   localDiskCapacity?: number;
   localDiskCategory?: string;
   memorySizeGiB?: number;
@@ -48,6 +49,7 @@ export class GetLindormV2InstanceResponseBodyEngineListNodeGroup extends $dara.M
       category: 'Category',
       cpuCoreCount: 'CpuCoreCount',
       enableAttachLocalDisk: 'EnableAttachLocalDisk',
+      isScaleSpecGroup: 'IsScaleSpecGroup',
       localDiskCapacity: 'LocalDiskCapacity',
       localDiskCategory: 'LocalDiskCategory',
       memorySizeGiB: 'MemorySizeGiB',
@@ -64,6 +66,7 @@ export class GetLindormV2InstanceResponseBodyEngineListNodeGroup extends $dara.M
       category: 'string',
       cpuCoreCount: 'number',
       enableAttachLocalDisk: 'boolean',
+      isScaleSpecGroup: 'boolean',
       localDiskCapacity: 'number',
       localDiskCategory: 'string',
       memorySizeGiB: 'number',
