@@ -64,8 +64,6 @@ export class AllocateIpv6InternetBandwidthRequest extends $dara.Model {
    * @remarks
    * The ID of the IPv6 gateway.
    * 
-   * This parameter is required.
-   * 
    * @example
    * ipv6gw-uf6hcyzu65v98v3du****
    */
