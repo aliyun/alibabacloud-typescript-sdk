@@ -141,6 +141,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    */
   namespace?: string;
   nodeId?: string;
+  opType?: string;
   originTime?: string;
   /**
    * @example
@@ -285,6 +286,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       logicalIOReads: 'LogicalIOReads',
       namespace: 'Namespace',
       nodeId: 'NodeId',
+      opType: 'OpType',
       originTime: 'OriginTime',
       physicalIOReads: 'PhysicalIOReads',
       psql: 'Psql',
@@ -340,6 +342,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       logicalIOReads: 'number',
       namespace: 'string',
       nodeId: 'string',
+      opType: 'string',
       originTime: 'string',
       physicalIOReads: 'number',
       psql: 'string',
